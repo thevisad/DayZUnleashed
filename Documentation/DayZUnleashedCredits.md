@@ -11,7 +11,7 @@ Original Author
  * Dean 'Rocket' Hall
 
 
-Community Dev Project Managers
+Dev Project Managers
 ---------------
 
  * [TheVisad] (https://github.com/thevisad)
@@ -22,7 +22,7 @@ Community Dev Project Managers
 Contributions
 -------------------------
 
-These contributors are part of the team and help out in various ways.
+These contributors are part of the team and help out constantly.
 
  * [hungoverfurball] (https://github.com/hungoverfurball)
  * [Finest] (https://github.com/Finest)
