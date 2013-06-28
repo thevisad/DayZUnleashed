@@ -1199,17 +1199,83 @@ class Mission
 			
 	class Markers
 	{
-		items=2;
+		items=13;
 		class Item0
 		{
-			position[]={12885.595,49,12428.9};
+			position[]={11970.759,289.37149,7951.7646};
 			name="center";
 			type="Empty";
 		};
 		class Item1
 		{
-			position[]={13197.925,609.10962,16652.975};
+			position[]={12270.661,0.46445936,711.73755};
 			name="respawn_west";
+			type="Empty";
+		};
+		class Item2
+		{
+			position[]={5185.7788,12.130908,15964.14};
+			name="spawn0";
+			type="Empty";
+		};
+		class Item3
+		{
+			position[]={8207.3965,13.054829,17705.268};
+			name="spawn1";
+			type="Empty";
+		};
+		class Item4
+		{
+			position[]={10389.477,23.64978,18814.732};
+			name="spawn2";
+			type="Empty";
+		};
+		class Item5
+		{
+			position[]={12961.416,31.326988,14717.931};
+			name="spawn3";
+			type="Empty";
+		};
+		class Item6
+		{
+			position[]={15603.273,15.922781,15776.958};
+			name="spawn4";
+			type="Empty";
+		};
+		class Item7
+		{
+			position[]={3790.3733,20.94405,13994.922};
+			name="spawn5";
+			type="Empty";
+		};
+		class Item8
+		{
+			position[]={4828.6318,23.114138,11509.645};
+			name="spawn6";
+			type="Empty";
+		};
+		class Item9
+		{
+			position[]={3005.908,23.401527,12626.708};
+			name="spawn7";
+			type="Empty";
+		};
+		class Item10
+		{
+			position[]={1921.6807,10.381336,11789.534};
+			name="spawn8";
+			type="Empty";
+		};
+		class Item11
+		{
+			position[]={648.04126,10.612054,10388.985};
+			name="spawn9";
+			type="Empty";
+		};
+		class Item12
+		{
+			position[]={17427.5,9.0327797,13641.627};
+			name="spawn10";
 			type="Empty";
 		};
 	};

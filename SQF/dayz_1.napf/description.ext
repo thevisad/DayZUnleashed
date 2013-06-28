@@ -1,7 +1,7 @@
 respawn = "BASE";
 respawndelay = 5;
-onLoadMission= "DayZ Chernarus";
-OnLoadIntro = "Welcome to Chernarus";
+onLoadMission= "DayZ Unleashed";
+OnLoadIntro = "Welcome to Napf";
 OnLoadIntroTime = False;
 OnLoadMissionTime = False;
 disabledAI = true;
