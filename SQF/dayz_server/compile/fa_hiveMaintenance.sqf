@@ -14,7 +14,7 @@ fa_coor2str = {
 	else { if (count _pos < 2) then { _pos = [_pos select 0,0]; };
 	};
 	_nearestCity = nearestLocations [_pos, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000];
-	_town = "Wilderness";
+	_town = "Sissach";
 	if (count _nearestCity > 0) then {_town = text (_nearestCity select 0)};
 	_res = format["%1 [%2:%3]", _town, round((_pos select 0)/100), round((15360-(_pos select 1))/100)];
 
