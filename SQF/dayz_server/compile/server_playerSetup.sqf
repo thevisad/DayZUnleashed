@@ -201,7 +201,7 @@ if (_randomSpot) then {
 						_isIsland = true;
 					};
 				};
-				if (!_isIsland) then {_findSpot = false};
+				if (_isIsland) then {_findSpot = false};
 			};
 		};
 		//diag_log format["%1: pos:%2 _findSpot:%3", __FILE__, _position, _findSpot];
