@@ -76,33 +76,218 @@ while {true} do {
 		};
 	};
 
-	if (_humanity < -2000 and !_isBandit) then {
+	// Bandit Level 1 (10 Survivor 5 Female Skins)
+	
+	if (_humanity < -2500 and !_isBandit) then {
+		//_isBandit = true;
 		_model = typeOf player;
-		if (_model == "Survivor2_DZ" || _model == "Survivor3_DZ") then {
+		if (_model == "Civilian1_DZ") then {
 			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian3_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian4_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian5_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian6_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian7_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian8_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian9_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian10_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Survivor2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "SurvivorW1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"BanditW1_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "SurvivorW2_DZ") then {
 			[dayz_playerUID,dayz_characterID,"BanditW1_DZ"] spawn player_humanityMorph;
 		};
+		if (_model == "SurvivorW3_DZ") then {
+			[dayz_playerUID,dayz_characterID,"BanditW1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "SurvivorW4_DZ") then {
+			[dayz_playerUID,dayz_characterID,"BanditW1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "SurvivorW5_DZ") then {
+			[dayz_playerUID,dayz_characterID,"BanditW1_DZ"] spawn player_humanityMorph;
+		};
 	};
+	
+	// Bandit Level 2
+	
+	if (_humanity < -5000 and !_isBandit) then {
+		//_isBandit = true;
+		_model = typeOf player;
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit2_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "BanditW1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"BanditW2_DZ"] spawn player_humanityMorph;
+		};
+	};
+	
+	// Bandit Level 3
+	
+	if (_humanity < -5000 and !_isBandit) then {
+		//_isBandit = true;
+		_model = typeOf player;
+		if (_model == "Bandit2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit3_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "BanditW2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"BanditW3_DZ"] spawn player_humanityMorph;
+		};
+	};
+	
 
 	if (_humanity > 0 and (_isBandit || ( _humanity < 5000 and _isHero))) then {
 		_model = typeOf player;
-		if (_model == "Bandit1_DZ" || _model == "Survivor3_DZ") then {
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian2_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian3_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian4_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian5_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian6_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian7_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian8_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian9_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Civilian10_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Bandit1_DZ") then {
 			[dayz_playerUID,dayz_characterID,"Survivor2_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "BanditW1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"SurvivorW1_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "BanditW1_DZ") then {
 			[dayz_playerUID,dayz_characterID,"SurvivorW2_DZ"] spawn player_humanityMorph;
 		};
-	};
-
-	if (_humanity > 5000 and !_isHero) then {
-		_model = typeOf player;
-		if (_model == "Survivor2_DZ" || _model == "Bandit1_DZ") then {
-			[dayz_playerUID,dayz_characterID,"Survivor3_DZ"] spawn player_humanityMorph;
+		if (_model == "BanditW1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"SurvivorW3_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "BanditW1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"SurvivorW4_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "BanditW1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"SurvivorW5_DZ"] spawn player_humanityMorph;
 		};
 	};
 
+	// Hero Level 1
+	
+	if (_humanity > 2500 and !_isHero) then {
+		_model = typeOf player;
+		if (_model == "Survivor2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian3_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian4_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian5_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian6_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian7_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian8_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian9_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "Civilian10_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "SurvivorW1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"HeroW1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "SurvivorW2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"HeroW1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "SurvivorW3_DZ") then {
+			[dayz_playerUID,dayz_characterID,"HeroW1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "SurvivorW4_DZ") then {
+			[dayz_playerUID,dayz_characterID,"HeroW1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "SurvivorW5_DZ") then {
+			[dayz_playerUID,dayz_characterID,"HeroW1_DZ"] spawn player_humanityMorph;
+		};
+	};
+	
+	// Hero Level 2
+	
+	if (_humanity > 5000 and !_isHero) then {
+		_model = typeOf player;
+		if (_model == "Hero1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero2_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "HeroW1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"HeroW2_DZ"] spawn player_humanityMorph;
+		};
+	};
+	
+	// Hero Level 3
+	
+	if (_humanity > 7500 and !_isHero) then {
+		_model = typeOf player;
+		if (_model == "Hero2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Hero3_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "HeroW2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"HeroW3_DZ"] spawn player_humanityMorph;
+		};
+	};
+	
 	//Has infection?
 	//if (r_player_infected) then {
 	//	[player,"cough",8,false] call dayz_zombieSpeak;
