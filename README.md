@@ -6,7 +6,7 @@ DayZ Unleashed! Origins watch out!
 
 Current Version
 ==================================
- - 1.7.7.1
+ - 1.0
  
 Files updated
 ------------
@@ -32,12 +32,11 @@ Directories
  - **BattlEye-Filters** - Current Filters for BattlEye
  - **Binaries** - Hive dlls
  - **Documentation** - Changelog & Credits and Suggestions
- - **Legacy** - Legacy Code of DayZMod
  - **SQF** - Source Code for DayZMod
  - **SQL** - Database Layout & Vehicle SQL
 
 Bugs/Issues
 -----------
 
-- Please report any bugs/issues by submitting a Issue [here] (https://github.com/DayZMod/DayZ/issues).
+- Please report any bugs/issues by submitting a Issue [here] (https://github.com/DayZUnleashed/DayZUnleashed/issues).
 
