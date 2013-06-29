@@ -25,7 +25,7 @@
 #include "Configs\CfgMarkers.hpp"
 #include "Configs\CfgAmmo.hpp"
 #include "Configs\CfgObjectCompositions.hpp"
-//#include "Configs\CfgTownGenerator\CfgTownGeneratorChernarus.hpp"
+#include "Configs\CfgTownGenerator\CfgTownGeneratorUnleashed.hpp"
 
 class CfgPatches {
 	class dayz_code {
@@ -63,7 +63,7 @@ class CfgMods
 		requiredAddons[] = {"Chernarus"};
 	};
 };
-
+/*
 class CfgMissions
 {
 	 class Cutscenes
@@ -74,11 +74,11 @@ class CfgMissions
 		  };
 	 };
 };
-
+*/
 class CfgWorlds
 {
-        initWorld = "Chernarus";
-        demoWorld = "Chernarus";
+        initWorld = "napf";
+        demoWorld = "napf";
 };
 
 class CfgAddons
