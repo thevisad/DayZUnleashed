@@ -443,7 +443,7 @@ if(!isDedicated) then {
 			dayz_Locations set [count dayz_Locations, [_position,_locHdr,_size]];
 		};
 	};
-	_cfgLocation = configFile >> "CfgTownGeneratorChernarus";
+	_cfgLocation = configFile >> "CfgTownGeneratorUnleashed";
 	_cfgLocation call _funcGetLocation;
 
 	dayz_buildingMonitor = [];	//Buildings to check

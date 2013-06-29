@@ -1,5 +1,4 @@
-class CfgTownGeneratorChernarus {
-//#include "CfgChernarusPlus.hpp"
-#include "CfgTownGeneratorDefault.hpp"
+class CfgTownGeneratorUnleashed {
+//#include "CfgTownGeneratorDefault.hpp"
 
 };

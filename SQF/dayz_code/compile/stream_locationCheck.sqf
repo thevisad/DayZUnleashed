@@ -13,7 +13,7 @@ _rubbish = dayz_Trash == 1;
 	if (!(_forEachIndex in dayz_locationsActive)) then {
 		if ((_distAct < _distCfg + dayz_spawnArea + _ahead) and _rubbish) then {
 			dayz_locationsActive set [count dayz_locationsActive,_forEachIndex];
-			_config = configFile >> "CfgTownGeneratorChernarus" >> _configClass;
+			_config = configFile >> "CfgTownGeneratorUnleashed" >> _configClass;
 			_locHdr = configName _config;
 			//if (typeName _locHdr != "STRING") then { _locHdr = str _location; };
 			diag_log format ["%1: creating %2 objects at '%3'", __FILE__, count _config, _locHdr];
@@ -21,7 +21,7 @@ _rubbish = dayz_Trash == 1;
 		};
 	} else {
 		if (_distAct > _distCfg + dayz_canDelete + _ahead) then {
-			_config = configFile >> "CfgTownGeneratorChernarus" >> _configClass;
+			_config = configFile >> "CfgTownGeneratorUnleashed" >> _configClass;
 			_locHdr = configName _config;
 			//if (typeName _locHdr != "STRING") then { _locHdr = str _location; };
 			diag_log format ["%1: removing %2 objects from '%3'", __FILE__, count _config, _locHdr];
