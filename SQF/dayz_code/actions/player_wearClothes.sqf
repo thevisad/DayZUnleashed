@@ -31,21 +31,6 @@ if ( !(isClass(_config >> _itemNew)) ) then {
 };
 
 switch (_item) do {
-	case "Skin_SurvivorW2_DZ": {
-		_model = "SurvivorW2_DZ";
-	};
-	case "Skin_SurvivorWO_DZ": {
-		_model = "SurvivorWO_DZ";
-	};
-	case "Skin_SurvivorWO2_DZ": {
-		_model = "SurvivorWO2_DZ";
-	};
-	case "Skin_SurvivorWO3_DZ": {
-	_model = "SurvivorWO3_DZ";
-	};
-	case "Skin_SniperW1_DZ": {
-		_model = "SniperW1_DZ";
-	};
 	case "Skin_Sniper1_DZ": {
 		_model = "Sniper1_DZ";
 	};
