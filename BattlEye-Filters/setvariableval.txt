@@ -1,5 +1,4 @@
 //1 "" //+2
-1 _this
 1 "draw"
 1 "hint" !="hintC" !="hintS"
 1 "create"
@@ -103,7 +102,7 @@
 1 "count"
 5 "markerText"
 5 "BIS_fnc"
-5 "+" !"e+00"
+5 "+" !"e+00" 
 5 "_bis"
 //5 "trigger"
 5 "markertype"
@@ -339,6 +338,8 @@
 5 "BIS_fnc_getFactions"
 5 "object_processHit"
 5 "object_getHit"
+//1 "" +5
+//1 "request" //+6
 5 "allowConnection"
 5 "BIS_Effects_Burn"
 5 "BIS_MPF_remoteExecutionServer"
@@ -393,3 +394,11 @@
 5 "runinitscript"
 5 "createdialog"
 
+1 this
+1 dayz
+1 BattleFieldClearance
+1 HighCommandSubordinate
+1 FirstAidSystem
+1 AlternativeInjurySimulation
+1 FunctionsManager
+1 +e00
