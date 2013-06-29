@@ -4,7 +4,7 @@ class vehMaint {
 			center[] = {10240, 10240}; // x y
 			SWcorner[] = {0,20400};
 			NEcorner[] = {20400,0};
-			spawnRadius = 6000;
+			spawnRadius = 10000;
 		};
 		
 		class AllVehicles {
