@@ -73,9 +73,7 @@ if ((!isServer) && (player != player)) then
 if (isServer) then {
 	hiveInUse	=	true;
 	_serverMonitor = [] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
-	// for synthetic load, server side
-	//_id = [] execVM "server_load.sqf";
-	"PVDZ_sec_atp" addPublicVariableEventHandler { diag_log format["%1", _this select 1];};
+	// "PVDZ_sec_atp" addPublicVariableEventHandler { diag_log format["%1", _this select 1];};
 };
 
 if (!isDedicated) then {
@@ -86,12 +84,8 @@ if (!isDedicated) then {
 	
 	//Run the player monitor
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
-	_playerMonitor = 	[] execVM "\z\addons\dayz_code\system\player_monitor.sqf";	
-	// for synthetic load, client side
-	//_id =	[] execVM "client_load.sqf";
-	//enable dev hacks
-	_hacks101 = [] execVM "DevTools\start.sqf";
-	//[] execVM "\z\addons\dayz_code\system\antihack.sqf";
+	_playerMonitor = [] execVM "\z\addons\dayz_code\system\player_monitor.sqf";
+	// [] execVM "\z\addons\dayz_code\system\antihack.sqf";
 };
 
 // Logo watermark: adding a logo in the bottom left corner of the screen with the server name in it
@@ -103,5 +97,3 @@ if (!isNil "dayZ_serverName") then {
 		((uiNamespace getVariable "wm_disp") displayCtrl 1) ctrlSetText dayZ_serverName;
 	};
 };
-
-#include "\z\addons\dayz_code\system\REsec.sqf"
