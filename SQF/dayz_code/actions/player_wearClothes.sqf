@@ -201,7 +201,7 @@ switch (_item) do {
 	};	
 };
 
-_femaleSkins = ((_model == "SurvivorW1_DZ")||((_model == "SurvivorW2_DZ")||((_model == "SurvivorW3_DZ")||((_model == "SurvivorW4_DZ")||((_model == "SurvivorW5_DZ")||(_model == "BanditW1_DZ")||(_model == "BanditW2_DZ")||(_model == "BanditW3_DZ")||(_model == "HeroW1_DZ")||(_model == "HeroW2_DZ")||(_model == "HeroW3_DZ"));
+_femaleSkins = ((_model == "SurvivorW1_DZ")||(_model == "SurvivorW2_DZ")||(_model == "SurvivorW3_DZ")||(_model == "SurvivorW4_DZ")||(_model == "SurvivorW5_DZ")||(_model == "BanditW1_DZ")||(_model == "BanditW2_DZ")||(_model == "BanditW3_DZ")||(_model == "HeroW1_DZ")||(_model == "HeroW2_DZ")||(_model == "HeroW3_DZ"));
 if (!_isFemale && _femaleSkins) exitWith {cutText ["You need a Skin for your Gender.", "PLAIN DOWN"]};
 if (_isFemale && !_femaleSkins) exitWith {cutText ["You need a Skin for your Gender.", "PLAIN DOWN"]};
 
