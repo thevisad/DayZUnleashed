@@ -543,7 +543,7 @@ while {true} do {
 			};
 		};
 	};
-
+	//nul = [player] execVM "\z\addons\dayz_code\actions\player_takedown.sqf"; // doesn't work properly, just causes player to salute repeatedly.
 	//Melee Weapons ammo fix
 	if(isNil {login_ammochecked}) then {
 		login_ammochecked = true;

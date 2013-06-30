@@ -87,7 +87,7 @@ if (!isDedicated) then {
 	//Run the player monitor
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = [] execVM "\z\addons\dayz_code\system\player_monitor.sqf";
-	[] execVM "\z\addons\dayz_code\system\antihack.sqf";
+	//[] execVM "\z\addons\dayz_code\system\antihack.sqf";
 };
 
 // Logo watermark: adding a logo in the bottom left corner of the screen with the server name in it
