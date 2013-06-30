@@ -1,0 +1,1 @@
+All content in this PBO was made exclusively DayZ Unsleashed mod. To use/edit/distribute any of the content in this mod please contact thevisad@gmail.com
