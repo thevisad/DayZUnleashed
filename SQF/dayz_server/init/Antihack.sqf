@@ -11,8 +11,8 @@ markerText = "STRING";
 //_debug = getMarkerPos "respawn_west";
 
 _list = ["0"]; //LEAVE THIS ALONE
-_list = ["6163586","136052870","40975110","4163522","22773510","34319366","43767494","59883846","95700038","37624070"]; //admin playerUID goes here
-//Skaronator, Skaronator, Alexander Hjelm,
+_list = ["66951686","6163586","136052870","40975110","4163522","22773510","34319366","43767494","59883846","95700038","37624070"]; //admin playerUID goes here
+//Mattz, Skaronator, Skaronator, Alexander Hjelm,
 noob_list = []; //noob admin playerUID goes here (make sure the same playerUID is also in _list)
 publicVariable "noob_list";
 
