@@ -1313,181 +1313,181 @@ class Mission
 		class Item0
 		{
 			position[]={13745.035,2.8570027,14774.57};
-			name="Luzern Spawn";
+			name="spawn0";
 			type="Empty";
 		};
 		class Item1
 		{
 			position[]={15462.602,1.288115,14383.819};
-			name="LAzern2";
+			name="spawn1";
 			type="Empty";
 		};
 		class Item2
 		{
 			position[]={9770.2598,3.3252835,16052.102};
-			name="Luzberg";
+			name="spawn2";
 			type="Empty";
 		};
 		class Item3
 		{
 			position[]={8358.0381,1.2888356,15938.807};
-			name="Luzbread2";
+			name="spawn3";
 			type="Empty";
 		};
 		class Item4
 		{
 			position[]={7963.0723,2.1619918,16532.236};
-			name="luads3";
+			name="spawn4";
 			type="Empty";
 		};
 		class Item5
 		{
 			position[]={3957.207,2.5600348,14705.896};
-			name="Bud";
+			name="spawn5";
 			type="Empty";
 		};
 		class Item6
 		{
 			position[]={3623.7705,6.7817311,14224.063};
-			name="Bud2";
+			name="spawn6";
 			type="Empty";
 		};
 		class Item7
 		{
 			position[]={4354.4048,3.5713241,14768.348};
-			name="Bud3";
+			name="spawn7";
 			type="Empty";
 		};
 		class Item8
 		{
 			position[]={6159.3086,2.2602146,10819.097};
-			name="Muzz";
+			name="spawn8";
 			type="Empty";
 		};
 		class Item9
 		{
 			position[]={5746.313,3.4567416,11168.557};
-			name="Muz2";
+			name="spawn9";
 			type="Empty";
 		};
 		class Item10
 		{
 			position[]={6135.1216,1.9344937,11163.117};
-			name="Muzz3";
+			name="spawn10";
 			type="Empty";
 		};
 		class Item11
 		{
 			position[]={9201.5586,3.0317981,17826.719};
-			name="Hafen";
+			name="spawn11";
 			type="Empty";
 		};
 		class Item12
 		{
 			position[]={9498.8203,6.3304172,17618.664};
-			name="Hafen2";
+			name="spawn12";
 			type="Empty";
 		};
 		class Item13
 		{
 			position[]={9328.7432,4.0764637,17430.789};
-			name="Hafen3";
+			name="spawn13";
 			type="Empty";
 		};
 		class Item14
 		{
 			position[]={14854.973,1.9700503,14568.224};
-			name="Luz3";
+			name="spawn14";
 			type="Empty";
 		};
 		class Item15
 		{
 			position[]={13745.035,2.8570027,14774.57};
-			name="Luzern Spawn_1";
+			name="spawn15";
 			type="Empty";
 		};
 		class Item16
 		{
 			position[]={15462.602,1.2662045,14383.819};
-			name="LAzern2_1";
+			name="spawn16";
 			type="Empty";
 		};
 		class Item17
 		{
 			position[]={9770.2598,3.3252835,16052.102};
-			name="Luzberg_1";
+			name="spawn17";
 			type="Empty";
 		};
 		class Item18
 		{
 			position[]={8358.0381,1.2888356,15938.807};
-			name="Luzberg2_1";
+			name="spawn18";
 			type="Empty";
 		};
 		class Item19
 		{
 			position[]={7963.0723,2.1619918,16532.236};
-			name="Luzberg3_1";
+			name="spawn19";
 			type="Empty";
 		};
 		class Item20
 		{
 			position[]={3957.207,2.5600348,14705.896};
-			name="Bud_1";
+			name="spawn20";
 			type="Empty";
 		};
 		class Item21
 		{
 			position[]={3623.7705,6.7817311,14224.063};
-			name="Bud2_1";
+			name="spawn21";
 			type="Empty";
 		};
 		class Item22
 		{
 			position[]={4354.4048,3.5713241,14768.348};
-			name="Bud3_1";
+			name="spawn22";
 			type="Empty";
 		};
 		class Item23
 		{
 			position[]={6159.3086,2.2602146,10819.097};
-			name="Muzz_1";
+			name="spawn23";
 			type="Empty";
 		};
 		class Item24
 		{
 			position[]={5746.313,3.4567416,11168.557};
-			name="Muzz2_1";
+			name="spawn24";
 			type="Empty";
 		};
 		class Item25
 		{
 			position[]={6135.1216,1.9344937,11163.117};
-			name="Muzz3_1";
+			name="spawn25";
 			type="Empty";
 		};
 		class Item26
 		{
 			position[]={9201.5586,3.0317981,17826.719};
-			name="Hafen_1";
+			name="spawn26";
 			type="Empty";
 		};
 		class Item27
 		{
 			position[]={9498.8203,6.3304172,17618.664};
-			name="Hafen2_1";
+			name="spawn27";
 			type="Empty";
 		};
 		class Item28
 		{
 			position[]={9328.7432,4.0764637,17430.789};
-			name="Hafen3_1";
+			name="spawn28";
 			type="Empty";
 		};
 		class Item29
 		{
 			position[]={14854.973,1.9700503,14568.224};
-			name="Luzzz3_1";
+			name="spawn29";
 			type="Empty";
 		};
 	};
