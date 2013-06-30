@@ -495,11 +495,11 @@ class CfgVehicles {
 	class TK_Special_Forces_MG_EP1: Banned {};
 	class TK_Aziz_EP1: Banned {};
 	class TK_Commander_EP1: Banned {};
-	//class GER_Soldier_EP1: Banned {};
-	class GER_Soldier_Medic_EP1: Banned {};
-	class GER_Soldier_TL_EP1: Banned {};
-	class GER_Soldier_Scout_EP1: Banned {};
-	class GER_Soldier_MG_EP1: Banned {};
+	//class GER_Soldier_EP1: Banned {}; - Regular Unbanned
+	//class GER_Soldier_Medic_EP1: Banned {}; - Unbaned for Female CiviliaW1_DZ
+	//class GER_Soldier_TL_EP1: Banned {}; - Unbaned for Female CiviliaW1_DZ
+	//class GER_Soldier_Scout_EP1: Banned {}; - Unbaned for Female CiviliaW1_DZ
+	//class GER_Soldier_MG_EP1: Banned {}; - Unbaned for Female CiviliaW1_DZ
 	class InvisibleManW_EP1: Banned {};
 	class InvisibleManE_EP1: Banned {};
 	class EW_Brown: Banned {};
