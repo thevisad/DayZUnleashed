@@ -1309,95 +1309,53 @@ class Mission
 			
 	class Markers
 	{
-		items=30;
+		items=8;
 		class Item0
 		{
-			position[]={13745.035,2.8570027,14774.57};
-			name="spawn0";
+			position[]={11970.759,289.37149,7951.7646};
+			name="center";
 			type="Empty";
 		};
 		class Item1
 		{
-			position[]={15462.602,1.288115,14383.819};
-			name="spawn1";
+			position[]={12270.661,0.46445936,711.73755};
+			name="respawn_west";
 			type="Empty";
 		};
 		class Item2
 		{
-			position[]={9770.2598,3.3252835,16052.102};
-			name="spawn2";
+			position[]={7166.1348,13.789393,16553.063};
+			name="spawn0";
 			type="Empty";
 		};
 		class Item3
 		{
-			position[]={8358.0381,1.2888356,15938.807};
-			name="spawn3";
+			position[]={3968.1118,2.9809463,14629.559};
+			name="spawn1";
 			type="Empty";
 		};
 		class Item4
 		{
-			position[]={7963.0723,2.1619918,16532.236};
-			name="spawn4";
+			position[]={6060.0483,7.7480354,10598.909};
+			name="spawn2";
 			type="Empty";
 		};
 		class Item5
 		{
-			position[]={3957.207,2.5600348,14705.896};
-			name="spawn5";
+			position[]={13123.099,1.1891516,14795.524};
+			name="spawn3";
 			type="Empty";
 		};
 		class Item6
 		{
-			position[]={3623.7705,6.7817311,14224.063};
-			name="spawn6";
+			position[]={10822.127,20.311024,19779.998};
+			name="spawn4";
 			type="Empty";
 		};
 		class Item7
 		{
-			position[]={4354.4048,3.5713241,14768.348};
-			name="spawn7";
-			type="Empty";
-		};
-		class Item8
-		{
-			position[]={6159.3086,2.2602146,10819.097};
-			name="spawn8";
-			type="Empty";
-		};
-		class Item9
-		{
-			position[]={5746.313,3.4567416,11168.557};
-			name="spawn9";
-			type="Empty";
-		};
-		class Item10
-		{
-			position[]={6135.1216,1.9344937,11163.117};
-			name="spawn10";
-			type="Empty";
-		};
-		class Item11
-		{
-			position[]={9201.5586,3.0317981,17826.719};
-			name="spawn11";
-			type="Empty";
-		};
-		class Item12
-		{
-			position[]={9498.8203,6.3304172,17618.664};
-			name="spawn12";
-			type="Empty";
-		};
-		class Item13
-		{
-			position[]={9328.7432,4.0764637,17430.789};
-			name="spawn13";
-			type="Empty";
-		};
-		class Item14
-		{
-			position[]={14854.973,1.9700503,14568.224};
-			name="spawn14";
+			position[]={18421.305,12.554823,12933.644};
+			name="spawn5";
 			type="Empty";
 		};
 	};
