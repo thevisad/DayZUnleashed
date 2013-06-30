@@ -92,8 +92,11 @@ if (!_isNew) then {
 	_model =		_primary select 7;
 	_hiveVer =		_primary select 8;
 	
-	if (!(_model in ["SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","BanditW1_DZ","Bandit1_DZ","Survivor3_DZ"])) then {
-		_model = "Survivor2_DZ";
+	if (!(_model in ["Civilian1_DZ","Civilian2_DZ","Civilian1_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ",
+					"Bandit1_DZ","Bandit2_DZ","Bandit3_DZ","BanditW1_DZ","BanditW2_DZ","BanditW3_DZ",
+					"Hero1_DZ","Hero2_DZ","Hero3_DZ","HeroW1_DZ","HeroW2_DZ","HeroW3_DZ",
+					"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","BanditW1_DZ","Bandit1_DZ","Survivor3_DZ"])) then {
+	_model = "Survivor2_DZ";
 	};
 	
 } else {
