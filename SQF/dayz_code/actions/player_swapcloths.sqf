@@ -5,7 +5,9 @@ s_clothes = -1;
 private["_body","_result"];
     _body = _this select 3;
     _model = typeOf _body;
-if( _model in ["SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","BanditW1_DZ","Bandit1_DZ","Survivor3_DZ"] ) then { _model = "Skin_" + _model;
+if( _model in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ",
+					"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+					"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ"] ) then { _model = "Skin_" + _model;
     _result = [player,_model] call BIS_fnc_invAdd;
 if (_result) then { player playActionNow "PutDown";
 private["_name","_method","_methodStr"];
