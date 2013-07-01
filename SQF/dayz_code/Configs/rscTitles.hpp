@@ -439,7 +439,7 @@ class RscDisplaySpawnSelecter {
 		{
 			idc = -1;
 			style = 48;
-			text = "\z\addons\dayz_code\gui\spawn_kamenka.paa";
+			text = "\z\addons\dayz_code\gui\spawn_bubendorf.paa";
 			x = 0.524899 * safezoneW + safezoneX;
 			y = 0.591199 * safezoneH + safezoneY;
 			w = 0.234287 * safezoneW;
@@ -452,7 +452,7 @@ class RscDisplaySpawnSelecter {
 		{
 			idc = -1;
 			style = 48;
-			text = "\z\addons\dayz_code\gui\spawn_balota.paa";
+			text = "\z\addons\dayz_code\gui\spawn_lenzburg.paa";
 			x = 0.230417 * safezoneW + safezoneX;
 			y = 0.610615 * safezoneH + safezoneY;
 			w = 0.223688 * safezoneW;
@@ -465,7 +465,7 @@ class RscDisplaySpawnSelecter {
 		{
 			idc = -1;
 			style = 48;
-			text = "\z\addons\dayz_code\gui\spawn_cherno.paa";
+			text = "\z\addons\dayz_code\gui\spawn_muttenz.paa";
 			x = 0.234564 * safezoneW + safezoneX;
 			y = 0.116375 * safezoneH + safezoneY;
 			w = 0.234375 * safezoneW;
@@ -478,7 +478,7 @@ class RscDisplaySpawnSelecter {
 		{
 			idc = -1;
 			style = 48;
-			text = "\z\addons\dayz_code\gui\spawn_elektro.paa";
+			text = "\z\addons\dayz_code\gui\spawn_luzern.paa";
 			x = 0.212005 * safezoneW + safezoneX;
 			y = 0.371473 * safezoneH + safezoneY;
 			w = 0.234683 * safezoneW;
@@ -491,7 +491,7 @@ class RscDisplaySpawnSelecter {
 		{
 			idc = -1;
 			style = 48;
-			text = "\z\addons\dayz_code\gui\spawn_sol.paa";
+			text = "\z\addons\dayz_code\gui\spawn_hafen.paa";
 			x = 0.565892 * safezoneW + safezoneX;
 			y = 0.365922 * safezoneH + safezoneY;
 			w = 0.246438 * safezoneW;
@@ -504,7 +504,7 @@ class RscDisplaySpawnSelecter {
 		{
 			idc = -1;
 			style = 48;
-			text = "\z\addons\dayz_code\gui\spawn_berezino.paa";
+			text = "\z\addons\dayz_code\gui\spawn_horw.paa";
 			x = 0.517793 * safezoneW + safezoneX;
 			y = 0.13013 * safezoneH + safezoneY;
 			w = 0.234375 * safezoneW;
