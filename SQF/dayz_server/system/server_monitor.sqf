@@ -245,6 +245,9 @@ if (isServer and isNil "sm_done") then {
 		_hitpoints=	if ((typeName (_x select 6)) == "ARRAY") then { _x select 6 } else { [] };
 		_fuel =	if ((typeName (_x select 7)) == "SCALAR") then { _x select 7 } else { 0 };
 		_damage = if ((typeName (_x select 8)) == "SCALAR") then { _x select 8 } else { 0.9 };  
+		_combination =	_x select 3;
+
+		//["OBJ","230","TentStorage","913",[61,[15334,15599.7,0.005]],[[[],[]],[[],[]],[[],[]]],[],0.0,0.0,626]
 		_entity = nil;
 	
 		_dir = floor(random(360));
@@ -395,12 +398,19 @@ if (isServer and isNil "sm_done") then {
 	
 			// UPDATE MODIFIED OBJECTS TO THE HIVE 
 			if (_action == "CREATED") then {
+				if (_class == "TentStorage") then { 
+						_combination = floor(random 999); 
+					} else {
+					_combination = 0;
+					};
+				
+				diag_log ("combination of " + str(_combination) + " was used");
 				// insert className damage characterId  worldSpace inventory  hitPoints  fuel uniqueId  
-				_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:", dayZ_instance, 
+				_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:", dayZ_instance, 
 					_class, _damage , 1, 
 					[_dir, _point], 
 					[getWeaponCargo _entity, getMagazineCargo _entity ,getBackpackCargo _entity], 
-					_hitpoints, _fuel, _ObjectID
+					_hitpoints, _fuel, _ObjectID, _combination
 				];
 				//diag_log (_key);
 				_rawData = "HiveEXT" callExtension _key;
@@ -465,7 +475,52 @@ if (isServer and isNil "sm_done") then {
 
 	// antiwallhack
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_antiwallhack.sqf";
-	
+
+	if (isServer and isNil "sm_done") then {
+		private["_j","_key","_buildingArray","_buildingCount","_bldCount","_hivebuildingresponse"];
+		_buildingArray = [];
+		diag_log("SERVER: Fetching buildings...");
+		for "_j" from 1 to 5 do {
+			_key = format["CHILD:301:%1:", dayZ_instance];
+			_hiveBuildingResponse = _key call server_hiveReadWrite;  
+			diag_log ("HIVE: select 1 "+str(_hiveBuildingResponse select 1) );
+			diag_log ("HIVE: response "+str( typeName _hiveBuildingResponse ) );
+			if ((((isnil "_hiveBuildingResponse") || {(typeName _hiveBuildingResponse != "ARRAY")}) || {((typeName (_hiveBuildingResponse select 1)) != "SCALAR")}) || {(_hiveBuildingResponse select 1 > 2000)}) then {
+				diag_log ("HIVE: buildings connection problem... HiveExt response:"+str(_hiveBuildingResponse));
+				_hiveBuildingResponse = ["",0];
+			} 
+			else {
+				diag_log ("HIVE: found "+str(_hiveBuildingResponse select 1)+" buildings" );
+				_j = 99; // break
+			};
+		};
+		
+		_bldCount = 0;
+		if ((_hiveBuildingResponse select 0) == "ObjectStreamStart") then {
+			_buildingCount = _hiveBuildingResponse select 1;
+			diag_log ("SERVER: _buildingCount " + str(_buildingCount));
+			for "_j" from 1 to _buildingCount do { 
+				_hiveBuildingResponse = _key call server_hiveReadWrite;
+				diag_log ("SERVER: building _hiveBuildingResponse " + str(_hiveBuildingResponse));
+				_result = call compile format ["%1",_hiveBuildingResponse];
+				diag_log ("SERVER: building _result " + str(_result));
+
+				_pos = call compile (_result select 1);
+				diag_log ("SERVER: building _pos 1 " + str(_pos));
+				_dir = _pos select 0;
+				_pos = _pos select 1;
+				
+				diag_log ("SERVER: building _dir " + str(_dir));
+				diag_log ("SERVER: building _pos 2 " + str(_pos));
+				_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
+				_building = createVehicle [_result select 0, _pos, [], 0, "CAN_COLLIDE"];
+				diag_log ("SERVER: createVehicle _building " + str(_building));
+				_building setDir _dir;
+				_bldCount = _bldCount + 1;
+			};
+			diag_log ("SERVER: Spawned " + str(_bldCount) + " buildings!");
+		}; 
+	};		
 	sm_done = true;
 	publicVariable "sm_done";
 };
