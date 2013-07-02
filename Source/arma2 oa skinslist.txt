@@ -1,5 +1,5 @@
 http://forums.bistudio.com/showthread.php?73241-ArmA-II-amp-OA-Classnames-No-questions-no-discussion-here!
-assistant 
+Assistant 
 CDF_Commander
 CDF_Soldier
 CDF_Soldier_AR
