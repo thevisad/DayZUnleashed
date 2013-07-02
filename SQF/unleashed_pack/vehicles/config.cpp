@@ -17,11 +17,11 @@
 #define false	0
 
 class CfgPatches {
-	class unleashed_vehicles {
-		units[] = {};
+	class unleashed_pack {
+		units[] = {"Kamaz", "KamazOpen", "KamazRepair", "KamazRefuel"};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {};
+		requiredAddons[] = {"CAWheeled2", "CACharacters2", "CAWeapons"};
 	};
 };
 
@@ -115,7 +115,7 @@ class CfgVehicles {
 		transportmaxbackpacks = 2;
 	};
 	
-	class ul_uaz451_red : kpfs_uaz451_black {
+	class ul_uaz451_black : kpfs_uaz451_black {
 		accuracy = 0.32;
 		displayname = "Unleashed UAZ black";
 		maxspeed = 110;
@@ -130,7 +130,7 @@ class CfgVehicles {
 		transportmaxbackpacks = 2;
 	};
 	
-	class ul_uaz451_red : kpfs_uaz451_pink {
+	class ul_uaz451_pink : kpfs_uaz451_pink {
 		accuracy = 0.32;
 		displayname = "Unleashed UAZ pink";
 		maxspeed = 110;
@@ -145,7 +145,7 @@ class CfgVehicles {
 		transportmaxbackpacks = 2;
 	};
 	
-	class ul_uaz451_red : kpfs_uaz451_aeroflot {
+	class ul_uaz451_aeroflot : kpfs_uaz451_aeroflot {
 		accuracy = 0.32;
 		displayname = "Unleashed UAZ aeroflot";
 		maxspeed = 110;
@@ -160,7 +160,7 @@ class CfgVehicles {
 		transportmaxbackpacks = 2;
 	};
 	
-	class ul_uaz451_red : kpfs_uaz451_ff {
+	class ul_uaz451_ff : kpfs_uaz451_ff {
 		accuracy = 0.32;
 		displayname = "Unleashed UAZ ff";
 		maxspeed = 110;
@@ -283,21 +283,6 @@ class CfgVehicles {
 	class ul_kamaz_open_white : KamAZ_Open_white {
 		accuracy = 0.32;
 		displayname = "Unleashed KamaZ Open white";
-		maxspeed = 100;
-		hasgunner = 0;
-		mapsize = 5;
-		scope = 2;
-		side = 2;
-		crew = "";
-		typicalCargo[] = {};
-		transportMaxWeapons = 15;
-		transportMaxMagazines = 60;
-		transportmaxbackpacks = 3;
-	};
-	
-	class ul_kamaz_white : KamAZ_white {
-		accuracy = 0.32;
-		displayname = "Unleashed KamaZ white";
 		maxspeed = 100;
 		hasgunner = 0;
 		mapsize = 5;

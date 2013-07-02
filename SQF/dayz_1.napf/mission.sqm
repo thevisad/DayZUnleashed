@@ -27,7 +27,11 @@ class Mission
 		"CAWheeled3_M1030",
 		"cawheeled_e_s1203",
 		"CAWheeled2_Ikarus",
-		"casounds"
+		"casounds",
+		"extra_kamaz",
+		"unleashed_pack",
+		"kpfs_uaz451",
+		"kpfs_waysigns"
 	};
 	addOnsAuto[]=
 	{
