@@ -17,7 +17,7 @@
 #define false	0
 
 class CfgPatches {
-	class unleashed_pack {
+	class unleashed_vehicles {
 		units[] = {"Kamaz", "KamazOpen", "KamazRepair", "KamazRefuel"};
 		weapons[] = {};
 		requiredVersion = 0.1;

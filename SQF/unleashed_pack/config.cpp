@@ -1,7 +1,8 @@
 class CfgPatches {
-	class unsleashed_pack {
+	class unleashed_pack {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
 		requiredAddons[] = {"dayz_code"};
 	};
+};
