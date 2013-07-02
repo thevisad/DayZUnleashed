@@ -1,0 +1,294 @@
+/*
+Navicat MySQL Data Transfer
+
+Source Server         : devel
+Source Server Version : 50516
+Source Host           : localhost:3306
+Source Database       : dayzunleashed
+
+Target Server Type    : MYSQL
+Target Server Version : 50516
+File Encoding         : 65001
+
+Date: 2013-07-02 03:00:48
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `building`
+-- ----------------------------
+DROP TABLE IF EXISTS `building`;
+CREATE TABLE `building` (
+  `id` smallint(5) unsigned NOT NULL AUTO_INCREMENT,
+  `class_name` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq1_building` (`class_name`) USING BTREE
+) ENGINE=InnoDB AUTO_INCREMENT=264 DEFAULT CHARSET=utf8;
+
+-- ----------------------------
+-- Records of building
+-- ----------------------------
+INSERT INTO `building` VALUES ('1', '76n6ClamShell');
+INSERT INTO `building` VALUES ('2', '76n6ClamShell_EP1');
+INSERT INTO `building` VALUES ('3', 'AmmoBoxMedium');
+INSERT INTO `building` VALUES ('4', 'AmmoBoxSmall_556');
+INSERT INTO `building` VALUES ('5', 'Ammobox_PMC');
+INSERT INTO `building` VALUES ('6', 'AmmoCrates_NoInteractive_Large');
+INSERT INTO `building` VALUES ('7', 'A_FuelStation_Feed');
+INSERT INTO `building` VALUES ('8', 'A_statue01');
+INSERT INTO `building` VALUES ('9', 'BAF_BasicAmmunitionBox');
+INSERT INTO `building` VALUES ('10', 'BAF_BasicWeapons');
+INSERT INTO `building` VALUES ('11', 'BAF_IEDBox');
+INSERT INTO `building` VALUES ('12', 'BAF_Launchers');
+INSERT INTO `building` VALUES ('13', 'BAF_OrdnanceBox');
+INSERT INTO `building` VALUES ('14', 'BAF_VehicleBox');
+INSERT INTO `building` VALUES ('15', 'Barrack2');
+INSERT INTO `building` VALUES ('16', 'Barrels');
+INSERT INTO `building` VALUES ('17', 'Base_WarfareBBarrier10x');
+INSERT INTO `building` VALUES ('18', 'Base_WarfareBBarrier10xTall');
+INSERT INTO `building` VALUES ('19', 'Base_WarfareBBarrier5x');
+INSERT INTO `building` VALUES ('20', 'BMP2Wreck');
+INSERT INTO `building` VALUES ('21', 'BMP2_HQ_TK_unfolded_EP1');
+INSERT INTO `building` VALUES ('22', 'Body');
+INSERT INTO `building` VALUES ('23', 'Body1');
+INSERT INTO `building` VALUES ('24', 'Body2');
+INSERT INTO `building` VALUES ('25', 'BRDM2_HQ_TK_GUE_unfolded_EP1');
+INSERT INTO `building` VALUES ('26', 'Bunker_PMC');
+INSERT INTO `building` VALUES ('27', 'C130J_static_EP1');
+INSERT INTO `building` VALUES ('28', 'C130J_wreck_EP1');
+INSERT INTO `building` VALUES ('29', 'CamoNet');
+INSERT INTO `building` VALUES ('30', 'CampEast_EP1');
+INSERT INTO `building` VALUES ('31', 'CZBasicWeapons_EP1');
+INSERT INTO `building` VALUES ('32', 'datsun01Wreck');
+INSERT INTO `building` VALUES ('33', 'datsun02Wreck');
+INSERT INTO `building` VALUES ('34', 'Desk');
+INSERT INTO `building` VALUES ('35', 'Dirtmount_EP1');
+INSERT INTO `building` VALUES ('36', 'EntranceGate_EP1');
+INSERT INTO `building` VALUES ('37', 'Fence_corrugated_plate');
+INSERT INTO `building` VALUES ('38', 'Fence_lnd_long');
+INSERT INTO `building` VALUES ('39', 'FlagCarrierBAF');
+INSERT INTO `building` VALUES ('40', 'FlagCarrierCDF');
+INSERT INTO `building` VALUES ('41', 'FlagCarrierCDF_EP1');
+INSERT INTO `building` VALUES ('42', 'FlagCarrierNATO_EP1');
+INSERT INTO `building` VALUES ('43', 'FlagCarrierRedCrescent_EP1');
+INSERT INTO `building` VALUES ('44', 'FlagCarrierRedCrystal_EP1');
+INSERT INTO `building` VALUES ('45', 'FlagCarrierTakistanKingdom_EP1');
+INSERT INTO `building` VALUES ('46', 'FlagCarrierUSA_EP1');
+INSERT INTO `building` VALUES ('47', 'FoldChair');
+INSERT INTO `building` VALUES ('48', 'FoodBox0');
+INSERT INTO `building` VALUES ('49', 'FoodBox1');
+INSERT INTO `building` VALUES ('50', 'FoodBox2');
+INSERT INTO `building` VALUES ('51', 'Fort_Barricade_EP1');
+INSERT INTO `building` VALUES ('52', 'Fort_EnvelopeBig_EP1');
+INSERT INTO `building` VALUES ('53', 'Fort_Nest_M240');
+INSERT INTO `building` VALUES ('54', 'Fort_RazorWire');
+INSERT INTO `building` VALUES ('55', 'GAZ_Vodnik_MedEvac');
+INSERT INTO `building` VALUES ('56', 'GERBasicWeapons_EP1');
+INSERT INTO `building` VALUES ('57', 'GuerillaCacheBox');
+INSERT INTO `building` VALUES ('58', 'GuerillaCacheBox_EP1');
+INSERT INTO `building` VALUES ('59', 'Hanged_MD');
+INSERT INTO `building` VALUES ('60', 'Hedgehog');
+INSERT INTO `building` VALUES ('61', 'HeliH');
+INSERT INTO `building` VALUES ('62', 'HeliHCivil');
+INSERT INTO `building` VALUES ('63', 'HeliHEmpty');
+INSERT INTO `building` VALUES ('64', 'Hhedgehog_concreteBig');
+INSERT INTO `building` VALUES ('65', 'hilluxWreck');
+INSERT INTO `building` VALUES ('66', 'HMMWVWreck');
+INSERT INTO `building` VALUES ('67', 'Land_arrows_desk_L');
+INSERT INTO `building` VALUES ('68', 'Land_arrows_desk_R');
+INSERT INTO `building` VALUES ('69', 'Land_A_Castle_Bergfrit');
+INSERT INTO `building` VALUES ('70', 'Land_A_Castle_Donjon');
+INSERT INTO `building` VALUES ('71', 'Land_A_Castle_Gate');
+INSERT INTO `building` VALUES ('72', 'Land_A_Castle_Stairs_A');
+INSERT INTO `building` VALUES ('73', 'Land_A_Castle_Wall1_20');
+INSERT INTO `building` VALUES ('74', 'Land_A_Castle_Wall1_20_Turn');
+INSERT INTO `building` VALUES ('75', 'Land_A_Castle_Wall2_30');
+INSERT INTO `building` VALUES ('76', 'Land_A_GeneralStore_01');
+INSERT INTO `building` VALUES ('77', 'Land_A_TVTower_Base');
+INSERT INTO `building` VALUES ('78', 'Land_A_TVTower_Mid');
+INSERT INTO `building` VALUES ('79', 'Land_A_TVTower_Top');
+INSERT INTO `building` VALUES ('80', 'Land_BagFenceCorner');
+INSERT INTO `building` VALUES ('81', 'Land_BagFenceEnd');
+INSERT INTO `building` VALUES ('82', 'Land_BagFenceLong');
+INSERT INTO `building` VALUES ('83', 'Land_BagFenceRound');
+INSERT INTO `building` VALUES ('84', 'Land_BagFenceShort');
+INSERT INTO `building` VALUES ('85', 'Land_Bags_EP1');
+INSERT INTO `building` VALUES ('86', 'Land_BarGate2');
+INSERT INTO `building` VALUES ('87', 'Land_Barrack2_EP1');
+INSERT INTO `building` VALUES ('88', 'Land_CamoNetB_EAST');
+INSERT INTO `building` VALUES ('89', 'Land_CamoNetB_NATO');
+INSERT INTO `building` VALUES ('90', 'Land_CamoNetVar_EAST');
+INSERT INTO `building` VALUES ('91', 'Land_CamoNetVar_EAST_EP1');
+INSERT INTO `building` VALUES ('92', 'Land_CamoNetVar_NATO');
+INSERT INTO `building` VALUES ('93', 'Land_CamoNetVar_NATO_EP1');
+INSERT INTO `building` VALUES ('94', 'Land_CamoNet_EAST');
+INSERT INTO `building` VALUES ('95', 'Land_CamoNet_NATO');
+INSERT INTO `building` VALUES ('96', 'Land_CamoNet_NATO_EP1');
+INSERT INTO `building` VALUES ('97', 'Land_Campfire');
+INSERT INTO `building` VALUES ('98', 'Land_Climbing_Obstacle');
+INSERT INTO `building` VALUES ('99', 'Land_ConcreteBlock');
+INSERT INTO `building` VALUES ('100', 'Land_ConcreteRamp');
+INSERT INTO `building` VALUES ('101', 'Land_Destroyer');
+INSERT INTO `building` VALUES ('102', 'Land_Dirthump01');
+INSERT INTO `building` VALUES ('103', 'Land_Dirthump01_EP1');
+INSERT INTO `building` VALUES ('104', 'Land_Farm_WTower');
+INSERT INTO `building` VALUES ('105', 'Land_Fire_barrel_burning');
+INSERT INTO `building` VALUES ('106', 'Land_Fire_DZ');
+INSERT INTO `building` VALUES ('107', 'Land_fortified_nest_big');
+INSERT INTO `building` VALUES ('108', 'Land_fort_artillery_nest');
+INSERT INTO `building` VALUES ('109', 'Land_fort_bagfence_long');
+INSERT INTO `building` VALUES ('110', 'Land_fort_rampart');
+INSERT INTO `building` VALUES ('111', 'Land_fort_rampart_EP1');
+INSERT INTO `building` VALUES ('112', 'Land_Fort_Watchtower');
+INSERT INTO `building` VALUES ('113', 'Land_Fort_Watchtower_EP1');
+INSERT INTO `building` VALUES ('114', 'Land_Fregata');
+INSERT INTO `building` VALUES ('115', 'Land_GuardShed');
+INSERT INTO `building` VALUES ('116', 'Land_Hangar_2');
+INSERT INTO `building` VALUES ('117', 'Land_HBarrier1');
+INSERT INTO `building` VALUES ('118', 'Land_HBarrier3');
+INSERT INTO `building` VALUES ('119', 'Land_HBarrier_large');
+INSERT INTO `building` VALUES ('120', 'Land_Ind_IlluminantTower');
+INSERT INTO `building` VALUES ('121', 'Land_Ind_TankSmall2');
+INSERT INTO `building` VALUES ('122', 'Land_Ind_TankSmall2_EP1');
+INSERT INTO `building` VALUES ('123', 'Land_LHD_1');
+INSERT INTO `building` VALUES ('124', 'Land_LHD_2');
+INSERT INTO `building` VALUES ('125', 'Land_LHD_3');
+INSERT INTO `building` VALUES ('126', 'Land_LHD_4');
+INSERT INTO `building` VALUES ('127', 'Land_LHD_5');
+INSERT INTO `building` VALUES ('128', 'Land_LHD_6');
+INSERT INTO `building` VALUES ('129', 'Land_LHD_elev_R');
+INSERT INTO `building` VALUES ('130', 'Land_LHD_house_1');
+INSERT INTO `building` VALUES ('131', 'Land_LHD_house_2');
+INSERT INTO `building` VALUES ('132', 'Land_loco_742_blue');
+INSERT INTO `building` VALUES ('133', 'Land_loco_742_red');
+INSERT INTO `building` VALUES ('134', 'Land_Market_shelter');
+INSERT INTO `building` VALUES ('135', 'Land_Market_stall1');
+INSERT INTO `building` VALUES ('136', 'Land_Market_stall2');
+INSERT INTO `building` VALUES ('137', 'Land_Misc_Cargo1E_EP1');
+INSERT INTO `building` VALUES ('138', 'Land_Misc_Cargo2E');
+INSERT INTO `building` VALUES ('139', 'Land_Misc_Cargo2E_EP1');
+INSERT INTO `building` VALUES ('140', 'Land_Misc_IronPipes_EP1');
+INSERT INTO `building` VALUES ('141', 'Land_Misc_Well_C_EP1');
+INSERT INTO `building` VALUES ('142', 'Land_Misc_Well_L_EP1');
+INSERT INTO `building` VALUES ('143', 'Land_nav_pier_m_2');
+INSERT INTO `building` VALUES ('144', 'Land_obihacka');
+INSERT INTO `building` VALUES ('145', 'Land_obstacle_get_over');
+INSERT INTO `building` VALUES ('146', 'Land_obstacle_prone');
+INSERT INTO `building` VALUES ('147', 'Land_obstacle_run_duck');
+INSERT INTO `building` VALUES ('148', 'Land_podlejzacka');
+INSERT INTO `building` VALUES ('149', 'Land_prebehlavka');
+INSERT INTO `building` VALUES ('150', 'Land_prolejzacka');
+INSERT INTO `building` VALUES ('151', 'Land_psi_bouda');
+INSERT INTO `building` VALUES ('152', 'Land_RedWhiteBarrier');
+INSERT INTO `building` VALUES ('153', 'Land_Shooting_range');
+INSERT INTO `building` VALUES ('154', 'Land_SS_hangar');
+INSERT INTO `building` VALUES ('155', 'Land_wagon_box');
+INSERT INTO `building` VALUES ('156', 'Land_wagon_flat');
+INSERT INTO `building` VALUES ('157', 'Land_wagon_tanker');
+INSERT INTO `building` VALUES ('158', 'Land_WoodenRamp');
+INSERT INTO `building` VALUES ('159', 'LocalBasicAmmunitionBox');
+INSERT INTO `building` VALUES ('160', 'LocalBasicWeaponsBox');
+INSERT INTO `building` VALUES ('161', 'M1130_HQ_unfolded_Base_EP1');
+INSERT INTO `building` VALUES ('162', 'MAP_76n6_ClamShell');
+INSERT INTO `building` VALUES ('163', 'MAP_A_FuelStation_Feed');
+INSERT INTO `building` VALUES ('164', 'MAP_A_Hospital_dam');
+INSERT INTO `building` VALUES ('165', 'MAP_A_statue01');
+INSERT INTO `building` VALUES ('166', 'MAP_MASH');
+INSERT INTO `building` VALUES ('167', 'MAP_nav_pier_c');
+INSERT INTO `building` VALUES ('168', 'MASH');
+INSERT INTO `building` VALUES ('169', 'MASH_EP1');
+INSERT INTO `building` VALUES ('170', 'Mass_grave');
+INSERT INTO `building` VALUES ('171', 'MedBox0');
+INSERT INTO `building` VALUES ('172', 'Misc_Backpackheap');
+INSERT INTO `building` VALUES ('173', 'Misc_Cargo1Bo_military');
+INSERT INTO `building` VALUES ('174', 'Misc_Cargo1B_military');
+INSERT INTO `building` VALUES ('175', 'Misc_cargo_cont_net2');
+INSERT INTO `building` VALUES ('176', 'Misc_cargo_cont_net3');
+INSERT INTO `building` VALUES ('177', 'MtvrRefuel_DES_EP1');
+INSERT INTO `building` VALUES ('178', 'MtvrRepair');
+INSERT INTO `building` VALUES ('179', 'Notice_board_EP1');
+INSERT INTO `building` VALUES ('180', 'objectionComposition_0');
+INSERT INTO `building` VALUES ('181', 'objectionComposition_0 (\'SmallBase\')');
+INSERT INTO `building` VALUES ('182', 'PARACHUTE_TARGET');
+INSERT INTO `building` VALUES ('183', 'PowerGenerator');
+INSERT INTO `building` VALUES ('184', 'PowerGenerator_EP1');
+INSERT INTO `building` VALUES ('185', 'PowGen_Big_EP1');
+INSERT INTO `building` VALUES ('186', 'RampConcrete');
+INSERT INTO `building` VALUES ('187', 'Rbs70_ACR');
+INSERT INTO `building` VALUES ('188', 'Red_Light_Blinking_EP1');
+INSERT INTO `building` VALUES ('189', 'RoadCone');
+INSERT INTO `building` VALUES ('190', 'RUBasicAmmunitionBox');
+INSERT INTO `building` VALUES ('191', 'RUBasicWeaponsBox');
+INSERT INTO `building` VALUES ('192', 'RULaunchersBox');
+INSERT INTO `building` VALUES ('193', 'RUOrdnanceBox');
+INSERT INTO `building` VALUES ('194', 'RUSpecialWeaponsBox');
+INSERT INTO `building` VALUES ('195', 'RUVehicleBox');
+INSERT INTO `building` VALUES ('196', 'Sandbag1_DZ');
+INSERT INTO `building` VALUES ('197', 'Sandbag3_DZ');
+INSERT INTO `building` VALUES ('198', 'SandBagNest');
+INSERT INTO `building` VALUES ('199', 'Satelit');
+INSERT INTO `building` VALUES ('200', 'SearchLight_RUS');
+INSERT INTO `building` VALUES ('201', 'ShootingRange_ACR');
+INSERT INTO `building` VALUES ('202', 'SignM_UN_Base_EP1');
+INSERT INTO `building` VALUES ('203', 'Sign_1L_Border');
+INSERT INTO `building` VALUES ('204', 'Sign_1L_Noentry');
+INSERT INTO `building` VALUES ('205', 'Sign_1L_Noentry_EP1');
+INSERT INTO `building` VALUES ('206', 'Sign_Armex_EP1');
+INSERT INTO `building` VALUES ('207', 'Sign_Checkpoint');
+INSERT INTO `building` VALUES ('208', 'Sign_Checkpoint_US_EP1');
+INSERT INTO `building` VALUES ('209', 'Sign_Danger');
+INSERT INTO `building` VALUES ('210', 'Sign_MP_blu_EP1');
+INSERT INTO `building` VALUES ('211', 'Sign_tape_redwhite');
+INSERT INTO `building` VALUES ('212', 'SkeetMachine');
+INSERT INTO `building` VALUES ('213', 'SKODAWreck');
+INSERT INTO `building` VALUES ('214', 'SpecialWeaponsBox');
+INSERT INTO `building` VALUES ('215', 'Sr_border');
+INSERT INTO `building` VALUES ('216', 'T72WreckTurret');
+INSERT INTO `building` VALUES ('217', 'TargetEpopup');
+INSERT INTO `building` VALUES ('218', 'TargetPopUpTarget');
+INSERT INTO `building` VALUES ('219', 'TargetPopup_ACR');
+INSERT INTO `building` VALUES ('220', 'TKBasicAmmunitionBox_EP1');
+INSERT INTO `building` VALUES ('221', 'TKBasicWeapons_EP1');
+INSERT INTO `building` VALUES ('222', 'TKLaunchers_EP1');
+INSERT INTO `building` VALUES ('223', 'TKOrdnanceBox_EP1');
+INSERT INTO `building` VALUES ('224', 'TKSpecialWeapons_EP1');
+INSERT INTO `building` VALUES ('225', 'TKVehicleBox_EP1');
+INSERT INTO `building` VALUES ('226', 'TK_GUE_WarfareBLightFactory_EP1');
+INSERT INTO `building` VALUES ('227', 'TK_WarfareBAntiAirRadar_EP1');
+INSERT INTO `building` VALUES ('228', 'TK_WarfareBLight');
+INSERT INTO `building` VALUES ('229', 'TT650_TK_EP1');
+INSERT INTO `building` VALUES ('230', 'UAZWreck');
+INSERT INTO `building` VALUES ('231', 'UH1Wreck');
+INSERT INTO `building` VALUES ('232', 'UH60_wreck_EP1');
+INSERT INTO `building` VALUES ('233', 'UNBasicAmmunitionBox_EP1');
+INSERT INTO `building` VALUES ('234', 'UNBasicWeapons_EP1');
+INSERT INTO `building` VALUES ('235', 'UralReammo_TK_EP1');
+INSERT INTO `building` VALUES ('236', 'UralRefuel_INS');
+INSERT INTO `building` VALUES ('237', 'USBasicAmmunitionBox');
+INSERT INTO `building` VALUES ('238', 'USBasicAmmunitionBox_EP1');
+INSERT INTO `building` VALUES ('239', 'USBasicWeaponsBox');
+INSERT INTO `building` VALUES ('240', 'USBasicWeapons_EP1');
+INSERT INTO `building` VALUES ('241', 'USLaunchersBox');
+INSERT INTO `building` VALUES ('242', 'USLaunchers_EP1');
+INSERT INTO `building` VALUES ('243', 'USMC_WarfareBVehicleServicePoint');
+INSERT INTO `building` VALUES ('244', 'USOrdnanceBox');
+INSERT INTO `building` VALUES ('245', 'USOrdnanceBox_EP1');
+INSERT INTO `building` VALUES ('246', 'USSpecialWeaponsBox');
+INSERT INTO `building` VALUES ('247', 'USSpecialWeapons_EP1');
+INSERT INTO `building` VALUES ('248', 'USVehicleBox');
+INSERT INTO `building` VALUES ('249', 'USVehicleBox_EP1');
+INSERT INTO `building` VALUES ('250', 'US_WarfareBAircraftFactory_Base_EP1');
+INSERT INTO `building` VALUES ('251', 'US_WarfareBAntiAirRadar_Base_EP1');
+INSERT INTO `building` VALUES ('252', 'US_WarfareBBarracks_Base_EP1');
+INSERT INTO `building` VALUES ('253', 'US_WarfareBFieldhHospital_Base_EP1');
+INSERT INTO `building` VALUES ('254', 'US_WarfareBHeavyFactory_Base_EP1');
+INSERT INTO `building` VALUES ('255', 'US_WarfareBLightFactory_base_EP1');
+INSERT INTO `building` VALUES ('256', 'US_WarfareBUAVterminal_Base_EP1');
+INSERT INTO `building` VALUES ('257', 'US_WarfareBVehicleServicePoint_Base_EP1');
+INSERT INTO `building` VALUES ('258', 'WarfareBAirport');
+INSERT INTO `building` VALUES ('259', 'WarfareBCamp');
+INSERT INTO `building` VALUES ('260', 'WarfareBDepot');
+INSERT INTO `building` VALUES ('261', 'WeaponHolder_huntingrifle');
+INSERT INTO `building` VALUES ('262', 'WeaponHolder_M4A1');
+INSERT INTO `building` VALUES ('263', 'ZavoraAnim');
