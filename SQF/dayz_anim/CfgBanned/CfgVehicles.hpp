@@ -167,7 +167,7 @@ class CfgVehicles {
 	class Ins_Woodlander3: Banned {};
 	class Ins_Villager3: Banned {};
 	class Ins_Villager4: Banned {};
-	class Ins_Lopotev: Banned {};
+	//class Ins_Lopotev: Banned {}; UL Unbann
 	class Ins_Bardak: Banned {};
 	class Ins_Soldier_Pilot: Banned {};
 	class Ins_Soldier_Crew: Banned {};
@@ -200,7 +200,7 @@ class CfgVehicles {
 	//class Worker1: Banned {};
 	class Worker2: Banned {};
 	class Worker3: Banned {};
-	class Worker4: Banned {};
+	//class Worker4: Banned {}; UL Unbann
 	class RU_Worker1: Banned {};
 	class RU_Worker2: Banned {};
 	class RU_Worker3: Banned {};
@@ -215,7 +215,7 @@ class CfgVehicles {
 	class RU_Profiteer4: Banned {};
 	class Rocker1: Banned {};
 	class Rocker2: Banned {};
-	class Rocker3: Banned {};
+	//class Rocker3: Banned {}; UL Unbann
 	class Rocker4: Banned {};
 	class RU_Rocker1: Banned {};
 	class RU_Rocker2: Banned {};
@@ -224,7 +224,7 @@ class CfgVehicles {
 	class Woodlander1: Banned {};
 	class Woodlander2: Banned {};
 	class Woodlander3: Banned {};
-	class Woodlander4: Banned {};
+	//class Woodlander4: Banned {}; UL Unbann
 	class RU_Woodlander1: Banned {};
 	class RU_Woodlander2: Banned {};
 	class RU_Woodlander3: Banned {};
@@ -245,7 +245,7 @@ class CfgVehicles {
 	class RU_Priest: Banned {};
 	class Doctor: Banned {};
 	class RU_Doctor: Banned {};
-	class SchoolTeacher: Banned {};
+	//class SchoolTeacher: Banned {}; UL UNBANN
 	class RU_SchoolTeacher: Banned {};
 	class Assistant: Banned {};
 	class RU_Assistant: Banned {};
@@ -253,7 +253,7 @@ class CfgVehicles {
 	class RU_Pilot: Banned {};
 	class Policeman: Banned {};
 	class RU_Policeman: Banned {};
-	class Secretary1: Banned {};
+	//class Secretary1: Banned {}; UL Unbann
 	class Secretary2: Banned {};
 	class Secretary3: Banned {};
 	class Secretary4: Banned {};
@@ -263,7 +263,7 @@ class CfgVehicles {
 	class RU_Secretary3: Banned {};
 	class RU_Secretary4: Banned {};
 	class RU_Secretary5: Banned {};
-	class Sportswoman1: Banned {};
+	//class Sportswoman1: Banned {}; UL Unbann
 	class Sportswoman2: Banned {};
 	class Sportswoman3: Banned {};
 	class Sportswoman4: Banned {};
@@ -275,7 +275,7 @@ class CfgVehicles {
 	class RU_Sportswoman5: Banned {};
 	class ValentinaFit: Banned {};
 	class ValentinaVictim: Banned {};
-	class Madam1: Banned {};
+	//class Madam1: Banned {}; UL Unbann
 	class Madam2: Banned {};
 	class Madam3: Banned {};
 	class Madam4: Banned {};
@@ -315,7 +315,7 @@ class CfgVehicles {
 	class RU_Housewife3: Banned {};
 	class RU_Housewife4: Banned {};
 	class RU_Housewife5: Banned {};
-	class Hooker1: Banned {};
+	//class Hooker1: Banned {}; UL unbann
 	class Hooker2: Banned {};
 	class Hooker3: Banned {};
 	class Hooker4: Banned {};
@@ -325,7 +325,7 @@ class CfgVehicles {
 	class RU_Hooker3: Banned {};
 	class RU_Hooker4: Banned {};
 	class RU_Hooker5: Banned {};
-	class WorkWoman1: Banned {};
+	//class WorkWoman1: Banned {}; UL Unbann
 	class WorkWoman2: Banned {};
 	class WorkWoman3: Banned {};
 	class WorkWoman4: Banned {};
@@ -341,8 +341,8 @@ class CfgVehicles {
 	class TK_CIV_Takistani04_EP1: Banned {};
 	//class TK_CIV_Takistani05_EP1: Banned {};
 	class TK_CIV_Takistani06_EP1: Banned {};
-	class TK_CIV_Worker01_EP1: Banned {};
-	class TK_CIV_Worker02_EP1: Banned {};
+	//class TK_CIV_Worker01_EP1: Banned {}; UL Unbann
+	//class TK_CIV_Worker02_EP1: Banned {}; UL Unbann
 	class TK_CIV_Woman01_EP1: Banned {};
 	class TK_CIV_Woman02_EP1: Banned {};
 	class TK_CIV_Woman03_EP1: Banned {};
@@ -355,9 +355,9 @@ class CfgVehicles {
 	class Haris_Press_EP1: Banned {};
 	class Dr_Hladik_EP1: Banned {};
 	class Citizen2_EP1: Banned {};
-	class Citizen3_EP1: Banned {};
+	//class Citizen3_EP1: Banned {}; UL Unbann
 	class Profiteer2_EP1: Banned {};
-	class Functionary1_EP1: Banned {};
+	//class Functionary1_EP1: Banned {}; UL Unbann
 	class Functionary2_EP1: Banned {};
 	class Pilot_EP1: Banned {};
 	//class TK_INS_Soldier_EP1: Banned {};
