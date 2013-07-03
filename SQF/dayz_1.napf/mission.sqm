@@ -4,6 +4,8 @@ class Mission
 	addOns[]=
 	{
 		"napf",
+		"skins",
+		"unleashed_vehicles",
 		"ca_modules_animals",
 		"dayz_code",
 		"dayz_weapons",
