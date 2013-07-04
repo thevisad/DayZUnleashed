@@ -195,7 +195,7 @@ diag_log "HIVE: Starting";
 	// # END OF STREAMING #
 */
 waituntil{isNil "sm_done"}; // prevent server_monitor be called twice (bug during login of the first player)
-call compile preprocessFileLineNumbers "\z\addons\dayz_server\DayZAi\init\dzai_initserver.sqf";
+call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_initserver.sqf";
 #include "\z\addons\dayz_server\compile\fa_hiveMaintenance.hpp"
 
 if (isServer and isNil "sm_done") then {
