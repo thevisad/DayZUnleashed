@@ -6,7 +6,7 @@
 */
 
 //Begin markers
-_this = createMarker ["banditspawn1", [5194.2559,63.2006,9887.0029];
+_this = createMarker ["banditspawn1", [5194.2559,63.2006,9887.0029]];
 _this setMarkerType "Empty";
 _this setMarkerBrush "Solid";
 _marker_1 = _this;
@@ -241,7 +241,7 @@ _this setMarkerType "Empty";
 _this setMarkerBrush "Solid";
 _marker_88 = _this;
 
-_this = createMarker ["banditspawn49", [7133.7593,62.719288,9082.5576];
+_this = createMarker ["banditspawn49", [7133.7593,62.719288,9082.5576]];
 _this setMarkerType "Empty";
 _this setMarkerBrush "Solid";
 _marker_90 = _this;
@@ -276,7 +276,7 @@ _this setMarkerType "Empty";
 _this setMarkerBrush "Solid";
 _marker_96 = _this;
 
-_this = createMarker ["banditspawn56", [{6605.6035,36.345299,14917.476]];
+_this = createMarker ["banditspawn56", [6605.6035,36.345299,14917.476]];
 _this setMarkerType "Empty";
 _this setMarkerBrush "Solid";
 _marker_97 = _this;
@@ -725,7 +725,7 @@ _trigger_128 = _this;
 //triggers end
 
 //Custom waypoint file
-#include "custom_configs\chernarus_custom_config.sqf"	//Custom patrol definitions file
+//#include "custom_configs\napf_custom_config.sqf"	//Custom patrol definitions file
 
 //Add your custom markers here
 
@@ -737,4 +737,4 @@ _trigger_128 = _this;
 
 //End of custom triggers
 
-diag_log "Chernarus map configuration loaded.";
+diag_log "Napf map configuration loaded.";

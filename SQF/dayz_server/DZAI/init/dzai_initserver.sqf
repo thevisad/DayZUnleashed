@@ -53,9 +53,9 @@ switch (_worldname) do {
 	{
 		call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\world_classname_configs\napf_classnames.sqf";
 		[] execVM "\z\addons\dayz_server\DZAI\init\world_map_configs\world_napf.sqf";
-		DZAI_centerMarker setMarkerPos [11970.759,289.37149,7951.7646];
+		DZAI_centerMarker setMarkerPos [10000.854,105.66483,10481.422];
 		DZAI_centerSize = 5500;
-		DZAI_dynTriggersMax = 15;
+		DZAI_dynTriggersMax = 30;
 	};
 };
 
