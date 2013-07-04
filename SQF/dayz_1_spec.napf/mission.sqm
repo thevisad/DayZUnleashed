@@ -28,9 +28,7 @@ class Mission
 		"cawheeled_e_s1203",
 		"CAWheeled2_Ikarus",
 		"casounds",
-		"unleashed_pack",
-		"kpfs_uaz451",
-		"skins",
+		"skins"
 	};
 	addOnsAuto[]=
 	{

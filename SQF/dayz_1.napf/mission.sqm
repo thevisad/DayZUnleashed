@@ -30,7 +30,7 @@ class Mission
 		"casounds",
 		"unleashed_pack",
 		"kpfs_uaz451",
-		"skins",
+		"skins"
 	};
 	addOnsAuto[]=
 	{
