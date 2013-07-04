@@ -143,13 +143,13 @@ class CfgVehicles {
 	};
 	
 	// Female Skins
-	class Hooker1;	// External class reference
-	class Secretary1;	// External class reference
-	class Sportswoman1;	// External class reference
-	class WorkWoman1;	// External class reference
-	class Madam1;	// External class reference
+	class RU_Hooker1;	// External class reference
+	class RU_Secretary1;	// External class reference
+	class RU_Sportswoman1;	// External class reference
+	class RU_WorkWoman1;	// External class reference
+	class RU_Madam1;	// External class reference
 	
-	class CivilianW1_DZ : Hooker1 {
+	class CivilianW1_DZ : RU_Hooker1 {
 		displayName = "Civilian Hooker";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -161,7 +161,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class CivilianW2_DZ : Secretary1 {
+	class CivilianW2_DZ : RU_Secretary1 {
 		displayName = "Civilian Secretary";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -173,7 +173,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class CivilianW3_DZ : Sportswoman1 {
+	class CivilianW3_DZ : RU_Sportswoman1 {
 		displayName = "Civilian Sportswoman";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -185,7 +185,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class CivilianW4_DZ : WorkWoman1 {
+	class CivilianW4_DZ : RU_WorkWoman1 {
 		displayName = "Civilian WorkWoman";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -197,7 +197,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class CivilianW5_DZ : Madam1 {
+	class CivilianW5_DZ : RU_Madam1 {
 		displayName = "Civilian Madam";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -223,7 +223,7 @@ class CfgVehicles {
 	class GUE_Commander;	// External class reference
 	class INS_Soldier_Sniper; // External class reference
 	
-	class BanditL1_1_DZ : GUE_Soldier_3 {
+	class Banditl11_DZ : GUE_Soldier_3 {
 		displayName = "Bandit Level 1";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -235,7 +235,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class BanditL2_1_DZ : GUE_Soldier_2 {
+	class Banditl21_DZ : GUE_Soldier_2 {
 		displayName = "Bandit Level 2";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -247,7 +247,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class BanditL3_1_DZ : GUE_Soldier_Pilot {
+	class Banditl31_DZ : GUE_Soldier_Pilot {
 		displayName = "Bandit Level 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -259,7 +259,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class BanditL3_2_DZ : GUE_Soldier_1 {
+	class Banditl32_DZ : GUE_Soldier_1 {
 		displayName = "Bandit Level 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -271,7 +271,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class BanditL4_1_DZ : TK_INS_Soldier_AT_EP1 {
+	class Banditl41_DZ : TK_INS_Soldier_AT_EP1 {
 		displayName = "Bandit Level 4";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -283,7 +283,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class BanditL4_2_DZ : TK_INS_Soldier_AAT_EP1 {
+	class Banditl42_DZ : TK_INS_Soldier_AAT_EP1 {
 		displayName = "Bandit Level 4";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -295,7 +295,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class BanditL5_1_DZ : GUE_Commander {
+	class Banditl51_DZ : GUE_Commander {
 		displayName = "Bandit Level 5";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -307,7 +307,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class BanditL5_2_DZ : INS_Soldier_Sniper {
+	class Banditl52_DZ : INS_Soldier_Sniper {
 		displayName = "Bandit Level 5";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -320,20 +320,20 @@ class CfgVehicles {
 	};
 	
 	// Bandit Level 1 FEMALE
-	class Hooker2;	// External class reference
+	class RU_Hooker2;	// External class reference
 	// Bandit Level 2 Man
-	class Secretary4;	// External class reference
+	class RU_Secretary4;	// External class reference
 	//Bandit Level 3 Man
-	class Sportswoman4;	// External class reference
+	class RU_Sportswoman4;	// External class reference
 	class CIV_EuroWoman01_EP1; // External class reference
 	//Bandit Level 4 Man
-	class WorkWoman4;	// External class reference
+	class RU_WorkWoman4;	// External class reference
 	class CIV_EuroWoman02_EP1; // External class reference
 	//Bandit Level 5 Man
 	class Rita_Ensler_EP1;	// External class reference
-	class Damsel1; // External class reference
+	class RU_Damsel1; // External class reference
 	
-	class BanditWL1_1_DZ : Hooker2 {
+	class Banditwl11_DZ : RU_Hooker2 {
 		displayName = "Bandit Female Level 1";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -346,7 +346,7 @@ class CfgVehicles {
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class BanditWL2_1_DZ : Secretary4 {
+	class Banditwl21_DZ : RU_Secretary4 {
 		displayName = "Bandit Female Level 2";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -359,7 +359,7 @@ class CfgVehicles {
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class BanditWL3_1_DZ : Sportswoman4 {
+	class Banditwl31_DZ : RU_Sportswoman4 {
 		displayName = "Bandit Female Level 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -372,7 +372,7 @@ class CfgVehicles {
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class BanditWL3_2_DZ : CIV_EuroWoman01_EP1 {
+	class Banditwl32_DZ : CIV_EuroWoman01_EP1 {
 		displayName = "Bandit Female Level 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -385,7 +385,7 @@ class CfgVehicles {
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class BanditWL4_1_DZ : WorkWoman4 {
+	class Banditwl41_DZ : RU_WorkWoman4 {
 		displayName = "Bandit Female Level 4";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -398,7 +398,7 @@ class CfgVehicles {
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class BanditWL4_2_DZ : CIV_EuroWoman02_EP1 {
+	class Banditwl42_DZ : CIV_EuroWoman02_EP1 {
 		displayName = "Bandit Female Level 4";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -411,7 +411,7 @@ class CfgVehicles {
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class BanditWL5_1_DZ : Rita_Ensler_EP1 {
+	class Banditwl51_DZ : Rita_Ensler_EP1 {
 		displayName = "Bandit Female Level 5";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -424,7 +424,7 @@ class CfgVehicles {
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class BanditWL5_2_DZ : Damsel1 {
+	class Banditwl52_DZ : RU_Damsel1 {
 		displayName = "Bandit Female Level 5";
 		side = 1;
 		weapons[] = {"Throw","Put"};

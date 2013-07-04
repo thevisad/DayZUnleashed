@@ -258,20 +258,20 @@ class CfgVehicles {
 	class Secretary3: Banned {};
 	//class Secretary4: Banned {}; UL Unbann
 	class Secretary5: Banned {};
-	class RU_Secretary1: Banned {};
-	class RU_Secretary2: Banned {};
-	class RU_Secretary3: Banned {};
-	class RU_Secretary4: Banned {};
+	//class RU_Secretary1: Banned {};
+	//class RU_Secretary2: Banned {};
+	//class RU_Secretary3: Banned {};
+	//class RU_Secretary4: Banned {};
 	class RU_Secretary5: Banned {};
 	//class Sportswoman1: Banned {}; UL Unbann
 	class Sportswoman2: Banned {};
 	class Sportswoman3: Banned {};
 	//class Sportswoman4: Banned {}; UL Unbann
 	class Sportswoman5: Banned {};
-	class RU_Sportswoman1: Banned {};
+	//class RU_Sportswoman1: Banned {};
 	class RU_Sportswoman2: Banned {};
 	class RU_Sportswoman3: Banned {};
-	class RU_Sportswoman4: Banned {};
+	//class RU_Sportswoman4: Banned {};
 	class RU_Sportswoman5: Banned {};
 	class ValentinaFit: Banned {};
 	class ValentinaVictim: Banned {};
@@ -280,7 +280,7 @@ class CfgVehicles {
 	class Madam3: Banned {};
 	class Madam4: Banned {};
 	class Madam5: Banned {};
-	class RU_Madam1: Banned {};
+	//class RU_Madam1: Banned {};
 	class RU_Madam2: Banned {};
 	class RU_Madam3: Banned {};
 	class RU_Madam4: Banned {};
@@ -300,7 +300,7 @@ class CfgVehicles {
 	class Damsel3: Banned {};
 	class Damsel4: Banned {};
 	class Damsel5: Banned {};
-	class RU_Damsel1: Banned {};
+	//class RU_Damsel1: Banned {};
 	class RU_Damsel2: Banned {};
 	class RU_Damsel3: Banned {};
 	class RU_Damsel4: Banned {};
@@ -320,20 +320,20 @@ class CfgVehicles {
 	class Hooker3: Banned {};
 	class Hooker4: Banned {};
 	class Hooker5: Banned {};
-	class RU_Hooker1: Banned {};
-	class RU_Hooker2: Banned {};
-	class RU_Hooker3: Banned {};
-	class RU_Hooker4: Banned {};
+	//class RU_Hooker1: Banned {};
+	//class RU_Hooker2: Banned {};
+	//class RU_Hooker3: Banned {};
+	//class RU_Hooker4: Banned {};
 	class RU_Hooker5: Banned {};
 	//class WorkWoman1: Banned {}; UL Unbann
 	class WorkWoman2: Banned {};
 	class WorkWoman3: Banned {};
 	//class WorkWoman4: Banned {}; UL Unbann
 	class WorkWoman5: Banned {};
-	class RU_WorkWoman1: Banned {};
+	//class RU_WorkWoman1: Banned {};
 	class RU_WorkWoman2: Banned {};
 	class RU_WorkWoman3: Banned {};
-	class RU_WorkWoman4: Banned {};
+	//class RU_WorkWoman4: Banned {};
 	class RU_WorkWoman5: Banned {};
 	//class TK_CIV_Takistani01_EP1: Banned {};
 	class TK_CIV_Takistani02_EP1: Banned {};

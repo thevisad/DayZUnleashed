@@ -94,9 +94,10 @@ if (!_isNew) then {
 	
 	if (!(_model in ["Civilian1_DZ","Civilian2_DZ","Civilian1_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
 					"CivilianW1_DZ","CivilianW2_DZ","CivilianW1_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
-					"Bandit1_DZ","BanditL1_1_DZ","BanditL2_1_DZ","BanditL3_1_DZ","BanditL3_2_DZ","BanditL4_1_DZ","BanditL4_2_DZ","BanditL5_1_DZ","BanditL5_2_DZ",
-					"BanditW1_DZ","BanditWL1_1_DZ","BanditWL2_1_DZ","BanditWL3_1_DZ","BanditWL3_2_DZ","BanditWL4_1_DZ","BanditWL4_2_DZ","BanditWL5_1_DZ","BanditWL5_2_DZ",
-					"Hero1_DZ","Hero2_DZ","Hero3_DZ","HeroW1_DZ","HeroW2_DZ","HeroW3_DZ",
+					"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+					"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+					"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+					"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
 					"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"])) then {
 	_model = "Survivor2_DZ";
 	};
