@@ -229,6 +229,7 @@ a_player_repairing = false;
 churchie_defusing_started = false;
 churchie_explosion_set = false;
 churchie_explosion_checked = false;
+churchie_vehicle_checked = 0;
 
 
 //Player self-action handles
