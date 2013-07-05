@@ -230,34 +230,34 @@ while {true} do {
 			[dayz_playerUID,dayz_characterID,"Survivor3_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian1_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian2_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian3_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian4_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian5_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian6_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian7_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian8_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian9_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Civilian10_DZ") then {
-			[dayz_playerUID,dayz_characterID,"HeroL1_1_DZ"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,"Herol11_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "SurvivorW1_DZ") then {
 			[dayz_playerUID,dayz_characterID,"HeroWL1_1_DZ"] spawn player_humanityMorph;
