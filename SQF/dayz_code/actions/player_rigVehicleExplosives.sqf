@@ -113,9 +113,11 @@ deleteVehicle _bomb;
 if( _argument == 3 ) then { 
 	player removeAction churchie_check; 
 	churchie_check = -1; 
+	_vehicle = _this select 0; 
 	diag_log ("arg3 churchie_explosion_checked before: " +str(churchie_explosion_checked));
-	_nearBomb = (getPos _vehicle) nearObjects["PipeBomb", 10];
-	if( count _nearBomb > 0 ) then {
+	_nearBomb = (getPos _vehicle) nearObjects["BAF_ied_v1", 10];
+	diag_log ("arg3 _nearBomb before: " +str(_nearBomb));
+	if( count _nearBomb > 0 ) then { 
 		diag_log ("arg3 _nearBomb > 0: " +str(_nearBomb));
 		cutText ["You find a bomb rigged to blow the vehicle!", "PLAIN DOWN"];
 		churchie_explosion_checked = true;
