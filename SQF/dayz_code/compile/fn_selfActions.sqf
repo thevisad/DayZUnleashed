@@ -30,6 +30,7 @@ _hasToolbox = "ItemToolbox" in items player;
 //_hasTent = "ItemTent" in items player;
 _onLadder = (getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _nearLight = nearestObject [player,"LitObject"];
+
 _canPickLight = false;
 
 if (!isNull _nearLight) then {
@@ -326,10 +327,57 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		player removeAction s_player_followdog;
 		s_player_followdog = -1;
 	};
+	
+
+	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and !churchie_explosion_checked ) then { 
+		if( !_hasToolbox ) exitWith { cutText ["You must have a toolbox to check bombs!", "PLAIN DOWN"]; }; 
+				if( churchie_check < 0 ) then {
+					churchie_check = player addAction [("<t color=""#FF0000"">" + ("Check vehicle for bomb") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 3], 6, false, true, "","getDammage _target < 0.95"]; 
+				};
+	};
+	
+	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle"  and churchie_explosion_checked ) then { 
+		if( !_hasToolbox ) exitWith { cutText ["You must have a toolbox to defuse bombs!", "PLAIN DOWN"]; }; 
+		_nearPipe = nearestObject [player,"BAF_ied_v1"];
+		if( _nearPipe distance player < 2 ) then { 
+			if( churchie_defuse < 0 ) then { 
+				churchie_defuse = player addAction [("<t color=""#FF0000"">" + ("Defuse vehicle bomb") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 1], 6, false, true, "",""]; 
+			}; 
+		} else { 
+		player removeAction churchie_defuse; 
+		churchie_defuse = -1; 
+		}; 
+	} else { 
+		player removeAction churchie_defuse; 
+		churchie_defuse = -1; 
+	};
+	
+	if( _canDo and "PipeBomb" in magazines player and cursorTarget isKindOf "LandVehicle" ) then {
+		if( !_hasToolbox ) exitWith { cutText ["You must have a toolbox to rig bombs!", "PLAIN DOWN"]; }; 
+		_nearPipe = nearestObject [player,"BAF_ied_v1"];
+		if( _nearPipe distance player < 2 ) then { 
+			exitWith { cutText ["You set a bomb off while trying to rig a bomb on this vehicle", "PLAIN DOWN"];
+			_bomb = _nearBomb select 0; 
+			_nearPipe = (getPos _bomb) nearObjects["PipeBomb", 1];
+			null = "HelicopterExploSmall" createVehicle (position _bomb); 
+			deleteVehicle _bomb; 	
+		} else {
+			if( (churchie_rig_veh < 0) ) then {
+				churchie_rig_veh = player addAction [("<t color=""#FF0000"">" + ("Rig engine to detonate on ignition") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [cursorTarget, 0], 5, false, true, ""
+				,"getDammage _target < 0.95"]; 
+			};
+		};			
+	} else { 
+		player removeAction churchie_rig_veh; 
+		churchie_rig_veh = -1; 
+	};
+	
 
 } else {
 	//Engineering
-	{dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;s_player_repairActions = [];
+	{
+	dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;
+	s_player_repairActions = [];
 	dayz_myCursorTarget = objNull;
 	//Others
 	player removeAction s_player_forceSave;
@@ -384,4 +432,11 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	s_player_warndog = -1;
 	player removeAction s_player_followdog;
 	s_player_followdog = -1;
+	// Below others near the bottom add:
+	player removeAction churchie_rig_veh; 
+	churchie_rig_veh = -1;
+	player removeAction churchie_check; 
+	churchie_check = -1;
+	player removeAction churchie_defuse; 
+	churchie_defuse = -1; 	
 };

@@ -226,6 +226,10 @@ a_player_cooking = false;
 a_player_boil = false;
 a_player_jerryfilling = false;
 a_player_repairing = false;
+churchie_defusing_started = false;
+churchie_explosion_set = false;
+churchie_explosion_checked = false;
+
 
 //Player self-action handles
 dayz_resetSelfActions = {
@@ -263,6 +267,9 @@ dayz_resetSelfActions = {
 	s_player_followdog = -1;
 	s_player_fillfuel20 = -1;
 	s_player_fillfuel5 = -1;
+	churchie_rig_veh = -1;
+	churchie_check = -1;
+	churchie_defuse = -1; 	
 };
 call dayz_resetSelfActions;
 
