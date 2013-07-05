@@ -10,11 +10,13 @@ class CfgPatches {
 
 class CfgVehicles {
 
+	class zZombie_Base;	// External class reference
+
 	// Man Skins
 	class TK_CIV_Worker01_EP1;	// External class reference
 	class TK_CIV_Worker02_EP1;	// External class reference
-	class Functionary1_EP1;	// External class reference
-	class INS_Lopotev;	// External class reference
+	class Villager1;	// External class reference
+	class GUE_Villager3;	// External class reference
 	class SchoolTeacher;	// External class reference
 	class Worker1;	// External class reference  NOT FOUND in cfgunbann
 	class Citizen3_EP1;	// External class reference
@@ -46,8 +48,8 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class Civilian3_DZ : Functionary1_EP1 {
-		displayName = "Civilian Functionay (brown)";
+	class Civilian3_DZ : Villager1 {
+		displayName = "Civilian Villager 1";
 		side = 1;
 		weapons[] = {"Throw","Put"};
 		backpack = "";
@@ -58,8 +60,8 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class Civilian4_DZ : INS_Lopotev {
-		displayName = "Civilian Lopotev";
+	class Civilian4_DZ : GUE_Villager3 {
+		displayName = "Civilian Villager 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
 		backpack = "";
@@ -210,20 +212,20 @@ class CfgVehicles {
 	};
 
 	// Bandit Level 1 Man
-	class GUE_Soldier_3;	// External class reference
+	class TK_Special_Forces_EP1;	// External class reference
 	// Bandit Level 2 Man
-	class GUE_Soldier_2;	// External class reference
+	class INS_Soldier_Sniper;	// External class reference
 	//Bandit Level 3 Man
-	class GUE_Soldier_Pilot;	// External class reference
-	class GUE_Soldier_1; // External class reference
+	class GUE_Soldier_1;	// External class reference
+	class FR_GL; // External class reference
 	//Bandit Level 4 Man
 	class TK_INS_Soldier_AT_EP1;	// External class reference
 	class TK_INS_Soldier_AAT_EP1; // External class reference
 	//Bandit Level 5 Man
-	class GUE_Commander;	// External class reference
-	class INS_Soldier_Sniper; // External class reference
+	class GUE_Soldier_3;	// External class reference
+	class TK_GUE_Soldier_EP1; // External class reference
 	
-	class Banditl11_DZ : GUE_Soldier_3 {
+	class Banditl11_DZ : TK_Special_Forces_EP1 {
 		displayName = "Bandit Level 1";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -235,7 +237,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class Banditl21_DZ : GUE_Soldier_2 {
+	class Banditl21_DZ : INS_Soldier_Sniper {
 		displayName = "Bandit Level 2";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -245,9 +247,10 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		faceType = "HeadMask1Black";
 	};
 	
-	class Banditl31_DZ : GUE_Soldier_Pilot {
+	class Banditl31_DZ : GUE_Soldier_1 {
 		displayName = "Bandit Level 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -259,7 +262,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class Banditl32_DZ : GUE_Soldier_1 {
+	class Banditl32_DZ : FR_GL {
 		displayName = "Bandit Level 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -269,6 +272,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		faceType = "HeadMask1Black";
 	};
 	
 	class Banditl41_DZ : TK_INS_Soldier_AT_EP1 {
@@ -295,7 +299,7 @@ class CfgVehicles {
 		canHideBodies = 1;
 	};
 	
-	class Banditl51_DZ : GUE_Commander {
+	class Banditl51_DZ : GUE_Soldier_3 {
 		displayName = "Bandit Level 5";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -305,9 +309,10 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		faceType = "HeadMask1Black";
 	};
 	
-	class Banditl52_DZ : INS_Soldier_Sniper {
+	class Banditl52_DZ : TK_GUE_Soldier_EP1 {
 		displayName = "Bandit Level 5";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -436,5 +441,114 @@ class CfgVehicles {
 		canHideBodies = 1;
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
-};
 
+	// Hero Level 1 Man
+	class TK_Soldier_Officer_EP1;	// External class reference
+	//Hero Level 2 Man
+	class CIV_Contractor2_BAF;	// External class reference
+	//Hero Level 3 Man
+	class CIV_Contractor1_BAF;	// External class reference
+	class GER_Soldier_TL_EP1; // External class reference
+	//Hero Level 4 Man
+	class CZ_Special_Forces_GL_DES_EP1;	// External class reference
+	class US_Delta_Force_EP1; // External class reference
+	//Hero Level 5 Man
+	class FR_R;	// External class reference
+	class FR_AR; // External class reference
+	
+	class Herol11_DZ : TK_Soldier_Officer_EP1 {
+		displayName = "Hero Level 1";
+		side = 1;
+		weapons[] = {"Throw","Put"};
+		backpack = "";
+		magazines[] = {};
+		respawnWeapons[] = {"Throw","Put"};
+		respawnMagazines[] = {};
+		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
+		canHideBodies = 1;
+	};
+	
+	class Herol21_DZ : CIV_Contractor2_BAF {
+		displayName = "Hero Level 2";
+		side = 1;
+		weapons[] = {"Throw","Put"};
+		backpack = "";
+		magazines[] = {};
+		respawnWeapons[] = {"Throw","Put"};
+		respawnMagazines[] = {};
+		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
+		canHideBodies = 1;
+	};
+	
+	class Herol31_DZ : CIV_Contractor1_BAF {
+		displayName = "Hero Level 3";
+		side = 1;
+		weapons[] = {"Throw","Put"};
+		backpack = "";
+		magazines[] = {};
+		respawnWeapons[] = {"Throw","Put"};
+		respawnMagazines[] = {};
+		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
+		canHideBodies = 1;
+	};
+	
+	class Herol32_DZ : GER_Soldier_TL_EP1 {
+		displayName = "Hero Level 3";
+		side = 1;
+		weapons[] = {"Throw","Put"};
+		backpack = "";
+		magazines[] = {};
+		respawnWeapons[] = {"Throw","Put"};
+		respawnMagazines[] = {};
+		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
+		canHideBodies = 1;
+	};
+	
+	class Herol41_DZ : CZ_Special_Forces_GL_DES_EP1 {
+		displayName = "Hero Level 4";
+		side = 1;
+		weapons[] = {"Throw","Put"};
+		backpack = "";
+		magazines[] = {};
+		respawnWeapons[] = {"Throw","Put"};
+		respawnMagazines[] = {};
+		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
+		canHideBodies = 1;
+	};
+	
+	class Herol42_DZ : US_Delta_Force_EP1 {
+		displayName = "Hero Level 4";
+		side = 1;
+		weapons[] = {"Throw","Put"};
+		backpack = "";
+		magazines[] = {};
+		respawnWeapons[] = {"Throw","Put"};
+		respawnMagazines[] = {};
+		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
+		canHideBodies = 1;
+	};
+	
+	class Herotl51_DZ : FR_AR {
+		displayName = "Hero Level 5";
+		side = 1;
+		weapons[] = {"Throw","Put"};
+		backpack = "";
+		magazines[] = {};
+		respawnWeapons[] = {"Throw","Put"};
+		respawnMagazines[] = {};
+		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
+		canHideBodies = 1;
+	};
+	
+	class Herol52_DZ : FR_AR {
+		displayName = "Hero Level 5";
+		side = 1;
+		weapons[] = {"Throw","Put"};
+		backpack = "";
+		magazines[] = {};
+		respawnWeapons[] = {"Throw","Put"};
+		respawnMagazines[] = {};
+		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
+		canHideBodies = 1;
+	};
+};
