@@ -331,9 +331,15 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 
 	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and !churchie_explosion_checked ) then { 
 		if( !_hasToolbox ) exitWith { cutText ["You must have a toolbox to check bombs!", "PLAIN DOWN"]; }; 
+				diag_log ("check churchie_check before: " +str(_nearPipe));
 				if( churchie_check < 0 ) then {
 					churchie_check = player addAction [("<t color=""#FF0000"">" + ("Check vehicle for bomb") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 3], 6, false, true, "","getDammage _target < 0.95"]; 
-				};
+					diag_log ("check churchie_check inside: " +str(churchie_check));
+				};			
+	} else { 
+		player removeAction churchie_check; 
+		diag_log ("rig churchie_check removed: " +str(churchie_check));
+		churchie_check = -1; 
 	};
 	
 	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle"  and churchie_explosion_checked ) then { 
@@ -349,28 +355,25 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		}; 
 	} else { 
 		player removeAction churchie_defuse; 
+		diag_log ("rig churchie_check removed: " +str(churchie_defuse));
 		churchie_defuse = -1; 
 	};
 	
 	if( _canDo and "PipeBomb" in magazines player and cursorTarget isKindOf "LandVehicle" ) then {
 		if( !_hasToolbox ) exitWith { cutText ["You must have a toolbox to rig bombs!", "PLAIN DOWN"]; }; 
-		_nearPipe = nearestObject [player,"BAF_ied_v1"];
-		if( _nearPipe distance player < 2 ) then { 
-			exitWith { cutText ["You set a bomb off while trying to rig a bomb on this vehicle", "PLAIN DOWN"];
-			_bomb = _nearBomb select 0; 
-			_nearPipe = (getPos _bomb) nearObjects["PipeBomb", 1];
-			null = "HelicopterExploSmall" createVehicle (position _bomb); 
-			deleteVehicle _bomb; 	
-		} else {
+			diag_log ("rig churchie_rig_veh inside: " +str(churchie_rig_veh));
 			if( (churchie_rig_veh < 0) ) then {
 				churchie_rig_veh = player addAction [("<t color=""#FF0000"">" + ("Rig engine to detonate on ignition") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [cursorTarget, 0], 5, false, true, ""
 				,"getDammage _target < 0.95"]; 
-			};
+				diag_log ("rig churchie_rig_veh after: " +str(churchie_rig_veh));
+	
 		};			
 	} else { 
 		player removeAction churchie_rig_veh; 
+		diag_log ("rig churchie_rig_veh removed: " +str(churchie_rig_veh));
 		churchie_rig_veh = -1; 
 	};
+
 	
 
 } else {
