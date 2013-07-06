@@ -370,6 +370,11 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		churchie_rig_veh = -1; 
 	};
 	
+	_typeOfVeh = typeOf _vehicle;
+	if( _typeOfVeh == "LandVehicle" ) then { _neonMenu = _vehicle getVariable["NeonMenu", false]; 
+	if( !_neonMenu ) then { _vehicle setVariable["NeonMenu", true, false]; neon = _vehicle addAction [("<t color=""#9900FF"">" + ("Neon!") + "</t>"),"\z\addons\dayz_code\compile\object_neon.sqf",[_vehicle],5,false,true,"","driver _target == _this && (daytime > 20 || daytime < 4)"]; }; 
+	}; 
+	
 
 } else {
 	//Engineering

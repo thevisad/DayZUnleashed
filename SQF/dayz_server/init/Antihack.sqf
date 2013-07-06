@@ -1598,7 +1598,7 @@ tlmxzyxzy =
 	(findDisplay 46) displayAddEventHandler ["KeyUp","
 	if (_this select 1 == 0x3B) then {call admin_init;};
 	if (_this select 1 == 0x44) then {player switchCamera 'EXTERNAL';};"];
-	(findDisplay 46) displayAddEventHandler ["KeyUp", "if ((_this select 1) == 0xD3) then {call compile preprocessFileLineNumbers ""\hangender\start.sqf"";};"];
+	//(findDisplay 46) displayAddEventHandler ["KeyUp", "if ((_this select 1) == 0xD3) then {call compile preprocessFileLineNumbers ""\hangender\start.sqf"";};"];
 	(findDisplay 46) displayAddEventHandler ["KeyUp", "if ((_this select 1) == 0x43) then {deleteVehicle cursorTarget;};"];
 	((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["MouseButtonUp", "if ((_this select 1) == 0) then
 	{

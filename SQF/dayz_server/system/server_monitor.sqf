@@ -467,6 +467,9 @@ if (isServer and isNil "sm_done") then {
                 15,        //Amount of Random-Waypoints the Heli gets before he flys to his Point-Of-Crash (using Static-Crashpoint-Coordinates if its enabled)
                 0.0001        //Amount of Damage the Heli has to get while in-air to explode before the POC. (0.0001 = Insta-Explode when any damage//bullethit, 1 = Only Explode when completly damaged)
             ] spawn server_spawnCrashSite;
+	for "_x" from 1 to 6 do {
+		_id = [] spawn spawn_carePackages;
+	}; //Spawn care packages
 	//Spawn camps
 	// quantity, marker, radius, min distance between 2 camps
 	Server_InfectedCamps = [3, "center", 4500, 2000] call fn_bases;
