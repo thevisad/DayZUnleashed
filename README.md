@@ -10,12 +10,7 @@ Current Version
  
 Files updated
 ------------
- - Dayz_code
- - Dayz_anim
- - Dayz_communityassets
- - Dayz_server (server admins only)
- - Mission (server admins only) (Prerequisites)
- - SQL Files (server admins only)
+ - All Files.
 
 Requirements
 ------------
