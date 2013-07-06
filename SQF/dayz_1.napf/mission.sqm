@@ -27,7 +27,10 @@ class Mission
 		"CAWheeled3_M1030",
 		"cawheeled_e_s1203",
 		"CAWheeled2_Ikarus",
-		"casounds"
+		"casounds",
+		"unleashed_pack",
+		"kpfs_uaz451",
+		"skins"
 	};
 	addOnsAuto[]=
 	{
@@ -1312,7 +1315,7 @@ class Mission
 		items=8;
 		class Item0
 		{
-			position[]={11970.759,289.37149,7951.7646};
+			position[]={10000.854,105.66483,10481.422};
 			name="center";
 			type="Empty";
 		};
@@ -1324,38 +1327,38 @@ class Mission
 		};
 		class Item2
 		{
-			position[]={7166.1348,13.789393,16553.063};
-			name="spawn0";
+			position[]={7542.877,17.383295,16927.354};
+			name="spawn0"; //lenzburg
 			type="Empty";
 		};
 		class Item3
 		{
 			position[]={3968.1118,2.9809463,14629.559};
-			name="spawn1";
+			name="spawn1"; //bubendorf
 			type="Empty";
 		};
 		class Item4
 		{
-			position[]={6060.0483,7.7480354,10598.909};
-			name="spawn2";
+			position[]={6115.6494,1.833617,11230.684};
+			name="spawn2"; //muttenz
 			type="Empty";
 		};
 		class Item5
 		{
 			position[]={13123.099,1.1891516,14795.524};
-			name="spawn3";
+			name="spawn3"; //luzern
 			type="Empty";
 		};
 		class Item6
 		{
-			position[]={10822.127,20.311024,19779.998};
-			name="spawn4";
+			position[]={9682.8477,3.2266052,17420.713};
+			name="spawn4"; //hafen
 			type="Empty";
 		};
 		class Item7
 		{
-			position[]={18421.305,12.554823,12933.644};
-			name="spawn5";
+			position[]={17464.238,5.3042312,13599.782};
+			name="spawn5"; //horw
 			type="Empty";
 		};
 	};

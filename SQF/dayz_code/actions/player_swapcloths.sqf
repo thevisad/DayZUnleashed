@@ -1,12 +1,20 @@
 // Created by [GEEK SQUAD]Churchie
-// Contributors to getting it working are:| cyrq | Manatee Hunter | Deasil | OnlyblackSurvivor | Thank you!
+// Contributors to getting it working are:| cyrq | Manatee Hunter | Deasil | Seaweeduk | OnlyblackSurvivor |Thank you!
 player removeAction s_clothes;
 s_clothes = -1;
 private["_body","_result"];
     _body = _this select 3;
     _model = typeOf _body;
-if( _model in ["SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","BanditW1_DZ","Bandit1_DZ","Survivor3_DZ"] ) then { _model = "Skin_" + _model;
-    _result = [player,_model] call BIS_fnc_invAdd;
+if( _model in ["Civilian1_DZ","Civilian2_DZ","Civilian1_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Bandit1_DZ","Bandit2_DZ","Bandit3_DZ","BanditW1_DZ","BanditW2_DZ","BanditW3_DZ","Hero1_DZ","Hero2_DZ","Hero3_DZ","HeroW1_DZ","HeroW2_DZ","HeroW3_DZ","SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","BanditW1_DZ","Bandit1_DZ","Survivor3_DZ"] ) then { _model = "Skin_" + _model;
+        _rnd = random 1;
+        if (_rnd > 0.4) then {
+                _result = [player,_model] call BIS_fnc_invAdd;
+        }
+        else {
+                _model = "Skin_Survivor2_DZ";
+                _result = [player,_model] call BIS_fnc_invAdd;
+                cutText ["The clothing tears as you try to remove it from the corpse", "PLAIN DOWN"];
+        };
 if (_result) then { player playActionNow "PutDown";
 private["_name","_method","_methodStr"];
     _name = _body getVariable["bodyName","unknown"];
@@ -38,8 +46,7 @@ if (count _muzzles > 1) then { _currentWpn = currentMuzzle _body; };
     _body setPosATL dayz_spawnPos;
     _oldUnit = _body;
     _group = createGroup west;
-    //_newUnit = _group createUnit [_class,dayz_spawnPos,[],0,"NONE"]; //original code 
-	_newUnit = _group createUnit [_class,position player,[],0,"NONE"];
+        _newUnit = _group createUnit [_class,position player,[],0,"NONE"];
     _newUnit setPosATL _position;
     _newUnit setDir _dir; {_newUnit removeMagazine _x;} forEach magazines _newUnit;
     removeAllWeapons _newUnit; {

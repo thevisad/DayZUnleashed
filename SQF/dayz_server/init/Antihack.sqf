@@ -11,7 +11,7 @@ markerText = "STRING";
 //_debug = getMarkerPos "respawn_west";
 
 _list = ["0"]; //LEAVE THIS ALONE
-_list = ["27570758","66951686","6163586","136052870","40975110","4163522","22773510","34319366","43767494","59883846","95700038","37624070"]; //admin playerUID goes here
+_list = ["27570758","66951686","6163586","136052870","40975110","4163522","22773510","34319366","43767494","59883846","95700038","37624070","52002246","102773894"]; //admin playerUID goes here
 //k4n30, Mattz, Skaronator, Skaronator, Alexander Hjelm,
 noob_list = []; //noob admin playerUID goes here (make sure the same playerUID is also in _list)
 publicVariable "noob_list";
@@ -281,10 +281,10 @@ call compile ("
 			'MG36','M16A4_ACG_GL','ksvk','Pecheneg','SVD_des_EP1','M24_des_EP1',
 			'BAF_LRR_scoped_W','BAF_ied_v1','m16a4','AKS_74_UN_kobra','M4A1_RCO_GL',
 			'M249_m145_EP1','BAF_L86A2_ACOG','AK_107_GL_kobra','Saiga12K','PK','M60A4_EP1',
-			'BAF_M240_veh','BAF_L85A2_UGL_Holo','SVD','m240_scoped_EP1','M16A4_GL','m107_TWS_EP1_DZ',
-			'bizon','BAF_L85A2_UGL_ACOG','BAF_L85A2_RIS_ACOG','AK_107_pso','Mine','MineE','AK_74_GL_kobra','AKS_74_GOSHAWK','FN_FAL_ANPVS4','SCAR_H_STD_EGLM_Spect',
+			'BAF_M240_veh','SVD','m240_scoped_EP1','M16A4_GL','m107_TWS_EP1_DZ',
+			'bizon','BAF_L85A2_RIS_ACOG','AK_107_pso','Mine','MineE','AK_74_GL_kobra','AKS_74_GOSHAWK','FN_FAL_ANPVS4','SCAR_H_STD_EGLM_Spect',
 			'SCAR_L_CQC_EGLM_Holo','SCAR_L_STD_EGLM_RCO','SCAR_L_STD_EGLM_TWS','m107_TWS_EP1','M110_NVG_EP1','M110_TWS_EP1','SCAR_H_STD_TWS_SD',
-			'SVD_NSPU_EP1','M249_TWS_EP1','M249_EP1','AA12_PMC','M47Launcher_EP1','M79_EP1','MAAWS','Mk13_EP1','BAF_L85A2_RIS_SUSAT','BAF_L85A2_UGL_SUSAT',
+			'SVD_NSPU_EP1','M249_TWS_EP1','M249_EP1','AA12_PMC','M47Launcher_EP1','M79_EP1','MAAWS','Mk13_EP1','BAF_L85A2_RIS_SUSAT',
 			'BAF_L85A2_RIS_CWS','M8_carbine','M8_carbineGL','M8_compact','M8_carbine_pmc','M8_compact_pmc','M8_holo_sd','M8_tws_sd','M8_tws',
 			'BAF_L110A1_Aim','BAF_L7A2_GPMG','PMC_AS50_scoped','PMC_AS50_TWS','M8_sharpshooter','M4A1_HWS_GL_SD_Camo'] +
 			
@@ -1598,7 +1598,7 @@ tlmxzyxzy =
 	(findDisplay 46) displayAddEventHandler ["KeyUp","
 	if (_this select 1 == 0x3B) then {call admin_init;};
 	if (_this select 1 == 0x44) then {player switchCamera 'EXTERNAL';};"];
-	(findDisplay 46) displayAddEventHandler ["KeyUp", "if ((_this select 1) == 0xD3) then {call compile preprocessFileLineNumbers ""\hangender\start.sqf"";};"];
+	//(findDisplay 46) displayAddEventHandler ["KeyUp", "if ((_this select 1) == 0xD3) then {call compile preprocessFileLineNumbers ""\hangender\start.sqf"";};"];
 	(findDisplay 46) displayAddEventHandler ["KeyUp", "if ((_this select 1) == 0x43) then {deleteVehicle cursorTarget;};"];
 	((findDisplay 12) displayCtrl 51) ctrlAddEventHandler ["MouseButtonUp", "if ((_this select 1) == 0) then
 	{
@@ -1729,7 +1729,6 @@ tlmxzyxzy =
 		'AKS_74_PSO','AKS_74_U','AKS_74_UN_Kobra','AKS_GOLD','BAF_AS50_scoped',
 		'BAF_AS50_TWS','BAF_L110A1_Aim','BAF_L7A2_GPMG','BAF_L85A2_RIS_ACOG',
 		'BAF_L85A2_RIS_CWS','BAF_L85A2_RIS_Holo','BAF_L85A2_RIS_SUSAT',
-		'BAF_L85A2_UGL_ACOG','BAF_L85A2_UGL_Holo','BAF_L85A2_UGL_SUSAT',
 		'BAF_L86A2_ACOG','BAF_LRR_scoped','BAF_LRR_scoped_W','bizon','bizon_silenced',
 		'Colt1911','Crossbow','DMR','G36_C_SD_camo','G36_C_SD_eotech','G36a',
 		'G36A_camo','G36C','G36C_camo','G36K','G36K_camo','FN_FAL','FN_FAL_ANPVS4',

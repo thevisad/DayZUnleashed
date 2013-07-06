@@ -6,7 +6,7 @@ _worldspace = 	_this select 2;
 _class = 		_this select 3;
 
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
-
+_combination = 0;
 if (!(_object isKindOf "Building")) exitWith {
 	deleteVehicle _object;
 };
@@ -19,7 +19,8 @@ if (!_allowed) exitWith { };
 _uid = _worldspace call dayz_objectUID2;
 
 //Send request
-_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance, _class, 0 , _charID, _worldspace, [], [], 0,_uid];
+if (_object isKindOf "TentStorage") then { _combination = floor(random 899) + 100;} else {_combination = 10000;};
+_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:",dayZ_instance, _class, 0 , _charID, _worldspace, [], [], 0,_uid,_combination];
 //diag_log ("HIVE: WRITE: "+ str(_key));
 _key call server_hiveWrite;
 
@@ -32,5 +33,5 @@ if (_object isKindOf "TentStorage") then {
 dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];
 
 #ifdef OBJECT_DEBUG
-diag_log ("PUBLISH: Created " + (_class) + " with ID " + _uid);
+diag_log ("PUBLISH: Created " + (_class) + " with ID " + _uid + " and a combination of " + str(_combination) );
 #endif

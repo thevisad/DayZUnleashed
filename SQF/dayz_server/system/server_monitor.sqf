@@ -195,7 +195,7 @@ diag_log "HIVE: Starting";
 	// # END OF STREAMING #
 */
 waituntil{isNil "sm_done"}; // prevent server_monitor be called twice (bug during login of the first player)
-
+call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_initserver.sqf";
 #include "\z\addons\dayz_server\compile\fa_hiveMaintenance.hpp"
 
 if (isServer and isNil "sm_done") then {
@@ -245,6 +245,9 @@ if (isServer and isNil "sm_done") then {
 		_hitpoints=	if ((typeName (_x select 6)) == "ARRAY") then { _x select 6 } else { [] };
 		_fuel =	if ((typeName (_x select 7)) == "SCALAR") then { _x select 7 } else { 0 };
 		_damage = if ((typeName (_x select 8)) == "SCALAR") then { _x select 8 } else { 0.9 };  
+		_combination =	_x select 3;
+
+		//["OBJ","230","TentStorage","913",[61,[15334,15599.7,0.005]],[[[],[]],[[],[]],[[],[]]],[],0.0,0.0,626]
 		_entity = nil;
 	
 		_dir = floor(random(360));
@@ -395,12 +398,19 @@ if (isServer and isNil "sm_done") then {
 	
 			// UPDATE MODIFIED OBJECTS TO THE HIVE 
 			if (_action == "CREATED") then {
+				if (_class == "TentStorage") then { 
+						_combination = floor(random 999); 
+					} else {
+					_combination = 0;
+					};
+				
+				diag_log ("combination of " + str(_combination) + " was used");
 				// insert className damage characterId  worldSpace inventory  hitPoints  fuel uniqueId  
-				_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:", dayZ_instance, 
+				_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:", dayZ_instance, 
 					_class, _damage , 1, 
 					[_dir, _point], 
 					[getWeaponCargo _entity, getMagazineCargo _entity ,getBackpackCargo _entity], 
-					_hitpoints, _fuel, _ObjectID
+					_hitpoints, _fuel, _ObjectID, _combination
 				];
 				//diag_log (_key);
 				_rawData = "HiveEXT" callExtension _key;
@@ -440,8 +450,26 @@ if (isServer and isNil "sm_done") then {
 	allowConnection = true;
 
 	// [_guaranteedLoot, _randomizedLoot, spawnOnStart, _frequency, _variance, _spawnChance, _spawnMarker, _spawnRadius, _spawnFire, _fadeFire]
-	[3, 4, 3, (40 * 60), (15 * 60), 0.75, 'center', 4000, true, false] spawn server_spawnCrashSite;
-	
+	//[3, 4, 3, (40 * 60), (15 * 60), 0.75, 'center', 4000, true, false] spawn server_spawnCrashSite;
+	//Animated Helicrash
+	// [_guaranteedLoot, _randomizedLoot, _frequency, _variance, _spawnChance, _spawnMarker, _spawnRadius, _spawnFire, _fadeFire, _useStatic, _preWaypoint, _crashDamage]
+	nul =    [
+                6,        //Number of the guaranteed Loot-Piles at the Crashside
+                4,        //Number of the random Loot-Piles at the Crashside 3+(1,2,3 or 4)
+                1800,    //Fixed-Time (in seconds) between each start of a new Chopper
+                900,      //Random time (in seconds) added between each start of a new Chopper
+                1,        //Spawnchance of the Heli (1 will spawn all possible Choppers, 0.5 only 50% of them)
+                'center', //Center-Marker for the Random-Crashpoints, for Chernarus this is a point near Stary
+                4000,    //Radius in Meters from the Center-Marker in which the Choppers can crash and get waypoints
+                true,    //Should the spawned crashsite burn (at night) & have smoke?
+                false,    //Should the flames & smoke fade after a while?
+                true,    //Use the Static-Crashpoint-Function? If true, you have to add Coordinates into server_spawnCrashSite.sqf
+                15,        //Amount of Random-Waypoints the Heli gets before he flys to his Point-Of-Crash (using Static-Crashpoint-Coordinates if its enabled)
+                0.0001        //Amount of Damage the Heli has to get while in-air to explode before the POC. (0.0001 = Insta-Explode when any damage//bullethit, 1 = Only Explode when completly damaged)
+            ] spawn server_spawnCrashSite;
+	for "_x" from 1 to 6 do {
+		_id = [] spawn spawn_carePackages;
+	}; //Spawn care packages
 	//Spawn camps
 	// quantity, marker, radius, min distance between 2 camps
 	Server_InfectedCamps = [3, "center", 4500, 2000] call fn_bases;
@@ -450,7 +478,52 @@ if (isServer and isNil "sm_done") then {
 
 	// antiwallhack
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_antiwallhack.sqf";
-	
+
+	if (isServer and isNil "sm_done") then {
+		private["_j","_key","_buildingArray","_buildingCount","_bldCount","_hivebuildingresponse"];
+		_buildingArray = [];
+		diag_log("SERVER: Fetching buildings...");
+		for "_j" from 1 to 5 do {
+			_key = format["CHILD:301:%1:", dayZ_instance];
+			_hiveBuildingResponse = _key call server_hiveReadWrite;  
+			diag_log ("HIVE: select 1 "+str(_hiveBuildingResponse select 1) );
+			diag_log ("HIVE: response "+str( typeName _hiveBuildingResponse ) );
+			if ((((isnil "_hiveBuildingResponse") || {(typeName _hiveBuildingResponse != "ARRAY")}) || {((typeName (_hiveBuildingResponse select 1)) != "SCALAR")}) || {(_hiveBuildingResponse select 1 > 2000)}) then {
+				diag_log ("HIVE: buildings connection problem... HiveExt response:"+str(_hiveBuildingResponse));
+				_hiveBuildingResponse = ["",0];
+			} 
+			else {
+				diag_log ("HIVE: found "+str(_hiveBuildingResponse select 1)+" buildings" );
+				_j = 99; // break
+			};
+		};
+		
+		_bldCount = 0;
+		if ((_hiveBuildingResponse select 0) == "ObjectStreamStart") then {
+			_buildingCount = _hiveBuildingResponse select 1;
+			diag_log ("SERVER: _buildingCount " + str(_buildingCount));
+			for "_j" from 1 to _buildingCount do { 
+				_hiveBuildingResponse = _key call server_hiveReadWrite;
+				diag_log ("SERVER: building _hiveBuildingResponse " + str(_hiveBuildingResponse));
+				_result = call compile format ["%1",_hiveBuildingResponse];
+				diag_log ("SERVER: building _result " + str(_result));
+
+				_pos = call compile (_result select 1);
+				diag_log ("SERVER: building _pos 1 " + str(_pos));
+				_dir = _pos select 0;
+				_pos = _pos select 1;
+				
+				diag_log ("SERVER: building _dir " + str(_dir));
+				diag_log ("SERVER: building _pos 2 " + str(_pos));
+				_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
+				_building = createVehicle [_result select 0, _pos, [], 0, "CAN_COLLIDE"];
+				diag_log ("SERVER: createVehicle _building " + str(_building));
+				_building setDir _dir;
+				_bldCount = _bldCount + 1;
+			};
+			diag_log ("SERVER: Spawned " + str(_bldCount) + " buildings!");
+		}; 
+	};		
 	sm_done = true;
 	publicVariable "sm_done";
 };
