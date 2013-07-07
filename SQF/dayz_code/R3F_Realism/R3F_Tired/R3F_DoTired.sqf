@@ -76,13 +76,20 @@ while {true} do {
 		_level = ((R3F_TIRED_Accumulator / R3F_TIRED_BLACKOUT_LEVEL) *  100);
 		_level = 0 max (1 - (_level / 100));
 		
-		#ifdef R3F_TIRED_DEBUG
-			hintsilent format["Fatique : %1/%2\nBlack level : %3\nPoids total : %4\n Poids armement : %5",
-				R3F_TIRED_Accumulator,
-				R3F_TIRED_BLACKOUT_LEVEL,
-				_level,
-				R3F_TIRED_POIDS_TOTAL_PLAYER,
-				R3F_Weight];
+		//#ifdef R3F_TIRED_DEBUG
+			//#hintsilent format["Fatique : %1/%2", R3F_TIRED_Accumulator, R3F_TIRED_BLACKOUT_LEVEL];
+		//#endif
+		
+		
+		#ifdef DAYZ_WEIGHT
+		_knackered = 50000;
+			if (alive player && R3F_TIRED_Accumulator > _knackered) then {
+			dayz_weight = 1;
+			playSound "weight_1";
+			playSound "heartbeat_1";
+			} else {
+			dayz_weight = 0;
+			};
 		#endif
 		
 		[_voil, _level] call R3F_TIRED_FNCT_Voile_Noir;

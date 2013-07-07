@@ -33,7 +33,8 @@ R3F_WEIGHT_FNCT_GetItemWeight = {
 	_arr_class = (_this select 0) + (_this select 1);
 	_total_weight = 0;
 	_weight = 0;
-	CfgWeight = missionConfigFile >> "CfgWeight";
+	//CfgWeight = missionConfigFile >> "CfgWeight";
+	CfgWeight = ConfigFile >> "CfgWeight";
 	{
 		if(isclass(CfgWeight >> "Weapons" >> _x)) then {
 			_weight = getNumber(CfgWeight >> "Weapons" >> _x >> "weight");

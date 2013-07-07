@@ -22,4 +22,4 @@ R3F_TIRED_Counter_Time = 0;
 R3F_TIRED_Ratio_Recovery = R3F_TIRED_RATIO_RECOVERING;
 R3F_TIRED_Ratio_Overweight = 1;
 
-_void = [] execVM "\z\addons\dayz_code\R3F_Realism\R3F_Tired\R3F_DoTired.sqf";
+_void = [] execVM "\z\addons\dayz_code\R3F_realism\R3F_Tired\R3F_DoTired.sqf";

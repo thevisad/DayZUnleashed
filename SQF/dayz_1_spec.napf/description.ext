@@ -1,6 +1,4 @@
 #include "gcam\gcam_component.hpp"
-//Added R3F_Realism Code
-#include "\z\addons\dayz_code\R3F_Realism\R3F_Weight\R3F_CfgWeight.h"
 
 respawn = "BASE";
 respawndelay = 5;

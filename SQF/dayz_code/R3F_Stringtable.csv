@@ -8,5 +8,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 @date 20101006
 *****************************************************************************/
 
-#include "\z\addons\dayz_code\R3F_Realism\R3F_Weight\R3F_WEIGHT_Stringtable.csv"
+R3F_VERSION_WEIGHTED, "1.04", "1.04"
+STR_R3F_WEIGHT_InGearBox, "%1 | Weight carried : %2 lb", "%1 | Poids transporté : %2 Kg"
+STR_R3F_WEIGHT_English, "lb", "Kg"
 
