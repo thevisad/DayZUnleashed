@@ -107,6 +107,13 @@ if (!isDedicated) then {
 	onPreloadFinished "dayz_preloadFinished = true;";
 	infectedcamps = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\object_infectedcamps.sqf";
 	camp_spawnZombies = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\camp_spawnZombies.sqf";			//Server compile, used for loiter behaviour
+	
+	//Base Building 1.2 specific compiles
+	player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_build.sqf"; 		// This overwrites default dayz building mechanic
+	antiWall = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\antiWall.sqf";				// This prevents players from exiting vehicles to get into bases
+	anti_discWall = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\anti_discWall.sqf";	// This prevents players from driving into a wall and disconnecting to get into bases
+	refresh_build_recipe_dialog = compile preprocessFileLineNumbers "\z\addons\dayz_code\buildRecipeBook\refresh_build_recipe_dialog.sqf"; 				// Builder menu dialog functionality
+	refresh_build_recipe_list_dialog = compile preprocessFileLineNumbers "\z\addons\dayz_code\buildRecipeBook\refresh_build_recipe_list_dialog.sqf"; 	// Builder Menu dialog list
 
 	//Crafting
 	//player_craftItem = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_craftItem.sqf";
