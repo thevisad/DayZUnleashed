@@ -75,6 +75,8 @@ if ((!isServer) && (player != player)) then
 
 if (isServer) then {
 	_serverMonitor = [] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
+	// Added R3F_Realism Code
+	_void = [] execVM "\z\addons\dayz_code\R3F_Realism\R3F_Realism_Init.sqf";
 	"PVDZ_sec_atp" addPublicVariableEventHandler { diag_log format["%1", _this select 1];};
 };
 
