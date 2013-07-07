@@ -258,7 +258,7 @@ class CfgWeight
 		};
 		class M4A1_Aim_camo
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M4A1_Aim
 		{
