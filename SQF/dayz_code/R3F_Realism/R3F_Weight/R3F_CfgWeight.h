@@ -949,10 +949,6 @@ class CfgWeight
 		{
 			weight = 0.25;
 		};
-		class 5x_22_LR_17_HMR
-		{
-			weight = 0.25;
-		};
 		class 2Rnd_shotgun_74Slug
 		{
 			weight = 0.1;
@@ -965,55 +961,7 @@ class CfgWeight
 		{
 			weight = 0.2;
 		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		
-		
-		
-		
+			
 		class FlareWhite_GP25
 		{
 			weight = 10000;
