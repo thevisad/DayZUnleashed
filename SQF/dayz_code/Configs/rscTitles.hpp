@@ -1476,6 +1476,16 @@ class RscTitles
 				w = 0.06;
 				h = 0.08;
 			};
+			//Weight System
+			class RscPicture_1209 : RscPictureGUI {
+				idc = 1209;
+				text = "\z\addons\dayz_code\gui\status_weight_inside_ca.paa";
+				x = "0.955313 * safezoneW + safezoneX";
+				y = "0.58 * safezoneH + safezoneY";
+				w = 0.06;
+				h = 0.08;
+			}; 
+
 			class RscPicture_1501: RscPictureGUI
 			{
 				idc = 1501;
@@ -1568,6 +1578,15 @@ class RscTitles
 				w = 0.06;
 				h = 0.08;
 			};
+			// Weight System #1
+			class RscPicture_1309 : RscPictureGUI {
+				idc = 1309;
+				text = "\z\addons\dayz_code\gui\status_weight_border_ca.paa";
+				x = "0.955313 * safezoneW + safezoneX";
+				y = "0.58 * safezoneH + safezoneY";
+				w = 0.06;
+				h = 0.08;
+			}; 
 			class RscPicture_1701: RscPictureGUI
 
 			{

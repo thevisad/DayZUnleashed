@@ -15,6 +15,9 @@
 
 #include "Configs\basicDefines.hpp"
 
+//Weight System
+#include "R3F_CfgWeight.h" 
+
 //#include "Configs\CfgWorlds.hpp"
 #include "Configs\rscTitles.hpp"
 #include "Configs\CfgMoves.hpp"

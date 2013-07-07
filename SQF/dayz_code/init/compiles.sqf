@@ -167,6 +167,12 @@ if (!isDedicated) then {
 		_myExp = _myExp * 0.7;
 		_myExp
 	};
+	
+	//weight system
+  if (!isDedicated) then
+    {
+    _void = [] execVM "\z\addons\dayz_code\R3F_Realism\R3F_Realism_Init.sqf";
+    }; 
 
 	ui_initDisplay = {
 		private["_control","_ctrlBleed","_display","_ctrlFracture","_ctrlDogFood","_ctrlDogWater","_ctrlDogWaterBorder", "_ctrlDogFoodBorder"];
