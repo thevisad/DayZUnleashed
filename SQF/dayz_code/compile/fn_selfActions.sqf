@@ -357,6 +357,16 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		player removeAction s_player_sleep;
 		s_player_sleep = -1;
 	};
+	
+	//Burning tent
+	if(cursorTarget isKindOf "TentStorage" and _canDo and _hasMatches) then {
+		if ((s_player_burntent < 0) and (player distance cursorTarget < 3)) then {
+		s_player_burntent = player addAction [("<t color=""#ff0000"">" + ("Burn Tent") +"</t>"), "dayz_code\actions\tent_burn.sqf",cursorTarget, 0, false, true, "",""];
+		};
+	} else {
+		player removeAction s_player_burntent;
+		s_player_burntent = -1;
+	};
 
 	//Repairing Vehicles
 	if ((dayz_myCursorTarget != cursorTarget) and _isVehicle and !_isMan and _hasToolbox and (damage cursorTarget < 1)) then {
