@@ -29,6 +29,8 @@
 #include "Configs\CfgAmmo.hpp"
 #include "Configs\CfgObjectCompositions.hpp"
 #include "Configs\CfgTownGenerator\CfgTownGeneratorUnleashed.hpp"
+#include "Configs\build_recipe_dialog.hpp"
+#include "Configs\build_recipe_list_dialog.hpp"
 
 class CfgPatches {
 	class dayz_code {

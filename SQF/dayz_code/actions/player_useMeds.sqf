@@ -16,6 +16,9 @@ switch (_item) do {
 	case "ItemBandage": {
 		_id = [0,0,0,[player]] execVM "\z\addons\dayz_code\medical\bandage.sqf";
 	};
+	case "ToiletBandage": {
+		_id = [0,0,0,[player]] execVM "\z\addons\dayz_code\medical\toiletbandage.sqf";
+	};
 	case "ItemMorphine": {
 		_id = [0,0,0,[player]] execVM "\z\addons\dayz_code\medical\morphine.sqf";
 	};

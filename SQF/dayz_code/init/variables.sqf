@@ -232,6 +232,28 @@ churchie_explosion_checked = false;
 churchie_vehicle_checked = 0;
 
 
+//BaseBuilding
+//Strings
+globalSkin 			= "";
+//Arrays
+allbuildables_class = [];
+allbuildables 		= [];
+allbuild_notowns 	= [];
+allremovables 		= [];
+wallarray 			= [];
+structures			= [];
+CODEINPUT 			= [];
+keyCode 			= [];
+//Booleans
+remProc 			= false;
+hasBuildItem 		= false;
+rem_procPart 		= false;
+repProc 			= false;
+keyValid 			= false;
+procBuild 			= false;
+currentBuildRecipe 	= 0;
+removeObject		= false;
+
 //Player self-action handles
 dayz_resetSelfActions = {
 	s_player_dragbody = -1;

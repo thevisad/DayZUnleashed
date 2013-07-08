@@ -29,6 +29,7 @@ class Mission
 		"CAWheeled2_Ikarus",
 		"casounds",
 		"unleashed_pack",
+		"unleashed_equip",
 		"kpfs_uaz451",
 		"skins"
 	};
