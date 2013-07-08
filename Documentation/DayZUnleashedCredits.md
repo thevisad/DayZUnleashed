@@ -34,7 +34,7 @@ These contributors are part of the team and help out constantly.
 ------------------------
 Special thanks.
 ------------------------
- * 
+ * Everyone who helped out in any way
  * 
  * 
 
