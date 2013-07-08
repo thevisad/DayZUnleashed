@@ -39,7 +39,7 @@ class ItemTrashToiletpaper : CA_Magazine {
 
 	
 
-	class ItemBandage;
+
 	class ItemTrashToiletpaper : ItemBandage{
 		scope = public;
 		count = 1;
