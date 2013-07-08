@@ -92,7 +92,7 @@ class ItemTrashToiletpaper : CA_Magazine {
 				};
 				output[]=
 				{
-					"ItemBandage"
+					"TolietBandage"
 				};
 			};
 

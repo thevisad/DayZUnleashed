@@ -387,7 +387,7 @@ if((speed player <= 1) && hasSecondary && _canDo) then {
 };
 */
 // ---------------------------------------SUICIDE------------------------------------
-
+/*
 	//Repairing Vehicles
 	if ((dayz_myCursorTarget != cursorTarget) and _isVehicle and !_isMan and _hasToolbox and (damage cursorTarget < 1)) then {
 		_vehicle = cursorTarget;
@@ -428,7 +428,82 @@ if((speed player <= 1) && hasSecondary && _canDo) then {
 		if (_allFixed) then {
 			_vehicle setDamage 0;
 		};
+	};*/
+
+	//Repairing Vehicles / Remove Parts from Vehicle
+	if ((dayz_myCursorTarget != cursorTarget) and !_isMan and _hasToolbox and (damage cursorTarget < 1)) then {
+		_vehicle = cursorTarget;
+		_totpa = ["HitFuel","HitEngine","HitLFWheel","HitRFWheel","HitLBWheel","HitRBWheel","HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGlass6","HitHRotor"];
+		if ((_vehicle isKindOf "Truck") or (_newCuTyp == "rth_amphicar") or (_newCuTyp == "rth_ScrapApc")) then { _totpa set [count _totpa,"HitLMWheel"]; _totpa set [count _totpa,"HitRMWheel"]; };
+		{dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;s_player_repairActions = [];
+		dayz_myCursorTarget = _vehicle;
+		//diag_log format ["SizeOfCAR = %1", sizeOf (typeOf cursorTarget)];
+		_nextVehicle = (_vehicle isKindOf "Motorcycle") or (_vehicle isKindOf "Tractor");
+		_allFixed = true;
+		_hitpoints = _vehicle call vehicle_getHitpoints;
+		
+		{
+			_damage = [_vehicle,_x] call object_getHit;
+			_part = "PartGeneric";
+			
+			//change "HitPart" to " - Part" rather than complicated string replace
+			_cmpt = toArray (_x);
+			_cmpt set [0,20];
+			_cmpt set [1,toArray ("-") select 0];
+			_cmpt set [2,20];
+			_cmpt = toString _cmpt;
+				
+			if(["Engine",_x,false] call fnc_inString) then {
+				_part = "PartEngine";
+			};
+					
+			if(["HRotor",_x,false] call fnc_inString) then {
+				_part = "PartVRotor";
+			};
+
+			if(["Fuel",_x,false] call fnc_inString) then {
+				_part = "PartFueltank";
+			};
+			
+			if(["Wheel",_x,false] call fnc_inString) then {
+				_part = "PartWheel";
+
+			};
+					
+			if(["Glass",_x,false] call fnc_inString) then {
+				_part = "PartGlass";
+			};
+
+			// get every damaged part no matter how tiny damage is!
+			_damagePercent = round((1 - _damage) * 100);
+			if (_damage > 0) then {
+				
+				_allFixed = false;
+				_color = "color='#ffff00'"; //yellow
+				if (_damage >= 0.5) then {_color = "color='#ff8800'";}; //orange
+				if (_damage >= 0.9) then {_color = "color='#ff0000'";}; //red
+				_cmpt = _cmpt + " Status: " + str(_damagePercent) + "%";
+				_string = format["<t %2>Repair%1</t>",_cmpt,_color]; //Repair - Part
+				_handle = dayz_myCursorTarget addAction [_string, "\z\addons\dayz_code\actions\repair.sqf",[_vehicle,_part,_x], 0, false, true, "",""];
+				s_player_repairActions set [count s_player_repairActions,_handle];
+
+			};
+
+			if ( (_damage < 0.15) and (_x in _totpa) and !_nextVehicle and (_part != "PartGlass")) then {
+				_allFixed = false;
+				_color = "color='#00baff'"; //blue
+				_string = format["<t %2>Remove %1 part</t>",_cmpt,_color]; //Remove - Part
+				_handle = dayz_myCursorTarget addAction [_string, "\z\addons\dayz_code\actions\salvage.sqf",[_vehicle,_part,_x], 0, false, true, "",""];
+				s_player_repairActions set [count s_player_repairActions,_handle];
+			};
+					
+		} forEach _hitpoints;
+		if (_allFixed) then {
+			_vehicle setDamage 0;
+		};
 	};
+
+
 	/*
 	if (_isMan and !_isAlive) then {
 		if (s_player_dragbody < 0) then {
