@@ -4,7 +4,8 @@ scriptName "Functions\misc\fn_selfActions.sqf";
 	- Function
 	- [] call fnc_usec_selfActions;
 ************************************************************/
-private["_isStash","_vehicle","_inVehicle","_bag","_classbag","_isWater","_hasAntiB","_hasFuelE","_hasFuel5","_hasbottleitem","_hastinitem","_hasKnife","_hasToolbox","_hasTent","_onLadder","_nearLight","_canPickLight","_canDo","_text","_isHarvested","_isVehicle","_isVehicletype","_isMan","_ownerID","_isAnimal","_isDog","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_canmove","_rawmeat","_hasRawMeat","_allFixed","_hitpoints","_damage","_part","_cmpt","_damagePercent","_color","_string","_handle","_dogHandle","_lieDown","_warn","_dog","_speed"];
+private["_menClose","_hasBandage","_hasEpi","_hasMorphine","_hasBlood","_vehicle","_inVehicle","_color","_part"];
+private["_SilverMenu_ActionAdded","_vehicle","_inVehicle","_bag","_classbag","_isWater","_hasAntiB","_hasFuelE","_hasFuelBE","_hasRawMeat","_hasKnife","_hasToolbox","_hasTent","_onLadder","_nearLight","_mbBackpacks","_nearBackpacks","_nearPlayerB","_playerID","_canPickLight","_canRest","_nextVehicle","_shwmsg","_newCuTyp","_isOwnerName","_newTypeB","_keep2","_typedeP","_nameKillerP","_canDo","_text","_ownerID","_maxbbLevel","_levelhouse","_naObnovku","_nextlvl","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_isCruse","_object","_nummsg","_takemes","_maxbbLevelt","_isUpsideDown","_notManned","_mates","_totpa","_allFixed","_hitpoints","_damage","_part","_cmpt","_damagePercent","_color","_string","_handle","_cfg","_tc","_mt","_mti","_nameClass1","_st","_statuss","_stname","_hasMatches"];
 
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
@@ -27,6 +28,8 @@ _hastinitem = false;
 
 _hasKnife = "ItemKnife" in items player;
 _hasToolbox = "ItemToolbox" in items player;
+_hasMatches = "ItemMatchbox" in items player;
+
 //_hasTent = "ItemTent" in items player;
 _onLadder = (getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _nearLight = nearestObject [player,"LitObject"];
@@ -145,6 +148,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	_isAlive = alive cursorTarget;
 	_canmove = canmove cursorTarget;
 	_text = getText (configFile >> "CfgVehicles" >> typeOf cursorTarget >> "displayName");
+	
 
 	_rawmeat = meatraw;
 	_hasRawMeat = false;
@@ -339,7 +343,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	};
 
 	//Packing my tent
-	if(cursorTarget isKindOf "TentStorage" and _canDo and _ownerID == dayz_characterID) then {
+	if(cursorTarget isKindOf "TentStorage" and _canDo/* and _ownerID == dayz_characterID*/) then {
 		if ((s_player_packtent < 0) and (player distance cursorTarget < 3)) then {
 			s_player_packtent = player addAction [localize "str_actions_self_07", "\z\addons\dayz_code\actions\tent_pack.sqf",cursorTarget, 0, false, true, "",""];
 		};
@@ -361,7 +365,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	//Burning tent
 	if(cursorTarget isKindOf "TentStorage" and _canDo and _hasMatches) then {
 		if ((s_player_burntent < 0) and (player distance cursorTarget < 3)) then {
-		s_player_burntent = player addAction [("<t color=""#ff0000"">" + ("Burn Tent") +"</t>"), "\z\addons\actions\tent_burn.sqf",cursorTarget, 0, false, true, "",""];
+		s_player_burntent = player addAction [("<t color=""#ff0000"">" + ("Burn Tent") +"</t>"), "\z\addons\dayz_code\actions\tent_burn.sqf",cursorTarget, 0, false, true, "",""];
 		};
 	} else {
 		player removeAction s_player_burntent;
@@ -369,7 +373,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	};
 	
 	// ---------------------------------------SUICIDE------------------------------------
-/*
+
 private ["_handGun"];
 _handGun = currentWeapon player;
 if ((_handGun in ["glock17_EP1","M9","M9SD","Makarov","MakarovSD","revolver_EP1","UZI_EP1","Sa61_EP1","Colt1911"]) && (player ammo _handGun > 0)) then {
@@ -385,8 +389,9 @@ if((speed player <= 1) && hasSecondary && _canDo) then {
 	player removeAction s_player_suicide;
 	s_player_suicide = -1;
 };
-*/
+
 // ---------------------------------------SUICIDE------------------------------------
+
 /*
 	//Repairing Vehicles
 	if ((dayz_myCursorTarget != cursorTarget) and _isVehicle and !_isMan and _hasToolbox and (damage cursorTarget < 1)) then {
@@ -636,6 +641,8 @@ if((speed player <= 1) && hasSecondary && _canDo) then {
 
 } else {
 	//Engineering
+	
+	//Extras
 	{
 	dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;
 	s_player_repairActions = [];
@@ -697,6 +704,10 @@ if((speed player <= 1) && hasSecondary && _canDo) then {
 	s_player_fillfuel20 = -1;
 	player removeAction s_player_fillfuel5;
 	s_player_fillfuel5 = -1;
+	
+	//Remove Parts
+	{silver_myCursorTarget removeAction _x} forEach s_player_removeActions;s_player_removeActions = [];
+	silver_myCursorTarget = objNull;
 
 	//Dog
 	player removeAction s_player_tamedog;
