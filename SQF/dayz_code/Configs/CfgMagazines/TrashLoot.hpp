@@ -39,7 +39,7 @@ class ItemTrashToiletpaper : CA_Magazine {
 
 	
 
-	class ItemBandage;
+	class ItemBandage; // External class reference
 	class ItemTrashToiletpaper : ItemBandage{
 		scope = public;
 		count = 1;
@@ -62,7 +62,7 @@ class ItemTrashToiletpaper : CA_Magazine {
 				};
 				output[]=
 				{
-					"TolietBandage"
+					"ModifiedBandage"
 				};
 			};
 

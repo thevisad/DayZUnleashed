@@ -109,14 +109,14 @@ class CfgMagazines {
 		descriptionShort = "Civilian Skin 10";
 	};
 	
-	class ToiletBandage : CA_Magazine {
+	class ModifiedBandage : CA_Magazine {
 		scope = public;
 		count = 1;
 		type = 16;
-		displayName = "Toilett Bandage";
-		model = "z\addons\dayz_communityassets\models\toiletpaper.p3d";
-		picture = "\z\addons\dayz_communityassets\pictures\equip_toiletpaper_CA.paa";
-		descriptionShort = "Toilett Bandage";
+		displayName = "Modified Bandage";
+		model = "z\addons\dayz_communityassets\models\toiletpaper.p3d"; //New model before release!
+		picture = "\z\addons\dayz_communityassets\pictures\equip_toiletpaper_CA.paa"; //New texture before release!
+		descriptionShort = "A modified bandage made from toilet paper";
 		
 		class ItemActions {
 			class Use {
