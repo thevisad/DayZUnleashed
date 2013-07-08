@@ -26,6 +26,7 @@ Serverside affected addons:
 
 	Changes:
 	
+		* [NEW] - Remove Parts from Vehicle
 		* [NEW] - Weight system
 		* [NEW] - Suizid Script
 		* [NEW] - Burn Tent Script
