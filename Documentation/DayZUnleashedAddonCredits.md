@@ -14,6 +14,7 @@ Addon Credits
 * Explosive Barrels http://www.armaholic.com/page.php?id=14307
 * DayZAi https://github.com/dayzai/DayZBanditAI
 * BaseBuilding-DayZ https://github.com/thevisad/BaseBuilding-DayZ
+* DayZEpoch https://github.com/vbawol/DayZ-Epoch/
 
 
 If we missed a credit line here it was not intentional at all. We credit anyone and everyone whose work we utilize in any format. If you feel that you should be credited for some work, please contact me on Skype or via email at thevisad ( at ) gmail ( dot ) com.
