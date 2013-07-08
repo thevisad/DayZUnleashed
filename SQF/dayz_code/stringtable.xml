@@ -75,6 +75,16 @@
 			<Czech>Zkombinovat</Czech>
 			<Dutch>Opnieuw combineren</Dutch>
 		</Key>
+		<Key ID="STR_BNDG_COMBINE">
+			<English>Re-combine</English>
+			<German>Neu kombinieren</German>
+			<Russian>Переснарядить</Russian>
+			<Spanish>Volver a combinar</Spanish>
+			<Dutch>Re-combine</Dutch>
+			<French>Re-combiner</French>
+			<Czech>Zkombinovat</Czech>
+			<Dutch>Opnieuw combineren</Dutch>
+		</Key>
 		<Key ID="str_init_take">	<!-- Will be used for action menu collecting item such as "Take Water Bottle" or "Take Colt 1911" -->
 			<English>Take %1</English>
 			<German>%1 aufnehmen</German>
