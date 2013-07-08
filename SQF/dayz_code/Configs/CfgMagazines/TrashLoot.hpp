@@ -1,3 +1,4 @@
+/*
 class ItemTrashToiletpaper : CA_Magazine {
 		scope = public;
 		count = 1;
@@ -7,6 +8,7 @@ class ItemTrashToiletpaper : CA_Magazine {
 		picture = "\z\addons\dayz_communityassets\pictures\equip_toiletpaper_CA.paa";
 		type = 256;
 	};
+*/
 	class ItemTrashRazor : CA_Magazine {
 		scope = public;
 		count = 1;
@@ -33,4 +35,39 @@ class ItemTrashToiletpaper : CA_Magazine {
 		model = "z\addons\dayz_communityassets\models\cards.p3d";
 		picture = "\z\addons\dayz_communityassets\pictures\equip_cards_ca.paa";
 		type = 256;
+	};
+
+	class ItemTrashToiletpaper : CA_Magazine{
+		scope = public;
+		count = 1;
+		displayName = $STR_JUNK_NAME_TOILETPAPER;
+		descriptionShort = $STR_JUNK_DESC_TOILETPAPER;
+		model = "z\addons\dayz_communityassets\models\toiletpaper.p3d";
+		picture = "\z\addons\dayz_communityassets\pictures\equip_toiletpaper_CA.paa";
+		type = 256;
+		class ItemActions
+		{
+			class ReloadMag
+			{
+				text="Combine for a Bandage";
+				script="spawn player_reloadMag;";
+				use[]=
+				{
+					"ItemTrashToiletpaper",
+					"ItemTrashToiletpaper",
+					"ItemTrashToiletpaper",
+					"ItemTrashToiletpaper"
+				};
+				output[]=
+				{
+					"ItemBandage"
+				};
+			};
+	/*
+		class CombineMag {
+			text = $STR_MAG_COMBINE;
+			script = "spawn player_combineMag; r_action_count = r_action_count + 1;";
+		};
+	*/
+		};
 	};
