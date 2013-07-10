@@ -1,4 +1,3 @@
-
 private["_refObj","_size","_vel","_speed","_hunger","_thirst","_array","_unsaved","_timeOut","_result","_lastSave","_wpnType","_isOK","_skin","_skin2"];
 disableSerialization;
 _timeOut = 0;
@@ -280,7 +279,7 @@ while {true} do {
 	
 	if (_humanity > 5000 and !_isHero) then {
 		_model = typeOf player;
-		if (_model == "Herol11_DZ) then {
+		if (_model == "Herol11_DZ") then {
 			[dayz_playerUID,dayz_characterID,"Herol21_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Herowl11_DZ") then {
