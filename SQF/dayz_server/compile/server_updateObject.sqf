@@ -85,7 +85,7 @@ _object_inventory = {
 		if (_objectID == "0") then {
 			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
 		} else {
-			_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+			_key = format["CHILD:309:%1:%2:",_objectID,_inventory];
 		};
 		diag_log ("HIVE: Buildable: "+ str(_key));
 		_key call server_hiveWrite;
@@ -94,7 +94,7 @@ _object_inventory = {
 		if (_objectID == "0") then {
 			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
 		} else {
-			_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+			_key = format["CHILD:309:%1:%2:",_objectID,_inventory];
 		};
 		diag_log ("HIVE: Buildable: "+ str(_key));
 		_key call server_hiveWrite;
@@ -111,7 +111,7 @@ _object_inventory = {
 		if (_objectID == "0") then {
 			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
 		} else {
-			_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+			_key = format["CHILD:309:%1:%2:",_objectID,_inventory];
 		};
 		#ifdef OBJECT_DEBUG
 		diag_log ("HIVE: WRITE: "+ str(_key));

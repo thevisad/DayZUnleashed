@@ -207,7 +207,7 @@ Check comments below for more info on parameters
 */
 private["_isDestructable","_classname","_isSimulated","_disableSims","_objectSims","_objectSim","_requirements","_isStructure","_structure","_wallType","_removable","_buildlist","_build_townsrestrict"];
 // Count is 34
-// Info on Parameters (Copy and Paste to add more recipes and their requirments!):
+// Info on Parameters (Copy and Paste to add more recipes and their requirements!):
 //[TankTrap, SandBags, Wires, Logs, Scrap Metal, Grenades], "Classname", [_attachCoords, _startPos, _modDir, _toolBox, _eTool, _medWait, _longWait, _inBuilding, _roadAllowed, _inTown, _removable, _isStructure, _isSimulated, _isDestructable];
 _buildlist = [
 [[0, 1, 0, 0, 1, 1], "Grave", 						[[0,2.5,.1],[0,2,0], 	0, 	true, true, true, false, false, true, true, false, false, true, false]],//Booby Traps --1

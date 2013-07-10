@@ -22,63 +22,63 @@ class CfgWeight
 		};
 		class SCAR_L_STD_Mk4CQT
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_L_STD_HOLO
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_L_STD_EGLM_TWS
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_L_STD_EGLM_RCO
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_L_CQC_Holo
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_L_CQC_EGLM_Holo
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_L_CQC_CCO_SD
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_L_CQC
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_H_STD_EGLM_Spect
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_H_CQC_CCO_SD
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_H_CQC_CCO
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_H_STD_TWS_SD
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_H_LNG_Sniper_SD
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SCAR_H_LNG_Sniper
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M4A3_RCO_GL_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M4A3_CCO_EP1 // <- DayZ
 		{
@@ -114,7 +114,7 @@ class CfgWeight
 		};
 		class G36_C_SD_camo
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class revolver_EP1
 		{
@@ -130,11 +130,11 @@ class CfgWeight
 		};
 		class revolver_gold_EP1
 		{
-			weight = 10000; //<- DayZ
+			weight = 3.6; //<- DayZ
 		};
 		class UZI_SD_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class UZI_EP1
 		{
@@ -142,7 +142,7 @@ class CfgWeight
 		};
 		class Sa61_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M249_EP1
 		{
@@ -150,55 +150,55 @@ class CfgWeight
 		};
 		class M249_TWS_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M249_m145_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M60A4_EP1
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class m240_scoped_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class MG36_camo
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Mk_48_DES_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M32_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M79_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Mk13_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class m107_TWS_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M24_des_EP1
 		{
-			weight = 10000; //<- DayZ
+			weight = 3.6; //<- DayZ
 		};
 		class M110_TWS_EP1
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class M110_NVG_EP1
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class Sa58V_RCO_EP1
 		{
@@ -222,11 +222,11 @@ class CfgWeight
 		};
 		class MAAWS
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M47Launcher_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M16A4_ACG
 		{
@@ -234,7 +234,7 @@ class CfgWeight
 		};
 		class M16A4
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M16A2
 		{
@@ -242,11 +242,11 @@ class CfgWeight
 		};
 		class M16A4_ACG_GL
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M16A4_GL
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M16A2GL
 		{
@@ -270,23 +270,23 @@ class CfgWeight
 		};
 		class M4A1_HWS_GL_Camo
 		{
-			weight = 3.6 
+			weight = 3.6;
 		};
 		class MK_48_DZ
 		{
-			weight = 3.6 
+			weight = 3.6; 
 		};
 		class M4A1_HWS_GL_SD_Camo
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class M4A1_HWS_GL
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class M4A1_RCO_GL
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class M249_DZ
 		{
@@ -294,31 +294,31 @@ class CfgWeight
 		};
 		class M8_carbine
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class M8_compact
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class M8_carbineGL
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class MP5SD
 		{
-			weight = 10000; //<- DayZ
+			weight = 3.6; //<- DayZ
 		};
 		class MP5A5
 		{
-			weight = 10000; //<- DayZ
+			weight = 3.6; //<- DayZ
 		};
 		class G36_C_SD_eotech
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class G36a
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class G36C
 		{
@@ -326,7 +326,7 @@ class CfgWeight
 		};
 		class G36
 		{
-			weight = 10000; 
+			weight = 3.6; 
 		};
 		class M1014
 		{
@@ -350,15 +350,15 @@ class CfgWeight
 		};
 		class MG36
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M4SPR
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M8_sharpshooter
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class DMR
 		{
@@ -374,11 +374,11 @@ class CfgWeight
 		};
 		class M107
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Colt1911
 		{
-			weight = 0.75;
+			weight = 1.10;
 		};
 		class M9
 		{
@@ -394,19 +394,19 @@ class CfgWeight
 		};
 		class Javelin
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M136
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Stinger
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SMAW
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Binocular
 		{
@@ -422,7 +422,7 @@ class CfgWeight
 		};
 		class Laserdesignator
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class ItemCompass
 		{
@@ -442,32 +442,32 @@ class CfgWeight
 		};
 		class ItemRadio
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		
 		class AKS_74
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class AKS_74_GOSHAWK
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class AKS_74_NSPU
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class AK_74_GL_kobra
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SVD_NSPU_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SVD_des_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class LeeEnfield
 		{
@@ -475,19 +475,19 @@ class CfgWeight
 		};
 		class AK_107_kobra
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class AK_107_GL_kobra
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class AK_107_pso
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class AK_107_GL_pso
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class AKS_74_U
 		{
@@ -495,11 +495,11 @@ class CfgWeight
 		};
 		class AKS_74_UN_kobra
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class AKS_74_pso
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class AKS_74_kobra
 		{
@@ -511,7 +511,7 @@ class CfgWeight
 		};
 		class AK_74_GL
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class AK_47_M
 		{
@@ -519,11 +519,11 @@ class CfgWeight
 		};
 		class AK_47_S
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class PK
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class RPK_74
 		{
@@ -531,7 +531,7 @@ class CfgWeight
 		};
 		class Pecheneg
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class Huntingrifle
 		{
@@ -543,11 +543,11 @@ class CfgWeight
 		};
 		class KSVK
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class SVD
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class SVD_CAMO
 		{
@@ -567,7 +567,7 @@ class CfgWeight
 		};
 		class Saiga12K
 		{
-				weight = 10000;
+				weight = 3.6;
 		};
 		class Bizon
 		{
@@ -583,27 +583,27 @@ class CfgWeight
 		};
 		class VSS_Vintorez
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class RPG7V
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class RPG18
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class MetisLauncher
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Igla
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Strela
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Crossbow
 		{
@@ -629,11 +629,11 @@ class CfgWeight
 		};
 		class 20rnd_762x51_SB_SCAR
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 20rnd_762x51_B_SCAR
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 20Rnd_762x51_FNFAL
 		{
@@ -645,11 +645,11 @@ class CfgWeight
 		};
 		class 100Rnd_556x45_BetaCMag
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 20Rnd_B_765x17_Ball
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 10Rnd_B_765x17_Ball
 		{
@@ -657,7 +657,7 @@ class CfgWeight
 		};
 		class 30Rnd_9x19_UZI_SD
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 30Rnd_9x19_UZI
 		{
@@ -673,15 +673,15 @@ class CfgWeight
 		};
 		class MAAWS_HEAA
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class MAAWS_HEDP
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Dragon_EP1
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 30Rnd_556x45_StanagSD
 		{
@@ -789,7 +789,7 @@ class CfgWeight
 		};
 		class 10Rnd_127x99_m107
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 5Rnd_762x51_M24
 		{
@@ -813,23 +813,23 @@ class CfgWeight
 		};
 		class Javelin
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class M136
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Stinger
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SMAW_HEAA
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class SMAW_HEDP
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class HandGrenade_west
 		{
@@ -841,7 +841,7 @@ class CfgWeight
 		};
 		class TimeBomb
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Mine
 		{
@@ -887,7 +887,7 @@ class CfgWeight
 		};
 		class 30Rnd_545x39_AKSD
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 75Rnd_545x39_RPK
 		{
@@ -907,7 +907,7 @@ class CfgWeight
 		};
 		class 5Rnd_127x108_KSVK
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 10Rnd_762x54_SVD
 		{
@@ -931,7 +931,7 @@ class CfgWeight
 		};
 		class 8Rnd_B_Saiga12_74Slug
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 64Rnd_9x19_Bizon
 		{
@@ -939,7 +939,7 @@ class CfgWeight
 		};
 		class 64Rnd_9x19_SD_Bizon
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 1Rnd_HE_GP25
 		{
@@ -964,79 +964,79 @@ class CfgWeight
 			
 		class FlareWhite_GP25
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class FlareGreen_GP25
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class FlareRed_GP25
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class FlareYellow_GP25
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 1Rnd_SMOKE_GP25
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 1Rnd_SMOKERED_GP25
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 1Rnd_SMOKEGREEN_GP25
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class 1Rnd_SMOKEYELOW_GP25
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class PG7V
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class PG7VL
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class PG7VR
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class OG7
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class RPG18
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class AT13
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Igla
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Strela
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class HandGrenade_east
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class IR_Strobe_Target
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		class Laserbatteries
 		{
-			weight = 10000;
+			weight = 3.6;
 		};
 		
 		//Dayz Trash Loot
