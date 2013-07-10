@@ -157,10 +157,10 @@ while {true} do {
 		_skin2 = ["Banditwl31_DZ","Banditwl32_DZ"] call BIS_fnc_selectRandom;
 		_model = typeOf player;
 		if (_model == "Banditl21_DZ") then {
-			[dayz_playerUID,dayz_characterID,"_skin"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,_skin] spawn player_humanityMorph;
 		};
 		if (_model == "Banditwl21_DZ") then {
-			[dayz_playerUID,dayz_characterID,"_skin2"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,_skin2] spawn player_humanityMorph;
 		};
 	};
 	
