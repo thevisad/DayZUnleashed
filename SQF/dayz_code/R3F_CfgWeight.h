@@ -1430,6 +1430,92 @@ class CfgWeight
 			weight = 4;
 		};
 		
+		//Custom Weapon
+		class sg550_lg97_aimpoint_camo
+		{
+			weight = 5.0;
+		}
+		class 30Rnd_56x45_GP90
+		{
+			weight = 1.0;
+		}
+		class p226sf
+		{
+			weight = 2.0;
+		}
+		class 15Rnd_9x19_LUGER
+		{
+			weight = 1.0;
+		}
+		class KPFS_G1
+		{
+			weight = 5.0;
+		}
+		class KPFS_G36A2
+		{
+			weight = 5.0;
+		}
+		class kpfs_g3a2
+		{
+			weight = 5.0;
+		}
+		class KPFS_P38
+		{
+			weight = 2.0;
+		}
+		class KPFS_8Rnd_9x19_P1
+		{
+			weight = 1.0;
+		}
+		class KPFS_MPi_KM_72
+		{
+			weight = 5.0;
+		}
+		class KPFS_MPi_AK_74
+		{
+			weight = 5.0;
+		}
+		class KPFS_SKS
+		{
+			weight = 5.0;
+		}
+		class KPFS_10Rnd_762x39_SKS
+		{
+			weight = 1.0;
+		}
+		class KPFS_MP44
+		{
+			weight = 5.0;
+		}
+		class KPFS_P99QA 
+		{
+			weight = 2.0;
+		}
+		class KPFS_16Rnd_9x19_para
+		{
+			weight = 1.0;
+		}
+		class kpfs_glock17
+		{
+			weight = 2.0;
+		}
+		class KPFS_P12SD
+		{
+			weight = 2.0;
+		}
+		class KPFS_12Rnd_45ACP_P12SD
+		{
+			weight = 1.0;
+		}
+		class KPFS_MP2
+		{
+			weight = 5.0;
+		}
+		class KPFS_32Rnd_MP2
+		{
+			weight = 1.0;
+		}
+		
 		//Backpacks
 		class DZ_Patrol_Pack_EP1
 		{
