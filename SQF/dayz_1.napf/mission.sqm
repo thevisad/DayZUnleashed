@@ -30,7 +30,17 @@ class Mission
 		"casounds",
 		"unleashed_pack",
 		"unleashed_equip",
+		"SWM_SwissArms",
 		"kpfs_uaz451",
+		"KPFS_G36",
+		"KPFS_G3",
+		"KPFS_P38",
+		"KPFS_MPi74",
+		"KPFS_SKS",
+		"KPFS_STG",
+		"KPFS_P99",
+		"KPFS_MP2",
+		"KPFS_Weapons",
 		"skins"
 	};
 	addOnsAuto[]=
