@@ -19,7 +19,7 @@ if (!_allowed) exitWith { };
 _uid = _worldspace call dayz_objectUID2;
 
 //Send request
-if (_object isKindOf "TentStorage") then { _combination = floor(random 899) + 100;} else {_combination = 10000;};
+if (_object isKindOf "TentStorage") then { _combination = 0;} else {_combination = floor(random 899) + 100;};
 _key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:",dayZ_instance, _class, 0 , _charID, _worldspace, [], [], 0,_uid,_combination];
 //diag_log ("HIVE: WRITE: "+ str(_key));
 _key call server_hiveWrite;

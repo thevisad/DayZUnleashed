@@ -237,7 +237,8 @@ if (isServer and isNil "sm_done") then {
 		};
 //diag_log(format["VEH MAINTENANCE DEBUG %1 %2", __FILE__, __LINE__]);
 			
-		// common code (vehicle or not)				
+		// common code (vehicle or not)	
+		_combination = 0;			
 		if (_damage < 1 AND !(isNil ("_entity"))) then {
 			_entity setdir _dir;
 			_entity setPos _point;
@@ -248,9 +249,10 @@ if (isServer and isNil "sm_done") then {
 			// UPDATE MODIFIED OBJECTS TO THE HIVE 
 			if (_action == "CREATED") then {
 				if (_class == "TentStorage") then { 
-						_combination = floor(random 999); 
+						
+						_combination = 0;
 					} else {
-					_combination = 0;
+					_combination = floor(random 899) + 100;
 					};
 				
 				diag_log ("combination of " + str(_combination) + " was used");
