@@ -118,7 +118,8 @@ if (!isDedicated) then {
 	anti_discWall = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\anti_discWall.sqf";	// This prevents players from driving into a wall and disconnecting to get into bases
 	refresh_build_recipe_dialog = compile preprocessFileLineNumbers "\z\addons\dayz_code\buildRecipeBook\refresh_build_recipe_dialog.sqf"; 				// Builder menu dialog functionality
 	refresh_build_recipe_list_dialog = compile preprocessFileLineNumbers "\z\addons\dayz_code\buildRecipeBook\refresh_build_recipe_list_dialog.sqf"; 	// Builder Menu dialog list
-
+	add_UIDCode  = compile preprocessFileLineNumbers "dayz_code\external\keypad\fnc_keyPad\functions\add_UIDCode.sqf";
+	remove_UIDCode  = compile preprocessFileLineNumbers "dayz_code\external\keypad\fnc_keyPad\functions\remove_UIDCode.sqf";
 	//Crafting
 	//player_craftItem = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_craftItem.sqf";
 

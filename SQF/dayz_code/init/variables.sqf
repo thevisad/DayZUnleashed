@@ -233,27 +233,28 @@ churchie_vehicle_checked = 0;
 
 
 //BaseBuilding
-//Strings
-globalSkin 			= "";
-//Arrays
-allbuildables_class = [];
-allbuildables 		= [];
-allbuild_notowns 	= [];
-allremovables 		= [];
-wallarray 			= [];
-structures			= [];
-CODEINPUT 			= [];
-keyCode 			= [];
-//Booleans
-remProc 			= false;
-hasBuildItem 		= false;
-rem_procPart 		= false;
-repProc 			= false;
-keyValid 			= false;
-procBuild 			= false;
-currentBuildRecipe 	= 0;
-removeObject		= false;
+	//Strings
+	globalSkin 			= "";
+	//Arrays
+	allbuildables_class = [];
+	allbuildables 		= [];
+	allbuild_notowns 	= [];
+	allremovables 		= [];
+	wallarray 			= [];
+	structures			= [];
+	CODEINPUT 			= [];
+	keyCode 			= [];
+	//Booleans
+	remProc 			= false;
+	hasBuildItem 		= false;
+	keyValid 			= false;
+	procBuild 			= false;
+	removeObject		= false;
+	currentBuildRecipe 	= 0;
 
+	addUIDCode = false;
+	removeUIDCode = false;
+	globalAuthorizedUID = [];
 //Player self-action handles
 dayz_resetSelfActions = {
 	s_player_dragbody = -1;

@@ -170,6 +170,24 @@ _object_killed = {
 	call _object_damage;
 };
 
+_object_repair = {
+	private["_hitpoints","_array","_hit","_selection","_key","_damage"];
+	_hitpoints = _object call vehicle_getHitpoints;
+	_damage = damage _object;
+	_array = [];
+	{
+		_hit = [_object,_x] call object_getHit;
+		_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
+		if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
+		_object setHit ["_selection", _hit]
+	} forEach _hitpoints;
+	
+	_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
+	diag_log ("HIVE: WRITE: "+ str(_key));
+	_key call server_hiveWrite;
+	_object setVariable ["needUpdate",false,true];
+};
+// TODO ----------------------
 
 _object setVariable ["lastUpdate",time,true];
 switch (_type) do {
@@ -189,5 +207,8 @@ switch (_type) do {
 	};
 	case "killed": {
 		call _object_killed;
+	};
+	case "repair": {
+		call _object_damage;
 	};
 };

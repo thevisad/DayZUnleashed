@@ -305,7 +305,7 @@ class CfgBuildingLoot {
 			{"KPFS_P99QA","weapon",0.03},
 			{"KPFS_MP2","weapon",0.03},
 			{"kpfs_g3a2","weapon",0.02},
-			{"sg550_lg97_aimpoint_camo","weapon",0.02}
+			{"sg550_lg97_aimpoint_camo","weapon",0.02},
 			{"KPFS_16Rnd_9x19_para","magazine",0.03},
 			{"KPFS_30Rnd_762x43_STG44","magazine",0.03},
 			{"KPFS_32Rnd_MP2","magazine",0.03},
@@ -345,7 +345,7 @@ class CfgBuildingLoot {
 			{"KPFS_P99QA","weapon",0.03},
 			{"KPFS_MP2","weapon",0.03},
 			{"kpfs_g3a2","weapon",0.02},
-			{"sg550_lg97_aimpoint_camo","weapon",0.02}
+			{"sg550_lg97_aimpoint_camo","weapon",0.02},
 			{"KPFS_16Rnd_9x19_para","magazine",0.03},
 			{"KPFS_30Rnd_762x43_STG44","magazine",0.03},
 			{"KPFS_32Rnd_MP2","magazine",0.03},
@@ -381,7 +381,7 @@ class CfgBuildingLoot {
 			{"KPFS_P99QA","weapon",0.03},
 			{"KPFS_MP2","weapon",0.03},
 			{"kpfs_g3a2","weapon",0.02},
-			{"sg550_lg97_aimpoint_camo","weapon",0.02}
+			{"sg550_lg97_aimpoint_camo","weapon",0.02},
 			{"KPFS_16Rnd_9x19_para","magazine",0.03},
 			{"KPFS_30Rnd_762x43_STG44","magazine",0.03},
 			{"KPFS_32Rnd_MP2","magazine",0.03},

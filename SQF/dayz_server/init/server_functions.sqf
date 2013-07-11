@@ -52,7 +52,7 @@ check_publishobject = {
 
 	_object = _this select 0;
 	_playername = _this select 1;
-	_allowedObjects = ["TentStorage", "Hedgehog_DZ", "Sandbag1_DZ", "TrapBear", "Wire_cat1", "StashSmall", "StashMedium"];
+	_allowedObjects = ["TentStorage", "Hedgehog_DZ", "Sandbag1_DZ","TrapBear","Wire_cat1","USOrdnanceBox_EP1"];
 	_allowed = false;
 
 #ifdef OBJECT_DEBUG
@@ -229,10 +229,10 @@ _buildlist = [
 [[3, 0, 0, 0, 1, 0], "Ins_WarfareBContructionSite",	[[0,7,1.3], [0,5,0], 	90, true, false, false, true, false, false, false, false, false, true, false]],//Ins_WarfareBContructionSite --17
 [[1, 1, 0, 2, 1, 0], "Land_pumpa",					[[0,3,.4], 	[0,3,0], 	0, 	true, true, true, false, false, false, false, true, false, true, false]],//Land_pumpa --18
 [[1, 0, 0, 0, 0, 0], "Land_CncBlock",				[[0,3,.4], 	[0,2,0], 	0, 	true, false, false, false, false, true, true, true, false, true, false]],//Land_CncBlock --19
-[[4, 0, 0, 0, 0, 0], "Hhedgehog_concrete",			[[0,5,.6], 	[0,4,0], 	0, 	true, true, false, true, false, true, false, false, false, true, false]],//Hhedgehog_concrete --20
+[[2, 0, 0, 0, 1, 0], "Hhedgehog_concrete",			[[0,5,.6], 	[0,4,0], 	0, 	true, true, false, true, false, true, false, false, false, true, false]],//Hhedgehog_concrete --20
 [[1, 0, 0, 0, 1, 0], "Misc_cargo_cont_small_EP1",	[[0,5,1.3], [0,4,0], 	90, true, false, false, false, false, false, false, true, false, true, false]],//Misc_cargo_cont_small_EP1 --21
 [[1, 0, 0, 2, 0, 0], "Land_prebehlavka",			[[0,6,.7], 	[0,3,0], 	90, true, false, false, false, false, false, false, true, false, true, true]],//Land_prebehlavka(Ramp) --22
-[[2, 0, 0, 0, 0, 0], "Fence_corrugated_plate",		[[0,4,.6], 	[0,3,0], 	0,	true, false, false, false, false, false, false, true, false, true, true]],//Fence_corrugated_plate --23
+[[2, 0, 0, 0, 0, 0], "Fence_corrugated_plate",		[[0,4,.6], 	[0,3,0], 	0,	true, true, true, false, false, false, false, false, false, true, false]],//Fence_corrugated_plate --23
 [[2, 0, 1, 0, 0, 0], "ZavoraAnim", 					[[0,5,4.0], [0,5,0], 	0, 	true, false, false, false, false, true, false, true, false, true, true]],//ZavoraAnim --24
 [[0, 0, 7, 0, 1, 0], "Land_tent_east", 				[[0,8,1.7], [0,6,0], 	0, 	true, false, false, true, false, false, false, false, true, true, true]],//Land_tent_east --25
 [[0, 0, 6, 0, 1, 0], "Land_CamoNetB_EAST",			[[0,10,2], 	[0,10,0], 	0, 	true, false, false, true, false, false, false, true, true, true, true]],//Land_CamoNetB_EAST --26
@@ -243,7 +243,11 @@ _buildlist = [
 [[0, 0, 1, 0, 1, 0], "Land_CamoNet_NATO",			[[0,8,1.2], [0,7,0], 	0, 	true, false, true, false, false, false, false, true, false, true, true]],//Land_CamoNet_NATO --31
 [[0, 0, 2, 2, 0, 0], "Fence_Ind_long",				[[0,5,.6], 	[-4,1.5,0], 0, 	true, false, true, false, false, false, false, true, false, true, true]], //Fence_Ind_long --32
 [[0, 0, 2, 0, 0, 0], "Fort_RazorWire",				[[0,5,.8], 	[0,4,0], 	0, 	true, false, false, false, false, false, false, true, false, true, true]],//Fort_RazorWire --33
-[[0, 0, 1, 0, 0, 0], "Fence_Ind",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, true]] //Fence_Ind 	--34 *** Remember that the last element in array does not get comma ***
+[[0, 0, 1, 0, 0, 0], "Fence_Ind",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, true]], //Fence_Ind 	
+[[2, 1, 2, 2, 1, 0], "Land_sara_hasic_zbroj",  		[[0,10,1], 	[0,12,0], 	0, 	true, true, true, true, false, false, false, false, true, true, false]], //Land_sara_hasic_zbroj
+[[2, 1, 1, 1, 1, 0], "Land_Shed_wooden",  			[[0,8,1], 	[0,10,0], 	0, 	true, true, true, true, false, false, false, false, true, true, false]], //Land_Shed_wooden 	
+[[2, 1, 0, 3, 1, 0], "Land_Barrack2",  				[[0,10,1], 	[0,12,0], 	0, 	true, true, true, true, false, false, false, false, true, true, false]], //Land_Barrack2 
+[[2, 0, 0, 0, 2, 0], "Land_vez",  					[[0,6,1], 	[0,8,0], 	0, 	true, true, true, true, false, false, false, false, true, true, false]] //Land_vez 	--38 *** Remember that the last element in array does not get comma ***
 ];
 // Build allremovables array for remove action
 for "_i" from 0 to ((count _buildlist) - 1) do
@@ -265,6 +269,8 @@ for "_i" from 0 to ((count _buildlist) - 1) do
 *** Remember that the last element in ANY array does not get comma ***
 Notice lines 47 and 62
 */
+
+	antiBuildables = ["Hhedgehog_concrete"];
 // Towns to restrict from building in. (Type exact name as shown on map, NOT Case-Sensitive but spaces important)
 // ["Classname", range restriction];
 // NOT REQUIRED SERVER SIDE, JUST ADDED IN IF YOU NEED TO USE IT
@@ -281,6 +287,16 @@ _build_townsrestrict = [
 allbuildables = _buildlist;
 allbuild_notowns = _build_townsrestrict;
 
+/*
+This Area is for extra arrays that need to be built, some using above arrays
+*/
+	
+	//Array for vehicles to randomize ammo (NOTHING TO DO WITH BUILDINGS)
+	vehicleswithguns = [
+	"UAZ_MG_INS", "UAZ_MG_INS_DZ_LM", "UAZ_MG_INS_DZ_VLM", "UAZ_MG_CDF", 
+	"UAZ_MG_CDF_DZ_LM", "UAZ_MG_CDF_DZ_VLM", "GAZ_Vodnik", "GAZ_Vodnik_DZ_LM",
+	"GAZ_Vodnik_DZ_VLM", "UH1H_DZ", "Mi17_DZ"
+	];
 // ################################### BUILD LIST ARRAY SERVER SIDE ######################################## END
 
 };
