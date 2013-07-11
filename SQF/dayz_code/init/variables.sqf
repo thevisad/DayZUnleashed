@@ -18,6 +18,8 @@ Camo1_DZ = "Camo1_DZ";
 Soldier1_DZ = "Soldier1_DZ";
 Rocket_DZ = "Rocket_DZ";
 
+//TODO FINEST ADD NEW MODELS
+
 AllPlayers = ["Soldier_Crew_PMC","Sniper1_DZ","Camo1_DZ","Soldier1_DZ","Rocket_DZ","GER_Soldier_EP1"];
 AllPlayersVehicles = ["GER_Soldier_EP1","Soldier_Crew_PMC","Sniper1_DZ","Camo1_DZ","Soldier1_DZ","Rocket_DZ","AllVehicles"];
 
@@ -190,6 +192,7 @@ dayz_combatLog = "";
 canRoll = true;
 canPickup = false;
 pickupInit = false;
+TradeInprogress = false;
 
 //Hunting Variables
 dayZ_partClasses = [
