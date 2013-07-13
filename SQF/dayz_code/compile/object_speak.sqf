@@ -23,17 +23,17 @@ _num = switch (_type) do {
 	default {0};
 	case "cough": 		{2};
 	case "chase": 		{14};
-	case "spotted": 	{13};
-	case "hit": 		{6};
-	case "attack": 		{13};
-	case "idle": 		{35};
-	case "scream": 		{4};
+	case "spotted": 	{20};
+	case "hit": 		{9};
+	case "attack": 		{14};
+	case "idle": 		{39};
+	case "scream": 		{5};
 	case "fracture":	{1};
 	case "eat": 		{3};
 	case "cook": 		{2};
 	case "panic": 		{1};
 	case "dog_bark":	{4};
-	case "dog_growl":	{3};
+	case "dog_growl":	{4};
 	case "dog_qq":		{2};
 };
 
