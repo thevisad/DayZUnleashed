@@ -80,25 +80,18 @@ _object_inventory = {
 	private["_inventory","_previous","_key"];
 	// This writes to database if object is buildable
 	if (typeOf(_object) in allbuildables_class) then {
-	//First lets make inventory [[[],[]],[[],[]],[[],[]]] so it updates object in DB
-			_inventory = [[[],[]],[[],[]],[[],[]]];
-		if (_objectID == "0") then {
-			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
-		} else {
-			_key = format["CHILD:309:%1:%2:",_objectID,_inventory];
-		};
-		diag_log ("HIVE: Buildable: "+ str(_key));
-		_key call server_hiveWrite;
-	//Since we cant actually read from DB, lets make inventory this [], than write it again, to insure its updated to DB
-			_inventory = [];
-		if (_objectID == "0") then {
-			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
-		} else {
-			_key = format["CHILD:309:%1:%2:",_objectID,_inventory];
-		};
-		diag_log ("HIVE: Buildable: "+ str(_key));
-		_key call server_hiveWrite;
-// DO DEFAULT server_updateObject if not a buildable
+	// Lets write the array of playerUIDs to database the same way we would write items
+		//set _inventory to the array of playerUIDs from the object using getVariable
+		_inventory = _object getVariable "AuthorizedUID";
+		//Write to DB
+			if (_objectID == "0") then {
+				_key = format["CHILD:309:%1:%2:",_uid,_inventory];
+			} else {
+				_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+			};
+			diag_log ("HIVE: WRITE: "+ str(_key));
+			_key call server_hiveWrite;
+	//Normal way we would write to DB
 	} else {
 	_inventory = [
 		getWeaponCargo _object,
@@ -111,7 +104,7 @@ _object_inventory = {
 		if (_objectID == "0") then {
 			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
 		} else {
-			_key = format["CHILD:309:%1:%2:",_objectID,_inventory];
+			_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
 		};
 		#ifdef OBJECT_DEBUG
 		diag_log ("HIVE: WRITE: "+ str(_key));
@@ -170,24 +163,6 @@ _object_killed = {
 	call _object_damage;
 };
 
-_object_repair = {
-	private["_hitpoints","_array","_hit","_selection","_key","_damage"];
-	_hitpoints = _object call vehicle_getHitpoints;
-	_damage = damage _object;
-	_array = [];
-	{
-		_hit = [_object,_x] call object_getHit;
-		_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
-		if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
-		_object setHit ["_selection", _hit]
-	} forEach _hitpoints;
-	
-	_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
-	diag_log ("HIVE: WRITE: "+ str(_key));
-	_key call server_hiveWrite;
-	_object setVariable ["needUpdate",false,true];
-};
-// TODO ----------------------
 
 _object setVariable ["lastUpdate",time,true];
 switch (_type) do {
@@ -207,8 +182,5 @@ switch (_type) do {
 	};
 	case "killed": {
 		call _object_killed;
-	};
-	case "repair": {
-		call _object_damage;
 	};
 };

@@ -84,6 +84,10 @@ class CfgSounds {
 	class z_dog_growl_3: z_dog_growl_0 {
 		sound[] = {"\dayz_sfx\action\dog\dog_growl_3",0.5,1,12};
 	};
+	class z_dog_growl_4: z_dog_growl_0 {
+		sound[] = {"\dayz_sfx\action\dog\dog_growl_4",0.5,1,12};
+	};
+
 	class z_dog_qq_0 {
 		name = "";
 		sound[] = {"\dayz_sfx\action\dog\dog_qq_0",0.5,1,25};
@@ -316,6 +320,20 @@ class CfgSounds {
 	class z_idle_35 : z_idle_0 {
 		sound[] = {"\dayz_sfx\zombie\idle_35.ogg",0.3,1,40};
 	};
+	
+	class z_idle_36 : z_idle_0 {
+		sound[] = {"\dayz_sfx\zombie\idle_36.ogg",0.3,1,40};
+	};
+	class z_idle_37 : z_idle_0 {
+		sound[] = {"\dayz_sfx\zombie\idle_37.ogg",0.3,1,40};
+	};
+	class z_idle_38 : z_idle_0 {
+		sound[] = {"\dayz_sfx\zombie\idle_38.ogg",0.3,1,40};
+	};
+	class z_idle_39 : z_idle_0 {
+		sound[] = {"\dayz_sfx\zombie\idle_39.ogg",0.3,1,40};
+	};
+	
 
 	class z_chase_0 {
 		name = "";
@@ -409,7 +427,30 @@ class CfgSounds {
 	class z_spotted_13 : z_spotted_0 {
 		sound[] = {"\dayz_sfx\zombie\spotted_13.ogg",0.8,1,80};
 	};
-
+	
+	class z_spotted_14 : z_spotted_0 {
+		sound[] = {"\dayz_sfx\zombie\spotted_14.ogg",0.8,1,80};
+	};
+	class z_spotted_15 : z_spotted_0 {
+		sound[] = {"\dayz_sfx\zombie\spotted_15.ogg",0.8,1,80};
+	};
+	class z_spotted_16 : z_spotted_0 {
+		sound[] = {"\dayz_sfx\zombie\spotted_16.ogg",0.8,1,80};
+	};
+	class z_spotted_17 : z_spotted_0 {
+		sound[] = {"\dayz_sfx\zombie\spotted_17.ogg",0.8,1,80};
+	};
+	class z_spotted_18 : z_spotted_0 {
+		sound[] = {"\dayz_sfx\zombie\spotted_18.ogg",0.8,1,80};
+	};
+	class z_spotted_19 : z_spotted_0 {
+		sound[] = {"\dayz_sfx\zombie\spotted_19.ogg",0.8,1,80};
+	};
+	class z_spotted_20 : z_spotted_0 {
+		sound[] = {"\dayz_sfx\zombie\spotted_20.ogg",0.8,1,80};
+	};
+	
+	
 	class z_attack_0 {
 		name = "";
 		sound[] = {"\dayz_sfx\zombie\attack_0.ogg",0.5,1,80};
@@ -454,6 +495,9 @@ class CfgSounds {
 	class z_attack_13 : z_attack_0 {
 		sound[] = {"\dayz_sfx\zombie\attack_13.ogg",0.5,1,80};
 	};
+	class z_attack_14 : z_attack_0 {
+		sound[] = {"\dayz_sfx\zombie\attack_14.ogg",0.5,1,80};
+	};
 
 	class z_hit_0 {
 		name = "";
@@ -479,22 +523,22 @@ class CfgSounds {
 		sound[] = {"\dayz_sfx\action\z_hit_6.ogg",0.1,1,30};
 	};
 	class z_hit_7 : z_hit_0 {
-		sound[] = {"\dayz_sfx\action\z_hit_1.ogg",0.1,1,30};
+		sound[] = {"\dayz_sfx\action\z_hit_7.ogg",0.1,1,30};
 	};
 	class z_hit_8 : z_hit_0 {
-		sound[] = {"\dayz_sfx\action\z_hit_2.ogg",0.1,1,30};
+		sound[] = {"\dayz_sfx\action\z_hit_8.ogg",0.1,1,30};
 	};
 	class z_hit_9 : z_hit_0 {
-		sound[] = {"\dayz_sfx\action\z_hit_3.ogg",0.1,1,30};
+		sound[] = {"\dayz_sfx\action\z_hit_9.ogg",0.1,1,30};
 	};
 	class z_hit_10 : z_hit_0 {
-		sound[] = {"\dayz_sfx\action\z_hit_4.ogg",0.1,1,30};
+		sound[] = {"\dayz_sfx\action\z_hit_0.ogg",0.1,1,30};
 	};
 	class z_hit_11 : z_hit_0 {
-		sound[] = {"\dayz_sfx\action\z_hit_5.ogg",0.1,1,30};
+		sound[] = {"\dayz_sfx\action\z_hit_1.ogg",0.1,1,30};
 	};
 	class z_hit_12 : z_hit_0 {
-		sound[] = {"\dayz_sfx\action\z_hit_6.ogg",0.1,1,30};
+		sound[] = {"\dayz_sfx\action\z_hit_2.ogg",0.1,1,30};
 	};
 
 	class z_fracture_0 : gore_1 {
@@ -518,6 +562,9 @@ class CfgSounds {
 	class z_scream_4 : gore_1 {
 		sound[] = {"\dayz_sfx\gore\scream_short_4.ogg",0.1,1,80};
 	};
+	class z_scream_5 : gore_1 {
+		sound[] = {"\dayz_sfx\gore\scream_short_5.ogg",0.1,1,80};
+	};
 	class z_scream_w_0 : gore_1 {
 		sound[] = {"\dayz_sfx\gore\scream_woman_0.ogg",0.1,1,80};
 	};
@@ -533,6 +580,9 @@ class CfgSounds {
 	class z_scream_w_4 : gore_1 {
 		sound[] = {"\dayz_sfx\gore\scream_woman_4.ogg",0.1,1,80};
 	};
+	class z_scream_w_5 : gore_1 {
+		sound[] = {"\dayz_sfx\gore\scream_woman_5.ogg",0.1,1,80};
+	};
 	class z_panic_0 {
 		name = "";
 		sound[] = {"\dayz_sfx\gore\panic_0.ogg",0.1,1,50};
@@ -547,7 +597,23 @@ class CfgSounds {
 	class z_panic_1 : z_panic_0 {
 		sound[] = {"\dayz_sfx\gore\panic_1.ogg",0.1,1,50};
 	};
-	class z_gore_short_loop : gore_1 {
-		sound[] = {"\dayz_sfx\gore\gore_short_loop.ogg",0.1,1,30};
+	class z_panic_2 : z_panic_0 {
+		sound[] = {"\dayz_sfx\gore\panic_2.ogg",0.1,1,50};
+	};
+	
+	class z_gore_short_loop_1 : gore_1 {
+		sound[] = {"\dayz_sfx\gore\gore_short_loop_1.ogg",0.1,1,30};
+	};
+	class z_gore_short_loop_2 : gore_1 {
+		sound[] = {"\dayz_sfx\gore\gore_short_loop_2.ogg",0.1,1,30};
+	};
+	class z_gore_short_loop_3 : gore_1 {
+		sound[] = {"\dayz_sfx\gore\gore_short_loop_3.ogg",0.1,1,30};
+	};
+	class z_gore_short_loop_4 : gore_1 {
+		sound[] = {"\dayz_sfx\gore\gore_short_loop_4.ogg",0.1,1,30};
+	};
+	class z_gore_short_loop_5 : gore_1 {
+		sound[] = {"\dayz_sfx\gore\gore_short_loop_5.ogg",0.1,1,30};
 	};
 };

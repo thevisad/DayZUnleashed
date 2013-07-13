@@ -52,7 +52,7 @@ check_publishobject = {
 
 	_object = _this select 0;
 	_playername = _this select 1;
-	_allowedObjects = ["TentStorage", "Hedgehog_DZ", "Sandbag1_DZ","TrapBear","Wire_cat1","USOrdnanceBox_EP1"];
+	_allowedObjects = ["TentStorage", "Hedgehog_DZ", "Sandbag1_DZ", "TrapBear", "Wire_cat1", "StashSmall", "StashMedium","USOrdnanceBox_EP1"];
 	_allowed = false;
 
 #ifdef OBJECT_DEBUG

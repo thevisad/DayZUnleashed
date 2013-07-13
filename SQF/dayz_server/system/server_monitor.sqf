@@ -393,13 +393,56 @@ if (isServer and isNil "sm_done") then {
 				
 					_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
 					_object setVariable ["lastUpdate",time];
-					_entity setVariable ["ObjectID", _idKey, true];
+					_object setVariable ["ObjectID", _idKey, true];
 					//_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
 					_object setVariable ["CharacterID", _ownerID, true];
 					_object setVariable ["CombinationID", _combination, true];
 					
 					_object setdir _dir;
 					// ##### BASE BUILDING 1.2 Server Side ##### - START
+					if (typeOf(_object) == "USOrdnanceBox_EP1") then {
+						_object setpos _pos;
+					};
+					if ((_object isKindOf "Static") && !(_object isKindOf "TentStorage") && (typeOf(_object) != "USOrdnanceBox_EP1")) then {
+						_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
+						//_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
+						//_object setpos [((_object modeltoworld [0,0,0]) select 0),((_object modeltoworld [0,0,0]) select 1), 0];
+						//_object addEventHandler ["HandleDamage", {false}];	
+					};
+					//Set Variable
+					if (typeOf(_object) == "Infostand_2_EP1" && (typeOf(_object) != "Infostand_1_EP1") || typeOf(_object) == "Fence_corrugated_plate") then {
+						//addaction
+						//_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
+						_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
+						_object setVariable ["AuthorizedUID", _inventory, true];
+						_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
+						//_object setVariable ["ObjectUID", str(_idKey),true];//_object enableSimulation false;
+						//_object setVariable ["ObjectID", str(_idKey), true];
+						//_object addEventHandler ["HandleDamage", {false}];
+					};
+
+
+					// Set whether or not buildable is destructable
+					if (typeOf(_object) in allbuildables_class) then {
+						diag_log ("SERVER: in allbuildables_class:" + typeOf(_object) + " !");
+						for "_i" from 0 to ((count allbuildables) - 1) do
+						{
+							_classname = (allbuildables select _i) select _i - _i + 1;
+							_result = [_classname,typeOf(_object)] call BIS_fnc_areEqual;
+							if (_result) exitWith {
+								_requirements = (allbuildables select _i) select _i - _i + 2;
+
+								_isDestructable = _requirements select 13;
+								diag_log ("SERVER: " + typeOf(_object) + " _isDestructable = " + str(_isDestructable));
+								if (!_isDestructable) then {
+									diag_log("Spawned: " + typeOf(_object) + " Handle Damage False");
+									_object addEventHandler ["HandleDamage", {false}];
+								};
+							};
+						};
+						//gateKeypad = _object addaction ["Defuse", "\z\addons\dayz_server\compile\enterCode.sqf"];
+					};
+					/*
 					// This sets objects to appear properly once server restarts
 					if ((_object isKindOf "Static") && !(_object isKindOf "TentStorage")) then {
 						_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
@@ -432,7 +475,7 @@ if (isServer and isNil "sm_done") then {
 							};
 						};
 						//gateKeypad = _object addaction ["Defuse", "\z\addons\dayz_server\compile\enterCode.sqf"];
-					};
+					};*/
 					// ##### BASE BUILDING 1.2 Server Side ##### - END
 					// This sets objects to appear properly once server restarts
 
