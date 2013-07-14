@@ -32,6 +32,7 @@ class CfgVehicles {
 		magazines[] = {};
 		respawnWeapons[] = {"Throw","Put"};
 		respawnMagazines[] = {};
+		canCarryBackPack = 1;
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
 	};
@@ -44,6 +45,7 @@ class CfgVehicles {
 		magazines[] = {};
 		respawnWeapons[] = {"Throw","Put"};
 		respawnMagazines[] = {};
+		canCarryBackPack = 1;
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
 	};
@@ -58,6 +60,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Civilian4_DZ : GUE_Villager3 {
@@ -70,6 +73,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Civilian5_DZ : SchoolTeacher {
@@ -82,6 +86,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Civilian6_DZ : Worker1 {
@@ -94,6 +99,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Civilian7_DZ : Citizen3_EP1 {
@@ -106,6 +112,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Civilian8_DZ :Worker4 {
@@ -118,6 +125,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Civilian9_DZ : Woodlander4 {
@@ -130,6 +138,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Civilian10_DZ : Rocker3 {
@@ -142,6 +151,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	// Female Skins
@@ -161,6 +171,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class CivilianW2_DZ : RU_Secretary1 {
@@ -173,6 +184,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class CivilianW3_DZ : RU_Sportswoman1 {
@@ -185,6 +197,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class CivilianW4_DZ : RU_WorkWoman1 {
@@ -197,6 +210,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class CivilianW5_DZ : RU_Madam1 {
@@ -209,6 +223,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 
 	// Bandit Level 1 Man
@@ -235,6 +250,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Banditl21_DZ : INS_Soldier_Sniper {
@@ -247,6 +263,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black";
 	};
 	
@@ -260,6 +277,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Banditl32_DZ : FR_GL {
@@ -272,6 +290,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black";
 	};
 	
@@ -285,6 +304,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Banditl42_DZ : TK_INS_Soldier_AAT_EP1 {
@@ -297,6 +317,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Banditl51_DZ : GUE_Soldier_3 {
@@ -309,6 +330,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black";
 	};
 	
@@ -322,6 +344,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	// Bandit Level 1 FEMALE
@@ -348,6 +371,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
@@ -361,6 +385,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
@@ -374,6 +399,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
@@ -387,6 +413,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
@@ -400,6 +427,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
@@ -413,6 +441,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
@@ -426,6 +455,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
@@ -439,6 +469,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 
@@ -466,6 +497,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Herol21_DZ : CIV_Contractor2_BAF {
@@ -478,6 +510,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Herol31_DZ : CIV_Contractor1_BAF {
@@ -490,6 +523,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Herol32_DZ : GER_Soldier_TL_EP1 {
@@ -502,6 +536,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Herol41_DZ : CZ_Special_Forces_GL_DES_EP1 {
@@ -514,6 +549,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Herol42_DZ : US_Delta_Force_EP1 {
@@ -526,6 +562,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Herotl51_DZ : FR_AR {
@@ -538,6 +575,7 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 	
 	class Herol52_DZ : FR_AR {
@@ -550,5 +588,6 @@ class CfgVehicles {
 		respawnMagazines[] = {};
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
+		canCarryBackPack = 1;
 	};
 };

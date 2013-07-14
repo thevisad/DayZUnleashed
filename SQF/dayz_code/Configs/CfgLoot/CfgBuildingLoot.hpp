@@ -154,7 +154,7 @@ class CfgBuildingLoot {
 			{"KPFS_8Rnd_9x19_P1","magazine",0.04},
 			{"17Rnd_9x19_glock17","magazine",0.04},
 			{"15Rnd_9x19_LUGER","magazine",0.04},
-			{"KPFS_SKS","weapon",0.03},
+			{"KPFS_KarS","weapon",0.03},
 			{"KPFS_10Rnd_762x39_SKS","magazine",0.03},
 			//Unleashed end
 			
@@ -220,7 +220,7 @@ class CfgBuildingLoot {
 			//Unleashed
 			{"KPFS_MPi_KM_72","weapon",0.02},
 			{"KPFS_MPi_AK_74","weapon",0.02},
-			{"KPFS_SKS","weapon",0.02},
+			{"KPFS_KarS","weapon",0.02},
 			{"KPFS_10Rnd_762x39_SKS","magazine",0.03},
 			//Unleashed end
 			
@@ -267,7 +267,7 @@ class CfgBuildingLoot {
 			{"17Rnd_9x19_glock17","magazine",0.04},
 			{"15Rnd_9x19_LUGER","magazine",0.04},
 			{"p226sf","weapon",0.03},
-			{"KPFS_SKS","weapon",0.02},
+			{"KPFS_KarS","weapon",0.02},
 			{"KPFS_10Rnd_762x39_SKS","magazine",0.03},
 			//Unleashed end
 			
