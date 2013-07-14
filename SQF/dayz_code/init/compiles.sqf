@@ -122,6 +122,8 @@ if (!isDedicated) then {
 	remove_UIDCode  = compile preprocessFileLineNumbers "dayz_code\external\keypad\fnc_keyPad\functions\remove_UIDCode.sqf";
 	//Crafting
 	//player_craftItem = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_craftItem.sqf";
+	DZE_player_craftItem =	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\DZE\player_craftItem.sqf";
+	DZE_player_craftWeapon =	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\DZE\player_craftWeapon.sqf";
 
 	// TODO: need move it in player_monitor.fsm
 	// allow player disconnect from server, if loading hang, kicked by BE etc.

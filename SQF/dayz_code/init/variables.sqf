@@ -600,4 +600,6 @@ if(!isDedicated) then {
 	//if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {
 	//	dayzDebug = true;
 	//};
+	
+	CraftingInprogress = false;
 };
