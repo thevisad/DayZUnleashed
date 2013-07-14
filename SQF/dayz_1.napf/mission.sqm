@@ -31,6 +31,7 @@ class Mission
 		"unleashed_pack",
 		"unleashed_equip",
 		"SWM_SwissArms",
+		"SWM_Misc",
 		"kpfs_uaz451",
 		"KPFS_G36",
 		"KPFS_G3",
