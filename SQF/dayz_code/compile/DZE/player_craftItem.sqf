@@ -1,6 +1,6 @@
 /*
 	DayZ Unleashed Crafting 0.1
-	Usage: DZE_Crafting = "Crafting"; spawn DZE_player_craftItem;
+	Usage: DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;
 	Made for DayZ Unleashed by [VB]AWOL please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
 */
 
