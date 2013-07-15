@@ -1,4 +1,4 @@
-﻿/****************************************************************************
+﻿﻿/****************************************************************************
 Copyright (C) 2010 Team ~R3F~
 This program is free software under the terms of the GNU General Public License version 3.
 You should have received a copy of the GNU General Public License
@@ -12,8 +12,8 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 private ["_level", "_n", "_s"];
 
-_voil = [] call R3F_TIRED_FNCT_MkVoile;
-[_voil,1] call R3F_TIRED_FNCT_Voile_Noir;
+//_voil = [] call R3F_TIRED_FNCT_MkVoile;
+//[_voil,1] call R3F_TIRED_FNCT_Voile_Noir;
 
 _n = 0;
 _posATL = 0;
@@ -76,23 +76,16 @@ while {true} do {
 		_level = ((R3F_TIRED_Accumulator / R3F_TIRED_BLACKOUT_LEVEL) *  100);
 		_level = 0 max (1 - (_level / 100));
 		
-		//#ifdef R3F_TIRED_DEBUG
-			//#hintsilent format["Fatique : %1/%2", R3F_TIRED_Accumulator, R3F_TIRED_BLACKOUT_LEVEL];
-		//#endif
-		
-		
-		#ifdef DAYZ_WEIGHT
-		_knackered = 50000;
-			if (alive player && R3F_TIRED_Accumulator > _knackered) then {
-			dayz_weight = 1;
-			playSound "weight_1";
-			playSound "heartbeat_1";
-			} else {
-			dayz_weight = 0;
-			};
+		#ifdef R3F_TIRED_DEBUG
+			hintsilent format["Fatique : %1/%2\nBlack level : %3\nPoids total : %4\n Poids armement : %5",
+				R3F_TIRED_Accumulator,
+				R3F_TIRED_BLACKOUT_LEVEL,
+				_level,
+				R3F_TIRED_POIDS_TOTAL_PLAYER,
+				R3F_Weight];
 		#endif
 		
-		[_voil, _level] call R3F_TIRED_FNCT_Voile_Noir;
+		[_level] call R3F_TIRED_FNCT_Voile_Noir;
 		
 		if (R3F_TIRED_Accumulator  > R3F_TIRED_BLACKOUT_LEVEL and scriptDone R3F_TIRED_Handle_Blackout_Effect and scriptDone R3F_TIRED_Handle_Blur_Effect) then {
 			R3F_TIRED_Handle_Blackout_Effect = [] spawn R3F_TIRED_FNCT_DoBlackVanish;
@@ -133,5 +126,5 @@ while {true} do {
 	_n = _n + 1;
 };
 
-[_voil] call R3F_TIRED_FNCT_Effect_Off;
+//[_voil] call R3F_TIRED_FNCT_Effect_Off;
 

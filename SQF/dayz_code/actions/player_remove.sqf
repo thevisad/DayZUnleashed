@@ -375,14 +375,16 @@ switch (true) do
 if (!isNull _obj) then {
 cutText [format["You removed a %1 successfully!",_text], "PLAIN DOWN"];
 //	dayzDeleteObj = [_dir, _pos, _objectID, _objectUID];
-	dayzDeleteObj = [_objectID,_objectUID];
+PVDZ_obj_Delete = [_objectID,_objectUID];
+publicVariableServer "PVDZ_obj_Delete";
+/*dayzDeleteObj = [_objectID,_objectUID];
 publicVariableServer "dayzDeleteObj";
 //if (isServer) then {
 //	dayzDeleteObj call local_deleteObj;
 //};
 if (isServer) then { 
 dayzDeleteObj call server_deleteObj; 
-};
+}; */
 sleep .1;
 deleteVehicle _obj;
 };

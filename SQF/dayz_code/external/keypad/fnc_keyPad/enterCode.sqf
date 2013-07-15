@@ -33,8 +33,9 @@ switch (true) do
 		_lever = camoNet_Nato;
 	};
 };
+
 //_dir = direction _lever;
 //_pos = getPosATL _lever;
-	//_uid 	= [_dir,_pos] call dayz_objectUID2;
+	//_uid 	= [_dir,_pos] call dayz_leverectUID2;
 keyCode = _lever getVariable ["ObjectUID","0"];
 _displayok = createdialog "KeypadGate";

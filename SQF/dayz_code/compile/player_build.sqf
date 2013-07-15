@@ -574,11 +574,13 @@ _playerCombat = player;
 	_object setVariable ["AuthorizedUID", _playerUID, true];
 	_object setVariable ["characterID",dayz_characterID,true];
 	//dayzPublishObj = [dayz_characterID,_object,[_dir,_location],_classname];
-	dayzPublishObj = [dayz_characterID,_object,[_dir,_location],_classname,_playerUID];
-	publicVariableServer "dayzPublishObj";
+	//dayzPublishObj = [dayz_characterID,_object,[_dir,_location],_classname,_playerUID];
+	PVDZ_obj_Publish = [dayz_characterID,_object,[_dir,_location],_classname,_playerUID];
+	publicVariableServer "PVDZ_obj_Publish";
+	/*publicVariableServer "dayzPublishObj";
 		if (isServer) then {
-			dayzPublishObj call server_publishObj;
-		};
+			PVDZ_obj_Publish call server_publishObj;
+		};*/
 	} else {
 	detach _object;
 	deletevehicle _object; 

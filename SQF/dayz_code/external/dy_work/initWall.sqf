@@ -5,5 +5,5 @@ _isVehicle = (vehicle player);
 if (_inVehicle) then {
 	player call anti_discWall;
 	};
-sleep .3;
+sleep .03;
 };

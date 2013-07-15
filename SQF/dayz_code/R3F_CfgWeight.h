@@ -24,6 +24,10 @@ class CfgWeight
 		{
 			weight = 3.6;
 		};
+		class FoodchickenCooked
+		{
+			weight = .75;
+		};
 		class SCAR_L_STD_HOLO
 		{
 			weight = 3.6;

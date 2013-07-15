@@ -95,8 +95,7 @@ if (isServer and isNil "sm_done") then {
 		_fuel =	if ((typeName (_x select 7)) == "SCALAR") then { _x select 7 } else { 0 };
 		_damage = if ((typeName (_x select 8)) == "SCALAR") then { _x select 8 } else { 0.9 };  
 		_combination =	_x select 3;
-
-		//["OBJ","230","TentStorage","913",[61,[15334,15599.7,0.005]],[[[],[]],[[],[]],[[],[]]],[],0.0,0.0,626]
+		diag_log ("_action that occured was " + str(_action));
 		_entity = nil;
 	
 		_dir = floor(random(360));
@@ -230,39 +229,41 @@ if (isServer and isNil "sm_done") then {
 				_key = format["CHILD:304:%1:",_ObjectID]; // delete by ID (not UID which is handler 310)
 				_rawData = "HiveEXT" callExtension _key;*/
 #ifdef OBJECT_DEBUG
-				diag_log (format["IGNORED %1 oid#%2 cid:%3 ",
-					_class, _ObjectID, _CharacterID ]);
+				diag_log (format["IGNORED %1 oid#%2 cid:%3 ",_class, _ObjectID, _CharacterID ]);
 #endif
 			};
 		};
 //diag_log(format["VEH MAINTENANCE DEBUG %1 %2", __FILE__, __LINE__]);
 			
 		// common code (vehicle or not)	
-		_combination = 0;			
+					
 		if (_damage < 1 AND !(isNil ("_entity"))) then {
 			_entity setdir _dir;
 			_entity setPos _point;
 			[_entity, _inventory] call fa_populateCargo;
 			
 			dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _entity];
-	
+			diag_log ("_entity that was placed was " + str(_entity) + " was used");
+			_squad = 0;
+			_combination = 0;
 			// UPDATE MODIFIED OBJECTS TO THE HIVE 
 			if (_action == "CREATED") then {
-				if (_class == "TentStorage") then { 
-						
-						_combination = 0;
-					} else {
-					_combination = floor(random 899) + 100;
-					};
-				
+				_combination = floor(random 899) + 100;
 				diag_log ("combination of " + str(_combination) + " was used");
 				// insert className damage characterId  worldSpace inventory  hitPoints  fuel uniqueId  
-				_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:", dayZ_instance, 
-					_class, _damage , 1, 
-					[_dir, _point], 
-					[getWeaponCargo _entity, getMagazineCargo _entity ,getBackpackCargo _entity], 
-					_hitpoints, _fuel, _ObjectID, _combination
-				];
+				if (typeOf(_entity) in allbuildables_class) then {
+				|CHILD:400:1:1290511483511182:Fort_RazorWire:926:[82.4621,[12905.1,14835.1,1.10155]]:[]:[]:0:586:|
+					return ReturnBooleanStatus(_bldData->createBuilding(getServerId(),className,buildingUid,worldSpace,inventory,hitPoints,characterId,squadId,combinationId));
+					_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_ObjectID,_worldspace, [],[],_CharacterID,_squad ,_combination];
+				}
+				else 
+				{
+					_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:", dayZ_instance, 
+						_class, _damage , 1, 
+						[_dir, _point], 
+						[getWeaponCargo _entity, getMagazineCargo _entity ,getBackpackCargo _entity], 
+						_hitpoints, _fuel, _ObjectID ];
+				};
 				//diag_log (_key);
 				_rawData = "HiveEXT" callExtension _key;
 			};
@@ -334,7 +335,7 @@ if (isServer and isNil "sm_done") then {
 
 	if (isServer and isNil "sm_done") then {
 	
-		private ["_key","_data","_result","_status","_buildingArray","_bldCount","_val","_countr","_idKey","_type","_ownerID","_worldspace","_dir","_wsDone","_intentory","_hitPoints","_squadID","_combination","_damage","_object","_classname","_i","_requirements","_isDestructable","_objWpnTypes","_objWpnQty","_isOK","_block"];
+		private ["_key","_data","_result","_status","_buildingArray","_bldCount","_val","_countr","_idKey","_type","_ownerID","_worldspace","_dir","_wsDone","_inventory","_hitPoints","_squadID","_combination","_damage","_object","_classname","_i","_requirements","_isDestructable","_objWpnTypes","_objWpnQty","_isOK","_block"];
 		_key = format["CHILD:600:%1:", dayZ_instance];
 		_data = "HiveEXT" callExtension _key;
 		diag_log("BASEBUILDING: Fetching Base Buildings...");
@@ -479,10 +480,10 @@ if (isServer and isNil "sm_done") then {
 					// ##### BASE BUILDING 1.2 Server Side ##### - END
 					// This sets objects to appear properly once server restarts
 
-					if (count _intentory > 0) then {
+					if (count _inventory > 0) then {
 						//Add weapons
-						_objWpnTypes = (_intentory select 0) select 0;
-						_objWpnQty = (_intentory select 0) select 1;
+						_objWpnTypes = (_inventory select 0) select 0;
+						_objWpnQty = (_inventory select 0) select 1;
 						_countr = 0;					
 						{
 							_isOK = 	isClass(configFile >> "CfgWeapons" >> _x);
@@ -496,8 +497,8 @@ if (isServer and isNil "sm_done") then {
 						} forEach _objWpnTypes; 
 						
 						//Add Magazines
-						_objWpnTypes = (_intentory select 1) select 0;
-						_objWpnQty = (_intentory select 1) select 1;
+						_objWpnTypes = (_inventory select 1) select 0;
+						_objWpnQty = (_inventory select 1) select 1;
 						_countr = 0;
 						{
 							_isOK = 	isClass(configFile >> "CfgMagazines" >> _x);
@@ -510,8 +511,8 @@ if (isServer and isNil "sm_done") then {
 							_countr = _countr + 1;
 						} forEach _objWpnTypes;
 						//Add Backpacks
-						_objWpnTypes = (_intentory select 2) select 0;
-						_objWpnQty = (_intentory select 2) select 1;
+						_objWpnTypes = (_inventory select 2) select 0;
+						_objWpnQty = (_inventory select 2) select 1;
 						_countr = 0;
 						{
 							_isOK = 	isClass(configFile >> "CfgVehicles" >> _x);

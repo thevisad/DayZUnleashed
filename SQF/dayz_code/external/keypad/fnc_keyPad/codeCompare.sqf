@@ -1,12 +1,28 @@
-private ["_isPanel","_validObject","_validObjectCode","_panelPos","_playerPos","_cnt","_gateAccess","_inVehicle","_soundSource","_panel","_convertInput","_code", "_inputCode", "_validMatch"];
+private ["_authorizedUID","_nearbyPanel","_playerUID","_isPanel","_validObject","_validObjectCode","_panelPos","_playerPos","_cnt","_gateAccess","_inVehicle","_soundSource","_panel","_convertInput","_code", "_inputCode", "_validMatch"];
 _panel = cursortarget;
-_gateAccess = false;
 _playerPos = getpos player;
 _panelPos = getpos _panel;
+_playerUID = GetPlayerUID player;
+_nearbyPanel = nearestObject [(getposATL _panel), "Infostand_2_EP1"];
 _cnt = 600;
 _validMatch = false;
 _validObjectCode = false;
 keyCode = _this select 0;
+	// This is only if we are adding/removing playerUIDs and not entering code to operate gate
+	if (addUIDCode) exitWith 
+	{
+		//_authorizedUID = _panel getVariable "AuthorizedUID";
+		_inputCode = _this select 1;
+		_convertInput =+ _inputCode;
+		[_panel, _convertInput] spawn add_UIDCode;		
+	};
+	if (removeUIDCode) exitWith 
+	{
+		//_authorizedUID = _panel getVariable "AuthorizedUID";
+		_inputCode = _this select 1;
+		_convertInput =+ _inputCode;
+		[_panel, _convertInput] spawn remove_UIDCode;
+	};
 //hint format["keycode after enter: %1", keyCode];
 sleep 3;
 _code = keyCode;
@@ -17,7 +33,7 @@ for "_i" from 0 to (count _convertInput - 1) do {_convertInput set [_i, (_conver
 //hint format["Keycode: %1 | CodeInput: %2", _code, (toString _convertInput)];
 
 // compare arrays to see if code matches
-	if (typeOf(_panel) == "Infostand_2_EP1") then {
+	if ((typeOf(_panel) == "Infostand_2_EP1") || (typeOf(_panel) == "Fence_corrugated_plate")) then {
 	_validMatch = [_code, (toString _convertInput)] call BIS_fnc_areEqual;
 	} else {
 	_validObjectCode = [_code, (toString _convertInput)] call BIS_fnc_areEqual;
@@ -57,49 +73,32 @@ switch (true) do
 		_panelPos = getpos _panel;
 	};
 };
+
 if (_validMatch) then {
-	cutText ["### ACCESS GRANTED ###", "PLAIN DOWN"];
+		cutText ["### ACCESS GRANTED ###", "PLAIN DOWN"];
+		// Make it so we dont have to keep typing in the damn code!
+		_authorizedUID = _panel getVariable "AuthorizedUID";
+		_authorizedUID set [count _authorizedUID, _playerUID];
+		_panel setVariable ["AuthorizedUID", _authorizedUID, true];
+		dayzUpdateVehicle = [_panel,"gear"];
+		publicVariableServer "dayzUpdateVehicle";
+		if (isServer) then {
+			dayzUpdateVehicle call server_updateObject;
+		};
+		playsound "beep";
+		sleep 0.5;
+		playsound "beep";
+		sleep 0.5;
+		playsound "beep";
 
-	playsound "beep";
-	sleep 0.5;
-	playsound "beep";
-	sleep 0.5;
-	playsound "beep";
-	keyValid = true;
-	_gateAccess = true;
-	sleep 2;
-	cutText ["You can now operate the bases gate panel(s) for 60 seconds", "PLAIN DOWN"];
-	while {_gateAccess} do 
-	{
-	_playerPos = getpos player;
-	_panelPos = getpos _panel;
-	//_inVehicle = (vehicle player != player);
-		if (_playerPos distance _panelPos > 150) then {
-		_gateAccess = false;
-		keyValid = false;
-		cutText ["Lost connection to panel > 150 meters away", "PLAIN DOWN"];
-		};
-	_cnt = _cnt - 1;
-	if (_cnt <= 600 && _cnt % 10 == 0) then {
-		cutText [format["Access to panel expires in %1 seconds",(_cnt / 10)], "PLAIN DOWN",1];
-	};	
-		if (_cnt <= 0) then {
-		_gateAccess = false;
-		keyValid = false;
-		cutText ["You no longer have gate access, type code in again to have access", "PLAIN DOWN"];
-	{dayz_myCursorTarget removeAction _x} forEach s_player_gateActions;s_player_gateActions = [];
-		};
-	sleep .1;
-	};
-	keyValid = false;
+		_gateAccess = true;
+		sleep 2;
+		cutText ["You can now operate the bases gate panel(s)", "PLAIN DOWN"];
 } else {
-
 if (!_validObjectCode) then {
 	removeObject = false;
 	cutText ["!!! ACCESS DENIED !!!", "PLAIN DOWN"];
-
 	playsound "beep";
-
 	sleep 2;
 	cutText ["Wrong code was entered", "PLAIN DOWN"];
 	} else {
@@ -128,7 +127,7 @@ if (!_validObjectCode) then {
 			};	
 			if (_cnt <= 0) then {
 				_gateAccess = false;
-			cutText ["You no longer have object access, type code in again to have access", "PLAIN DOWN"];
+				cutText ["You no longer have object access, type code in again to have access", "PLAIN DOWN"];
 			};
 		sleep .1;
 		};
