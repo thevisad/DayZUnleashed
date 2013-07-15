@@ -11,7 +11,9 @@ player playActionNow "Medic";
 player removeAction s_player_packtent;
 s_player_packtent = -1;
 
-if(_ownerID == dayz_characterID) then {
+// Everyone can Pack every Tent!
+//if(_ownerID == dayz_characterID) then {
+
 	_alreadyPacking = _obj getVariable["packing",0];
 
 	if (_alreadyPacking == 1) exitWith {cutText [format[(localize "str_player_beingpacked")] , "PLAIN DOWN"]};
@@ -75,6 +77,6 @@ if(_ownerID == dayz_characterID) then {
 	} forEach _objWpnTypes;
 
 	cutText [localize "str_success_tent_pack", "PLAIN DOWN"];
-} else {
+/*} else {
 	cutText [localize "str_fail_tent_pack", "PLAIN DOWN"];
-};
+};*/

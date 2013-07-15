@@ -10,7 +10,9 @@ if ((count playableUnits == 0) and !isDedicated) then {
 };
 
 waitUntil{initialized}; //means all the functions are now defined
-
+// ### BASE BUILDING 1.2 ### SERVER SIDE BUILD ARRAYS - START
+call build_baseBuilding_arrays;
+// ### BASE BUILDING 1.2 ### SERVER SIDE BUILD ARRAYS - END
 diag_log "HIVE: Starting";
 
 //Set the Time
@@ -40,160 +42,7 @@ diag_log "HIVE: Starting";
 		diag_log ("HIVE: Local Time set to " + str(_date));
 	};
 
-	//Stream in objects
-	/* STREAM OBJECTS
-		//Send the key
-		_key = format["CHILD:302:%1:",dayZ_instance];
-		_result = _key call server_hiveReadWrite;
-
-		diag_log "HIVE: Request sent";
-		
-		//Process result
-		_status = _result select 0;
-		
-		_myArray = [];
-		if (_status == "ObjectStreamStart") then {
-			_val = _result select 1;
-			//Stream Objects
-			diag_log ("HIVE: Commence Object Streaming...");
-			for "_i" from 1 to _val do {
-				_result = _key call server_hiveReadWrite;
-
-				_status = _result select 0;
-				_myArray set [count _myArray,_result];
-				//diag_log ("HIVE: Loop ");
-			};
-			//diag_log ("HIVE: Streamed " + str(_val) + " objects");
-		};
 	
-		_countr = 0;		
-		{
-				
-			//Parse Array
-			_countr = _countr + 1;
-		
-			_idKey = 	_x select 1;
-			_type =		_x select 2;
-			_ownerID = 	_x select 3;
-			_worldspace = _x select 4;
-			_inventory=	_x select 5;
-			_hitPoints=	_x select 6;
-			_fuel =		_x select 7;
-			_damage = 	_x select 8;
-
-			_dir = 0;
-			_pos = [0,0,0];
-			_wsDone = false;			
-			if (count _worldspace >= 2) then
-			{
-				_dir = _worldspace select 0;
-				if (count (_worldspace select 1) == 3) then {
-					_pos = _worldspace select 1;
-					_wsDone = true;
-				}
-			};
-			
-			if (!_wsDone) then {
-				if (count _worldspace >= 1) then { _dir = _worldspace select 0; };
-				_objectPos = [_worldspace select 1 select 0,_worldspace select 1 select 1,0];		
-				_pos = [(_objectPos),0,15,1,0,2000,0,[],[_objectPos,[]]] call BIS_fnc_findSafePos;
-				if (count _pos < 3) then { _pos = [_pos select 0,_pos select 1,0]; };
-				diag_log ("MOVED OBJ: " + str(_idKey) + " of class " + _type + " to pos: " + str(_pos));
-			};
-			
-			if (_damage < 1) then {
-				diag_log format["OBJ: %1 - %2", _idKey,_type];
-				
-				//Create it
-				_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
-				_object setVariable ["lastUpdate",time];
-				_object setVariable ["ObjectID", _idKey, true];
-				_object setVariable ["CharacterID", _ownerID, true];
-				
-				clearWeaponCargoGlobal  _object;
-				clearMagazineCargoGlobal  _object;
-				
-				if (_object isKindOf "TentStorage") then {
-					_pos set [2,0];
-					_object setpos _pos;
-					_object addMPEventHandler ["MPKilled",{_this call vehicle_handleServerKilled;}];
-				};
-				_object setdir _dir;
-				_object setDamage _damage;
-				
-				if (count _inventory > 0) then {
-					//Add weapons
-					_objWpnTypes = (_inventory select 0) select 0;
-					_objWpnQty = (_inventory select 0) select 1;
-					_countr = 0;					
-					{
-						if (_x == "Crossbow") then { _x = "Crossbow_DZ" }; // Convert Crossbow to Crossbow_DZ
-						_isOK = 	isClass(configFile >> "CfgWeapons" >> _x);
-						if (_isOK) then {
-							_block = 	getNumber(configFile >> "CfgWeapons" >> _x >> "stopThis") == 1;
-							if (!_block) then {
-								_object addWeaponCargoGlobal [_x,(_objWpnQty select _countr)];
-							};
-						};
-						_countr = _countr + 1;
-					} forEach _objWpnTypes; 
-					
-					//Add Magazines
-					_objWpnTypes = (_inventory select 1) select 0;
-					_objWpnQty = (_inventory select 1) select 1;
-					_countr = 0;
-					{
-						if (_x == "BoltSteel") then { _x = "WoodenArrow" }; // Convert BoltSteel to WoodenArrow
-						_isOK = 	isClass(configFile >> "CfgMagazines" >> _x);
-						if (_isOK) then {
-							_block = 	getNumber(configFile >> "CfgMagazines" >> _x >> "stopThis") == 1;
-							if (!_block) then {
-								_object addMagazineCargoGlobal [_x,(_objWpnQty select _countr)];
-							};
-						};
-						_countr = _countr + 1;
-					} forEach _objWpnTypes;
-
-					//Add Backpacks
-					_objWpnTypes = (_inventory select 2) select 0;
-					_objWpnQty = (_inventory select 2) select 1;
-					_countr = 0;
-					{
-						_isOK = 	isClass(configFile >> "CfgVehicles" >> _x);
-						if (_isOK) then {
-							_block = 	getNumber(configFile >> "CfgVehicles" >> _x >> "stopThis") == 1;
-							if (!_block) then {
-								_object addBackpackCargoGlobal [_x,(_objWpnQty select _countr)];
-							};
-						};
-						_countr = _countr + 1;
-					} forEach _objWpnTypes;
-				};	
-				
-				if (_object isKindOf "AllVehicles") then {
-					{
-						_selection = _x select 0;
-						_dam = _x select 1;
-						if (_selection in dayZ_explosiveParts and _dam > 0.8) then {_dam = 0.8};
-						[_object,_selection,_dam] call fnc_veh_handleRepair;
-					} forEach _hitpoints;
-					_object setvelocity [0,0,1];
-					_object setFuel _fuel;
-					_object call fnc_veh_ResetEH;
-					//Updated object position if moved
-					if (!_wsDone) then {
-						[_object, "position"] call server_updateObject;
-					};
-				};
-
-				//Monitor the object
-				//_object enableSimulation false;
-				dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];
-			};
-		} forEach _myArray;
-		
-	// # END OF STREAMING #
-*/
 waituntil{isNil "sm_done"}; // prevent server_monitor be called twice (bug during login of the first player)
 call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_initserver.sqf";
 #include "\z\addons\dayz_server\compile\fa_hiveMaintenance.hpp"
@@ -246,8 +95,7 @@ if (isServer and isNil "sm_done") then {
 		_fuel =	if ((typeName (_x select 7)) == "SCALAR") then { _x select 7 } else { 0 };
 		_damage = if ((typeName (_x select 8)) == "SCALAR") then { _x select 8 } else { 0.9 };  
 		_combination =	_x select 3;
-
-		//["OBJ","230","TentStorage","913",[61,[15334,15599.7,0.005]],[[[],[]],[[],[]],[[],[]]],[],0.0,0.0,626]
+		diag_log ("_action that occured was " + str(_action));
 		_entity = nil;
 	
 		_dir = floor(random(360));
@@ -381,37 +229,41 @@ if (isServer and isNil "sm_done") then {
 				_key = format["CHILD:304:%1:",_ObjectID]; // delete by ID (not UID which is handler 310)
 				_rawData = "HiveEXT" callExtension _key;*/
 #ifdef OBJECT_DEBUG
-				diag_log (format["IGNORED %1 oid#%2 cid:%3 ",
-					_class, _ObjectID, _CharacterID ]);
+				diag_log (format["IGNORED %1 oid#%2 cid:%3 ",_class, _ObjectID, _CharacterID ]);
 #endif
 			};
 		};
 //diag_log(format["VEH MAINTENANCE DEBUG %1 %2", __FILE__, __LINE__]);
 			
-		// common code (vehicle or not)				
+		// common code (vehicle or not)	
+					
 		if (_damage < 1 AND !(isNil ("_entity"))) then {
 			_entity setdir _dir;
 			_entity setPos _point;
 			[_entity, _inventory] call fa_populateCargo;
 			
 			dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _entity];
-	
+			diag_log ("_entity that was placed was " + str(_entity) + " was used");
+			_squad = 0;
+			_combination = 0;
 			// UPDATE MODIFIED OBJECTS TO THE HIVE 
 			if (_action == "CREATED") then {
-				if (_class == "TentStorage") then { 
-						_combination = floor(random 999); 
-					} else {
-					_combination = 0;
-					};
-				
+				_combination = floor(random 899) + 100;
 				diag_log ("combination of " + str(_combination) + " was used");
 				// insert className damage characterId  worldSpace inventory  hitPoints  fuel uniqueId  
-				_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:", dayZ_instance, 
-					_class, _damage , 1, 
-					[_dir, _point], 
-					[getWeaponCargo _entity, getMagazineCargo _entity ,getBackpackCargo _entity], 
-					_hitpoints, _fuel, _ObjectID, _combination
-				];
+				if (typeOf(_entity) in allbuildables_class) then {
+				|CHILD:400:1:1290511483511182:Fort_RazorWire:926:[82.4621,[12905.1,14835.1,1.10155]]:[]:[]:0:586:|
+					return ReturnBooleanStatus(_bldData->createBuilding(getServerId(),className,buildingUid,worldSpace,inventory,hitPoints,characterId,squadId,combinationId));
+					_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_ObjectID,_worldspace, [],[],_CharacterID,_squad ,_combination];
+				}
+				else 
+				{
+					_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:", dayZ_instance, 
+						_class, _damage , 1, 
+						[_dir, _point], 
+						[getWeaponCargo _entity, getMagazineCargo _entity ,getBackpackCargo _entity], 
+						_hitpoints, _fuel, _ObjectID ];
+				};
 				//diag_log (_key);
 				_rawData = "HiveEXT" callExtension _key;
 			};
@@ -434,6 +286,8 @@ if (isServer and isNil "sm_done") then {
 							//Updated object position if moved
 				[_entity, "position"] call server_updateObject;
 			};
+			
+
 		}; // not damaged
 		sleep 0.01; // yield to connecting players.
 	} forEach _objectArray;
@@ -480,16 +334,212 @@ if (isServer and isNil "sm_done") then {
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_antiwallhack.sqf";
 
 	if (isServer and isNil "sm_done") then {
-		private["_j","_key","_buildingArray","_buildingCount","_bldCount","_hivebuildingresponse"];
+	
+		private ["_key","_data","_result","_status","_buildingArray","_bldCount","_val","_countr","_idKey","_type","_ownerID","_worldspace","_dir","_wsDone","_inventory","_hitPoints","_squadID","_combination","_damage","_object","_classname","_i","_requirements","_isDestructable","_objWpnTypes","_objWpnQty","_isOK","_block"];
+		_key = format["CHILD:600:%1:", dayZ_instance];
+		_data = "HiveEXT" callExtension _key;
+		diag_log("BASEBUILDING: Fetching Base Buildings...");
+		//Process result
+		_result = call compile format ["%1", _data];
+		_status = _result select 0;
+		_buildingArray = [];
+		_bldCount = 0;
+		_countr = 0;
+		_idKey = 0;
+		if (_status == "ObjectStreamStart") then {
+			_val = _result select 1;
+			for "_i" from 1 to _val do {
+				_data = "HiveEXT" callExtension _key;
+				_result = call compile format ["%1",_data];
+				_status = _result select 0;
+				_buildingArray set [count _buildingArray, _result];
+				_bldCount = _bldCount + 1;
+			};
+			diag_log ("BASEBUILDING: Found " + str(_bldCount) + " Base Buildings!");
+		};
+		{
+				diag_log ("BASEBUILDING: Info " + str(_x));
+				_countr = _countr + 1;
+				_idKey = 	_x select 0;
+				_type =		_x select 1;
+				_ownerID = 	_x select 2;
+				_worldspace = if ((typeName (_x select 3)) == "ARRAY") then { _x select 3 } else { [] };
+				_dir = 0;
+				_pos = [0,0,0];
+				_wsDone = false;
+				if (count _worldspace >= 2) then
+				{
+						_dir = _worldspace select 0;
+						if (count (_worldspace select 1) == 3) then {
+							_pos = _worldspace select 1;
+							_wsDone = true;
+						};
+				};			
+
+				_inventory=	if ((typeName (_x select 4)) == "ARRAY") then { _x select 4 } else { [] };
+				_hitpoints=	if ((typeName (_x select 5)) == "ARRAY") then { _x select 5 } else { [] };
+				_squadID =	if ((typeName (_x select 6)) == "SCALAR") then { _x select 6 } else { 0 };
+				_combination = if ((typeName (_x select 7)) == "SCALAR") then { _x select 7 } else { 0.9 };  
+		
+				//diag_log ("BASEBUILDING: _idKey " + str(_idKey));
+				//diag_log ("BASEBUILDING: _type " + str(_type));
+				//diag_log ("BASEBUILDING: _ownerID " + str(_ownerID));
+				//diag_log ("BASEBUILDING: _worldspace " + str(_worldspace));
+				//diag_log ("BASEBUILDING: _dir " + str(_dir));
+				//diag_log ("BASEBUILDING: _pos " + str(_pos));
+				//diag_log ("BASEBUILDING: _squadID " + str(_squadID));
+				//diag_log ("BASEBUILDING: _combination " + str(_combination));
+				//diag_log ("BASEBUILDING: _hitPoints " + str(_hitPoints));
+				
+				
+					_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
+					_object setVariable ["lastUpdate",time];
+					_object setVariable ["ObjectID", _idKey, true];
+					//_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
+					_object setVariable ["CharacterID", _ownerID, true];
+					_object setVariable ["CombinationID", _combination, true];
+					
+					_object setdir _dir;
+					// ##### BASE BUILDING 1.2 Server Side ##### - START
+					if (typeOf(_object) == "USOrdnanceBox_EP1") then {
+						_object setpos _pos;
+					};
+					if ((_object isKindOf "Static") && !(_object isKindOf "TentStorage") && (typeOf(_object) != "USOrdnanceBox_EP1")) then {
+						_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
+						//_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
+						//_object setpos [((_object modeltoworld [0,0,0]) select 0),((_object modeltoworld [0,0,0]) select 1), 0];
+						//_object addEventHandler ["HandleDamage", {false}];	
+					};
+					//Set Variable
+					if (typeOf(_object) == "Infostand_2_EP1" && (typeOf(_object) != "Infostand_1_EP1") || typeOf(_object) == "Fence_corrugated_plate") then {
+						//addaction
+						//_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
+						_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
+						_object setVariable ["AuthorizedUID", _inventory, true];
+						_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
+						//_object setVariable ["ObjectUID", str(_idKey),true];//_object enableSimulation false;
+						//_object setVariable ["ObjectID", str(_idKey), true];
+						//_object addEventHandler ["HandleDamage", {false}];
+					};
+
+
+					// Set whether or not buildable is destructable
+					if (typeOf(_object) in allbuildables_class) then {
+						diag_log ("SERVER: in allbuildables_class:" + typeOf(_object) + " !");
+						for "_i" from 0 to ((count allbuildables) - 1) do
+						{
+							_classname = (allbuildables select _i) select _i - _i + 1;
+							_result = [_classname,typeOf(_object)] call BIS_fnc_areEqual;
+							if (_result) exitWith {
+								_requirements = (allbuildables select _i) select _i - _i + 2;
+
+								_isDestructable = _requirements select 13;
+								diag_log ("SERVER: " + typeOf(_object) + " _isDestructable = " + str(_isDestructable));
+								if (!_isDestructable) then {
+									diag_log("Spawned: " + typeOf(_object) + " Handle Damage False");
+									_object addEventHandler ["HandleDamage", {false}];
+								};
+							};
+						};
+						//gateKeypad = _object addaction ["Defuse", "\z\addons\dayz_server\compile\enterCode.sqf"];
+					};
+					/*
+					// This sets objects to appear properly once server restarts
+					if ((_object isKindOf "Static") && !(_object isKindOf "TentStorage")) then {
+						_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
+					};
+					//Set Variable
+					if (_object isKindOf "Infostand_2_EP1" && !(_object isKindOf "Infostand_1_EP1")) then {
+						_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
+						_object enableSimulation false;
+					};
+
+
+							// Set whether or not buildable is destructable
+					if (typeOf(_object) in allbuildables_class) then {
+						diag_log ("BASEBUILDING: in allbuildables_class:" + typeOf(_object) + " !");
+						for "_i" from 0 to ((count allbuildables) - 1) do
+						{
+							_classname = (allbuildables select _i) select _i - _i + 1;
+							_result = [_classname,typeOf(_object)] call BIS_fnc_areEqual;
+							if (_result) exitWith {
+								_requirements = (allbuildables select _i) select _i - _i + 2;
+								_isDestructable = _requirements select 13;
+								diag_log ("BASEBUILDING: " + typeOf(_object) + " _isDestructable = " + str(_isDestructable));
+								if (!_isDestructable) then {
+									diag_log("Spawned: " + typeOf(_object) + " Handle Damage False");
+									_object addEventHandler ["HandleDamage", {false}];
+								};
+								if (typeOf(_object) == "Grave") then {
+									_object setVariable ["isBomb", true];
+								};
+							};
+						};
+						//gateKeypad = _object addaction ["Defuse", "\z\addons\dayz_server\compile\enterCode.sqf"];
+					};*/
+					// ##### BASE BUILDING 1.2 Server Side ##### - END
+					// This sets objects to appear properly once server restarts
+
+					if (count _inventory > 0) then {
+						//Add weapons
+						_objWpnTypes = (_inventory select 0) select 0;
+						_objWpnQty = (_inventory select 0) select 1;
+						_countr = 0;					
+						{
+							_isOK = 	isClass(configFile >> "CfgWeapons" >> _x);
+							if (_isOK) then {
+								_block = 	getNumber(configFile >> "CfgWeapons" >> _x >> "stopThis") == 1;
+								if (!_block) then {
+									_object addWeaponCargoGlobal [_x,(_objWpnQty select _countr)];
+								};
+							};
+							_countr = _countr + 1;
+						} forEach _objWpnTypes; 
+						
+						//Add Magazines
+						_objWpnTypes = (_inventory select 1) select 0;
+						_objWpnQty = (_inventory select 1) select 1;
+						_countr = 0;
+						{
+							_isOK = 	isClass(configFile >> "CfgMagazines" >> _x);
+							if (_isOK) then {
+								_block = 	getNumber(configFile >> "CfgMagazines" >> _x >> "stopThis") == 1;
+								if (!_block) then {
+									_object addMagazineCargoGlobal [_x,(_objWpnQty select _countr)];
+								};
+							};
+							_countr = _countr + 1;
+						} forEach _objWpnTypes;
+						//Add Backpacks
+						_objWpnTypes = (_inventory select 2) select 0;
+						_objWpnQty = (_inventory select 2) select 1;
+						_countr = 0;
+						{
+							_isOK = 	isClass(configFile >> "CfgVehicles" >> _x);
+							if (_isOK) then {
+								_block = 	getNumber(configFile >> "CfgVehicles" >> _x >> "stopThis") == 1;
+								if (!_block) then {
+									_object addBackpackCargoGlobal [_x,(_objWpnQty select _countr)];
+								};
+							};
+							_countr = _countr + 1;
+						} forEach _objWpnTypes;
+					};	
+					
+
+					dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];
+			} forEach _buildingArray;
+		
+		/*
 		_buildingArray = [];
 		diag_log("SERVER: Fetching buildings...");
 		for "_j" from 1 to 5 do {
-			_key = format["CHILD:301:%1:", dayZ_instance];
+			_key = format["CHILD:600:%1:", dayZ_instance];
 			_hiveBuildingResponse = _key call server_hiveReadWrite;  
-			diag_log ("HIVE: select 1 "+str(_hiveBuildingResponse select 1) );
-			diag_log ("HIVE: response "+str( typeName _hiveBuildingResponse ) );
+			//diag_log ("HIVE: select 1 "+str(_hiveBuildingResponse select 1) );
+			//diag_log ("HIVE: response "+str( typeName _hiveBuildingResponse ) );
 			if ((((isnil "_hiveBuildingResponse") || {(typeName _hiveBuildingResponse != "ARRAY")}) || {((typeName (_hiveBuildingResponse select 1)) != "SCALAR")}) || {(_hiveBuildingResponse select 1 > 2000)}) then {
-				diag_log ("HIVE: buildings connection problem... HiveExt response:"+str(_hiveBuildingResponse));
+				//diag_log ("HIVE: buildings connection problem... HiveExt response:"+str(_hiveBuildingResponse));
 				_hiveBuildingResponse = ["",0];
 			} 
 			else {
@@ -497,6 +547,7 @@ if (isServer and isNil "sm_done") then {
 				_j = 99; // break
 			};
 		};
+		
 		
 		_bldCount = 0;
 		if ((_hiveBuildingResponse select 0) == "ObjectStreamStart") then {
@@ -515,14 +566,14 @@ if (isServer and isNil "sm_done") then {
 				
 				diag_log ("SERVER: building _dir " + str(_dir));
 				diag_log ("SERVER: building _pos 2 " + str(_pos));
-				_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
+				//_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 				_building = createVehicle [_result select 0, _pos, [], 0, "CAN_COLLIDE"];
 				diag_log ("SERVER: createVehicle _building " + str(_building));
 				_building setDir _dir;
 				_bldCount = _bldCount + 1;
 			};
 			diag_log ("SERVER: Spawned " + str(_bldCount) + " buildings!");
-		}; 
+		}; */
 	};		
 	sm_done = true;
 	publicVariable "sm_done";

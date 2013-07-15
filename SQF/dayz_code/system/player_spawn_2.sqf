@@ -1,4 +1,3 @@
-
 private["_refObj","_size","_vel","_speed","_hunger","_thirst","_array","_unsaved","_timeOut","_result","_lastSave","_wpnType","_isOK","_skin","_skin2"];
 disableSerialization;
 _timeOut = 0;
@@ -78,7 +77,7 @@ while {true} do {
 
 	// Bandit Level 1 (10 Survivor 5 Female Skins)
 	
-	if (_humanity < -5000 and !_isBandit) then {
+	if ((_humanity < -5000) and (_humanity > -9999) and !_isBandit) then {
 		//_isBandit = true;
 		_model = typeOf player;
 		if (_model == "Civilian1_DZ") then {
@@ -136,7 +135,7 @@ while {true} do {
 	
 	// Bandit Level 2
 	
-	if (_humanity < -10000 and !_isBandit) then {
+	if ((_humanity < -10000) and (_humanity > -19999) and _isBandit) then {
 		//_isBandit = true;
 		_model = typeOf player;
 		if (_model == "Bandit1_DZ") then {
@@ -152,22 +151,22 @@ while {true} do {
 	
 	// Bandit Level 3
 	
-	if (_humanity < -20000 and !_isBandit) then {
+	if ((_humanity < -20000) and (_humanity > -39999) and _isBandit) then {
 		//_isBandit = true;
 		_skin = ["Banditl31_DZ","Banditl32_DZ"] call BIS_fnc_selectRandom;
 		_skin2 = ["Banditwl31_DZ","Banditwl32_DZ"] call BIS_fnc_selectRandom;
 		_model = typeOf player;
 		if (_model == "Banditl21_DZ") then {
-			[dayz_playerUID,dayz_characterID,"_skin"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,_skin] spawn player_humanityMorph;
 		};
 		if (_model == "Banditwl21_DZ") then {
-			[dayz_playerUID,dayz_characterID,"_skin2"] spawn player_humanityMorph;
+			[dayz_playerUID,dayz_characterID,_skin2] spawn player_humanityMorph;
 		};
 	};
 	
 	// Bandit Level 4
 	
-	if (_humanity < -40000 and !_isBandit) then {
+	if ((_humanity < -40000) and (_humanity > -79999) and _isBandit) then {
 		//_isBandit = true;
 		_skin = ["Banditl41_DZ","Banditl42_DZ"] call BIS_fnc_selectRandom;
 		_skin2 = ["Banditwl41_DZ","Banditwl42_DZ"] call BIS_fnc_selectRandom;
@@ -188,7 +187,7 @@ while {true} do {
 	
 	// Bandit Level 5
 	
-	if (_humanity < -80000 and !_isBandit) then {
+	if (_humanity < -80000 and _isBandit) then {
 		//_isBandit = true;
 		_skin = ["Banditl51_DZ","Banditl52_DZ"] call BIS_fnc_selectRandom;
 		_skin2 = ["Banditwl51_DZ","Banditwl52_DZ"] call BIS_fnc_selectRandom;
@@ -224,7 +223,7 @@ while {true} do {
 
 	// Hero Level 1
 	
-	if (_humanity > 2500 and !_isHero) then {
+	if ((_humanity > 2500) and (_humanity < 4999) and !_isHero) then {
 		_model = typeOf player;
 		if (_model == "Survivor2_DZ") then {
 			[dayz_playerUID,dayz_characterID,"Survivor3_DZ"] spawn player_humanityMorph;
@@ -278,9 +277,9 @@ while {true} do {
 	
 	// Hero Level 2
 	
-	if (_humanity > 5000 and !_isHero) then {
+	if ((_humanity > 5000) and (_humanity < 7499) and _isHero) then {
 		_model = typeOf player;
-		if (_model == "Herol11_DZ) then {
+		if (_model == "Herol11_DZ") then {
 			[dayz_playerUID,dayz_characterID,"Herol21_DZ"] spawn player_humanityMorph;
 		};
 		if (_model == "Herowl11_DZ") then {
@@ -293,7 +292,7 @@ while {true} do {
 	
 	// Hero Level 3
 	
-	if (_humanity > 7500 and !_isHero) then {
+	if ((_humanity > 10000) and (_humanity < 14999) and _isHero) then {
 		_skin = ["Herol31_DZ","Herol32_DZ"] call BIS_fnc_selectRandom;
 		_skin2 = ["Herowl31_DZ","Herowl32_DZ"] call BIS_fnc_selectRandom;
 		_model = typeOf player;
@@ -307,7 +306,7 @@ while {true} do {
 	
 	// Hero Level 4
 	
-	if (_humanity > 7500 and !_isHero) then {
+	if ((_humanity > 15000) and (_humanity < 19999) and _isHero) then {
 		_skin = ["Herol41_DZ","Herol42_DZ"] call BIS_fnc_selectRandom;
 		_skin2 = ["Herowl41_DZ","Herowl42_DZ"] call BIS_fnc_selectRandom;
 		_model = typeOf player;
@@ -327,7 +326,7 @@ while {true} do {
 	
 	// Hero Level 5
 	
-	if (_humanity > 7500 and !_isHero) then {
+	if (_humanity > 20000 and _isHero) then {
 		_skin = ["Herol51_DZ","Herol52_DZ"] call BIS_fnc_selectRandom;
 		_skin2 = ["Herowl51_DZ","Herowl52_DZ"] call BIS_fnc_selectRandom;
 		_model = typeOf player;

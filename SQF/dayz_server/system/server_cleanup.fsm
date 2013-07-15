@@ -5,7 +5,7 @@ item0[] = {"init",0,250,-75.000000,-400.000000,25.000000,-350.000000,0.000000,"i
 item1[] = {"true",8,218,-75.000000,-175.000000,25.000000,-125.000000,0.000000,"true"};
 item2[] = {"waiting",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"waiting"};
 item3[] = {"too_many_dead",4,218,-150.000000,-25.000000,-50.000000,25.000000,3.000000,"too many" \n "dead"};
-item4[] = {"cleanup_dead",2,250,-175.000000,50.000000,-75.000000,100.000000,0.000000,"cleanup" \n "dead"};
+item4[] = {"cleanup_dead",2,4346,-175.000000,50.000000,-75.000000,100.000000,0.000000,"cleanup" \n "dead"};
 item5[] = {"too_many_objects",4,218,-25.000000,-25.000000,75.000000,25.000000,2.000000,"too many" \n "objects"};
 item6[] = {"cleanup_objects",2,250,25.000000,50.000000,125.000000,100.000000,0.000000,"cleanup" \n "objects"};
 item7[] = {"time_sync",4,218,-200.000000,-50.000000,-100.000000,0.000000,0.000000,"time" \n "sync"};
@@ -17,7 +17,7 @@ item12[] = {"",7,210,-304.000000,-154.000000,-296.000000,-146.000000,0.000000,""
 item13[] = {"",7,210,308.500000,-79.000000,316.500000,-71.000000,0.000000,""};
 item14[] = {"",7,210,308.500000,121.000008,316.500031,129.000000,0.000000,""};
 item15[] = {"initialized",4,218,-75.000000,-325.000000,25.000000,-275.000000,0.000000,"initialized"};
-item16[] = {"prepare",2,4346,-75.000000,-250.000000,25.000000,-200.000000,0.000000,"prepare"};
+item16[] = {"prepare",2,250,-75.000000,-250.000000,25.000000,-200.000000,0.000000,"prepare"};
 item17[] = {"update_objects",2,250,125.000000,50.000000,225.000000,100.000000,0.000000,"update objects"};
 item18[] = {"need_update",4,218,25.000000,-50.000000,125.000000,0.000000,1.000000,"need update"};
 link0[] = {0,15};
@@ -43,8 +43,8 @@ link19[] = {15,16};
 link20[] = {16,1};
 link21[] = {17,9};
 link22[] = {18,17};
-globals[] = {25.000000,1,0,0,0,640,480,1,27,6316128,1,-396.580658,354.272186,240.490540,-413.513184,690,601,1};
-window[] = {2,-1,-1,-32000,-32000,802,22,1351,22,3,707};
+globals[] = {25.000000,1,0,0,0,640,480,1,27,6316128,1,-286.711395,244.402740,708.207214,-693.894531,536,1415,1};
+window[] = {0,-1,-1,-32000,-32000,1105,325,1654,325,1,554};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -144,11 +144,17 @@ class FSM
        "diag_log (""CLEANUP: PERFORMING BODY CLEANUP ON "" + str(_numDead) + "" BODIES"");" \n
        "" \n
        "_delQtyZ = 0;" \n
+       "_countTotalDelDead = 0;" \n
        "_numZombie = {_x isKindOf ""zZombie_Base""} count allDead;" \n
        "{" \n
        "	if (local _x) then {" \n
        "		if (_x isKindOf ""zZombie_Base"") then {" \n
-       "			deleteVehicle _x;" \n
+       "                     _myGroupX = group _x;" \n
+       "                     clearVehicleInit _x; //let's clear all PICs" \n
+       "                    deleteVehicle _x;" \n
+       "                    deleteGroup _myGroupX;" \n
+       "                    _x = nil; //this seems clean even more :) thx Tansien" \n
+       "                    //deleteVehicle _x;" \n
        "			_delQtyZ = _delQtyZ + 1;" \n
        "		} else {" \n
        "			_exists = _x in _deadBodies;" \n
@@ -159,25 +165,96 @@ class FSM
        "	};" \n
        "} forEach allDead;" \n
        "" \n
-       "//Cleanup players" \n
-       "_body = objNull;" \n
-       "_delQtyP = 0;" \n
-       "_delDo = _numDead - _numZombie;" \n
-       "_delDo = ((_delDo min (count _deadBodies)) -1);" \n
-       "if (_delDo<1) then {_delDo=1};" \n
-       "for ""_i"" from 0 to _delDo do {" \n
-       "	_body = _deadBodies select _i;" \n
-       "	if(!isNil ""_body"") then {" \n
-       "		_pos = getPosATL _body;" \n
-       "		_sfx = nearestObject [_pos,""Sound_Flies""];" \n
-       "		if (!(isNull _sfx)) then {" \n
-       "			deleteVehicle _sfx;" \n
-       "		};" \n
-       "		deleteVehicle _body;" \n
-       "		_delQtyP = _delQtyP + 1;" \n
-       "	};" \n
-       "	_deadBodies set [_i,""DEL""];" \n
+       " private [""_modeldex"",""_nameKillerP"",""_typedeP""];" \n
+       "_modeldex = """";" \n
+       "_nameKillerP = ""unknown"";" \n
+       "_typedeP = 0;" \n
+       "{" \n
+       "_modeldex = typeOf _x;" \n
+       "diag_log(""_modeldex = ""+str(_modeldex));" \n
+       "if (_modeldex in  [""AllPlayers"",""SurvivorW2_DZ"",""Survivor2_DZ"",""Survivor3_DZ"",""Sniper1_DZ"",""Soldier1_DZ"",""Camo1_DZ"",""Bandit1_DZ"",""Rocket_DZ"",""TK_CIV_Takistani01_EP1"",""TK_CIV_Takistani05_EP1"",""TK_INS_Soldier_EP1"",""CZ_Soldier_DES_EP1"",""US_Soldier_EP1"",""BAF_Soldier_MTP"",""BAF_Soldier_DDPM"",""BAF_Soldier_L_MTP"",""BAF_Soldier_L_DDPM"",""BAF_Soldier_Officer_MTP"",""BAF_Soldier_Officer_DDPM"",""BAF_Soldier_Sniper_MTP"",""BAF_Soldier_SniperH_MTP"",""BAF_Soldier_SniperN_MTP"",""Villager1"",""Worker1"",""Citizen3"",""CamoWinter_DZN"",""CamoWinterW_DZN"",""Sniper1W_DZN""]) then " \n
+       "	{" \n
+       "   private [""_weapons"", ""_magazines"", ""_backpack"", ""_backpackWeapons"", ""_backpackMagazines"", ""_backpackType"", ""_position"", ""_holder"", ""_i"", ""_itemsCount"", ""_isZombie""];" \n
        "" \n
+       "   _weapons = weapons _x;" \n
+       "   _magazines = magazines _x;" \n
+       "   _backpack = unitBackpack _x;" \n
+       "   _nameBody = _x getVariable[""bodyName"",""unknown""];" \n
+       "   _position = (_x modelToWorld [0.0, 0.0, 0.0]); " \n
+       "   //_position2 = getPosATL _x;" \n
+       "   //_position3 = getPos _x;" \n
+       "	_nameKillerP = _x getVariable [""nameKillerP"",""unknown""];" \n
+       "	_typedeP = _x getVariable [""typedeP"",""unknown""];" \n
+       "" \n
+       "   if (!isNull _backpack) then" \n
+       "   {" \n
+       "     _backpackWeapons = getWeaponCargo _backpack;" \n
+       "     _backpackMagazines = getMagazineCargo _backpack;" \n
+       "     _backpackType = typeOf _backpack;" \n
+       "   }" \n
+       "   else" \n
+       "   {" \n
+       "     _backpackWeapons = [[], []];" \n
+       "     _backpackMagazines = [[], []];" \n
+       "     _backpackType = """";" \n
+       "   };" \n
+       "" \n
+       "   _isZombie = _x isKindOf ""zZombie_Base"";" \n
+       "" \n
+       "     deleteVehicle _x;" \n
+       "   " \n
+       "   _itemsCount = (count _weapons) + (count _magazines) + (count (_backpackWeapons select 0)) + (count (_backpackMagazines select 0));" \n
+       "" \n
+       "   if ((_itemsCount > 0) and (!_isZombie)) then" \n
+       "   {" \n
+       "      _holder =  createVehicle [""WeaponHolder"", _position, [], 0, ""CAN_COLLIDE""];" \n
+       "	_holder setPos _position;" \n
+       "// createVehicle _position;" \n
+       "	 _holder setVariable [""RepLoot"", (time+3600), true];" \n
+       "	 _cruse =  createVehicle [""GraveCrossHelmet"", _position, [], 0, ""CAN_COLLIDE""];" \n
+       "	 _cruse setPos _position;" \n
+       "	 //_cruse2 =  createVehicle [""GraveCrossHelmet"", _position2, [], 0, ""CAN_COLLIDE""];  " \n
+       "	// _cruse3 =  createVehicle [""GraveCrossHelmet"", _position3, [], 0, ""CAN_COLLIDE""];" \n
+       "	" \n
+       "//createVehicle _position;" \n
+       "     	" \n
+       "" \n
+       "	_cruse setVariable [""RepBody"", _nameBody, true];" \n
+       "	_cruse setVariable [""nameKillerP"",_nameKillerP, true];" \n
+       "	_cruse setVariable [""typedeP"", _typedeP, true];" \n
+       "	" \n
+       "       { _holder addWeaponCargoGlobal [_x, 1]; } forEach _weapons;" \n
+       "       { _holder addMagazineCargoGlobal [_x, 1]; } forEach _magazines;" \n
+       "" \n
+       "       for ""_i"" from 0 to ((count (_backpackWeapons select 0)) - 1) do" \n
+       "       {" \n
+       "           _holder addWeaponCargoGlobal" \n
+       "             [((_backpackWeapons select 0) select _i), ((_backpackWeapons select 1) select _i)];" \n
+       "       };" \n
+       "" \n
+       "       for ""_i"" from 0 to ((count (_backpackMagazines select 0)) - 1) do" \n
+       "       {" \n
+       "           _holder addMagazineCargoGlobal" \n
+       "             [((_backpackMagazines select 0) select _i), ((_backpackMagazines select 1) select _i)];" \n
+       "       };" \n
+       "   };" \n
+       "" \n
+       "   if ((_backpackType != """") and (!_isZombie)) then" \n
+       "   {" \n
+       "	//_backpackHolder = ""WeaponHolder"" createVehicle _position;" \n
+       "	_backpackHolder = createVehicle [_backpackType, _position, [], 0, ""CAN_COLLIDE""];" \n
+       "	_backpackHolder setVariable [""RepLoot"", (time+3600), true];" \n
+       "	_backpackHolder setPos _position;" \n
+       "     //_holder addBackpackCargoGlobal [_backpackType, 1];" \n
+       "	//_backpackHolder addBackpackCargoGlobal [_backpackType, 1];" \n
+       "   };" \n
+       "   //_flys = count ( allMissionObjects ""#dynamicsound"");" \n
+       " _countTotalDelDead = _countTotalDelDead+1;" \n
+       "   diag_log format [""Replaced Body (%4)-(%1 items, at %2), _backpackType=%3"", _itemsCount, _position, _backpackType,_nameBody];" \n
+       " };" \n
+       "} forEach allDead;" \n
+       " diag_log format [""Total Replaced %1 Bodys"", _countTotalDelDead];" \n
+       " " \n
        "//Let's move this into the body removal sequence so uncontrolled flies are removed only if corpses are cleaned" \n
        "//Check Flies" \n
        "_isOK=-1;" \n
@@ -350,8 +427,8 @@ class FSM
        "" \n
        "//Check for hackers" \n
        " {" \n
-	   "  if(vehicle _x != _x && !(vehicle _x in _safety) && (typeOf vehicle _x) != ""ParachuteWest"" && (vehicle _x getVariable [""Sarge"",0] != 1)) then {" \n
-       /*"  	if(vehicle _x != _x && !(vehicle _x in _safety) && (typeOf vehicle _x) != ""ParachuteWest"") then {" \n*/
+       "  if(vehicle _x != _x && !(vehicle _x in _safety) && (typeOf vehicle _x) != ""ParachuteWest"" && (vehicle _x getVariable [""Sarge"",0] != 1)) then {" \n
+       "  	if(vehicle _x != _x && !(vehicle _x in _safety) && (typeOf vehicle _x) != ""ParachuteWest"") then {" \n
        "		diag_log (""CLEANUP: KILLING A HACKER "" + (name _x) + "" "" + str(_x) + "" IN "" + (typeOf vehicle _x));" \n
        "   		(vehicle _x) setDamage 1;" \n
        "   		_x setDamage 1;" \n

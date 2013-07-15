@@ -26,6 +26,10 @@ if (!isDedicated) then {
 	building_monitor = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\building_monitor.sqf";
 	player_fired = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_fired.sqf";			//Runs when player fires. Alerts nearby Zeds depending on calibre and audial rating
 	player_packTent = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_packTent.sqf";
+	
+	//BrunTent
+	player_burnTent = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_burnTent.sqf";
+	
 	control_zombieAgent = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\control_zombieAgent.sqf";
 	player_updateGui = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_updateGui.sqf";
 	player_crossbowBolt = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_crossbowBolt.sqf";
@@ -107,9 +111,18 @@ if (!isDedicated) then {
 	onPreloadFinished "dayz_preloadFinished = true;";
 	infectedcamps = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\object_infectedcamps.sqf";
 	camp_spawnZombies = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\camp_spawnZombies.sqf";			//Server compile, used for loiter behaviour
-
+	
+	//Base Building 1.2 specific compiles
+	player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_build.sqf"; 		// This overwrites default dayz building mechanic
+	antiWall = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\antiWall.sqf";				// This prevents players from exiting vehicles to get into bases
+	anti_discWall = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\anti_discWall.sqf";	// This prevents players from driving into a wall and disconnecting to get into bases
+	refresh_build_recipe_dialog = compile preprocessFileLineNumbers "\z\addons\dayz_code\buildRecipeBook\refresh_build_recipe_dialog.sqf"; 				// Builder menu dialog functionality
+	refresh_build_recipe_list_dialog = compile preprocessFileLineNumbers "\z\addons\dayz_code\buildRecipeBook\refresh_build_recipe_list_dialog.sqf"; 	// Builder Menu dialog list
+	add_UIDCode  = compile preprocessFileLineNumbers "\z\addons\dayz_code\external\keypad\fnc_keyPad\functions\add_UIDCode.sqf";
+	remove_UIDCode  = compile preprocessFileLineNumbers "\z\addons\dayz_code\external\keypad\fnc_keyPad\functions\remove_UIDCode.sqf";
 	//Crafting
 	//player_craftItem = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_craftItem.sqf";
+	DZE_player_craftItem =	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\DZE\player_craftItem.sqf";
 
 	// TODO: need move it in player_monitor.fsm
 	// allow player disconnect from server, if loading hang, kicked by BE etc.
@@ -167,6 +180,12 @@ if (!isDedicated) then {
 		_myExp = _myExp * 0.7;
 		_myExp
 	};
+	
+	//weight system
+  if (!isDedicated) then
+    {
+    _void = [] execVM "\z\addons\dayz_code\R3F_Realism\R3F_Realism_Init.sqf";
+    }; 
 
 	ui_initDisplay = {
 		private["_control","_ctrlBleed","_display","_ctrlFracture","_ctrlDogFood","_ctrlDogWater","_ctrlDogWaterBorder", "_ctrlDogFoodBorder"];

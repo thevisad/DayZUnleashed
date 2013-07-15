@@ -18,8 +18,61 @@ Camo1_DZ = "Camo1_DZ";
 Soldier1_DZ = "Soldier1_DZ";
 Rocket_DZ = "Rocket_DZ";
 
-AllPlayers = ["Soldier_Crew_PMC","Sniper1_DZ","Camo1_DZ","Soldier1_DZ","Rocket_DZ","GER_Soldier_EP1"];
-AllPlayersVehicles = ["GER_Soldier_EP1","Soldier_Crew_PMC","Sniper1_DZ","Camo1_DZ","Soldier1_DZ","Rocket_DZ","AllVehicles"];
+Civilian1_DZ = "Civilian1_DZ";
+Civilian2_DZ = "Civilian2_DZ";
+Civilian3_DZ = "Civilian3_DZ";
+Civilian4_DZ = "Civilian4_DZ";
+Civilian5_DZ = "Civilian5_DZ";
+Civilian6_DZ = "Civilian6_DZ";
+Civilian7_DZ = "Civilian7_DZ";
+Civilian8_DZ = "Civilian8_DZ";
+Civilian9_DZ = "Civilian9_DZ";
+Civilian10_DZ = "Civilian10_DZ";
+
+CivilianW1_DZ = "CivilianW1_DZ";
+CivilianW2_DZ = "CivilianW2_DZ";
+CivilianW3_DZ = "CivilianW3_DZ";
+CivilianW4_DZ = "CivilianW4_DZ";
+CivilianW5_DZ = "CivilianW5_DZ";
+
+Banditl11_DZ = "Banditl11_DZ";
+Banditl21_DZ = "Banditl21_DZ";
+Banditl31_DZ = "Banditl31_DZ";
+Banditl32_DZ = "Banditl32_DZ";
+Banditl41_DZ = "Banditl41_DZ";
+Banditl42_DZ = "Banditl42_DZ";
+Banditl51_DZ = "Banditl51_DZ";
+Banditl52_DZ = "Banditl52_DZ";
+
+Banditwl11_DZ = "Banditwl11_DZ";
+Banditwl21_DZ = "Banditwl21_DZ";
+Banditwl31_DZ = "Banditwl31_DZ";
+Banditwl32_DZ = "Banditwl32_DZ";
+Banditwl41_DZ = "Banditwl41_DZ";
+Banditwl42_DZ = "Banditwl42_DZ";
+Banditwl51_DZ = "Banditwl51_DZ";
+Banditwl52_DZ = "Banditwl52_DZ";
+
+Herol11_DZ = "Herol11_DZ";
+Herol21_DZ = "Herol21_DZ";
+Herol31_DZ = "Herol31_DZ";
+Herol32_DZ = "Herol32_DZ";
+Herol41_DZ = "Herol41_DZ";
+Herol42_DZ = "Herol42_DZ";
+Herol51_DZ = "Herol51_DZ";
+Herol52_DZ = "Herol52_DZ";
+
+Herowl11_DZ = "Herowl11_DZ";
+Herowl21_DZ = "Herowl21_DZ";
+Herowl31_DZ = "Herowl31_DZ";
+Herowl32_DZ = "Herowl32_DZ";
+Herowl41_DZ = "Herowl41_DZ";
+Herowl42_DZ = "Herowl42_DZ";
+Herowl51_DZ = "Herowl51_DZ";
+Herowl52_DZ = "Herowl52_DZ";
+
+AllPlayers = ["Soldier_Crew_PMC","Sniper1_DZ","Camo1_DZ","Soldier1_DZ","Rocket_DZ","GER_Soldier_EP1","Civilian1_DZ","Civilian2_DZ","Civilian1_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ","CivilianW1_DZ","CivilianW2_DZ","CivilianW1_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ","Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ","BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ","Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ","Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ"];
+AllPlayersVehicles = ["GER_Soldier_EP1","Soldier_Crew_PMC","Sniper1_DZ","Camo1_DZ","Soldier1_DZ","Rocket_DZ","AllVehicles","Civilian1_DZ","Civilian2_DZ","Civilian1_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ","CivilianW1_DZ","CivilianW2_DZ","CivilianW1_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ","Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ","BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ","Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ","Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ"];
 
 MeleeWeapons = ["MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails"];
 MeleeMagazines = ["hatchet_swing","crowbar_swing","Machete_swing","Bat_Swing","BatBarbed_Swing","BatNails_Swing"];
@@ -190,6 +243,7 @@ dayz_combatLog = "";
 canRoll = true;
 canPickup = false;
 pickupInit = false;
+TradeInprogress = false;
 
 //Hunting Variables
 dayZ_partClasses = [
@@ -232,6 +286,29 @@ churchie_explosion_checked = false;
 churchie_vehicle_checked = 0;
 
 
+//BaseBuilding
+	//Strings
+	globalSkin 			= "";
+	//Arrays
+	allbuildables_class = [];
+	allbuildables 		= [];
+	allbuild_notowns 	= [];
+	allremovables 		= [];
+	wallarray 			= [];
+	structures			= [];
+	CODEINPUT 			= [];
+	keyCode 			= [];
+	//Booleans
+	remProc 			= false;
+	hasBuildItem 		= false;
+	keyValid 			= false;
+	procBuild 			= false;
+	removeObject		= false;
+	currentBuildRecipe 	= 0;
+
+	addUIDCode = false;
+	removeUIDCode = false;
+	globalAuthorizedUID = [];
 //Player self-action handles
 dayz_resetSelfActions = {
 	s_player_dragbody = -1;
@@ -523,4 +600,6 @@ if(!isDedicated) then {
 	//if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {
 	//	dayzDebug = true;
 	//};
+	
+	CraftingInprogress = false;
 };

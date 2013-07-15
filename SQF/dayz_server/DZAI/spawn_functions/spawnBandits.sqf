@@ -27,6 +27,7 @@ _addAI = _this select 1;									//Maximum number of additional AI units to spaw
 _patrolDist = _this select 2;								//Numerical: patrol radius. Array: List of markers to use as patrol waypoints.
 _trigger = _this select 3;									//The trigger calling this script.
 _positionArray = _this select 4;								//Array of manually-defined spawn points (markers). If empty, nearby buildings are used as spawn points.
+//_difficultyLevel = if ((count _this) > 5) then {_this select 5} else {1};		//(Optional) Select the item probability table to use
 _equipType = if ((count _this) > 5) then {_this select 5} else {1};		//(Optional) Select the item probability table to use
 _numGroups = if ((count _this) > 6) then {_this select 6} else {1};		//(Optional) Number of groups of x number of units each to spawn
 

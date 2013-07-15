@@ -65,6 +65,16 @@ class CfgBuildingLoot {
 			{"ItemBookBible","magazine",0.02},
 			{"WeaponHolder_ItemFuelcan","object",0.03},
 			//{"","craft",0.10},
+			
+			//Unleashed
+			{"kpfs_glock17","weapon",0.03},
+			{"KPFS_P38","weapon",0.03},
+			{"p226sf","weapon",0.03},
+			{"KPFS_8Rnd_9x19_P1","magazine",0.04},
+			{"17Rnd_9x19_glock17","magazine",0.04},
+			{"15Rnd_9x19_LUGER","magazine",0.04},
+			//Unleashed end
+			
 			{"","military",0.10},
 			{"","generic",0.60},
 			{"","trash",0.20}
@@ -136,6 +146,18 @@ class CfgBuildingLoot {
 			{"ItemCompass","generic",0.05},
 			{"Makarov","weapon",0.04},
 			{"Colt1911","weapon",0.04},
+			
+			//Unleashed
+			{"kpfs_glock17","weapon",0.03},
+			{"KPFS_P38","weapon",0.03},
+			{"p226sf","weapon",0.03},
+			{"KPFS_8Rnd_9x19_P1","magazine",0.04},
+			{"17Rnd_9x19_glock17","magazine",0.04},
+			{"15Rnd_9x19_LUGER","magazine",0.04},
+			{"KPFS_KarS","weapon",0.03},
+			{"KPFS_10Rnd_762x39_SKS","magazine",0.03},
+			//Unleashed end
+			
 			{"ItemFlashlight","generic",0.06},
 			{"ItemKnife","generic",0.07},
 			{"ItemMatchbox","generic",0.06},
@@ -194,6 +216,14 @@ class CfgBuildingLoot {
 			{"MR43","weapon",0.01},
 			{"MeleeMachete","weapon",0.04},
 			//{"","craft",0.10},
+			
+			//Unleashed
+			{"KPFS_MPi_KM_72","weapon",0.02},
+			{"KPFS_MPi_AK_74","weapon",0.02},
+			{"KPFS_KarS","weapon",0.02},
+			{"KPFS_10Rnd_762x39_SKS","magazine",0.03},
+			//Unleashed end
+			
 			{"","military",0.10},
 			{"","generic",0.60},
 			{"","trash",0.20}
@@ -229,6 +259,18 @@ class CfgBuildingLoot {
 			{"MR43","weapon", 0.01},
 			{"","food",0.07},
 			//{"","craft",0.10},
+			
+			//Unleashed
+			{"kpfs_glock17","weapon",0.03},
+			{"KPFS_P38","weapon",0.03},
+			{"KPFS_8Rnd_9x19_P1","magazine",0.04},
+			{"17Rnd_9x19_glock17","magazine",0.04},
+			{"15Rnd_9x19_LUGER","magazine",0.04},
+			{"p226sf","weapon",0.03},
+			{"KPFS_KarS","weapon",0.02},
+			{"KPFS_10Rnd_762x39_SKS","magazine",0.03},
+			//Unleashed end
+			
 			{"","military",0.03},
 			{"","generic",0.60},
 			{"","trash",0.40}
@@ -257,6 +299,19 @@ class CfgBuildingLoot {
 			{"Skin_Sniper1_DZ","magazine",0.05},
 			{"G36C","weapon",0.03},
 			{"G36C_camo","weapon",0.03},
+			
+			//Unleashed
+			{"KPFS_MP44","weapon",0.03},
+			{"KPFS_P99QA","weapon",0.03},
+			{"KPFS_MP2","weapon",0.03},
+			{"kpfs_g3a2","weapon",0.02},
+			{"sg550_lg97_aimpoint_camo","weapon",0.02},
+			{"KPFS_16Rnd_9x19_para","magazine",0.03},
+			{"KPFS_30Rnd_762x43_STG44","magazine",0.03},
+			{"KPFS_32Rnd_MP2","magazine",0.03},
+			{"30Rnd_56x45_GP90","magazine",0.03},
+			//Unleashed end
+			
 			//{"G36_C_SD_camo","weapon",0.01},
 			{"G36A_camo","weapon",0.03},
 			{"G36K_camo","weapon",0.03},
@@ -284,6 +339,19 @@ class CfgBuildingLoot {
 			{"Skin_Sniper1_DZ","magazine",0.05},
 			{"G36C","weapon",0.03},
 			{"G36C_camo","weapon",0.03},
+			
+			//Unleashed
+			{"KPFS_MP44","weapon",0.03},
+			{"KPFS_P99QA","weapon",0.03},
+			{"KPFS_MP2","weapon",0.03},
+			{"kpfs_g3a2","weapon",0.02},
+			{"sg550_lg97_aimpoint_camo","weapon",0.02},
+			{"KPFS_16Rnd_9x19_para","magazine",0.03},
+			{"KPFS_30Rnd_762x43_STG44","magazine",0.03},
+			{"KPFS_32Rnd_MP2","magazine",0.03},
+			{"30Rnd_56x45_GP90","magazine",0.03},
+			//Unleashed end
+			
 			//{"G36_C_SD_camo","weapon",0.01},
 			{"G36A_camo","weapon",0.03},
 			{"G36K_camo","weapon",0.03},
@@ -307,6 +375,19 @@ class CfgBuildingLoot {
 			{"Binocular","weapon",0.01},
 			{"ItemKnife","militaryEAST",0.03},
 			{"","militaryEAST",0.10}, 
+			
+			//Unleashed
+			{"KPFS_MP44","weapon",0.03},
+			{"KPFS_P99QA","weapon",0.03},
+			{"KPFS_MP2","weapon",0.03},
+			{"kpfs_g3a2","weapon",0.02},
+			{"sg550_lg97_aimpoint_camo","weapon",0.02},
+			{"KPFS_16Rnd_9x19_para","magazine",0.03},
+			{"KPFS_30Rnd_762x43_STG44","magazine",0.03},
+			{"KPFS_32Rnd_MP2","magazine",0.03},
+			{"30Rnd_56x45_GP90","magazine",0.03},
+			//Unleashed end
+			
 			{"ItemCompass","militaryEAST",0.04},
 			{"AmmoBoxSmall_762","object",0.3},
 			{"WeaponHolder_PartVRotor","object",0.02},
@@ -349,6 +430,15 @@ class CfgBuildingLoot {
 			{"DMR_DZ","weapon",0.03},
 			{"M4A1","weapon",0.04},
 			{"M14_EP1","weapon",0.03},
+			
+			//Unleashed
+			{"KPFS_G1 KPFS_G1","weapon",0.03},
+			{"KPFS_G36A2","weapon",0.03},
+			{"KPFS_MPi_KM_72","weapon",0.03},
+			{"KPFS_MPi_AK_74","weapon",0.02},
+			{"20Rnd_762x51_FNFAL","magazine",0.03},
+			//Unleashed end
+			
 			{"UZI_EP1","weapon",0.05},
 			{"Remington870_lamp","weapon",0.05},
 			{"glock17_EP1","weapon",0.08},
@@ -392,6 +482,23 @@ class CfgBuildingLoot {
 			{"M24","weapon",0.01},
 			{"SVD_CAMO","weapon",0.01},
 			{"M1014","weapon",0.07},
+			
+			//Unleashed
+			{"KPFS_G1 KPFS_G1","weapon",0.03},
+			{"KPFS_G36A2","weapon",0.03},
+			{"KPFS_MPi_KM_72","weapon",0.04},
+			{"KPFS_MPi_AK_74","weapon",0.04},
+			{"kpfs_g3a2","weapon",0.04},
+			{"sg550_lg97_aimpoint_camo","weapon",0.02},
+			{"KPFS_MP44","weapon",0.04},
+			{"KPFS_P99QA","weapon",0.04},
+			{"KPFS_MP2","weapon",0.04},
+			{"KPFS_16Rnd_9x19_para","magazine",0.04},
+			{"KPFS_30Rnd_762x43_STG44","magazine",0.04},
+			{"KPFS_32Rnd_MP2","magazine",0.01},
+			{"20Rnd_762x51_FNFAL","magazine",0.03},
+			//Unleashed end
+			
 			{"DMR_DZ","weapon",0.02},
 			{"M4A1","weapon",0.05},
 			{"M14_EP1","weapon",0.03},
@@ -446,6 +553,15 @@ class CfgBuildingLoot {
 			{"MeleeMachete","weapon",0.04},
 			{"huntingrifle","weapon",0.05},
 			{"M14_EP1","weapon",0.03},
+			
+			//Unleashed
+			{"KPFS_G1 KPFS_G1","weapon",0.03},
+			{"KPFS_G36A2","weapon",0.03},
+			{"KPFS_MPi_KM_72","weapon",0.03},
+			{"KPFS_MPi_AK_74","weapon",0.02},
+			{"20Rnd_762x51_FNFAL","magazine",0.03},
+			//Unleashed end
+			
 			{"M16A2","weapon",0.03},
 			{"AK_74","weapon",0.03},
 			{"M24","weapon",0.03},

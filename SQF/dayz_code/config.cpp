@@ -15,6 +15,9 @@
 
 #include "Configs\basicDefines.hpp"
 
+//Weight System
+#include "R3F_CfgWeight.h" 
+
 //#include "Configs\CfgWorlds.hpp"
 #include "Configs\rscTitles.hpp"
 #include "Configs\CfgMoves.hpp"
@@ -26,6 +29,8 @@
 #include "Configs\CfgAmmo.hpp"
 #include "Configs\CfgObjectCompositions.hpp"
 #include "Configs\CfgTownGenerator\CfgTownGeneratorUnleashed.hpp"
+#include "Configs\build_recipe_dialog.hpp"
+#include "Configs\build_recipe_list_dialog.hpp"
 
 class CfgPatches {
 	class dayz_code {
@@ -52,7 +57,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzunleashed.com";
-		version = "1.0-Devbuild-040713";
+		version = "1.0-Devbuild-070713";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld
