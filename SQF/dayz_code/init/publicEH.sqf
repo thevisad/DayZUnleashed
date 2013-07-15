@@ -23,6 +23,7 @@
 //"dayz_serverObjectMonitor"		addPublicVariableEventHandler {dayz_serverObjectMonitor = dayz_safety};
 "dayzInfectedCamps"		addPublicVariableEventHandler {(_this select 1) spawn infectedcamps};
 
+"dzuSwapPilot" addPublicVariableEventHandler {_id = (_this select 1) spawn fnc_dzuSwapPilot}; //Server side event handler to move player into pilot seat.
 //Both
 
 //Server only

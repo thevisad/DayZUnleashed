@@ -95,7 +95,6 @@ if (isServer and isNil "sm_done") then {
 		_fuel =	if ((typeName (_x select 7)) == "SCALAR") then { _x select 7 } else { 0 };
 		_damage = if ((typeName (_x select 8)) == "SCALAR") then { _x select 8 } else { 0.9 };  
 		_combination =	_x select 3;
-		diag_log ("_action that occured was " + str(_action));
 		_entity = nil;
 	
 		_dir = floor(random(360));
@@ -252,8 +251,7 @@ if (isServer and isNil "sm_done") then {
 				diag_log ("combination of " + str(_combination) + " was used");
 				// insert className damage characterId  worldSpace inventory  hitPoints  fuel uniqueId  
 				if (typeOf(_entity) in allbuildables_class) then {
-				|CHILD:400:1:1290511483511182:Fort_RazorWire:926:[82.4621,[12905.1,14835.1,1.10155]]:[]:[]:0:586:|
-					return ReturnBooleanStatus(_bldData->createBuilding(getServerId(),className,buildingUid,worldSpace,inventory,hitPoints,characterId,squadId,combinationId));
+				//|CHILD:400:1:Fort_RazorWire:12787015029211235:[235.339,[12787,15029.2,1.0506]]:[]:[]:929:0:242:|
 					_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_ObjectID,_worldspace, [],[],_CharacterID,_squad ,_combination];
 				}
 				else 
