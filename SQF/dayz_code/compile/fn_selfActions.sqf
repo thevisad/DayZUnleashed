@@ -130,6 +130,51 @@ if (_canPickLight and !dayz_hasLight) then {
 	s_player_removeflare = -1;
 };
 
+//DZU-Helicopter TakeControl/Locl Control functions//
+_vehDriver = driver _vehicle;               //Current drivrer, returns null if there is no driver, returns player if they are not in a vehicle. 
+_isPilot = (_vehDriver == player);          //is the player the driver/pilot of the vehicle. 
+_isPilotAvalible = !isNull _vehDriver;      //is the pilot seat avalible. 
+_isSwapableAirVehicle = (_vehicle isKindOf "Air" and !(_vehicle isKindOf "ParachuteBase"));    //are we in an air type vehicle. (not chute)
+_canTakeControls = _vehicle getVariable["heliContrlsUnlocked",false];
+
+//hintsilent format["_inVehicle: %1\n_isSwapableAirVehicle:%2",_inVehicle,_isSwapableAirVehicle];
+
+//"Take Controls" Action
+//
+if ( (_inVehicle and _isSwapableAirVehicle and !_isPilot) and (_isPilotAvalible or _canTakeControls) )then {
+        if(s_pilot_swap < 0) then {        
+            s_pilot_swapObj = _vehicle;
+            s_pilot_swap = s_pilot_swapObj addAction ["Take Control","\z\addons\dayz_code\actions\actionHeliSwitchSeat.sqf","",1,false,true, "", ""];
+            };
+    } else {
+        if (!isNull s_pilot_swapObj) then {
+            s_pilot_swapObj removeAction s_pilot_swap;
+            s_pilot_swapObj = objNull;
+            s_pilot_swap = -1;
+        };
+    };
+//End
+//"Unlock/Lock Controls" Action
+//   
+if (_inVehicle and _isSwapableAirVehicle and _isPilot) then {
+        if(s_pilot_lock < 0) then {
+            s_pilot_lockObj = _vehicle;
+            _text = "Lock Controls";
+            _color = "color='#ff0000'";
+            if (!_canTakeControls) then {_text = "Unlock Controls";_color = "color='#66AC47'";};
+            _string = format["<t %2>%1</t>",_text,_color];
+            s_pilot_lock = s_pilot_lockObj addAction [_string,"\z\addons\dayz_code\actions\heli_unlockControls.sqf",_canTakeControls,1,false,true, "", ""];
+            };
+} else {
+        if (!isNull s_pilot_lockObj) then {
+        s_pilot_lockObj removeAction s_pilot_lock;
+        s_pilot_lockObj = objNull;
+        s_pilot_lock = -1;
+        };
+}; 
+//End 
+//DZU-Helicopter TakeControl/Locl Control functions//
+
 if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4)) then { //Has some kind of target
 	_isHarvested = cursorTarget getVariable["meatHarvested",false];
 	_isVehicle = cursorTarget isKindOf "AllVehicles";
