@@ -271,8 +271,14 @@ dayz_resetSelfActions = {
 	churchie_rig_veh = -1;
 	churchie_check = -1;
 	churchie_defuse = -1; 	
+    s_pilot_swap = -1;
+    s_pilot_lock = -1;
 };
 call dayz_resetSelfActions;
+
+//Air Take Control function varibles
+s_pilot_swapObj = objNull; 
+s_pilot_lockObj = objNull;
 
 //Engineering variables
 s_player_lastTarget = objNull;
