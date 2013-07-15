@@ -52,4 +52,5 @@ if (!isDedicated) then {
 	//"changeCharacter"	addPublicVariableEventHandler {(_this select 1) call player_serverModelChange};
 	//"dayzSwitch"		addPublicVariableEventHandler {(_this select 1) call server_switchPlayer};
 	"PVDZ_obj_Fire"			addPublicVariableEventHandler {nul=(_this select 1) spawn BIS_Effects_Burn};
+    "dzuSwapPilot" addPublicVariableEventHandler {_id = (_this select 1) spawn fnc_dzuSwapPilot}; 
 };
