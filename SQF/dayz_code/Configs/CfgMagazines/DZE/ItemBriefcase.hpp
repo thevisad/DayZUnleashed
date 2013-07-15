@@ -1,0 +1,440 @@
+class ItemBriefcase_Base: CA_Magazine
+{
+	scope = 2;
+	count = 1;
+	type = 256;
+	displayName = "Briefcase";
+	model = "\z\addons\dayz_epoch\models\briefcase.p3d";
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_CA.paa";
+};
+class ItemBriefcaseEmpty: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_E_CA.paa";
+	descriptionShort = "Empty Briefcase";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase10oz",1}};
+			input[] = {{"ItemBriefcaseEmpty",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase10oz",1}};
+		};
+	};
+};	
+class ItemBriefcase10oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_10oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 1 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase20oz",1}};
+			input[] = {{"ItemBriefcase10oz",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Add 9 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase100oz",1}};
+			input[] = {{"ItemBriefcase10oz",1},{"ItemGoldBar10oz",9}};
+		};
+		class Crafting2
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting2','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase10oz",1}};
+		};
+	};
+
+};	
+class ItemBriefcase20oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_20oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 2 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase30oz",1}};
+			input[] = {{"ItemBriefcase20oz",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Add 8 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase100oz",1}};
+			input[] = {{"ItemBriefcase20oz",1},{"ItemGoldBar10oz",8}};
+		};
+		class Crafting2
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting2','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase10oz",1}};
+			input[] = {{"ItemBriefcase20oz",1}};
+		};
+		class Crafting3
+		{
+			text = "Empty Case";
+			script = "DZE_Crafting = ['Crafting3','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",2},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase20oz",1}};
+		};
+	};
+};	
+class ItemBriefcase30oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_30oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 3 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase40oz",1}};
+			input[] = {{"ItemBriefcase30oz",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Add 7 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase100oz",1}};
+			input[] = {{"ItemBriefcase30oz",1},{"ItemGoldBar10oz",7}};
+		};
+		class Crafting2
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting2','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase20oz",1}};
+			input[] = {{"ItemBriefcase30oz",1}};
+		};
+		class Crafting3
+		{
+			text = "Empty Case";
+			script = "DZE_Crafting = ['Crafting3','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",3},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase30oz",1}};
+		};
+	};
+};	
+class ItemBriefcase40oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_40oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 4 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase50oz",1}};
+			input[] = {{"ItemBriefcase40oz",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Add 6 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase100oz",1}};
+			input[] = {{"ItemBriefcase40oz",1},{"ItemGoldBar10oz",6}};
+		};
+		class Crafting2
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting2','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase30oz",1}};
+			input[] = {{"ItemBriefcase40oz",1}};
+		};
+		class Crafting3
+		{
+			text = "Empty Case";
+			script = "DZE_Crafting = ['Crafting3','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",4},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase40oz",1}};
+		};
+	};
+};	
+class ItemBriefcase50oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_50oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 5 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase60oz",1}};
+			input[] = {{"ItemBriefcase50oz",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Add 5 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase100oz",1}};
+			input[] = {{"ItemBriefcase50oz",1},{"ItemGoldBar10oz",5}};
+		};
+		class Crafting2
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting2','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase40oz",1}};
+			input[] = {{"ItemBriefcase50oz",1}};
+		};
+		class Crafting3
+		{
+			text = "Empty Case";
+			script = "DZE_Crafting = ['Crafting3','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",5},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase50oz",1}};
+		};
+	};
+};	
+class ItemBriefcase60oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_60oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 6 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase70oz",1}};
+			input[] = {{"ItemBriefcase60oz",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Add 4 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase100oz",1}};
+			input[] = {{"ItemBriefcase60oz",1},{"ItemGoldBar10oz",4}};
+		};
+		class Crafting2
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting2','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase50oz",1}};
+			input[] = {{"ItemBriefcase60oz",1}};
+		};
+		class Crafting3
+		{
+			text = "Empty Case";
+			script = "DZE_Crafting = ['Crafting3','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",6},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase60oz",1}};
+		};
+	};
+};	
+class ItemBriefcase70oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_70oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 7 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase80oz",1}};
+			input[] = {{"ItemBriefcase70oz",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Add 3 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase100oz",1}};
+			input[] = {{"ItemBriefcase70oz",1},{"ItemGoldBar10oz",3}};
+		};
+		class Crafting2
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting2','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase60oz",1}};
+			input[] = {{"ItemBriefcase70oz",1}};
+		};
+		class Crafting3
+		{
+			text = "Empty Case";
+			script = "DZE_Crafting = ['Crafting3','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",7},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase70oz",1}};
+		};
+	};
+};	
+class ItemBriefcase80oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_80oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 8 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase90oz",1}};
+			input[] = {{"ItemBriefcase80oz",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Add 2 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase100oz",1}};
+			input[] = {{"ItemBriefcase80oz",1},{"ItemGoldBar10oz",2}};
+		};
+		class Crafting2
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting2','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase70oz",1}};
+			input[] = {{"ItemBriefcase80oz",1}};
+		};
+		class Crafting3
+		{
+			text = "Empty Case";
+			script = "DZE_Crafting = ['Crafting3','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",8},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase80oz",1}};
+		};
+	};
+};	
+class ItemBriefcase90oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_90oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 9 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Add 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemBriefcase100oz",1}};
+			input[] = {{"ItemBriefcase90oz",1},{"ItemGoldBar10oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase80oz",1}};
+			input[] = {{"ItemBriefcase90oz",1}};
+		};
+		class Crafting2
+		{
+			text = "Empty Case";
+			script = "DZE_Crafting = ['Crafting2','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",9},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase90oz",1}};
+		};
+	};
+};
+class ItemBriefcase100oz: ItemBriefcase_Base
+{
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_100oz_CA.paa";
+	descriptionShort = "Briefcase (Contains: 10 x 10oz Gold Bar)";
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = "Remove 1 10oz Gold";
+			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase90oz",1}};
+			input[] = {{"ItemBriefcase100oz",1}};
+		};
+		class Crafting1
+		{
+			text = "Empty Case";
+			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			neednearby[] = {};
+			requiretools[] = {};
+			output[] = {{"ItemGoldBar10oz",10},{"ItemBriefcaseEmpty",1}};
+			input[] = {{"ItemBriefcase100oz",1}};
+		};
+	};
+};
