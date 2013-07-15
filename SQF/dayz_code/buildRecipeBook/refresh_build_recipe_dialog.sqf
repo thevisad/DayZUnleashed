@@ -1,18 +1,18 @@
 ﻿_recipe = allBuildables select currentBuildRecipe;
 
-_requeriments = [];
+_requirements = [];
 _classname = "";
 
-_requeriments  = _recipe select 0;
+_requirements  = _recipe select 0;
 _classname = _recipe select 1;
 
 //Select the requeriments of materials
-_recipeQtyT= _requeriments select 0;
-_recipeQtyS= _requeriments select 1;
-_recipeQtyW= _requeriments select 2;
-_recipeQtyL= _requeriments select 3;
-_recipeQtyM= _requeriments select 4;
-_recipeQtyG= _requeriments select 5;
+_recipeQtyT= _requirements select 0;
+_recipeQtyS= _requirements select 1;
+_recipeQtyW= _requirements select 2;
+_recipeQtyL= _requirements select 3;
+_recipeQtyM= _requirements select 4;
+_recipeQtyG= _requirements select 5;
 
 // Count mags in player inventory and add to an array
 _mags = magazines player;
@@ -62,7 +62,7 @@ if ("HandGrenade_West" in _mags) then {
 
 _result = false;
 
-_result = [_requeriments,_buildables] call BIS_fnc_areEqual;
+_result = [_requirements,_buildables] call BIS_fnc_areEqual;
 
 //RESTRICTIONS ------------------------------
 _restrictions=[];
@@ -154,14 +154,6 @@ if (!_result) then {
     (Build_Recipe_Dialog displayCtrl 1018) ctrlSetText format["%1",_chance];
 };
 
-
-
-
-
-
-
-
-
 //1017 - toolbox
 //1016 -etool
 //1015 - time
@@ -169,27 +161,3 @@ if (!_result) then {
 //1012 - town
 //1011 - road
 //1014 - building
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
