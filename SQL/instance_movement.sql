@@ -52,13 +52,13 @@ DELIMITER ;
 DROP TRIGGER IF EXISTS `before_character_data_update`;
 DELIMITER ;;
 CREATE TRIGGER `before_character_data_update` BEFORE UPDATE ON `character_data` FOR EACH ROW BEGIN
-
+if old.worldspace != new.worldspace then
 insert into instance_movement 
 SET characterID = OLD.PlayerUID, 
 instanceID = OLD.InstanceID, 
 worldspace= OLD.Worldspace, 
 changedon = NOW(); 
-
+end if;
 END
 ;;
 DELIMITER ;
