@@ -4,12 +4,12 @@ parameters: _obj
 */
 private ["_obj","_objectID","_objectUID","_started","_finished","_animState","_isMedic","_isOk","_proceed","_counter","_limit","_objType","_sfx","_dis","_itemOut","_countOut","_selectedRemoveOutput","_friendlies","_nearestPole","_ownerID","_refundpart","_isWreck","_findNearestPoles","_findNearestPole","_IsNearPlot","_brokenTool","_removeTool","_isDestructable","_isRemovable"];
 
-if(TradeInprogress) exitWith { cutText ["Remove already in progress." , "PLAIN DOWN"]; };
-TradeInprogress = true;
+if(CodeInProgress) exitWith { cutText ["Remove already in progress." , "PLAIN DOWN"]; };
+CodeInProgress = true;
 
 _obj = _this select 3;
 
-if(_obj getVariable ["GeneratorRunning", false]) exitWith {TradeInprogress = false; cutText ["Cannot remove running generator.", "PLAIN DOWN"];};
+if(_obj getVariable ["GeneratorRunning", false]) exitWith {CodeInProgress = false; cutText ["Cannot remove running generator.", "PLAIN DOWN"];};
 
 _objectID 	= _obj getVariable ["ObjectID","0"];
 _objectUID	= _obj getVariable ["ObjectUID","0"];
@@ -144,9 +144,9 @@ if (_proceed) then {
 	// Double check that object is not null
 	if(!isNull(_obj)) then {
 		
+		PVDZ_obj_Delete = [_objectID,_objectUID];
+		publicVariableServer "PVDZ_obj_Delete";
 		deleteVehicle _obj;
-		dayzDeleteObj = [_objectID,_objectUID];
-		publicVariableServer "dayzDeleteObj";
 
 		cutText [format["De-constructing %1.",_objType], "PLAIN DOWN"];
 		
@@ -183,4 +183,4 @@ if (_proceed) then {
 		player playActionNow "stop";
 	};
 };
-TradeInprogress = false;
+CodeInProgress = false;
