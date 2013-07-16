@@ -87,4 +87,7 @@ class CfgMagazines {
 	//crafting
 	#include "CfgCrafting\Mats.hpp"
 	
+	// ItemGenerator
+	#include "CfgMagazines\DZE\ItemGenerator.hpp"
+	
 };

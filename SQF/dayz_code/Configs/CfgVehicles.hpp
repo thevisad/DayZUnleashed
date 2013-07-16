@@ -116,6 +116,9 @@ class CfgVehicles {
 	
 	//Tents,storage
 	#include "CfgVehicles\Storage.hpp"
+	
+	// Buildables
+	#include "CfgVehicles\DZE\BuiltItems.hpp"
 };
 class CfgNonAIVehicles {
 	#include "CfgVehicles\StreetLamps.hpp"

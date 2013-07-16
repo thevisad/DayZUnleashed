@@ -4,8 +4,7 @@ scriptName "Functions\misc\fn_selfActions.sqf";
 	- Function
 	- [] call fnc_usec_selfActions;
 ************************************************************/
-private["_menClose","_hasBandage","_hasEpi","_hasMorphine","_hasBlood","_vehicle","_inVehicle","_color","_part"];
-private["_SilverMenu_ActionAdded","_vehicle","_inVehicle","_bag","_classbag","_isWater","_hasAntiB","_hasFuelE","_hasFuelBE","_hasRawMeat","_hasKnife","_hasToolbox","_hasTent","_onLadder","_nearLight","_mbBackpacks","_nearBackpacks","_nearPlayerB","_playerID","_canPickLight","_canRest","_nextVehicle","_shwmsg","_newCuTyp","_isOwnerName","_newTypeB","_keep2","_typedeP","_nameKillerP","_canDo","_text","_ownerID","_maxbbLevel","_levelhouse","_naObnovku","_nextlvl","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_isCruse","_object","_nummsg","_takemes","_maxbbLevelt","_isUpsideDown","_notManned","_mates","_totpa","_allFixed","_hitpoints","_damage","_part","_cmpt","_damagePercent","_color","_string","_handle","_cfg","_tc","_mt","_mti","_nameClass1","_st","_statuss","_stname","_hasMatches"];
+private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_newCuTyp","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem"];
 
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
@@ -196,7 +195,12 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	_canmove = canmove cursorTarget;
 	_text = getText (configFile >> "CfgVehicles" >> typeOf cursorTarget >> "displayName");
 	
+	// Get typeOf only once
+	_typeOfCursorTarget = typeOf cursorTarget;
 
+	// get magazines array only once
+	_magazinesPlayer = magazines player;
+	
 	_rawmeat = meatraw;
 	_hasRawMeat = false;
 		{
@@ -364,24 +368,15 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	};
 	//#### BASE BUILDING 1.2 END###	
 	
-	
-/*
-// THIS NEEDS TO BE REMOVED \/ \/ \/ For BASE BUILDING REMOVAL TO WORK
-  << REMOVE THESE TOO! 
-	
-	
-	//Allow player to delete objects
-	if(_isDestructable and _hasToolbox and _canDo) then {
-		if (s_player_deleteBuild < 0) then {
-			s_player_deleteBuild = player addAction [format[localize "str_actions_delete",_text], "\z\addons\dayz_code\actions\remove.sqf",cursorTarget, 1, true, true, "", ""];
+	//Allow player to delete objects DZE
+	if(_typeOfCursorTarget in DZE_removeable and _hasToolbox and _canDo) then {
+		if (s_player_deleteBuild_DZE < 0) then {
+			s_player_deleteBuild_DZE = player addAction [format[localize "str_actions_delete",_text], "\z\addons\dayz_code\actions\DZE\remove.sqf",cursorTarget, 1, true, true, "", ""];
 		};
 	} else {
-		player removeAction s_player_deleteBuild;
-		s_player_deleteBuild = -1;
+		player removeAction s_player_deleteBuild_DZE;
+		s_player_deleteBuild_DZE = -1;
 	};
-	
-*/ //<< REMOVE THESE TOO!
-// THIS NEEDS TO BE REMOVED /\ /\ /\ For BASE BUILDING REMOVAL TO WORK
 
 	//Allow player to force save
 	if((_isVehicle or _isTent or _isStash or _isMediumStash) and _canDo and !_isMan and (damage cursorTarget < 1)) then {
@@ -636,6 +631,56 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		};
 	};
 
+	// Power assisted auto refuel
+	//Fuel Pump
+	if(_typeOfCursorTarget in dayz_fuelpumparray) then {	
+		if ((s_player_fuelauto < 0) and (player distance cursorTarget < 3)) then {
+			
+			// check if Generator_DZ is running within 30 meters
+			_findNearestGens = nearestObjects [player, ["Generator_DZ"], 30];
+			_findNearestGen = [];
+			{
+				if (alive _x and (_x getVariable ["GeneratorRunning", false])) then {
+					_findNearestGen set [(count _findNearestGen),_x];
+				};
+			} foreach _findNearestGens;
+			_IsNearRunningGen = count (_findNearestGen);
+			
+			// show that pump needs power if no generator nearby.
+			if(_IsNearRunningGen > 0) then {
+				s_player_fuelauto = player addAction ["Fill Vehicle", "\z\addons\dayz_code\actions\fill_nearestVehicle.sqf",[], 0, false, true, "",""];
+			} else {
+				s_player_fuelauto = player addAction ["<t color='#ff0000'>Needs Power</t>", "",[], 0, false, true, "",""];
+			};
+		};
+	} else {
+		player removeAction s_player_fuelauto;
+		s_player_fuelauto = -1;
+	};
+
+	//Start Generator
+	if(cursorTarget isKindOf "Generator_DZ") then {
+		if ((s_player_fillgen < 0) and (player distance cursorTarget < 3)) then {
+			
+			// check if not running 
+			if((cursorTarget getVariable ["GeneratorRunning", false])) then {
+				s_player_fillgen = player addAction ["Stop Generator", "\z\addons\dayz_code\actions\stopGenerator.sqf",cursorTarget, 0, false, true, "",""];				
+			} else {
+			// check if not filled and player has jerry.
+				if((cursorTarget getVariable ["GeneratorFilled", false])) then {
+					s_player_fillgen = player addAction ["Start Generator", "\z\addons\dayz_code\actions\fill_startGenerator.sqf",cursorTarget, 0, false, true, "",""];
+				} else {
+					if("ItemJerrycan" in _magazinesPlayer) then {
+						s_player_fillgen = player addAction ["Fill and Start Generator", "\z\addons\dayz_code\actions\fill_startGenerator.sqf",cursorTarget, 0, false, true, "",""];
+					};
+				};
+			};
+		};
+	} else {
+		player removeAction s_player_fillgen;
+		s_player_fillgen = -1;
+	};
+	
 
 	/*
 	if (_isMan and !_isAlive) then {
@@ -842,6 +887,9 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	s_player_sleep = -1;
 	player removeAction s_player_deleteBuild;
 	s_player_deleteBuild = -1;
+	player removeAction s_player_deleteBuild_DZE;
+	s_player_deleteBuild_DZE = -1;
+	
 	/*
 	// ### BASE BUILDING 1.2 ### Add in these: 
 	// ### START ###
@@ -921,4 +969,10 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	churchie_defuse = -1; 
 	player removeAction stow_vehicle; 
 	stow_vehicle = -1; 	
+	// power assisted refuel
+	player removeAction s_player_fuelauto;
+	s_player_fuelauto = -1;
+	// fill and start generator
+	player removeAction s_player_fillgen;
+	s_player_fillgen = -1;
 };

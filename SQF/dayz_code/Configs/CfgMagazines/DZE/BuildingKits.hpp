@@ -13,7 +13,7 @@ class workbench_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemToolbox"};
 			create = "WorkBench_DZ";
 			needNearby[] = {"none"};
@@ -34,7 +34,7 @@ class 30m_plot_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "Plastic_Pole_EP1_DZ";
 		};
@@ -55,7 +55,7 @@ class metal_panel_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "MetalPanel_DZ";
 		};
@@ -75,7 +75,7 @@ class deer_stand_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "DeerStand_DZ";
 		};
@@ -95,7 +95,7 @@ class desert_large_net_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "DesertLargeCamoNet_DZ";
 		};
@@ -115,7 +115,7 @@ class forest_large_net_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "ForestLargeCamoNet_DZ";
 		};
@@ -135,7 +135,7 @@ class desert_net_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "DesertCamoNet_DZ";
 		};
@@ -164,7 +164,7 @@ class forest_net_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "ForestCamoNet_DZ";
 		};
@@ -193,7 +193,7 @@ class fuel_pump_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "FuelPump_DZ";
 		};
@@ -214,7 +214,7 @@ class light_pole_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "LightPole_DZ";
 		};
@@ -235,7 +235,7 @@ class stick_fence_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "StickFence_DZ";
 		};
@@ -255,7 +255,7 @@ class wooden_shed_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "Wooden_shed_DZ";
 		};
@@ -275,7 +275,7 @@ class wood_shack_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "WoodShack_DZ";
 		};
@@ -295,7 +295,7 @@ class sun_shade_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "CanvasHut_DZ";
 		};
@@ -315,7 +315,7 @@ class rusty_gate_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "MetalGate_DZ";
 		};
@@ -335,7 +335,7 @@ class sandbag_nest_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "SandNest_DZ";
 		};
@@ -355,7 +355,7 @@ class outhouse_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "OutHouse_DZ";
 		};
@@ -375,7 +375,7 @@ class storage_shed_kit: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "StorageShed_DZ";
 		};

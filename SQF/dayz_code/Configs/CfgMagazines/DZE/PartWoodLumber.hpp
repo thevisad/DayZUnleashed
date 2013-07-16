@@ -10,7 +10,7 @@ class PartWoodLumber: CA_Magazine
 	class ItemActions {
 		class Build {
 			text = "Build Wood Gate";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemToolbox"};
 			create = "WoodGate_DZ";
 		};
