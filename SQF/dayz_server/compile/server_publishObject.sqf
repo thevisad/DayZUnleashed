@@ -23,7 +23,7 @@ _uid = _worldspace call dayz_objectUID2;
 //Send request
 if (typeOf(_object) in allbuildables_class) then {
 	_combination = floor(random 899) + 100;
-	_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],_charID,_squad ,_combination];
+	_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],dayz_playerUID,_squad ,_combination];
 	//_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_uid,_class,_charID,_worldspace, [],[],_squad ,_combination];
 }
 else 

@@ -525,10 +525,11 @@ _playerCombat = player;
 			{
 				cutText [format["You have constructed a %1, REMEMBER THIS PERMANENT KEYCODE: %2 .  Make sure to build 2 (one in/one out) Key Panels as soon as possible to get both codes!",_text,_uid], "PLAIN DOWN",60];
 			};
+			/*
 			default {
 				cutText [format["You have constructed a %1\n Keycode for object removal: %2 .\n",_text,_uid], "PLAIN DOWN",60];
 				//cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
-			};
+			};*/
 		};
 		//Remove required magazines
 		if (_qtyT > 0) then {

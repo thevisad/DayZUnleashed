@@ -269,7 +269,7 @@ for "_i" from 0 to ((count _buildlist) - 1) do
 *** Remember that the last element in ANY array does not get comma ***
 Notice lines 47 and 62
 */
-
+/*
 	antiBuildables = ["Hhedgehog_concrete"];
 // Towns to restrict from building in. (Type exact name as shown on map, NOT Case-Sensitive but spaces important)
 // ["Classname", range restriction];
@@ -286,7 +286,7 @@ _build_townsrestrict = [
 // Here we are filling the global arrays with this local list
 allbuildables = _buildlist;
 allbuild_notowns = _build_townsrestrict;
-
+*/
 /*
 This Area is for extra arrays that need to be built, some using above arrays
 */

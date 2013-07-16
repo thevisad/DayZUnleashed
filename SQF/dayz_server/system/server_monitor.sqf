@@ -251,8 +251,8 @@ if (isServer and isNil "sm_done") then {
 				diag_log ("combination of " + str(_combination) + " was used");
 				// insert className damage characterId  worldSpace inventory  hitPoints  fuel uniqueId  
 				if (typeOf(_entity) in allbuildables_class) then {
-				//|CHILD:400:1:Fort_RazorWire:12787015029211235:[235.339,[12787,15029.2,1.0506]]:[]:[]:929:0:242:|
-					_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_ObjectID,_worldspace, [],[],_CharacterID,_squad ,_combination];
+					//|CHILD:400:1:Fort_RazorWire:12787015029211235:[235.339,[12787,15029.2,1.0506]]:[]:[]:929:0:242:|
+					_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_ObjectID,_worldspace, [],[],dayz_playerUID,_squad ,_combination];
 				}
 				else 
 				{
@@ -344,7 +344,7 @@ if (isServer and isNil "sm_done") then {
 		_bldCount = 0;
 		_countr = 0;
 		_idKey = 0;
-		if (_status == "ObjectStreamStart") then {
+		if (_status == "BuildingStreamStart") then {
 			_val = _result select 1;
 			for "_i" from 1 to _val do {
 				_data = "HiveEXT" callExtension _key;
@@ -441,42 +441,6 @@ if (isServer and isNil "sm_done") then {
 						};
 						//gateKeypad = _object addaction ["Defuse", "\z\addons\dayz_server\compile\enterCode.sqf"];
 					};
-					/*
-					// This sets objects to appear properly once server restarts
-					if ((_object isKindOf "Static") && !(_object isKindOf "TentStorage")) then {
-						_object setpos [(getposATL _object select 0),(getposATL _object select 1), 0];
-					};
-					//Set Variable
-					if (_object isKindOf "Infostand_2_EP1" && !(_object isKindOf "Infostand_1_EP1")) then {
-						_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
-						_object enableSimulation false;
-					};
-
-
-							// Set whether or not buildable is destructable
-					if (typeOf(_object) in allbuildables_class) then {
-						diag_log ("BASEBUILDING: in allbuildables_class:" + typeOf(_object) + " !");
-						for "_i" from 0 to ((count allbuildables) - 1) do
-						{
-							_classname = (allbuildables select _i) select _i - _i + 1;
-							_result = [_classname,typeOf(_object)] call BIS_fnc_areEqual;
-							if (_result) exitWith {
-								_requirements = (allbuildables select _i) select _i - _i + 2;
-								_isDestructable = _requirements select 13;
-								diag_log ("BASEBUILDING: " + typeOf(_object) + " _isDestructable = " + str(_isDestructable));
-								if (!_isDestructable) then {
-									diag_log("Spawned: " + typeOf(_object) + " Handle Damage False");
-									_object addEventHandler ["HandleDamage", {false}];
-								};
-								if (typeOf(_object) == "Grave") then {
-									_object setVariable ["isBomb", true];
-								};
-							};
-						};
-						//gateKeypad = _object addaction ["Defuse", "\z\addons\dayz_server\compile\enterCode.sqf"];
-					};*/
-					// ##### BASE BUILDING 1.2 Server Side ##### - END
-					// This sets objects to appear properly once server restarts
 
 					if (count _inventory > 0) then {
 						//Add weapons

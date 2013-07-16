@@ -1,17 +1,25 @@
--- --------------------------------------------------------
--- Host:                         127.0.0.1
--- Server version:               5.6.10 - MySQL Community Server (GPL)
--- Server OS:                    Win64
--- HeidiSQL version:             7.0.0.4053
--- Date/time:                    2013-06-17 04:04:28
--- --------------------------------------------------------
+/*
+Navicat MySQL Data Transfer
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET NAMES utf8 */;
-/*!40014 SET FOREIGN_KEY_CHECKS=0 */;
+Source Server         : devel
+Source Server Version : 50516
+Source Host           : localhost:3306
+Source Database       : dayzunleashed
 
--- Dumping structure for table test.Character_DATA
-CREATE TABLE IF NOT EXISTS `Character_DATA` (
+Target Server Type    : MYSQL
+Target Server Version : 50516
+File Encoding         : 65001
+
+Date: 2013-07-16 00:57:35
+*/
+
+SET FOREIGN_KEY_CHECKS=0;
+
+-- ----------------------------
+-- Table structure for `character_data`
+-- ----------------------------
+DROP TABLE IF EXISTS `character_data`;
+CREATE TABLE `character_data` (
   `CharacterID` int(11) NOT NULL AUTO_INCREMENT,
   `PlayerID` int(11) NOT NULL DEFAULT '1000',
   `PlayerUID` varchar(45) NOT NULL DEFAULT '0',
@@ -41,10 +49,34 @@ CREATE TABLE IF NOT EXISTS `Character_DATA` (
   KEY `Alive_PlayerID` (`Alive`,`LastLogin`,`PlayerID`),
   KEY `PlayerUID` (`PlayerUID`),
   KEY `Alive_PlayerUID` (`Alive`,`LastLogin`,`PlayerUID`)
-) ENGINE=InnoDB AUTO_INCREMENT=907 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Dumping data for table test.character_data: ~0 rows (approximately)
-/*!40000 ALTER TABLE `Character_DATA` DISABLE KEYS */;
-/*!40000 ALTER TABLE `Character_DATA` ENABLE KEYS */;
-/*!40014 SET FOREIGN_KEY_CHECKS=1 */;
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+-- ----------------------------
+-- Records of character_data
+-- ----------------------------
+DROP TRIGGER IF EXISTS `before_character_data_insert`;
+DELIMITER ;;
+CREATE TRIGGER `before_character_data_insert` BEFORE INSERT ON `character_data` FOR EACH ROW BEGIN
+
+insert into instance_movement 
+SET instance_movement.characterID = NEW.PlayerUID, 
+instance_movement.instanceID = NEW.InstanceID, 
+instance_movement.worldspace= NEW.Worldspace, 
+changedon = NOW(); 
+
+END
+;;
+DELIMITER ;
+DROP TRIGGER IF EXISTS `before_character_data_update`;
+DELIMITER ;;
+CREATE TRIGGER `before_character_data_update` BEFORE UPDATE ON `character_data` FOR EACH ROW BEGIN
+
+insert into instance_movement 
+SET characterID = OLD.PlayerUID, 
+instanceID = OLD.InstanceID, 
+worldspace= OLD.Worldspace, 
+changedon = NOW(); 
+
+END
+;;
+DELIMITER ;

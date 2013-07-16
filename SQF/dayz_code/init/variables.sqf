@@ -286,6 +286,7 @@ churchie_explosion_checked = false;
 churchie_vehicle_checked = 0;
 
 
+
 //BaseBuilding
 	//Strings
 	globalSkin 			= "";
@@ -350,6 +351,7 @@ dayz_resetSelfActions = {
 	churchie_defuse = -1; 	
     s_pilot_swap = -1;
     s_pilot_lock = -1;
+	stow_vehicle = -1;
 };
 call dayz_resetSelfActions;
 
@@ -506,7 +508,7 @@ dayz_canDelete = 300; // Z, further than this distance from its "owner", will be
 dayz_lootSpawnBias = 67; // between 50 and 100. The lower it is, the lower chance some of the lootpiles will spawn
 dayz_localswarmSpawned = 10;  // how many zeds will spawn around you during a combat scenario.
 dayz_infectionTreshold = 1.25; // used to trigger infection, see fn_damageHandler.sqf
-
+dayz_localCombatSpawned = 60;  // how many zeds will spawn around you during a combat scenario. 
 //init global arrays for Loot Chances
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\loot_init.sqf";
 
@@ -555,6 +557,7 @@ if(!isDedicated) then {
 	dayz_hunger = 0;
 	dayz_thirst = 0;
 	dayz_combat = 0;
+	dayz_playerID = "";
 	dayz_preloadFinished = false;
 	dayz_statusArray = [1,1];
 	dayz_disAudial = 0;
@@ -590,6 +593,7 @@ if(!isDedicated) then {
 	dayz_lootDelay = 3;
 	dayz_lootWait = -300;
 	dayz_spawnZombies = 0;
+	dayz_combatSpawnZombies = 0;
 	dayz_swarmSpawnZombies = 0;
 	//used to count global zeds around players
 	dayz_CurrentZombies = 0;

@@ -178,6 +178,7 @@ if (_inVehicle and _isSwapableAirVehicle and _isPilot) then {
 if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4)) then { //Has some kind of target
 	_isHarvested = cursorTarget getVariable["meatHarvested",false];
 	_isVehicle = cursorTarget isKindOf "AllVehicles";
+	_isStorage = typeOf cursorTarget in ["Bunker_PMC"];
 	_isVehicletype = typeOf cursorTarget in ["ATV_US_EP1","ATV_CZ_EP1"];
 	_isMan = cursorTarget isKindOf "Man";
 	_ownerID = cursorTarget getVariable ["characterID","0"];
@@ -251,8 +252,8 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		camoNetVar_Nato distance player < 10 or 
 		camoNet_Nato distance player < 10)) then {
 		if (s_player_deleteCamoNet < 0) then {
-			s_player_deleteCamoNet = player addaction [("<t color=""#F01313"">" + ("Remove Netting") +"</t>"),"dayz_code\actions\player_remove.sqf","",1,true,true,"",""];
-			s_player_netCodeObject = player addaction [("<t color=""#8E11F5"">" + ("Enter Code of Object to remove Netting") +"</t>"),"dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
+			s_player_deleteCamoNet = player addaction [("<t color=""#F01313"">" + ("Remove Netting") +"</t>"),"\z\addons\dayz_code\actions\player_remove.sqf","",1,true,true,"",""];
+			s_player_netCodeObject = player addaction [("<t color=""#8E11F5"">" + ("Enter Code of Object to remove Netting") +"</t>"),"\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
 		};
 	} else {
 		player removeAction s_player_deleteCamoNet;
@@ -271,7 +272,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	camoNetVar_Nato distance player < 10 or 
 	camoNet_Nato distance player < 10)) then {
 		if (s_player_codeRemoveNet < 0) then {
-			s_player_codeRemoveNet = player addaction [("<t color=""#8E11F5"">" + ("Base Owners Remove Object Netting") +"</t>"),"dayz_code\actions\player_remove.sqf","",5,false,true,"",""];
+			s_player_codeRemoveNet = player addaction [("<t color=""#8E11F5"">" + ("Base Owners Remove Object Netting") +"</t>"),"\z\addons\dayz_code\actions\player_remove.sqf","",5,false,true,"",""];
 		};
 	} else {
 			player removeAction s_player_codeRemoveNet;
@@ -294,19 +295,19 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 			_gates = nearestObjects [_lever, ["Concrete_Wall_EP1"], 100];
 			if (s_player_gateActions < 0) then {
 				if (typeOf(cursortarget) == "Fence_corrugated_plate") then {
-						s_player_gateActions = player addAction ["Operate Gate", "dayz_code\external\keypad\fnc_keyPad\operate_gates.sqf", _lever, 1, false, true, "", ""];
+						s_player_gateActions = player addAction ["Operate Gate", "\z\addons\dayz_code\external\keypad\fnc_keyPad\operate_gates.sqf", _lever, 1, false, true, "", ""];
 				} else {
 					if (count _gates > 0) then {
-						s_player_gateActions = player addAction ["Operate Gate Panel", "dayz_code\external\keypad\fnc_keyPad\operate_gates.sqf", _lever, 1, false, true, "", ""];
+						s_player_gateActions = player addAction ["Operate Gate Panel", "\z\addons\dayz_code\external\keypad\fnc_keyPad\operate_gates.sqf", _lever, 1, false, true, "", ""];
 					};
 				};
 			};
 			if (s_player_addGateAuthorization < 0) then {
-					s_player_addGateAuthorization = player addAction ["Enter Friendly Player UIDs to Gain Permanent Gate Access", "dayz_code\external\keypad\fnc_keyPad\enterCodeAdd.sqf", _lever, 1, false, true, "", ""];
+					s_player_addGateAuthorization = player addAction ["Enter Friendly Player UIDs to Gain Permanent Gate Access", "\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCodeAdd.sqf", _lever, 1, false, true, "", ""];
 			};
 			if (s_player_removeGateAuthorization < 0) then {
-					//s_player_removeGateAuthorization = player addAction ["Enter Player UIDs to Remove Permanent Gate Access", "dayz_code\external\keypad\fnc_keyPad\enterCodeRemove.sqf", _lever, 1, false, true, "", ""];
-					s_player_removeGateAuthorization = player addaction [("<t color=""#F01313"">" + ("Enter Player UIDs to Remove Permanent Gate Access") +"</t>"),"dayz_code\external\keypad\fnc_keyPad\enterCodeRemove.sqf", _lever, 1, false, true, "", ""];
+					//s_player_removeGateAuthorization = player addAction ["Enter Player UIDs to Remove Permanent Gate Access", "\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCodeRemove.sqf", _lever, 1, false, true, "", ""];
+					s_player_removeGateAuthorization = player addaction [("<t color=""#F01313"">" + ("Enter Player UIDs to Remove Permanent Gate Access") +"</t>"),"\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCodeRemove.sqf", _lever, 1, false, true, "", ""];
 			};
 		} else {
 			player removeAction s_player_gateActions;
@@ -319,7 +320,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		// Remove Object Custom removal test
 		if((typeOf(cursortarget) in allremovables) && _hasToolbox && _canDo && !remProc && !procBuild && !removeObject) then {
 			if (s_player_deleteBuild < 0) then {
-				s_player_deleteBuild = player addAction [format[localize "str_actions_delete",_text], "dayz_code\actions\player_remove.sqf",cursorTarget, 1, true, true, "", ""];
+				s_player_deleteBuild = player addAction [format[localize "str_actions_delete",_text], "\z\addons\dayz_code\actions\player_remove.sqf",cursorTarget, 1, true, true, "", ""];
 			};
 		} else {
 			player removeAction s_player_deleteBuild;
@@ -329,7 +330,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		// Enter Code to Operate Gates Action
 		if((speed player <= 1) && !_authorizedGateCodes && ((typeOf(cursortarget) == "Infostand_2_EP1") || (typeOf(cursortarget) == "Fence_corrugated_plate")) && cursorTarget distance player < 5 && _canDo) then {
 			if (s_player_enterCode < 0) then {
-				s_player_enterCode = player addaction [("<t color=""#4DFF0D"">" + ("Enter Key Code to Operate Gate") +"</t>"),"dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
+				s_player_enterCode = player addaction [("<t color=""#4DFF0D"">" + ("Enter Key Code to Operate Gate") +"</t>"),"\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
 			};
 		} else {
 			player removeAction s_player_enterCode;
@@ -339,7 +340,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		// Enter Code to remove object
 		if((speed player <= 1) && !removeObject && (typeOf(cursortarget) in allbuildables_class) && cursorTarget distance player < 5 && _canDo) then {
 				if (s_player_codeObject < 0) then {
-					s_player_codeObject = player addaction [("<t color=""#8E11F5"">" + ("Enter Code of Object to remove") +"</t>"),"dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
+					s_player_codeObject = player addaction [("<t color=""#8E11F5"">" + ("Enter Code of Object to remove") +"</t>"),"\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
 				};
 		} else {
 			player removeAction s_player_codeObject;
@@ -350,7 +351,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 			_validObject = cursortarget getVariable ["validObject",false];
 			if (_validObject) then {
 				if (s_player_codeRemove < 0) then {
-					s_player_codeRemove = player addaction [("<t color=""#8E11F5"">" + ("Base Owners Remove Object") +"</t>"),"dayz_code\actions\player_remove.sqf","",5,false,true,"",""];
+					s_player_codeRemove = player addaction [("<t color=""#8E11F5"">" + ("Base Owners Remove Object") +"</t>"),"\z\addons\dayz_code\actions\player_remove.sqf","",5,false,true,"",""];
 				};
 			} else {
 				player removeAction s_player_codeRemove;
@@ -718,6 +719,19 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		s_player_followdog = -1;
 	};
 	
+	
+	if( _canDo and _isStorage ) then {
+		if( churchie_check < 0 ) then {
+			stow_vehicle = player addAction [("<t color=""#FF0000"">" + ("Pull Vehicle From Garage") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 3], 6, false, true, "","getDammage _target < 0.95"]; 
+			};
+	} else { 
+		player removeAction stow_vehicle; 
+		//diag_log ("rig churchie_check removed: " +str(churchie_check));
+		stow_vehicle = -1; 
+	};
+	
+	
+	
 
 	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and _hasToolbox and getDammage cursorTarget < 0.95) then { 
 				//diag_log ("check churchie_check before: " +str(_nearPipe));
@@ -904,5 +918,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	player removeAction churchie_check; 
 	churchie_check = -1;
 	player removeAction churchie_defuse; 
-	churchie_defuse = -1; 	
+	churchie_defuse = -1; 
+	player removeAction stow_vehicle; 
+	stow_vehicle = -1; 	
 };
