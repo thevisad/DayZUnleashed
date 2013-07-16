@@ -102,7 +102,10 @@ meatraw = [
     "FoodchickenRaw",
     "FoodrabbitRaw",
     "FoodbaconRaw",
-    "FoodgoatRaw"
+    "FoodgoatRaw",
+	"ItemTrout",
+	"ItemSeaBass",
+	"ItemTuna"
 ];
 meatcooked = [
     "FoodSteakCooked",
@@ -112,7 +115,11 @@ meatcooked = [
     "FoodchickenCooked",
     "FoodrabbitCooked",
     "FoodbaconCooked",
-	"FoodgoatCooked"
+	"FoodgoatCooked",
+	"ItemTroutCooked",
+	"ItemSeaBassCooked",
+	"ItemTunaCooked"
+
 ];
 //Eating
 no_output_food = [

@@ -90,4 +90,8 @@ class CfgMagazines {
 	// ItemGenerator
 	#include "CfgMagazines\DZE\ItemGenerator.hpp"
 	
+	// DZE Fishes
+	#include "CfgMagazines\DZE\FoodFishCooked.hpp"
+	#include "CfgMagazines\DZE\FoodFishRaw.hpp"
+	
 };
