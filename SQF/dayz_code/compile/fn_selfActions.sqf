@@ -616,7 +616,16 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 				s_player_repairActions set [count s_player_repairActions,_handle];
 
 			};
-
+/*
+			if ( (_damage < 0.15) and (_x in _totpa) and !_nextVehicle and (_part != "PartGlass")) then {
+				_allFixed = false;
+				_color = "color='#00baff'"; //blue
+				_string = format["<t %2>Remove %1 part</t>",_cmpt,_color]; //Remove - Part
+				_handle = dayz_myCursorTarget addAction [_string, "\z\addons\dayz_code\actions\salvage.sqf",[_vehicle,_part,_x], 0, false, true, "",""];
+				s_player_repairActions set [count s_player_repairActions,_handle];
+			};
+			*/
+			
 			if ( (_damage < 0.15) and (_x in _totpa) and !_nextVehicle and (_part != "PartGlass")) then {
 				_allFixed = false;
 				_color = "color='#00baff'"; //blue
