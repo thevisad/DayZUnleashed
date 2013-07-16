@@ -51,6 +51,7 @@ if ((_ammo isKindOf "SmokeShell") or (_ammo isKindOf "GrenadeHandTimedWest") or 
 		} else {
 			while { alive _projectile } do {
 				_pos = getPosATL _projectile;
+				[getPosATL _projectile] call combat_spawnZombies;
 				sleep 0.01;
 			};
 
@@ -68,21 +69,11 @@ if ((_ammo isKindOf "SmokeShell") or (_ammo isKindOf "GrenadeHandTimedWest") or 
     if (_combattimeout > 0) then {
         _timeleft = _combattimeout - time;
         if (_timeleft > 0) then {
-           // [getPosATL player] call combat_spawnZombies;
-        } else {
+			if (_distance > 5) then {
+				[getPosATL player] call combat_spawnZombies;
+		   };
         };
-    } else {
-   [_unit,_distance,true,(getPosATL player)] spawn player_alertZombies;
-  
-  _combattimeout = player getVariable["combattimeout",0];
-    if (_combattimeout > 0) then {
-        _timeleft = _combattimeout - time;
-        if (_timeleft > 0) then {
-            [getPosATL player] call combat_spawnZombies;
-        } else {
-        };
-    } else {
-  };
+    };
 
 	//Check if need to place arrow
 	if (_ammo isKindOf "Bolt") then {
