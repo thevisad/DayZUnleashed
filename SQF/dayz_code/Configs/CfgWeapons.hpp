@@ -46,5 +46,9 @@ class CfgWeapons {
 	//crafting
 	#include "CfgCrafting\CfgCrafting.hpp"
 	
+	// Fishing pole melee
+	#include "CfgWeapons\DZE\MeleeFishingPole.hpp"
+	// Fishing pole toolbelt and loot item
+	#include "CfgWeapons\DZE\ItemFishingPole.hpp"
 
 };

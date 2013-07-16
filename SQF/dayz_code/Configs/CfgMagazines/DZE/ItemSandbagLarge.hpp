@@ -10,7 +10,7 @@ class ItemSandbagLarge : CA_Magazine {
 	class ItemActions {
 		class Build {
 			text = "Build H-barrier cube";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool"};
 			create = "Land_HBarrier1_DZ";
 		};

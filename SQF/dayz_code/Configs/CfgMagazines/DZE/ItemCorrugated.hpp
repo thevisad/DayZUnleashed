@@ -10,7 +10,7 @@ class ItemCorrugated : CA_Magazine
 	class ItemActions {
 		class Build {
 			text = "Build Corrugated Fence";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "Fence_corrugated_DZ";
 		};

@@ -15,7 +15,7 @@ class MeleeFishingPole: MeleeWeapon
 		class Use
 		{
 			text="Cast Fishing Pole";
-			script="spawn player_goFishing;";
+			script="spawn DZE_player_goFishing;";
 		};
 		class Toolbelt
 		{
