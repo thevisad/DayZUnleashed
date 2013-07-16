@@ -555,6 +555,7 @@ if(!isDedicated) then {
 	dayz_hunger = 0;
 	dayz_thirst = 0;
 	dayz_combat = 0;
+	dayz_playerID = "";
 	dayz_preloadFinished = false;
 	dayz_statusArray = [1,1];
 	dayz_disAudial = 0;
