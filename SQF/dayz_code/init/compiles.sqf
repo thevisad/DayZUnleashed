@@ -78,6 +78,7 @@ if (!isDedicated) then {
 	player_makeFire = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_makefire.sqf";
 	player_chopWood = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_chopWood.sqf";
 	player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_build.sqf";
+	
 	player_wearClothes = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_wearClothes.sqf";
 	player_dropWeapon = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_dropWeapon.sqf";
 	player_setTrap = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_setTrap.sqf";
@@ -89,6 +90,10 @@ if (!isDedicated) then {
 	player_fillquiver = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_fillQuiver.sqf";
 	player_takearrow = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_takeArrow.sqf";
 	player_vehicleExplosives = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf";
+	
+	// DZE specific
+	DZE_player_goFishing =	compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_goFishing.sqf";
+	DZE_player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_build.sqf";
 
 	//ui
 	player_selectSlot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_selectSlot.sqf";

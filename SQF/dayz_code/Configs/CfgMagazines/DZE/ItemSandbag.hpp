@@ -10,7 +10,7 @@ class ItemSandbag : CA_Magazine {
 	class ItemActions {
 		class Build {
 			text = "Build Sandbag";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool"};
 			create = "Sandbag1_DZ";
 		};

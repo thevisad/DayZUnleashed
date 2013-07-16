@@ -82,7 +82,16 @@ DayZ_NewZeds = ["z_new_villager2","z_new_villager3","z_new_villager4","z_new_wor
 //Bags
 DayZ_Backpacks = ["DZ_Patrol_Pack_EP1","DZ_Assault_Pack_EP1","DZ_Czech_Vest_Puch","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_British_ACU","DZ_CivilBackpack_EP1","DZ_Backpack_EP1"];
 
-SafeObjects = ["Land_Fire_DZ", "TentStorage", "Wire_cat1", "Sandbag1_DZ", "Hedgehog_DZ", "StashSmall", "StashMedium"];
+SafeObjects = ["Land_Fire_DZ", "TentStorage", "Wire_cat1", "Sandbag1_DZ", "Hedgehog_DZ", "StashSmall", "StashMedium","Generator_DZ"];
+
+// These work with just a running generator
+dayz_fuelpumparray = ["FuelPump_DZ","Land_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC","FuelStation","Land_ibr_FuelStation_Feed","Land_fuelstation_army","Land_fuelstation","land_fuelstation_w","Land_benzina_schnell"];
+
+// Standard Fuel sources
+dayz_fuelsources = ["Land_Ind_TankSmall","Land_fuel_tank_big","Land_fuel_tank_stairs","Land_fuel_tank_stairs_ep1","Land_wagon_tanker","Land_fuelstation","Land_fuelstation_army","land_fuelstation_w","Land_benzina_schnell"];
+
+// Fix for removing specific items with DZE code
+DZE_removeable = ["Generator_DZ"];
 
 //Cooking
 meatraw = [
@@ -93,7 +102,10 @@ meatraw = [
     "FoodchickenRaw",
     "FoodrabbitRaw",
     "FoodbaconRaw",
-    "FoodgoatRaw"
+    "FoodgoatRaw",
+	"ItemTrout",
+	"ItemSeaBass",
+	"ItemTuna"
 ];
 meatcooked = [
     "FoodSteakCooked",
@@ -103,7 +115,11 @@ meatcooked = [
     "FoodchickenCooked",
     "FoodrabbitCooked",
     "FoodbaconCooked",
-	"FoodgoatCooked"
+	"FoodgoatCooked",
+	"ItemTroutCooked",
+	"ItemSeaBassCooked",
+	"ItemTunaCooked"
+
 ];
 //Eating
 no_output_food = [
@@ -330,6 +346,9 @@ dayz_resetSelfActions = {
 	s_build_Hedgehog_DZ = -1;
 	s_build_Wire_cat1 = -1;
 	s_player_deleteBuild = -1;
+	s_player_deleteBuild_DZE = -1;
+	s_player_fillgen = -1;
+	s_player_fuelauto = -1;
 	s_player_forceSave = -1;
 	s_player_flipveh = -1;
 	s_player_stats = -1;
@@ -612,4 +631,5 @@ if(!isDedicated) then {
 	//};
 	
 	CraftingInprogress = false;
+	CodeInProgress = false;
 };

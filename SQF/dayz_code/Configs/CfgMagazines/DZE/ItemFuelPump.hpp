@@ -12,7 +12,7 @@ class ItemFuelPump: CA_Magazine
 		class Build
 		{
 			text = "$STR_ACTIONS_BUILD";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemToolbox"};
 			create = "FuelPump_DZ";
 			needNearby[] = {"dayz_fuelsources"};
