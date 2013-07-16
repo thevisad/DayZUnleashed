@@ -178,6 +178,7 @@ if (_inVehicle and _isSwapableAirVehicle and _isPilot) then {
 if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4)) then { //Has some kind of target
 	_isHarvested = cursorTarget getVariable["meatHarvested",false];
 	_isVehicle = cursorTarget isKindOf "AllVehicles";
+	_isStorage = typeOf cursorTarget in ["Bunker_PMC"];
 	_isVehicletype = typeOf cursorTarget in ["ATV_US_EP1","ATV_CZ_EP1"];
 	_isMan = cursorTarget isKindOf "Man";
 	_ownerID = cursorTarget getVariable ["characterID","0"];
@@ -718,6 +719,19 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		s_player_followdog = -1;
 	};
 	
+	
+	if( _canDo and _isStorage ) then {
+		if( churchie_check < 0 ) then {
+			stow_vehicle = player addAction [("<t color=""#FF0000"">" + ("Pull Vehicle From Garage") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 3], 6, false, true, "","getDammage _target < 0.95"]; 
+			};
+	} else { 
+		player removeAction stow_vehicle; 
+		//diag_log ("rig churchie_check removed: " +str(churchie_check));
+		stow_vehicle = -1; 
+	};
+	
+	
+	
 
 	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and _hasToolbox and getDammage cursorTarget < 0.95) then { 
 				//diag_log ("check churchie_check before: " +str(_nearPipe));
@@ -904,5 +918,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	player removeAction churchie_check; 
 	churchie_check = -1;
 	player removeAction churchie_defuse; 
-	churchie_defuse = -1; 	
+	churchie_defuse = -1; 
+	player removeAction stow_vehicle; 
+	stow_vehicle = -1; 	
 };
