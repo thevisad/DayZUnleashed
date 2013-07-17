@@ -60,6 +60,7 @@ class CfgBuildingLoot {
 			{"PartWoodPile","magazine",0.06},
 			{"Skin_Camo1_DZ","magazine",0.01},
 			{"Skin_Sniper1_DZ","magazine",0.01},
+			{"Skin_SniperW1_DZ","magazine",0.01},
 			{"WeaponHolder_ItemCrowbar","object",0.08},
 			{"MR43","weapon",0.03},
 			{"ItemBookBible","magazine",0.02},
@@ -297,6 +298,7 @@ class CfgBuildingLoot {
 			{"AmmoBoxSmall_762","object",0.05},
 			{"Skin_Camo1_DZ","magazine",0.08},
 			{"Skin_Sniper1_DZ","magazine",0.05},
+			{"Skin_SniperW1_DZ","magazine",0.05},
 			{"G36C","weapon",0.03},
 			{"G36C_camo","weapon",0.03},
 			
@@ -337,6 +339,7 @@ class CfgBuildingLoot {
 			{"AmmoBoxSmall_556","object",0.05},
 			{"Skin_Camo1_DZ","magazine",0.08},
 			{"Skin_Sniper1_DZ","magazine",0.05},
+			{"Skin_SniperW1_DZ","magazine",0.05},
 			{"G36C","weapon",0.03},
 			{"G36C_camo","weapon",0.03},
 			

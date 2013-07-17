@@ -49,6 +49,12 @@ class CfgMagazines {
 		};
 	};
 	
+		class Skin_SniperW1_DZ : SkinBase {		
+		scope = public;
+		displayName = "Chilisuit Female";
+		descriptionShort = "Chilisuit Female";	
+	};
+	
 		class Skin_Civilian1_DZ : SkinBase {		
 		scope = public;
 		displayName = "Civilian Skin 1";
