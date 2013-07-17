@@ -11,6 +11,11 @@ _audible = getNumber (configFile >> "CfgAmmo" >> _ammo >> "audibleFire");
 _caliber = getNumber (configFile >> "CfgAmmo" >> _ammo >> "caliber");
 _distance = round(_audible * 10 * _caliber);
 
+dayz_perceptibility = dayz_perceptibility + _distance;
+    if (dayz_perceptibility > dayz_perceptibility_limit ) then {
+        dayz_perceptibility = dayz_perceptibility_limit;
+    };
+
 dayz_disAudial = _distance;
 dayz_firedCooldown = time;
 // Color in the combat icon

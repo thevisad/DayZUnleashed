@@ -27,6 +27,7 @@ if (!isDedicated) then {
 	building_monitor = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\building_monitor.sqf";
 	player_fired = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_fired.sqf";			//Runs when player fires. Alerts nearby Zeds depending on calibre and audial rating
 	player_packTent = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_packTent.sqf";
+    player_perceptibilityCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_player_perception.sqf";
 	
 	//BurnTent
 	player_burnTent = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_burnTent.sqf";
