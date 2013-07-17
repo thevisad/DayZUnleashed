@@ -1,8 +1,8 @@
 class GER_Soldier_EP1;
 class Bandit1_DZ : GER_Soldier_EP1 {
-	displayName = "$STR_CHAR_2";
+	displayName = $STR_CHAR_2;
 	side = 0;
-    faction = "DZU_FACTION_BANDIT";
+	faction = "DZU_FACTION_BANDIT";
 	weapons[] = {"Throw","Put"};
 	//model = "\dayz\characters\man_bandit";
 	//portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
@@ -18,7 +18,7 @@ class BAF_Soldier_Officer_W;
 class Rocket_DZ: BAF_Soldier_Officer_W {
 	displayName = "Rocket";
 	side = 1;
-    faction = "DAYZ_SURVIVOR_Faction";
+	faction = "DAYZ_SURVIVOR_Faction";
 	weapons[] = {"Throw","Put"};
 	backpack = "";
 	magazines[] = {};
@@ -113,7 +113,7 @@ class SniperW1_DZ: Sniper1_DZ {
 };
 class BAF_Soldier_L_W;
 class Camo1_DZ: BAF_Soldier_L_W {
-	displayName = "Survivor";
+	displayName = $STR_CHAR_1;
 	side = 1;
     faction = "DAYZ_SURVIVOR_Faction";
 	weapons[] = {"Throw","Put"};
