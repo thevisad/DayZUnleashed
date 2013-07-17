@@ -14,6 +14,7 @@ Survivor1_DZ = "Survivor2_DZ";
 Survivor2_DZ = "Survivor2_DZ";
 SurvivorW2_DZ = "SurvivorW2_DZ";
 Sniper1_DZ = "Sniper1_DZ";
+SniperW1_DZ = "SniperW1_DZ";
 Camo1_DZ = "Camo1_DZ";
 Soldier1_DZ = "Soldier1_DZ";
 Rocket_DZ = "Rocket_DZ";
@@ -528,6 +529,8 @@ dayz_lootSpawnBias = 67; // between 50 and 100. The lower it is, the lower chanc
 dayz_localswarmSpawned = 10;  // how many zeds will spawn around you during a combat scenario.
 dayz_infectionTreshold = 1.25; // used to trigger infection, see fn_damageHandler.sqf
 dayz_localCombatSpawned = 60;  // how many zeds will spawn around you during a combat scenario. 
+dayz_perceptibility_limit = 1000; //Max Perceptibility 
+dayz_perceptibility_decay = 1;    //Rate of decay that we subtract from our rating
 //init global arrays for Loot Chances
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\loot_init.sqf";
 
@@ -625,6 +628,7 @@ if(!isDedicated) then {
 	dayz_scaleLight = 0;
 	dayzDebug = false;
 	dayzState = -1;
+    dayz_perceptibility = 0; //Perception rating for player
 	//uiNamespace setVariable ['DAYZ_GUI_display',displayNull];
 	//if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {
 	//	dayzDebug = true;
