@@ -890,7 +890,7 @@ class CfgVehicles {
 	class Soldier_Sniper_KSVK_PMC: Banned {};
 	class Soldier_GL_PMC: Banned {};
 	class Soldier_GL_M16A2_PMC: Banned {};
-	class Soldier_Bodyguard_M4_PMC: Banned {};
+	//class Soldier_Bodyguard_M4_PMC: Banned {};
 	class Soldier_Bodyguard_AA12_PMC: Banned {};
 	class Soldier_AA_PMC: Banned {};
 	class Soldier_AT_PMC: Banned {};

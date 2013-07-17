@@ -155,14 +155,30 @@ class CfgVehicles {
 	};
 	
 	// Female Skins
-	class RU_Hooker1;	// External class reference
-	class RU_Secretary1;	// External class reference
-	class RU_Sportswoman1;	// External class reference
-	class RU_WorkWoman1;	// External class reference
-	class RU_Madam1;	// External class reference
+	class TanyaDes;			// External class reference
+	class TanyaWood;		// External class reference
+	class TanyaDelta;		// External class reference
+	class TanyaBO;			// External class reference
+	class SurvivorW2_DZ;	// External class reference
 	
-	class CivilianW1_DZ : RU_Hooker1 {
-		displayName = "Civilian Hooker";
+	class CivilianW1_DZ : TanyaDes {
+		displayName = "Civilian Female 1";
+		side = 1;
+		weapons[] = {"Throw","Put"};
+		backpack = "";
+		magazines[] = {};
+		respawnWeapons[] = {"Throw","Put"};
+		respawnMagazines[] = {};
+		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
+		canHideBodies = 1;
+		canCarryBackPack = 1;
+		model = "\tanya\tanyaDes.p3d";
+		Picture = "\tanya\data\Ico\i_SF_CA.paa";
+		Icon = "\tanya\data\map_ico\i_komandos_CA.paa";
+	};
+	
+	class CivilianW2_DZ : TanyaWood {
+		displayName = "Civilian Female 2";
 		side = 1;
 		weapons[] = {"Throw","Put"};
 		backpack = "";
@@ -174,8 +190,8 @@ class CfgVehicles {
 		canCarryBackPack = 1;
 	};
 	
-	class CivilianW2_DZ : RU_Secretary1 {
-		displayName = "Civilian Secretary";
+	class CivilianW3_DZ : TanyaDelta {
+		displayName = "Civilian Female 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
 		backpack = "";
@@ -187,8 +203,8 @@ class CfgVehicles {
 		canCarryBackPack = 1;
 	};
 	
-	class CivilianW3_DZ : RU_Sportswoman1 {
-		displayName = "Civilian Sportswoman";
+	class CivilianW4_DZ : TanyaBO {
+		displayName = "Civilian Female 4";
 		side = 1;
 		weapons[] = {"Throw","Put"};
 		backpack = "";
@@ -200,21 +216,8 @@ class CfgVehicles {
 		canCarryBackPack = 1;
 	};
 	
-	class CivilianW4_DZ : RU_WorkWoman1 {
-		displayName = "Civilian WorkWoman";
-		side = 1;
-		weapons[] = {"Throw","Put"};
-		backpack = "";
-		magazines[] = {};
-		respawnWeapons[] = {"Throw","Put"};
-		respawnMagazines[] = {};
-		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
-		canHideBodies = 1;
-		canCarryBackPack = 1;
-	};
-	
-	class CivilianW5_DZ : RU_Madam1 {
-		displayName = "Civilian Madam";
+	class CivilianW5_DZ : SurvivorW2_DZ {
+		displayName = "Civilian Female 5";
 		side = 1;
 		weapons[] = {"Throw","Put"};
 		backpack = "";
@@ -348,20 +351,20 @@ class CfgVehicles {
 	};
 	
 	// Bandit Level 1 FEMALE
-	class RU_Hooker2;	// External class reference
+	class BB_Merc_OA_Female_light;	// External class reference
 	// Bandit Level 2 Man
-	class RU_Secretary4;	// External class reference
+	class BB_Merc_OA_Female_gl;	// External class reference
 	//Bandit Level 3 Man
-	class RU_Sportswoman4;	// External class reference
-	class CIV_EuroWoman01_EP1; // External class reference
+	class BB_Merc_OA_Female_helmet;	// External class reference
+	//class BB_Merc_OA_Female_pilot; // External class reference
 	//Bandit Level 4 Man
-	class RU_WorkWoman4;	// External class reference
-	class CIV_EuroWoman02_EP1; // External class reference
+	class BB_Merc_OA_Female_pilot2;	// External class reference
+	class BB_Merc_OA_Female_pilot; // External class reference
 	//Bandit Level 5 Man
-	class Rita_Ensler_EP1;	// External class reference
-	class RU_Damsel1; // External class reference
+	//class Rita_Ensler_EP1;	// External class reference
+	//class RU_Damsel1; // External class reference
 	
-	class Banditwl11_DZ : RU_Hooker2 {
+	class Banditwl11_DZ : BB_Merc_OA_Female_light {
 		displayName = "Bandit Female Level 1";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -372,10 +375,10 @@ class CfgVehicles {
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
 		canCarryBackPack = 1;
-		faceType = "HeadMask1Black"; // This gives the model a black balaclava
+		//faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class Banditwl21_DZ : RU_Secretary4 {
+	class Banditwl21_DZ : BB_Merc_OA_Female_gl {
 		displayName = "Bandit Female Level 2";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -386,10 +389,10 @@ class CfgVehicles {
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
 		canCarryBackPack = 1;
-		faceType = "HeadMask1Black"; // This gives the model a black balaclava
+		//faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class Banditwl31_DZ : RU_Sportswoman4 {
+	class Banditwl31_DZ : BB_Merc_OA_Female_helmet {
 		displayName = "Bandit Female Level 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -400,10 +403,10 @@ class CfgVehicles {
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
 		canCarryBackPack = 1;
-		faceType = "HeadMask1Black"; // This gives the model a black balaclava
+		//faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class Banditwl32_DZ : CIV_EuroWoman01_EP1 {
+	class Banditwl32_DZ : BB_Merc_OA_Female_helmet {
 		displayName = "Bandit Female Level 3";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -414,10 +417,10 @@ class CfgVehicles {
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
 		canCarryBackPack = 1;
-		faceType = "HeadMask1Black"; // This gives the model a black balaclava
+		//faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class Banditwl41_DZ : RU_WorkWoman4 {
+	class Banditwl41_DZ : BB_Merc_OA_Female_pilot2 {
 		displayName = "Bandit Female Level 4";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -428,10 +431,10 @@ class CfgVehicles {
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
 		canCarryBackPack = 1;
-		faceType = "HeadMask1Black"; // This gives the model a black balaclava
+		//faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class Banditwl42_DZ : CIV_EuroWoman02_EP1 {
+	class Banditwl42_DZ : BB_Merc_OA_Female_pilot {
 		displayName = "Bandit Female Level 4";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -442,10 +445,10 @@ class CfgVehicles {
 		weaponSlots = "1 + 4 + 12* 256 + 2* 4096 + 2 + 8* 16 + 12*131072";
 		canHideBodies = 1;
 		canCarryBackPack = 1;
-		faceType = "HeadMask1Black"; // This gives the model a black balaclava
+		//faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class Banditwl51_DZ : Rita_Ensler_EP1 {
+	class Banditwl51_DZ : BB_Merc_OA_Female_light {
 		displayName = "Bandit Female Level 5";
 		side = 1;
 		weapons[] = {"Throw","Put"};
@@ -459,7 +462,7 @@ class CfgVehicles {
 		faceType = "HeadMask1Black"; // This gives the model a black balaclava
 	};
 	
-	class Banditwl52_DZ : RU_Damsel1 {
+	class Banditwl52_DZ : BB_Merc_OA_Female_gl {
 		displayName = "Bandit Female Level 5";
 		side = 1;
 		weapons[] = {"Throw","Put"};
