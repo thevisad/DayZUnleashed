@@ -68,6 +68,9 @@ while {true} do {
 	[] call fnc_usec_damageActions;
 	[] call fnc_usec_selfActions;
 
+    //Player Perceptibility Check
+    [] call player_perceptibilityCheck;
+
 	//Low Blood Effects
 	[] spawn {
 		if (!r_player_unconscious) then {
