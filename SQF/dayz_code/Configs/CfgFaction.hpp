@@ -19,4 +19,4 @@ class CfgFactionClasses
         side = 2;                   //In game side, 0=E,1=W,3=R,4=C
     };
 
-}:
+};
