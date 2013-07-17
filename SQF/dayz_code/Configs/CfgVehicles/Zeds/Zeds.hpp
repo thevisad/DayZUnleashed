@@ -1,6 +1,8 @@
 class Citizen1;	// External class reference
 class zZombie_Base : Citizen1 {
 	scope = public;
+    side = 2;
+    faction = "DZU_FACTION_ZOMBIE";
 	glassesEnabled = 0;
 	vehicleClass = "Zombie";
 	displayName = "Zombie";
@@ -109,6 +111,8 @@ class zZombie_Base : Citizen1 {
 
 class Swarm_Base : Citizen1 {
 	scope = public;
+    side = 2;
+    faction = "DZU_FACTION_ZOMBIE";
 	glassesEnabled = 0;
 	vehicleClass = "Zombie";
 	displayName = "Zombie";
