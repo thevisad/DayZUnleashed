@@ -1,6 +1,7 @@
 class DZ_Pastor : Pastor {
 		scope = 2;
-		side = 1;
+        side = 1;
+        faction = "DZU_FACTION_SURVIVOR";
 		model = "\ca\animals2\Dogs\Pastor\Pastor";
 		displayName = "Alsatian";
 		moves = "CfgMovesDogDZ";

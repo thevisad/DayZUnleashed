@@ -19,6 +19,7 @@
 #include "R3F_CfgWeight.h" 
 
 //#include "Configs\CfgWorlds.hpp"
+#include "Configs\CfgFaction.hpp"
 #include "Configs\rscTitles.hpp"
 #include "Configs\CfgMoves.hpp"
 #include "Configs\CfgVehicles.hpp"
