@@ -97,7 +97,12 @@ class CfgAddons
 	{
 		class dayz
 		{
-			list[] = {"dayz_code","dayz","dayz_equip","dayz_weapons","dayz_sfx"};
+			list[] = {
+						"dayz_code","dayz","dayz_equip","dayz_weapons","dayz_sfx","dayz_communityassets",
+						"KPFS_UAZ451","SWM_SwissArms","SWM_Misc","unleashed_equip","unleashed_skins",
+						"unleashed_vehicles","KPFS_G36","KPFS_G3","KPFS_P38","KPFS_MPi74","KPFS_SKS",
+						"KPFS_STG","KPFS_P99","KPFS_MP2","KPFS_Weapons","dayz_epoch","unleashed_pack"
+			};
 		};
 	};
 };

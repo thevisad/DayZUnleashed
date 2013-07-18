@@ -1,7 +1,7 @@
 // Unleashed Packe Skins
 
 class CfgPatches {
-	class Skins {
+	class unleashed_skins {
 		units[] = {};
 		requiredVersion = 1.0;
 		requiredAddons[] = {};
