@@ -2059,6 +2059,7 @@ tlmxzyxzy =
 		_date = _array select 2;
 		_offset = _array select 3;
 		_date set [3,_offset];
+		setDate _date;
 		[nil, nil, rSPAWN, _date, { setDate _this; }] call RE;
 	};
 	
