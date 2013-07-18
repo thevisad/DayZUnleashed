@@ -75,6 +75,35 @@ while {true} do {
 		};
 	};
 
+	if (_humanity < -2000 and !_isBandit) then {
+		_model = typeOf player;
+		if (_model == "Survivor2_DZ" || _model == "Survivor3_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Bandit1_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "SurvivorW2_DZ") then {
+			[dayz_playerUID,dayz_characterID,"BanditW1_DZ"] spawn player_humanityMorph;
+		};
+	};
+
+	if (_humanity > 0 and (_isBandit || ( _humanity < 5000 and _isHero))) then {
+		_model = typeOf player;
+		if (_model == "Bandit1_DZ" || _model == "Survivor3_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Survivor2_DZ"] spawn player_humanityMorph;
+		};
+		if (_model == "BanditW1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"SurvivorW2_DZ"] spawn player_humanityMorph;
+		};
+	};
+
+	if (_humanity > 5000 and !_isHero) then {
+		_model = typeOf player;
+		if (_model == "Survivor2_DZ" || _model == "Bandit1_DZ") then {
+			[dayz_playerUID,dayz_characterID,"Survivor3_DZ"] spawn player_humanityMorph;
+		};
+	};
+	
+
+/*
 	// Bandit Level 1 (10 Survivor 5 Female Skins)
 	
 	if ((_humanity < -5000) and (_humanity > -9999) and !_isBandit) then {
@@ -343,7 +372,7 @@ while {true} do {
 			[dayz_playerUID,dayz_characterID,_skin2] spawn player_humanityMorph;
 		};
 	};
-	
+	*/
 	//Has infection?
 	//if (r_player_infected) then {
 	//	[player,"cough",8,false] call dayz_zombieSpeak;
