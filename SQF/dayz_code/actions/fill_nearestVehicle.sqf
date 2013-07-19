@@ -85,11 +85,9 @@ if(_IsNearVehicle >= 1) then {
 			// calculate minimum needed fuel
 			_newFuel = (_newFuel / _capacity);
 
-			dayzSetFuel = [_vehicle,_newFuel];
-			if (local _vehicle) then {
-				dayzSetFuel spawn local_setFuel;
-			};
-			publicVariable "dayzSetFuel";
+			PVDZ_veh_SetFuel = [_vehicle,_newFuel];
+			PVDZ_veh_SetFuel spawn local_setFuel;
+			publicVariable "PVDZ_veh_SetFuel";
 
 			// Play sound
 			[player,"refuel",0,false] call dayz_zombieSpeak;

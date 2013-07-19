@@ -190,6 +190,8 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	_isStash = cursorTarget isKindOf "StashSmall";
 	_isMediumStash = cursorTarget isKindOf "StashMedium";
 	_isFuel = false;
+	_hasBarrelE = 	"ItemFuelBarrelEmpty" in magazines player;
+	_hasBarrel = 	"ItemFuelBarrel" in magazines player;
 	_hasFuel20 = "ItemJerrycan" in magazines player;
 	_hasFuel5 = "ItemFuelcan" in magazines player;
 	_isAlive = alive cursorTarget;
@@ -431,6 +433,16 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		player removeAction s_player_fillfuel5;
 		s_player_fillfuel5 = -1;
 	};
+
+	if (_isVehicle and (_hasFuelE20 or _hasFuelE5 or _hasBarrelE) and (fuel _cursorTarget > 0)) then {
+		if (s_player_siphonfuel < 0) then {
+			s_player_siphonfuel = player addAction [format["Siphon fuel from %1",_text], "\z\addons\dayz_code\actions\DZE\siphonFuel.sqf",[], 0, true, true, "", ""];
+		};
+	} else {
+		player removeAction s_player_siphonfuel;
+		s_player_siphonfuel = -1;
+	};
+
 
 	//Harvested
 	if (!alive cursorTarget and _isAnimal and _hasKnife and !_isHarvested and _canDo) then {

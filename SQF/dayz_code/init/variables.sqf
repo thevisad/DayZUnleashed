@@ -365,6 +365,7 @@ dayz_resetSelfActions = {
 	s_player_followdog = -1;
 	s_player_fillfuel20 = -1;
 	s_player_fillfuel5 = -1;
+	s_player_siphonfuel = -1;
 	churchie_rig_veh = -1;
 	churchie_check = -1;
 	churchie_defuse = -1; 	

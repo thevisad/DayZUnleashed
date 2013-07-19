@@ -82,7 +82,8 @@ class CfgMagazines {
 	//Fuelcan
 	#include "CfgMagazines\Fuelcan.hpp"
 	#include "CfgMagazines\Jerrycan.hpp"
-	
+	// fuel barrel
+	#include "CfgMagazines\DZE\ItemFuelBarrel.hpp"
 	
 	//crafting
 	#include "CfgCrafting\Mats.hpp"
