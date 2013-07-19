@@ -5,17 +5,17 @@
 */
 private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_alreadyPacking"];
 
-if(TradeInprogress) exitWith { cutText ["Lock already in progress." , "PLAIN DOWN"]; };
-TradeInprogress = true;
+if(CodeInProgress) exitWith { cutText ["Lock already in progress." , "PLAIN DOWN"]; };
+CodeInProgress = true;
 
 _obj = _this;
 
 // Silently exit if object no longer exists
-if(isNull _obj) exitWith { TradeInprogress = false; };
+if(isNull _obj) exitWith { CodeInProgress = false; };
 
 // Test cannot lock while another player is nearby
 _playerNear = {isPlayer _x} count (player nearEntities ["CAManBase", 6]) > 1;
-if(_playerNear) exitWith { TradeInprogress = false; cutText ["Cannot lock vault while another player is nearby." , "PLAIN DOWN"];  };
+if(_playerNear) exitWith { CodeInProgress = false; cutText ["Cannot lock vault while another player is nearby." , "PLAIN DOWN"];  };
 
 _ownerID = _obj getVariable["CharacterID","0"];
 _objectID 	= _obj getVariable["ObjectID","0"];
@@ -25,11 +25,11 @@ player playActionNow "Medic";
 player removeAction s_player_lockvault;
 s_player_lockvault = 1;
 
-if((_ownerID != dayz_combination) and (_ownerID != dayz_playerUID)) exitWith {TradeInprogress = false; s_player_lockvault = -1; cutText ["You cannot lock this Safe, you do not know the combination", "PLAIN DOWN"]; };
+if((_ownerID != dayz_combination) and (_ownerID != dayz_playerUID)) exitWith {CodeInProgress = false; s_player_lockvault = -1; cutText ["You cannot lock this Safe, you do not know the combination", "PLAIN DOWN"]; };
 
 _alreadyPacking = _obj getVariable["packing",0];
 
-if (_alreadyPacking == 1) exitWith {TradeInprogress = false; s_player_lockvault = -1; cutText ["That Safe is already being locked." , "PLAIN DOWN"]};
+if (_alreadyPacking == 1) exitWith {CodeInProgress = false; s_player_lockvault = -1; cutText ["That Safe is already being locked." , "PLAIN DOWN"]};
 
 _obj setVariable["packing",1];
 
@@ -78,4 +78,4 @@ if(!isNull _obj) then {
 
 	s_player_lockvault = -1;
 };
-TradeInprogress = false;
+CodeInProgress = false;

@@ -5,12 +5,12 @@
 */
 private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_alreadyPacking"];
 
-if(TradeInprogress) exitWith { cutText ["Unlock already in progress." , "PLAIN DOWN"]; };
-TradeInprogress = true;
+if(CodeInProgress) exitWith { cutText ["Unlock already in progress." , "PLAIN DOWN"]; };
+CodeInProgress = true;
 
 // Test cannot lock while another player is nearby
 _playerNear = {isPlayer _x} count (player nearEntities ["CAManBase", 6]) > 1;
-if(_playerNear) exitWith { TradeInprogress = false; cutText ["Cannot unlock vault while another player is nearby." , "PLAIN DOWN"];  };
+if(_playerNear) exitWith { CodeInProgress = false; cutText ["Cannot unlock vault while another player is nearby." , "PLAIN DOWN"];  };
 
 _obj = _this;
 _alreadyPacking = _obj getVariable["packing",0];
@@ -20,11 +20,11 @@ _claimedBy = _obj getVariable["claimed","0"];
 s_player_unlockvault = 1;
 
 // Silently exit if object no longer exists or alive
-if(isNull _obj or !(alive _obj)) exitWith { TradeInprogress = false; };
+if(isNull _obj or !(alive _obj)) exitWith { CodeInProgress = false; };
 
 _ownerID = _obj getVariable["CharacterID","0"];
 
-if (_alreadyPacking == 1) exitWith {TradeInprogress = false; cutText ["That Safe is already being unlocked." , "PLAIN DOWN"]};
+if (_alreadyPacking == 1) exitWith {CodeInProgress = false; cutText ["That Safe is already being unlocked." , "PLAIN DOWN"]};
 
 // Promt user for password if _ownerID != dayz_playerUID
 if ((_ownerID == dayz_combination) or (_ownerID == dayz_playerUID)) then {
@@ -111,7 +111,7 @@ if ((_ownerID == dayz_combination) or (_ownerID == dayz_playerUID)) then {
 			cutText ["Safe has been unlocked.", "PLAIN DOWN"];
 		};
 	} else {
-		TradeInprogress = false; 
+		CodeInProgress = false; 
 		cutText [format[(localize "str_player_beinglooted"),"Safe"] , "PLAIN DOWN"];
 	};
 } else {
@@ -123,4 +123,4 @@ if ((_ownerID == dayz_combination) or (_ownerID == dayz_playerUID)) then {
 	cutText ["Combination incorrect, Safe is still locked.", "PLAIN DOWN"];
 };
 s_player_unlockvault = -1;
-TradeInprogress = false;
+CodeInProgress = false;

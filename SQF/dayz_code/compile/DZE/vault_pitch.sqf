@@ -1,8 +1,8 @@
 private ["_tent","_location","_isOk","_cancel","_location3","_location4","_location1","_location2","_counter","_pondPos","_isPond","_ppos","_hastentitem","_dir","_building","_isBuilding","_playerPos","_item","_offset_x","_offset_y","_offset_z","_offset_z_attach","_config","_text","_tmpvault","_vault_location","_objectsPond","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_removed"];
 //check if can pitch here
 
-if(TradeInprogress) exitWith { cutText ["Vault pitching already in progress." , "PLAIN DOWN"]; };
-TradeInprogress = true;
+if(CodeInProgress) exitWith { cutText ["Vault pitching already in progress." , "PLAIN DOWN"]; };
+CodeInProgress = true;
 
 //disableSerialization;
 
@@ -177,4 +177,4 @@ if(!_cancel) then {
 	cutText ["Canceled construction of Safe.", "PLAIN DOWN"];
 };
 
-TradeInprogress = false;
+CodeInProgress = false;

@@ -260,7 +260,6 @@ dayz_combatLog = "";
 canRoll = true;
 canPickup = false;
 pickupInit = false;
-TradeInprogress = false;
 
 //Hunting Variables
 dayZ_partClasses = [
