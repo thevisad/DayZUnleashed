@@ -192,8 +192,10 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	_isFuel = false;
 	_hasBarrelE = 	"ItemFuelBarrelEmpty" in magazines player;
 	_hasBarrel = 	"ItemFuelBarrel" in magazines player;
+	_hasFuel210 = "ItemFuelBarrel" in magazines player;
 	_hasFuel20 = "ItemJerrycan" in magazines player;
 	_hasFuel5 = "ItemFuelcan" in magazines player;
+	
 	_isAlive = alive cursorTarget;
 	_canmove = canmove cursorTarget;
 	_text = getText (configFile >> "CfgVehicles" >> typeOf cursorTarget >> "displayName");
@@ -414,6 +416,16 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		s_player_fillfuel = -1;
 	};
 
+	//Allow player to fill vehilce 210L
+	if(_hasFuel210 and _canDo and _isVehicle and (fuel cursorTarget < 1)) then {
+		if (s_player_fillfuel210 < 0) then {
+			s_player_fillfuel210 = player addAction [format[localize "str_actions_medical_10"+" with 210L",_text], "\z\addons\dayz_code\actions\refuel.sqf",["ItemFuelBarrel"], 0, true, true, "", "'ItemFuelBarrel' in magazines player"];
+		};
+	} else {
+		player removeAction s_player_fillfuel210;
+		s_player_fillfuel210 = -1;
+	};
+
 	//Allow player to fill vehilce 20L
 	if(_hasFuel20 and _canDo and _isVehicle and (fuel cursorTarget < 1)) then {
 		if (s_player_fillfuel20 < 0) then {
@@ -434,7 +446,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		s_player_fillfuel5 = -1;
 	};
 
-	if (_isVehicle and (_hasFuelE20 or _hasFuelE5 or _hasBarrelE) and (fuel _cursorTarget > 0)) then {
+	if (_isVehicle and _canDo and (_hasFuelE20 or _hasFuelE5 or _hasBarrelE) and (fuel _cursorTarget > 0)) then {
 		if (s_player_siphonfuel < 0) then {
 			s_player_siphonfuel = player addAction [format["Siphon fuel from %1",_text], "\z\addons\dayz_code\actions\DZE\siphonFuel.sqf",[], 0, true, true, "", ""];
 		};

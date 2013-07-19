@@ -363,6 +363,7 @@ dayz_resetSelfActions = {
 	s_player_barkdog = -1;
 	s_player_warndog = -1;
 	s_player_followdog = -1;
+	s_player_fillfuel210 = -1;
 	s_player_fillfuel20 = -1;
 	s_player_fillfuel5 = -1;
 	s_player_siphonfuel = -1;
