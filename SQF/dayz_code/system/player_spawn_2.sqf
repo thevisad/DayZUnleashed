@@ -1,4 +1,4 @@
-private["_refObj","_size","_vel","_speed","_hunger","_thirst","_array","_unsaved","_timeOut","_result","_lastSave","_wpnType","_isOK","_skin","_skin2"];
+private["_refObj","_size","_vel","_speed","_hunger","_thirst","_array","_unsaved","_timeOut","_changeTime","_result","_lastSave","_wpnType","_isOK","_skin","_skin2"];
 disableSerialization;
 _timeOut = 0;
 _messTimer = 0;
@@ -64,7 +64,7 @@ while {true} do {
 	if (_speed > 0.1) then {
 		_timeOut = _timeOut + 1;
 	};
-
+	_timeOut = _changeTime;
 	_humanity = player getVariable ["humanity",0];
 	if (_timeOut > 150) then {
 		_timeOut = 0;
@@ -74,7 +74,196 @@ while {true} do {
 			player setVariable ["humanity",_humanity,true];
 		};
 	};
+/*
+	//Humanity Sytem by Skaronator
 
+	//BANDIT LEVEL 5
+	if (_humanity < -80000 and _changeTime > 5) then {
+		_currentModel = typeOf player;
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian1_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW1_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+	};
+
+	//BANDIT LEVEL 4
+	if (_humanity < -40000 and _humanity <= -80000 and _changeTime > 5) then {
+		_currentModel = typeOf player;
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+	};
+
+	//BANDIT LEVEL 3
+	if (_humanity >= -40000 and _humanity <= -20000 and _changeTime > 5) then {
+		_currentModel = typeOf player;
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+	};
+
+	//BANDIT LEVEL 2
+	if (_humanity > -20000 and _humanity <= -10000 and _changeTime > 5) then {
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+	};
+
+	//BANDIT LEVEL 1
+	if (_humanity > -10000 and _humanity <= -2500 and _changeTime > 5) then {
+		_currentModel = typeOf player;
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+	};
+	
+	//SURVIVOR LVL
+	if (_humanity > 0 and _humanity <= 5000 and _changeTime > 5) then {
+		_currentModel = typeOf player;
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+	};
+
+	//HERO LVL 1
+	if (_humanity > 5000 and _humanity <= 10000 and _changeTime > 5) then {
+		_currentModel = typeOf player;
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+	};
+	//HERO LVL 2
+	if (_humanity > 10000 and _changeTime > 5) then {
+		_currentModel = typeOf player;
+		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
+"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+"BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ",
+"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ"]) then {
+			_toModel = ["",""]
+			_changeTime = 0;
+			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
+		};
+	};
+
+//TODO HERE 3,4,5
+//SNIPER SODIER AND CAMO OUT OF _CURRENTMODEL
+
+
+Civil: ["Civilian1_DZ","Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ"]
+Civil W: ["CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ"]
+
+Bandit LVL 1: ["Banditl11_DZ","Bandit1_DZ"]
+Bandit W LVL 1: ["Banditwl11_DZ","BanditW1_DZ"]
+
+Bandit LVL 2: ["Banditl21_DZ"]
+Bandit W LVL 2: ["Banditwl21_DZ"]
+
+Bandit LVL 3: ["Banditwl31_DZ","Banditwl32_DZ"]
+Bandit W LVL 3: ["Banditwl31_DZ","Banditwl32_DZ"]
+
+Bandit LVL 4: ["Banditl41_DZ","Banditl42_DZ"]
+Bandit W LVL 4: ["Banditwl41_DZ","Banditwl42_DZ"]
+
+Bandit LVL 5: ["Banditl51_DZ","Banditl52_DZ"]
+Bandit W LVL 5: ["Banditwl51_DZ","Banditwl52_DZ"]
+
+Hero LVL 1: ["Herol11_DZ"]
+Hero W LVL 1: ["Herowl11_DZ"]
+
+Hero LVL 2: ["Herol21_DZ"]
+Hero W LVL 2: ["Herowl21_DZ"]
+
+Hero LVL 3: ["Herol31_DZ","Herol32_DZ"]
+Hero W LVL 3: ["Herowl31_DZ","Herowl32_DZ"]
+
+Hero LVL 4: ["Herol41_DZ","Herol42_DZ"]
+Hero W LVL 4: ["Herowl41_DZ","Herowl42_DZ"]
+
+Hero LVL 5: ["Herol51_DZ","Herol52_DZ"]
+Hero W LVL 5: ["Herowl51_DZ","Herowl52_DZ"]
+
+*/
+	//OLD SYSTEM
 	if (_humanity < -2000 and !_isBandit) then {
 		_model = typeOf player;
 		if (_model == "Survivor2_DZ" || _model == "Survivor3_DZ") then {
@@ -101,7 +290,7 @@ while {true} do {
 			[dayz_playerUID,dayz_characterID,"Survivor3_DZ"] spawn player_humanityMorph;
 		};
 	};
-	
+
 
 /*
 	// Bandit Level 1 (10 Survivor 5 Female Skins)
