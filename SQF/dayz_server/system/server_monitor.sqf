@@ -215,7 +215,7 @@ if (isServer and isNil "sm_done") then {
 				_entity setVariable ["ObjectID", _ObjectID, true];
 				
 				// fix for leading zero issues on safe codes after restart
-				if (_class isKindOf "VaultStorageLocked") then {
+				if (_class == "VaultStorageLocked") then {
 					_entity setVariable ["OEMPos", _point, true];
 					_codeCount = (count (toArray _CharacterID));
 					if(_codeCount == 3) then {
