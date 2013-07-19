@@ -94,4 +94,7 @@ class CfgMagazines {
 	#include "CfgMagazines\DZE\FoodFishCooked.hpp"
 	#include "CfgMagazines\DZE\FoodFishRaw.hpp"
 	
+	// Vault
+	#include "CfgMagazines\DZE\ItemVault.hpp"
+	
 };

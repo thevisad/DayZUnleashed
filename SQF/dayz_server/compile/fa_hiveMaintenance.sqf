@@ -124,25 +124,34 @@ fa_populateCargo = {
 	clearMagazineCargoGlobal  _entity;
 	clearBackpackCargoGlobal  _entity;	 
 	_config = ["CfgWeapons", "CfgMagazines", "CfgVehicles" ];
-	{
-		_magItemTypes = _x select 0;
-		_magItemQtys = _x select 1;
-		_i = _forEachIndex;
-		{    
-			if (_x == "Crossbow") then { _x = "Crossbow_DZ" }; // Convert Crossbow to Crossbow_DZ
-            if (_x == "BoltSteel") then { _x = "WoodenArrow" }; // Convert BoltSteel to WoodenArrow
-			if (isClass(configFile >> (_config select _i) >> _x) &&
-				getNumber(configFile >> (_config select _i) >> _x >> "stopThis") != 1) then {
-				if (_forEachIndex < count _magItemQtys) then {
-					switch (_i) do {
-						case 0: { _entity addWeaponCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
-						case 1: { _entity addMagazineCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
-						case 2: { _entity addBackpackCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
+	
+	if (_entity isKindOf "VaultStorageLocked") then {
+		// Fill variables with loot
+		_entity setVariable ["WeaponCargo", (_inventory select 0), true];
+		_entity setVariable ["MagazineCargo", (_inventory select 1), true];
+		_entity setVariable ["BackpackCargo", (_inventory select 2), true];
+		
+	} else {
+		{
+			_magItemTypes = _x select 0;
+			_magItemQtys = _x select 1;
+			_i = _forEachIndex;
+			{    
+				if (_x == "Crossbow") then { _x = "Crossbow_DZ" }; // Convert Crossbow to Crossbow_DZ
+	            if (_x == "BoltSteel") then { _x = "WoodenArrow" }; // Convert BoltSteel to WoodenArrow
+				if (isClass(configFile >> (_config select _i) >> _x) &&
+					getNumber(configFile >> (_config select _i) >> _x >> "stopThis") != 1) then {
+					if (_forEachIndex < count _magItemQtys) then {
+						switch (_i) do {
+							case 0: { _entity addWeaponCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
+							case 1: { _entity addMagazineCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
+							case 2: { _entity addBackpackCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
+						};
 					};
 				};
-			};
-		} forEach _magItemTypes;
-	} forEach _inventory;	
+			} forEach _magItemTypes;
+		} forEach _inventory;	
+	};
 };
 
 

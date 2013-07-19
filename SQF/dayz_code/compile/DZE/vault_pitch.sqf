@@ -145,6 +145,8 @@ if(!_cancel) then {
 	
 			// Generate Combination
 			_combination_1 = floor(random 10);
+			// Not needed as we fix leading zeros on server spawning
+			//if (_combination_1 == 0) then {_combination_1 = 1;}; 
 			_combination_2 = floor(random 10);
 			_combination_3 = floor(random 10);
 			_combination_4 = floor(random 10);
@@ -154,10 +156,15 @@ if(!_cancel) then {
 
 			_tent setVariable ["characterID",_combination,true];
 			_tent setVariable ["OEMPos",_location,true];
-
-			//["dayzPublishObj",[_combination,_tent,[_dir,_location],"VaultStorageLocked"]] call callRpcProcedure;
-			dayzPublishObj = [_combination,_tent,[_dir,_location],"VaultStorageLocked"];
-			publicVariableServer  "dayzPublishObj";
+			
+			diag_log ("Safe Combination:" + str(_combination));
+			diag_log ("Safe Tent:" + str(_tent));
+			diag_log ("Safe Dir:" + str(_dir));
+			diag_log ("Safe Location:" + str(_location));
+			
+			PVDZ_obj_Publish = [_combination,_tent,[_dir,_location],"VaultStorageLocked"];
+			diag_log ("DEBUG: SAFE // obj_Publish" + str(PVDZ_obj_Publish));
+			publicVariableServer  "PVDZ_obj_Publish";
 	
 			cutText [format["You have setup your Safe. Combination is %1",_combination], "PLAIN DOWN", 5];
 		};

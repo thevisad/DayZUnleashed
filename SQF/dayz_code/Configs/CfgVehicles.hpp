@@ -116,6 +116,7 @@ class CfgVehicles {
 	
 	//Tents,storage
 	#include "CfgVehicles\Storage.hpp"
+	#include "CfgVehicles\DZE\VaultStorage.hpp"
 	
 	// Buildables
 	#include "CfgVehicles\DZE\BuiltItems.hpp"

@@ -372,6 +372,9 @@ dayz_resetSelfActions = {
     s_pilot_swap = -1;
     s_pilot_lock = -1;
 	stow_vehicle = -1;
+	s_player_unlockvault = -1;
+	s_player_packvault = -1;
+	s_player_lockvault = -1;
 };
 call dayz_resetSelfActions;
 
@@ -633,6 +636,9 @@ if(!isDedicated) then {
 	//if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {
 	//	dayzDebug = true;
 	//};
+	
+	s_player_combi = [];
+	dayz_combination = "";
 	
 	CraftingInprogress = false;
 	CodeInProgress = false;

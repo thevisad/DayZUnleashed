@@ -195,6 +195,9 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	_canmove = canmove cursorTarget;
 	_text = getText (configFile >> "CfgVehicles" >> typeOf cursorTarget >> "displayName");
 	
+	// set cursortarget to variable
+	_cursorTarget = cursorTarget;
+	
 	// Get typeOf only once
 	_typeOfCursorTarget = typeOf cursorTarget;
 
@@ -690,6 +693,49 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		s_player_fillgen = -1;
 	};
 	
+	
+	//Allow owner to unlock vault
+	if((_typeOfCursorTarget == "VaultStorageLocked" or _typeOfCursorTarget == "VaultStorage") and _ownerID != "0" and (player distance _cursorTarget < 3)) then {
+		if (s_player_unlockvault < 0) then {
+			if(_typeOfCursorTarget == "VaultStorageLocked") then {
+				if(_ownerID == dayz_combination or _ownerID == dayz_playerUID) then {
+					_combi = player addAction ["Open Safe", "\z\addons\dayz_code\actions\DZE\vault_unlock.sqf",_cursorTarget, 0, false, true, "",""];
+				} else {
+					_combi = player addAction ["Unlock Safe", "\z\addons\dayz_code\actions\DZE\vault_combination_1.sqf",_cursorTarget, 0, false, true, "",""];
+				};
+				s_player_combi set [count s_player_combi,_combi];
+				s_player_unlockvault = 1;
+			} else {
+				if(_ownerID != dayz_combination and _ownerID != dayz_playerUID) then {
+					_combi = player addAction ["Enter Combo", "\z\addons\dayz_code\actions\DZE\vault_combination_1.sqf",_cursorTarget, 0, false, true, "",""];
+					s_player_combi set [count s_player_combi,_combi];
+					s_player_unlockvault = 1;
+				};
+			};
+		};
+	} else {
+		{player removeAction _x} forEach s_player_combi;s_player_combi = [];
+		s_player_unlockvault = -1;
+	};
+
+	//Allow owner to pack vault
+	if(_typeOfCursorTarget == "VaultStorage" and _ownerID != "0" and (player distance _cursorTarget < 3)) then {
+
+		if (s_player_lockvault < 0) then {
+			if(_ownerID == dayz_combination or _ownerID == dayz_playerUID) then {
+				s_player_lockvault = player addAction ["Lock Safe", "\z\addons\dayz_code\actions\DZE\vault_lock.sqf",_cursorTarget, 0, false, true, "",""];
+			};
+		};
+		if (s_player_packvault < 0 and (_ownerID == dayz_combination or _ownerID == dayz_playerUID)) then {
+			s_player_packvault = player addAction ["<t color='#ff0000'>Pack Safe</t>", "\z\addons\dayz_code\DZE\actions\vault_pack.sqf",_cursorTarget, 0, false, true, "",""];
+		};
+	} else {
+		player removeAction s_player_packvault;
+		s_player_packvault = -1;
+		player removeAction s_player_lockvault;
+		s_player_lockvault = -1;
+	};
+	
 
 	/*
 	if (_isMan and !_isAlive) then {
@@ -898,6 +944,14 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	s_player_deleteBuild = -1;
 	player removeAction s_player_deleteBuild_DZE;
 	s_player_deleteBuild_DZE = -1;
+	
+	// Vaults 
+	{player removeAction _x} forEach s_player_combi;s_player_combi = [];
+	s_player_unlockvault = -1;
+	player removeAction s_player_packvault;
+	s_player_packvault = -1;
+	player removeAction s_player_lockvault;
+	s_player_lockvault = -1;
 	
 	/*
 	// ### BASE BUILDING 1.2 ### Add in these: 

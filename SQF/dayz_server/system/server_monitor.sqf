@@ -213,6 +213,22 @@ if (isServer and isNil "sm_done") then {
 					if (_class=="TentStorage") then {"NONE"} else {"CAN_COLLIDE"}
 				];	
 				_entity setVariable ["ObjectID", _ObjectID, true];
+				
+				// fix for leading zero issues on safe codes after restart
+				if (_object isKindOf "VaultStorageLocked") then {
+					_entity setVariable ["OEMPos", _point, true];
+					_codeCount = (count (toArray _CharacterID));
+					if(_codeCount == 3) then {
+						_CharacterID = format["0%1", _CharacterID];
+					};
+					if(_codeCount == 2) then {
+						_CharacterID = format["00%1", _CharacterID];
+					};
+					if(_codeCount == 1) then {
+						_CharacterID = format["000%1", _CharacterID];
+					};
+				};
+				
 				_entity setVariable ["CharacterID", _CharacterID, true];	
 				_entity setVariable ["lastUpdate",time];
 				_entity setDamage _damage;
