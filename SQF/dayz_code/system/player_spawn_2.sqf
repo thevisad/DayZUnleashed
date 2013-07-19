@@ -114,7 +114,6 @@ while {true} do {
 			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
 		};	
 	};
-	};
 
 	//BANDIT LEVEL 3
 	if (_humanity >= -40000 and _humanity <= -20000 and _changeTime > 5) then {
@@ -283,42 +282,6 @@ while {true} do {
 			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
 		};
 	};
-	
-
-/*
-Civil: ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ"]
-Civil W: ["CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ"]
-
-Bandit LVL 1: ["Banditl11_DZ","Bandit1_DZ"]
-Bandit W LVL 1: ["Banditwl11_DZ","BanditW1_DZ"]
-
-Bandit LVL 2: ["Banditl21_DZ"]
-Bandit W LVL 2: ["Banditwl21_DZ"]
-
-Bandit LVL 3: ["Banditwl31_DZ","Banditwl32_DZ"]
-Bandit W LVL 3: ["Banditwl31_DZ","Banditwl32_DZ"]
-
-Bandit LVL 4: ["Banditl41_DZ","Banditl42_DZ"]
-Bandit W LVL 4: ["Banditwl41_DZ","Banditwl42_DZ"]
-
-Bandit LVL 5: ["Banditl51_DZ","Banditl52_DZ"]
-Bandit W LVL 5: ["Banditwl51_DZ","Banditwl52_DZ"]
-
-Hero LVL 1: ["Herol11_DZ","Survivor3_DZ"]
-Hero W LVL 1: ["Herowl11_DZ"]
-
-Hero LVL 2: ["Herol21_DZ"]
-Hero W LVL 2: ["Herowl21_DZ"]
-
-Hero LVL 3: ["Herol31_DZ","Herol32_DZ"]
-Hero W LVL 3: ["Herowl31_DZ","Herowl32_DZ"]
-
-Hero LVL 4: ["Herol41_DZ","Herol42_DZ"]
-Hero W LVL 4: ["Herowl41_DZ","Herowl42_DZ"]
-
-Hero LVL 5: ["Herol51_DZ","Herol52_DZ"]
-Hero W LVL 5: ["Herowl51_DZ","Herowl52_DZ"]
-*/
 
 	//Has infection?
 	//if (r_player_infected) then {
