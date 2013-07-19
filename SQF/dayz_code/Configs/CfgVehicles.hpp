@@ -50,6 +50,8 @@ class CfgVehicles {
 	#include "CfgVehicles\Zeds\Zeds.hpp" //old type zeds
 	#include "CfgVehicles\Zeds\NewZeds.hpp" //new type zeds
 	#include "CfgVehicles\Zeds\Pastor.hpp" //Pastor Zed
+	//PLAYER ZEDS
+	#include "CfgVehicles\DZE\PlayerZeds.hpp" //old type player zeds TODO: update to new
 	//Survivor Skins	
 	#include "CfgVehicles\Skins.hpp"
 	//Bags
@@ -120,6 +122,9 @@ class CfgVehicles {
 	
 	// Buildables
 	#include "CfgVehicles\DZE\BuiltItems.hpp"
+	
+	// Player zombies
+	
 };
 class CfgNonAIVehicles {
 	#include "CfgVehicles\StreetLamps.hpp"

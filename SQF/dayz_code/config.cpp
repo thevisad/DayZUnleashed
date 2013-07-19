@@ -33,6 +33,11 @@
 #include "Configs\build_recipe_dialog.hpp"
 #include "Configs\build_recipe_list_dialog.hpp"
 
+// player zombie
+#include "CfgVoice.hpp"
+#include "CfgIdentities.hpp"
+#include "CfgFaces.hpp"
+
 class CfgPatches {
 	class dayz_code {
 		units[] = {};
