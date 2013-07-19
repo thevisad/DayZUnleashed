@@ -316,10 +316,10 @@ call compile ("
 			_endRemove = _tempRemoveAction + 50;
 			for '_i' from _startRemove to _endRemove do
 			{
-				_dayzActions = (s_player_repairActions + r_player_actions2 + r_player_actions +
-				[s_player_holderPickup,s_player_fillfuel5,s_player_fillfuel20,s_player_fillfuel210,s_player_grabflare,s_player_removeflare,s_player_deleteBuild,s_player_forceSave,
+				_dayzActions = (s_player_repairActions + r_player_actions2 + r_player_actions + s_player_combi +
+				[s_player_holderPickup,s_player_fillfuel5,s_player_fillfuel20,s_player_fillfuel210,s_player_siphonfuel,s_player_grabflare,s_player_removeflare,s_player_deleteBuild,s_player_forceSave,
 				s_player_flipveh,s_player_fillfuel,s_player_dropflare,s_player_butcher,s_player_cook,
-				s_player_boil,s_player_fireout,null,s_player_packtent,s_player_sleep,s_player_studybody,NORRN_dropAction]);
+				s_player_boil,s_player_fireout,null,s_player_packtent,s_player_packvault,s_player_lockvault,s_player_sleep,s_player_studybody,NORRN_dropAction]);
 				if (!(_i in _dayzActions) and (_i > -1)) then {player removeAction _i};
 			};
 			player allowDamage true;
