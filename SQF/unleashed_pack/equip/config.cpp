@@ -55,6 +55,36 @@ class CfgMagazines {
 		descriptionShort = "Chilisuit Female";	
 	};
 	
+		class Skin_CivilianW1_DZ : SkinBase {		
+		scope = public;
+		displayName = "Civilian Female Skin 1";
+		descriptionShort = "Civilian Female Skin 1";	
+	};
+	
+		class Skin_CivilianW2_DZ : SkinBase {		
+		scope = public;
+		displayName = "Civilian Female Skin 2";
+		descriptionShort = "Civilian Female Skin 2";	
+	};
+	
+		class Skin_CivilianW3_DZ : SkinBase {		
+		scope = public;
+		displayName = "Civilian Female Skin 3";
+		descriptionShort = "Civilian Female Skin 3";	
+	};
+	
+		class Skin_CivilianW4_DZ : SkinBase {
+		scope = public;
+		displayName = "Civilian Female Skin 4";
+		descriptionShort = "Civilian Female Skin 4";
+	};
+	
+		class Skin_CivilianW5_DZ : SkinBase {
+		scope = public;
+		displayName = "Civilian Female Skin 5";
+		descriptionShort = "Civilian Female Skin 5";
+	};
+	
 		class Skin_Civilian1_DZ : SkinBase {		
 		scope = public;
 		displayName = "Civilian Skin 1";

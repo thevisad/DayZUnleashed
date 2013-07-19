@@ -154,7 +154,7 @@ switch (_item) do {
 	};
 
 	case "Skin_CivilianW1_DZ": {
-		_model = "SurvivorW2_DZ";
+		_model = "CivilianW1_DZ";
 		if (_isBandit) then {
 			_model = "Banditwl11_DZ";
 		};
@@ -164,7 +164,7 @@ switch (_item) do {
 	};
 
 	case "Skin_CivilianW2_DZ": {
-		_model = "SurvivorW2_DZ";
+		_model = "CivilianW2_DZ";
 		if (_isBandit) then {
 			_model = "Banditwl11_DZ";
 		};
@@ -174,7 +174,7 @@ switch (_item) do {
 	};
 
 	case "Skin_CivilianW3_DZ": {
-		_model = "SurvivorW3_DZ";
+		_model = "CivilianW3_DZ";
 		if (_isBandit) then {
 			_model = "Banditwl11_DZ";
 		};
@@ -184,7 +184,7 @@ switch (_item) do {
 	};
 
 	case "Skin_CivilianW4_DZ": {
-		_model = "SurvivorW4_DZ";
+		_model = "CivilianW4_DZ";
 		if (_isBandit) then {
 			_model = "Banditwl11_DZ";
 		};
@@ -194,7 +194,7 @@ switch (_item) do {
 	};
 
 	case "Skin_CivilianW5_DZ": {
-		_model = "SurvivorW5_DZ";
+		_model = "SurvivorW2_DZ";
 		if (_isBandit) then {
 			_model = "Banditwl11_DZ";
 		};
