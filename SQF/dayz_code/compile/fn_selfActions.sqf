@@ -1,10 +1,11 @@
+
 scriptName "Functions\misc\fn_selfActions.sqf";
 /***********************************************************
 	ADD ACTIONS FOR SELF
 	- Function
 	- [] call fnc_usec_selfActions;
 ************************************************************/
-private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_newCuTyp","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem"];
+private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_newCuTyp","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem","_combi"];
 
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
@@ -189,11 +190,18 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	_isStash = cursorTarget isKindOf "StashSmall";
 	_isMediumStash = cursorTarget isKindOf "StashMedium";
 	_isFuel = false;
+	_hasBarrelE = 	"ItemFuelBarrelEmpty" in magazines player;
+	_hasBarrel = 	"ItemFuelBarrel" in magazines player;
+	_hasFuel210 = "ItemFuelBarrel" in magazines player;
 	_hasFuel20 = "ItemJerrycan" in magazines player;
 	_hasFuel5 = "ItemFuelcan" in magazines player;
+	
 	_isAlive = alive cursorTarget;
 	_canmove = canmove cursorTarget;
 	_text = getText (configFile >> "CfgVehicles" >> typeOf cursorTarget >> "displayName");
+	
+	// set cursortarget to variable
+	_cursorTarget = cursorTarget;
 	
 	// Get typeOf only once
 	_typeOfCursorTarget = typeOf cursorTarget;
@@ -408,6 +416,16 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		s_player_fillfuel = -1;
 	};
 
+	//Allow player to fill vehilce 210L
+	if(_hasFuel210 and _canDo and _isVehicle and (fuel cursorTarget < 1)) then {
+		if (s_player_fillfuel210 < 0) then {
+			s_player_fillfuel210 = player addAction [format[localize "str_actions_medical_10"+" with 210L",_text], "\z\addons\dayz_code\actions\refuel.sqf",["ItemFuelBarrel"], 0, true, true, "", "'ItemFuelBarrel' in magazines player"];
+		};
+	} else {
+		player removeAction s_player_fillfuel210;
+		s_player_fillfuel210 = -1;
+	};
+
 	//Allow player to fill vehilce 20L
 	if(_hasFuel20 and _canDo and _isVehicle and (fuel cursorTarget < 1)) then {
 		if (s_player_fillfuel20 < 0) then {
@@ -427,6 +445,16 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		player removeAction s_player_fillfuel5;
 		s_player_fillfuel5 = -1;
 	};
+
+	if (_isVehicle and _canDo and (_hasFuelE20 or _hasFuelE5 or _hasBarrelE) and (fuel _cursorTarget > 0)) then {
+		if (s_player_siphonfuel < 0) then {
+			s_player_siphonfuel = player addAction [format["Siphon fuel from %1",_text], "\z\addons\dayz_code\actions\DZE\siphonFuel.sqf",[], 0, true, true, "", ""];
+		};
+	} else {
+		player removeAction s_player_siphonfuel;
+		s_player_siphonfuel = -1;
+	};
+
 
 	//Harvested
 	if (!alive cursorTarget and _isAnimal and _hasKnife and !_isHarvested and _canDo) then {
@@ -690,6 +718,49 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		s_player_fillgen = -1;
 	};
 	
+	
+	//Allow owner to unlock vault
+	if((_typeOfCursorTarget == "VaultStorageLocked" or _typeOfCursorTarget == "VaultStorage") and _ownerID != "0" and (player distance _cursorTarget < 3)) then {
+		if (s_player_unlockvault < 0) then {
+			if(_typeOfCursorTarget == "VaultStorageLocked") then {
+				if(_ownerID == dayz_combination or _ownerID == dayz_playerUID) then {
+					_combi = player addAction ["Open Safe", "\z\addons\dayz_code\actions\DZE\vault_unlock.sqf",_cursorTarget, 0, false, true, "",""];
+				} else {
+					_combi = player addAction ["Unlock Safe", "\z\addons\dayz_code\actions\DZE\vault_combination_1.sqf",_cursorTarget, 0, false, true, "",""];
+				};
+				s_player_combi set [count s_player_combi,_combi];
+				s_player_unlockvault = 1;
+			} else {
+				if(_ownerID != dayz_combination and _ownerID != dayz_playerUID) then {
+					_combi = player addAction ["Enter Combo", "\z\addons\dayz_code\actions\DZE\vault_combination_1.sqf",_cursorTarget, 0, false, true, "",""];
+					s_player_combi set [count s_player_combi,_combi];
+					s_player_unlockvault = 1;
+				};
+			};
+		};
+	} else {
+		{player removeAction _x} forEach s_player_combi;s_player_combi = [];
+		s_player_unlockvault = -1;
+	};
+
+	//Allow owner to pack vault
+	if(_typeOfCursorTarget == "VaultStorage" and _ownerID != "0" and (player distance _cursorTarget < 3)) then {
+
+		if (s_player_lockvault < 0) then {
+			if(_ownerID == dayz_combination or _ownerID == dayz_playerUID) then {
+				s_player_lockvault = player addAction ["Lock Safe", "\z\addons\dayz_code\actions\DZE\vault_lock.sqf",_cursorTarget, 0, false, true, "",""];
+			};
+		};
+		if (s_player_packvault < 0 and (_ownerID == dayz_combination or _ownerID == dayz_playerUID)) then {
+			s_player_packvault = player addAction ["<t color='#ff0000'>Pack Safe</t>", "\z\addons\dayz_code\DZE\actions\vault_pack.sqf",_cursorTarget, 0, false, true, "",""];
+		};
+	} else {
+		player removeAction s_player_packvault;
+		s_player_packvault = -1;
+		player removeAction s_player_lockvault;
+		s_player_lockvault = -1;
+	};
+	
 
 	/*
 	if (_isMan and !_isAlive) then {
@@ -898,6 +969,14 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	s_player_deleteBuild = -1;
 	player removeAction s_player_deleteBuild_DZE;
 	s_player_deleteBuild_DZE = -1;
+	
+	// Vaults 
+	{player removeAction _x} forEach s_player_combi;s_player_combi = [];
+	s_player_unlockvault = -1;
+	player removeAction s_player_packvault;
+	s_player_packvault = -1;
+	player removeAction s_player_lockvault;
+	s_player_lockvault = -1;
 	
 	/*
 	// ### BASE BUILDING 1.2 ### Add in these: 

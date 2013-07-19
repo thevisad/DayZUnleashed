@@ -82,7 +82,8 @@ class CfgMagazines {
 	//Fuelcan
 	#include "CfgMagazines\Fuelcan.hpp"
 	#include "CfgMagazines\Jerrycan.hpp"
-	
+	// fuel barrel
+	#include "CfgMagazines\DZE\ItemFuelBarrel.hpp"
 	
 	//crafting
 	#include "CfgCrafting\Mats.hpp"
@@ -93,5 +94,8 @@ class CfgMagazines {
 	// DZE Fishes
 	#include "CfgMagazines\DZE\FoodFishCooked.hpp"
 	#include "CfgMagazines\DZE\FoodFishRaw.hpp"
+	
+	// Vault
+	#include "CfgMagazines\DZE\ItemVault.hpp"
 	
 };

@@ -260,7 +260,6 @@ dayz_combatLog = "";
 canRoll = true;
 canPickup = false;
 pickupInit = false;
-TradeInprogress = false;
 
 //Hunting Variables
 dayZ_partClasses = [
@@ -364,14 +363,19 @@ dayz_resetSelfActions = {
 	s_player_barkdog = -1;
 	s_player_warndog = -1;
 	s_player_followdog = -1;
+	s_player_fillfuel210 = -1;
 	s_player_fillfuel20 = -1;
 	s_player_fillfuel5 = -1;
+	s_player_siphonfuel = -1;
 	churchie_rig_veh = -1;
 	churchie_check = -1;
 	churchie_defuse = -1; 	
     s_pilot_swap = -1;
     s_pilot_lock = -1;
 	stow_vehicle = -1;
+	s_player_unlockvault = -1;
+	s_player_packvault = -1;
+	s_player_lockvault = -1;
 };
 call dayz_resetSelfActions;
 
@@ -633,6 +637,9 @@ if(!isDedicated) then {
 	//if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {
 	//	dayzDebug = true;
 	//};
+	
+	s_player_combi = [];
+	dayz_combination = "";
 	
 	CraftingInprogress = false;
 	CodeInProgress = false;

@@ -1,8 +1,8 @@
 private ["_tent","_location","_isOk","_cancel","_location3","_location4","_location1","_location2","_counter","_pondPos","_isPond","_ppos","_hastentitem","_dir","_building","_isBuilding","_playerPos","_item","_offset_x","_offset_y","_offset_z","_offset_z_attach","_config","_text","_tmpvault","_vault_location","_objectsPond","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_removed"];
 //check if can pitch here
 
-if(TradeInprogress) exitWith { cutText ["Vault pitching already in progress." , "PLAIN DOWN"]; };
-TradeInprogress = true;
+if(CodeInProgress) exitWith { cutText ["Vault pitching already in progress." , "PLAIN DOWN"]; };
+CodeInProgress = true;
 
 //disableSerialization;
 
@@ -145,6 +145,8 @@ if(!_cancel) then {
 	
 			// Generate Combination
 			_combination_1 = floor(random 10);
+			// Not needed as we fix leading zeros on server spawning
+			//if (_combination_1 == 0) then {_combination_1 = 1;}; 
 			_combination_2 = floor(random 10);
 			_combination_3 = floor(random 10);
 			_combination_4 = floor(random 10);
@@ -154,10 +156,15 @@ if(!_cancel) then {
 
 			_tent setVariable ["characterID",_combination,true];
 			_tent setVariable ["OEMPos",_location,true];
-
-			//["dayzPublishObj",[_combination,_tent,[_dir,_location],"VaultStorageLocked"]] call callRpcProcedure;
-			dayzPublishObj = [_combination,_tent,[_dir,_location],"VaultStorageLocked"];
-			publicVariableServer  "dayzPublishObj";
+			
+			diag_log ("Safe Combination:" + str(_combination));
+			diag_log ("Safe Tent:" + str(_tent));
+			diag_log ("Safe Dir:" + str(_dir));
+			diag_log ("Safe Location:" + str(_location));
+			
+			PVDZ_obj_Publish = [_combination,_tent,[_dir,_location],"VaultStorageLocked"];
+			diag_log ("DEBUG: SAFE // obj_Publish" + str(PVDZ_obj_Publish));
+			publicVariableServer  "PVDZ_obj_Publish";
 	
 			cutText [format["You have setup your Safe. Combination is %1",_combination], "PLAIN DOWN", 5];
 		};
@@ -170,4 +177,4 @@ if(!_cancel) then {
 	cutText ["Canceled construction of Safe.", "PLAIN DOWN"];
 };
 
-TradeInprogress = false;
+CodeInProgress = false;
