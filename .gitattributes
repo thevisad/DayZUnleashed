@@ -9,16 +9,16 @@
 *.vbproj merge=union
 *.fsproj merge=union
 *.dbproj merge=union
-*.c text
-*.h text
-*.sqf text
-*.sqm text
-*.sqs text
-*.cpp text
-*.hpp text
-*.ini text
-*.txt text
-*.rvmat text
+*.c text eol=crlf
+*.h text eol=crlf
+*.sqf text eol=crlf
+*.sqm text eol=crlf
+*.sqs text eol=crlf
+*.cpp text eol=crlf
+*.hpp text eol=crlf
+*.ini text eol=crlf
+*.txt text eol=crlf
+*.rvmat text eol=crlf
 
 # Standard to msysgit
 *.doc   diff=astextplain
