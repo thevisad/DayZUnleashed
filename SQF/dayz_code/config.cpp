@@ -66,7 +66,7 @@ class CfgMods
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"Chernarus"};
+		requiredAddons[] = {"NAPF"};
 	};
 };
 /*
@@ -76,7 +76,7 @@ class CfgMissions
 	 {
 	  class ChernarusIntro1
 		  {
-			directory = "z\addons\dayz_code\Configs\CfgWorlds\intro.Chernarus";
+			directory = "z\addons\dayz_code\Configs\CfgWorlds\intro.NAPF";
 		  };
 	 };
 };
