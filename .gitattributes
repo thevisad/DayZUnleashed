@@ -9,6 +9,13 @@
 *.vbproj merge=union
 *.fsproj merge=union
 *.dbproj merge=union
+*.c text
+*.h text
+*.sqf text
+*.sqm text
+*.sqs text
+*.cpp text
+*.hpp text
 
 # Standard to msysgit
 *.doc   diff=astextplain
