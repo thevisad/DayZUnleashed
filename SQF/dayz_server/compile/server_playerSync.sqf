@@ -1,4 +1,4 @@
-private ["_characterID","_temp","_currentWpn","_magazines","_force","_isNewPos","_humanity","_isNewGear","_currentModel","_modelChk","_playerPos","_playerGear","_playerBackp","_backpack","_killsB","_killsH","_medical","_isNewMed","_character","_timeSince","_charPos","_isInVehicle","_distanceFoot","_lastPos","_kills","_headShots","_timeGross","_timeLeft","_onLadder","_isTerminal","_currentAnim","_muzzles","_array","_key","_lastTime","_config","_currentState","_pos"];
+private ["_characterID","_temp","_class","_currentWpn","_magazines","_force","_isNewPos","_humanity","_isNewGear","_currentModel","_modelChk","_playerPos","_playerGear","_playerBackp","_backpack","_killsB","_killsH","_medical","_isNewMed","_character","_timeSince","_charPos","_isInVehicle","_distanceFoot","_lastPos","_kills","_headShots","_timeGross","_timeLeft","_onLadder","_isTerminal","_currentAnim","_muzzles","_array","_key","_lastTime","_config","_currentState","_pos"];
 //[player,array]
 //diag_log ("UPDATE: " + str(_this) );
 
@@ -21,7 +21,7 @@ _character = 	_this select 0;
 _magazines =	_this select 1;
 _force =	_this select 2;
 _force =	true;
-
+diag_log("_character " + str(_character));
 _characterID =	_character getVariable ["characterID","0"];
 _charPos = 		getPosATL _character;
 _isInVehicle = 	vehicle _character != _character;
@@ -172,8 +172,13 @@ if (_characterID != "0") then {
 			_currentWpn = "";
 			};
 		};
+		_character setVariable["classSelected",dayz_selectClass,true];
+		_classSelected = _character getVariable ["classSelected",9];
 		_temp = round(_character getVariable ["temperature",100]);
 		_currentState = [_currentWpn,_currentAnim,_temp];
+		_class = 0;
+		//diag_log ("dayz_selectClass playerSync:" + str(dayz_selectClass));
+		//diag_log ("_classSelected playerSync:" + str(_classSelected));
 		/*
 			Everything is ready, now publish to HIVE
 		*/
@@ -190,8 +195,8 @@ if (_characterID != "0") then {
 			if (alive _character) then {
 				//Wait for HIVE to be free
 				//Send request
-				_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity];
-				//diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _characterID);
+				_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity,dayz_selectClass];
+				diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _characterID);
 				_key call server_hiveWrite;
 			};
 		};

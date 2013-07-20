@@ -22,7 +22,7 @@ item17[] = {"Parse_Login",2,250,-75.000000,500.000000,25.000000,550.000000,0.000
 item18[] = {"Hive_Bad",4,218,50.000000,500.000000,150.000000,550.000000,10.000000,"Hive" \n "Bad"};
 item19[] = {"ERROR__Wrong_HIVE",2,250,175.000000,500.000000,275.000000,550.000000,0.000000,"ERROR:" \n "Wrong HIVE" \n "Version"};
 item20[] = {"Hive_Ok",4,218,-175.000000,550.000000,-75.000000,600.000000,0.000000,"Hive" \n "Ok"};
-item21[] = {"Phase_One",2,250,-75.000000,600.000000,25.000000,650.000000,0.000000,"Phase One"};
+item21[] = {"Phase_One",2,4346,-75.000000,600.000000,25.000000,650.000000,0.000000,"Phase One"};
 item22[] = {"Response",4,218,-175.000000,650.000000,-75.000000,700.000000,0.000000,"Response"};
 item23[] = {"Phase_Two",2,250,-75.000000,700.000000,25.000000,750.000000,0.000000,"Phase Two"};
 item24[] = {"Dead_Player",4,218,50.000000,700.000000,150.000000,750.000000,0.000000,"Dead" \n "Player"};
@@ -46,9 +46,9 @@ item41[] = {"Too_Long",4,218,300.000000,800.000000,400.000000,850.000000,0.00000
 item42[] = {"Enable_Sim",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Enable Sim"};
 item43[] = {"Initialized",4,218,-175.000000,-150.000000,-75.000000,-100.000000,0.000000,"Initialized"};
 item44[] = {"New_Character",4,218,-275.000000,500.000000,-175.000000,550.000000,5.000000,"New" \n "Character"};
-item45[] = {"Gender_Selection",2,250,-450.000000,500.000000,-350.000000,550.000000,0.000000,"Gender Selection" \n "Dialog"};
-item46[] = {"Selected",4,218,-450.000000,600.000000,-350.000000,650.000000,0.000000,"Selected"};
-item47[] = {"Process",2,250,-450.000000,700.000000,-350.000000,750.000000,0.000000,"Process"};
+item45[] = {"Gender_Selection",2,250,-675.000000,500.000000,-575.000000,550.000000,0.000000,"Gender Selection" \n "Dialog"};
+item46[] = {"Selected",4,218,-675.000000,625.000000,-575.000000,675.000000,0.000000,"Selected"};
+item47[] = {"Process",2,250,-675.000000,725.000000,-575.000000,775.000000,0.000000,"Process"};
 item48[] = {"no_PlayerID",4,218,50.000000,-100.000000,150.000000,-50.000000,2.000000,"no PlayerID"};
 item49[] = {"ERROR__No_Player_1",2,250,175.000000,-100.000000,275.000000,-50.000000,0.000000,"ERROR:" \n "No PlayerID"};
 item50[] = {"Too_Long",4,218,300.000000,-100.000000,400.000000,-50.000000,0.000000,"Too" \n "Long"};
@@ -69,10 +69,14 @@ item64[] = {"sleep_",4,218,600.000000,800.000000,700.000000,850.000000,0.000000,
 item65[] = {"Server_Loading",2,250,-75.000000,250.000000,25.000000,300.000000,0.000000,"Server Loading"};
 item66[] = {"Too_Long",4,218,50.000000,250.000000,150.000000,300.000000,0.000000,"Too" \n "Long"};
 item67[] = {"Server_Ready",4,218,-75.000000,325.000000,25.000000,375.000000,0.000000,"Server Ready"};
-item68[] = {"Region_Selection",2,250,-325.000000,725.000000,-225.000000,775.000000,0.000000,"Region Selection" \n "Dialog"};
-item69[] = {"Selected",4,218,-325.000000,650.000000,-225.000000,700.000000,0.000000,"Selected"};
-item70[] = {"Process_1",2,250,-325.000000,575.000000,-225.000000,625.000000,0.000000,"Process"};
-item71[] = {"True",8,218,-375.000000,825.000000,-275.000000,875.000000,0.000000,"True"};
+item68[] = {"Region_Selection",2,250,-375.000000,550.000000,-275.000000,600.000000,0.000000,"Region Selection" \n "Dialog"};
+item69[] = {"Selected",4,218,-375.000000,625.000000,-275.000000,675.000000,0.000000,"Selected"};
+item70[] = {"Process_1",2,250,-375.000000,725.000000,-275.000000,775.000000,0.000000,"Process"};
+item71[] = {"True",8,218,-675.000000,825.000000,-575.000000,875.000000,0.000000,"True"};
+item72[] = {"Class_Selection",2,250,-500.000000,550.000000,-400.000000,600.000000,0.000000,"Class Selection Dialog"};
+item73[] = {"Selected",4,218,-500.000000,625.000000,-400.000000,675.000000,0.000000,"Selected"};
+item74[] = {"Process_2",2,250,-500.000000,725.000000,-400.000000,775.000000,0.000000,"Process"};
+item75[] = {"True",8,218,-500.000000,825.000000,-400.000000,875.000000,0.000000,"True"};
 link0[] = {0,1};
 link1[] = {0,5};
 link2[] = {1,2};
@@ -154,9 +158,13 @@ link77[] = {67,15};
 link78[] = {68,69};
 link79[] = {69,70};
 link80[] = {70,20};
-link81[] = {71,68};
-globals[] = {25.000000,1,0,0,0,640,480,1,134,6316128,1,-994.605408,752.294922,931.964844,-738.716248,1421,1026,1};
-window[] = {0,-1,-1,-1,-1,1538,305,2299,367,1,1439};
+link81[] = {71,72};
+link82[] = {72,73};
+link83[] = {73,74};
+link84[] = {74,75};
+link85[] = {75,68};
+globals[] = {25.000000,1,0,0,0,640,480,1,139,6316128,1,-994.605408,752.294922,1872.624268,-239.867950,1193,1277,1};
+window[] = {0,-1,-1,-32000,-32000,1511,262,2256,89,1,1211};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -537,6 +545,7 @@ class FSM
        "_version	= _msg select 5;" \n
        "_model		= _msg select 6;" \n
        "_spawnSelection = 9;" \n
+       "_classSelection=0;" \n
        "_isHiveOk = false;" \n
        "_newPlayer = false;" \n
        "" \n
@@ -719,7 +728,7 @@ class FSM
        "dayzPlayerLogin2 = [];" \n
        "//[""PVDZ_plr_Login2"",[_charID,player,_playerUID]] call callRpcProcedure;" \n
        "" \n
-       "PVDZ_plr_Login2 = [_charID,player,_playerUID,_spawnSelection];" \n
+       "PVDZ_plr_Login2 = [_charID,player,_playerUID,_spawnSelection,_classSelection];" \n
        "publicVariableServer ""PVDZ_plr_Login2"";" \n
        "" \n
        "dayz_loadScreenMsg =  ""Requesting Character data from server"";" \n
@@ -1383,7 +1392,7 @@ class FSM
         class True
         {
           priority = 0.000000;
-          to="Region_Selection";
+          to="Class_Selection";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1616,7 +1625,7 @@ class FSM
     class Region_Selection
     {
       name = "Region_Selection";
-      init = /*%FSM<STATEINIT""">*/"dayz_selectRegion = 0;" \n
+      init = /*%FSM<STATEINIT""">*/"dayz_selectRegion = 9;" \n
        "1 cutText ["""", ""BLACK"",0];" \n
        "endLoadingScreen;" \n
        "createDialog ""RscDisplaySpawnSelecter"";"/*%FSM</STATEINIT""">*/;
@@ -1641,7 +1650,7 @@ class FSM
     {
       name = "Process_1";
       init = /*%FSM<STATEINIT""">*/"_spawnSelection = dayz_selectRegion;" \n
-       "diag_log(""_spawnSelectionProcess = ""+ str(_spawnSelection) + ""dayz_selectRegion="" +str(dayz_selectRegion));"/*%FSM</STATEINIT""">*/;
+       "diag_log(""_spawnSelectionProcess = ""+ str(_spawnSelection) + "":dayz_selectRegion="" +str(dayz_selectRegion));"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1652,6 +1661,52 @@ class FSM
           to="Phase_One";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Class_Selection">*/
+    class Class_Selection
+    {
+      name = "Class_Selection";
+      init = /*%FSM<STATEINIT""">*/"dayz_selectClass = 0;" \n
+       "1 cutText ["""", ""BLACK"",0];" \n
+       "endLoadingScreen;" \n
+       "createDialog ""RscDisplayClassSelecter"";"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "Selected">*/
+        class Selected
+        {
+          priority = 0.000000;
+          to="Process_2";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!dialog"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Process_2">*/
+    class Process_2
+    {
+      name = "Process_2";
+      init = /*%FSM<STATEINIT""">*/"_classSelection = dayz_selectClass;" \n
+       "diag_log(""_classSelection = ""+ str(_classSelection) + "":dayz_selectClass="" +str(dayz_selectClass));"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "True">*/
+        class True
+        {
+          priority = 0.000000;
+          to="Region_Selection";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/

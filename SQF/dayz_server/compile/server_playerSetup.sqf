@@ -4,7 +4,13 @@ private ["_characterID","_playerObj","_playerID","_dummy","_worldspace","_state"
 _characterID = _this select 0;
 _playerObj = _this select 1;
 _spawnSelection = _this select 3;
+_classSelection = _this select 4;
 _playerID = getPlayerUID _playerObj;
+dayz_selectClass = _classSelection;
+
+
+//diag_log ("_classSelection before: " + str(_classSelection));
+//diag_log ("dayz_selectClass before: " + str(dayz_selectClass));
 
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 
@@ -62,6 +68,19 @@ _stats = _primary select 2;
 _state = _primary select 3;
 _worldspace = _primary select 4;
 _humanity = _primary select 5;
+_playerClass = _primary select 6;
+
+if (dayz_selectClass == 0 || dayz_selectClass == 9) then {
+	if (_playerClass == 0 || _playerClass == 9) then {
+		dayz_selectClass = floor(random 3) + 1;
+	} else {
+		dayz_selectClass = _playerClass;
+	};
+};
+
+
+//diag_log ("_playerClass after: " + str(_playerClass));
+//diag_log ("dayz_selectClass after: " + str(dayz_selectClass));
 
 //Set position
 _randomSpot = false;
@@ -228,7 +247,6 @@ if (_randomSpot) then {
 	};
 	_worldspace = [0,_position];
 };
-
 
 //Record player for management
 dayz_players set [count dayz_players,_playerObj];

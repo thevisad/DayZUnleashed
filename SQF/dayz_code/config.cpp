@@ -38,7 +38,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"dayz_equip","dayz_weapons","CAMisc3","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT"};
+		requiredAddons[] = {"dayz_equip","dayz_weapons","CAMisc3","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT","BB_OA_Female"};
 	};
 	class DZ_DebriefingRemoved	{
 		units[] = {};
@@ -101,7 +101,8 @@ class CfgAddons
 						"dayz_code","dayz","dayz_equip","dayz_weapons","dayz_sfx","dayz_communityassets",
 						"KPFS_UAZ451","SWM_SwissArms","SWM_Misc","unleashed_equip","unleashed_skins",
 						"unleashed_vehicles","KPFS_G36","KPFS_G3","KPFS_P38","KPFS_MPi74","KPFS_SKS",
-						"KPFS_STG","KPFS_P99","KPFS_MP2","KPFS_Weapons","dayz_epoch","unleashed_pack"
+						"KPFS_STG","KPFS_P99","KPFS_MP2","KPFS_Weapons","dayz_epoch","unleashed_pack",
+						"BB_OA_Female"
 			};
 		};
 	};

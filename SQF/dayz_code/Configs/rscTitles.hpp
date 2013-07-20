@@ -421,6 +421,83 @@ class RscDisplayMPInterrupt : RscStandardDisplay {
 	};
 };
 
+class RscDisplayClassSelecter {
+	idd = 6904;
+	enableDisplay = 1;
+	class controlsBackground {
+		class Mainback: RscPicture
+		{
+			idc = -1;
+
+			text = "\z\addons\dayz_code\gui\spawn_bg.paa";
+			x = 0 * safezoneW + safezoneX;
+			y = 0 * safezoneH + safezoneY;
+			w = 1 * safezoneW;
+			h = 1 * safezoneH;
+		};
+	};
+	class controls
+	{
+		
+		class class_engineer: RscActiveText
+		{
+			idc = -1;
+			style = 48;
+			text = "\z\addons\dayz_code\gui\class_engineer.paa";
+			x = 0.304012 * safezoneW + safezoneX;
+			y = 0.217803 * safezoneH + safezoneY;
+			w = 0.147342 * safezoneW;
+			h = 0.234565 * safezoneH;
+			action = "closeDialog 0;dayz_selectClass = 1;";
+		};
+		class class_medic: RscActiveText
+		{
+			idc = -1;
+			style = 48;
+			text = "\z\addons\dayz_code\gui\class_medic.paa";
+			x = 0.304515 * safezoneW + safezoneX;
+			y = 0.571177 * safezoneH + safezoneY;
+			w = 0.147342 * safezoneW;
+			h = 0.234565 * safezoneH;
+			action = "closeDialog 0;dayz_selectClass = 2;";
+		};
+		class class_silentHunter: RscActiveText
+		{
+			idc = -1;
+			style = 48;
+			text = "\z\addons\dayz_code\gui\class_silentHunter.paa";
+			x = 0.549059 * safezoneW + safezoneX;
+			y = 0.217803 * safezoneH + safezoneY;
+			w = 0.147342 * safezoneW;
+			h = 0.234565 * safezoneH;
+			action = "closeDialog 0;dayz_selectClass = 3;";
+		};
+		class class_soldier: RscActiveText
+		{
+			idc = -1;
+			style = 48;
+			text = "\z\addons\dayz_code\gui\class_soldier.paa";
+			x = 0.548558 * safezoneW + safezoneX;
+			y = 0.572014 * safezoneH + safezoneY;
+			w = 0.147342 * safezoneW;
+			h = 0.234565 * safezoneH;
+			action = "closeDialog 0;dayz_selectClass = 4;";
+		};
+		class class_random: RscActiveText
+		{
+			idc = -1;
+			style = 48;
+			text = "\z\addons\dayz_code\gui\class_random.paa";
+			x = 0.420458 * safezoneW + safezoneX;
+			y = 0.406016 * safezoneH + safezoneY;
+			w = 0.147342 * safezoneW;
+			h = 0.234565 * safezoneH;
+			action = "closeDialog 0;dayz_selectClass = 9;";
+		};
+	};
+};
+
+
 class RscDisplaySpawnSelecter {
 	idd = 6903;
 	enableDisplay = 1;

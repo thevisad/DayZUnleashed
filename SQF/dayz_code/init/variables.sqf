@@ -300,7 +300,7 @@ churchie_defusing_started = false;
 churchie_explosion_set = false;
 churchie_explosion_checked = false;
 churchie_vehicle_checked = 0;
-
+dayz_selectClass = 0;
 
 
 //BaseBuilding
