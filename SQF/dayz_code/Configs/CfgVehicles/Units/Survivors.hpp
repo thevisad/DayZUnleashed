@@ -22,7 +22,7 @@
 
     class Survivor2_DZ : Soldier_Crew_PMC {
         side = 1;
-        faction = "DAYZ_SURVIVOR_Faction";
+        faction = "DZU_FACTION_SURVIVOR";
         weapons[] = {"Throw", "Put"};
         magazines[] = {};
         model = "\dayz\characters\man_survivor";
@@ -35,7 +35,7 @@
     class SurvivorW2_DZ : Soldier_Crew_PMC {
         displayName = $STR_CHAR_1;
         side = 1;
-        faction = "DAYZ_SURVIVOR_Faction";
+        faction = "DZU_FACTION_SURVIVOR";
         weapons[] = {"Throw", "Put"};
         model = "\dayz\characters\annie_original";
         magazines[] = {};
@@ -106,7 +106,7 @@
 class Rocket_DZ: BAF_Soldier_Officer_W {
     displayName = "Rocket";
     side = 1;
-    faction = "DAYZ_SURVIVOR_Faction";
+    faction = "DZU_FACTION_SURVIVOR";
     weapons[] = {"Throw","Put"};
     backpack = "";
     magazines[] = {};
@@ -119,7 +119,7 @@ class Rocket_DZ: BAF_Soldier_Officer_W {
 class Soldier1_DZ: BAF_Soldier_W {
     displayName = "Soldier";
     side = 1;
-    faction = "DAYZ_SURVIVOR_Faction";
+    faction = "DZU_FACTION_SURVIVOR";
     weapons[] = {"Throw","Put"};
     backpack = "";
     magazines[] = {};
@@ -132,7 +132,7 @@ class Soldier1_DZ: BAF_Soldier_W {
 class Sniper1_DZ : BAF_Soldier_SniperH_W {
     displayName = "Sniper";
     side = 1;
-    faction = "DAYZ_SURVIVOR_Faction";
+    faction = "DZU_FACTION_SURVIVOR";
     weapons[] = {"Throw","Put"};
     backpack = "";
     magazines[] = {};
@@ -216,7 +216,7 @@ class SniperW1_DZ : SurvivorW2_DZ {
 class Camo1_DZ : BAF_Soldier_L_W {
     displayName = $STR_CHAR_1;
     side = 1;
-    faction = "DAYZ_SURVIVOR_Faction";
+    faction = "DZU_FACTION_SURVIVOR";
     weapons[] = {"Throw","Put"};
     backpack = "";
     magazines[] = {};
@@ -230,7 +230,7 @@ class Camo1_DZ : BAF_Soldier_L_W {
     class Bandit1_DZ : Soldier_Crew_PMC {
         displayName = "Bandit";
         side = 0;
-        faction = "DAYZ_BANDIT_Faction";
+        faction = "DZU_FACTION_BANDIT";
         weapons[] = {"Throw","Put"};
         model = "\dayz\characters\man_bandit";
         portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
@@ -245,7 +245,7 @@ class Camo1_DZ : BAF_Soldier_L_W {
     class BanditW1_DZ : SurvivorW2_DZ {
         displayName = "Bandit";
         side = 0;
-        faction = "DAYZ_BANDIT_Faction";
+        faction = "DZU_FACTION_BANDIT";
         model = "\dayz\characters\woman_bandit";
     }; 
     
