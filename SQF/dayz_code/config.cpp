@@ -66,7 +66,7 @@ class CfgMods
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"NAPF"};
+		requiredAddons[] = {"napf"};
 	};
 };
 /*
