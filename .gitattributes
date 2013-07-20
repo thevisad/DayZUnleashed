@@ -16,6 +16,9 @@
 *.sqs text
 *.cpp text
 *.hpp text
+*.ini text
+*.txt text
+*.rvmat text
 
 # Standard to msysgit
 *.doc   diff=astextplain
