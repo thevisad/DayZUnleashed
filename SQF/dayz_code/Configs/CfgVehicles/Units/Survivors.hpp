@@ -129,7 +129,7 @@ class Soldier1_DZ: BAF_Soldier_W {
     canHideBodies = 1;
 };      
         
-class Sniper1_DZ: BAF_Soldier_SniperH_W {
+class Sniper1_DZ : BAF_Soldier_SniperH_W {
     displayName = "Sniper";
     side = 1;
     faction = "DAYZ_SURVIVOR_Faction";
@@ -201,7 +201,7 @@ class SniperW1_DZ: Sniper1_DZ {
         };
 };      
 */
-class SniperW1_DZ: : SurvivorW2_DZ {
+class SniperW1_DZ : SurvivorW2_DZ {
     displayName = "Sniper";
     camouflage = 0.5;
     facetype = "Man";
@@ -213,7 +213,7 @@ class SniperW1_DZ: : SurvivorW2_DZ {
     };
 };
 
-class Camo1_DZ: BAF_Soldier_L_W {
+class Camo1_DZ : BAF_Soldier_L_W {
     displayName = $STR_CHAR_1;
     side = 1;
     faction = "DAYZ_SURVIVOR_Faction";
