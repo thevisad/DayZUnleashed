@@ -93,7 +93,7 @@ class CfgVehicles {
 	//Fire
 	#include "CfgVehicles\Buildings\Land_Fire.hpp"
 	//Buildings
-/*
+    /*
 	#include "CfgVehicles\Buildings\Land_A_Crane_02b.hpp"
 	#include "CfgVehicles\Buildings\Land_A_FuelStation_Feed.hpp"
 	#include "CfgVehicles\Buildings\Land_A_TVTower_Mid.hpp"
@@ -113,7 +113,7 @@ class CfgVehicles {
 	#include "CfgVehicles\Buildings\Land_telek1.hpp"
 	#include "CfgVehicles\Buildings\Land_VASICore.hpp"
 	#include "CfgVehicles\Buildings\Land_Vysilac_FM.hpp"
-*/
+    */
 	//WeaponHolder
 	#include "CfgVehicles\WeaponHolder.hpp"	
 	
@@ -127,8 +127,8 @@ class CfgVehicles {
 	// Player zombies
 	
 };
-/*
-class CfgNonAIVehicles {
+    /*
+    class CfgNonAIVehicles {
 	#include "CfgVehicles\StreetLamps.hpp"
-};
-*/
+    };
+    */
