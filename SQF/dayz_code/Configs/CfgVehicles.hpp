@@ -44,16 +44,15 @@ class CfgVehicles {
 	class Animal;
 	class Pastor;
 	class Fin;
-
 	#include "CfgVehicles\RepairParts.hpp" //names for all reapir parts. Needs moving to hitpoints
-	//ZEDS
-	#include "CfgVehicles\Zeds\Zeds.hpp" //old type zeds
-	#include "CfgVehicles\Zeds\NewZeds.hpp" //new type zeds
-	#include "CfgVehicles\Zeds\Pastor.hpp" //Pastor Zed
-	//PLAYER ZEDS
+
+	//All of the playable units
+	#include "CfgVehicles\Units\Externals.hpp" //Class refrences to stuff outside of dayz_code
+	#include "CfgVehicles\Units\Survivors.hpp" //Players (and dogs)
+    #include "CfgVehicles\Units\Zombies.hpp"   //Zombies
+
+	//PLAYER ZEDS 
 	#include "CfgVehicles\DZE\PlayerZeds.hpp" //old type player zeds TODO: update to new
-	//Survivor Skins	
-	#include "CfgVehicles\Skins.hpp"
 	//Bags
 	#include "CfgVehicles\Bags.hpp"
 	//DZAnimal and DZ_Fin
@@ -94,6 +93,7 @@ class CfgVehicles {
 	//Fire
 	#include "CfgVehicles\Buildings\Land_Fire.hpp"
 	//Buildings
+    /*
 	#include "CfgVehicles\Buildings\Land_A_Crane_02b.hpp"
 	#include "CfgVehicles\Buildings\Land_A_FuelStation_Feed.hpp"
 	#include "CfgVehicles\Buildings\Land_A_TVTower_Mid.hpp"
@@ -113,6 +113,7 @@ class CfgVehicles {
 	#include "CfgVehicles\Buildings\Land_telek1.hpp"
 	#include "CfgVehicles\Buildings\Land_VASICore.hpp"
 	#include "CfgVehicles\Buildings\Land_Vysilac_FM.hpp"
+    */
 	//WeaponHolder
 	#include "CfgVehicles\WeaponHolder.hpp"	
 	
@@ -126,6 +127,8 @@ class CfgVehicles {
 	// Player zombies
 	
 };
-class CfgNonAIVehicles {
+    /*
+    class CfgNonAIVehicles {
 	#include "CfgVehicles\StreetLamps.hpp"
-};
+    };
+    */
