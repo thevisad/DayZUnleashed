@@ -90,6 +90,8 @@ if (!isDedicated) then {
             {deleteVehicle _x;} foreach _list;
         };
 	// [] execVM "\z\addons\dayz_code\system\antihack.sqf";
+	// Autorefule / Repairscript Enable/Disable
+	[] execVM "\z\addons\dayz_code\actions\vehiclerepair_action.sqf";
 };
 
 // Logo watermark: adding a logo in the bottom left corner of the screen with the server name in it
