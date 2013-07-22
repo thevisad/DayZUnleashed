@@ -53,8 +53,8 @@ class CfgMods
 	class DayZ
 	{
 		dir = "@DayZUnleashed";
-		name = "DayZNapf";
-		picture = "z\addons\dayz_code\gui\dayz_logo_ca.paa";
+		name = "Arma 2: DayZ Unleashed";
+		picture = "z\addons\dayz_code\gui\mod.paa";
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzunleashed.com";

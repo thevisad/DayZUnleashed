@@ -18,7 +18,7 @@ class BAF_Soldier_Officer_W;
 class Rocket_DZ: BAF_Soldier_Officer_W {
 	displayName = "Rocket";
 	side = 1;
-	faction = "DAYZ_SURVIVOR_Faction";
+	faction = "DZU_FACTION_SURVIVOR";
 	weapons[] = {"Throw","Put"};
 	backpack = "";
 	magazines[] = {};
@@ -31,7 +31,7 @@ class BAF_Soldier_W;
 class Soldier1_DZ: BAF_Soldier_W {
 	displayName = "Soldier";
 	side = 1;
-    faction = "DAYZ_SURVIVOR_Faction";
+    faction = "DZU_FACTION_SURVIVOR";
 	weapons[] = {"Throw","Put"};
 	backpack = "";
 	magazines[] = {};
@@ -44,7 +44,7 @@ class BAF_Soldier_SniperH_W;
 class Sniper1_DZ: BAF_Soldier_SniperH_W {
 	displayName = "Sniper";
 	side = 1;
-    faction = "DAYZ_SURVIVOR_Faction";
+    faction = "DZU_FACTION_SURVIVOR";
 	weapons[] = {"Throw","Put"};
 	backpack = "";
 	magazines[] = {};
@@ -115,7 +115,7 @@ class BAF_Soldier_L_W;
 class Camo1_DZ: BAF_Soldier_L_W {
 	displayName = $STR_CHAR_1;
 	side = 1;
-    faction = "DAYZ_SURVIVOR_Faction";
+    faction = "DZU_FACTION_SURVIVOR";
 	weapons[] = {"Throw","Put"};
 	backpack = "";
 	magazines[] = {};
