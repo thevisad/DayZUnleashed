@@ -301,7 +301,7 @@ churchie_explosion_set = false;
 churchie_explosion_checked = false;
 churchie_vehicle_checked = 0;
 dayz_selectClass = 0;
-
+dayz_knockout = [];
 
 //BaseBuilding
 	//Strings
@@ -376,6 +376,7 @@ dayz_resetSelfActions = {
 	s_player_unlockvault = -1;
 	s_player_packvault = -1;
 	s_player_lockvault = -1;
+	s_player_knockout = -1;
 };
 call dayz_resetSelfActions;
 
@@ -632,6 +633,7 @@ if(!isDedicated) then {
 	dayz_scaleLight = 0;
 	dayzDebug = false;
 	dayzState = -1;
+	player_Cannibalism = -1;
     dayz_perceptibility = 0; //Perception rating for player
 	//uiNamespace setVariable ['DAYZ_GUI_display',displayNull];
 	//if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {

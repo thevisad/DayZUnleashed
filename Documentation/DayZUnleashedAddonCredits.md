@@ -17,5 +17,8 @@ Addon Credits
 * DayZEpoch https://github.com/vbawol/DayZ-Epoch/
 * Swiss Armory v2.0 http://forums.bistudio.com/showthread.php?92473-SWM-Swiss-Armory-v2-0-for-Arma2
 * German Weapon Pack http://www.armaholic.com/page.php?id=14167
+* Player Knockout http://opendayz.net/threads/release-player2s-knockout.9644/
+* House Lighting http://opendayz.net/threads/working-house-lighting.7153/
+* Repair and Refuel http://www.opendayz.net/threads/working-repair-and-refueling-stations.12339/
 
 If we missed a credit line here it was not intentional at all. We credit anyone and everyone whose work we utilize in any format. If you feel that you should be credited for some work, please contact me on Skype or via email at thevisad ( at ) gmail ( dot ) com.

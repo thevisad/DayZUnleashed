@@ -855,8 +855,16 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 		stow_vehicle = -1; 
 	};
 	
-	
-	
+    _unconscious =    cursorTarget getVariable ["NORRN_unconscious", false];
+ 
+    if (_isMan and _isAlive and !_isZombie and _canDo and !_unconscious) then {
+        if (s_player_knockout < 0) then {
+            s_player_knockout = player addAction [("<t color=""#FF9800"">" + ("Knockout Player") + "</t>"), "\z\addons\dayz_code\actions\player_knockout.sqf",cursorTarget, 0, false, true, "",""];
+        };
+    } else {
+        player removeAction s_player_knockout;
+        s_player_knockout = -1;
+    };
 
 	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and _hasToolbox and getDammage cursorTarget < 0.95) then { 
 				//diag_log ("check churchie_check before: " +str(_nearPipe));
@@ -945,6 +953,19 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 			};
 	}; 
 	//End
+	
+	//Player Gutting
+	
+	if (!_isAlive and !_isZombie and !_isAnimal and !_isHarvested and _isMan and _hasKnife and _canDo) then {
+        if (player_Cannibalism < 0) then {
+            player_Cannibalism = player addAction [format["<t color='#42426F'>Gut Player%1</t>"], "\z\addons\dayz_code\actions\player_cannibalism.sqf",cursorTarget, 3, true, true, "", ""];
+        };
+    } else {
+        player removeAction player_Cannibalism;
+        player_Cannibalism = -1;
+    };
+	
+	
 } else {
 	//Engineering
 	
@@ -978,6 +999,10 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	player removeAction s_player_lockvault;
 	s_player_lockvault = -1;
 	
+	//Gut Players
+	player removeAction player_Cannibalism;
+	player_Cannibalism = -1;
+
 	/*
 	// ### BASE BUILDING 1.2 ### Add in these: 
 	// ### START ###
@@ -1016,6 +1041,9 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4))
 	s_player_studybody = -1;
 	player removeAction s_clothes;
     	s_clothes = -1;
+		
+	player removeAction s_player_knockout;
+	s_player_knockout = -1;
 	/*
 	//Drag Body
 	player removeAction s_player_dragbody;

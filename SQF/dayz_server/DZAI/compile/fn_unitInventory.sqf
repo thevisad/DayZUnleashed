@@ -39,7 +39,7 @@
 	
 	_bag = _bags call BIS_fnc_selectRandom;
 	_unit addBackpack _bag;
-	if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Generated Backpack: %1 for AI.",_bag];};
+	//if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Generated Backpack: %1 for AI.",_bag];};
 
 	private ["_chance","_gadget"];
 	//diag_log format ["DEBUG :: Counted %1 tools in _gadgetsArray.",(count _gadgetsArray)];

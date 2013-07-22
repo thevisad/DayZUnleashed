@@ -19,6 +19,7 @@
 *.ini text eol=crlf
 *.txt text eol=crlf
 *.rvmat text eol=crlf
+*.paa binary
 
 # Standard to msysgit
 *.doc   diff=astextplain

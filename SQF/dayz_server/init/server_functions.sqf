@@ -247,7 +247,49 @@ _buildlist = [
 [[2, 1, 2, 2, 1, 0], "Land_sara_hasic_zbroj",  		[[0,10,1], 	[0,12,0], 	0, 	true, true, true, true, false, false, false, false, true, true, false]], //Land_sara_hasic_zbroj
 [[2, 1, 1, 1, 1, 0], "Land_Shed_wooden",  			[[0,8,1], 	[0,10,0], 	0, 	true, true, true, true, false, false, false, false, true, true, false]], //Land_Shed_wooden 	
 [[2, 1, 0, 3, 1, 0], "Land_Barrack2",  				[[0,10,1], 	[0,12,0], 	0, 	true, true, true, true, false, false, false, false, true, true, false]], //Land_Barrack2 
-[[2, 0, 0, 0, 2, 0], "Land_vez",  					[[0,6,1], 	[0,8,0], 	0, 	true, true, true, true, false, false, false, false, true, true, false]] //Land_vez 	--38 *** Remember that the last element in array does not get comma ***
+[[2, 0, 0, 0, 2, 0], "Land_vez",  					[[0,6,1], 	[0,8,0], 	0, 	true, true, true, true, false, false, false, false, true, true, false]], //Land_vez 	--38 *** Remember that the last element in array does not get comma ***
+[[1, 0, 0, 3, 0, 0], "TKVehicleBox_EP1",  					[[0,5,.8], 	[0,4,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],  // 	--34 *** Remember that the last element in array does not get comma ***
+[[2, 1, 0, 3, 0, 0], "Land_Barrack2_EP1",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[6, 0, 1, 0, 0, 0], "Land_radar_EP1",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 0, 0, 2, 1, 0], "Land_Ind_SawMillPen",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 0, 1, 3, 0, 0], "Land_Ind_Garage01",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 0, 1, 2, 0, 0], "Land_kulna",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 1, 2, 2, 0, 0], "GUE_WarfareBVehicleServicePoint",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[0, 0, 1, 2, 0, 0], "HeliHCivil",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[0, 1, 0, 2, 0, 1], "Land_Campfire_burning",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 0, 0, 1, 0, 6], "Land_Ind_TankSmall",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[4, 4, 1, 0, 1, 0], "Land_A_Castle_Bergfrit",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[2, 1, 0, 2, 0, 0], "Land_A_Castle_Stairs_A",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[4, 4, 0, 0, 0, 0], "Land_A_Castle_Gate",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, true]],
+[[4, 4, 1, 0, 0, 0], "Land_A_Castle_Wall1_20",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[4, 3, 1, 0, 0, 0], "Land_A_Castle_Wall2_30",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[0, 0, 4, 4, 0, 0], "Land_Market_shelter_EP1",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, true]],
+[[0, 0, 3, 3, 0, 0], "Land_covering_hut_big_EP1",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, true]],
+[[1, 0, 0, 0, 3, 0], "Land_ladder_half_EP1",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[2, 0, 0, 0, 3, 0], "Land_ladderEP1",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 2, 0, 0, 2, 0], "MASH_EP1",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[4, 1, 0, 0, 1, 0], "Land_wagon_flat",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[3, 3, 1, 0, 1, 0], "Land_Misc_Scaffolding",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[4, 1, 0, 2, 1, 0], "Land_wagon_box",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[2, 0, 0, 0, 2, 0], "Land_RedWhiteBarrier",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[0, 0, 2, 0, 2, 0], "Park_bench2",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[5, 5, 0, 0, 0, 0], "WarfareBAirport",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[6, 0, 0, 0, 1, 1], "Fort_Nest_M240",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[2, 4, 0, 0, 0, 0], "RampConcrete",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 1, 0, 0, 0, 0], "Land_HBarrier1",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 2, 0, 0, 0, 0], "Land_HBarrier3",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[0, 3, 1, 0, 0, 0], "Land_Misc_ConcPipeline_EP1",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 1, 1, 1, 1, 0], "TK_WarfareBFieldhHospital_EP1",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 2, 1, 1, 1, 0], "land_nav_pier_C_R10",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[0, 2, 0, 0, 0, 0], "Fort_StoneWall_EP1",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[5, 2, 0, 0, 1, 0], "Land_NAV_Lighthouse2",  					[[0,4,.7], 	[0,2,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[0, 0, 1, 4, 0, 0], "Land_Nav_Boathouse_PierL",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 0, 0, 4, 0, 0], "Land_Nav_Boathouse_PierT",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 0, 1, 4, 0, 0], "Land_Nav_Boathouse",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[0, 0, 1, 3, 0, 0], "Land_molo_drevo_end",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[1, 1, 1, 2, 0, 0], "Land_Misc_deerstand",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[7, 0, 0, 0, 0, 0], "Land_Ind_Expedice_3",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]],
+[[7, 0, 1, 0, 0, 0], "Land_Ind_IlluminantTower",  					[[0,18,2], 	[0,15,0], 	0, 	true, false, false, false, false, false, true, true, false, true, false]]
 ];
 // Build allremovables array for remove action
 for "_i" from 0 to ((count _buildlist) - 1) do

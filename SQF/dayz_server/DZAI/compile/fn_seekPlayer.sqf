@@ -27,7 +27,6 @@ _waypoint setWaypointTimeout [0,5,10];
 _waypoint setWaypointStatements ["true","if ((random 1) < 0.50) then { group this setCurrentWaypoint [(group this), (floor (random (count (waypoints (group this)))))];};"];
 _unitGroup setCurrentWaypoint _waypoint;
 
-_unitGroup reveal [_targetPlayer,4];
 (units _unitGroup) glanceAt _targetPlayer;
 if (_targetPlayer hasWeapon "ItemRadio") then {
 	[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] You are being pursued by a group of bandits.","PLAIN DOWN",0] call RE;
@@ -55,8 +54,8 @@ if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Group %1 has exited
 0 = [_unitGroup,_spawnPos,_patrolDist,DZAI_debugMarkers] spawn fnc_BIN_taskPatrol;
 
 sleep 5;
-if ((_killer hasWeapon "ItemRadio") && !(_unitGroup getVariable ["inPursuit",false])) then {
-	[nil,_killer,"loc",rTITLETEXT,"[RADIO] The bandits have given up their pursuit.","PLAIN DOWN",0] call RE;
+if ((_targetPlayer hasWeapon "ItemRadio") && !(_unitGroup getVariable ["inPursuit",false])) then {
+	[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] The bandits have given up their pursuit.","PLAIN DOWN",0] call RE;
 };
 	
 true

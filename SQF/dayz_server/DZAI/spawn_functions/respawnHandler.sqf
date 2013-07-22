@@ -5,7 +5,7 @@
 	
 	Usage: [_respawnTime,_trigger,_unitGroup] spawn fnc_respawnHandler;
 	
-	Last updated: 3:05 PM 6/24/2013
+	Last updated: 7:49 PM 7/9/2013
 */
 #define PROCESSING_WAIT_TIME 5
 
@@ -47,9 +47,9 @@ while {(count DZAI_respawnQueue) > 0} do {
 			
 			_trigger = (DZAI_respawnQueue select _i) select 1;
 			_unitGroup = (DZAI_respawnQueue select _i) select 2;
-			_grpArray = _trigger getVariable ["GroupArray",[]];
+			_grpArray = _trigger getVariable "GroupArray";
 			
-			if (!isNull _unitGroup && (_unitGroup in _grpArray)) then {
+			if ((!isNull _unitGroup) && (_unitGroup in _grpArray)) then {
 				private["_maxUnits","_dummy"];
 				_maxUnits = _trigger getVariable "maxUnits";
 				//Delete corpses of dead AI units before respawn.
@@ -57,11 +57,10 @@ while {(count DZAI_respawnQueue) > 0} do {
 				_unitGroup setVariable ["deadUnits",[]];
 				[_unitGroup,_trigger,_maxUnits] call fnc_respawnBandits;
 				//Delete group's dummy unit
-				_dummy = _unitGroup getVariable ["dummyUnit",objNull];
+				_dummy = _unitGroup getVariable "dummyUnit";
 				[_dummy] joinSilent grpNull;
 				deleteVehicle _dummy;
 				_unitGroup setVariable ["dummyUnit",nil];
-				//_unitGroup setVariable ["groupKIA",nil];
 				if (DZAI_debugLevel > 0) then {diag_log format["DZAI Debug: Deleted 1 dummy AI unit for group %1. (respawnHandler)",_unitGroup];};
 			};
 			DZAI_respawnQueue set [_i,objNull];
@@ -70,10 +69,7 @@ while {(count DZAI_respawnQueue) > 0} do {
 		//Delay respawning if it is too early. If the next respawn is due in less than 5 seconds, then enforce 5 second delay.
 		if (time < _timeToRespawn) exitWith {
 			private["_sleepTime"];
-			_sleepTime = ceil (_timeToRespawn - time);
-			if (_sleepTime < PROCESSING_WAIT_TIME) then {
-				_sleepTime = PROCESSING_WAIT_TIME;
-			};
+			_sleepTime = (ceil (_timeToRespawn - time)) max PROCESSING_WAIT_TIME;
 			if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Respawn handler is entering sleep state. Next AI group is scheduled to respawn in %1 seconds. (respawnHandler)",_sleepTime];};
 			sleep _sleepTime;
 		};

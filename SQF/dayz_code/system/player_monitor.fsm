@@ -1157,6 +1157,7 @@ class FSM
        "diag_log (""Local Time: "" +str(dayzSetDate));" \n
        "" \n
        "//Medical" \n
+       "null=[Player,300,10,10,3,7,-0.3,0.1,0.8,1,1,1,13,12,15,true] execFSM ""\z\addons\dayz_code\system\Fog.fsm"";" \n
        "dayz_medicalH = 	[] execVM ""\z\addons\dayz_code\medical\init_medical.sqf"";	//Medical Monitor Script (client only)" \n
        "[player] call fnc_usec_damageHandle;" \n
        "if (r_player_unconscious) then {" \n

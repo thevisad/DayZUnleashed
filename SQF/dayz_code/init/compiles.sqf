@@ -98,6 +98,7 @@ if (!isDedicated) then {
 	player_takearrow = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_takeArrow.sqf";
 	player_vehicleExplosives = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf";
 	
+	
 	// DZE specific
 	DZE_player_goFishing =	compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_goFishing.sqf";
 	DZE_player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_build.sqf";
@@ -138,8 +139,8 @@ if (!isDedicated) then {
 	DZE_player_craftItem =	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\DZE\player_craftItem.sqf";
 	
 	fnc_dzuSwapPilot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fnc_dzuSwapPilot.sqf";                    //Server side script to swap player. 
+	player_knockout = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_knockout.sqf";
 	
-
 	// TODO: need move it in player_monitor.fsm
 	// allow player disconnect from server, if loading hang, kicked by BE etc.
 
@@ -537,8 +538,13 @@ if (!isDedicated) then {
 	player_humanityChange = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_humanityChange.sqf";
 	spawn_loot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\spawn_loot.sqf";
 	player_projectileNear = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_projectileNear.sqf";
+	
 
-
+	//Unleashed
+	call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\settings.sqf"; 				//Initialize custom clientside settings
+	[] execVM "\z\addons\dayz_code\compile\houseLighting.sqf";
+	[] execVM "\z\addons\dayz_code\actions\player_repairActions.sqf";
+	
 	player_sumMedical = {
 		private["_character","_wounds","_legs","_arms","_medical", "_status"];
 		_character = _this;

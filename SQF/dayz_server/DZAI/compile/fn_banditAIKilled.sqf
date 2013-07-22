@@ -3,12 +3,12 @@
 		
 		Description: Adds loot to AI corpse if killed by a player. Script is shared between AI spawned from static and dynamic triggers.
 		
-        Usage: [_unit,_weapongrade] spawn fnc_banditAIKilled;
+        Usage: [_unit,_killer] spawn fnc_banditAIKilled;
 		
-		Last updated: 5:27 PM 6/25/2013
+		Last updated: 11:43 PM 7/10/2013
 */
 
-private["_weapongrade","_victim","_killer","_trigger","_gradeChances","_unitGroup","_groupSize"];
+private["_victim","_killer","_unitGroup","_groupSize"];
 _victim = _this select 0;
 _killer = _this select 1;
 
@@ -30,14 +30,12 @@ if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 h
 if (!isPlayer _killer) exitWith {};
 
 _unitGroup setBehaviour "COMBAT";
-
-_trigger = _victim getVariable "trigger";
-_gradeChances = _trigger getVariable ["gradeChances",DZAI_gradeChances2];
-
 if (DZAI_findKiller) then {0 = [_victim,_killer,_unitGroup] spawn fnc_findKiller;};
 
-_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;
-if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: AI killed by player. Generating loot with weapongrade %1 (fn_banditAIKilled).",_weapongrade];};
-0 = [_victim, _weapongrade] spawn fnc_unitSelectPistol;				// Add sidearm
-0 = [_victim] spawn fnc_unitConsumables;							// Add food, medical, misc, skin
-0 = [_victim, _weapongrade] spawn fnc_unitTools;					// Add tools and gadget
+0 = [_victim] spawn fnc_addLoot;
+
+if (DZAI_humanityGain > 0) then {
+	private ["_humanity"];
+	_humanity = _killer getVariable["humanity",0];
+	_killer setVariable ["humanity",(_humanity + DZAI_humanityGain),true];
+};

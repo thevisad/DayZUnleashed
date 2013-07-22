@@ -8,24 +8,15 @@
 
 	Last updated: 8:45 PM 6/18/2013
 */
-#include "\z\addons\dayz_server\DZAI\init\dyn_trigger_defs.hpp"
+#include "\z\addons\dayz_server\DZAI\init\dyn_trigger_configs\dyn_trigger_defs.hpp"
 
 private ["_numTriggers"];
+
 if (!isServer) exitWith {};
 
 _numTriggers = _this select 0;							//Number of triggers to create
 
-if (_numTriggers == 0) exitWith {};						// Exit script if there is nothing to spawn
-
-if (DZAI_verifyTables) then {
-	waitUntil {sleep 0.1; !isNil "DZAI_classnamesVerified"};	//Wait for DZAI to finish verifying classname arrays.
-} else {
-	waitUntil {sleep 0.1; !isNil "DZAI_weaponsInitialized"};	//Wait for DZAI to finish building weapon classname arrays.
-};
-
-if (DZAI_debugLevel > 0) then {diag_log format["DZAI Debug: Spawning %1 dynamic trigger spawns in 60 seconds (spawnTriggers_random).",_numTriggers];};
-
-sleep 60;
+if (DZAI_debugLevel > 0) then {diag_log format["DZAI Debug: Spawning %1 dynamic triggers (spawnTriggers_random).",_numTriggers];};
 
 for "_i" from 1 to _numTriggers do {
 	private ["_trigger","_trigPos","_attempts"];
@@ -37,7 +28,7 @@ for "_i" from 1 to _numTriggers do {
 		_trigPos = [(getMarkerPos DZAI_centerMarker),random(DZAI_centerSize),random(360),false,[1,500]] call SHK_pos;
 		if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Calculated trigger position intersects with at least 1 other trigger (attempt %1/3).",_attempts];};
 	};
-	_trigger = createTrigger ["EmptyDetector",[_trigPos select 0,_trigPos select 1]];
+	_trigger = createTrigger ["EmptyDetector",_trigPos];
 	_trigger setTriggerArea [DZAI_dynTriggerRadius, DZAI_dynTriggerRadius, 0, false];
 	_trigger setTriggerActivation ["ANY", "PRESENT", true];
 	_trigger setTriggerTimeout [5, 7, 20, true];
@@ -57,6 +48,5 @@ for "_i" from 1 to _numTriggers do {
 	DZAI_curDynTrigs = DZAI_curDynTrigs + 1;
 	DZAI_dynTriggerArray set [(count DZAI_dynTriggerArray),_trigger];
 	//diag_log format ["DEBUG :: Contents of DZAI_dynTriggerArray: %1.",DZAI_dynTriggerArray];
-	sleep 5;
+	sleep 1;
 };
-[] execVM '\z\addons\dayz_server\DZAI\scripts\dynTrigger_manager.sqf';

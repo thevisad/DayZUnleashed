@@ -375,6 +375,26 @@ while {true} do {
 			_deadBody = createVehicle[["Body1","Body2"] call BIS_fnc_selectRandom,_lootPos,[], 0, "CAN_COLLIDE"];
 			_deadBody setDir (random 360);
 		};
+		
+		_trigPos = [_lootPos,random(DZAI_centerSize),random(360),false,[1,500]] call SHK_pos;
+		_trigger = createTrigger ["EmptyDetector",_trigPos];
+		_trigger setTriggerArea [DZAI_dynTriggerRadius, DZAI_dynTriggerRadius, 0, false];
+		_trigger setTriggerActivation ["ANY", "PRESENT", true];
+		_trigger setTriggerTimeout [5, 7, 20, true];
+		_trigger setTriggerStatements [DYNTRIG_STATEMENTS_INACTIVE];
+		if (DZAI_debugMarkers == 1) then {
+			private ["_markername","_marker"];
+			_markername = format["trigger_%1",_trigger];
+			_marker = createMarker[_markername,_trigPos];
+			_marker setMarkerShape "ELLIPSE";
+			_marker setMarkerType "Flag";
+			_marker setMarkerBrush "SOLID";
+			_marker setMarkerSize [DZAI_dynTriggerRadius, DZAI_dynTriggerRadius];
+			_marker setMarkerColor "ColorYellow";
+			_marker setMarkerAlpha 0.8;		//Dark yellow = Trigger in ready state.
+		};
+		
+		
 		_endTime = time - _startTime;
 		diag_log(format["CRASHSPAWNER: Crash completed! Wreck at: %2 - Runtime: %1 Seconds || Distance from calculated POC: %3 meters", round(_endTime), str(getPos _crash), round(_position distance _crash)]); 
 	};

@@ -5,10 +5,10 @@
 	
 	Description: Called internally by fnc_banditAIRespawn. Calls fnc_createAI to respawn a unit near a randomly selected building from a stored reference location.
 	
-	Last updated: 11:15 PM 6/23/2013
+	Last updated: 11:15 PM 7:22 PM 7/9/2013
 */
 
-private ["_unitGroup","_trigger","_grpArray","_triggerPos","_patrolDist","_gradeChances","_spawnPositions","_p","_unit","_pos","_spawnType","_startTime","_maxUnits","_minAI","_addAI","_totalAI"];
+private ["_unitGroup","_trigger","_grpArray","_triggerPos","_patrolDist","_gradeChances","_spawnPositions","_p","_unit","_pos","_spawnType","_startTime","_maxUnits","_minAI","_addAI","_totalAI","_aiGroup"];
 if (!isServer) exitWith {};
 
 _startTime = diag_tickTime;
@@ -21,15 +21,23 @@ _triggerPos = getpos _trigger;
 _patrolDist = _trigger getVariable ["patrolDist",150];
 _gradeChances = _trigger getVariable ["gradeChances",DZAI_gradeChances1];
 _spawnPositions = _trigger getVariable "locationArray";
-_spawnType = _trigger getVariable ["spawnType",2];
+_spawnType = _trigger getVariable "spawnType";
 
 _minAI = _maxUnits select 0;
 _addAI = _maxUnits select 1;
 _totalAI = (_minAI + round(random _addAI));
 
+if (_totalAI == 0) exitWith {
+	private["_failedRespawns","_grpArray"];
+	_failedRespawns = _trigger getVariable ["failedRespawns",0];
+	_failedRespawns = _failedRespawns +1;
+	_trigger setVariable ["failedRespawns",_failedRespawns];
+	_grpArray = _trigger getVariable ["groupArray",[]];
+	if (_failedRespawns == (count _grpArray)) then {[_trigger] execVM '\z\addons\dayz_server\DZAI\scripts\resetStaticTrigger.sqf'; if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: No units to spawn. Force resetting trigger area (spawnBandits)";};}; 
+};
+
 //Select spawn position
 _p = _spawnPositions call BIS_fnc_selectRandom;
-_pos = [0,0,0];
 if (_spawnType == 2) then {
 	_pos = [_p, 1, 100, 2, 0, 2000, 0] call BIS_fnc_findSafePos;
 	if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Respawning AI from building positions (respawnBandits).";};
@@ -39,7 +47,8 @@ if (_spawnType == 2) then {
 };
 
 //Respawn the group
-[_totalAI,_unitGroup,_pos,_trigger,_gradeChances] call fnc_createUnit;
+_aiGroup = [_totalAI,_unitGroup,_pos,_trigger,_gradeChances] call fnc_createGroup;
+if (isNull _unitGroup) then {_unitGroup = _aiGroup};
 if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: AI %1 of %2 spawned (spawnBandits).",_i,_totalAI];};
 
 //Update AI count
@@ -55,5 +64,7 @@ if ((count (waypoints _unitGroup)) < 2) then {
 	};
 };
 if (DZAI_debugLevel > 0) then {diag_log format["DZAI Debug: %2 AI units respawned in %1 seconds (respawnBandits).",diag_tickTime - _startTime,_totalAI];};
+
+if ((_trigger getVariable ["failedRespawns",0]) != 0) then {_trigger setVariable ["failedRespawns",nil];};
 
 true

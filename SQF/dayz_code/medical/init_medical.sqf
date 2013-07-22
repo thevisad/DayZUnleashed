@@ -24,7 +24,7 @@ usec_bandage_recovery = 5;		//time to recover after bandaging
 
 while {true} do {
 	//hintSilent format["Injured: %1\nUnconscious: %2 (%7)\nBlood: %5\nPain: %6\nMust Evac: %8\nHandler: %3\nAction: %4\nLeg Damage: %9\nArm Damage: %10\nInfected: %11",r_player_injured,r_player_unconscious,r_player_handler,r_action,r_player_blood,r_player_inpain,r_player_timeout,r_player_dead, player getVariable ["hit_legs",0], player getVariable ["hit_arms",0],r_player_infected];
-
+	
 	//Blood forced.
 	if (r_player_blood > 12000) then {
 		r_player_blood = 12000;

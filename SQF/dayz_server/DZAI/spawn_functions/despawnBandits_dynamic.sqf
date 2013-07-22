@@ -8,7 +8,7 @@
 	Last updated: 3:26 PM 6/26/2013
 	
 */
-#include "\z\addons\dayz_server\DZAI\init\dyn_trigger_defs.hpp"
+#include "\z\addons\dayz_server\DZAI\init\dyn_trigger_configs\dyn_trigger_defs.hpp"
 
 private ["_trigger","_grpArray","_isCleaning","_grpCount","_waitTime","_newPos","_forceDespawn","_attempts","_totalGroupSize"];
 if (!isServer) exitWith {};										//Execute script only on server.
@@ -29,8 +29,8 @@ if (_forceDespawn) then {
 
 _grpCount = count _grpArray;
 
-if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: _grpCount is %1. _isCleaning is %2.",_grpCount,_isCleaning];};
-if (isNil "_isCleaning") exitWith {if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Trigger's isCleaning variable is nil. Exiting despawn script.";};};
+if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: _grpArray is %1. _isCleaning is %2.",_grpArray,_isCleaning];};
+if ((_grpCount == 0) && (isNil "_isCleaning")) exitWith {if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Trigger's _grpCount is zero and _isCleaning is nil. (Nothing to despawn).";};};
 if ((_grpCount == 0) || (_isCleaning)) exitWith {if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Trigger's group array is empty, or a despawn script is already running. Exiting despawn script.";};};				//Exit script if the trigger hasn't spawned any AI units, or if a despawn script is already running for the trigger.
 
 _trigger setVariable["isCleaning",true,false];			//Mark the trigger as being in a cleanup state so that subsequent requests to despawn for the same trigger will not run.
@@ -69,7 +69,6 @@ _totalGroupSize = 0;
 			sleep 0.2;
 		};
 		{deleteVehicle _x} forEach (_x getVariable ["deadUnits",[]]);	//Delete dead units
-		_x setVariable ["deadUnits",[]];
 		{deleteVehicle _x} forEach (units _x);							//Delete live units
 		_totalGroupSize = _totalGroupSize + (_x getVariable ["groupSize",0]);
 		sleep 0.5;
@@ -93,7 +92,7 @@ while {(({([_newPos select 0,_newPos select 1] distance _x) < (2*DZAI_dynTrigger
 	_newPos = [(getMarkerPos DZAI_centerMarker),random(DZAI_centerSize),random(360),false,[1,500]] call SHK_pos;
 	if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Calculated trigger position intersects with at least 1 other trigger (attempt %1/3).",_attempts];};
 };
-_trigger setPos [_newPos select 0,_newPos select 1];
+_trigger setPos _newPos;
 
 if (DZAI_debugMarkers > 0) then {
 	private["_marker"];

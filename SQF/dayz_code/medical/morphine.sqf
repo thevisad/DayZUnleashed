@@ -47,6 +47,69 @@ if (_finished) then {
 	//["PVDZ_hlt_Morphine",[_unit,player]] call broadcastRpcCallAll;
 	PVDZ_hlt_Morphine = [_unit,player];
 	publicVariable "PVDZ_hlt_Morphine";
+	
+	
+	[nil, nil, rSPAWN, _unit, { if !(local _this) exitWith {}; 
+	_i = 0;
+	while {true} do {
+
+				_drugeffects = 0;
+				scopeName "drugeffect";
+				hint "You are under the effects of morphine";
+		
+				for "_i" from 0 to 4 step 1 do {
+					nonapsi_ef = ppEffectCreate ["colorCorrections", 1555]; 
+					nonapsi_ef ppEffectEnable true;
+					nonapsi_ef ppEffectAdjust [1.0, 1.0, -0.03, [0.0, 0.0, 0.0, 0.0], [3.0, 5.0, 9.0, 5.0],[0.4,0.0,0.0, 0.7]];
+					nonapsi_ef ppEffectCommit 1;
+
+					sleep 1;
+
+					wetdist1 = ppEffectCreate ["wetDistortion", 2006];
+					wetdist1 ppEffectAdjust [0, 8, 0.8,8,8, 0.2, 1, 0, 0, 0.08, 0.08, 0, 0, 0, 0.77];
+					wetdist1 ppEffectEnable true;
+					wetdist1 ppEffectCommit 0;
+					ppe = ppEffectCreate ["colorCorrections", 1555]; 
+					ppe ppEffectAdjust [1, 1, 0, [1.5,6,2.5,0.5], [5,3.5,5,-0.5], [-3,5,-5,-0.5]]; 
+					ppe ppEffectCommit 1;
+					ppe ppEffectEnable true; 
+					ppe2 = ppEffectCreate ["chromAberration", 1555]; 
+					ppe2 ppEffectAdjust [0.01,0.01,true];
+					ppe2 ppEffectCommit 1;
+					ppe2 ppEffectEnable true;
+					ppe3 = ppEffectCreate ["radialBlur", 1555]; 
+					ppe3 ppEffectEnable true;
+					ppe3 ppEffectAdjust [0.02,0.02,0.15,0.15]; 
+					ppe3 ppEffectCommit 1;
+
+					sleep 1;
+
+					wetdist1 = ppEffectCreate ["wetDistortion", 2006];
+					wetdist1 ppEffectAdjust [1, 1.16, 0.32, 2.56, 0.8, 0.64, 2.64, 0, 0, 1.08, 0.08, 0, 0, 0, 1.77];
+					wetdist1 ppEffectEnable true;
+					wetdist1 ppEffectCommit 0;
+
+					sleep 1;
+
+					nonapsi_ef = ppEffectCreate ["colorCorrections", 1555]; 
+					nonapsi_ef ppEffectEnable true;
+					nonapsi_ef ppEffectAdjust [1.0, 1.0, -0.02, [9.5, 1.5, 2.5, 0.2], [2.0, 7.0, 6.0, 2.0],[0.4,0.0,0.0, 0.7]];
+					nonapsi_ef ppEffectCommit 1;
+
+					sleep 1;
+					
+				}; 
+				_drugeffects = 1;
+				ppe ppEffectEnable false; 
+				ppe2 ppEffectEnable false;
+				ppe3 ppEffectEnable false;
+				wetdist1 ppEffectEnable false;
+				nonapsi_ef ppEffectEnable false;
+				if (_drugeffects == 1) then {breakOut  "drugeffect"};
+			};
+
+		}] call RE;
+		
 } else {
 	player addMagazine "ItemMorphine";
 	r_interrupt = false;

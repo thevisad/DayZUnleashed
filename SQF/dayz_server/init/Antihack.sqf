@@ -11,7 +11,7 @@ markerText = "STRING";
 //_debug = getMarkerPos "respawn_west";
 
 _list = ["0"]; //LEAVE THIS ALONE
-_list = ["27570758","66951686","6163586","136052870","40975110","4163522","22773510","34319366","43767494","59883846","95700038","37624070","52002246","102773894"]; //admin playerUID goes here
+_list = ["27570758","66951686","6163586","136052870","40975110","4163522","34319366","43767494","22773510","59883846","95700038","37624070","52002246","102773894"]; //admin playerUID goes here
 //k4n30, Mattz, Skaronator, Skaronator, Alexander Hjelm,
 noob_list = []; //noob admin playerUID goes here (make sure the same playerUID is also in _list)
 publicVariable "noob_list";
@@ -317,9 +317,12 @@ call compile ("
 			for '_i' from _startRemove to _endRemove do
 			{
 				_dayzActions = (s_player_repairActions + r_player_actions2 + r_player_actions + s_player_combi +
-				[s_player_holderPickup,s_player_fillfuel5,s_player_fillfuel20,s_player_fillfuel210,s_player_siphonfuel,s_player_grabflare,s_player_removeflare,s_player_deleteBuild,s_player_forceSave,
-				s_player_flipveh,s_player_fillfuel,s_player_dropflare,s_player_butcher,s_player_cook,
-				s_player_boil,s_player_fireout,null,s_player_packtent,s_player_packvault,s_player_lockvault,s_player_sleep,s_player_studybody,NORRN_dropAction]);
+				[churchie_check,churchie_defuse,churchie_rig_veh,dayz_myCursorTarget,NORRN_dropAction,null,player_Cannibalism,s_clothes,s_player_barkdog,s_player_boil,
+				s_player_butcher,s_player_cook,s_player_deleteBuild,s_player_deleteBuild_DZE,s_player_dropflare,s_player_feeddog,s_player_fillfuel,s_player_fillfuel20,
+				s_player_fillfuel210,s_player_fillfuel5,s_player_fillgen,s_player_fireout,s_player_flipveh,s_player_followdog,s_player_forceSave,s_player_fuelauto,s_player_grabflare,
+				s_player_holderPickup,s_player_knockout,s_player_lockvault,s_player_packtent,s_player_packvault,s_player_removeflare,s_player_repairActions,s_player_siphonfuel,s_player_sleep,
+				s_player_staydog,s_player_studybody,s_player_tamedog,s_player_trackdog,s_player_unlockvault,s_player_warndog,s_player_waterdog,silver_myCursorTarget,stow_vehicle
+				]);
 				if (!(_i in _dayzActions) and (_i > -1)) then {player removeAction _i};
 			};
 			player allowDamage true;
