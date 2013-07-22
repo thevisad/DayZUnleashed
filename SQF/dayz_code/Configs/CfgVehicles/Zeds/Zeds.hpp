@@ -107,6 +107,13 @@ class zZombie_Base : Citizen1 {
 			memoryPoint = "rfemur";
 		};
 	};
+    
+            class HitDamage {
+            class Group0 {
+                hitSounds[] = {{{"dayz_sfx\zombie\zombie-hit-01.ogg", 0.177828, 1, 120}, 0.2}, {{"dayz_sfx\zombie\zombie-hit-02.ogg", 0.177828, 1, 120}, 0.2}, {{"dayz_sfx\zombie\zombie-hit-03.ogg", 0.177828, 1, 120}, 0.2}, {{"dayz_sfx\zombie\zombie-hit-04.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-05.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-06.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-07.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-08.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-09.ogg", 0.177828, 1, 120}, 0.1}};
+                damageSounds[] = {{"body", {"dayz_sfx\zombie\zombie-damage-01.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-02.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-03.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-04.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-05.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-06.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-07.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-08.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"hands", {"dayz_sfx\zombie\zombie-damage-09.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, {"hands", {"dayz_sfx\zombie\zombie-damage-10.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, {"hands", {"dayz_sfx\zombie\zombie-damage-11.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, {"hands", {"dayz_sfx\zombie\zombie-damage-12.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, {"legs", {"dayz_sfx\zombie\zombie-damage-13.ogg", 0.0562341, 1, 120, 20, 40, 60}}, {"legs", {"dayz_sfx\zombie\zombie-damage-14.ogg", 0.0562341, 1, 120, 20, 40, 60}}};
+            };
+        };
 };
 
 class Swarm_Base : Citizen1 {
@@ -218,39 +225,13 @@ class Swarm_Base : Citizen1 {
 			memoryPoint = "rfemur";
 		};
 	};
-    
-    class HitDamage {
-        class Group0 {
-            damagesounds[] = {
-                {"body", {"z\addons\dayz_sfx\zombie\zombie-damage-01.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, 
-                {"body", {"z\addons\dayz_sfx\zombie\zombie-damage-02.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, 
-                {"body", {"z\addons\dayz_sfx\zombie\zombie-damage-03.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, 
-                {"body", {"z\addons\dayz_sfx\zombie\zombie-damage-04.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, 
-                {"body", {"z\addons\dayz_sfx\zombie\zombie-damage-05.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, 
-                {"body", {"z\addons\dayz_sfx\zombie\zombie-damage-06.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, 
-                {"body", {"z\addons\dayz_sfx\zombie\zombie-damage-07.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, 
-                {"body", {"z\addons\dayz_sfx\zombie\zombie-damage-08.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, 
-                {"hands", {"z\addons\dayz_sfx\zombie\zombie-damage-09.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, 
-                {"hands", {"z\addons\dayz_sfx\zombie\zombie-damage-10.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, 
-                {"hands", {"z\addons\dayz_sfx\zombie\zombie-damage-11.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, 
-                {"hands", {"z\addons\dayz_sfx\zombie\zombie-damage-12.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, 
-                {"legs", {"z\addons\dayz_sfx\zombie\zombie-damage-13.ogg", 0.0562341, 1, 120, 20, 40, 60}}, 
-                {"legs", {"z\addons\dayz_sfx\zombie\zombie-damage-14.ogg", 0.0562341, 1, 120, 20, 40, 60}}
-            };
-            hitsounds[] = {
-                {{"z\addons\dayz_sfx\zombie\zombie-hit-01.ogg", 0.177828, 1, 120}, 0.1}, 
-                {{"z\addons\dayz_sfx\zombie\zombie-hit-02.ogg", 0.177828, 1, 120}, 0.1}, 
-                {{"z\addons\dayz_sfx\zombie\zombie-hit-03.ogg", 0.177828, 1, 120}, 0.1}, 
-                {{"z\addons\dayz_sfx\zombie\zombie-hit-04.ogg", 0.177828, 1, 120}, 0.1}, 
-                {{"z\addons\dayz_sfx\zombie\zombie-hit-05.ogg", 0.177828, 1, 120}, 0.1}, 
-                {{"z\addons\dayz_sfx\zombie\zombie-hit-06.ogg", 0.177828, 1, 120}, 0.1}, 
-                {{"z\addons\dayz_sfx\zombie\zombie-hit-07.ogg", 0.177828, 1, 120}, 0.1}, 
-                {{"z\addons\dayz_sfx\zombie\zombie-hit-08.ogg", 0.177828, 1, 120}, 0.1}, 
-                {{"z\addons\dayz_sfx\zombie\zombie-hit-09.ogg", 0.177828, 1, 120}, 0.1}
+            class HitDamage {
+            class Group0 {
+                hitSounds[] = {{{"dayz_sfx\zombie\zombie-hit-01.ogg", 0.177828, 1, 120}, 0.2}, {{"dayz_sfx\zombie\zombie-hit-02.ogg", 0.177828, 1, 120}, 0.2}, {{"dayz_sfx\zombie\zombie-hit-03.ogg", 0.177828, 1, 120}, 0.2}, {{"dayz_sfx\zombie\zombie-hit-04.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-05.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-06.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-07.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-08.ogg", 0.177828, 1, 120}, 0.1}, {{"dayz_sfx\zombie\zombie-hit-09.ogg", 0.177828, 1, 120}, 0.1}};
+                damageSounds[] = {{"body", {"dayz_sfx\zombie\zombie-damage-01.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-02.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-03.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-04.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-05.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-06.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-07.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"body", {"dayz_sfx\zombie\zombie-damage-08.ogg", 0.0562341, 1, 120, 0.125, 20, 40, 60}}, {"hands", {"dayz_sfx\zombie\zombie-damage-09.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, {"hands", {"dayz_sfx\zombie\zombie-damage-10.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, {"hands", {"dayz_sfx\zombie\zombie-damage-11.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, {"hands", {"dayz_sfx\zombie\zombie-damage-12.ogg", 0.0562341, 1, 120, 0.25, 20, 40, 60}}, {"legs", {"dayz_sfx\zombie\zombie-damage-13.ogg", 0.0562341, 1, 120, 20, 40, 60}}, {"legs", {"dayz_sfx\zombie\zombie-damage-14.ogg", 0.0562341, 1, 120, 20, 40, 60}}};
             };
         };
-    };
-    
+
 };
 
 class swarm_newBase : Swarm_Base {
