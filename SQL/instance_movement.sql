@@ -36,19 +36,19 @@ CREATE TABLE `instance_movement` (
 -- ----------------------------
 -- Records of character_data
 -- ----------------------------
-DROP TRIGGER IF EXISTS `before_character_data_insert`;
+DROP TRIGGER IF EXISTS `before_character_data_update`;
 DELIMITER ;;
-CREATE TRIGGER `before_character_data_insert` BEFORE INSERT ON `character_data` FOR EACH ROW BEGIN
-
-insert into instance_movement 
-SET instance_movement.characterID = NEW.PlayerUID, 
-instance_movement.instanceID = NEW.InstanceID, 
-instance_movement.worldspace= NEW.Worldspace, 
-changedon = NOW(); 
+CREATE TRIGGER `before_character_data_update` BEFORE INSERT ON `character_data` FOR EACH ROW BEGIN
+select SUBSTRING_INDEX(host,':',1) into @userip from information_schema.processlist WHERE ID=connection_id();
+SELECT instance_user.ID into @InstanceID FROM instance_user WHERE instance_user.userIP = @userip; 
+update character_data
+SET InstanceID = @InstanceID;
 
 END
 ;;
 DELIMITER ;
+
+
 DROP TRIGGER IF EXISTS `before_character_data_update`;
 DELIMITER ;;
 CREATE TRIGGER `before_character_data_update` BEFORE UPDATE ON `character_data` FOR EACH ROW BEGIN
