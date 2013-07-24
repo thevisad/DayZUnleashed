@@ -81,6 +81,9 @@ switch (_item) do {
 	case "Skin_TK_INS_Soldier_EP1": {
 		_model = "TK_INS_Soldier_EP1";
 	};
+	case "Skin_TK_CIV_Takistani05_EP1": {
+		_model = "TK_CIV_Takistani05_EP1";
+	};
 	case "Skin_TK_CIV_Takistani01_EP1": {
 		_model = "TK_CIV_Takistani01_EP1";
 	};

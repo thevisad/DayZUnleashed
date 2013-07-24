@@ -126,12 +126,12 @@ class CfgMagazines {
 		displayName = "Takistan INS Solider";
 		descriptionShort = "Takistan INS Solider";	
 	};
-		class Skin_TK_CIV_Takistani05_EP1 : SkinBase {		
+		class Skin_TK_CIV_Takistani01_EP1 : SkinBase {		
 		scope = public;
 		displayName = "Takistan Civilian 1";
 		descriptionShort = "Takistan Civilian 1";	
 	};
-		class Skin_TK_CIV_Takistani01_EP1 : SkinBase {		
+		class Skin_TK_CIV_Takistani05_EP1 : SkinBase {		
 		scope = public;
 		displayName = "Takistan Civilian 5";
 		descriptionShort = "Takistan Civilian 5";	

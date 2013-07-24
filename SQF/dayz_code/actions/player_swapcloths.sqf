@@ -5,7 +5,7 @@ s_clothes = -1;
 private["_body","_result"];
     _body = _this select 3;
     _model = typeOf _body;
-if( _model in ["Civilian1_DZ","Civilian2_DZ","Civilian1_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Bandit1_DZ","Bandit2_DZ","Bandit3_DZ","BanditW1_DZ","BanditW2_DZ","BanditW3_DZ","Hero1_DZ","Hero2_DZ","Hero3_DZ","HeroW1_DZ","HeroW2_DZ","HeroW3_DZ","SurvivorW2_DZ","Survivor2_DZ","SniperW1_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","BanditW1_DZ","Bandit1_DZ","Survivor3_DZ"] ) then { _model = "Skin_" + _model;
+if( _model in ["BAF_Soldier_MTP","BAF_Soldier_DDPM","BAF_Soldier_L_MTP","BAF_Soldier_L_DDPM","BAF_Soldier_Officer_MTP","BAF_Soldier_Officer_DDPM","BAF_Soldier_Sniper_MTP","BAF_Soldier_SniperH_MTP","Soldier_SniperN_MTP","CZ_Soldier_DES_EP1","US_Soldier_EP1","TK_INS_Soldier_EP1","TK_CIV_Takistani05_EP1","TK_CIV_Takistani01_EP1","Civilian1_DZ","Civilian2_DZ","Civilian1_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Bandit1_DZ","Bandit2_DZ","Bandit3_DZ","BanditW1_DZ","BanditW2_DZ","BanditW3_DZ","Hero1_DZ","Hero2_DZ","Hero3_DZ","HeroW1_DZ","HeroW2_DZ","HeroW3_DZ","SurvivorW2_DZ","Survivor2_DZ","SniperW1_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","BanditW1_DZ","Bandit1_DZ","Survivor3_DZ"] ) then { _model = "Skin_" + _model;
         _rnd = random 1;
         if (_rnd > 0.4) then {
                 _result = [player,_model] call BIS_fnc_invAdd;
