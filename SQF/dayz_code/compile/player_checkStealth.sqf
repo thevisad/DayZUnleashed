@@ -1,4 +1,8 @@
-private["_vel","_speed","_scalePose","_scaleMvmt","_scaleLight","_scaleAlert","_anim","_anim4","_initial","_isDay","_nearFlare","_scaler","_pos"];
+private ["_vel","_speed","_scalePose","_scaleMvmt","_scaleLight","_scaleAlert","_anim","_anim4","_initial","_nearFlare","_scaler","_pos","_nearFire","_isPZombie","_scaleSound","_building","_isPlayerInside","_audial"];
+
+_isPZombie = player isKindOf "PZombie_VB";
+if(_isPZombie) exitWith { DAYZ_disAudial = 0; DAYZ_disVisual = 0; };
+
 _vel = velocity (vehicle player);
 _speed = (_vel distance [0,0,0]);
 _pos = getPosATL player;
