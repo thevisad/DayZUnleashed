@@ -7,7 +7,8 @@ scriptName "Functions\misc\fn_damageHandler.sqf";
 	- Function
 	- [unit, selectionName, damage, source, projectile] call fnc_usec_damageHandler;
 ************************************************************/
-private["_newtypezed","_forceHit","_zClose","_bloodPercentage","_unit","_humanityHit","_myKills","_isBandit","_hit","_damage","_isPlayer","_unconscious","_wound","_isHit","_isInjured","_type","_hitPain","_inPain","_isDead","_isCardiac","_killerID","_evType","_recordable","_inVehicle","_isHeadHit","_isMinor","_scale","_canHitFree"];
+private ["_newtypezed","_forceHit","_zClose","_bloodPercentage","_unit","_humanityHit","_myKills","_isBandit","_hit","_damage","_isPlayer","_unconscious","_wound","_isHit","_isInjured","_type","_hitPain","_isCardiac","_evType","_recordable","_isHeadHit","_isMinor","_scale","_canHitFree","_nrj","_rndInfection","_hitInfection","_id","_lowBlood","_isPZombie","_unitIsPlayer","_chance","_source","_ammo","_currentAnim","_sourceZombie"];
+
 _unit = _this select 0;
 _hit = _this select 1;
 _damage = _this select 2;
@@ -209,26 +210,29 @@ if (_damage > 0.4) then { //0.25
 		};
 	} else {
 		if(!_isHit) then {
-			//Create Wound
-			_unit setVariable["hit_"+_wound,true,true];
-			PVDZ_hlt_Bleed = [_unit,_wound,_damage];
-			publicVariable "PVDZ_hlt_Bleed";  // draw blood stream on character, on all gameclients
-			[_unit,_wound,_hit] spawn fnc_usec_damageBleed;  // draw blood stream on character, locally
-			//Set Injured if not already
-			_isInjured = _unit getVariable["USEC_injured",false];
-			if (!_isInjured) then {
-				_unit setVariable["USEC_injured",true,true];
-				if ((_unit == player) and (_ammo != "zombie")) then {
-					dayz_sourceBleeding = _source;
+			_isPZombie = player isKindOf "PZombie_VB";
+			if(!_isPZombie) then {
+				//Create Wound
+				_unit setVariable["hit_"+_wound,true,true];
+				PVDZ_hlt_Bleed = [_unit,_wound,_damage];
+				publicVariable "PVDZ_hlt_Bleed";  // draw blood stream on character, on all gameclients
+				[_unit,_wound,_hit] spawn fnc_usec_damageBleed;  // draw blood stream on character, locally
+				//Set Injured if not already
+				_isInjured = _unit getVariable["USEC_injured",false];
+				if (!_isInjured) then {
+					_unit setVariable["USEC_injured",true,true];
+					if ((_unit == player) and (_ammo != "zombie")) then {
+						dayz_sourceBleeding = _source;
+					};
 				};
-			};
-			//Set ability to give blood
-			_lowBlood = _unit getVariable["USEC_lowBlood",false];
-			if (!_lowBlood) then {
-				_unit setVariable["USEC_lowBlood",true,true];
-			};
-			if (_unit == player) then {
-				r_player_injured = true;
+				//Set ability to give blood
+				_lowBlood = _unit getVariable["USEC_lowBlood",false];
+				if (!_lowBlood) then {
+					_unit setVariable["USEC_lowBlood",true,true];
+				};
+				if (_unit == player) then {
+					r_player_injured = true;
+				};
 			};
 		};
 	};
