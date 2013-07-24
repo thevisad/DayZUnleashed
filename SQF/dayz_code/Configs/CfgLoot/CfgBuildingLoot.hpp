@@ -74,6 +74,20 @@ class CfgBuildingLoot {
 			{"KPFS_8Rnd_9x19_P1","magazine",0.04},
 			{"17Rnd_9x19_glock17","magazine",0.04},
 			{"15Rnd_9x19_LUGER","magazine",0.04},
+			{"Skin_BAF_Soldier_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_L_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_L_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_Officer_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_Officer_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_Sniper_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperH_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperN_MTP","magazine",0.01},
+			{"Skin_CZ_Soldier_DES_EP1","magazine",0.01},
+			{"Skin_US_Soldier_EP1","magazine",0.01},
+			{"Skin_TK_INS_Soldier_EP1","magazine",0.01},
+			{"Skin_TK_CIV_Takistani05_EP1","magazine",0.01},
+			{"Skin_TK_CIV_Takistani01_EP1","magazine",0.01},
 			//Unleashed end
 			
 			{"","military",0.10},
@@ -157,6 +171,18 @@ class CfgBuildingLoot {
 			{"15Rnd_9x19_LUGER","magazine",0.04},
 			{"KPFS_KarS","weapon",0.03},
 			{"KPFS_10Rnd_762x39_SKS","magazine",0.03},
+			{"Skin_BAF_Soldier_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_L_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_L_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_Officer_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_Officer_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_Sniper_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperH_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperN_MTP","magazine",0.01},
+			{"Skin_CZ_Soldier_DES_EP1","magazine",0.01},
+			{"Skin_US_Soldier_EP1","magazine",0.01},
+			{"Skin_TK_INS_Soldier_EP1","magazine",0.01},
 			//Unleashed end
 			
 			{"ItemFlashlight","generic",0.06},
@@ -223,6 +249,8 @@ class CfgBuildingLoot {
 			{"KPFS_MPi_AK_74","weapon",0.02},
 			{"KPFS_KarS","weapon",0.02},
 			{"KPFS_10Rnd_762x39_SKS","magazine",0.03},
+			{"Skin_TK_CIV_Takistani05_EP1","magazine",0.01},
+			{"Skin_TK_CIV_Takistani01_EP1","magazine",0.01},
 			//Unleashed end
 			
 			{"","military",0.10},
@@ -270,6 +298,9 @@ class CfgBuildingLoot {
 			{"p226sf","weapon",0.03},
 			{"KPFS_KarS","weapon",0.02},
 			{"KPFS_10Rnd_762x39_SKS","magazine",0.03},
+			{"DZ_GunBag_EP1","object",0.01},
+			{"Skin_TK_CIV_Takistani05_EP1","magazine",0.01},
+			{"Skin_TK_CIV_Takistani01_EP1","magazine",0.01},
 			//Unleashed end
 			
 			{"","military",0.03},
@@ -312,6 +343,8 @@ class CfgBuildingLoot {
 			{"KPFS_30Rnd_762x43_STG44","magazine",0.03},
 			{"KPFS_32Rnd_MP2","magazine",0.03},
 			{"30Rnd_56x45_GP90","magazine",0.03},
+			{"DZ_GunBag_EP1","object",0.01},
+			{"DZ_LargeGunBag_EP1","object",0.01},
 			//Unleashed end
 			
 			//{"G36_C_SD_camo","weapon",0.01},
@@ -353,6 +386,8 @@ class CfgBuildingLoot {
 			{"KPFS_30Rnd_762x43_STG44","magazine",0.03},
 			{"KPFS_32Rnd_MP2","magazine",0.03},
 			{"30Rnd_56x45_GP90","magazine",0.03},
+			{"DZ_GunBag_EP1","object",0.01},
+			{"DZ_LargeGunBag_EP1","object",0.01},
 			//Unleashed end
 			
 			//{"G36_C_SD_camo","weapon",0.01},
@@ -389,6 +424,8 @@ class CfgBuildingLoot {
 			{"KPFS_30Rnd_762x43_STG44","magazine",0.03},
 			{"KPFS_32Rnd_MP2","magazine",0.03},
 			{"30Rnd_56x45_GP90","magazine",0.03},
+			{"DZ_GunBag_EP1","object",0.01},
+			{"DZ_LargeGunBag_EP1","object",0.01},
 			//Unleashed end
 			
 			{"ItemCompass","militaryEAST",0.04},
@@ -440,6 +477,19 @@ class CfgBuildingLoot {
 			{"KPFS_MPi_KM_72","weapon",0.03},
 			{"KPFS_MPi_AK_74","weapon",0.02},
 			{"20Rnd_762x51_FNFAL","magazine",0.03},
+			{"DZ_GunBag_EP1","object",0.01},
+			{"Skin_BAF_Soldier_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_L_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_L_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_Officer_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_Officer_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_Sniper_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperH_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperN_MTP","magazine",0.01},
+			{"Skin_CZ_Soldier_DES_EP1","magazine",0.01},
+			{"Skin_US_Soldier_EP1","magazine",0.01},
+			{"Skin_TK_INS_Soldier_EP1","magazine",0.01},
 			//Unleashed end
 			
 			{"UZI_EP1","weapon",0.05},
@@ -500,6 +550,20 @@ class CfgBuildingLoot {
 			{"KPFS_30Rnd_762x43_STG44","magazine",0.04},
 			{"KPFS_32Rnd_MP2","magazine",0.01},
 			{"20Rnd_762x51_FNFAL","magazine",0.03},
+			{"DZ_GunBag_EP1","object",0.01},
+			{"DZ_LargeGunBag_EP1","object",0.01},
+			{"Skin_BAF_Soldier_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_L_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_L_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_Officer_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_Officer_DDPM","magazine",0.01},
+			{"Skin_BAF_Soldier_Sniper_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperH_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperN_MTP","magazine",0.01},
+			{"Skin_CZ_Soldier_DES_EP1","magazine",0.01},
+			{"Skin_US_Soldier_EP1","magazine",0.01},
+			{"Skin_TK_INS_Soldier_EP1","magazine",0.01},
 			//Unleashed end
 			
 			{"DMR_DZ","weapon",0.02},
@@ -563,6 +627,11 @@ class CfgBuildingLoot {
 			{"KPFS_MPi_KM_72","weapon",0.03},
 			{"KPFS_MPi_AK_74","weapon",0.02},
 			{"20Rnd_762x51_FNFAL","magazine",0.03},
+			{"Skin_TK_CIV_Takistani05_EP1","magazine",0.01},
+			{"Skin_TK_CIV_Takistani01_EP1","magazine",0.01},
+			{"Skin_BAF_Soldier_Sniper_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperH_MTP","magazine",0.01},
+			{"Skin_BAF_Soldier_SniperN_MTP","magazine",0.01},
 			//Unleashed end
 			
 			{"M16A2","weapon",0.03},

@@ -34,23 +34,55 @@ switch (_item) do {
 	case "Skin_Sniper1_DZ": {
 		_model = "Sniper1_DZ";
 	};
-	case "Skin_SniperW1_DZ": {
-		_model = "SniperW1_DZ";
-	};
 	case "Skin_Camo1_DZ": {
 		_model = "Camo1_DZ";
 	};
-	case "Skin_Soldier1_DZ": {
-		_model = "Soldier1_DZ";
+	
+	// Unleashed Skins
+	case "Skin_SniperW1_DZ": {
+		_model = "SniperW1_DZ";
 	};
-	case "Skin_Survivor2_DZ": {
-		_model = "Survivor2_DZ";
-		if (_isBandit) then {
-			_model = "Bandit1_DZ";
-		};
-		if (_isHero) then {
-			_model = "Hero1_DZ";
-		};
+	case "Skin_BAF_Soldier_MTP": {
+		_model = "BAF_Soldier_MTP";
+	};
+	case "Skin_BAF_Soldier_DDPM": {
+		_model = "BAF_Soldier_DDPM";
+	};
+	case "Skin_BAF_Soldier_L_MTP": {
+		_model = "BAF_Soldier_L_MTP";
+	};
+	case "Skin_BAF_Soldier_L_DDPM": {
+		_model = "BAF_Soldier_L_DDPM";
+	};
+	case "Skin_BAF_Soldier_Officer_MTP": {
+		_model = "BAF_Soldier_Officer_MTP";
+	};
+	case "Skin_BAF_Soldier_Officer_DDPM": {
+		_model = "BAF_Soldier_Officer_DDPM";
+	};
+	case "Skin_BAF_Soldier_Sniper_MTP": {
+		_model = "BAF_Soldier_Sniper_MTP";
+	};
+	case "Skin_BAF_Soldier_SniperH_MTP": {
+		_model = "BAF_Soldier_SniperH_MTP";
+	};
+	case "Skin_BAF_Soldier_SniperN_MTP": {
+		_model = "BAF_Soldier_SniperN_MTP";
+	};
+	case "Skin_CZ_Soldier_DES_EP1": {
+		_model = "CZ_Soldier_DES_EP1";
+	};
+	case "Skin_TK_INS_Soldier_EP1": {
+		_model = "TK_INS_Soldier_EP1";
+	};
+	case "Skin_US_Soldier_EP1": {
+		_model = "US_Soldier_EP1";
+	};
+	case "Skin_TK_INS_Soldier_EP1": {
+		_model = "TK_INS_Soldier_EP1";
+	};
+	case "Skin_TK_CIV_Takistani01_EP1": {
+		_model = "TK_CIV_Takistani01_EP1";
 	};
 	
 	case "Skin_Civilian1_DZ": {
@@ -202,6 +234,20 @@ switch (_item) do {
 			_model = "Herowl11_DZ";
 		};
 	};	
+	// End Unleashed Skins
+	
+	case "Skin_Soldier1_DZ": {
+		_model = "Soldier1_DZ";
+	};
+	case "Skin_Survivor2_DZ": {
+		_model = "Survivor2_DZ";
+		if (_isBandit) then {
+			_model = "Bandit1_DZ";
+		};
+		if (_isHero) then {
+			_model = "Hero1_DZ";
+		};
+	};
 };
 
 _femaleSkins = ((_model == "CivilianW1_DZ")||(_model == "SniperW1_DZ")||(_model == "CivilianW2_DZ")||(_model == "CivilianW3_DZ")||(_model == "CivilianW4_DZ")||(_model == "CivilianW5_DZ")||(_model == "Banditwl11_DZ")||(_model == "Banditwl21_DZ")||(_model == "Banditwl31_DZ")||(_model == "Banditwl32_DZ")||(_model == "Banditwl41_DZ")||(_model == "Banditwl42_DZ")||(_model == "Banditwl51_DZ")||(_model == "Banditwl52_DZ")||(_model == "Herowl11_DZ")||(_model == "Herowl21_DZ")||(_model == "Herowl31_DZ")||(_model == "Herowl32_DZ")||(_model == "Herowl41_DZ")||(_model == "Herowl42_DZ")||(_model == "Herowl51_DZ")||(_model == "Herowl52_DZ"));

@@ -49,6 +49,94 @@ class CfgMagazines {
 		};
 	};
 	
+	/* Normal Skins
+	class BAF_Soldier_MTP;
+	class BAF_Soldier_DDPM;
+	class BAF_Soldier_L_MTP;
+	class BAF_Soldier_L_DDPM;
+	class BAF_Soldier_Officer_MTP;
+	class BAF_Soldier_Officer_DDPM;
+	class BAF_Soldier_Sniper_MTP;
+	class BAF_Soldier_SniperH_MTP;
+	class BAF_Soldier_SniperN_MTP;
+	class CZ_Soldier_DES_EP1;
+	class US_Soldier_EP1;
+	class TK_INS_Soldier_EP1;
+	class TK_CIV_Takistani05_EP1;
+	class TK_CIV_Takistani01_EP1;
+	*/
+	
+		class Skin_BAF_Soldier_MTP : SkinBase {		
+		scope = public;
+		displayName = "BAF Soldier MTP";
+		descriptionShort = "BAF Soldier MTP";	
+	};
+		class Skin_BAF_Soldier_DDPM : SkinBase {		
+		scope = public;
+		displayName = "BAF Soldier DDPM";
+		descriptionShort = "BAF Soldier DDPM";	
+	};
+		class Skin_BAF_Soldier_L_MTP : SkinBase {		
+		scope = public;
+		displayName = "BAF Soldier L MTP";
+		descriptionShort = "BAF Soldier L MTP";	
+	};
+		class Skin_BAF_Soldier_L_DDPM : SkinBase {		
+		scope = public;
+		displayName = "BAF Soldier L DDPM";
+		descriptionShort = "BAF Soldier L DDPM";	
+	};
+		class Skin_BAF_Soldier_Officer_MTP : SkinBase {		
+		scope = public;
+		displayName = "BAF Soldier Officer MTP";
+		descriptionShort = "BAF Soldier Officer MTP";	
+	};
+		class Skin_BAF_Soldier_Officer_DDPM : SkinBase {		
+		scope = public;
+		displayName = "BAF Soldier Officer DDPM";
+		descriptionShort = "BAF Soldier Officer DDPM";	
+	};
+		class Skin_BAF_Soldier_Sniper_MTP : SkinBase {		
+		scope = public;
+		displayName = "BAF Soldier Sniper MTP";
+		descriptionShort = "BAF Soldier Sniper MTP";	
+	};
+		class Skin_BAF_Soldier_SniperH_MTP : SkinBase {		
+		scope = public;
+		displayName = "BAF Soldier SniperH MTP";
+		descriptionShort = "BAF Soldier SniperH MTP";	
+	};
+		class Skin_BAF_Soldier_SniperN_MTP : SkinBase {		
+		scope = public;
+		displayName = "AF Soldier SniperN MTP";
+		descriptionShort = "AF Soldier SniperN MTP";	
+	};
+		class Skin_CZ_Soldier_DES_EP1 : SkinBase {		
+		scope = public;
+		displayName = "CZ Soldier DES";
+		descriptionShort = "CZ Soldier DES";	
+	};
+		class Skin_US_Soldier_EP1 : SkinBase {		
+		scope = public;
+		displayName = "US Soldier";
+		descriptionShort = "US Soldier";	
+	};
+		class Skin_TK_INS_Soldier_EP1 : SkinBase {		
+		scope = public;
+		displayName = "Takistan INS Solider";
+		descriptionShort = "Takistan INS Solider";	
+	};
+		class Skin_TK_CIV_Takistani05_EP1 : SkinBase {		
+		scope = public;
+		displayName = "Takistan Civilian 1";
+		descriptionShort = "Takistan Civilian 1";	
+	};
+		class Skin_TK_CIV_Takistani01_EP1 : SkinBase {		
+		scope = public;
+		displayName = "Takistan Civilian 5";
+		descriptionShort = "Takistan Civilian 5";	
+	};
+	
 		class Skin_SniperW1_DZ : SkinBase {		
 		scope = public;
 		displayName = "Chilisuit Female";
