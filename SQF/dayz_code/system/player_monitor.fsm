@@ -78,7 +78,7 @@ item73[] = {"Selected",4,218,-450.000000,700.000000,-350.000000,750.000000,0.000
 item74[] = {"Process_2",2,250,-450.000000,800.000000,-350.000000,850.000000,0.000000,"Process"};
 item75[] = {"True",8,218,-450.000000,900.000000,-350.000000,950.000000,0.000000,"True"};
 item76[] = {"New_Infected_Cha",4,218,-275.000000,500.000000,-175.000000,550.000000,5.000000,"New" \n "Infected" \n "Character"};
-item77[] = {"Player_Zombie__S",2,250,-400.000000,500.000000,-300.000000,550.000000,0.000000,"Player Zombie" \n " Selection"};
+item77[] = {"Player_Zombie__S",2,4346,-400.000000,500.000000,-300.000000,550.000000,0.000000,"Player Zombie" \n " Selection"};
 item78[] = {"True",8,218,-325.000000,550.000000,-225.000000,600.000000,0.000000,"True"};
 link0[] = {0,1};
 link1[] = {0,5};
@@ -1738,7 +1738,7 @@ class FSM
       name = "Player_Zombie__S";
       init = /*%FSM<STATEINIT""">*/"_zssupported = [""pz_policeman"",""pz_suit1"",""pz_suit2"",""pz_worker1"",""pz_worker2"",""pz_worker3"",""pz_doctor"",""pz_teacher"",""pz_hunter"",""pz_villager1"",""pz_villager2"",""pz_villager3"",""pz_priest""];" \n
        "_model =  (_zssupported select floor(random(count _zssupported)));" \n
-       "dayz_selectClass = 10; // change this if incorrect" \n
+       "dayz_selectClass = 5; // change this if incorrect" \n
        "_classSelection = dayz_selectClass; // change this if incorrect"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
