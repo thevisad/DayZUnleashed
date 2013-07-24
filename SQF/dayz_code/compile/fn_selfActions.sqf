@@ -135,7 +135,7 @@ if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 
 if(_isPZombie) then {
 	if (s_player_callzombies < 0) then {
-		s_player_callzombies = player addAction ["Raise Horde", "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
+		s_player_callzombies = player addAction ["Raise Horde", "\z\addons\dayz_code\actions\pz_call_zombies.sqf",player, 5, true, false, "",""];
 	};
 	if (s_player_pzombiesattack < 0) then {
 		s_player_pzombiesattack = player addAction ["Attack", "\z\addons\dayz_code\actions\pzombie\pz_attack.sqf",cursorTarget, 6, true, false, "",""];
@@ -160,6 +160,10 @@ if(_isPZombie) then {
 	} else {
 		player removeAction s_player_pzombiesfeed;
 		s_player_pzombiesfeed = -1;
+	};
+} else {
+	if (s_player_callzombies < 0) then {
+		s_player_callzombies = player addAction ["Call Zombies", "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
 	};
 };
 

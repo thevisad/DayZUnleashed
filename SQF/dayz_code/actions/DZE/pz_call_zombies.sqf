@@ -7,7 +7,7 @@ s_player_callzombies = 1;
 
 // player playActionNow "Surrender"; // TODO: find some animation that makes sense
 
-[player,"scream",0,false] call dayz_zombieSpeak;
+[player,"spotted",0,false] call dayz_zombieSpeak;
 
 [player,100,true,(getPosATL player)] spawn player_alertZombies;
 
