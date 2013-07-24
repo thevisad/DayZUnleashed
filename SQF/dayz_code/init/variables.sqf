@@ -377,6 +377,9 @@ dayz_resetSelfActions = {
 	s_player_packvault = -1;
 	s_player_lockvault = -1;
 	s_player_knockout = -1;
+	s_player_pzombiesattack = 	-1;
+	s_player_pzombiesvision =	-1;
+	s_player_pzombiesfeed = 	-1;
 };
 call dayz_resetSelfActions;
 

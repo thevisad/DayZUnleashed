@@ -1,4 +1,6 @@
 
+
+private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_newCuTyp","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem","_combi","_hasBarrelE","_hasBarrel","_hasFuel210","_unconscious","_isPZombie"];
 scriptName "Functions\misc\fn_selfActions.sqf";
 /***********************************************************
 	ADD ACTIONS FOR SELF
@@ -8,6 +10,7 @@ scriptName "Functions\misc\fn_selfActions.sqf";
 private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_newCuTyp","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem","_combi"];
 
 _vehicle = vehicle player;
+_isPZombie = player isKindOf "PZombie_VB";
 _inVehicle = (_vehicle != player);
 _bag = unitBackpack player;
 _classbag = typeOf _bag;
@@ -117,7 +120,7 @@ camoNet_Nato distance player < 10)) then {
 */
 
 //Grab Flare
-if (_canPickLight and !dayz_hasLight) then {
+if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 	if (s_player_grabflare < 0) then {
 		_text = getText (configFile >> "CfgAmmo" >> (typeOf _nearLight) >> "displayName");
 		s_player_grabflare = player addAction [format[localize "str_actions_medical_15",_text], "\z\addons\dayz_code\actions\flare_pickup.sqf",_nearLight, 1, false, true, "", ""];
@@ -128,6 +131,36 @@ if (_canPickLight and !dayz_hasLight) then {
 	player removeAction s_player_removeflare;
 	s_player_grabflare = -1;
 	s_player_removeflare = -1;
+};
+
+if(_isPZombie) then {
+	if (s_player_callzombies < 0) then {
+		s_player_callzombies = player addAction ["Raise Horde", "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
+	};
+	if (s_player_pzombiesattack < 0) then {
+		s_player_pzombiesattack = player addAction ["Attack", "\z\addons\dayz_code\actions\pzombie\pz_attack.sqf",cursorTarget, 6, true, false, "",""];
+	};
+	if (s_player_pzombiesvision < 0) then {
+		s_player_pzombiesvision = player addAction ["Night Vision", "\z\addons\dayz_code\actions\pzombie\pz_vision.sqf", [], 4, false, true, "nightVision", "_this == _target"];
+	};
+	if (!isNull cursorTarget and (player distance cursorTarget < 3)) then {	//Has some kind of target
+		_isAnimal = cursorTarget isKindOf "Animal";
+		_isZombie = cursorTarget isKindOf "zZombie_base";
+		_isHarvested = cursorTarget getVariable["meatHarvested",false];
+		_isMan = cursorTarget isKindOf "Man";
+		// Pzombie Gut human corpse or animal
+		if (!alive cursorTarget and (_isAnimal or _isMan) and !_isZombie and !_isHarvested) then {
+			if (s_player_pzombiesfeed < 0) then {
+				s_player_pzombiesfeed = player addAction ["Feed", "\z\addons\dayz_code\actions\pzombie\pz_feed.sqf",cursorTarget, 3, true, false, "",""];
+			};
+		} else {
+			player removeAction s_player_pzombiesfeed;
+			s_player_pzombiesfeed = -1;
+		};
+	} else {
+		player removeAction s_player_pzombiesfeed;
+		s_player_pzombiesfeed = -1;
+	};
 };
 
 //DZU-Helicopter TakeControl/Locl Control functions//
@@ -175,7 +208,7 @@ if (_inVehicle and _isSwapableAirVehicle and _isPilot) then {
 //End 
 //DZU-Helicopter TakeControl/Locl Control functions//
 
-if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 4)) then { //Has some kind of target
+if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cursorTarget < 4)) then { //Has some kind of target
 	_isHarvested = cursorTarget getVariable["meatHarvested",false];
 	_isVehicle = cursorTarget isKindOf "AllVehicles";
 	_isStorage = typeOf cursorTarget in ["Bunker_PMC"];
