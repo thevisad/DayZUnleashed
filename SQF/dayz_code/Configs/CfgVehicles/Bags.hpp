@@ -130,6 +130,21 @@ class DZ_CivilBackpack_EP1: Bag_Base_EP1
 	};	
 };
 
+class DZ_GunBag_EP1: Bag_Base_EP1 {
+		scope = 2;
+		displayName = "Gunbag";
+		model = "\ca\weapons_e\AmmoBoxes\StaticY.p3d"; 
+		picture = "\ca\weapons_e\data\icons\staticY_CA.paa"; 
+		icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa"; 
+		mapsize = 2;
+		transportMaxWeapons = 2;
+		transportMaxMagazines = 28;
+	class eventHandlers
+	{
+		init="[(_this select 0),'CfgVehicles','DZ_GunBag_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
+	};
+};
+
 class DZ_Backpack_EP1: Bag_Base_EP1
 {
 	scope = 2;
@@ -143,5 +158,20 @@ class DZ_Backpack_EP1: Bag_Base_EP1
 	class eventHandlers
 	{
 		init="[(_this select 0),'CfgVehicles','DZ_Backpack_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
+	};
+};
+
+class DZ_LargeGunBag_EP1: Bag_Base_EP1 {
+		scope = 2;
+		displayName = "Large Gunbag";
+		model = "\ca\weapons_e\AmmoBoxes\StaticX.p3d"; 
+		picture = "\ca\weapons_e\data\icons\staticX_CA.paa"; 
+		icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa"; 
+		mapsize = 2;
+		transportMaxWeapons = 3;
+		transportMaxMagazines = 36;
+	class eventHandlers
+	{
+		init="[(_this select 0),'CfgVehicles','DZ_LargeGunBag_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
 	};
 };
