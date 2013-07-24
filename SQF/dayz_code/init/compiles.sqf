@@ -294,6 +294,11 @@ if (!isDedicated) then {
 		_dikCode = _this select 1;
 		_handled = false;
 		if (_dikCode in (actionKeys "GetOver")) then {
+			// this prevents the player zombie from performing the getover action as it will cause pz to just get stuck standing. 
+			// but will cause side effect of auto run/walk, perform attack to stop.
+			if (player isKindOf  "PZombie_VB") exitWith {
+				player switchAction "walkf";
+			};
 			if (!r_fracture_legs and (time - dayz_lastCheckBit > 4)) then {
 				_inBuilding = [player] call fnc_isInsideBuilding;
 				_nearbyObjects = nearestObjects[getPosATL player, ["TentStorage", "Hedgehog_DZ", "Sandbag1_DZ","TrapBear","Wire_cat1"], 8];
