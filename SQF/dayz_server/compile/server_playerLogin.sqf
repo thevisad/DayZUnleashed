@@ -1,4 +1,4 @@
-private["_botActive","_int","_newModel","_doLoop","_wait","_hiveVer","_isHiveOk","_playerID","_playerObj","_randomSpot","_publishTo","_primary","_secondary","_key","_result","_charID","_playerObj","_playerName","_finished","_spawnPos","_spawnDir","_items","_counter","_magazines","_weapons","_group","_backpack","_worldspace","_direction","_newUnit","_score","_position","_isNew","_inventory","_backpack","_medical","_survival","_stats","_state"];
+private ["_botActive","_doLoop","_hiveVer","_isHiveOk","_playerID","_playerObj","_randomSpot","_primary","_key","_charID","_playerName","_items","_magazines","_weapons","_backpack","_worldspace","_direction","_newUnit","_isNew","_inventory","_medical","_survival","_state","_model","_isInfected","_key_medical","_config","_mags","_wpns","_bcpk","_medicalStats","_tent","_newPlayer"];
 //Set Variables
 
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
@@ -78,6 +78,7 @@ _newPlayer = 	_primary select 1;
 _isNew = 		count _primary < 6; //_result select 1;
 _charID = 		_primary select 2;
 _randomSpot = false;
+_isInfected = false;
 
 //diag_log ("LOGIN RESULT: " + str(_primary));
 
@@ -102,7 +103,18 @@ if (!_isNew) then {
 	_model = "Survivor2_DZ";
 	};
 	
+	
 } else {
+
+	// get medical from past character
+	_key_medical = format["CHILD:150:%1:",_playerID];
+	_medical = _key_medical call server_hiveReadWrite;
+	
+	// check if infected
+	if (count _medical > 0) then {
+		_isInfected = _medical select 2;
+	};
+
 	_model =		_primary select 3;
 	_hiveVer =		_primary select 4;
 	if (isNil "_model") then {
@@ -138,5 +150,5 @@ if (_hiveVer >= dayz_hiveVersionNo) then {
 //Server publishes variable to clients and WAITS
 //_playerObj setVariable ["publish",[_charID,_inventory,_backpack,_survival,_isNew,dayz_versionNo,_model,_isHiveOk,_newPlayer],true];
 
-dayzPlayerLogin = [_charID,_inventory,_backpack,_survival,_isNew,dayz_versionNo,_model,_isHiveOk,_newPlayer];
+dayzPlayerLogin = [_charID,_inventory,_backpack,_survival,_isNew,dayz_versionNo,_model,_isHiveOk,_newPlayer,_isInfected];
 (owner _playerObj) publicVariableClient "dayzPlayerLogin";
