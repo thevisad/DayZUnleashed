@@ -1,5 +1,5 @@
 //Animated Helicrashs for DayZ 1.7.7.1
-//Version 0.3
+//Version 0.3 Updated by Skaronator for 1.7.7.x
 //Release Date: 01. Juli 2013
 //Author: Grafzahl / Finest
 //Thread-URL: http://opendayz.net/threads/animated-helicrashs-0-1-release.9084/
@@ -233,6 +233,10 @@ while {true} do {
 		_startTime = time;
 		_crashwreck = createVehicle [_heliModel,_heliStart, [], 0, "FLY"];
 
+		PVDZ_obj_Fire = [_crashwreck,5,time,false,false];
+		publicVariable "PVDZ_obj_Fire";
+		_crashwreck setvariable ["fadeFire",false,true];
+
 		//Make sure its not destroyed by the Hacker-Killing-Cleanup (Thanks to Sarge for the hint)
 		_crashwreck setVariable["Sarge",1];
 
@@ -289,7 +293,7 @@ while {true} do {
 		//BOOOOOOM!
 		waituntil {(_crashwreck distance _position) <= _exploRange || not alive _crashwreck || (getPosATL _crashwreck select 2) < 5 || (damage _crashwreck) >= _crashDamage};
 			//Taking out the Tailrotor would be more realistic, but makes the POC not controllable
-			//_crashwreck setHit ["mala vrtule", 1];
+			//_crashwreck setHit ["mala vrtule", 1]; ??? Not updated and why not in use?!
 			_crashwreck setdamage 1;
 			_crashwreck setfuel 0;
 			diag_log(format["CRASHSPAWNER: %1 just exploded at %2!, ", _crashName, str(getPosATL _crashwreck)]);
@@ -333,22 +337,23 @@ while {true} do {
 
 		//Make it burn (or not)
 		if (_spawnFire) then {
-			//["dayzFire",[_crash,2,time,false,_fadeFire]] call broadcastRpcCallAll;
-			dayzFire = [_crash,2,time,false,_fadeFire];
-			publicVariable "dayzFire";
-			_crash setvariable ["fadeFire",_fadeFire,true];
+                PVDZ_obj_Fire = [_crash,2,time,false,_fadeFire];
+                publicVariable "PVDZ_obj_Fire";
+                _crash setvariable ["fadeFire",_fadeFire,true];
 		};
 
 		_num        = round(random 4) + 4;
-     
-        _config = configFile >> "CfgBuildingLoot" >> _lootTable;
-        _itemTypes = [["DMR_DZ", "weapon"],["Binocular_Vector", "weapon"],["bizon_silenced", "weapon"], ["FN_FAL","weapon"], ["M14_EP1","weapon"], ["FN_FAL_ANPVS4","weapon"], ["Mk_48_DZ","weapon"], ["M249_DZ","weapon"], ["", "military"], ["MedBox0", "object"], ["NVGoggles", "weapon"], ["AmmoBoxSmall_556", "object"], ["AmmoBoxSmall_762", "object"], ["Skin_Camo1_DZ", "magazine"], ["Skin_Sniper1_DZ", "magazine"], ["SVD_CAMO","weapon"], ["M24","weapon"], ["M4A1_AIM_SD_camo","weapon"], ["Sa58P_EP1","weapon"], ["Sa58V_CCO_EP1","weapon"], ["Sa58V_EP1","weapon"], ["Sa58V_RCO_EP1","weapon"]];
-        _itemChance = [0.01, 0.05, 0.02, 0.01, 0.02, 0.05, 0.01, 0.03, 0.05, 0.01, 0.06, 0.03, 0.02, 0.01, 0.01, 0.05, 0.05, 0.04, 0.03, 0.05, 0.05, 0.05, 0.04, 0.05];
-        _weights = [];
-        _weights = [_itemType,_itemChance] call fnc_buildWeightedArray;
-        _cntWeights = count _weights;
-        _index = _weights call BIS_fnc_selectRandom;
 
+		_num		= round(random _randomizedLoot) + _guaranteedLoot;
+		
+		_itemTypes =	[] + getArray (configFile >> "CfgBuildingLoot" >> _lootTable >> "lootType");	
+		_index =        dayz_CBLBase  find _lootTable;
+		_weights =		dayz_CBLChances select _index;
+		_cntWeights = count _weights;
+		
+		diag_log ( format [ "CRASHSPAWNER: Current Loot Pile: %1", _itemTypes ] );
+		diag_log ( format [ "CRASHSPAWNER: Current Loot Weights: %1", _weights ] );
+		
 		//Creating the Lootpiles outside of the _crashModel
 				for "_x" from 1 to _num do {
 			//Create loot
@@ -358,6 +363,7 @@ while {true} do {
 
 			//Let the Loot spawn in a non-perfect circle around _crashModel
 			_lootPos = [_pos, ((random 2) + (sizeOf(_crashModel) * _lootRadius)), random 360] call BIS_fnc_relPos;
+			//_lootPos = [_lootPos select 0,_lootPos select 1,0];
 			[_itemType select 0, _itemType select 1, _lootPos, 0] call spawn_loot;
 
 			diag_log(format["CRASHSPAWNER: Loot spawn at '%1' with loot table '%2'", _lootPos, sizeOf(_crashModel)]); 
