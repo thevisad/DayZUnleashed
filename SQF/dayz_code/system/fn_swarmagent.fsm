@@ -286,7 +286,7 @@ class FSM
        "" \n
        "if (_losCheck == 20) then {" \n
        "	_losCheck = 0;" \n
-       "	_cantSee = [_agent,_target] call dayz_losCheck;" \n
+       "	_cantSee = [_agent,_target] call dayz_losCheck_attack;" \n
        "};" \n
        "if (!_cantSee) then {" \n
        "	_targetPosition = getPosATL _target;" \n

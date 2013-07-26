@@ -54,13 +54,13 @@ DZAI_dynDespawnWait = 120;									//Time to wait before despawning all AI units
 
 //AI Helicopter patrol settings
 //IMPORTANT: Before enabling AI helicopter patrols, make sure you have properly edited your server_cleanup.fsm file. Otherwise, the helicopters will explode after spawning.
-DZAI_aiHeliPatrols = false;									//Enable or disable AI helicopter patrols. (Default: false)
-DZAI_maxHeliPatrols = 0;									//Maximum number of active AI helicopters patrols. (Default: 0).
+DZAI_aiHeliPatrols = true;									//Enable or disable AI helicopter patrols. (Default: false)
+DZAI_maxHeliPatrols = 3;									//Maximum number of active AI helicopters patrols. (Default: 0).
 DZAI_heliTypes = ["UH1H_DZ"];								//Classnames of helicopter types to use. Helicopter types must have at least 2 gunner seats (Default: "UH1H_DZ").
 
 //Extra AI Settings
-DZAI_findKiller = false;									//If enabled, AI group will attempt to track down player responsible for killing a group member. Players with radios will be given text warnings if they are being pursued (Default: false)
-DZAI_tempNVGs = false;										//If normal probability check for spawning NVGs fails, then give AI temporary NVGs only if they are spawned with weapongrade 2 or 3 (applies only during nighttime hours). Temporary NVGs are unlootable and will be removed at death (Default: false).
+DZAI_findKiller = true;									//If enabled, AI group will attempt to track down player responsible for killing a group member. Players with radios will be given text warnings if they are being pursued (Default: false)
+DZAI_tempNVGs = true;										//If normal probability check for spawning NVGs fails, then give AI temporary NVGs only if they are spawned with weapongrade 2 or 3 (applies only during nighttime hours). Temporary NVGs are unlootable and will be removed at death (Default: false).
 DZAI_humanityGain = 0;										//Amount of humanity to reward player for killing an AI unit (Default: 0)
 
 //Dynamic weapon list settings

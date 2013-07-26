@@ -4,7 +4,7 @@
 //Author: Grafzahl / Finest
 //Thread-URL: http://opendayz.net/threads/animated-helicrashs-0-1-release.9084/
 
-private["_useStatic","_crashDamage","_lootRadius","_preWaypoints","_preWaypointPos","_endTime","_startTime","_safetyPoint","_heliStart","_deadBody","_exploRange","_heliModel","_lootPos","_list","_craters","_dummy","_wp2","_wp3","_landingzone","_aigroup","_wp","_helipilot","_crash","_crashwreck","_smokerand","_staticcoords","_pos","_dir","_position","_num","_config","_itemType","_itemChance","_weights","_index","_iArray","_crashModel","_lootTable","_guaranteedLoot","_randomizedLoot","_frequency","_variance","_spawnChance","_spawnMarker","_spawnRadius","_spawnFire","_permanentFire","_crashName"];
+private ["_useStatic","_crashDamage","_lootRadius","_preWaypoints","_preWaypointPos","_endTime","_startTime","_safetyPoint","_heliStart","_deadBody","_exploRange","_heliModel","_lootPos","_wp2","_wp3","_landingzone","_aigroup","_wp","_helipilot","_crashwreck","_staticcoords","_pos","_position","_num","_itemType","_weights","_index","_crashModel","_lootTable","_guaranteedLoot","_randomizedLoot","_frequency","_variance","_spawnChance","_spawnMarker","_spawnRadius","_spawnFire","_crashName","_nearby","_itemTypes","_cntWeights","_trigPos","_trigger","_fadeFire","_dir"];
 
 //_crashModel	= _this select 0;
 //_lootTable	= _this select 1;

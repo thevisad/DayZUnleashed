@@ -33,7 +33,7 @@ for "_i" from 1 to _numTriggers do {
 	_trigger setTriggerActivation ["ANY", "PRESENT", true];
 	_trigger setTriggerTimeout [5, 7, 20, true];
 	_trigger setTriggerStatements [DYNTRIG_STATEMENTS_INACTIVE];
-	if (DZAI_debugMarkers == 1) then {
+	if (DZAI_debugMarkers > 0) then {
 		private ["_markername","_marker"];
 		_markername = format["trigger_%1",_trigger];
 		_marker = createMarker[_markername,_trigPos];

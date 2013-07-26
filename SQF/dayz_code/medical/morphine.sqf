@@ -51,8 +51,6 @@ if (_finished) then {
 	
 	[nil, nil, rSPAWN, _unit, { if !(local _this) exitWith {}; 
 	_i = 0;
-	while {true} do {
-
 				_drugeffects = 0;
 				scopeName "drugeffect";
 				hint "You are under the effects of morphine";
@@ -106,7 +104,6 @@ if (_finished) then {
 				wetdist1 ppEffectEnable false;
 				nonapsi_ef ppEffectEnable false;
 				if (_drugeffects == 1) then {breakOut  "drugeffect"};
-			};
 
 		}] call RE;
 		

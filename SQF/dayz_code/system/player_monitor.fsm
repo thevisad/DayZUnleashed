@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "F:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Player Monitor">*/
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Player Monitor">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"init",0,250,-75.000000,-350.000000,25.000000,-300.000000,0.000000,"init"};
@@ -24,7 +24,7 @@ item19[] = {"ERROR__Wrong_HIVE",2,250,175.000000,500.000000,275.000000,550.00000
 item20[] = {"Hive_Ok",4,218,-175.000000,550.000000,-75.000000,600.000000,0.000000,"Hive" \n "Ok"};
 item21[] = {"Phase_One",2,250,-75.000000,600.000000,25.000000,650.000000,0.000000,"Phase One"};
 item22[] = {"Response",4,218,-175.000000,650.000000,-75.000000,700.000000,0.000000,"Response"};
-item23[] = {"Phase_Two",2,4346,-75.000000,700.000000,25.000000,750.000000,0.000000,"Phase Two"};
+item23[] = {"Phase_Two",2,250,-75.000000,700.000000,25.000000,750.000000,0.000000,"Phase Two"};
 item24[] = {"Dead_Player",4,218,50.000000,700.000000,150.000000,750.000000,0.000000,"Dead" \n "Player"};
 item25[] = {"ERROR__Player_Already",2,250,175.000000,700.000000,275.000000,750.000000,0.000000,"ERROR:" \n "Player Already" \n "Dead"};
 item26[] = {"Alive",4,218,-175.000000,750.000000,-75.000000,800.000000,0.000000,"Alive"};
@@ -36,7 +36,7 @@ item31[] = {"ERROR__Bad_Versi",2,250,175.000000,800.000000,275.000000,850.000000
 item32[] = {"Display_Ready",4,218,-175.000000,1050.000000,-75.000000,1100.000000,0.000000,"Display" \n "Ready"};
 item33[] = {"Preload_Display",2,250,-75.000000,1100.000000,25.000000,1150.000000,0.000000,"Preload" \n "Display"};
 item34[] = {"Preload_Done",4,218,-175.000000,1150.000000,-75.000000,1200.000000,0.000000,"Preload" \n "Done"};
-item35[] = {"Initialize",2,250,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Initialize"};
+item35[] = {"Initialize",2,4346,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Initialize"};
 item36[] = {"Finish",1,250,-75.000000,1300.000000,25.000000,1350.000000,0.000000,"Finish"};
 item37[] = {"True",8,218,25.000000,1250.000000,125.000000,1300.000000,0.000000,"True"};
 item38[] = {"Too_Long",4,218,300.000000,150.000000,400.000000,200.000000,0.000000,"Too" \n "Long"};
@@ -170,8 +170,8 @@ link86[] = {75,68};
 link87[] = {76,77};
 link88[] = {77,78};
 link89[] = {78,68};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-816.733765,456.756775,1306.584229,227.978104,1039,880,1};
-window[] = {2,-1,-1,-1,-1,1244,1862,3798,182,3,1057};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-672.862732,312.885040,1303.689697,132.795029,772,917,1};
+window[] = {0,-1,-1,-1,-1,1137,75,2011,75,1,790};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -1177,7 +1177,7 @@ class FSM
        "diag_log (""Local Time: "" +str(dayzSetDate));" \n
        "" \n
        "//Medical" \n
-       "null=[Player,300,10,10,3,7,-0.3,0.1,0.8,1,1,1,13,12,15,true] execFSM ""\z\addons\dayz_code\system\Fog.fsm"";" \n
+       "null=[Player,300,10,20,3,10,-0.5,0.1,0.5,1,1,1,13,12,15,true,1,2.1,0.1,4,6,0,20,8] execFSM ""\z\addons\dayz_code\system\Fog.fsm"";" \n
        "dayz_medicalH = 	[] execVM ""\z\addons\dayz_code\medical\init_medical.sqf"";	//Medical Monitor Script (client only)" \n
        "[player] call fnc_usec_damageHandle;" \n
        "if (r_player_unconscious) then {" \n

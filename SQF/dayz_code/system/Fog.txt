@@ -32,5 +32,7 @@ RandomDirectionPeriod 2.1 with RandomDirectionIntensity 0.1 means that 0.1 will 
 
 An example for norrins revive-script:
 revive_init.sqf:
+null=[Player,300,10,10,3,7,-0.3,0.1,0.8,1,1,1,13,12,15,true] execFSM "\z\addons\dayz_code\system\Fog.fsm";
+null=[Player,300,10,20,3,10,-0.5,0.1,0.5,1,1,1,13,12,15,true,1,2.1,0.1,4,6,0,20,8] execFSM "\z\addons\dayz_code\system\Fog.fsm";
 NORRNCustomExec1 ="null=[Player,100,11,10,3,7,-0.3,0.1,0.5,1,1,1,13,12,15,true,1,2.1,0.1,4,6,0,0,24] execFSM ""Fog.fsm"";"; // Exec1 occurs following being revived
 NORRNCustomExec3 ="null=[Player,100,11,10,3,7,-0.3,0.1,0.5,1,1,1,13,12,15,true,1,2.1,0.1,4,6,0,0,24] execFSM ""Fog.fsm"";"; // Exec3 occurs when you spawn at base

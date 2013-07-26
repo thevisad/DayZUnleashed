@@ -435,7 +435,7 @@ r_action_repair = false;
 r_action_targets = [];
 r_pitchWhine = false;
 r_isBandit = false;
-
+counttotaldeldead = 0;
 //count actions
 r_action_count = 0;
 
