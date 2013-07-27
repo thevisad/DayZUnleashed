@@ -116,7 +116,7 @@ fa_spawninventory = {
 
 // populateCargo: add item and quantity to the 3 cargos (magazines,weapons,backpack) of an unit
 fa_populateCargo = {
-	private["_entity","_config","_magItemTypes","_magItemQtys","_i","_inventory"];
+	private["_entity","_config","_magItemTypes","_magItemQtys","_i","_inventory","_weaponCargo","_magazineCargo","_backpackCargo"];
 	_entity = _this select 0;
 	_inventory = _this select 1;
 
@@ -124,12 +124,37 @@ fa_populateCargo = {
 	clearMagazineCargoGlobal  _entity;
 	clearBackpackCargoGlobal  _entity;	 
 	_config = ["CfgWeapons", "CfgMagazines", "CfgVehicles" ];
-	
+
 	if (_entity isKindOf "VaultStorageLocked") then {
-		// Fill variables with loot
-		_entity setVariable ["WeaponCargo", (_inventory select 0), true];
-		_entity setVariable ["MagazineCargo", (_inventory select 1), true];
-		_entity setVariable ["BackpackCargo", (_inventory select 2), true];
+		
+		_weaponCargo = [];
+		_magazineCargo = [];
+		_backpackCargo = [];
+	
+		// Fill variables with loot		
+		{
+			_magItemTypes = _x select 0;
+			_magItemQtys = _x select 1;
+			_i = _forEachIndex;
+			{    
+				if (_x == "Crossbow") then { _x = "Crossbow_DZ" }; // Convert Crossbow to Crossbow_DZ
+	            if (_x == "BoltSteel") then { _x = "WoodenArrow" }; // Convert BoltSteel to WoodenArrow
+				if (isClass(configFile >> (_config select _i) >> _x) && getNumber(configFile >> (_config select _i) >> _x >> "stopThis") != 1) then {
+					if (_forEachIndex < count _magItemQtys) then {
+						switch (_i) do {
+							case 0: { _weaponCargo set [count _weaponCargo,[_x,(_magItemQtys select _forEachIndex)]]; };
+							case 1: { _magazineCargo set [count _magazineCargo,[_x,(_magItemQtys select _forEachIndex)]]; }; 
+							case 2: { _backpackCargo set [count _backpackCargo,[_x,(_magItemQtys select _forEachIndex)]]; };  
+						};
+					};
+				};
+			} forEach _magItemTypes;
+		} forEach _inventory;
+		
+		// set variables for locked safe
+		_entity setVariable ["WeaponCargo", _weaponCargo, true];
+		_entity setVariable ["MagazineCargo", _magazineCargo, true];
+		_entity setVariable ["BackpackCargo", _backpackCargo, true];
 		
 	} else {
 		{
