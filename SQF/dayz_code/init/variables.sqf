@@ -537,8 +537,7 @@ dayz_lootSpawnBias = 67; // between 50 and 100. The lower it is, the lower chanc
 dayz_localswarmSpawned = 10;  // how many zeds will spawn around you during a combat scenario.
 dayz_infectionTreshold = 1.25; // used to trigger infection, see fn_damageHandler.sqf
 dayz_localCombatSpawned = 60;  // how many zeds will spawn around you during a combat scenario. 
-dayz_perceptibility_limit = 1000; //Max Perceptibility 
-dayz_perceptibility_decay = 1;    //Rate of decay that we subtract from our rating
+
 //init global arrays for Loot Chances
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\loot_init.sqf";
 
@@ -637,7 +636,15 @@ if(!isDedicated) then {
 	dayzDebug = false;
 	dayzState = -1;
 	player_Cannibalism = -1;
-    dayz_perceptibility = 0; //Perception rating for player
+    //Player aggro system
+    dayz_aggro_limit = 1099;        //Max aggro rating that a player can reach 
+    dayz_aggro_move_rate = 0;       //rate of which movement affects aggro ratings. 
+    dayz_aggro_move_decay = 0;      //rate if which movement affects aggro ratings.
+    dayz_aggro_move_min = 0;        //rate if which movement affects aggro ratings.
+    dayz_aggro_decay = 1;           //Rate of decay that we subtract from our rating
+    dayz_aggro_rank_formula = 100;  // rank = floor(aggro/dayz_aggro_rank_formula)
+    dayz_aggro_value = 0;
+    dayz_aggro_value_min = 0;
 	//uiNamespace setVariable ['DAYZ_GUI_display',displayNull];
 	//if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {
 	//	dayzDebug = true;

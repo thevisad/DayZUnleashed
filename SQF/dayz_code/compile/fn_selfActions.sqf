@@ -170,13 +170,12 @@ _vehDriver = driver _vehicle;               //Current drivrer, returns null if t
 _isPilot = (_vehDriver == player);          //is the player the driver/pilot of the vehicle. 
 _isPilotAvalible = !isNull _vehDriver;      //is the pilot seat avalible. 
 _isSwapableAirVehicle = (_vehicle isKindOf "Air" and !(_vehicle isKindOf "ParachuteBase"));    //are we in an air type vehicle. (not chute)
-_canTakeControls = _vehicle getVariable["heliContrlsUnlocked",false];
-
+_canTakeControls = ((_vehicle getVariable["heliContrlsUnlocked",false]) or _isPilotAvalible );
 //hintsilent format["_inVehicle: %1\n_isSwapableAirVehicle:%2",_inVehicle,_isSwapableAirVehicle];
 
 //"Take Controls" Action
 //
-if ( (_inVehicle and _isSwapableAirVehicle and !_isPilot) and (_isPilotAvalible or _canTakeControls) )then {
+if ( _inVehicle and _isSwapableAirVehicle and !_isPilot and _canTakeControls )then {
         if(s_pilot_swap < 0) then {        
             s_pilot_swapObj = _vehicle;
             s_pilot_swap = s_pilot_swapObj addAction ["Take Control","\z\addons\dayz_code\actions\actionHeliSwitchSeat.sqf","",1,false,true, "", ""];
