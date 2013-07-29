@@ -68,8 +68,8 @@ while {true} do {
 	[] call fnc_usec_damageActions;
 	[] call fnc_usec_selfActions;
 
-    //Player Perceptibility Check
-    [] call player_perceptibilityCheck;
+    //Player aggro system
+    [] call player_aggro_check;
 
 	//Low Blood Effects
 	[] spawn {
