@@ -32,8 +32,10 @@ if (!isDedicated) then {
 	player_unlockVault = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\DZE\player_unlockVault.sqf";
 	player_lockVault = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\DZE\player_lockVault.sqf";
     player_vaultPitch = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\DZE\vault_pitch.sqf";
-	
-	player_perceptibilityCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_player_perception.sqf";
+	//Player Aggravation
+    player_aggro_check = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_check.sqf";
+    player_aggro_lieve = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_decrease.sqf";     //Lowers dayz_aggro_value when above 0
+	player_aggro_vate = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_increase.sqf";     //Increased dayz_aggro_value, up to limit
 	
 	//BurnTent
 	player_burnTent = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_burnTent.sqf";

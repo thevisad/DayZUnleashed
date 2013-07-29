@@ -307,17 +307,6 @@ if (isServer and isNil "sm_done") then {
 	} forEach _objectArray;
 	
 	createCenter civilian;
-    //CfgFaction Addition to fix side relations.
-    createCenter east;
-    createCenter resistance;
-    //Survivors 
-    WEST setFriend [RESISTANCE,0];  //Survivors see zeds as enemy
-    WEST setFriend [EAST,0];        //Survivors see bandits as enemy
-    //Bandits
-    EAST setFriend [RESISTANCE,0];  //Bandits will see zeds as enemy
-    EAST setFriend [WEST,0];        //Bandits will see survivors as enemy
-    //CfgFaction Addition to fix side relations. 
-
 
 	if (isDedicated) then {
 		endLoadingScreen;

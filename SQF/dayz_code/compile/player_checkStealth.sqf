@@ -11,6 +11,12 @@ _scaleMvmt = 0.2;	//0.4;
 _scaleLight = 0.5;
 _scaleAlert = 1;
 
+//DZU_Aggro_Movement Code
+_aggro_mv_mod_rate = _speed;    //this is the rate of which movement is generating aggro
+_aggro_mv_mod_rate_cap = 5;     //the max rate of which movement can generate aggro
+_aggro_mv_mod = 30;             //minimum aggro a player should have based on their stance
+_aggro_mv_mod_decay_rate = 1;   //aggro decay due to stance changes.(initial)
+
 //Assess Players Position
 _anim = animationState player;
 _anim4 = toArray _anim;
@@ -20,14 +26,20 @@ _anim4 = toString _anim4;
 if (["pknl",_anim] call fnc_inString) then {
 	_scaleMvmt = 0.2;	//0.1;
 	_scalePose = 0.6;	//0.4
+    _aggro_mv_mod = 15;
+    _aggro_mv_mod_decay_rate = 2;
 } else {
 	if (["ppne",_anim] call fnc_inString) then {
 		_scaleMvmt = 0.3;
 		_scalePose = 0.14;
+        _aggro_mv_mod = 0;
+        _aggro_mv_mod_decay_rate = 3;
 	};
 };
 
 if (_anim4 == "aswm") then {
+    _aggro_mv_mod = 5;
+    _aggro_mv_mod_decay_rate = 2;
 	_scaleMvmt = 0.3;
 	dayz_isSwimming = true;
 } else {
@@ -73,18 +85,26 @@ _scaleLight = _scaleLight max 0;
 
 //Terrain Visibility
 if (["grass",dayz_surfaceType] call fnc_inString) then {
+    _aggro_mv_mod =_aggro_mv_mod - 15;
+    _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate + 1;    
 	_initial = _initial * 0.75;
 	_scaleMvmt = _scaleMvmt - 0.05;
 } else {
 	if (["forest",dayz_surfaceType] call fnc_inString) then {
+        _aggro_mv_mod =_aggro_mv_mod - 30;
+        _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate + 2;
 		_initial = _initial * 0.5;
 		_scaleMvmt = _scaleMvmt - 0.1;
 	} else {
 		if (["concrete",dayz_surfaceType] call fnc_inString) then {
+             _aggro_mv_mod =_aggro_mv_mod + 10;
+             _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate - 1;
 			_initial = _initial * 1.2;
 			_scaleMvmt = _scaleMvmt + 0.1;
 		} else {
 			if (["rock",dayz_surfaceType] call fnc_inString) then {
+             _aggro_mv_mod =_aggro_mv_mod + 8;
+             _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate - 0.5;
 				_initial = _initial * 1.1;
 				_scaleMvmt = _scaleMvmt + 0.05;
 			};
@@ -93,6 +113,8 @@ if (["grass",dayz_surfaceType] call fnc_inString) then {
 };
 
 if (isOnRoad _pos) then {
+    _aggro_mv_mod =_aggro_mv_mod + 15;
+    _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate - 2;
 	_initial = _initial * 1.3;
 	_scaleMvmt = _scaleMvmt + 0.2;
 	//dayz_surfaceNoise = dayz_surfaceNoise + 10;
@@ -113,7 +135,19 @@ if (_speed > 5) then {
 _building = nearestObject [getPos (vehicle player), "Building"];
 _isPlayerInside = [(vehicle player),_building] call fnc_isInsideBuilding;
 if (_isPlayerInside) then {
+    _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate + 1;      
+    _aggro_mv_mod = _aggro_mv_mod / 2;
+    _aggro_mv_mod_rate = _aggro_mv_mod_rate / 2;  
 	_initial = 5;
+};
+
+
+if (_scaleLight > 0) then {
+    _aggro_mv_mod_rate_cap = _aggro_mv_mod_rate_cap * _scaleLight;
+    _aggro_mv_mod = (_aggro_mv_mod * _scaleLight) max 0;
+} else {
+  _aggro_mv_mod = 0;
+  _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate + 1;  
 };
 
 //Work out result
@@ -122,3 +156,7 @@ if ((_audial > DAYZ_disAudial) or ((time - dayz_firedCooldown) > 0.3)) then {
 	DAYZ_disAudial = _audial;
 };
 DAYZ_disVisual = (round((_initial + (_speed * 3)) * _scalePose * _scaleLight)) * 1.5;
+
+dayz_aggro_move_decay = _aggro_mv_mod_decay_rate max 0;
+dayz_aggro_move_rate = _aggro_mv_mod_rate min _aggro_mv_mod_rate_cap;
+dayz_aggro_move_min = _aggro_mv_mod max 0;
