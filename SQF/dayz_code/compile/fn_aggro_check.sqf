@@ -47,3 +47,4 @@ if (_playerOldAggroRank != _playerNewAggroRank) then {
     //player setVariable ["aggroUpdateEventNeeded",1,false];
 };
 
+hintsilent format["Current: %1\nMinimum: %2\nOld Rank: %3\nNew Rank: %4",dayz_aggro_value,dayz_aggro_value_min,_playerOldAggroRank,_playerNewAggroRank];
