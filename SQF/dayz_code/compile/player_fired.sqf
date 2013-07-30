@@ -75,19 +75,24 @@ if ((_ammo isKindOf "SmokeShell") or (_ammo isKindOf "GrenadeHandTimedWest") or 
 				if (_playerOldAggroRank == 5) then 
 				{
 					[getPosATL player,1] call agro_spawnZombies;
-				} else if (_playerOldAggroRank == 6) then 
+				};
+				if (_playerOldAggroRank == 6) then 
 				{
 					[getPosATL player,2] call agro_spawnZombies;
-				} else if (_playerOldAggroRank == 7) then 
+				};
+				if (_playerOldAggroRank == 7) then 
 				{
 					[getPosATL player,4] call agro_spawnZombies;
-				} else if (_playerOldAggroRank == 8) then 
+				};
+				if (_playerOldAggroRank == 8) then 
 				{
 					[getPosATL player,6] call agro_spawnZombies;
-				} else if (_playerOldAggroRank == 9) then 
+				};
+				if (_playerOldAggroRank == 9) then 
 				{
 					[getPosATL player,8] call agro_spawnZombies;
-				} else if (_playerOldAggroRank == 10) then 
+				};
+				if (_playerOldAggroRank == 10) then 
 				{
 					[getPosATL player,10] call agro_spawnZombies;
 				};
