@@ -814,6 +814,17 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		player removeAction s_player_studybody;
 		s_player_studybody = -1;
 	};
+	
+	if (_isMan and !_isAlive and !_isZombie) then {
+		if (s_player_burybody < 0) then {
+			s_player_burybody = player addAction [localize "str_action_burybody", "\z\addons\dayz_code\actions\bury_body.sqf",cursorTarget, 0, false, true, "",""];
+		};
+	} else {
+		player removeAction s_player_burybody;
+		s_player_burybody = -1;
+	};
+	
+	
 	 //CLOTHES
     if (_isMan and !_isAlive and !_isZombie and !_isAnimal) then {
     if (s_clothes < 0) then {
@@ -898,6 +909,15 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
     } else {
         player removeAction s_player_knockout;
         s_player_knockout = -1;
+    };
+	
+	if (_isMan and _isAlive and !_isZombie and _canDo and !_unconscious) then {
+        if (s_player_buttattack < 0) then {
+            s_player_buttattack = player addAction [("<t color=""#FF9800"">" + ("Butt Attack!") + "</t>"), "\z\addons\dayz_code\actions\player_weaponButtAttack.sqf",cursorTarget, 0, false, true, "",""];
+        };
+    } else {
+        player removeAction s_player_buttattack;
+        s_player_buttattack = -1;
     };
 
 	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and _hasToolbox and getDammage cursorTarget < 0.95) then { 
@@ -1073,11 +1093,15 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	s_player_fillfuel = -1;
 	player removeAction s_player_studybody;
 	s_player_studybody = -1;
+	player removeAction s_player_burybody;
+	s_player_burybody = -1;
 	player removeAction s_clothes;
     	s_clothes = -1;
 		
 	player removeAction s_player_knockout;
 	s_player_knockout = -1;
+	player removeAction s_player_buttattack;
+	s_player_buttattack = -1;
 	/*
 	//Drag Body
 	player removeAction s_player_dragbody;
