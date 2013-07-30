@@ -36,7 +36,7 @@ item31[] = {"ERROR__Bad_Versi",2,250,175.000000,800.000000,275.000000,850.000000
 item32[] = {"Display_Ready",4,218,-175.000000,1050.000000,-75.000000,1100.000000,0.000000,"Display" \n "Ready"};
 item33[] = {"Preload_Display",2,250,-75.000000,1100.000000,25.000000,1150.000000,0.000000,"Preload" \n "Display"};
 item34[] = {"Preload_Done",4,218,-175.000000,1150.000000,-75.000000,1200.000000,0.000000,"Preload" \n "Done"};
-item35[] = {"Initialize",2,4346,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Initialize"};
+item35[] = {"Initialize",2,250,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Initialize"};
 item36[] = {"Finish",1,250,-75.000000,1300.000000,25.000000,1350.000000,0.000000,"Finish"};
 item37[] = {"True",8,218,25.000000,1250.000000,125.000000,1300.000000,0.000000,"True"};
 item38[] = {"Too_Long",4,218,300.000000,150.000000,400.000000,200.000000,0.000000,"Too" \n "Long"};
@@ -45,7 +45,7 @@ item40[] = {"Too_Long",4,218,300.000000,700.000000,400.000000,750.000000,0.00000
 item41[] = {"Too_Long",4,218,300.000000,800.000000,400.000000,850.000000,0.000000,"Too" \n "Long"};
 item42[] = {"Enable_Sim",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Enable Sim"};
 item43[] = {"Initialized",4,218,-175.000000,-150.000000,-75.000000,-100.000000,0.000000,"Initialized"};
-item44[] = {"New_Character",4,218,-625.000000,425.000000,-525.000000,475.000000,5.000000,"New" \n "Character"};
+item44[] = {"New_Character",4,4314,-625.000000,425.000000,-525.000000,475.000000,5.000000,"New" \n "Character"};
 item45[] = {"Gender_Selection",2,250,-625.000000,550.000000,-525.000000,600.000000,0.000000,"Gender Selection" \n "Dialog"};
 item46[] = {"Selected",4,218,-625.000000,700.000000,-525.000000,750.000000,0.000000,"Selected"};
 item47[] = {"Process",2,250,-625.000000,800.000000,-525.000000,850.000000,0.000000,"Process"};
@@ -171,7 +171,7 @@ link87[] = {76,77};
 link88[] = {77,78};
 link89[] = {78,68};
 globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-672.862732,312.885040,1303.689697,132.795029,772,917,1};
-window[] = {0,-1,-1,-1,-1,1137,75,2011,75,1,790};
+window[] = {0,-1,-1,-1,-1,1387,325,2261,325,1,790};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -552,7 +552,8 @@ class FSM
        "_version	= _msg select 5;" \n
        "_model		= _msg select 6;" \n
        "_spawnSelection = 9;" \n
-       "_classSelection=0;" \n
+       "_isInfected = 0;" \n
+       "_classSelection = 0;" \n
        "_isHiveOk = false;" \n
        "_newPlayer = false;" \n
        "" \n
@@ -606,7 +607,7 @@ class FSM
           priority = 5.000000;
           to="Gender_Selection";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_isNew && _isInfected == 0"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_isNew && !_isInfected)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -616,7 +617,7 @@ class FSM
           priority = 5.000000;
           to="Player_Zombie__S";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_isNew && _isInfected == 1"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(_isNew && _isInfected)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
