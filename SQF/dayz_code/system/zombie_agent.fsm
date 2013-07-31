@@ -166,7 +166,7 @@ link89[] = {68,10};
 link90[] = {69,17};
 link91[] = {70,48};
 link92[] = {71,45};
-globals[] = {25.000000,1,0,0,0,640,480,1,142,6316128,1,-648.421997,603.837463,886.927368,-77.592674,1262,895,1};
+globals[] = {25.000000,1,0,0,0,640,480,1,142,6316128,1,-648.421997,603.837463,953.582703,65.490593,1262,895,1};
 window[] = {0,-1,-1,-32000,-32000,1250,312,2240,210,1,1280};
 *//*%FSM</HEAD>*/
 class FSM
@@ -517,40 +517,43 @@ class FSM
        "_targetPosition = getPosATL _target;" \n
        "_agentPosition = getPosATL _agent;" \n
        "" \n
-       "_list = (_agentPosition) nearEntities [[""CAManBase"",""AllVehicles""],75];" \n
-       "_isSomeone = ({isPlayer _x} count _list) > 0;" \n
+       "_list = (_agentPosition) nearEntities [[""Man""],75];" \n
        "_playerPosition = [];" \n
        "_isAlive = alive _agent;" \n
        "_isAliveTarget = alive _target;" \n
        "" \n
        "{" \n
-       "	_playerNewAggroRank = _x getVariable [""aggroRank"",0];" \n
-       "	_playerOldAggroRank = _target getVariable [""aggroRank"",0];" \n
-       "	if (_playerNewAggroRank >= _playerOldAggroRank) then {" \n
-       "		_playerPosition = getPosATL _x;" \n
-       "" \n
-       "		_tPositionx = _targetPosition select 0;" \n
-       "		_tPositiony = _targetPosition select 1;" \n
-       "" \n
-       "		_aPositionx = _agentPosition select 0;" \n
-       "		_aPositiony = _agentPosition select 1;" \n
-       "" \n
-       "		_pPositionx = _playerPosition select 0;" \n
-       "		_pPositiony = _playerPosition select 1;" \n
-       "" \n
-       "		_tPosx = _tPositionx - _aPositionx;" \n
-       "		_tPosy = _tPositiony - _aPositiony;" \n
-       "		_pPosx = _pPositionx - _aPositionx;" \n
-       "		_pPosy = _pPositiony - _aPositiony;" \n
-       "" \n
-       "		if (_pPosx < _tPosx && _pPosy < _tPosy) then " \n
+       "	if (isPlayer _x) then {" \n
+       "		if ( _target != _x) then " \n
        "		{" \n
-       "			_target = _x;" \n
-       "			_targetPosition = _playerPosition;" \n
-       "			diag_log(str(_agent) + "" found a new target "" + str(_x) + "" and is avoiding "" + str(_target));" \n
+       "			_playerNewAggroRank = _x getVariable [""aggroRank"",0];" \n
+       "			_playerOldAggroRank = _target getVariable [""aggroRank"",0];" \n
+       "			if (_playerNewAggroRank >= _playerOldAggroRank) then {" \n
+       "				_playerPosition = getPosATL _x;" \n
+       "" \n
+       "				_tPositionx = _targetPosition select 0;" \n
+       "				_tPositiony = _targetPosition select 1;" \n
+       "" \n
+       "				_aPositionx = _agentPosition select 0;" \n
+       "				_aPositiony = _agentPosition select 1;" \n
+       "" \n
+       "				_pPositionx = _playerPosition select 0;" \n
+       "				_pPositiony = _playerPosition select 1;" \n
+       "" \n
+       "				_tPosx = _tPositionx - _aPositionx;" \n
+       "				_tPosy = _tPositiony - _aPositiony;" \n
+       "				_pPosx = _pPositionx - _aPositionx;" \n
+       "				_pPosy = _pPositiony - _aPositiony;" \n
+       "" \n
+       "				if (_pPosx < _tPosx && _pPosy < _tPosy) then " \n
+       "				{" \n
+       "					_target = _x;" \n
+       "					_targetPosition = _playerPosition;" \n
+       "					diag_log(str(_agent) + "" found a new target "" + str(_x) + "" and is avoiding "" + str(_target));" \n
+       "				};" \n
+       "			};" \n
        "		};" \n
        "	};" \n
-       "" \n
        "} foreach _list;" \n
        "" \n
        "" \n
