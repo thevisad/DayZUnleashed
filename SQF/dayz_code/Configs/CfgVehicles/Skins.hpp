@@ -33,6 +33,11 @@ class TheVisad_DZU: GER_Soldier_EP1 {
 	displayName = "TheBeard";
 };
 
+class PvtAmmo_DZU: GER_Soldier_EP1 {
+    identityTypes[] = {"PvtAmmo"};
+	displayName = "PedoBear";
+};
+
 class XyberViri_DZU: GER_Soldier_EP1 {
     identityTypes[] = {"XyberViri"};
 	displayName = "TheAss";
