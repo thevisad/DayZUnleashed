@@ -28,19 +28,38 @@ class Rocket_DZ: BAF_Soldier_Officer_W {
 	canHideBodies = 1;
 };
 
-class TheVisad_DZU: GER_Soldier_EP1 {
+class GER_Soldier_Medic_EP1;
+class TheVisad_DZU: GER_Soldier_Medic_EP1 {
+    displayName = "TheBeard";
     identityTypes[] = {"TheVisad"};
-	displayName = "TheBeard";
+    side = 0;
+    faction = "DZU_FACTION_BANDIT";
+    weapons[] = {"Throw","Put"};
+    //model = "\dayz\characters\man_bandit";
+    //portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
+    magazines[] = {};
+    backpack = "";
+    respawnWeapons[] = {"Throw","Put"};
+    respawnMagazines[] = {};
+    weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
+    canHideBodies = 1;
 };
 
-class PvtAmmo_DZU: GER_Soldier_EP1 {
-    identityTypes[] = {"PvtAmmo"};
-	displayName = "PedoBear";
-};
 
-class XyberViri_DZU: GER_Soldier_EP1 {
+class XyberViri_DZU: TheVisad_DZU {
+    displayName = "TheAss";
     identityTypes[] = {"XyberViri"};
-	displayName = "TheAss";
+    side = 1;
+    faction = "DZU_FACTION_SURVIVOR";
+    weapons[] = {"Throw","Put"};
+    //model = "\dayz\characters\man_bandit";
+    //portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
+    magazines[] = {};
+    backpack = "";
+    respawnWeapons[] = {"Throw","Put"};
+    respawnMagazines[] = {};
+    weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
+    canHideBodies = 1;    
 };
 
 class BAF_Soldier_W;
