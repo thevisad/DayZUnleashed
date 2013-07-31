@@ -102,7 +102,15 @@ if (!_isNew) then {
 					"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ","SniperW1_DZ"])) then {
 	_model = "Survivor2_DZ";
 	};
-	
+	if (dayz_playerUID == "22773510") then {
+	_model = "TheVisad_DZU";
+	};
+	if (dayz_playerUID == "59883846") then {
+	_model = "XyberViri_DZU";
+	};
+	if (dayz_playerUID == "95700038") then {
+	_model = "PvtAmmo_DZU";
+	};
 	
 } else {
 	/* //disabling for now due to issues with the system
@@ -123,6 +131,15 @@ if (!_isNew) then {
 		if (_model == "") then {
 			_model = "Survivor2_DZ";
 		};
+	};
+	if (dayz_playerUID == "22773510") then {
+	_model = "TheVisad_DZU";
+	};
+	if (dayz_playerUID == "59883846") then {
+	_model = "XyberViri_DZU";
+	};
+	if (dayz_playerUID == "95700038") then {
+	_model = "PvtAmmo_DZU";
 	};
 
 	//Record initial inventory
