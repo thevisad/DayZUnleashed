@@ -62,6 +62,21 @@ class XyberViri_DZU: TheVisad_DZU {
     canHideBodies = 1;    
 };
 
+class PvtAmmo_DZU: TheVisad_DZU {
+    displayName = "PedoBear";
+    identityTypes[] = {"PvtAmmo"};
+    side = 1;
+    faction = "DZU_FACTION_SURVIVOR";
+    weapons[] = {"Throw","Put"};
+    //model = "\dayz\characters\man_bandit";
+    //portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
+    magazines[] = {};
+    backpack = "";
+    respawnWeapons[] = {"Throw","Put"};
+    respawnMagazines[] = {};
+    weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
+    canHideBodies = 1;    
+};
 class BAF_Soldier_W;
 class Soldier1_DZ: BAF_Soldier_W {
 	displayName = "Soldier";
