@@ -105,7 +105,7 @@ if (!_isNew) then {
 	
 	
 } else {
-
+	/* //disabling for now due to issues with the system
 	// get medical from past character
 	_key_medical = format["CHILD:150:%1:",_playerID];
 	_medical = _key_medical call server_hiveReadWrite;
@@ -114,7 +114,7 @@ if (!_isNew) then {
 	if (count _medical > 0) then {
 		_isInfected = _medical select 2;
 	};
-
+	*/
 	_model =		_primary select 3;
 	_hiveVer =		_primary select 4;
 	if (isNil "_model") then {
