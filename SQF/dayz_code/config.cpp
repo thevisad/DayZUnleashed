@@ -309,6 +309,20 @@ class CfgFaces {
 			identityTypes[] = {"Zombie3"};
 			disabled = 0;
 		};
+		
+        	class TheVisad : Default {
+            	name = "TheVisad";
+           	texture = "\z\addons\unleashed_pack\textures\thevisad_skin.paa";
+           	identityTypes[] = {"TheVisad"};
+            	disabled = 0;
+            	};
+            	
+		class XyberViri : Default {
+            	name = "XyberViri";
+            	texture = "\z\addons\unleashed_pack\textures\xyberviri_skin.paa";
+            	identityTypes[] = {"XyberViri"};
+            	disabled = 0;
+            	};	
 	};
 	// player zombie
 	class ZFaces
@@ -338,23 +352,6 @@ class CfgFaces {
 		};
 	};
 	
-	class DZUFaces : Default
-    {
-        class Default;
-        class TheVisad : Default {
-            name = "TheVisad";
-            texture = "\z\addons\unleashed_pack\textures\thevisad_skin.paa";
-            identityTypes[] = {"TheVisad"};
-            disabled = 0;
-            };
-		class XyberViri : Default {
-            name = "XyberViri";
-            texture = "\z\addons\unleashed_pack\textures\xyberviri_skin.paa";
-            identityTypes[] = {"XyberViri"};
-            disabled = 0;
-            };	
-		
-    };
 };
 
 class CfgSurvival {
