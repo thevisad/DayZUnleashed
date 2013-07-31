@@ -900,8 +900,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		stow_vehicle = -1; 
 	};
 	
-    _unconscious =    cursorTarget getVariable ["NORRN_unconscious", false];
- 
+    _unconscious = cursorTarget getVariable ["NORRN_unconscious", false];
+	/*
     if (_isMan and _isAlive and !_isZombie and _canDo and !_unconscious) then {
         if (s_player_knockout < 0) then {
             s_player_knockout = player addAction [("<t color=""#FF9800"">" + ("Knockout Player") + "</t>"), "\z\addons\dayz_code\actions\player_knockout.sqf",cursorTarget, 0, false, true, "",""];
@@ -910,7 +910,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
         player removeAction s_player_knockout;
         s_player_knockout = -1;
     };
-	
+	*/
 	if (_isMan and _isAlive and !_isZombie and _canDo and !_unconscious) then {
         if (s_player_buttattack < 0) then {
             s_player_buttattack = player addAction [("<t color=""#FF9800"">" + ("Butt Attack!") + "</t>"), "\z\addons\dayz_code\actions\player_weaponButtAttack.sqf",cursorTarget, 0, false, true, "",""];

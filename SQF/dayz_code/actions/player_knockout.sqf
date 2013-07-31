@@ -1,6 +1,6 @@
-private["_hasCrowbar1","_item","_text","_body","_name","_hasCrowbar2","_knockoutMode"];
-_body = 	_this select 3;
-_onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
+private ["_body","_onLadder","_hasCrowbar1","_hasCrowbar2","_hasPrimary","_knockoutMode"];
+_body = _this select 3;
+_onLadder =	(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 
 if (_onLadder) exitWith {cutText ["You can't knock a player out while you're on a ladder; don't you know anything?" , "PLAIN DOWN"]};
 

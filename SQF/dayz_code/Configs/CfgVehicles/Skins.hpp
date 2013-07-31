@@ -27,6 +27,17 @@ class Rocket_DZ: BAF_Soldier_Officer_W {
 	weaponSlots = "1	 + 	4	 + 12*		256	 + 2*	4096	 + 	2	 + 8*	16  + 12*131072";
 	canHideBodies = 1;
 };
+
+class TheVisad_DZU: GER_Soldier_EP1 {
+    identityTypes[] = {"TheVisad"};
+	displayName = "TheBeard";
+};
+
+class XyberViri_DZU: GER_Soldier_EP1 {
+    identityTypes[] = {"XyberViri"};
+	displayName = "TheAss";
+};
+
 class BAF_Soldier_W;
 class Soldier1_DZ: BAF_Soldier_W {
 	displayName = "Soldier";

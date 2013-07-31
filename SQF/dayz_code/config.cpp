@@ -265,6 +265,22 @@ class CfgIdentities {
 		speaker = "NoVoice";
 		pitch = 1;
 	};
+	class TheVisad
+    {
+        name="Survivor";
+        face="TheVisad";
+        glasses="none";
+        speaker="Male04_GB_EN_PMC";
+        pitch=1.000000;
+    };
+	class XyberViri
+    {
+        name="Survivor";
+        face="XyberViri";
+        glasses="none";
+        speaker="Male04_GB_EN_PMC";
+        pitch=1.000000;
+    };
 };
 
 class CfgFaces {
@@ -321,6 +337,24 @@ class CfgFaces {
 			disabled = 0;
 		};
 	};
+	
+	class DZUFaces : Default
+    {
+        class Default;
+        class TheVisad : Default {
+            name = "TheVisad";
+            texture = "\z\addons\unleashed_pack\textures\thevisad_skin.paa";
+            identityTypes[] = {"TheVisad"};
+            disabled = 0;
+            };
+		class XyberViri : Default {
+            name = "XyberViri";
+            texture = "\z\addons\unleashed_pack\textures\xyberviri_skin.paa";
+            identityTypes[] = {"XyberViri"};
+            disabled = 0;
+            };	
+		
+    };
 };
 
 class CfgSurvival {

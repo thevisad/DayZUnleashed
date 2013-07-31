@@ -369,7 +369,7 @@
 			<Czech>Nelze znovu provést krevní transfúzi tak rychle po sobě.</Czech>
 		</Key>
 		<Key ID="str_action_burybody">
-			<English>Study Body</English>
+			<English>Bury Body</English>
 			<German>Leiche beisetzen</German>
 			<Russian>Похоронить тело</Russian>
 			<Spanish>Bury Cuerpo</Spanish>
@@ -378,7 +378,7 @@
 			<Czech>Pohřbít tělo</Czech>
 		</Key>
 		<Key ID="str_action_studybody">
-			<English>Bury Body</English>
+			<English>Study Body</English>
 			<German>Leiche untersuchen</German>
 			<Russian>Обследовать тело</Russian>
 			<Spanish>Estudiar Cuerpo</Spanish>
