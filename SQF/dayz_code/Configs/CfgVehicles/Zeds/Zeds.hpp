@@ -15,7 +15,7 @@ class zZombie_Base : Citizen1 {
 	magazines[] = {};
 	sensitivity = 2;	// sensor sensitivity
 	sensitivityEar = 4;
-	identityTypes[] = {"zombie1", "zombie2"};
+	identityTypes[] = {"zombie1", "zombie2" , "zombie4", "zombie5", "zombie6", "zombie7", "zombie8", "zombie9", "zombie10", "zombie11", "zombie12", "zombie13", "zombie14", "zombie15"};
 	class TalkTopics {};
 	languages[] = {};
 	
@@ -132,7 +132,7 @@ class Swarm_Base : Citizen1 {
 	magazines[] = {};
 	sensitivity = 1;	// sensor sensitivity
 	sensitivityEar = 1;
-	identityTypes[] = {"zombie1", "zombie2"};
+	identityTypes[] = {"zombie1", "zombie2" , "zombie4", "zombie5", "zombie6", "zombie7", "zombie8", "zombie9", "zombie10", "zombie11", "zombie12", "zombie13", "zombie14", "zombie15"};
 	class TalkTopics {};
 	languages[] = {};
 	armor = 10;

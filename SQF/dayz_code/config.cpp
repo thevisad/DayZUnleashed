@@ -248,6 +248,94 @@ class CfgIdentities {
 		speaker = "NoVoice";
 		pitch = 1;
 	};
+	class Zombie4 {
+		name = "Zombie";
+		face = "Zombie4";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class Zombie5 {
+		name = "Zombie";
+		face = "Zombie5";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class Zombie6 {
+		name = "Zombie";
+		face = "Zombie6";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class Zombie7 {
+		name = "Zombie";
+		face = "Zombie7";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class Zombie8 {
+		name = "Zombie";
+		face = "Zombie8";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class Zombie9 {
+		name = "Zombie";
+		face = "Zombie9";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class Zombie10 {
+		name = "Zombie";
+		face = "Zombie10";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class Zombie11 {
+		name = "Zombie";
+		face = "Zombie11";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	
+	class Zombie12 {
+		name = "Zombie";
+		face = "Zombie12";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	
+	class Zombie13 {
+		name = "Zombie";
+		face = "Zombie13";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	
+	class Zombie14 {
+		name = "Zombie";
+		face = "Zombie14";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	
+	class Zombie15 {
+		name = "Zombie";
+		face = "Zombie15";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
 	// player zombie
 	class PZombie1
 	{
@@ -289,6 +377,14 @@ class CfgIdentities {
         speaker="Male04_GB_EN_PMC";
         pitch=1.000000;
     };
+	class SonOfXerXes
+    {
+        name="Survivor";
+        face="SonOfXerXes";
+        glasses="none";
+        speaker="Male04_GB_EN_PMC";
+        pitch=1.000000;
+    };
 };
 
 class CfgFaces {
@@ -310,6 +406,87 @@ class CfgFaces {
 			disabled = 0;
 		};
 		
+		class Zombie4 : Default {
+			name = "Zombie 4";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skina.paa";
+			identityTypes[] = {"Zombie4"};
+			disabled = 0;
+		};
+		
+		class Zombie5 : Default {
+			name = "Zombie 5";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skinb.paa";
+			identityTypes[] = {"Zombie5"};
+			disabled = 0;
+		};
+		
+		class Zombie6 : Default {
+			name = "Zombie 6";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skinc.paa";
+			identityTypes[] = {"Zombie6"};
+			disabled = 0;
+		};
+		
+		class Zombie7 : Default {
+			name = "Zombie 7";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skind.paa";
+			identityTypes[] = {"Zombie7"};
+			disabled = 0;
+		};
+		
+		class Zombie8 : Default {
+			name = "Zombie 8";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skine.paa";
+			identityTypes[] = {"Zombie8"};
+			disabled = 0;
+		};
+		
+		class Zombie9 : Default {
+			name = "Zombie 9";
+			texture = "z\addons\unleashed_pack\textures\zombie_skinf.paa";
+			identityTypes[] = {"Zombie9"};
+			disabled = 0;
+		};
+		
+		class Zombie10 : Default {
+			name = "Zombie 10";
+			texture = "\z\addons\unleashed_pack\textures\zombie_sking.paa";
+			identityTypes[] = {"Zombie10"};
+			disabled = 0;
+		};
+		
+		class Zombie11 : Default {
+			name = "Zombie 11";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skinh.paa";
+			identityTypes[] = {"Zombie11"};
+			disabled = 0;
+		};
+		
+		class Zombie12 : Default {
+			name = "Zombie 12";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skini.paa";
+			identityTypes[] = {"Zombie12"};
+			disabled = 0;
+		};
+		class Zombie13 : Default {
+			name = "Zombie 13";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skinj.paa";
+			identityTypes[] = {"Zombie13"};
+			disabled = 0;
+		};
+		class Zombie14 : Default {
+			name = "Zombie 14";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skink.paa";
+			identityTypes[] = {"Zombie14"};
+			disabled = 0;
+		};
+		class Zombie15 : Default {
+			name = "Zombie 15";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skinl.paa";
+			identityTypes[] = {"Zombie15"};
+			disabled = 0;
+		};
+		
 		class Zombie3 : Default {
 			name = "Zombie 3";
 			texture = "z\addons\dayz_communityassets\faces\zombie_03_co.paa";
@@ -318,7 +495,13 @@ class CfgFaces {
 			disabled = 0;
 		};
 		
-        	class TheVisad : Default {
+        class SonOfXerXes : Default {
+            	name = "SonOfXerXes";
+           	texture = "\z\addons\unleashed_pack\textures\xerxes_skin.paa";
+           	identityTypes[] = {"SonOfXerXes"};
+            	disabled = 0;
+            	};
+		class TheVisad : Default {
             	name = "TheVisad";
            	texture = "\z\addons\unleashed_pack\textures\thevisad_skin.paa";
            	identityTypes[] = {"TheVisad"};

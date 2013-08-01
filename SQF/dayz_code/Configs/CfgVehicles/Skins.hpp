@@ -45,6 +45,21 @@ class TheVisad_DZU: GER_Soldier_Medic_EP1 {
     canHideBodies = 1;
 };
 
+class XerXes_DZU: GER_Soldier_Medic_EP1 {
+    displayName = "DaChops";
+    identityTypes[] = {"SonOfXerXes"};
+    side = 0;
+    faction = "DZU_FACTION_BANDIT";
+    weapons[] = {"Throw","Put"};
+    //model = "\dayz\characters\man_bandit";
+    //portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
+    magazines[] = {};
+    backpack = "";
+    respawnWeapons[] = {"Throw","Put"};
+    respawnMagazines[] = {};
+    weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
+    canHideBodies = 1;
+};
 
 class XyberViri_DZU: TheVisad_DZU {
     displayName = "TheAss";
@@ -77,6 +92,7 @@ class PvtAmmo_DZU: TheVisad_DZU {
     weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
     canHideBodies = 1;    
 };
+
 class BAF_Soldier_W;
 class Soldier1_DZ: BAF_Soldier_W {
 	displayName = "Soldier";
