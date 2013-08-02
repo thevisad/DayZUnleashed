@@ -555,8 +555,8 @@ class CfgSurvival {
 	class Inventory {
 		class Default {
 			RandomMagazines = 3;
-			//weapons[] = {"Makarov"}; //8Rnd_9x18_Makarov
-			GuaranteedMagazines[] = {"ItemBandage","HandRoadFlare"};
+			weapons[] = {"Revolver"}; //8Rnd_9x18_Makarov
+			GuaranteedMagazines[] = {"ItemBandage","B_45ACP_Ball"};
 			RandomPossibilitieMagazines[] = {"ItemBandage","ItemPainkiller"};
 			//weapons[] = {"HandRoadFlare"};
 			backpackWeapon = "";

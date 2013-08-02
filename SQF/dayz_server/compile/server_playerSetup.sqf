@@ -212,11 +212,6 @@ if (_randomSpot) then {
 		// random spawn location selected, lets get the marker and spawn in somewhere
 			_mkr = getMarkerPos ("spawn" + str(floor(random 5)));
 			} else {
-		  if (_spawnSelection==5) then {
-			// berezino spawn location placed here instead of in mission file
-			_mkr=[12048,8352,0];
-		  }
-		  else {
 			// spawn is not random, lets spawn in our location that was selected
 			_mkr = getMarkerPos ("spawn" + str(_spawnSelection));
 		  };
