@@ -1,3 +1,14 @@
+class Sign_circle_EP1;
+class zZombie_Distraction: Sign_circle_EP1
+{
+        scope = 2;
+        vehicleClass = "Distraction";
+        model = "ca\Misc_E\sign_circle_EP1";
+        displayName = "";
+        accuracy = 1000;
+        hiddenSelections[] = {"camo"};
+        hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0,0,0,0)"};
+};
 class Citizen1;	// External class reference
 class zZombie_Base : Citizen1 {
 	scope = public;

@@ -27,6 +27,9 @@ class CfgVehicleClasses {
 	class Survival {
 		displayName = "Survival";
 	};
+    class Distraction {
+        displayName = "Distraction";
+    };
 };
 
 class CfgMagazines {
