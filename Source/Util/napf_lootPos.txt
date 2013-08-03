@@ -201,8 +201,6 @@ Land_a_stationhouse :: {-3.66602,-8.0791,-9.47058};
 Land_a_stationhouse :: {-1.75586,-7.20605,-4.6489};
 Land_a_stationhouse :: {-2.18555,-7.34473,-0.0437851};
 Land_a_stationhouse :: {-1.66992,-6.69434,4.41139};
-Land_Wall_Gate_Ind2B_L :: {12.1714,-10.9316,-0.343384};
-Land_Wall_Gate_Ind2B_L :: {-10.0938,0.100586,-20.7845};
 Land_sara_domek_vilka :: {-5.80859,-0.578613,-4.17358};
 Land_Hlidac_budka :: {1.74414,0.932617,-0.783618};
 Land_hruzdum :: {-1.56445,3.4834,-4.73356};
