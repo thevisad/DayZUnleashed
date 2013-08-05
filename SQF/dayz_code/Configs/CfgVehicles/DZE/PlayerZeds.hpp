@@ -1,4 +1,4 @@
-class PZombie_VB: Citizen1
+class PZombie_VB: DUZedBase
 {
 	side = 1;
 	glassesEnabled = 0;
