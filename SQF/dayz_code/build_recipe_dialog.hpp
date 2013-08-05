@@ -10,7 +10,7 @@ class RscFrame;
 class BOX;*/
 class Build_Recipe_Dialog
 {
-    idd = -1;
+    idd = 6905;
     onLoad="uiNamespace setVariable ['Build_Recipe_Dialog', _this select 0]";
     movingenable = true;
     onUnLoad="uiNamespace setVariable ['Build_Recipe_Dialog', nil]";

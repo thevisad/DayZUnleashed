@@ -58,7 +58,7 @@ _agent allowdamage false;
 _agent disableAI "MOVE";
 _agent disableAI "ANIM";
 
-
+/*
 if ((preProcessFileLineNumbers ("admins3.sqf")) != "") then {
 	_tmpLA = call compile preProcessFileLineNumbers "admins3.sqf";
 	PVDZ_LOW_AdminList = PVDZ_LOW_AdminList + _tmpLA;
@@ -75,6 +75,7 @@ if ((preProcessFileLineNumbers ("blacklist.sqf")) != "") then {
 	_tmpBL = call compile preProcessFileLineNumbers "blacklist.sqf";
 	PVDZ_BLOCKED = PVDZ_BLOCKED + _tmpBL;
 };
+*/
 publicVariable "PVDZ_LOW_AdminList";
 publicVariable "PVDZ_NORMAL_AdminList";
 publicVariable "PVDZ_SUPER_AdminList";
@@ -241,7 +242,7 @@ _LoadPlease = compile ("
 						if !(_i in _dayzActions) then {player removeAction _i};
 					};
 					
-					if (isNull (findDisplay 106) and isNull (findDisplay 20900) and isNull (findDisplay 6902) and isNull (findDisplay 6903) and isNull (findDisplay 6904) ) then {closeDialog 0;};
+					if (isNull (findDisplay 106) and isNull (findDisplay 20900) and isNull (findDisplay 6902) and isNull (findDisplay 6903) and isNull (findDisplay 6904) and isNull (findDisplay 6905) ) then {closeDialog 0;};
 					player allowDamage true;
 					sleep 0.2;
 				};
@@ -561,7 +562,7 @@ call compile ("
 				nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
 				endMission 'LOSER';
 			};
-			if (isNull (findDisplay 106) and isNull (findDisplay 6902) and isNull (findDisplay 6903) and isNull (findDisplay 6904) and !(ctrlEnabled 1900)) then {closeDialog 0;};
+			if (isNull (findDisplay 106) and isNull (findDisplay 6902) and isNull (findDisplay 6903) and isNull (findDisplay 6904)  and isNull (findDisplay 6905) and !(ctrlEnabled 1900)) then {closeDialog 0;};
 			if (!isNull (findDisplay 49)) then {
 				(findDisplay 49) displayRemoveAllEventHandlers 'KeyDown';
 				(findDisplay 49) displayRemoveAllEventHandlers 'KeyUp';

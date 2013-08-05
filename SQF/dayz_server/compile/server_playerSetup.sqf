@@ -215,7 +215,7 @@ if (_randomSpot) then {
 			// spawn is not random, lets spawn in our location that was selected
 			_mkr = getMarkerPos ("spawn" + str(_spawnSelection));
 		  };
-		};
+
 		_position = ([_mkr,0,1400,10,0,2,1] call BIS_fnc_findSafePos);
 		if ((count _position >= 2) // !bad returned position
 			AND {(_position distance _mkr < 1400)}) then { // !ouside the disk
