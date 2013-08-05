@@ -43,7 +43,7 @@ DZAI_refreshRate = 15;										//Amount of time in seconds between AI ammo refr
 DZAI_zDetectRange = 200;									//Maximum distance for AI group leader to detect zombies. Increasing range beyond default may impact server performance. (Default: 200)
 
 //AI Spawning Variables
-DZAI_respawnTime = 300;										//Time to wait before respawning an AI group once all units have been eliminated. (Default: 300)
+DZAI_respawnTime = 1200;										//Time to wait before respawning an AI group once all units have been eliminated. (Default: 300)
 DZAI_despawnWait = 120;										//Time to allow spawned AI units to exist in seconds before being despawned when no players are present in a trigger area. (Default: 120)
 
 //Dynamic Trigger Settings
@@ -61,11 +61,11 @@ DZAI_heliTypes = ["UH1H_DZ"];								//Classnames of helicopter types to use. He
 //Extra AI Settings
 DZAI_findKiller = true;									//If enabled, AI group will attempt to track down player responsible for killing a group member. Players with radios will be given text warnings if they are being pursued (Default: false)
 DZAI_tempNVGs = true;										//If normal probability check for spawning NVGs fails, then give AI temporary NVGs only if they are spawned with weapongrade 2 or 3 (applies only during nighttime hours). Temporary NVGs are unlootable and will be removed at death (Default: false).
-DZAI_humanityGain = 0;										//Amount of humanity to reward player for killing an AI unit (Default: 0)
+DZAI_humanityGain = 100;										//Amount of humanity to reward player for killing an AI unit (Default: 0)
 
 //Dynamic weapon list settings
 DZAI_dynamicWeaponList = true;								//True: Dynamically generate AI weapon list from CfgBuildingLoot. False: Use preset weapon list (DayZ 1.7.6.1). Highly recommended to enable DZAI_verifyTables if this option is set to false. (Default: true).
-DZAI_banAIWeapons = [];										//(Only if DZAI_dynamicWeaponList = true) List of weapons that AI should never use. By default, AI may carry any lootable weapon. Example: DZAI_banAIWeapons = ["M107_DZ","BAF_AS50_scoped"]; will remove the M107 and AS50 from AI weapon tables if dynamic weapon list is enabled.
+DZAI_banAIWeapons = ["M107_DZ","BAF_AS50_scoped"];										//(Only if DZAI_dynamicWeaponList = true) List of weapons that AI should never use. By default, AI may carry any lootable weapon. Example: DZAI_banAIWeapons = ["M107_DZ","BAF_AS50_scoped"]; will remove the M107 and AS50 from AI weapon tables if dynamic weapon list is enabled.
 //Note: It is recommended to add all melee weapon classnames into this list as AI have issues using melee weapons. All melee weapons and crossbows present in DayZ 1.7.7.1 have been pre-banned ("Crossbow_DZ","Crossbow","MeleeBaseBallBat","MeleeMachete")
 
 //AI loot amounts settings									(Edible and Medical items, Miscellaneous items, Skin packs)

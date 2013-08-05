@@ -47,4 +47,5 @@ if (_manDis > _range) then {
 	_targets = _targets - [_target];
 	_target = objNull;
 };
+diag_log("Unleashed: findtargetAgent target:" + str(_target));
 _target;

@@ -9,7 +9,7 @@ _agent = 	objNull;
 
 if (dayz_agroSpawnZombies > dayz_localagroSpawned) exitwith {}; 
 
-_spawnChance = ceil(random 10);
+_spawnChance = (ceil(random 10) + 1);
 diag_log("_random: " + str(_random) + " _spawnChance:" + str(_spawnChance));
 if (_random < _spawnChance) exitwith {}; 
 
@@ -36,11 +36,11 @@ if (isNull _agent) exitWith {
 };
 
 _isAlive = alive _agent;
-
+/*
 _myDest = getPosATL _agent;
 _newDest = getPosATL _agent;
 _agent setVariable ["myDest",_myDest];
 _agent setVariable ["newDest",_player];
-
+*/
 //Start behavior
 _id = [_position,_agent] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";

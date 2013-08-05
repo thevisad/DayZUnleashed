@@ -18,7 +18,7 @@ item13[] = {"",7,210,-29.000006,-29.000004,-20.999996,-20.999996,0.000000,""};
 item14[] = {"",7,210,-279.000061,-29.000004,-270.999969,-20.999996,0.000000,""};
 item15[] = {"",7,210,-254.000046,146.000000,-245.999954,154.000000,0.000000,""};
 item16[] = {"Has_Target",4,218,-150.000000,200.000000,-50.000000,250.000000,1.000000,"Has" \n "Target"};
-item17[] = {"Chase",2,250,-150.000000,325.000000,-50.000000,375.000000,0.000000,"Chase"};
+item17[] = {"Chase",2,4346,-150.000000,325.000000,-50.000000,375.000000,0.000000,"Chase"};
 item18[] = {"Time_Check",4,218,50.000000,75.000000,150.000000,125.000000,0.000000,"Time" \n "Check"};
 item19[] = {"",7,210,-29.000006,146.000000,-20.999996,154.000000,0.000000,""};
 item20[] = {"",7,210,-29.000006,171.000000,-20.999996,179.000000,0.000000,""};
@@ -164,7 +164,7 @@ link88[] = {68,10};
 link89[] = {69,48};
 link90[] = {70,45};
 globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-687.778259,301.216736,1149.127686,250.773712,982,892,1};
-window[] = {0,-1,-1,-32000,-32000,1491,507,2174,454,1,1000};
+window[] = {0,-1,-1,-1,-1,1287,250,1917,250,1,1000};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -523,15 +523,16 @@ class FSM
        "_targetdistance = _agent distance _target;" \n
        "_r = 5;" \n
        "_playerdistance = 0;" \n
+       "_playerOldAggroRank = _target getVariable [""aggroRank"",0];" \n
        "diag_log( ""ZFSM: Count List: "" +str(count _localplayer));" \n
        "diag_log( ""ZFSM: Current Target: "" +str(_target));" \n
        "{" \n
        "diag_log( ""ZFSM: "" + str(_x) + "" is current loop item"");" \n
+       "_playerNewAggroRank = _x getVariable [""aggroRank"",0];" \n
+       "if (isPlayer _target) then {" \n
        "	if (isPlayer _x) then {" \n
        "		if ( _target != _x) then {" \n
        "			diag_log( ""ZFSM: X Target: "" +str(_x));" \n
-       "			_playerNewAggroRank = _x getVariable [""aggroRank"",0];" \n
-       "			_playerOldAggroRank = _target getVariable [""aggroRank"",0];" \n
        "			diag_log( ""ZFSM: X Agro: "" +str(_playerOldAggroRank) + "" new agro rank ""  +str(_playerNewAggroRank));" \n
        "			if (_playerNewAggroRank >= _playerOldAggroRank) then {" \n
        "				_playerPosition = getPosATL _x;" \n
@@ -546,6 +547,25 @@ class FSM
        "			};" \n
        "		};" \n
        "	};" \n
+       "} else {" \n
+       "	if (isPlayer _x) then {" \n
+       "			diag_log( ""ZFSM: X Target: "" +str(_x));" \n
+       "			diag_log( ""ZFSM: X Agro: "" +str(_playerOldAggroRank) + "" new agro rank ""  +str(_playerNewAggroRank));" \n
+       "			if (_playerNewAggroRank >= _playerOldAggroRank) then {" \n
+       "				_playerPosition = getPosATL _x;" \n
+       "				_playerdistance = _agent distance _x;" \n
+       "" \n
+       "				if (_playerdistance <= _targetdistance) then " \n
+       "				{" \n
+       "					diag_log( ""ZFSM: "" + str(_agent) + "" found a new target "" + str(_x) + "" and is avoiding "" + str(_target) + "" at location "" + str(_playerPosition));" \n
+       "					_target = _x;" \n
+       "					_targetPosition = _playerPosition;" \n
+       "				};" \n
+       "			};" \n
+       "		};" \n
+       "};" \n
+       "		" \n
+       "	" \n
        "} foreach _localplayer;" \n
        "" \n
        "switch (true) do {" \n
