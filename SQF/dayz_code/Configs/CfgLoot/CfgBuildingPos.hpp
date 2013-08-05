@@ -1087,7 +1087,66 @@
 		lootPos[] = {{-0.00732422,0.293945,-1.06848}};	
 		lootChance = 0.1;
 	};
-
+	
+	class Land_HouseV2_05: Residential {
+		lootPos[] = {{-3.57617,-0.321289,-2.90769}};
+		lootChance = 0.1;
+	};
+	
+	class Land_dum_rasovna: Residential {
+		lootPos[] = {{3.59424,-3.10352,-2.66958},{3.46216,3.91602,-2.66959},{-1.22534,-1.49023,0.27261}};
+		lootChance = 0.1;
+	};
+	
+	class Land_bouda2_vnitrek: Industrial {
+		lootPos[] = {{-2.45825,1.64746,-0.610509},{0.972412,1.06934,-0.610507}};
+		lootChance = 0.1;
+	};
+	
+	class Land_MBG_Killhouse_4: Industrial {
+		lootPos[] = {{-2.36914,2.56738,-3.84317},{4.95313,1.02637,-2.1184},{-4.5127,4.92041,-0.543177},{4.9834,0.208008,-3.84317}};
+		lootChance = 0.1;
+	};
+	
+	class Land_MBG_Killhouse_3: Industrial {
+		lootPos[] = {{-0.980469,2.56934,-2.84856},{-1.21973,3.83887,0.451439},{-5.72852,-1.66699,0.451439}};
+		lootChance = 0.1;
+	};
+	
+	class Land_MBG_Killhouse_2: Industrial {
+		lootPos[] = {{3.5,5.53516,-2.79856},{-1.59961,-0.203125,-2.79856},{-6.32324,-4.46387,0.501438},{-6.16504,-5.05078,3.80144}};
+		lootChance = 0.1;
+	};
+	
+	class Land_MBG_Warehouse: Industrial {
+		lootPos[] = {{20.4453,-10.9028,-2.84345},{-12.3511,20.5313,-1.08509},{20.2402,-12.7686,5.15655},{-14.3213,-13.124,5.15655}};
+		lootChance = 0.1;
+	};
+	
+	class Land_MBG_Warehouse: Industrial {
+		lootPos[] = {{-7.09277,12.4531,-7.47989},{-7.0625,-4.86914,-7.47989}};
+		lootChance = 0.1;
+	};
+	
+	class Land_sara_hasic_zbroj: Industrial {
+		lootPos[] = {{3.85254,-0.132813,-2.65287}};
+		lootChance = 0.1;
+	};
+	
+	class Land_dum_zboreny: Farm {
+		lootPos[] = {{6.58618,5.1875,-2.37675},{1.92261,5.18848,1.42555},{-4.28271,-0.0478516,1.4094},{5.1106,-1.91797,1.22539}};
+		lootChance = 0.1;
+	};
+	
+	class Land_dum_zboreny: Farm {
+		lootPos[] = {{6.58618,5.1875,-2.37675},{1.92261,5.18848,1.42555},{-4.28271,-0.0478516,1.4094},{5.1106,-1.91797,1.22539}};
+		lootChance = 0.1;
+	};
+	
+	class Land_dulni_bs: Farm {
+		lootPos[] = {{1.72656,1.96484,-1.75205},{2.26367,-1.56348,-1.75205}};
+		lootChance = 0.1;
+	};	
 
 /*
 class Land_Mil_House: Default {}; // Qty: 5
