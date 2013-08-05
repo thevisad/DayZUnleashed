@@ -47,6 +47,7 @@ class CfgVehicles {
 
 	#include "CfgVehicles\RepairParts.hpp" //names for all reapir parts. Needs moving to hitpoints
 	//ZEDS
+    #include "CfgVehicles\Zeds\DUZedBase.hpp" //Santized Root Man Class
 	#include "CfgVehicles\Zeds\Zeds.hpp" //old type zeds
 	#include "CfgVehicles\Zeds\NewZeds.hpp" //new type zeds
 	#include "CfgVehicles\Zeds\Pastor.hpp" //Pastor Zed
