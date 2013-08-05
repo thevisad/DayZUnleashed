@@ -28,11 +28,11 @@ call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";	
 progressLoadingScreen 1.0;
 
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
-normcc_efx =    ppEffectCreate ["colorCorrections",1]; 
+normcc_efx =    ppEffectCreate ["colorCorrections",10]; 
 normcc_efx      ppEffectEnable true;
 normcc_efx      ppEffectAdjust [1, 0.8, -0.001, [0.0, 0.0, 0.0, 0.0], [0.4*2, 0.3*2, 0.0, 0.7], [0.9, 0.9, 0.9, 0.0]];
 normcc_efx      ppEffectCommit 0;
-normfg_efx =    ppEffectCreate ["filmGrain",1]; 
+normfg_efx =    ppEffectCreate ["filmGrain",11]; 
 normfg_efx      ppEffectEnable true; 
 normfg_efx      ppEffectAdjust [0.02, 1, 1, 0.1, 1, false];
 normfg_efx      ppEffectCommit 0;
