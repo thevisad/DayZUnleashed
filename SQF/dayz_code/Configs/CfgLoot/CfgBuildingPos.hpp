@@ -1123,11 +1123,6 @@
 		lootChance = 0.1;
 	};
 	
-	class Land_MBG_Warehouse: Industrial {
-		lootPos[] = {{-7.09277,12.4531,-7.47989},{-7.0625,-4.86914,-7.47989}};
-		lootChance = 0.1;
-	};
-	
 	class Land_sara_hasic_zbroj: Industrial {
 		lootPos[] = {{3.85254,-0.132813,-2.65287}};
 		lootChance = 0.1;
@@ -1138,10 +1133,6 @@
 		lootChance = 0.1;
 	};
 	
-	class Land_dum_zboreny: Farm {
-		lootPos[] = {{6.58618,5.1875,-2.37675},{1.92261,5.18848,1.42555},{-4.28271,-0.0478516,1.4094},{5.1106,-1.91797,1.22539}};
-		lootChance = 0.1;
-	};
 	
 	class Land_dulni_bs: Farm {
 		lootPos[] = {{1.72656,1.96484,-1.75205},{2.26367,-1.56348,-1.75205}};
