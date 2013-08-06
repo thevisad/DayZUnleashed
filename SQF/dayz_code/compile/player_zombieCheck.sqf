@@ -1,4 +1,3 @@
-
 private ["_refObj",  "_listTalk",  "_pHeight",  "_attacked",  "_multiplier",  "_type",  "_dist",  "_chance",  "_last",  "_targets",  "_cantSee",  "_tPos",  "_zPos",  "_eyeDir",  "_inAngle",  "_lowBlood",  "_attackResult", "_near","_minDist","_agroRank"];
 
 _refObj = vehicle player;
@@ -18,15 +17,17 @@ _multiplier = 1;
 		_dist = (_x distance _refObj);
 		_group = _x;
 		_chance = 10 / dayz_monitorPeriod; // Z verbosity
+//		diag_log("PZC: Agent" + str(_x) + " Ref Object: " + str(_refObj));
 		if ((_x distance player < dayz_areaAffect) and !(animationState _x == "ZombieFeed")) then {
 			//perform an attack
 			_last = _x getVariable["lastAttack", 0];
 			if ((diag_tickTime - _last) > 2) then {
 				_cantSee = [ _refObj,_x] call dayz_losCheck;
+//				diag_log("PZC: Agent " + str(_x) + " Base Cant See: " + str(_cantSee));
 				if (!_cantSee) then {
 					_attackResult = [_x,  _type] call player_zombieAttack;
 				};
-				//diag_log(format["%1 %2 %3 / as:%4 up:%5 ur:%6 sp:%7",  __FILE__,  _x,  _attackResult,  animationState player,  unitPos player,  unitReady _x,  [0, 0, 0] distance (velocity player)]);
+//				//diag_log(format["PZC: Agent: %1 %2 %3 / as:%4 up:%5 ur:%6 sp:%7",  _agent,  _x,  _attackResult,  animationState player,  unitPos player,  unitReady _x,  [0, 0, 0] distance (velocity player)]);
 				if ((!isNil "_attackResult") AND {(_attackResult == "")}) then {
 					_x setVariable["lastAttack", diag_tickTime - random(1)];
 					_attacked = true;
@@ -68,9 +69,10 @@ _multiplier = 1;
 					_group setVariable ["targets", _targets, true];
 				} else {
 					_chance = [_x, _dist, DAYZ_disAudial] call dayz_losChance;
-					//diag_log ("Visual Detection: " + str([_x, _dist]) + " " + str(_chance));
+//						diag_log ("PZC: " + str(_x) + " Noise Detection/distance: " + str([_refObj, _dist]) + " " + str(_chance));
 					if ((random 1) < _chance) then {
 						_cantSee = [ _refObj,_x] call dayz_losCheck;
+//							diag_log("PZC: Agent " + str(_x) + " Noise Cant See: " + str(_cantSee));
 						if (!_cantSee) then {
 							_targets set [count _targets,  driver _refObj];
 							_group setVariable ["targets", _targets, true];
@@ -90,7 +92,7 @@ _multiplier = 1;
 			if (!(_refObj in _targets)) then {
 				if (_dist < (DAYZ_disVisual / 2)) then {
 					_chance = [_x, _dist, DAYZ_disVisual] call dayz_losChance;
-					//diag_log ("Visual Detection: m" + str([_x, _dist]) + " " + str(_chance));
+//						diag_log ("PZC: " + str(_x) + " Visual Detection/distance: " + str([_refObj, _dist]) + " chance: " + str(_chance));
 					if ((random 1) < _chance) then {
 						//diag_log ("Chance Detection");
 						_tPos = (getPosASL _refObj);
@@ -101,7 +103,7 @@ _multiplier = 1;
 						if (_inAngle) then {
 							//LOS check
 							_cantSee = [ _refObj, _x] call dayz_losCheck;
-							//diag_log ("LOS Check: " + str(_cantSee));
+//								diag_log("PZC: Agent " + str(_x) + " Sight Cant See: " + str(_cantSee));
 							if (!_cantSee) then {
 								//diag_log ("Within LOS! Target");
 								_targets set [count _targets,  driver _refObj];
@@ -113,6 +115,7 @@ _multiplier = 1;
 			};
 		};
 	};
+//		diag_log("PZC: Agent: " + str(_x) + " targets list: " + str(_targets));
 } forEach _listTalk;
 
 

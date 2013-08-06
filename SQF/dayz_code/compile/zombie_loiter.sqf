@@ -1,4 +1,3 @@
-
 private["_unit","_aimingPos","_pos", "_deg", "_trip", "_maxlength"];
 _unit = _this select 0; // Zed object
 _aimingPos = _this select 1; // Zed will wander towards player's position...

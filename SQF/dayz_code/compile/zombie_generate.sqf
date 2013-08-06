@@ -14,7 +14,7 @@ _maxtoCreate = 99; if (count _this > 4) then { _maxtoCreate = _this select 4; };
 _isNoone = 	{isPlayer _x} count (_position nearEntities [["AllVehicles","CAManBase"],30]) == 0;
 //Exit if no one is nearby
 if (!_isNoone) exitWith {
-	diag_log(format["%1: won't do that, too close from player (%2m), _this:%3", __FILE__, round(_distance), _this]);
+//	diag_log(format["ZZG: Agent: %1: won't do that, too close from player (%2m), _this:%3", _agent, round(_distance), _this]);
 	false
 };
 
@@ -47,7 +47,7 @@ _list = [
 } forEach _recyAgt;
 _recycled = false;
 if (!isNull _agent) then { // we have found a recyclable agent
-	//diag_log(format["%1 Found 1 agent to recycle: %2", __FILE__, _agent]);
+	//diag_log(format["ZZG: Agent: %1 Found 1 agent to recycle",  _agent]);
 	// sometime Z can be seen flying in very high speed while tp. Its altitude is set underground to hide that.
 	_agtPos = getPosASL _agent; _agtPos set [2, -3];
 	_agent setPosASL _agtPos; sleep 0.001;
@@ -99,7 +99,7 @@ if (!isNull _agent) then {
 
 	_distance = _position distance (getPosATL player);
 	//if (_distance < dayz_safeDistPlr) exitWith {
-	//	diag_log(format["%1: zombie distance: %2m (model:%3, stance:%4, ATL:%5)", __FILE__, round(_distance), typeOf _agent, unitPos _agent, _position]);
+	//	diag_log(format["ZZG: Agent: %6 zombie distance: %2m (model:%3, stance:%4, ATL:%5)", __FILE__, round(_distance), typeOf _agent, unitPos _agent, _position, _agent]);
 	//	false
 	//};
 

@@ -24,6 +24,7 @@ if ("ItemMap_Debug" in items player) then {
 		if (!(_unit in _targets)) then {
 			_targets set [count _targets, _unit];
 			_zombie setVariable ["targets",_targets, true];
+//			diag_log("PAZ: " + str(_zombie) + " Targets: " + str(_targets));
 		};
 	} else {
 		_zombie setVariable ["myDest",_pos];

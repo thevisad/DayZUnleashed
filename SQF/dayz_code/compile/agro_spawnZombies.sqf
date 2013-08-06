@@ -16,8 +16,8 @@ if (_random < _spawnChance) exitwith {};
 _type = _unitTypes call BIS_fnc_selectRandom;
 
 //Create the Group and populate it
-diag_log ("agro spawned: " + _type);
-diag_log ("dayz_spawnZombies: " + str(dayz_agroSpawnZombies));
+//diag_log ("ZASZ: Spawning: " + _type);
+//diag_log ("ZASZ: Count: " + str(dayz_agroSpawnZombies));
 _radius = 40;
 _method = "NONE";
 
@@ -44,3 +44,4 @@ _agent setVariable ["newDest",_player];
 */
 //Start behavior
 _id = [_position,_agent] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";
+//diag_log ("ZASZ: Agent: " + str(_agent) + " Spawned At: " + str(_position));

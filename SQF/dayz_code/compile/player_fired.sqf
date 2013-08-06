@@ -48,6 +48,7 @@ if ((_ammo isKindOf "SmokeShell") or (_ammo isKindOf "GrenadeHandTimedWest") or 
 				if (!(_projectile in _targets)) then {
 					_targets set [count _targets,_projectile];
 					_x setVariable ["targets",_targets, true];
+//					diag_log("PF: " + str(_x) + " Targets: " + str(_targets));
 				};
 			} forEach _listTalk;
 		} else {
@@ -67,7 +68,7 @@ if ((_ammo isKindOf "SmokeShell") or (_ammo isKindOf "GrenadeHandTimedWest") or 
 } else {
 	[_unit,_distance/2,true,(getPosATL player)] spawn player_alertZombies;
 	_playerOldAggroRank = player getVariable ["aggroRank",0];
-	diag_log("_playerOldAggroRank: "+ str(_playerOldAggroRank));
+//	diag_log("PF: _playerOldAggroRank: "+ str(_playerOldAggroRank));
 	_combattimeout = player getVariable["combattimeout",0];
     if (_combattimeout > 0) then {
         _timeleft = _combattimeout - time;
