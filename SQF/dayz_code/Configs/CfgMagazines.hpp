@@ -88,6 +88,9 @@ class CfgMagazines {
 	//crafting
 	#include "CfgCrafting\Mats.hpp"
 	
+	// DZE Building kits
+	#include "CfgMagazines\DZE\BuildingKits.hpp"
+	
 	// ItemGenerator
 	#include "CfgMagazines\DZE\ItemGenerator.hpp"
 	
@@ -97,5 +100,10 @@ class CfgMagazines {
 	
 	// Vault
 	#include "CfgMagazines\DZE\ItemVault.hpp"
+	
+	// Wood
+	#include "CfgMagazines\DZE\PartWoodPile.hpp"
+	#include "CfgMagazines\DZE\PartWoodLumber.hpp"
+	#include "CfgMagazines\DZE\PartWoodPlywood.hpp"
 	
 };

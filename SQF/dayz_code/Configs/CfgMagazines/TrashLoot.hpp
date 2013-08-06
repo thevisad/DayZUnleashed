@@ -49,6 +49,7 @@ class ItemTrashToiletpaper : CA_Magazine {
 		picture = "\z\addons\dayz_communityassets\pictures\equip_toiletpaper_CA.paa";
 		class ItemActions
 		{
+			
 			class Crafting
 			{
 				text = "Craft Satchel Charge";
@@ -58,7 +59,7 @@ class ItemTrashToiletpaper : CA_Magazine {
 				output[] = {{"PipeBomb",1}};
 				input[] = {{"ItemTrashToiletpaper",2},{"HandGrenade_West",2}};
 			};
-			
+
 			class RecipeChange
 			{
 				text="Combine for a Bandage";

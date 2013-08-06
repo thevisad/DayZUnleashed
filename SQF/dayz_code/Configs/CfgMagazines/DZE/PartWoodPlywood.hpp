@@ -18,6 +18,7 @@ class PartWoodPlywood: CA_Magazine
 			input[] = {{"PartWoodPlywood",1},{"PartWoodLumber",2}};
 			
 		};
+		/*
 		class Crafting1
 		{
 			text = "Craft Shack";
@@ -28,6 +29,6 @@ class PartWoodPlywood: CA_Magazine
 			input[] = {{"bulk_empty",1},{"PartWoodPlywood",4},{"PartWoodLumber",4}};
 			
 		};
-		
+		*/
 	};
 };
