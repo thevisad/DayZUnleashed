@@ -1,11 +1,11 @@
-private["_agent","_target","_targets","_targetDis","_c","_man","_manDis","_targets","_agent","_agentheight","_nearEnts","_rnd","_assigned","_range","_objects"];
+private["_agent","_target","_targets","_targetDis","_c","_man","_manDis","_targets","_agent","_agentheight","_nearEnts","_rnd","_assigned","_range","_objects","_manAgr"];
 _agent = _this;
 _target = objNull;
 _targets = [];
 _targetDis = [];
 _range = 150;
 _manDis = 0;
-
+_manAgr =0;
 _targets = _agent getVariable ["targets",[]];
 
 if (isNil "_targets") exitWith {};
@@ -26,24 +26,29 @@ if (count _targets == 0) then {
 if (count _targets > 0) then {
 	_man = _targets select 0;
 	_manDis = _man distance _agent;
+    _manAgr = _man getVariable ["aggroRank",0];
 	//diag_log (str(_man) + str(_manDis));
 	{
-		private["_dis"];
+		private["_dis","_agg"];
 		_dis = _x distance _agent;
-		if (_dis < _manDis) then {
+        _agg = _x getVariable ["aggroRank",0];
+		if (_dis < _manDis && _agg >= _manAgr) then {
 			_man = _x;
 			_manDis = _dis;
+            _manAgr = _agg;
 		};
 		if (_x isKindOf "SmokeShell") then {
 			_man = _x;
 			_manDis = _dis;
+            _manAgr = 10;
 		};
 	} forEach _targets;
 	_target = _man;
 };
 
 //Check if too far
-if (_manDis > _range) then {
+//if(_manAgr == 0) then {_range = _range /2;}; //cut range in half if this guy manged to keep 0 aggro?
+if (_manDis > _range ) then {
 	_targets = _targets - [_target];
 	_target = objNull;
 };
