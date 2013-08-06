@@ -14,7 +14,7 @@ _scaleAlert = 1;
 //DZU_Aggro_Movement Code
 _aggro_mv_mod_rate = _speed;    //this is the rate of which movement is generating aggro
 _aggro_mv_mod_rate_cap = 5;     //the max rate of which movement can generate aggro
-_aggro_mv_mod = 30;             //minimum aggro a player should have based on their stance
+_aggro_mv_mod = 50;             //minimum aggro a player should have based on their stance
 _aggro_mv_mod_decay_rate = 1;   //aggro decay due to stance changes.(initial)
 
 //Assess Players Position
@@ -26,13 +26,13 @@ _anim4 = toString _anim4;
 if (["pknl",_anim] call fnc_inString) then {
 	_scaleMvmt = 0.2;	//0.1;
 	_scalePose = 0.6;	//0.4
-    _aggro_mv_mod = 15;
+    _aggro_mv_mod = 25;
     _aggro_mv_mod_decay_rate = 2;
 } else {
 	if (["ppne",_anim] call fnc_inString) then {
 		_scaleMvmt = 0.3;
 		_scalePose = 0.14;
-        _aggro_mv_mod = 0;
+        _aggro_mv_mod = 10;
         _aggro_mv_mod_decay_rate = 3;
 	};
 };
