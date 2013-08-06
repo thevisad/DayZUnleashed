@@ -49,6 +49,16 @@ class ItemTrashToiletpaper : CA_Magazine {
 		picture = "\z\addons\dayz_communityassets\pictures\equip_toiletpaper_CA.paa";
 		class ItemActions
 		{
+			class Crafting
+			{
+				text = "Craft Satchel Charge";
+				script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+				neednearby[] = {"workshop"};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"PipeBomb",1}};
+				input[] = {{"ItemTrashToiletpaper",2},{"HandGrenade_West",2}};
+			};
+			
 			class RecipeChange
 			{
 				text="Combine for a Bandage";
@@ -65,6 +75,7 @@ class ItemTrashToiletpaper : CA_Magazine {
 					"ModifiedBandage"
 				};
 			};
+
 
 		class CombineMag {
 			text = $STR_BNDG_COMBINE;
