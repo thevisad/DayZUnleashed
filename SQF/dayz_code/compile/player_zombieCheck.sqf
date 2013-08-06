@@ -2,8 +2,8 @@
 private ["_refObj",  "_listTalk",  "_pHeight",  "_attacked",  "_multiplier",  "_type",  "_dist",  "_chance",  "_last",  "_targets",  "_cantSee",  "_tPos",  "_zPos",  "_eyeDir",  "_inAngle",  "_lowBlood",  "_attackResult", "_near","_minDist","_agroRank"];
 
 _refObj = vehicle player;
-_minDist = dayz_aggro_value_min + 25;
-_agroRank = player getVariable ["aggroRank",0];
+_minDist = dayz_aggro_value_min + 125;
+//_agroRank = player getVariable ["aggroRank",0]; //not needed yet. 
 //if (_agroRank < 2 && player class == stealth) then {_minDist = (_minDist*0.5);};
 _listTalk = (position _refObj) nearEntities ["zZombie_Base", _minDist]; //originally 200, need to tweak aggro distance to generate up to max 200 minium aggro
 _pHeight = (getPosATL _refObj) select 2;
