@@ -661,4 +661,8 @@ if(!isDedicated) then {
 	
 	CraftingInprogress = false;
 	CodeInProgress = false;
+	
+	DZE_8 = false;
+	DZE_2 = false;
+	DZE_5 = false;
 };

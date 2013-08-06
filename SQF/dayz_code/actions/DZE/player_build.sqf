@@ -127,13 +127,13 @@ if (_hasrequireditem) then {
 
 		_zheightchanged = false;
 
-		if (DZE_Q) then {
-			DZE_Q = false;
+		if (DZE_8) then {
+			DZE_8 = false;
 			DZE_BuildingZ = DZE_BuildingZ + 0.1;
 			_zheightchanged = true;
 		};
-		if (DZE_Z) then {
-			DZE_Z = false;
+		if (DZE_2) then {
+			DZE_2 = false;
 			DZE_BuildingZ = DZE_BuildingZ - 0.1;
 			
 			_zheightchanged = true;

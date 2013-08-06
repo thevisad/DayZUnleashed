@@ -348,6 +348,18 @@ if (!isDedicated) then {
 			dayz_lastCheckBit = time;
 			_nill = execvm "\z\addons\dayz_code\actions\playerstats.sqf";
 		};
+		
+		// TODO: should use action keys instead
+		if (_dikCode == 0x48) then {
+			DZE_8 = true;
+		};
+		if (_dikCode == 0x50) then {
+			DZE_2 = true;
+		};
+		if (_dikCode == 0x4C) then {
+			DZE_5 = true;
+		};
+		
 		if ((_dikCode == 0x3E or _dikCode == 0x0F or _dikCode == 0xD3) and (time - dayz_lastCheckBit > 10)) then {
 			dayz_lastCheckBit = time;
 			call dayz_forceSave;
