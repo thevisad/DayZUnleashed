@@ -78,7 +78,7 @@ while {true} do {
 	//Humanity Sytem by Skaronator
 
 	//BANDIT LEVEL 5
-	if (_humanity < -80000 and _changeTime > 5) then {
+	if (_humanity > -80000 and _changeTime > 5) then {
 		_currentModel = typeOf player;
 		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
 							"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ",
@@ -97,7 +97,7 @@ while {true} do {
 	};
 
 	//BANDIT LEVEL 4
-	if (_humanity < -40000 and _humanity <= -80000 and _changeTime > 5) then {
+	if (_humanity < -80000 and _humanity >= -40000 and _changeTime > 5) then {
 		_currentModel = typeOf player;
 		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
 							"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl51_DZ","Banditl52_DZ",
@@ -116,7 +116,7 @@ while {true} do {
 	};
 
 	//BANDIT LEVEL 3
-	if (_humanity >= -40000 and _humanity <= -20000 and _changeTime > 5) then {
+	if (_humanity < -40000 and _humanity >= -20000 and _changeTime > 5) then {
 		_currentModel = typeOf player;
 		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
 							"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
@@ -135,7 +135,7 @@ while {true} do {
 	};
 
 	//BANDIT LEVEL 2
-	if (_humanity > -20000 and _humanity <= -10000 and _changeTime > 5) then {
+	if (_humanity < -20000 and _humanity >= -10000 and _changeTime > 5) then {
 		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
 							"Bandit1_DZ","Banditl11_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
 							"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ","Survivor2_DZ","Survivor3_DZ"]) then {
@@ -153,7 +153,7 @@ while {true} do {
 	};
 
 	//BANDIT LEVEL 1
-	if (_humanity > -10000 and _humanity <= -2500 and _changeTime > 5) then {
+	if (_humanity < -10000 and _humanity >= -2500 and _changeTime > 5) then {
 		_currentModel = typeOf player;
 		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
 							"Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
