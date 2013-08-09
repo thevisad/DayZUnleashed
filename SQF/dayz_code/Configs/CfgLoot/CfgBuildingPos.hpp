@@ -449,8 +449,6 @@
 		minRoaming = 3;
 		maxRoaming = 9;
 		zombieClass[] = {"z_soldier","z_soldier_heavy"};
-		minRoaming = 1;
-		maxRoaming = 3;
 		lootPos[] = {{4, 3, 10.57}, {-4, -3, 10.57}, {6.5, -5.25, 5.39}};
 	};
 
