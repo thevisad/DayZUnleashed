@@ -84,9 +84,9 @@ DZAI_chanceMiscItemL = 0.15;								//Chance to add random item from DZAI_MiscIt
 
 //AI weapon/skill probabilities (gradeChances should add up to 1.00) - [Civilian, Military, MilitarySpecial, HeliCrash] - Note: AI with higher grade weaponry will also have higher skill settings.
 DZAI_gradeChances0 = [0.85,0.15,0.00,0.00];					//equipType = 0 - most AI will have basic pistols or rifles, and occasionally common military weapons.
-DZAI_gradeChances1 = [0.55,0.40,0.04,0.01];					//equipType = 1 - most AI will have common rifles, many will have common military weapons. Very rarely, AI will spawn with high-grade military or helicrash weapons.
-DZAI_gradeChances2 = [0.31,0.56,0.10,0.03];					//equipType = 2 - most AI carry military weapons, and occasionally high-grade military weapons.
-DZAI_gradeChances3 = [0.00,0.60,0.33,0.07];					//equipType = 3 - All AI will carry at least a military-grade weapon. Many will be carrying high-grade military weapons.
+DZAI_gradeChances1 = [0.70,0.25,0.04,0.01];					//equipType = 1 - most AI will have common rifles, many will have common military weapons. Very rarely, AI will spawn with high-grade military or helicrash weapons.
+DZAI_gradeChances2 = [0.40,0.45,0.10,0.05];					//equipType = 2 - most AI carry military weapons, and occasionally high-grade military weapons.
+DZAI_gradeChances3 = [0.10,0.60,0.23,0.07];					//equipType = 3 - All AI will carry at least a military-grade weapon. Many will be carrying high-grade military weapons.
 DZAI_gradeChancesDyn = [0.30,0.60,0.08,0.02];				//Weapongrade chances for AI spawned from dynamic triggers.
 
 //AI skill settings
@@ -96,7 +96,7 @@ DZAI_skill0 = [
 	["aimingShake",0.40,0.10],
 	["aimingSpeed",0.40,0.10],
 	["endurance",0.40,0.20],
-	["spotDistance",0.30,0.20],
+	["spotDistance",0.55,0.20],
 	["spotTime",0.40,0.20],
 	["courage",0.40,0.20],
 	["reloadSpeed",0.40,0.20],
@@ -105,42 +105,42 @@ DZAI_skill0 = [
 ];
 DZAI_skill1 = [	
 	//AI skill settings level 1 (Skill, Minimum skill, Maximum bonus amount).
-	["aimingAccuracy",0.20,0.10],
-	["aimingShake",0.50,0.10],
-	["aimingSpeed",0.50,0.10],
-	["endurance",0.55,0.20],
-	["spotDistance",0.45,0.20],
-	["spotTime",0.55,0.20],
-	["courage",0.55,0.20],
-	["reloadSpeed",0.55,0.20],
-	["commanding",0.55,0.20],
-	["general",0.55,0.20]
+	["aimingAccuracy",0.40,0.10],
+	["aimingShake",0.55,0.10],
+	["aimingSpeed",0.60,0.10],
+	["endurance",0.75,0.20],
+	["spotDistance",0.65,0.20],
+	["spotTime",0.75,0.20],
+	["courage",0.65,0.20],
+	["reloadSpeed",0.75,0.20],
+	["commanding",0.75,0.20],
+	["general",0.75,0.20]
 ];
 DZAI_skill2 = [	
 	//AI skill settings level 2 (Skill, Minimum skill, Maximum bonus amount).
-	["aimingAccuracy",0.30,0.10],
-	["aimingShake",0.60,0.10],
-	["aimingSpeed",0.65,0.10],
-	["endurance",0.70,0.20],
-	["spotDistance",0.60,0.20],
-	["spotTime",0.70,0.20],
-	["courage",0.70,0.20],
-	["reloadSpeed",0.70,0.20],
-	["commanding",0.70,0.20],
-	["general",0.70,0.20]
+	["aimingAccuracy",0.50,0.10],
+	["aimingShake",0.75,0.10],
+	["aimingSpeed",0.80,0.10],
+	["endurance",0.85,0.20],
+	["spotDistance",0.75,0.20],
+	["spotTime",0.85,0.20],
+	["courage",0.75,0.20],
+	["reloadSpeed",0.85,0.20],
+	["commanding",0.85,0.20],
+	["general",0.85,0.20]
 ];
 DZAI_skill3 = [	
 	//AI skill settings level 3 (Skill, Minimum skill, Maximum bonus amount).
-	["aimingAccuracy",0.40,0.10],
-	["aimingShake",0.70,0.10],
-	["aimingSpeed",0.75,0.10],
-	["endurance",0.80,0.20],
-	["spotDistance",0.75,0.20],
-	["spotTime",0.80,0.20],
-	["courage",0.80,0.20],
-	["reloadSpeed",0.80,0.20],
-	["commanding",0.80,0.20],
-	["general",0.80,0.20]
+	["aimingAccuracy",0.60,0.10],
+	["aimingShake",0.75,0.10],
+	["aimingSpeed",0.90,0.10],
+	["endurance",0.95,0.20],
+	["spotDistance",0.90,0.20],
+	["spotTime",0.95,0.20],
+	["courage",0.85,0.20],
+	["reloadSpeed",0.95,0.20],
+	["commanding",0.95,0.20],
+	["general",0.95,0.20]
 ];
 DZAI_heliCrewSkills = [	
 	//AI skill settings level 4 (Skill, Minimum skill, Maximum bonus amount).
@@ -148,7 +148,7 @@ DZAI_heliCrewSkills = [
 	["aimingShake",0.75,0.10],
 	["aimingSpeed",0.80,0.10],
 	["endurance",0.60,0.20],
-	["spotDistance",0.90,0.10],
+	["spotDistance",0.9,0.10],
 	["spotTime",0.90,0.10],
 	["courage",0.90,0.10],
 	["reloadSpeed",0.90,0.10],
