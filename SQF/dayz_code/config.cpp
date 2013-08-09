@@ -108,6 +108,12 @@ class CfgAddons
 	};
 };
 
+class CfgVehicleClasses {
+    class Distraction {
+        displayName = "Distraction";
+    };
+};
+
 class CfgActions {
 	class None; // External class reference
 
