@@ -75,22 +75,50 @@ while {true} do {
 		};
 	};
 
+	
+	_allskins_male = ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
+					  "Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
+					  "Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ","Survivor2_DZ","Survivor3_DZ"];
+	
+	_bandit5_male = ["Banditl51_DZ","Banditl52_DZ"];
+	_bandit4_male = ["Banditl41_DZ","Banditl42_DZ"];
+	_bandit3_male = ["Banditl31_DZ","Banditl32_DZ"];
+	_bandit2_male = ["Banditl21_DZ"];
+	_bandit1_male = ["Bandit1_DZ","Banditl11_DZ"];
+	_normal_male = ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ"];
+	_hero1_male = ["Herol11_DZ","Survivor3_DZ"];
+	_hero2_male = ["Herol21_DZ"];
+	_hero3_male = ["Herol31_DZ","Herol32_DZ"];
+	_hero4_male = ["Herowl41_DZ","Herowl42_DZ"];
+	_hero5_male = ["Herowl51_DZ","Herowl52_DZ"];
+	
+	_allskins_female = ["BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ",
+							"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
+							"SurvivorW2_DZ","CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ"];
+	_bandit5_female = ["Banditwl51_DZ","Banditwl52_DZ"];
+	_bandit4_female = ["Banditwl41_DZ","Banditwl42_DZ"];
+	_bandit3_female = ["Banditwl31_DZ","Banditwl32_DZ"];
+	_bandit2_female = ["Banditwl21_DZ"];
+	_bandit1_female = ["BanditW1_DZ","Banditwl11_DZ"];
+	_normal_female = ["SurvivorW2_DZ","CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ"];
+	_hero1_female = ["Herowl11_DZ"];
+	_hero2_female = ["Herowl21_DZ"];
+	_hero3_female = ["Herowl31_DZ","Herowl32_DZ"];
+	_hero4_female = ["Herowl41_DZ","Herowl42_DZ"];
+	_hero5_female = ["Herowl51_DZ","Herowl52_DZ"];
+	
 	//Humanity Sytem by Skaronator
 
 	//BANDIT LEVEL 5
 	if (_humanity > -80000 and _changeTime > 5) then {
 		_currentModel = typeOf player;
-		if (_currentModel in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
-							"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ",
-							"Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ","Survivor2_DZ","Survivor3_DZ"]) then {
-			_toModel = ["Banditl51_DZ","Banditl52_DZ"] select floor random 2;
+		if (_currentModel in (_allskins_male - _bandit5_male)) then {
+			_toModel = _bandit5_male call BIS_fnc_selectRandom;
 			_changeTime = 0;
 			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
 		};
-		if (_currentModel in ["BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ",
-							"Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ",
-							"SurvivorW2_DZ","CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ"]) then {
-			_toModel = ["Banditwl51_DZ","Banditwl52_DZ"] select floor random 2;
+		if (_currentModel in (_allskins_female - _bandit5_female)) then {
+			_toModel = _bandit5_female call BIS_fnc_selectRandom;
 			_changeTime = 0;
 			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
 		};	
