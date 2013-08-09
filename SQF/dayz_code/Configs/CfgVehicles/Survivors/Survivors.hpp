@@ -62,8 +62,8 @@ class XerXes_DZU: GER_Soldier_Medic_EP1 {
 };
 class CIV_EuroMan02_EP1;
 class XyberViri_DZU: CIV_EuroMan02_EP1 {
-    displayName = "Dev";
-    hiddenSelectionsTextures[] = {"\z\addons\unleashed_pack\texture\xyberviri_skinb.paa"};
+    displayName = "DevDebug";
+    hiddenSelectionsTextures[] = {"\z\addons\unleashed_pack\textures\xyberviri_skinb.paa"};
     //identityTypes[] = {"XyberViri"};
     side = 1;
     faction = "DZU_FACTION_SURVIVOR";
