@@ -112,12 +112,14 @@ while {true} do {
 	//BANDIT LEVEL 5
 	if (_humanity > -80000 and _changeTime > 5) then {
 		_currentModel = typeOf player;
-		if (_currentModel in (_allskins_male - _bandit5_male)) then {
+		_lvl_bandit5_male = _allskins_male - _bandit5_male;
+		if (_currentModel in _lvl_bandit5_male) then {
 			_toModel = _bandit5_male call BIS_fnc_selectRandom;
 			_changeTime = 0;
 			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
 		};
-		if (_currentModel in (_allskins_female - _bandit5_female)) then {
+		_lvl_bandit5_female = _allskins_female - _bandit5_female;
+		if (_currentModel in _lvl_bandit5_female) then {
 			_toModel = _bandit5_female call BIS_fnc_selectRandom;
 			_changeTime = 0;
 			[dayz_playerUID,dayz_characterID,_toModel] spawn player_humanityMorph;
