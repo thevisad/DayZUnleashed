@@ -6,8 +6,6 @@ cutText ["","BLACK OUT"];
 enableSaving [false, false];
 
 //REALLY IMPORTANT VALUES
-dayZ_instance =	1;					//The instance
-dayZ_serverName="DayZ Unleashed Dev Server"; // server name (country code + server number)
 dayzHiveRequest = [];
 initialized = false;
 dayz_previousID = 0;

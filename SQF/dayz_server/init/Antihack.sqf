@@ -7,7 +7,7 @@ waitUntil {!isNil "BIS_fnc_init"};
 /* ADD LOW ADMIN HERE 	  */ PVDZ_LOW_AdminList = [];
 /* ADD NORMAL ADMIN HERE  */ PVDZ_NORMAL_AdminList = [];
 /* ADD SUPER ADMIN HERE   */ PVDZ_SUPER_AdminList = ["27570758","66951686","6163586","136052870","40975110","4163522","22773510","34319366","43767494","59883846","95700038","37624070","52002246","102773894"];
-/* ADD BANNED PLAYER HERE */ PVDZ_BLOCKED = ["77407750"];
+/* ADD BANNED PLAYER HERE */ PVDZ_BLOCKED = ["77407750","63729798","25486790"];
 /* TOP ESC MENU 			  */ _TopOfESC = 'Dayz Unleashed';
 /* BOTTOM ESC MENU - 1 	  */ _serverName = 'Development @';
 /* BOTTOM ESC MENU - 2 	  */ _serverSite = 'dayzunleashed.com';
