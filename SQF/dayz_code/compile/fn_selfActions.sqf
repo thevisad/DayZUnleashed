@@ -913,7 +913,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	*/
 	if (_isMan and _isAlive and !_isZombie and _canDo and !_unconscious) then {
         if (s_player_buttattack < 0) then {
-            s_player_buttattack = player addAction [("<t color=""#FF9800"">" + ("Butt Attack!") + "</t>"), "\z\addons\dayz_code\actions\player_weaponButtAttack.sqf",cursorTarget, 0, false, true, "",""];
+            s_player_buttattack = player addAction [("<t color=""#FF9800"">" + ("Knockout Target!") + "</t>"), "\z\addons\dayz_code\actions\player_weaponButtAttack.sqf",cursorTarget, 0, false, true, "",""];
         };
     } else {
         player removeAction s_player_buttattack;

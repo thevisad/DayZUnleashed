@@ -7,7 +7,7 @@ _range = 150;
 _manDis = 0;
 _manAgr =0;
 _targets = _agent getVariable ["targets",[]];
-diag_log ("ZFTA: Agent " + str(_agent) + " Checking Targets: "+str(_targets));
+//diag_log ("ZFTA: Agent " + str(_agent) + " Checking Targets: "+str(_targets));
 
 if (isNil "_targets") exitWith {};
 //Search for objects
@@ -19,7 +19,7 @@ if (count _targets == 0) then {
 			_targets set [count _targets,_x];
 			_targetDis set [count _targetDis,_dis];
 		};
-		diag_log("ZFTA: Agent: " + str(_agent) + " object target:" + str(_x));
+		//diag_log("ZFTA: Agent: " + str(_agent) + " object target:" + str(_x));
 	} forEach _objects;
 
 };
@@ -29,7 +29,7 @@ if (count _targets > 0) then {
 	_man = _targets select 0;
 	_manDis = _man distance _agent;
     _manAgr = _man getVariable ["aggroRank",0];
-	diag_log("ZFTA: Agent: " + str(_agent) + " Man: " + str(_man) + " Man Distance: " + str(_manDis));
+	//diag_log("ZFTA: Agent: " + str(_agent) + " Man: " + str(_man) + " Man Distance: " + str(_manDis));
 	{
 		private["_dis","_agg"];
 		_dis = _x distance _agent;
@@ -46,7 +46,7 @@ if (count _targets > 0) then {
 		};
 	} forEach _targets;
 	_target = _man;
-	diag_log("ZFTA: Agent " + str(_agent) + " is findtargetAgent target:" + str(_target));
+	//diag_log("ZFTA: Agent " + str(_agent) + " is findtargetAgent target:" + str(_target));
 };
 
 //Check if too far

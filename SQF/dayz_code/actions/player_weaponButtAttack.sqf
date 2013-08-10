@@ -1,28 +1,27 @@
 _man = _this select 3;
-
+_chance = 0;
 _playerPositon = getposATL player;
 _attackerPosition = getposATL _man;
 _angle=(((_attackerPosition select 0) - (_playerPositon select 0)) atan2 ((_attackerPosition select 1)-(_playerPositon select 1)));
 player setdir _angle;
+_chance = floor(random 100);
 
 if (primaryWeapon player == "" && secondaryWeapon player == "") then 
 {
-	_unit playActionNow "AmelPercMstpSnonWnonDnon_amaterUder3";
-	sleep 1;
-	_man_damag = getdammage _man;
-	_man_damag = _man_damag + 0.20;
-	 if (getdammage _man < 0.5) then 
-	 { 
+	if (_chance < 0.10) then {
+		_unit playMove "AmelPercMstpSnonWnonDnon_amaterUder3";
+		sleep 1;
 		[nil,_man,rSwitchmove, "AmelPercMstpSnonWnonDnon_zasah6hlava"] call RE;
-	 };
-	_man setdamage _man_damag;
+		dayz_knockout = [_man,3.5];
+		publicVariable "dayz_knockout";
+	};
 } else
 {
-	sleep 1;
-	_man_damag = getdammage _man;
-	_man_damag = _man_damag + 0.6;
-	if (getdammage _man < 0.5) then { 
+	if (_chance < 0.50) then {
+		_unit playMove "AmelPercMstpSnonWnonDnon_amaterUder3";
+		sleep 1;
 		[nil,_man,rSwitchmove, "AmelPercMstpSnonWnonDnon_zasah6hlava"] call RE;
+		dayz_knockout = [_man,3.5];
+		publicVariable "dayz_knockout";
 	};
-	_man setdamage _man_damag;
 };
