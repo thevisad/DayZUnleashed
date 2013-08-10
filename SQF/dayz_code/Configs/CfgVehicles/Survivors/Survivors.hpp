@@ -1,7 +1,7 @@
 class GER_Soldier_EP1;
 class Bandit1_DZ : GER_Soldier_EP1 {
 	displayName = $STR_CHAR_2;
-	side = 0;
+	side = 1;
 	faction = "DZU_FACTION_BANDIT";
 	weapons[] = {"Throw","Put"};
 	//model = "\dayz\characters\man_bandit";
@@ -27,71 +27,9 @@ class Rocket_DZ: BAF_Soldier_Officer_W {
 	weaponSlots = "1	 + 	4	 + 12*		256	 + 2*	4096	 + 	2	 + 8*	16  + 12*131072";
 	canHideBodies = 1;
 };
-
-class GER_Soldier_Medic_EP1;
-class TheVisad_DZU: GER_Soldier_Medic_EP1 {
-    displayName = "TheBeard";
-    identityTypes[] = {"TheVisad"};
-    side = 0;
-    faction = "DZU_FACTION_BANDIT";
-    weapons[] = {"Throw","Put"};
-    //model = "\dayz\characters\man_bandit";
-    //portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
-    magazines[] = {};
-    backpack = "";
-    respawnWeapons[] = {"Throw","Put"};
-    respawnMagazines[] = {};
-    weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-    canHideBodies = 1;
-};
-
-class XerXes_DZU: GER_Soldier_Medic_EP1 {
-    displayName = "DaChops";
-    identityTypes[] = {"SonOfXerXes"};
-    side = 0;
-    faction = "DZU_FACTION_BANDIT";
-    weapons[] = {"Throw","Put"};
-    //model = "\dayz\characters\man_bandit";
-    //portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
-    magazines[] = {};
-    backpack = "";
-    respawnWeapons[] = {"Throw","Put"};
-    respawnMagazines[] = {};
-    weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-    canHideBodies = 1;
-};
-class CIV_EuroMan02_EP1;
-class XyberViri_DZU: CIV_EuroMan02_EP1 {
-    displayName = "DevDebug";
-    hiddenSelectionsTextures[] = {"\z\addons\unleashed_pack\textures\xyberviri_skinb.paa"};
-    //identityTypes[] = {"XyberViri"};
-    side = 1;
-    faction = "DZU_FACTION_SURVIVOR";
-    weapons[] = {"Throw","Put"};
-    //model = "\dayz\characters\man_bandit";
-    //portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
-    magazines[] = {};
-    backpack = "";
-    respawnWeapons[] = {"Throw","Put"};
-    respawnMagazines[] = {};
-    weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-    canHideBodies = 1;    
-};
-
-class PvtAmmo_DZU: TheVisad_DZU {
-    displayName = "PedoBear";
-    identityTypes[] = {"PvtAmmo"};
-    side = 1;
-    faction = "DZU_FACTION_SURVIVOR";
-    weapons[] = {"Throw","Put"};
-    //model = "\dayz\characters\man_bandit";
-    //portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
-    magazines[] = {};
-    backpack = "";
-    respawnWeapons[] = {"Throw","Put"};
-    respawnMagazines[] = {};
-    weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-    canHideBodies = 1;    
+class Officer_DZ : Rocket_DZ {
+    displayName = "Officer";
+    hiddenselectionstextures[] = {"\ca\characters_d_baf\data\camo_MTP_co.paa", "\ca\characters_d_baf\data\armour_co.paa", "\ca\characters_d_baf\data\equip_d_co.paa"};
 };
 
 class BAF_Soldier_W;
@@ -107,6 +45,9 @@ class Soldier1_DZ: BAF_Soldier_W {
 	weaponSlots = "1	 + 	4	 + 12*		256	 + 2*	4096	 + 	2	 + 8*	16  + 12*131072";
 	canHideBodies = 1;
 };
+class Soldier2_DZ: Soldier1_DZ {
+  hiddenselectionstextures[] = {"\ca\characters_d_baf\data\camo_DDPM_co.paa", "\ca\characters_d_baf\data\armour_co.paa", "\ca\characters_d_baf\data\equip_d_co.paa"};  
+};
 class BAF_Soldier_SniperH_W;
 class Sniper1_DZ: BAF_Soldier_SniperH_W {
 	displayName = "Sniper";
@@ -119,6 +60,9 @@ class Sniper1_DZ: BAF_Soldier_SniperH_W {
 	respawnMagazines[] = {};
 	weaponSlots = "1	 + 	4	 + 12*		256	 + 2*	4096	 + 	2	 + 8*	16  + 12*131072";
 	canHideBodies = 1;
+};
+class Sniper2_DZ : Sniper1_DZ {
+    hiddenselectionstextures[] = {"\ca\characters_E\Ghillie\Data\ghillie_overall1_desert_co.paa"};
 };
 class SniperW1_DZ: Sniper1_DZ {
         identityTypes[] = {"Language_W_EN_EP1", "Woman"};
@@ -178,6 +122,9 @@ class SniperW1_DZ: Sniper1_DZ {
             civilian[] = {{"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-01", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-02", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-03", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-04", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-05", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-06", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-07", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-08", 0.177828, 1, 8}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-01", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-02", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-03", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-04", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-05", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-06", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-07", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-08", 0.1, 1, 15}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-01", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-02", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-03", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-04", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-05", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-06", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-07", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-08", 0.0562341, 1, 20}}};
         };
 };
+class SniperW2_DZ : SniperW1_DZ {
+    hiddenselectionstextures[] = {"\ca\characters_E\Ghillie\Data\ghillie_overall1_desert_co.paa"};
+};
 class BAF_Soldier_L_W;
 class Camo1_DZ: BAF_Soldier_L_W {
 	displayName = $STR_CHAR_1;
@@ -191,3 +138,6 @@ class Camo1_DZ: BAF_Soldier_L_W {
 	weaponSlots = "1	 + 	4	 + 12*		256	 + 2*	4096	 + 	2	 + 8*	16  + 12*131072";
 	canHideBodies = 1;
 };	
+class Camo2_DZ: Camo1_DZ{
+  hiddenselectionstextures[] = {"\ca\characters_d_baf\data\camo_MTP_co.paa", "\ca\characters_d_baf\data\armour_co.paa", "\ca\characters_d_baf\data\equip_d_co.paa"};  
+};
