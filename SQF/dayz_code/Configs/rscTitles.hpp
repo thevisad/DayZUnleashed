@@ -483,17 +483,6 @@ class RscDisplayClassSelecter {
 			h = 0.234565 * safezoneH;
 			action = "closeDialog 0;dayz_selectClass = 4;";
 		};
-		class class_random: RscActiveText
-		{
-			idc = -1;
-			style = 48;
-			text = "\z\addons\dayz_code\gui\class_random.paa";
-			x = 0.420458 * safezoneW + safezoneX;
-			y = 0.406016 * safezoneH + safezoneY;
-			w = 0.147342 * safezoneW;
-			h = 0.234565 * safezoneH;
-			action = "closeDialog 0;dayz_selectClass = 9;";
-		};
 	};
 };
 
