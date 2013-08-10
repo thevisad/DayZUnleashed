@@ -1387,15 +1387,15 @@ class FSM
     class Process
     {
       name = "Process";
-      init = /*%FSM<STATEINIT""">*/"_male = dayz_selectGender == 1;" \n
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/"_male = dayz_selectGender == 1;" \n
        "" \n
        "if (_male) then {" \n
        "_rndGender = [""Civilian1_DZ"",""Civilian2_DZ"",""Civilian3_DZ"",""Civilian4_DZ"",""Civilian5_DZ"",""Civilian6_DZ"",""Civilian7_DZ"",""Civilian8_DZ"",""Civilian9_DZ"",""Civilian10_DZ""];" \n
        "} else {" \n
        "_rndGender = [""SurvivorW2_DZ"",""CivilianW1_DZ"",""CivilianW2_DZ"",""CivilianW3_DZ"",""CivilianW4_DZ"",""CivilianW5_DZ""];" \n
        "};" \n
-       "_model = _rndGender call BIS_fnc_selectRandom;"/*%FSM</STATEINIT""">*/;
-      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+       "_model = _rndGender call BIS_fnc_selectRandom;"/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
         /*%FSM<LINK "True">*/
@@ -1660,7 +1660,7 @@ class FSM
     {
       name = "Process_1";
       init = /*%FSM<STATEINIT""">*/"_spawnSelection = dayz_selectRegion;" \n
-       "diag_log(""_spawnSelectionProcess = ""+ str(_spawnSelection) + "":dayz_selectRegion="" +str(dayz_selectRegion));"/*%FSM</STATEINIT""">*/;
+       "diag_log(""_spawnSelectionProcess = ""+ str(_spawnSelection) + "": dayz_selectRegion = "" +str(dayz_selectRegion));"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
