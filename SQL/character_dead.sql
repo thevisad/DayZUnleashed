@@ -10,8 +10,11 @@
 /*!40101 SET NAMES utf8 */;
 /*!40014 SET FOREIGN_KEY_CHECKS=0 */;
 
--- Dumping structure for table test.Character_DEAD
-CREATE TABLE IF NOT EXISTS `Character_DEAD` (
+-- ----------------------------
+-- Table structure for `character_dead`
+-- ----------------------------
+DROP TABLE IF EXISTS `character_dead`;
+CREATE TABLE `character_dead` (
   `CharacterID` int(11) NOT NULL AUTO_INCREMENT,
   `PlayerID` int(11) NOT NULL DEFAULT '0',
   `PlayerUID` varchar(45) NOT NULL DEFAULT '0',
@@ -37,11 +40,15 @@ CREATE TABLE IF NOT EXISTS `Character_DEAD` (
   `Humanity` int(11) NOT NULL DEFAULT '2500',
   `last_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`CharacterID`),
-  KEY `PlayerID` (`PlayerID`),
-  KEY `Alive_PlayerID` (`Alive`,`LastLogin`,`PlayerID`),
-  KEY `PlayerUID` (`PlayerUID`),
-  KEY `Alive_PlayerUID` (`Alive`,`LastLogin`,`PlayerUID`)
+  KEY `PlayerID` (`PlayerID`) USING BTREE,
+  KEY `Alive_PlayerID` (`Alive`,`LastLogin`,`PlayerID`) USING BTREE,
+  KEY `PlayerUID` (`PlayerUID`) USING BTREE,
+  KEY `Alive_PlayerUID` (`Alive`,`LastLogin`,`PlayerUID`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
+
+-- ----------------------------
+-- Records of character_dead
+-- ----------------------------
 
 -- Dumping data for table test.Character_DEAD: ~0 rows (approximately)
 /*!40000 ALTER TABLE `Character_DEAD` DISABLE KEYS */;

@@ -24,7 +24,7 @@ CREATE TABLE `building` (
   `class_name` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `uq1_building` (`class_name`) USING BTREE
-) ENGINE=InnoDB AUTO_INCREMENT=521 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of building

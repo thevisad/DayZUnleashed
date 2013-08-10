@@ -43,17 +43,20 @@ CREATE TABLE `character_data` (
   `Model` varchar(50) NOT NULL DEFAULT '"Survivor2_DZ"',
   `KillsB` int(11) NOT NULL DEFAULT '0',
   `Humanity` int(11) NOT NULL DEFAULT '2500',
+  `Classtype` int(11) DEFAULT '0',
   `last_updated` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`CharacterID`),
-  KEY `PlayerID` (`PlayerID`),
-  KEY `Alive_PlayerID` (`Alive`,`LastLogin`,`PlayerID`),
-  KEY `PlayerUID` (`PlayerUID`),
-  KEY `Alive_PlayerUID` (`Alive`,`LastLogin`,`PlayerUID`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  KEY `PlayerID` (`PlayerID`) USING BTREE,
+  KEY `Alive_PlayerID` (`Alive`,`LastLogin`,`PlayerID`) USING BTREE,
+  KEY `PlayerUID` (`PlayerUID`) USING BTREE,
+  KEY `Alive_PlayerUID` (`Alive`,`LastLogin`,`PlayerUID`) USING BTREE
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 ROW_FORMAT=COMPACT;
 
 -- ----------------------------
 -- Records of character_data
 -- ----------------------------
+
+
 DROP TRIGGER IF EXISTS `before_character_data_insert`;
 DELIMITER ;;
 CREATE TRIGGER `before_character_data_insert` BEFORE INSERT ON `character_data` FOR EACH ROW BEGIN
