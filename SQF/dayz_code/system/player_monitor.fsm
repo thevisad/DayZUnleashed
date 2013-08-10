@@ -164,7 +164,7 @@ link83[] = {73,74};
 link84[] = {74,75};
 link85[] = {75,68};
 globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-672.862732,312.885040,1633.123535,462.228851,772,917,1};
-window[] = {0,-1,-1,-1,-1,1262,200,2136,200,1,790};
+window[] = {0,-1,-1,-1,-1,1112,50,1986,50,1,790};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -1387,10 +1387,12 @@ class FSM
     class Process
     {
       name = "Process";
-      init = /*%FSM<STATEINIT""">*/"if (dayz_selectGender == 1) then {" \n
+      init = /*%FSM<STATEINIT""">*/"_female = dayz_selectGender == 1;" \n
+       "_male = dayz_selectGender == 1;" \n
+       "if (_female) then {" \n
        "_rndGender = [""SurvivorW2_DZ"",""CivilianW1_DZ"",""CivilianW2_DZ"",""CivilianW3_DZ"",""CivilianW4_DZ"",""CivilianW5_DZ""] call BIS_fnc_selectRandom;" \n
        "};" \n
-       "if (dayz_selectGender == 2) then {" \n
+       "if (_male) then {" \n
        "_rndGender = [""Civilian1_DZ"",""Civilian2_DZ"",""Civilian3_DZ"",""Civilian4_DZ"",""Civilian5_DZ"",""Civilian6_DZ"",""Civilian7_DZ"",""Civilian8_DZ"",""Civilian9_DZ"",""Civilian10_DZ""] call BIS_fnc_selectRandom;" \n
        "};" \n
        "_model = _rndGender;"/*%FSM</STATEINIT""">*/;
