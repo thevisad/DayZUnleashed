@@ -276,7 +276,7 @@ class RscDisplayGenderSelect
 			h = 0.542373 * safezoneH;
 			color[] = { 0.5, 0.5, 0.5, 1 };
 			colorActive[] = { 1, 1, 1, 1 };
-			action = "closeDialog 0;dayz_selectGender = 1;";
+			onButtonClick = "closeDialog 0;[] execVM '\z\addons\dayz_code\compile\player_selectGenderMale.sqf';";
 		};
 		class GenderPic_Woman : RscActiveText
 		{
@@ -289,7 +289,7 @@ class RscDisplayGenderSelect
 			h = 0.542373 * safezoneH;
 			color[] = { 0.5, 0.5, 0.5, 1 };
 			colorActive[] = { 1, 1, 1, 1 };
-			action = "closeDialog 0;dayz_selectGender = 2;";
+			onButtonClick = "closeDialog 0;[] execVM '\z\addons\dayz_code\compile\player_selectGenderFemale.sqf';";
 		};
 		class Gender_Title: RscStructuredText
 		{
