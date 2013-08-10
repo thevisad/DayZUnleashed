@@ -163,7 +163,7 @@ link82[] = {72,73};
 link83[] = {73,74};
 link84[] = {74,75};
 link85[] = {75,68};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-672.862732,312.885040,1633.123535,462.228851,772,917,1};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-843.995422,-125.385307,1178.145020,324.563110,772,917,1};
 window[] = {0,-1,-1,-1,-1,1112,50,1986,50,1,790};
 *//*%FSM</HEAD>*/
 class FSM
@@ -1363,7 +1363,7 @@ class FSM
     class Gender_Selection
     {
       name = "Gender_Selection";
-      init = /*%FSM<STATEINIT""">*/"dayz_selectGender = ""Survivor2_DZ"";" \n
+      init = /*%FSM<STATEINIT""">*/"dayz_selectGender = 1;" \n
        "1 cutText ["""", ""BLACK"",0];" \n
        "endLoadingScreen;" \n
        "createDialog ""RscDisplayGenderSelect"";"/*%FSM</STATEINIT""">*/;
@@ -1388,14 +1388,13 @@ class FSM
     {
       name = "Process";
       init = /*%FSM<STATEINIT""">*/"_male = dayz_selectGender == 1;" \n
-       "_female = dayz_selectGender == 2;" \n
-       "if (_female) then {" \n
-       "_rndGender = [""SurvivorW2_DZ"",""CivilianW1_DZ"",""CivilianW2_DZ"",""CivilianW3_DZ"",""CivilianW4_DZ"",""CivilianW5_DZ""] call BIS_fnc_selectRandom;" \n
-       "};" \n
+       "" \n
        "if (_male) then {" \n
-       "_rndGender = [""Civilian1_DZ"",""Civilian2_DZ"",""Civilian3_DZ"",""Civilian4_DZ"",""Civilian5_DZ"",""Civilian6_DZ"",""Civilian7_DZ"",""Civilian8_DZ"",""Civilian9_DZ"",""Civilian10_DZ""] call BIS_fnc_selectRandom;" \n
+       "_rndGender = [""Civilian1_DZ"",""Civilian2_DZ"",""Civilian3_DZ"",""Civilian4_DZ"",""Civilian5_DZ"",""Civilian6_DZ"",""Civilian7_DZ"",""Civilian8_DZ"",""Civilian9_DZ"",""Civilian10_DZ""];" \n
+       "} else {" \n
+       "_rndGender = [""SurvivorW2_DZ"",""CivilianW1_DZ"",""CivilianW2_DZ"",""CivilianW3_DZ"",""CivilianW4_DZ"",""CivilianW5_DZ""];" \n
        "};" \n
-       "_model = _rndGender;"/*%FSM</STATEINIT""">*/;
+       "_model = _rndGender call BIS_fnc_selectRandom;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
