@@ -1387,8 +1387,8 @@ class FSM
     class Process
     {
       name = "Process";
-      init = /*%FSM<STATEINIT""">*/"_female = dayz_selectGender == 1;" \n
-       "_male = dayz_selectGender == 2;" \n
+      init = /*%FSM<STATEINIT""">*/"_male = dayz_selectGender == 1;" \n
+       "_female = dayz_selectGender == 2;" \n
        "if (_female) then {" \n
        "_rndGender = [""SurvivorW2_DZ"",""CivilianW1_DZ"",""CivilianW2_DZ"",""CivilianW3_DZ"",""CivilianW4_DZ"",""CivilianW5_DZ""] call BIS_fnc_selectRandom;" \n
        "};" \n
