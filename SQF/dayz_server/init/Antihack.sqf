@@ -229,7 +229,7 @@ _LoadPlease = compile ("
 						s_player_tamedog,s_player_feeddog,s_player_waterdog,s_player_staydog,s_player_barkdog,s_player_trackdog,
 						s_player_warndog,s_player_followdog,stow_vehicle,s_player_buttattack,churchie_check,churchie_rig_veh,
 						churchie_defuse,player_Cannibalism,s_player_disarmBomb,s_player_codeRemove,s_player_studybody,
-						s_player_knockout,s_player_dragbody,s_player_removeActions,silver_myCursorTarget,dayz_myCursorTarget,
+						s_player_dragbody,s_player_removeActions,silver_myCursorTarget,dayz_myCursorTarget,
 						NORRN_dropAction,null,s_player_dropflare,s_player_forceSave,s_player_grabflare,s_player_pzombiesattack,
 						s_player_holderPickup,s_player_removeflare,s_player_packFdp,s_player_otkdv,s_player_isCruse,s_player_cnbb,
 						s_player_rest,s_player_flipvehiclelight,s_player_flipvehicleheavy,s_player_1bupd,s_halo_action,

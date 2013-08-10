@@ -143,7 +143,6 @@ if (!isDedicated) then {
 	DZE_player_craftItem =	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\DZE\player_craftItem.sqf";
 	
 	fnc_dzuSwapPilot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fnc_dzuSwapPilot.sqf";                    //Server side script to swap player. 
-	player_knockout = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_knockout.sqf";
 	
 	// TODO: need move it in player_monitor.fsm
 	// allow player disconnect from server, if loading hang, kicked by BE etc.

@@ -305,7 +305,6 @@ churchie_explosion_set = false;
 churchie_explosion_checked = false;
 churchie_vehicle_checked = 0;
 dayz_selectClass = 0;
-dayz_knockout = [];
 
 //BaseBuilding
 	//Strings
@@ -381,7 +380,6 @@ dayz_resetSelfActions = {
 	s_player_unlockvault = -1;
 	s_player_packvault = -1;
 	s_player_lockvault = -1;
-	s_player_knockout = -1;
 	s_player_buttattack = -1;
 	s_player_pzombiesattack = 	-1;
 	s_player_pzombiesvision =	-1;

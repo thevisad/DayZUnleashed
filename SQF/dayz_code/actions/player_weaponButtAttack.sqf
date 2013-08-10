@@ -8,20 +8,17 @@ _chance = floor(random 100);
 
 if (primaryWeapon player == "" && secondaryWeapon player == "") then 
 {
-	if (_chance < 0.10) then {
+	if (_chance < 0.20) then {
 		_unit playMove "AmelPercMstpSnonWnonDnon_amaterUder3";
 		sleep 1;
 		[nil,_man,rSwitchmove, "AmelPercMstpSnonWnonDnon_zasah6hlava"] call RE;
-		dayz_knockout = [_man,3.5];
-		publicVariable "dayz_knockout";
+		[[_man,((random 0.1) + 0.2)] call fnc_usec_damageUnconscious] call RE;
 	};
-} else
+} 
+else
 {
-	if (_chance < 0.50) then {
 		_unit playMove "AmelPercMstpSnonWnonDnon_amaterUder3";
 		sleep 1;
 		[nil,_man,rSwitchmove, "AmelPercMstpSnonWnonDnon_zasah6hlava"] call RE;
-		dayz_knockout = [_man,3.5];
-		publicVariable "dayz_knockout";
-	};
+		[[_man,((random 0.1) + 0.2)] call fnc_usec_damageUnconscious] call RE;
 };
