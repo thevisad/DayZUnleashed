@@ -1392,7 +1392,8 @@ class FSM
        "_rndGender = [];" \n
        "" \n
        "if (_female) then {" \n
-       "_rndGender = [""SurvivorW2_DZ"",""CivilianW1_DZ"",""CivilianW2_DZ"",""CivilianW3_DZ"",""CivilianW4_DZ"",""CivilianW5_DZ""];" \n
+       "_rndGender = [""SurvivorW2_DZ"",""SurvivorW2_DZ""];" \n
+       "//_rndGender = [""SurvivorW2_DZ"",""CivilianW1_DZ"",""CivilianW2_DZ"",""CivilianW3_DZ"",""CivilianW4_DZ"",""CivilianW5_DZ""];" \n
        "} else {" \n
        "_rndGender = [""Civilian1_DZ"",""Civilian2_DZ"",""Civilian3_DZ"",""Civilian4_DZ"",""Civilian5_DZ"",""Civilian6_DZ"",""Civilian7_DZ"",""Civilian8_DZ"",""Civilian9_DZ"",""Civilian10_DZ""];" \n
        "};" \n
