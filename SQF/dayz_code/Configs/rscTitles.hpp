@@ -448,6 +448,8 @@ class RscDisplayClassSelecter {
 			y = 0.217803 * safezoneH + safezoneY;
 			w = 0.147342 * safezoneW;
 			h = 0.234565 * safezoneH;
+			color[] = { 0.5, 0.5, 0.5, 1 };
+			colorActive[] = { 1, 1, 1, 1 };
 			action = "closeDialog 0;dayz_selectClass = 1;";
 		};
 		class class_medic: RscActiveText
@@ -459,6 +461,8 @@ class RscDisplayClassSelecter {
 			y = 0.571177 * safezoneH + safezoneY;
 			w = 0.147342 * safezoneW;
 			h = 0.234565 * safezoneH;
+			color[] = { 0.5, 0.5, 0.5, 1 };
+			colorActive[] = { 1, 1, 1, 1 };
 			action = "closeDialog 0;dayz_selectClass = 2;";
 		};
 		class class_silentHunter: RscActiveText
@@ -470,6 +474,8 @@ class RscDisplayClassSelecter {
 			y = 0.217803 * safezoneH + safezoneY;
 			w = 0.147342 * safezoneW;
 			h = 0.234565 * safezoneH;
+			color[] = { 0.5, 0.5, 0.5, 1 };
+			colorActive[] = { 1, 1, 1, 1 };
 			action = "closeDialog 0;dayz_selectClass = 3;";
 		};
 		class class_soldier: RscActiveText
@@ -481,6 +487,8 @@ class RscDisplayClassSelecter {
 			y = 0.572014 * safezoneH + safezoneY;
 			w = 0.147342 * safezoneW;
 			h = 0.234565 * safezoneH;
+			color[] = { 0.5, 0.5, 0.5, 1 };
+			colorActive[] = { 1, 1, 1, 1 };
 			action = "closeDialog 0;dayz_selectClass = 4;";
 		};
 	};

@@ -41,10 +41,15 @@ vehicle_handleServerKilled = {
 	[_unit, "killed"] call server_updateObject;
 	
 	_unit removeAllMPEventHandlers "MPKilled";
+	_unit removeAllMPEventHandlers "mphit";
+	_unit removeAllMPEventHandlers "mprespawn";
+	_unit removeAllEventHandlers "FiredNear";
 	_unit removeAllEventHandlers "Killed";
 	_unit removeAllEventHandlers "HandleDamage";
 	_unit removeAllEventHandlers "GetIn";
 	_unit removeAllEventHandlers "GetOut";
+	_unit removeAllEventHandlers "Fired";
+    	_unit removeAllEventHandlers "Local";
 };
 
 check_publishobject = {
