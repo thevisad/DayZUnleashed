@@ -78,7 +78,10 @@ while {true} do {
 
 	//Humanity Sytem by Skaronator
 	if (_speed > 0.1) then {
-		_changeTime = _changeTime + 1;
+		_changeTime = _changeTime + 0.5;
+	};
+	if (_changeTime > 6) then {
+		_changeTime = 0;
 	};
 	
 	_allskins_male = ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
