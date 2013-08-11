@@ -54,6 +54,7 @@ class CfgVehicles {
 	//PLAYER ZEDS
 	#include "CfgVehicles\DZE\PlayerZeds.hpp" //old type player zeds TODO: update to new
 	//Survivor Skins	
+    #include "CfgVehicles\Survivors\Originals.hpp"
     #include "CfgVehicles\Survivors\Devs.hpp"
 	#include "CfgVehicles\Survivors\Survivors.hpp"
 	//Bags

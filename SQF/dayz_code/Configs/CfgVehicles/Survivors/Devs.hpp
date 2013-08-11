@@ -2,7 +2,7 @@ class GER_Soldier_Medic_EP1;
 class TheVisad_DZU: GER_Soldier_Medic_EP1 {
     displayName = "TheBeard";
     identityTypes[] = {"TheVisad"};
-    side = 0;
+    side = 1;
     faction = "DZU_FACTION_DEV";
     weapons[] = {"Throw","Put"};
     //model = "\dayz\characters\man_bandit";
@@ -24,7 +24,7 @@ class XyberViri_DZU: CIV_EuroMan02_EP1 {
     displayName = "DEV";
     hiddenSelectionsTextures[] = {"\z\addons\unleashed_pack\textures\xyberviri_skinb.paa"};
     //identityTypes[] = {"XyberViri"};
-    side = 0;
+    side = 1;
     faction = "DZU_FACTION_DEV";
     weapons[] = {"Throw","Put"};
     //model = "\dayz\characters\man_bandit";

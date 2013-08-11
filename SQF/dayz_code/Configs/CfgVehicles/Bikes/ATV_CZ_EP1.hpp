@@ -1,9 +1,9 @@
 class ATV_CZ_EP1: ATV_Base_EP1 {
 	crew = "";
-	faction = "";
+	faction = "DZU_FACTION_SURVIVOR";
 	maxspeed = 80;
 	scope = 2;
-	side = 1;
+	side = 3;
 	typicalcargo[] = {""};
 	class HitPoints {
 		class HitBody {
