@@ -270,11 +270,11 @@ class CfgWeight
 		};
 		class M4A1_HWS_GL_Camo
 		{
-			weight = 3.6 
+			weight = 3.6;
 		};
 		class MK_48_DZ
 		{
-			weight = 3.6 
+			weight = 3.6;
 		};
 		class M4A1_HWS_GL_SD_Camo
 		{

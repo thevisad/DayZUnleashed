@@ -3,13 +3,13 @@
 -- View structure for `server_ip`
 -- ----------------------------
 DROP VIEW IF EXISTS `server_ip`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`redbone`@`localhost` SQL SECURITY DEFINER VIEW `server_ip` AS select substring_index(`information_schema`.`processlist`.`HOST`,':',1) AS `serverip` from `information_schema`.`processlist` where (`information_schema`.`processlist`.`ID` = connection_id()) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`dayzserver`@`localhost` SQL SECURITY DEFINER VIEW `server_ip` AS select substring_index(`information_schema`.`processlist`.`HOST`,':',1) AS `serverip` from `information_schema`.`processlist` where (`information_schema`.`processlist`.`ID` = connection_id()) ;
 
 -- ----------------------------
 -- View structure for `server_instance`
 -- ----------------------------
 DROP VIEW IF EXISTS `server_instance`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`redbone`@`localhost` SQL SECURITY DEFINER VIEW `server_instance` AS select `dayzunleashed`.`instance_user`.`id` AS `id` from (`dayzunleashed`.`server_ip` join `dayzunleashed`.`instance_user` on((`server_ip`.`serverip` = convert(`dayzunleashed`.`instance_user`.`userIP` using utf8)))) ;
+CREATE ALGORITHM=UNDEFINED DEFINER=`dayzserver`@`localhost` SQL SECURITY DEFINER VIEW `server_instance` AS select `dayzunleashed`.`instance_user`.`id` AS `id` from (`dayzunleashed`.`server_ip` join `dayzunleashed`.`instance_user` on((`server_ip`.`serverip` = convert(`dayzunleashed`.`instance_user`.`userIP` using utf8)))) ;
 
 
 
@@ -18,7 +18,7 @@ CREATE ALGORITHM=UNDEFINED DEFINER=`redbone`@`localhost` SQL SECURITY DEFINER VI
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pCleanup`;
 DELIMITER ;;
-CREATE DEFINER=`redbone`@`localhost` PROCEDURE `pCleanup`()
+CREATE DEFINER=`dayzserver`@`localhost` PROCEDURE `pCleanup`()
 BEGIN
 
 #starts outofbounds cleanup
@@ -101,7 +101,7 @@ DELIMITER ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pCleanupOOB`;
 DELIMITER ;;
-CREATE DEFINER=`redbone`@`localhost` PROCEDURE `pCleanupOOB`()
+CREATE DEFINER=`dayzserver`@`localhost` PROCEDURE `pCleanupOOB`()
 BEGIN
 
 	DECLARE intLineCount	INT DEFAULT 0;
@@ -158,7 +158,7 @@ DELIMITER ;
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pMain`;
 DELIMITER ;;
-CREATE DEFINER=`redbone`@`localhost` PROCEDURE `pMain`(IN `i` INT)
+CREATE DEFINER=`dayzserver`@`localhost` PROCEDURE `pMain`(IN `i` INT)
     MODIFIES SQL DATA
 BEGIN
 
@@ -254,7 +254,7 @@ DELIMITER ;
 -- ----------------------------
 DROP FUNCTION IF EXISTS `rndspawn`;
 DELIMITER ;;
-CREATE DEFINER=`redbone`@`localhost` FUNCTION `rndspawn`(`chance` double) RETURNS tinyint(1)
+CREATE DEFINER=`dayzserver`@`localhost` FUNCTION `rndspawn`(`chance` double) RETURNS tinyint(1)
 BEGIN
 
 	DECLARE bspawn tinyint(1) DEFAULT 0;
