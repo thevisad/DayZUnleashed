@@ -1,79 +1,13 @@
-//Base Units
-    class Soldier_Crew_PMC; // External class reference
-   /* 
-    class Survivor1_DZ : Soldier_Crew_PMC {
-        displayName = $STR_CHAR_1;
-        side = TWest;
-        weapons[] = {"Throw", "Put"};
-        model = "\dayz\objects\proxy_man";
-        magazines[] = {};
-        respawnWeapons[] = {"Throw", "Put"};
-        respawnMagazines[] = {};
-        weaponSlots = 1  +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072;
-        canHideBodies = true;
-    };
-    */
-    //default starting unit
-    class Survivor2_DZ : Soldier_Crew_PMC {
-        displayName = $STR_CHAR_1;
-        side = 1;
-        isFemaleDZ = 0;
-        clothingDZ = "Skin_Survivor_DZ";
-        faction = "DZU_FACTION_SURVIVOR";
-        vehicleClass = "survivor";
-        weapons[] = {"Throw", "Put"};
-        magazines[] = {};
-        model = "\dayz\characters\man_survivor";
-        respawnWeapons[] = {"Throw", "Put"};
-        respawnMagazines[] = {};
-        weaponSlots = 1  +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072;
-        canHideBodies = true;
-    };
-    //base male hero/survivor
-    class Survivor3_DZ : Survivor2_DZ {
-        model = "\dayz\characters\man_hero";
-        HiddenSelections[] = {"camo1", "camo2", "camo3"};
-        HiddenSelectionsTextures[] = {"ca\characters_pmc\pmc_soldier\data\bauer_co.paa", "ca\characters_pmc\pmc_soldier\data\bauer_gear_co.paa", "ca\characters_pmc\pmc_soldier\data\headgear_co.paa"};
+    class BanditW1_DZ : SurvivorW2_DZ {
+        //clothingDZ = "Skin_Bandit_DZ";//uncomment to allow taking of bandit skins
+        model = "\dayz\characters\woman_bandit";
         
-        class EventHandlers {
-            init = "";
-        };
     };
-    //Base male bandit       
-    class GER_Soldier_EP1;
-    class Bandit1_DZ : GER_Soldier_EP1 {
-        displayName = $STR_CHAR_2;
-        side = 1;
-        isFemaleDZ = 0;
-        clothingDZ = "Skin_Survivor_DZ";
-        faction = "DZU_FACTION_BANDIT";
-        vehicleClass = "survivor";
-        weapons[] = {"Throw","Put"};
-        //model = "\dayz\characters\man_bandit";
-        //portrait = "\Ca\characters_E\data\portraits\ger_soldier_CA";
-        magazines[] = {};
-        backpack = "";
-        respawnWeapons[] = {"Throw","Put"};
-        respawnMagazines[] = {};
-        weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-        canHideBodies = 1;
-};    
-    
-    //Base female unit       
-    class SurvivorW2_DZ : Soldier_Crew_PMC {
-        displayName = $STR_CHAR_1;
-        side = 1;
+
+        
+    class SniperW1_DZ: Sniper1_DZ {
         isFemaleDZ = 1;
-        clothingDZ = "Skin_Survivor_DZ";
-        faction = "DZU_FACTION_SURVIVOR";
-        vehicleClass = "survivor";
-        weapons[] = {"Throw", "Put"};
-        model = "\dayz\characters\annie_original";
-        magazines[] = {};
-        respawnWeapons[] = {"Throw", "Put"};
-        respawnMagazines[] = {};
-        weaponSlots = 1  +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072;
-        canHideBodies = true;
+        clothingDZ = "Skin_Sniper_DZ";
         identityTypes[] = {"Language_W_EN_EP1", "Woman"};
         languages[] = {"EN"};
         
@@ -130,5 +64,8 @@
             soldier[] = {{"walk", {"", 0.00177828, 1, 13}}, {"run", {"", 0.00316228, 1, 20}}, {"sprint", {"", 0.00398107, 1, 25}}};
             civilian[] = {{"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-01", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-02", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-03", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-04", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-05", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-06", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-07", 0.177828, 1, 8}}, {"walk", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-walk-08", 0.177828, 1, 8}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-01", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-02", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-03", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-04", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-05", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-06", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-07", 0.1, 1, 15}}, {"run", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-run-08", 0.1, 1, 15}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-01", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-02", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-03", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-04", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-05", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-06", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-07", 0.0562341, 1, 20}}, {"sprint", {"\ca\sounds\Characters\Noises\Equipment\civil-equipment-sprint-08", 0.0562341, 1, 20}}};
         };
-        hiddenSelections[] = {};
-    };
+};
+class SniperW2_DZ : SniperW1_DZ {
+    clothingDZ = "Skin_Sniper_DZ";
+    hiddenselectionstextures[] = {"\ca\characters_E\Ghillie\Data\ghillie_overall1_desert_co.paa"};
+};

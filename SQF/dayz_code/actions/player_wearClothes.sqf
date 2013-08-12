@@ -8,28 +8,46 @@ _item = _this;
 call gear_ui_init;
 _onLadder = (getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 if (_onLadder) exitWith {cutText [(localize "str_player_21") , "PLAIN DOWN"]};
-
-_hasclothesitem = _this in magazines player;
-_config = configFile >> "CfgMagazines";
-_text = getText (_config >> _item >> "displayName");
-
-if (!_hasclothesitem) exitWith {cutText [format[(localize "str_player_31"),_text,(localize "str_player_31_wear")] , "PLAIN DOWN"]};
-
 if (vehicle player != player) exitWith {cutText ["You may not change clothes while in a vehicle", "PLAIN DOWN"]};
+_hasclothesitem = _this in magazines player;
 
-_isFemale = ((typeOf player == "CivilianW1_DZ")||(typeOf player == "SniperW1_DZ")||(typeOf player == "CivilianW2_DZ")||(typeOf player == "CivilianW3_DZ")||(typeOf player == "CivilianW4_DZ")||(typeOf player == "CivilianW5_DZ")||(typeOf player == "Banditwl11_DZ")||(typeOf player == "Banditwl21_DZ")||(typeOf player == "Banditwl31_DZ")||(typeOf player == "Banditwl32_DZ")||(typeOf player == "Banditwl41_DZ")||(typeOf player == "Banditwl42_DZ")||(typeOf player == "Banditwl51_DZ")||(typeOf player == "Banditwl52_DZ")||(typeOf player == "Herowl11_DZ")||(typeOf player == "Herowl21_DZ")||(typeOf player == "Herowl31_DZ")||(typeOf player == "Herowl32_DZ")||(typeOf player == "Herowl41_DZ")||(typeOf player == "Herowl42_DZ")||(typeOf player == "Herowl51_DZ")||(typeOf player == "Herowl52_DZ"));
+_config = configFile >> "CfgMagazines";
+_configVehicles = configFile >> "CfgVehicles";
+_text = getText (_config >> _item >> "displayName");                //Name of clothing parcel
+_model = getText (_config >> _item >> "skinModel");                 //Name of the model we will set the player to
+_myModel = (typeOf player);                                         //Name of the players existing model
+_mySkin = getText ( _configVehicles >> _myModel >> "clothingDZ");   //Players existing skin
+if(_mySkin=="")then{
+  _mySkin=""; 
+};
+_isFemale = false;                                                  //Is this player female
+//Check if the player is female and set the package to the alternative skin if so
+if (getNumber(_configVehicles >> _myModel >> "isFemaleDZ") == 1) then {
+    _isFemale = true;
+    _model = getText (_config >> _item >> "skinModelAlt");
+};
+//Check if the player still has the item in their inventory
+if (!_hasclothesitem) exitWith {cutText [format[(localize "str_player_31"),_text,(localize "str_player_31_wear")] , "PLAIN DOWN"]};
+    
+//_isFemale = ((typeOf player == "CivilianW1_DZ")||(typeOf player == "SniperW1_DZ")||(typeOf player == "CivilianW2_DZ")||(typeOf player == "CivilianW3_DZ")||(typeOf player == "CivilianW4_DZ")||(typeOf player == "CivilianW5_DZ")||(typeOf player == "Banditwl11_DZ")||(typeOf player == "Banditwl21_DZ")||(typeOf player == "Banditwl31_DZ")||(typeOf player == "Banditwl32_DZ")||(typeOf player == "Banditwl41_DZ")||(typeOf player == "Banditwl42_DZ")||(typeOf player == "Banditwl51_DZ")||(typeOf player == "Banditwl52_DZ")||(typeOf player == "Herowl11_DZ")||(typeOf player == "Herowl21_DZ")||(typeOf player == "Herowl31_DZ")||(typeOf player == "Herowl32_DZ")||(typeOf player == "Herowl41_DZ")||(typeOf player == "Herowl42_DZ")||(typeOf player == "Herowl51_DZ")||(typeOf player == "Herowl52_DZ"));
 //if (_isFemale) exitWith {cutText ["You need a Skin for your Gender.", "PLAIN DOWN"]};
 
-_myModel = (typeOf player);
+
+
 _humanity = player getVariable ["humanity",0];
 _isBandit = _humanity < -2000;
 _isHero = _humanity > 5000;
 _itemNew = "Skin_" + _myModel;
 
-if ( !(isClass(_config >> _itemNew)) ) then {
-	_itemNew = if (!_isFemale) then {"Skin_Survivor2_DZ"} else {"Skin_SurvivorW2_DZ"};
-};
 
+if (!(isClass(_configVehicles >> _model)) )  then {
+    _itemNew = if (!) then {"Skin_Survivor2_DZ"} else {"Skin_SurvivorW2_DZ"};
+}
+/*
+if ( !(isClass(_config >> _itemNew)) ) then {
+	_itemNew = if (!) then {"Skin_Survivor2_DZ"} else {"Skin_SurvivorW2_DZ"};
+};
+*/
 switch (_item) do {
 	case "Skin_Sniper1_DZ": {
 		_model = "Sniper1_DZ";
@@ -40,7 +58,7 @@ switch (_item) do {
 	
 	// Unleashed Skins
 	case "Skin_SniperW1_DZ": {
-		_model = "SniperW1_DZ";
+		_model = "";
 	};
 	case "Skin_BAF_Soldier_MTP": {
 		_model = "BAF_Soldier_MTP";

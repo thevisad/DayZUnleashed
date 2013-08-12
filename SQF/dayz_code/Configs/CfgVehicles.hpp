@@ -54,9 +54,10 @@ class CfgVehicles {
 	//PLAYER ZEDS
 	#include "CfgVehicles\DZE\PlayerZeds.hpp" //old type player zeds TODO: update to new
 	//Survivor Skins	
-    #include "CfgVehicles\Survivors\Originals.hpp"
-    #include "CfgVehicles\Survivors\Devs.hpp"
-	#include "CfgVehicles\Survivors\Survivors.hpp"
+    #include "CfgVehicles\Survivors\Originals.hpp" //Base Surivors
+	#include "CfgVehicles\Survivors\Survivors.hpp" //Male Survivors
+    #include "CfgVehicles\Survivors\SurvivorsW.hpp"//Female Survivors
+    #include "CfgVehicles\Survivors\Devs.hpp"      //Dev Survivors
 	//Bags
 	#include "CfgVehicles\Bags.hpp"
 	//DZAnimal and DZ_Fin
