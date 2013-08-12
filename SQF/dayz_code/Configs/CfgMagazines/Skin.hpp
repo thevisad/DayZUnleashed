@@ -23,15 +23,16 @@
        };
     };
     //Base polymorphic suvivor skin
+    //If y
     class Skin_Survivor2_DZ : SkinBase {     
         scope = public;
         /*
-        skinModel="Survivor2_DZ";       //the base model this parcel changes to
-        skinModelALT="SurvivorW2_DZ";   //female version
+        skinModel="Survivor2_DZ";       //normal humanity/male version
+        skinModelALT="SurvivorW2_DZ";   //normal humanity/female version
         heroSkin="Survivor3_DZ";        //hero/male
         heroSkinALT="SurvivorW2_DZ";    //hero/female
         banditSkin="Bandit1_DZ";        //bandit/male
-        banditSkinALT="BanditW1_DZ";    //bandit/female
+        banditSkinALT="BanditW1_DZ";    //bandit/female 
         */
         isHumanitySkin=1;
         displayName = "Default Clothing";
@@ -41,7 +42,7 @@
     class Skin_Camo1_DZ : SkinBase {
         scope = public;
         displayName = "Camo Clothes";
-        descriptionShort = "Camo clothing for keeping out of sight"; 
+        descriptionShort = "Camouflage clothing for keeping out of sight"; 
         skinModel="Camo1_DZ";
        //skinModelALT="SniperW1_DZ";        
     };
@@ -49,7 +50,7 @@
     class Skin_Soldier1_DZ : SkinBase {
         scope = public;
         displayName = "Camo Clothes";
-        descriptionShort = "Some camo clothing with a old helmet."; 
+        descriptionShort = "Some camouflage clothing with an old helmet."; 
         skinModel="Soldier1_DZ";
        //skinModelALT="SniperW1_DZ";        
     };    
@@ -57,7 +58,7 @@
     class Skin_Officer1_DZ : SkinBase {
         scope = public;
         displayName = "Officers Outfit";
-        descriptionShort = "An old military outfit, not than ranks matter anymore.."; 
+        descriptionShort = "An military officer's outfit, not than ranks matter anymore.."; 
         skinModel="Rocket_DZ";
         //skinModelALT="SniperW1_DZ";        
     };
@@ -70,87 +71,25 @@
         skinModelALT="SniperW1_DZ";        
     };
     //End Dayz Original skins
-  
-  
-  
+     class Skin_TKSoldier1_DZ : SkinBase {
+        scope = public;
+        displayName = "Takistani Clothes";
+        descriptionShort = "Takistani Militia clothing.."; 
+        skinModel="TKSoldier1_DZ";        
+    };     
+     class Skin_TKCivil1_DZ : SkinBase {
+        scope = public;
+        displayName = "Takistani Clothes";
+        descriptionShort = "Takistani clothing with a nice scarf..."; 
+        skinModel="TKCivil1_DZ";        
+    };       
+     class Skin_TKCivil2_DZ : SkinBase {
+        scope = public;
+        displayName = "Takistani Clothes";
+        descriptionShort = "Takistani clothing sweater.."; 
+        skinModel="TKCivil2_DZ";        
+    };       
     /*
-        class Skin_BAF_Soldier_MTP : SkinBase {     
-        scope = public;
-        displayName = "BAF Soldier MTP";
-        descriptionShort = "BAF Soldier MTP";   
-    };
-        class Skin_BAF_Soldier_DDPM : SkinBase {        
-        scope = public;
-        displayName = "BAF Soldier DDPM";
-        descriptionShort = "BAF Soldier DDPM";  
-    };
-        class Skin_BAF_Soldier_L_MTP : SkinBase {       
-        scope = public;
-        displayName = "BAF Soldier L MTP";
-        descriptionShort = "BAF Soldier L MTP"; 
-    };
-        class Skin_BAF_Soldier_L_DDPM : SkinBase {      
-        scope = public;
-        displayName = "BAF Soldier L DDPM";
-        descriptionShort = "BAF Soldier L DDPM";    
-    };
-        class Skin_BAF_Soldier_Officer_MTP : SkinBase {     
-        scope = public;
-        displayName = "BAF Soldier Officer MTP";
-        descriptionShort = "BAF Soldier Officer MTP";   
-    };
-        class Skin_BAF_Soldier_Officer_DDPM : SkinBase {        
-        scope = public;
-        displayName = "BAF Soldier Officer DDPM";
-        descriptionShort = "BAF Soldier Officer DDPM";  
-    };
-        class Skin_BAF_Soldier_Sniper_MTP : SkinBase {      
-        scope = public;
-        displayName = "BAF Soldier Sniper MTP";
-        descriptionShort = "BAF Soldier Sniper MTP";    
-    };
-        class Skin_BAF_Soldier_SniperH_MTP : SkinBase {     
-        scope = public;
-        displayName = "BAF Soldier SniperH MTP";
-        descriptionShort = "BAF Soldier SniperH MTP";   
-    };
-        class Skin_BAF_Soldier_SniperN_MTP : SkinBase {     
-        scope = public;
-        displayName = "AF Soldier SniperN MTP";
-        descriptionShort = "AF Soldier SniperN MTP";    
-    };
-        class Skin_CZ_Soldier_DES_EP1 : SkinBase {      
-        scope = public;
-        displayName = "CZ Soldier DES";
-        descriptionShort = "CZ Soldier DES";    
-    };
-        class Skin_US_Soldier_EP1 : SkinBase {      
-        scope = public;
-        displayName = "US Soldier";
-        descriptionShort = "US Soldier";    
-    };
-        class Skin_TK_INS_Soldier_EP1 : SkinBase {      
-        scope = public;
-        displayName = "Takistan INS Solider";
-        descriptionShort = "Takistan INS Solider";  
-    };
-        class Skin_TK_CIV_Takistani01_EP1 : SkinBase {      
-        scope = public;
-        displayName = "Takistan Civilian 1";
-        descriptionShort = "Takistan Civilian 1";   
-    };
-        class Skin_TK_CIV_Takistani05_EP1 : SkinBase {      
-        scope = public;
-        displayName = "Takistan Civilian 5";
-        descriptionShort = "Takistan Civilian 5";   
-    };
-    
-        class Skin_SniperW1_DZ : SkinBase {     
-        scope = public;
-        displayName = "Chilisuit Female";
-        descriptionShort = "Chilisuit Female";  
-    };
-    
         class Skin_CivilianW1_DZ : SkinBase {       
         scope = public;
         displayName = "Civilian Female Skin 1";

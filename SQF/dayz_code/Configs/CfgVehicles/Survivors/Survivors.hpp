@@ -86,4 +86,39 @@ class Sniper2_DZ : Sniper1_DZ {
     clothingDZ = "Skin_Sniper1_DZ";
     hiddenselectionstextures[] = {"\ca\characters_E\Ghillie\Data\ghillie_overall1_desert_co.paa"};
 };
-
+//TK Soldier
+class TKSoldier1_DZ : Survivor3_DZ {
+        //displayName = "Militiaman";
+        clothingDZ = "Skin_TKSoldier1_DZ";
+        model = "\CA\characters_E\LOC\LOC_soldier01";
+        hiddenselections[] = {"Camo"};
+        hiddenselectionstextures[] = {"\CA\characters_E\LOC\Data\LOC_opfor01_1_co.paa"};
+        class Wounds {
+            mat[] = {"CA\characters_E\LOC\Data\LOC_soldier01.rvmat", "CA\characters_E\LOC\Data\W1_LOC_soldier01.rvmat", "CA\characters_E\LOC\Data\W2_LOC_soldier01.rvmat"};
+            tex[] = {};
+        }; 
+};
+//TK Civilian 1
+class TKCivil1_DZ : Survivor3_DZ {
+        //displayName = "Takistani (scarf)";
+        clothingDZ = "Skin_TKCivil1_DZ";
+        model = "\CA\characters_E\civil\Tak_civil05\Tak_civil05";
+        hiddenselections[] = {"Camo"};
+        hiddenselectionstextures[] = {"\CA\characters_E\civil\Tak_civil05\Data\Tak_civil05_1_co.paa"};
+        class Wounds {
+            mat[] = {"CA\characters_E\civil\Tak_civil05\Data\Tak_civil05.rvmat", "CA\characters_E\civil\Tak_civil05\Data\W1_Tak_civil05.rvmat", "CA\characters_E\civil\Tak_civil05\Data\W2_Tak_civil05.rvmat"};
+            tex[] = {};
+        }; 
+};
+//TK Civilian 2
+class TKCivil2_DZ : Survivor3_DZ {
+        //displayName = "Takistani (sweater)";
+        clothingDZ = "Skin_TKCivil2_DZ";
+        model = "\CA\characters_E\civil\Tak_civil01\Tak_civil01";
+        hiddenselections[] = {"Camo"};
+        hiddenselectionstextures[] = {"\CA\characters_E\civil\Tak_civil01\Data\Tak_civil01_1_co.paa"};
+        class Wounds {
+            mat[] = {"CA\characters_E\civil\Tak_civil01\Data\Tak_civil01.rvmat", "CA\characters_E\civil\Tak_civil01\Data\W1_Tak_civil01.rvmat", "CA\characters_E\civil\Tak_civil01\Data\W2_Tak_civil01.rvmat"};
+            tex[] = {};
+        };
+};

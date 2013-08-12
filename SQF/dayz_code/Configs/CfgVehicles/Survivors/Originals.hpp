@@ -1,4 +1,4 @@
-//Base Units
+    //Base Units
     class Soldier_Crew_PMC; // External class reference
    /* 
     class Survivor1_DZ : Soldier_Crew_PMC {
@@ -18,7 +18,7 @@
         displayName = $STR_CHAR_1;
         side = 1;
         isFemaleDZ = 0;
-        clothingDZ = "Skin_Survivor2_DZ";
+        clothingDZ = "Skin_Survivor2_DZ";   //The skin parcel this unit gives when looted/changed
         faction = "DZU_FACTION_SURVIVOR";
         vehicleClass = "survivor";
         weapons[] = {"Throw", "Put"};
