@@ -1,53 +1,20 @@
-/*
-class SkinBase : CA_Magazine {
-		scope = public;
-		count = 1;
-		type = 256;
-		displayName = $STR_EQUIP_NAME_CLOTHES;
-		descriptionShort = $STR_EQUIP_DESC_CLOTHES;
-		model = "\dayz_equip\models\cloth_parcel.p3d";
-		picture = "\dayz_equip\textures\equip_cloth_parcel_ca.paa";
-		class ItemActions {
-			class Use {
-				text = $STR_EQUIP_TEXT_CLOTHES;
-				script = "spawn player_wearClothes;";
-			};
-		};
-	};
-	class Skin_Sniper1_DZ : SkinBase {
-		displayName = $STR_EQUIP_NAME_GHILLIE;
-		descriptionShort = $STR_EQUIP_DESC_GHILLIE;
-	};
-	
-	class Skin_Camo1_DZ : SkinBase {
-		displayName = $STR_EQUIP_NAME_CAMO;
-		descriptionShort = $STR_EQUIP_DESC_CAMO;
-	};
-	
-	class Skin_Survivor2_DZ : SkinBase {
-		displayName = $STR_EQUIP_NAME_CIV;
-		descriptionShort = $STR_EQUIP_DESC_CIV;
-	};
-	
-	class Skin_Soldier1_DZ : SkinBase {
-		displayName = $STR_EQUIP_NAME_SOLDIER;
-		descriptionShort = $STR_EQUIP_DESC_SOLDIER;
-	}; 
-*/
     //Base parcel class
     class SkinBase : CA_Magazine {
         scope = private;
         count = 1;
         type = 256;
         displayName = "Clothes";
-        skinModel="Survivor2_DZ";
-        skinModelALT="SurvivorW2_DZ"; 
-        isHumanitySkin=0;
-        tearChance=0.4;
+        skinModel="Survivor2_DZ";       //the base model this parcel changes to
+        skinModelALT="SurvivorW2_DZ";   //female version
+        heroSkin="Survivor3_DZ";        //hero/male
+        heroSkinALT="SurvivorW2_DZ";    //hero/female
+        banditSkin="Bandit1_DZ";        //bandit/male
+        banditSkinALT="BanditW1_DZ";    //bandit/female
+        isHumanitySkin=0;               //is this a humanity skin
+        tearChance=0.4;                 //base chance that this item will tear when pulled from a corpse. 
         model = "\dayz_equip\models\cloth_parcel.p3d";
         picture = "\dayz_equip\textures\equip_cloth_parcel_ca.paa";
-        descriptionShort = "Clothes Parcel";
-        
+        descriptionShort = "Clothes Parcel";        
        class ItemActions {
           class Use {
                 text = "Wear %1";
@@ -55,22 +22,21 @@ class SkinBase : CA_Magazine {
           };
        };
     };
-    //Base Suvivor Skin
+    //Base polymorphic suvivor skin
     class Skin_Survivor_DZ : SkinBase {     
         scope = public;
+        /*
+        skinModel="Survivor2_DZ";       //the base model this parcel changes to
+        skinModelALT="SurvivorW2_DZ";   //female version
+        heroSkin="Survivor3_DZ";        //hero/male
+        heroSkinALT="SurvivorW2_DZ";    //hero/female
+        banditSkin="Bandit1_DZ";        //bandit/male
+        banditSkinALT="BanditW1_DZ";    //bandit/female
+        */
         isHumanitySkin=1;
         displayName = "Default Clothing";
         descriptionShort = "ordinary clothing, nothing special..";   
-    };
-    
-    //Base Bandit Skin
-    class Skin_Bandit_DZ : SkinBase {     
-        scope = public;
-        isHumanitySkin=1;
-        descriptionShort = "This clothing smells of murder"; 
-        skinModel="Bandit1_DZ";
-        skinModelALT="BanditW1_DZ";   
-    };
+    };    
     //Camo Soldier
     class Skin_Camo1_DZ : SkinBase {
         scope = public;
@@ -103,11 +69,11 @@ class SkinBase : CA_Magazine {
         skinModel="Sniper1_DZ";
         skinModelALT="SniperW1_DZ";        
     };
-
+    //End Dayz Original skins
   
   
   
-    
+    /*
         class Skin_BAF_Soldier_MTP : SkinBase {     
         scope = public;
         displayName = "BAF Soldier MTP";
@@ -274,3 +240,4 @@ class SkinBase : CA_Magazine {
         displayName = "Civilian Skin 10";
         descriptionShort = "Civilian Skin 10";
     };    
+    */
