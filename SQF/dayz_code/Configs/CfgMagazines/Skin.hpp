@@ -23,7 +23,7 @@
        };
     };
     //Base polymorphic suvivor skin
-    class Skin_Survivor_DZ : SkinBase {     
+    class Skin_Survivor2_DZ : SkinBase {     
         scope = public;
         /*
         skinModel="Survivor2_DZ";       //the base model this parcel changes to
@@ -54,7 +54,7 @@
        //skinModelALT="SniperW1_DZ";        
     };    
     //Officers Outfit(rocket unitform)
-    class Skin_Officer_DZ : SkinBase {
+    class Skin_Officer1_DZ : SkinBase {
         scope = public;
         displayName = "Officers Outfit";
         descriptionShort = "An old military outfit, not than ranks matter anymore.."; 
@@ -62,7 +62,7 @@
         //skinModelALT="SniperW1_DZ";        
     };
     //Sniper outfit
-    class Skin_Sniper_DZ : SkinBase {
+    class Skin_Sniper1_DZ : SkinBase {
         scope = public;
         displayName = "Ghilisuit";
         descriptionShort = "The only outfit a stealth needs.."; 

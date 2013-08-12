@@ -14,7 +14,7 @@ _text = getText (_config >> _item >> "displayName");                //Name of cl
 _location = "skinModel";                                            //Name of the class parm that we will look for the unit name
 _myModel = (typeOf player);                                         //Name of the players existing model
 _itemNew = getText ( _configVehicles >> _myModel >> "clothingDZ");  //Players existing skin package, the one we drop
-if(_itemNew=="")then{_itemNew="Skin_Survivor_DZ";};                 //Validate existing skin
+//if(_itemNew=="")then{_itemNew="Skin_Survivor_DZ";};                 //Validate existing skin
 _isFemale = false;                                                  //Is this player female
 if (!_hasclothesitem) exitWith {cutText [format[(localize "str_player_31"),_text,(localize "str_player_31_wear")] , "PLAIN DOWN"]};    
 if(getNumber(_config >> _item >> "isHumanitySkin") == 1) then {     //Does this skin pack humanity features
@@ -23,7 +23,9 @@ if(getNumber(_config >> _item >> "isHumanitySkin") == 1) then {     //Does this 
    if (_humanity > 5000) then {_location = "heroSkin";};        
 }; 
 if (getNumber(_configVehicles >> _myModel >> "isFemaleDZ") == 1) then {_location = _location+"ALT";};
-    _model = getText (_config >> _item >> _location);               //Name of the model we will set the player to
+if (_itemNew=="")then{_itemNew = getText (_config >> "SkinBase" >> _location);};    //Validate existing skin
+    _model = getText (_config >> _item >> _location);                               //Name of the model we will
+    
 if (!isClass(_configVehicles >> _model)) exitWith {cutText [format["Something broke and went to shit, sorry but '%1' wont work",_model], "PLAIN DOWN"]};
 if (_model != _myModel) then {
 	player removeMagazine _item;

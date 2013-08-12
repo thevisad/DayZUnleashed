@@ -48,7 +48,7 @@ class Rocket_DZ: BAF_Soldier_Officer_W {
     displayName = "Rocket";
     side = 1;
     isFemaleDZ = 0;
-    clothingDZ = "Skin_Survivor_DZ";
+    clothingDZ = "Skin_Officer1_DZ";
     faction = "DZU_FACTION_SURVIVOR";
     vehicleClass = "survivor";
     weapons[] = {"Throw","Put"};
@@ -71,7 +71,7 @@ class Sniper1_DZ: BAF_Soldier_SniperH_W {
     displayName = "Sniper";
     side = 1;
     isFemaleDZ = 0;
-    clothingDZ = "Skin_Sniper_DZ";
+    clothingDZ = "Skin_Sniper1_DZ";
     faction = "DZU_FACTION_SURVIVOR";
     vehicleClass = "survivor";
     weapons[] = {"Throw","Put"};
@@ -83,7 +83,7 @@ class Sniper1_DZ: BAF_Soldier_SniperH_W {
     canHideBodies = 1;
 };
 class Sniper2_DZ : Sniper1_DZ {
-    clothingDZ = "Skin_Sniper_DZ";
+    clothingDZ = "Skin_Sniper1_DZ";
     hiddenselectionstextures[] = {"\ca\characters_E\Ghillie\Data\ghillie_overall1_desert_co.paa"};
 };
 

@@ -18,7 +18,7 @@
         displayName = $STR_CHAR_1;
         side = 1;
         isFemaleDZ = 0;
-        clothingDZ = "Skin_Survivor_DZ";
+        clothingDZ = "Skin_Survivor2_DZ";
         faction = "DZU_FACTION_SURVIVOR";
         vehicleClass = "survivor";
         weapons[] = {"Throw", "Put"};
@@ -45,7 +45,7 @@
         displayName = $STR_CHAR_2;
         side = 1;
         isFemaleDZ = 0;
-        clothingDZ = "Skin_Survivor_DZ";
+        clothingDZ = "Skin_Survivor2_DZ";
         faction = "DZU_FACTION_BANDIT";
         vehicleClass = "survivor";
         weapons[] = {"Throw","Put"};
@@ -64,7 +64,7 @@
         displayName = $STR_CHAR_1;
         side = 1;
         isFemaleDZ = 1;
-        clothingDZ = "Skin_Survivor_DZ";
+        clothingDZ = "Skin_Survivor2_DZ";
         faction = "DZU_FACTION_SURVIVOR";
         vehicleClass = "survivor";
         weapons[] = {"Throw", "Put"};

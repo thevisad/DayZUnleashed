@@ -1,5 +1,5 @@
     class BanditW1_DZ : SurvivorW2_DZ {
-        clothingDZ = "Skin_Survivor_DZ";//uncomment to allow taking of bandit skins
+        clothingDZ = "Skin_Survivor2_DZ";//uncomment to allow taking of bandit skins
         model = "\dayz\characters\woman_bandit";
         
     };        
