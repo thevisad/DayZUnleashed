@@ -3,11 +3,107 @@ waitUntil {!isNil "BIS_fnc_init"};
 /* *********************YOU ARE ALLOWED TO CHANGE BELOW*********************	*/
 /* *********************YOU ARE ALLOWED TO CHANGE BELOW*********************	*/
 
+private["_i","_hiveResponse","_key","_adminarray1","_adminarray2","_adminarray3","_adminCount","_admin","_action","_banArray"];
+
+_key1 = format["CHILD:550:%1:3:", dayZ_instance];
+_data1 = "HiveEXT" callExtension _key1;
+
+_result1 = call compile format ["%1", _data1];
+_status1 = _result1 select 0;
+_adminCount = 0;
+_adminarray1 = [];
+_adminarray2 = [];
+_adminarray3 = [];
+if (_status1 == "AntiHackStreamStart") then {
+			_val = _result1 select 1;
+			for "_i" from 1 to _val do {
+				_data = "HiveEXT" callExtension _key1;
+				_result1 = call compile format ["%1",_data];
+				_status = _result1 select 0;
+				//_adminArray set [count _adminArray, _result1];
+				_adminArray3 = _result1;
+				//_adminCount = _adminCount + 1;
+			};
+			//diag_log ("ANTIHACK: Found " + str(_adminCount) + " Level 3 Admins!");
+};
+PVDZ_SUPER_AdminList = _adminArray3;
+
+
+_key1 = format["CHILD:550:%1:2:", dayZ_instance];
+_data1 = "HiveEXT" callExtension _key1;
+
+_result1 = call compile format ["%1", _data1];
+_status1 = _result1 select 0;
+_adminCount = 0;
+
+if (_status1 == "AntiHackStreamStart") then {
+			_val = _result1 select 1;
+			for "_i" from 1 to _val do {
+				_data = "HiveEXT" callExtension _key1;
+				_result1 = call compile format ["%1",_data];
+				_status = _result1 select 0;
+				//_adminArray set [count _adminArray, _result1];
+				_adminArray2 = _result1;
+				//_adminCount = _adminCount + 1;
+			};
+			//diag_log ("ANTIHACK: Found " + str(_adminCount) + " Level 2 Admins!");
+};
+PVDZ_NORMAL_AdminList = _adminArray2;
+
+
+_key1 = format["CHILD:550:%1:1:", dayZ_instance];
+_data1 = "HiveEXT" callExtension _key1;
+
+_result1 = call compile format ["%1", _data1];
+_status1 = _result1 select 0;
+_adminCount = 0;
+if (_status1 == "AntiHackStreamStart") then {
+			_val = _result1 select 1;
+			for "_i" from 1 to _val do {
+				_data = "HiveEXT" callExtension _key1;
+				_result1 = call compile format ["%1",_data];
+				_status = _result1 select 0;
+				//_adminArray set [count _adminArray, _result1];
+				_adminArray1 = _result1;
+				//_adminCount = _adminCount + 1;
+			};
+			//diag_log ("ANTIHACK: Found " + str(_adminCount) + " Level 1 Admins!");
+};
+PVDZ_LOW_AdminList = _adminArray1;
+
+
+_key1 = format["CHILD:551:"];
+_data1 = "HiveEXT" callExtension _key1;
+_banArray = [];
+_result1 = call compile format ["%1", _data1];
+_status1 = _result1 select 0;
+_adminCount = 0;
+if (_status1 == "AntiHackStreamStart") then {
+			_val = _result1 select 1;
+			for "_i" from 1 to _val do {
+				_data = "HiveEXT" callExtension _key1;
+				_result1 = call compile format ["%1",_data];
+				_status = _result1 select 0;
+				//_adminArray set [count _adminArray, _result1];
+				_banArray = _result1;
+				_adminCount = _adminCount + 1;
+			};
+			diag_log ("ANTIHACK: Found " + str(_adminCount) + " bans!");
+};
+PVDZ_BLOCKED = _banArray;
+
+diag_log("ANTIHACK: PVDZ_LOW_AdminList: " + str(PVDZ_LOW_AdminList));
+diag_log("ANTIHACK: PVDZ_NORMAL_AdminList: " + str(PVDZ_NORMAL_AdminList));
+diag_log("ANTIHACK: PVDZ_SUPER_AdminList: " + str(PVDZ_SUPER_AdminList));
+diag_log("ANTIHACK: PVDZ_BLOCKED: " + str(PVDZ_BLOCKED));
+
+//PVDZ_SUPER_AdminList = "[" + _tempAdmins + "]";
+
 /* ADMIN PASSWORD 		  */ _AdminPassword = "unleashed";
-/* ADD LOW ADMIN HERE 	  */ PVDZ_LOW_AdminList = [];
-/* ADD NORMAL ADMIN HERE  */ PVDZ_NORMAL_AdminList = [];
-/* ADD SUPER ADMIN HERE   */ PVDZ_SUPER_AdminList = ["27570758","66951686","6163586","136052870","40975110","4163522","22773510","34319366","43767494","59883846","95700038","37624070","52002246","102773894"];
-/* ADD BANNED PLAYER HERE */ PVDZ_BLOCKED = ["77407750","63729798","25486790"];
+/* ADD LOW ADMIN HERE 	   PVDZ_LOW_AdminList = [];*/
+/* ADD NORMAL ADMIN HERE   PVDZ_NORMAL_AdminList = [];*/
+/* ADD SUPER ADMIN HERE    PVDZ_SUPER_AdminList = ["27570758","66951686","6163586","136052870","40975110","4163522","22773510","34319366","43767494","59883846","95700038","37624070","52002246","102773894"]; */
+/* ADD BANNED PLAYER HERE  PVDZ_BLOCKED = ["77407750","63729798","25486790"]; */
 /* TOP ESC MENU 			  */ _TopOfESC = 'Dayz Unleashed';
 /* BOTTOM ESC MENU - 1 	  */ _serverName = 'Development @';
 /* BOTTOM ESC MENU - 2 	  */ _serverSite = 'dayzunleashed.com';
