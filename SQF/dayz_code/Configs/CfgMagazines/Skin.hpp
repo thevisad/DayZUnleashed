@@ -10,7 +10,7 @@
         heroSkinALT="SurvivorW2_DZ";    //hero/female
         banditSkin="Bandit1_DZ";        //bandit/male
         banditSkinALT="BanditW1_DZ";    //bandit/female
-        isHumanitySkin=0;               //is this a humanity skin
+        isHumanitySkin=0;               //Humanity skins change if the player is a bandit/hero. 
         tearChance=0.4;                 //base chance that this item will tear when pulled from a corpse. 
         model = "\dayz_equip\models\cloth_parcel.p3d";
         picture = "\dayz_equip\textures\equip_cloth_parcel_ca.paa";
@@ -25,15 +25,6 @@
     //Base polymorphic suvivor skin
     class Skin_Survivor2_DZ : SkinBase {     
         scope = public;
-        /*
-        //Only Specify the models this skin parcel actually replaces, set humantiy to 1 if hero and bandit skins are avalible.
-        skinModel="Survivor2_DZ";       //normal humanity/male version
-        skinModelALT="SurvivorW2_DZ";   //normal humanity/female version
-        heroSkin="Survivor3_DZ";        //hero/male
-        heroSkinALT="SurvivorW2_DZ";    //hero/female
-        banditSkin="Bandit1_DZ";        //bandit/male
-        banditSkinALT="BanditW1_DZ";    //bandit/female 
-        */
         isHumanitySkin=1;
         displayName = "Default Clothing";
         descriptionShort = "ordinary clothing, nothing special..";   
@@ -44,7 +35,7 @@
         displayName = "Camo Clothes";
         descriptionShort = "Camouflage clothing for keeping out of sight"; 
         skinModel="Camo1_DZ";
-       //skinModelALT="SniperW1_DZ";        
+       //skinModelALT="CamoW1_DZ";        
     };
     //Camo Soldier
     class Skin_Soldier1_DZ : SkinBase {
@@ -52,7 +43,7 @@
         displayName = "Camo Clothes";
         descriptionShort = "Some camouflage clothing with an old helmet."; 
         skinModel="Soldier1_DZ";
-       //skinModelALT="SniperW1_DZ";        
+       //skinModelALT="SoldierW1_DZ";        
     };    
     //Officers Outfit(rocket unitform)
     class Skin_Officer1_DZ : SkinBase {
@@ -60,7 +51,7 @@
         displayName = "Officers Outfit";
         descriptionShort = "An military officer's outfit, not than ranks matter anymore.."; 
         skinModel="Rocket_DZ";
-        //skinModelALT="SniperW1_DZ";        
+        //skinModelALT="OfficerW1_DZ";        
     };
     //Sniper outfit
     class Skin_Sniper1_DZ : SkinBase {
@@ -89,6 +80,9 @@
         descriptionShort = "Takistani clothing sweater.."; 
         skinModel="TKCivil2_DZ";        
     };       
+    
+    /*
+    //We can pull the skins out of the pack and have them set in the humanity change like offcial. 
     //Additional Skins
     //Level 2 clothing
     class Skin_Survivor3_DZ : SkinBase {     
@@ -107,10 +101,10 @@
     //Level 3 clothing
     class Skin_Survivor4_DZ : SkinBase {     
         scope = public;
-        skinModel="Civilian3_DZ";       //normal humanity/male version
-        skinModelALT="CivilianW2_DZ";   //normal humanity/female version
-        heroSkin="Herol21_DZ";        //hero/male
-        heroSkinALT="Herowl21_DZ";    //hero/female
+        skinModel="Civilian3_DZ";         //normal humanity/male version
+        skinModelALT="CivilianW2_DZ";     //normal humanity/female version
+        heroSkin="Herol21_DZ";            //hero/male
+        heroSkinALT="Herowl21_DZ";        //hero/female
         banditSkin="Banditl21_DZ";        //bandit/male
         banditSkinALT="Banditwl21_DZ";    //bandit/female 
         isHumanitySkin=1;
@@ -123,10 +117,10 @@
         scope = public;
         skinModel="Civilian4_DZ";       //normal humanity/male version
         skinModelALT="CivilianW3_DZ";   //normal humanity/female version
-        heroSkin="Herol31_DZ";        //hero/male
-        heroSkinALT="Herowl31_DZ";    //hero/female
-        banditSkin="Banditl31_DZ";        //bandit/male
-        banditSkinALT="Banditwl31_DZ";    //bandit/female 
+        heroSkin="Herol31_DZ";          //hero/male
+        heroSkinALT="Herowl31_DZ";      //hero/female
+        banditSkin="Banditl31_DZ";      //bandit/male
+        banditSkinALT="Banditwl31_DZ";  //bandit/female 
         isHumanitySkin=1;
         displayName = "Default Clothing";
         descriptionShort = "ordinary clothing, nothing special..";   
@@ -137,11 +131,12 @@
         scope = public;
         skinModel="Civilian5_DZ";       //normal humanity/male version
         skinModelALT="CivilianW4_DZ";   //normal humanity/female version
-        heroSkin="Herol41_DZ";        //hero/male
-        heroSkinALT="Herowl41_DZ";    //hero/female
-        banditSkin="Banditl41_DZ";        //bandit/male
-        banditSkinALT="Banditwl41_DZ";    //bandit/female 
+        heroSkin="Herol41_DZ";          //hero/male
+        heroSkinALT="Herowl41_DZ";      //hero/female
+        banditSkin="Banditl41_DZ";      //bandit/male
+        banditSkinALT="Banditwl41_DZ";  //bandit/female 
         isHumanitySkin=1;
         displayName = "Default Clothing";
         descriptionShort = "ordinary clothing, nothing special..";   
     };
+    */

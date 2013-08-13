@@ -3,9 +3,35 @@
         model = "\dayz\characters\woman_bandit";
         
     };        
+    
+    class CamoW1_DZ: SurvivorW2_DZ {
+        faceType = "bb_female";
+        identityTypes[] = {"Language_W_EN_EP1", "Woman","Head_BB_Fem"};
+        model = "\bb_oa_female\female_soldier_oa_light.p3d";
+        clothingDZ = "Skin_Camo1_DZ";
+        class Wounds {        
+            mat[] = {"ca\characters_E\US\data\tex1.rvmat", "ca\characters_E\US\data\W1_tex1.rvmat", "ca\characters_E\US\data\W2_tex1.rvmat", "bb_oa_female\textures\acr_soldier_nic.rvmat", "bb_oa_female\textures\w1_acr_soldier_nic.rvmat", "bb_oa_female\textures\w2_acr_soldier_nic.rvmat"};
+            tex[] = {};
+        };
+    };    
+    SoldierW1_DZ : CamoW1_DZ {
+        faceType = "bb_female_helmet";
+        identityTypes[] = {"Language_W_EN_EP1", "Woman","Head_BB_Fem_helmet"};
+        model = "\bb_oa_female\female_soldier_oa_helmet.p3d";
+    };
+    
+    OfficerW1_DZ : CamoW1_DZ {
+        faceType = "bb_female";
+        identityTypes[] = {"Language_W_EN_EP1", "Woman","Head_BB_Fem_helmet"};
+        model = "\bb_oa_female\female_pilot2_oa.p3d";
+        class Wounds {
+            tex[] = {};
+            mat[] = {"bb_oa_female\textures\pilot_soldier_nic.rvmat", "bb_oa_female\textures\w1_pilot_soldier_nic.rvmat", "bb_oa_female\textures\w2_pilot_soldier_nic.rvmat"};
+        };
+    };
     class SniperW1_DZ: Sniper1_DZ {
         isFemaleDZ = 1;
-        clothingDZ = "Skin_Sniper_DZ";
+        clothingDZ = "Skin_Sniper1_DZ";
         identityTypes[] = {"Language_W_EN_EP1", "Woman"};
         languages[] = {"EN"};
         
@@ -13,8 +39,7 @@
             core = "Core_E";
             core_en = "Core_Full_E";
         };
-        genericNames = "EnglishWomen";
-        
+        genericNames = "EnglishWomen";        
         class SpeechVariants {
             class Default {
                 speechSingular[] = {"veh_woman"};
@@ -64,6 +89,6 @@
         };
 };
 class SniperW2_DZ : SniperW1_DZ {
-    clothingDZ = "Skin_Sniper_DZ";
+    clothingDZ = "Skin_Sniper1_DZ";
     hiddenselectionstextures[] = {"\ca\characters_E\Ghillie\Data\ghillie_overall1_desert_co.paa"};
 };

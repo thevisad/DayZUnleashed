@@ -64,7 +64,6 @@ class Officer_DZ : Rocket_DZ {
     clothingDZ = "Skin_Survivor_DZ";
     hiddenselectionstextures[] = {"\ca\characters_d_baf\data\camo_MTP_co.paa", "\ca\characters_d_baf\data\armour_co.paa", "\ca\characters_d_baf\data\equip_d_co.paa"};
 };
-
 //Sniper
 class BAF_Soldier_SniperH_W;
 class Sniper1_DZ: BAF_Soldier_SniperH_W {
@@ -83,7 +82,6 @@ class Sniper1_DZ: BAF_Soldier_SniperH_W {
     canHideBodies = 1;
 };
 class Sniper2_DZ : Sniper1_DZ {
-    clothingDZ = "Skin_Sniper1_DZ";
     hiddenselectionstextures[] = {"\ca\characters_E\Ghillie\Data\ghillie_overall1_desert_co.paa"};
 };
 //TK Soldier
