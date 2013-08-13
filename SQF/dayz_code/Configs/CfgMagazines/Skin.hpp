@@ -23,10 +23,10 @@
        };
     };
     //Base polymorphic suvivor skin
-    //If y
     class Skin_Survivor2_DZ : SkinBase {     
         scope = public;
         /*
+        //Only Specify the models this skin parcel actually replaces, set humantiy to 1 if hero and bandit skins are avalible.
         skinModel="Survivor2_DZ";       //normal humanity/male version
         skinModelALT="SurvivorW2_DZ";   //normal humanity/female version
         heroSkin="Survivor3_DZ";        //hero/male
@@ -89,94 +89,59 @@
         descriptionShort = "Takistani clothing sweater.."; 
         skinModel="TKCivil2_DZ";        
     };       
-    /*
-        class Skin_CivilianW1_DZ : SkinBase {       
+    //Additional Skins
+    //Level 2 clothing
+    class Skin_Survivor3_DZ : SkinBase {     
         scope = public;
-        displayName = "Civilian Female Skin 1";
-        descriptionShort = "Civilian Female Skin 1";    
+        skinModel="Civilian2_DZ";       //normal humanity/male version
+        skinModelALT="CivilianW1_DZ";   //normal humanity/female version
+        heroSkin="Herol11_DZ";        //hero/male
+        heroSkinALT="Herowl11_DZ";    //hero/female
+        banditSkin="Banditl11_DZ";        //bandit/male
+        banditSkinALT="Banditwl11_DZ";    //bandit/female 
+        isHumanitySkin=1;
+        displayName = "Default Clothing";
+        descriptionShort = "ordinary clothing, nothing special..";   
+    }; 
+
+    //Level 3 clothing
+    class Skin_Survivor4_DZ : SkinBase {     
+        scope = public;
+        skinModel="Civilian3_DZ";       //normal humanity/male version
+        skinModelALT="CivilianW2_DZ";   //normal humanity/female version
+        heroSkin="Herol21_DZ";        //hero/male
+        heroSkinALT="Herowl21_DZ";    //hero/female
+        banditSkin="Banditl21_DZ";        //bandit/male
+        banditSkinALT="Banditwl21_DZ";    //bandit/female 
+        isHumanitySkin=1;
+        displayName = "Default Clothing";
+        descriptionShort = "ordinary clothing, nothing special..";   
+    };   
+
+    //Level 4 clothing
+    class Skin_Survivor5_DZ : SkinBase {     
+        scope = public;
+        skinModel="Civilian4_DZ";       //normal humanity/male version
+        skinModelALT="CivilianW3_DZ";   //normal humanity/female version
+        heroSkin="Herol31_DZ";        //hero/male
+        heroSkinALT="Herowl31_DZ";    //hero/female
+        banditSkin="Banditl31_DZ";        //bandit/male
+        banditSkinALT="Banditwl31_DZ";    //bandit/female 
+        isHumanitySkin=1;
+        displayName = "Default Clothing";
+        descriptionShort = "ordinary clothing, nothing special..";   
+    };  
+
+    //Level 5 clothing
+    class Skin_Survivor6_DZ : SkinBase {     
+        scope = public;
+        skinModel="Civilian5_DZ";       //normal humanity/male version
+        skinModelALT="CivilianW4_DZ";   //normal humanity/female version
+        heroSkin="Herol41_DZ";        //hero/male
+        heroSkinALT="Herowl41_DZ";    //hero/female
+        banditSkin="Banditl41_DZ";        //bandit/male
+        banditSkinALT="Banditwl41_DZ";    //bandit/female 
+        isHumanitySkin=1;
+        displayName = "Default Clothing";
+        descriptionShort = "ordinary clothing, nothing special..";   
     };
-    
-        class Skin_CivilianW2_DZ : SkinBase {       
-        scope = public;
-        displayName = "Civilian Female Skin 2";
-        descriptionShort = "Civilian Female Skin 2";    
-    };
-    
-        class Skin_CivilianW3_DZ : SkinBase {       
-        scope = public;
-        displayName = "Civilian Female Skin 3";
-        descriptionShort = "Civilian Female Skin 3";    
-    };
-    
-        class Skin_CivilianW4_DZ : SkinBase {
-        scope = public;
-        displayName = "Civilian Female Skin 4";
-        descriptionShort = "Civilian Female Skin 4";
-    };
-    
-        class Skin_CivilianW5_DZ : SkinBase {
-        scope = public;
-        displayName = "Civilian Female Skin 5";
-        descriptionShort = "Civilian Female Skin 5";
-    };
-    
-        class Skin_Civilian1_DZ : SkinBase {        
-        scope = public;
-        displayName = "Civilian Skin 1";
-        descriptionShort = "Civilian Skin 1";   
-    };
-    
-        class Skin_Civilian2_DZ : SkinBase {        
-        scope = public;
-        displayName = "Civilian Skin 2";
-        descriptionShort = "Civilian Skin 2";   
-    };
-    
-        class Skin_Civilian3_DZ : SkinBase {        
-        scope = public;
-        displayName = "Civilian Skin 3";
-        descriptionShort = "Civilian Skin 3";   
-    };
-    
-        class Skin_Civilian4_DZ : SkinBase {
-        scope = public;
-        displayName = "Civilian Skin 4";
-        descriptionShort = "Civilian Skin 4";
-    };
-    
-        class Skin_Civilian5_DZ : SkinBase {
-        scope = public;
-        displayName = "Civilian Skin 5";
-        descriptionShort = "Civilian Skin 5";
-    };
-    
-        class Skin_Civilian6_DZ : SkinBase {
-        scope = public;
-        displayName = "Civilian Skin 6";
-        descriptionShort = "Civilian Skin 6";
-    };
-    
-        class Skin_Civilian7_DZ : SkinBase {
-        scope = public;
-        displayName = "Civilian Skin 7";
-        descriptionShort = "Civilian Skin 7";
-    };
-    
-        class Skin_Civilian8_DZ : SkinBase {
-        scope = public;
-        displayName = "Civilian Skin 8";
-        descriptionShort = "Civilian Skin 8";
-    };
-    
-        class Skin_Civilian9_DZ : SkinBase {
-        scope = public;
-        displayName = "Civilian Skin 9";
-        descriptionShort = "Civilian Skin 9";
-    };
-    
-        class Skin_Civilian10_DZ : SkinBase {
-        scope = public;
-        displayName = "Civilian Skin 10";
-        descriptionShort = "Civilian Skin 10";
-    };    
-    */
