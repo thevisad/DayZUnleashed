@@ -289,7 +289,7 @@ class CfgVehicles {
 			tex[] = {};
 			mat[] = {"tanya\data\us_soldier_sabass_body.rvmat", "tanya\data\us_soldier_sabass_body_wound1.rvmat", "tanya\data\us_soldier_sabass_body_wound2.rvmat", "tanya\data\us_spec_hhl.rvmat", "tanya\data\us_spec_hhl_wound1.rvmat", "tanya\data\us_spec_hhl_wound2.rvmat"};
 		};
-	};;
+	};
 	
 	class CivilianW4_DZ : CivilianW_DZ {
 		displayName = "Civilian Female 2";

@@ -1416,23 +1416,51 @@ class CfgWeight
 			weight = 4;
 		};
 		
-		//Skins
-		class Skin_Camo1_DZ
-		{
-			weight = 50.0;
-		};
-		class Skin_Sniper1_DZ
-		{
-			weight = 5.0;
-		};
-		class Skin_Survivor2_DZ
-		{
-			weight = 5.0;
-		};
-		class Skin_Soldier1_DZ
-		{
-			weight = 4;
-		};
+        //Skins
+        class Skin_Survivor2_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_Camo1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_Soldier1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_Officer1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_Sniper1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_Sniper2_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKSoldier1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKCivil1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKCivil2_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKWorker1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKWorker2_DZ
+        {
+            weight = 5.0;
+        };
 		
 		//Custom Weapon
 		class sg550_lg97_aimpoint_camo
