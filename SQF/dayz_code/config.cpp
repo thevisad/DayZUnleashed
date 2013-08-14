@@ -11,7 +11,10 @@
 #define ReadOnly		2
 #define ReadOnlyVerified		3
 
-#define EAST 0 // (Russian)
+#define EAST 0       // (Russian)
+//#define WEST 1       // Survivors
+//#define RESISTANCE 2 // Zeds
+//#define CIVILIAN 3   // Objects/Innocents
 
 #include "Configs\basicDefines.hpp"
 
@@ -108,6 +111,18 @@ class CfgAddons
 	};
 };
 
+class CfgVehicleClasses {
+    class survivor {
+        displayName = "Survivors";
+    };
+    class zombie {
+        displayName = "Zombie";
+    };
+    class istraction {
+        displayName = "Distraction";
+    };
+};
+
 class CfgActions {
 	class None; // External class reference
 
@@ -141,8 +156,35 @@ class CfgInGameUI
         cueFriendlyColor[] = {0,0,0,0};
         cueEnemyColor[] = {0,0,0,0};
     };
-	
-	
+	/*
+    class IslandMap
+    {
+        colorFriendly[] = {0,0.5,0,1};
+        colorEnemy[] = {0.5,0,0,1};//{0.5,0,0,1};
+        colorNeutral[] = {1.0,0.5,0,1};//{1.0,0.5,0,1};
+        colorCivilian[] = {0,0,1,1};
+        colorUnknown[] = {1.0,0.5,0,0};//{1.0,0.5,0,0.8};
+        shadow = 2;
+        iconPlayer = "\ca\ui\data\map_player_ca.paa";
+        iconPlayerDirection = "\ca\ui\data\map_dir_ca.paa";
+        iconCheckpoint = "\ca\ui\data\map_target_ca.paa";
+        iconCamera = "\ca\ui\data\map_camera_ca.paa";
+        iconSelect = "\ca\ui\data\map_select_ca.paa";
+        iconSensor = "\ca\ui\data\map_trigger_ca.paa";
+        sizeLeader = 24;
+        size = 26;
+        sizePlayer = 26;
+        colorTracks[] = {0.2,0.13,0,1};
+        colorRoads[] = {0.2,0.13,0,1};
+        colorMainRoads[] = {0,0,0,1};
+        colorTracksFill[] = {0,0,0,0};
+        colorRoadsFill[] = {1,0.88,0.65,1};
+        colorMainRoadsFill[] = {0.94,0.69,0.2,1};
+        cursorLineWidth = 1;
+        colorGrid[] = {0.05,0.1,0,0.6};
+        colorGridMap[] = {0.05,0.1,0,0.4};
+    };
+    */
 	class MPTable
 	{
 		color[] = {0,0,0,0}; //{0.7,0.7,0.7,1};

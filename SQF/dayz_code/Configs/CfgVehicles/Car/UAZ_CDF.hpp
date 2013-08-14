@@ -5,6 +5,6 @@ class UAZ_CDF: UAZ_Unarmed_Base {
 	faction = "CDF";
 	hiddenselectionstextures[] = {"\ca\wheeled\data\Uaz_main_002_CO.paa"};
 	scope = 2;
-	side = 1;
+	side = 3;
 	typicalcargo[] = {};
 };

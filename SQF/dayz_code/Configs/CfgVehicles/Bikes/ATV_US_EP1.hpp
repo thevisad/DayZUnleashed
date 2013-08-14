@@ -3,7 +3,7 @@ class ATV_US_EP1: ATV_Base_EP1 {
 	faction = "";
 	maxspeed = 80;
 	scope = 2;
-	side = 1;
+	side = 3;
 	typicalcargo[] = {""};
 	class HitPoints {
 		class HitBody {
