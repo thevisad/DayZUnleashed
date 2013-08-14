@@ -1,18 +1,5 @@
     //Base Units
     class Soldier_Crew_PMC; // External class reference
-   /* 
-    class Survivor1_DZ : Soldier_Crew_PMC {
-        displayName = $STR_CHAR_1;
-        side = TWest;
-        weapons[] = {"Throw", "Put"};
-        model = "\dayz\objects\proxy_man";
-        magazines[] = {};
-        respawnWeapons[] = {"Throw", "Put"};
-        respawnMagazines[] = {};
-        weaponSlots = 1  +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072;
-        canHideBodies = true;
-    };
-    */
     //default starting unit
     class Survivor2_DZ : Soldier_Crew_PMC {
         displayName = $STR_CHAR_1;
@@ -74,6 +61,7 @@
         respawnMagazines[] = {};
         weaponSlots = 1  +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072;
         canHideBodies = true;
+        //faceType = "WomanHead";
         identityTypes[] = {"Language_W_EN_EP1", "Woman"};
         languages[] = {"EN"};
         
@@ -132,3 +120,10 @@
         };
         hiddenSelections[] = {};
     };
+    //Base female bandit 
+    class BanditW1_DZ : SurvivorW2_DZ {
+        clothingDZ = "Skin_Survivor2_DZ";
+        model = "\dayz\characters\woman_bandit";        
+    };        
+    
+    

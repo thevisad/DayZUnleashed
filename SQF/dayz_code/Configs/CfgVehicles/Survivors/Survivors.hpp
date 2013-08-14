@@ -120,3 +120,19 @@ class TKCivil2_DZ : Survivor3_DZ {
             tex[] = {};
         };
 };
+//TK_CIV_Worker01_EP1
+class TKWorker1_DZ : Survivor3_DZ{
+    clothingDZ = "Skin_TKWorker1_DZ";
+    model = "\Ca\characters_E\Overall\Overall";
+    hiddenselections[] = {"Camo"};
+    hiddenselectionstextures[] = {"\Ca\characters_E\Overall\Data\Overall_4_co.paa"};
+    class Wounds {
+        mat[] = {"Ca\characters_E\Overall\Data\Overall.rvmat", "Ca\characters_E\Overall\Data\W1_Overall.rvmat", "Ca\characters_E\Overall\Data\W2_Overall.rvmat"};
+        tex[] = {};
+    };    
+};
+//TK_CIV_Worker02_EP1
+class TKWorker2_DZ : TKWorker1_DZ{    
+    clothingDZ = "Skin_TKWorker2_DZ";
+    hiddenselectionstextures[] = {"\Ca\characters_E\Overall\Data\Overall_3_co.paa"};
+}
