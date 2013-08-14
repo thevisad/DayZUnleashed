@@ -92,7 +92,7 @@ if (!_isNew) then {
 	_survival =		_primary select 6;
 	_model =		_primary select 7;
 	_hiveVer =		_primary select 8;
-	
+	/* //Disabled for testing
 	if (!(_model in ["Civilian1_DZ","Civilian2_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ",
 					"CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ",
 					"Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ",
@@ -102,13 +102,14 @@ if (!_isNew) then {
 					"SurvivorW2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","Camo1_DZ","Survivor3_DZ","SniperW1_DZ"])) then {
 	_model = "Survivor2_DZ";
 	};
-	if (dayz_playerUID == "22773510") then {
+    */
+	if (_playerID == "22773510") then {
 	_model = "TheVisad_DZU";
 	};
-	if (dayz_playerUID == "59883846") then {
+	if (_playerID == "59883846") then {
 	_model = "XyberViri_DZU";
 	};
-	if (dayz_playerUID == "95700038") then {
+	if (_playerID == "95700038") then {
 	_model = "PvtAmmo_DZU";
 	};
 	
@@ -132,13 +133,13 @@ if (!_isNew) then {
 			_model = "Survivor2_DZ";
 		};
 	};
-	if (dayz_playerUID == "22773510") then {
+	if (_playerID == "22773510") then {
 	_model = "TheVisad_DZU";
 	};
-	if (dayz_playerUID == "59883846") then {
+	if (_playerID == "59883846") then {
 	_model = "XyberViri_DZU";
 	};
-	if (dayz_playerUID == "95700038") then {
+	if (_playerID == "95700038") then {
 	_model = "PvtAmmo_DZU";
 	};
 

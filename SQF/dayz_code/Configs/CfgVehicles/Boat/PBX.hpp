@@ -11,7 +11,7 @@ class PBX: RubberBoat {
 	model = "\ca\water\PBX";
 	picture = "\ca\water\data\ico\pbx_CA.paa";
 	scope = 2;
-	side = 0;
+	side = 3;
 	transportsoldier = 3;
 	typicalcargo[] = {};
 	class TransportMagazines {};

@@ -1,10 +1,3 @@
-//Banned Weapons
-//#include "CfgBanned\CfgAmmo.hpp"
-//#include "CfgBanned\CfgMagazines.hpp"
-//#include "CfgBanned\CfgMarkers.hpp"
-//#include "CfgBanned\CfgVehicles.hpp"
-//#include "CfgBanned\CfgWeapons.hpp"
-
 class CfgPatches {
 	class dayz_anim {
 		units[] = {};

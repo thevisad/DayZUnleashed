@@ -1413,22 +1413,50 @@ class CfgWeight
 		};
 		
 		//Skins
-		class Skin_Camo1_DZ
-		{
-			weight = 50.0;
-		};
-		class Skin_Sniper1_DZ
+		class Skin_Survivor2_DZ
 		{
 			weight = 5.0;
 		};
-		class Skin_Survivor2_DZ
+		class Skin_Camo1_DZ
 		{
 			weight = 5.0;
 		};
 		class Skin_Soldier1_DZ
 		{
-			weight = 4;
+			weight = 5.0;
 		};
+		class Skin_Officer1_DZ
+		{
+			weight = 5.0;
+		};
+        class Skin_Sniper1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_Sniper2_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKSoldier1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKCivil1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKCivil2_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKWorker1_DZ
+        {
+            weight = 5.0;
+        };
+        class Skin_TKWorker2_DZ
+        {
+            weight = 5.0;
+        };
 		
 		//Backpacks
 		class DZ_Patrol_Pack_EP1

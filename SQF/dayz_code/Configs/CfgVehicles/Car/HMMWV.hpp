@@ -1,6 +1,6 @@
 class HMMWV_DZ: HMMWV_Base {
 	accuracy = 0.32;
-	displayname = "HMMWV_DZ";
+	displayname = "old HMMWV";
 	maxspeed = 230;
 	hasgunner = 0;
 	hiddenselections[] = {"Camo1"};
@@ -10,7 +10,7 @@ class HMMWV_DZ: HMMWV_Base {
 	model = "ca\wheeled_E\HMMWV\HMMWV";
 	picture = "\Ca\wheeled\data\ico\HMMWV_CA.paa";
 	scope = 2;
-	side = 2;
+	side = 3;
 	crew = "";
 	typicalCargo[] = {};
 	transportMaxWeapons = 10;
