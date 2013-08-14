@@ -64,7 +64,7 @@ switch (DZAI_modName) do {
 		for "_i" from 0 to ((count _newItems) - 1) do {DZAI_Backpacks3 set [(count DZAI_Backpacks3),(_newItems select _i)];};
 		//_newItems = ["Warlord_DZ","Skimask_DZ","Bardak_DZ","Boss_DZ","Euroman2_DZ","Euroman1_DZ","Doctor_DZ","CameraMan_DZ","Profiteer4_DZ","Profiteer3_DZ","Profiteer3_DZ","Profiteer2_DZ","Profiteer1_DZ","Priest_DZ","Pilot_DZ","PMC_Female_DZ","Female_2_DZ","Survivor2_DZ","Sniper1_DZ","Soldier1_DZ","BanditW1_DZ","Bandit1_DZ","SurvivorW2_DZ","Policeman_DZ","Rocker1_DZ","Rocker2_DZ","Rocker3_DZ","Rocker4_DZ","Civilian2_DZ","Civilian3_DZ","Priest_DZ","Pilot_DZ","Villager1_DZ","Villager4_DZ","Villager3_DZ","Villager2_DZ","Worker4_DZ","Worker3_DZ","Worker2_DZ","Worker1_DZ","Assistant_DZ"];
 		//for "_i" from 0 to ((count _newItems) - 1) do {DZAI_BanditTypes set [(count DZAI_BanditTypes),(_newItems select _i)];};
-		_newItems = ["Skin_Policeman_DZ","Skin_Citizen2_DZ","Skin_Citizen3_DZ","Skin_Rocker1_DZ","Skin_Rocker2_DZ","Skin_Rocker3_DZ","Skin_Rocker4_DZ","Skin_Worker1_DZ","Skin_Assistant_DZ","Skin_Pilot_DZ","Skin_Priest_DZ"];
+		_newItems = ["Skin_Survivor2_DZ","Skin_TKCivil1_DZ","Skin_TKCivil2_DZ"];
 		for "_i" from 0 to ((count _newItems) - 1) do {DZAI_SkinLoot set [(count DZAI_SkinLoot),(_newItems select _i)];};
 	};
 	case default {};
