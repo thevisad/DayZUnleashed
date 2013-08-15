@@ -387,7 +387,7 @@ while {true} do {
 		_trigger setTriggerArea [DZAI_dynTriggerRadius, DZAI_dynTriggerRadius, 0, false];
 		_trigger setTriggerActivation ["ANY", "PRESENT", true];
 		_trigger setTriggerTimeout [5, 7, 20, true];
-		_trigger setTriggerStatements [DYNTRIG_STATEMENTS_INACTIVE];
+		_trigger setTriggerStatements ["{(isPlayer _x) && !(_x isKindOf 'Air')} count thisList > 0;","[300,thisTrigger,thisList] call fnc_spawnBandits_dynamic;", "[thisTrigger] spawn fnc_despawnBandits_dynamic;"];
 		if (DZAI_debugMarkers == 1) then {
 			private ["_markername","_marker"];
 			_markername = format["trigger_%1",_trigger];

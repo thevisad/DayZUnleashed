@@ -14,6 +14,7 @@ _bag = unitBackpack player;
 _classbag = typeOf _bag;
 _isWater = (surfaceIsWater (position player)) or dayz_isSwimming;
 _hasAntiB = "ItemAntibiotic" in magazines player;
+_hasETool = "ItemETool" in magazines player;
 _hasFuelE20 = "ItemJerrycanEmpty" in magazines player;
 _hasFuelE5 = "ItemFuelcanEmpty" in magazines player;
 //boiled Water
@@ -44,78 +45,6 @@ if (!isNull _nearLight) then {
 };
 _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 
-/*
-//##### BASE BUILDING 1.2 Custom Actions (CROSSHAIR IS TARGETING NOTHING) #####
-// #### START1 ####
-_currentSkin = typeOf(player);
-			// Get closest camonet since we cannot target with crosshair Base Building Script, got lazy here, didnt fix with array
-			camoNetB_East = nearestObject [player, "Land_CamoNetB_EAST"];
-			camoNetVar_East = nearestObject [player, "Land_CamoNetVar_EAST"];
-			camoNet_East = nearestObject [player, "Land_CamoNet_EAST"];
-			camoNetB_Nato = nearestObject [player, "Land_CamoNetB_NATO"];
-			camoNetVar_Nato = nearestObject [player, "Land_CamoNetVar_NATO"];
-			camoNet_Nato = nearestObject [player, "Land_CamoNet_NATO"];
-	// Check mags in player inventory to show build recipe menu	
-	_mags = magazines player;
-	if ("ItemTankTrap" in _mags || "ItemSandbag" in _mags || "ItemWire" in _mags || "PartWoodPile" in _mags || "PartGeneric" in _mags) then {
-		hasBuildItem = true;
-	} else { hasBuildItem = false;};
-	//Build Recipe Menu Action
-	if((speed player <= 1) && hasBuildItem && _canDo) then {
-		if (s_player_recipeMenu < 0) then {
-			s_player_recipeMenu = player addaction [("<t color=""#0074E8"">" + ("Build Recipes") +"</t>"),"\z\addons\dayz_code\buildRecipeBook\build_recipe_dialog.sqf","",5,false,true,"",""];
-		};
-	} else {
-		player removeAction s_player_recipeMenu;
-		s_player_recipeMenu = -1;
-	};
-
-	//Add in custom eventhandlers or whatever on skin change
-	if (_currentSkin != globalSkin) then {
-		globalSkin = _currentSkin;
-		player removeMPEventHandler ["MPHit", 0]; 
-		player removeEventHandler ["AnimChanged", 0];
-		ehWall = player addEventHandler ["AnimChanged", { player call antiWall; } ];
-	};
-	// Remove CamoNets, (Not effecient but works)
-	if((isNull cursorTarget) && _hasToolbox && _canDo && !remProc && !procBuild && 
-		(camoNetB_East distance player < 10 or 
-		camoNetVar_East distance player < 10 or 
-		camoNet_East distance player < 10 or 
-		camoNetB_Nato distance player < 10 or 
-		camoNetVar_Nato distance player < 10 or 
-		camoNet_Nato distance player < 10)) then {
-		if (s_player_deleteCamoNet < 0) then {
-			s_player_deleteCamoNet = player addaction [("<t color=""#F01313"">" + ("Remove Netting") +"</t>"),"\z\addons\dayz_code\actions\player_remove.sqf","",1,true,true,"",""];
-			s_player_netCodeObject = player addaction [("<t color=""#8E11F5"">" + ("Enter Code of Object to remove Netting") +"</t>"),"\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
-		};
-	} else {
-		player removeAction s_player_deleteCamoNet;
-		s_player_deleteCamoNet = -1;
-		player removeAction s_player_netCodeObject;
-		s_player_netCodeObject = -1;
-	};
-	
-		
-	// Remove CamoNets Owner removal, (Not effecient but works)
-if(_canDo && removeObject && !procBuild && !remProc && 
-(camoNetB_East distance player < 10 or 
-camoNetVar_East distance player < 10 or 
-camoNet_East distance player < 10 or 
-camoNetB_Nato distance player < 10 or 
-camoNetVar_Nato distance player < 10 or 
-camoNet_Nato distance player < 10)) then {
-		if (s_player_codeRemoveNet < 0) then {
-			s_player_codeRemoveNet = player addaction [("<t color=""#8E11F5"">" + ("Base Owners Remove Object Netting") +"</t>"),"\z\addons\dayz_code\actions\player_remove.sqf","",5,false,true,"",""];
-		};
-	} else {
-			player removeAction s_player_codeRemoveNet;
-			s_player_codeRemoveNet = -1;
-	};
-	
-//##### BASE BUILDING 1.2 Custom Actions (CROSSHAIR IS TARGETING NOTHING) #####
-// #### END1 ####
-*/
 
 //Grab Flare
 if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
@@ -257,159 +186,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	};
 	//diag_log ("OWNERID = " + _ownerID + " CHARID = " + dayz_characterID + " " + str(_ownerID == dayz_characterID));
 
-	
-		_currentSkin = typeOf(player);
-			// Get closest camonet since we cannot target with crosshair Base Building Script
-			camoNetB_East = nearestObject [player, "Land_CamoNetB_EAST"];
-			camoNetVar_East = nearestObject [player, "Land_CamoNetVar_EAST"];
-			camoNet_East = nearestObject [player, "Land_CamoNet_EAST"];
-			camoNetB_Nato = nearestObject [player, "Land_CamoNetB_NATO"];
-			camoNetVar_Nato = nearestObject [player, "Land_CamoNetVar_NATO"];
-			camoNet_Nato = nearestObject [player, "Land_CamoNet_NATO"];
-	// Check mags in player inventory to show build recipe menu	
-	_mags = magazines player;
-	if ("ItemTankTrap" in _mags || "ItemSandbag" in _mags || "ItemWire" in _mags || "PartWoodPile" in _mags || "PartGeneric" in _mags) then {
-		hasBuildItem = true;
-	} else { hasBuildItem = false;};
-	//Build Recipe Menu Action
-	if((speed player <= 1) && hasBuildItem && _canDo) then {
-		if (s_player_recipeMenu < 0) then {
-			s_player_recipeMenu = player addaction [("<t color=""#0074E8"">" + ("Build Recipes") +"</t>"),"\z\addons\dayz_code\buildRecipeBook\build_recipe_dialog.sqf","",5,false,true,"",""];
-		};
-	} else {
-		player removeAction s_player_recipeMenu;
-		s_player_recipeMenu = -1;
-	};
-	//This is for anti-wall script so players cannot get out of vehicle into bases!
-	//Add in custom eventhandlers or whatever on skin change
-	if (_currentSkin != globalSkin) then {
-		globalSkin = _currentSkin;
-		player removeEventHandler ["AnimChanged",0];
-		player removeMPEventHandler ["MPHit", 0]; 
-		player removeEventHandler ["AnimChanged", 0];
-		ehWall = player addEventHandler ["AnimChanged", { player call antiWall; } ];
-	};
-	// Remove CamoNets, (Not effecient but works)
-	if((isNull cursorTarget) && _hasToolbox && _canDo && !remProc && !procBuild && 
-		(camoNetB_East distance player < 10 or 
-		camoNetVar_East distance player < 10 or 
-		camoNet_East distance player < 10 or 
-		camoNetB_Nato distance player < 10 or 
-		camoNetVar_Nato distance player < 10 or 
-		camoNet_Nato distance player < 10)) then {
-		if (s_player_deleteCamoNet < 0) then {
-			s_player_deleteCamoNet = player addaction [("<t color=""#F01313"">" + ("Remove Netting") +"</t>"),"\z\addons\dayz_code\actions\player_remove.sqf","",1,true,true,"",""];
-			s_player_netCodeObject = player addaction [("<t color=""#8E11F5"">" + ("Enter Code of Object to remove Netting") +"</t>"),"\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
-		};
-	} else {
-		player removeAction s_player_deleteCamoNet;
-		s_player_deleteCamoNet = -1;
-		player removeAction s_player_netCodeObject;
-		s_player_netCodeObject = -1;
-	};
-	
-		
-	// Remove CamoNets Owner removal, (Not effecient but works)
-	if(_canDo && removeObject && !procBuild && !remProc && 
-	(camoNetB_East distance player < 10 or 
-	camoNetVar_East distance player < 10 or 
-	camoNet_East distance player < 10 or 
-	camoNetB_Nato distance player < 10 or 
-	camoNetVar_Nato distance player < 10 or 
-	camoNet_Nato distance player < 10)) then {
-		if (s_player_codeRemoveNet < 0) then {
-			s_player_codeRemoveNet = player addaction [("<t color=""#8E11F5"">" + ("Base Owners Remove Object Netting") +"</t>"),"\z\addons\dayz_code\actions\player_remove.sqf","",5,false,true,"",""];
-		};
-	} else {
-			player removeAction s_player_codeRemoveNet;
-			s_player_codeRemoveNet = -1;
-	};
-	if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 5)) then {	//Has some kind of target
-		
-		
-		//****New with latest Base Building******
-		_authorizedUID = cursorTarget getVariable "AuthorizedUID";
-		_authorizedGateCodes = ((getPlayerUid player) in _authorizedUID);
-		//hintsilent format["_authorizedUID: %1\n(getPlayerUid player): %2\n_authorizedGateCodes:%3", str(_authorizedUID), (getPlayerUid player), str(_authorizedGateCodes)];
-			
-	  
-			//#### BASE BUILDING 1.2 START WORKS WITH LATEST###
-		
-		// Operate Gates AND Add Authorization to Gate
-		if (((typeOf(cursortarget) == "Infostand_2_EP1") || (typeOf(cursortarget) == "Fence_corrugated_plate")) && _authorizedGateCodes) then { // && _validGateCodes 
-			_lever = cursorTarget;
-			_gates = nearestObjects [_lever, ["Concrete_Wall_EP1"], 100];
-			if (s_player_gateActions < 0) then {
-				if (typeOf(cursortarget) == "Fence_corrugated_plate") then {
-						s_player_gateActions = player addAction ["Operate Gate", "\z\addons\dayz_code\external\keypad\fnc_keyPad\operate_gates.sqf", _lever, 1, false, true, "", ""];
-				} else {
-					if (count _gates > 0) then {
-						s_player_gateActions = player addAction ["Operate Gate Panel", "\z\addons\dayz_code\external\keypad\fnc_keyPad\operate_gates.sqf", _lever, 1, false, true, "", ""];
-					};
-				};
-			};
-			if (s_player_addGateAuthorization < 0) then {
-					s_player_addGateAuthorization = player addAction ["Enter Friendly Player UIDs to Gain Permanent Gate Access", "\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCodeAdd.sqf", _lever, 1, false, true, "", ""];
-			};
-			if (s_player_removeGateAuthorization < 0) then {
-					//s_player_removeGateAuthorization = player addAction ["Enter Player UIDs to Remove Permanent Gate Access", "\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCodeRemove.sqf", _lever, 1, false, true, "", ""];
-					s_player_removeGateAuthorization = player addaction [("<t color=""#F01313"">" + ("Enter Player UIDs to Remove Permanent Gate Access") +"</t>"),"\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCodeRemove.sqf", _lever, 1, false, true, "", ""];
-			};
-		} else {
-			player removeAction s_player_gateActions;
-			s_player_gateActions = -1;
-			player removeAction s_player_addGateAuthorization;
-			s_player_addGateAuthorization = -1;
-			player removeAction s_player_removeGateAuthorization;
-			s_player_removeGateAuthorization = -1;
-		};
-		// Remove Object Custom removal test
-		if((typeOf(cursortarget) in allremovables) && _hasToolbox && _canDo && !remProc && !procBuild && !removeObject) then {
-			if (s_player_deleteBuild < 0) then {
-				s_player_deleteBuild = player addAction [format[localize "str_actions_delete",_text], "\z\addons\dayz_code\actions\player_remove.sqf",cursorTarget, 1, true, true, "", ""];
-			};
-		} else {
-			player removeAction s_player_deleteBuild;
-			s_player_deleteBuild = -1;
-		};
-		
-		// Enter Code to Operate Gates Action
-		if((speed player <= 1) && !_authorizedGateCodes && ((typeOf(cursortarget) == "Infostand_2_EP1") || (typeOf(cursortarget) == "Fence_corrugated_plate")) && cursorTarget distance player < 5 && _canDo) then {
-			if (s_player_enterCode < 0) then {
-				s_player_enterCode = player addaction [("<t color=""#4DFF0D"">" + ("Enter Key Code to Operate Gate") +"</t>"),"\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
-			};
-		} else {
-			player removeAction s_player_enterCode;
-			s_player_enterCode = -1;
-		};
-		
-		// Enter Code to remove object
-		if((speed player <= 1) && !removeObject && (typeOf(cursortarget) in allbuildables_class) && cursorTarget distance player < 5 && _canDo) then {
-				if (s_player_codeObject < 0) then {
-					s_player_codeObject = player addaction [("<t color=""#8E11F5"">" + ("Enter Code of Object to remove") +"</t>"),"\z\addons\dayz_code\external\keypad\fnc_keyPad\enterCode.sqf","",5,false,true,"",""];
-				};
-		} else {
-			player removeAction s_player_codeObject;
-			s_player_codeObject = -1;
-		};
-		// Remove Object from code
-		if((typeOf(cursortarget) in allbuildables_class) && _canDo && removeObject && !procBuild && !remProc) then {
-			_validObject = cursortarget getVariable ["validObject",false];
-			if (_validObject) then {
-				if (s_player_codeRemove < 0) then {
-					s_player_codeRemove = player addaction [("<t color=""#8E11F5"">" + ("Base Owners Remove Object") +"</t>"),"\z\addons\dayz_code\actions\player_remove.sqf","",5,false,true,"",""];
-				};
-			} else {
-				player removeAction s_player_codeRemove;
-				s_player_codeRemove = -1;
-			};
-		} else {
-			player removeAction s_player_codeRemove;
-			s_player_codeRemove = -1;
-		};
-	};
-	//#### BASE BUILDING 1.2 END###	
-	
+
 	//Allow player to delete objects DZE
 	if(_typeOfCursorTarget in DZE_removeable and _hasToolbox and _canDo) then {
 		if (s_player_deleteBuild_DZE < 0) then {
@@ -576,49 +353,6 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	};
 
 	// ---------------------------------------SUICIDE------------------------------------
-
-	/*
-	//Repairing Vehicles
-	if ((dayz_myCursorTarget != cursorTarget) and _isVehicle and !_isMan and _hasToolbox and (damage cursorTarget < 1)) then {
-		_vehicle = cursorTarget;
-		{dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;s_player_repairActions = [];
-		dayz_myCursorTarget = _vehicle;
-
-		_allFixed = true;
-		_hitpoints = _vehicle call vehicle_getHitpoints;
-
-		{
-			_damage = [_vehicle,_x] call object_getHit;
-
-			_cmpt = toArray (_x);
-			_cmpt set [0,20];
-			_cmpt set [1,toArray ("-") select 0];
-			_cmpt set [2,20];
-			_cmpt = toString _cmpt;
-
-			_configVeh = configFile >> "cfgVehicles" >> "RepairParts" >> _x;
-			_part = getText(_configVeh >> "part");
-			if (isnil ("_part")) then { _part = "PartGeneric"; };
-
-			// get every damaged part no matter how tiny damage is!
-			_damagePercent = round((1 - _damage) * 100);
-			if (_damage > 0) then {
-				_allFixed = false;
-				_color = "color='#ffff00'"; //yellow
-				if (_damage >= 0.5) then {_color = "color='#ff8800'";}; //orange
-				if (_damage >= 0.9) then {_color = "color='#ff0000'";}; //red
-				_cmpt = format[localize "str_actions_medical_09_status",_cmpt,_damagePercent];
-
-				_string = format[localize "str_actions_medical_09",_cmpt,_color]; //Repair - Part
-				_handle = dayz_myCursorTarget addAction [_string, "\z\addons\dayz_code\actions\repair.sqf",[_vehicle,_part,_x], 0, false, true, "",""];
-				s_player_repairActions set [count s_player_repairActions,_handle];
-			};
-
-		} forEach _hitpoints;
-		if (_allFixed) then {
-			_vehicle setDamage 0;
-		};
-	};*/
 
 	//Repairing Vehicles / Remove Parts from Vehicle
 	if ((dayz_myCursorTarget != cursorTarget) and !_isMan and _hasToolbox and (damage cursorTarget < 1)) then {
@@ -796,16 +530,6 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	};
 	
 
-	/*
-	if (_isMan and !_isAlive) then {
-		if (s_player_dragbody < 0) then {
-			s_player_dragbody = player addAction [localize "str_action_studybody", "\z\addons\dayz_code\actions\drag_body.sqf",cursorTarget, 0, false, true, "",""];
-		};
-		} else {
-		player removeAction s_player_dragbody;
-		s_player_dragbody = -1;
-	};
-	*/
 	if (_isMan and !_isAlive and !_isZombie) then {
 		if (s_player_studybody < 0) then {
 			s_player_studybody = player addAction [localize "str_action_studybody", "\z\addons\dayz_code\actions\study_body.sqf",cursorTarget, 0, false, true, "",""];
@@ -815,7 +539,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_studybody = -1;
 	};
 	
-	if (_isMan and !_isAlive and !_isZombie) then {
+	if (_isMan and !_isAlive and !_isZombie and _hasETool) then {
 		if (s_player_burybody < 0) then {
 			s_player_burybody = player addAction [localize "str_action_burybody", "\z\addons\dayz_code\actions\bury_body.sqf",cursorTarget, 0, false, true, "",""];
 		};
@@ -1018,14 +742,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;
 	s_player_repairActions = [];
 	dayz_myCursorTarget = objNull;
-	/*
-	// ### BASE BUILDING 1.2 ### For gates: 
-	// ### START ###
-	{dayz_myCursorTarget removeAction _x} forEach s_player_gateActions;s_player_gateActions = [];
-	dayz_myCursorTarget = objNull;	
-	// ### BASE BUILDING 1.2 ### For gates: 
-	// ### END ###
-	*/
+
 	//Others
 	player removeAction s_player_flipveh;
 	s_player_flipveh = -1;
@@ -1037,7 +754,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	s_player_deleteBuild_DZE = -1;
 	
 	// Vaults 
-	{player removeAction _x} forEach s_player_combi;s_player_combi = [];
+	{player removeAction _x} forEach s_player_combi;
+	s_player_combi = [];
 	s_player_unlockvault = -1;
 	player removeAction s_player_packvault;
 	s_player_packvault = -1;
@@ -1048,28 +766,6 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	player removeAction player_Cannibalism;
 	player_Cannibalism = -1;
 
-	/*
-	// ### BASE BUILDING 1.2 ### Add in these: 
-	// ### START ###
-	player removeAction s_player_gateActions;
-	s_player_gateActions = -1;
-	player removeAction s_player_addGateAuthorization;
-	s_player_addGateAuthorization = -1;
-	player removeAction s_player_removeGateAuthorization;
-	s_player_removeGateAuthorization = -1;
-	player removeAction s_player_disarmBomb;
-	s_player_disarmBomb = -1;
-	player removeAction s_player_codeObject;
-	s_player_codeObject = -1;
-	player removeAction s_player_enterCode;
-	s_player_enterCode = -1;
-	player removeAction s_player_codeRemove;
-	s_player_codeRemove = -1;
-	player removeAction s_player_deleteBuild;
-	s_player_deleteBuild = -1;
-	// ### BASE BUILDING 1.2 ### Add in these:
-	// ### END ###
-	*/
 	player removeAction s_player_butcher;
 	s_player_butcher = -1;
 	player removeAction s_player_cook;

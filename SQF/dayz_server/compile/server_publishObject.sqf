@@ -15,21 +15,13 @@ if (!(_object isKindOf "Building")) exitWith {
 _allowed = [_object, "Server"] call check_publishobject;
 if (!_allowed) exitWith { };
 
-diag_log ("PUBLISH: Attempt " + str(_object));
+diag_log ("DSPO: Attempt " + str(_object));
 
 //get UID
 _uid = _worldspace call dayz_objectUID2;
 
-//Send request
-if (typeOf(_object) in allbuildables_class) then {
-	_combination = floor(random 899) + 100;
-	_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],dayz_playerUID,_squad ,_combination];
-	//_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_uid,_class,_charID,_worldspace, [],[],_squad ,_combination];
-}
-else 
-{
-	_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance, _class, 0 , _charID, _worldspace, [], [], 0,_uid];
-};
+_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance, _class, 0 , _charID, _worldspace, [], [], 0,_uid];
+
 
 //diag_log ("HIVE: WRITE: "+ str(_key));
 _key call server_hiveWrite;
@@ -43,5 +35,5 @@ if (_object isKindOf "TentStorage") then {
 dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];
 
 #ifdef OBJECT_DEBUG
-diag_log ("PUBLISH: Created " + (_class) + " with ID " + _uid + " and a combination of " + str(_combination) );
+diag_log ("DSPO: Created " + (_class) + " with ID " + _uid + " and a combination of " + str(_combination) );
 #endif

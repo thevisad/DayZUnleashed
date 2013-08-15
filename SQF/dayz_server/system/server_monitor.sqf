@@ -10,9 +10,7 @@ if ((count playableUnits == 0) and !isDedicated) then {
 };
 
 waitUntil{initialized}; //means all the functions are now defined
-// ### BASE BUILDING 1.2 ### SERVER SIDE BUILD ARRAYS - START
-call build_baseBuilding_arrays;
-// ### BASE BUILDING 1.2 ### SERVER SIDE BUILD ARRAYS - END
+
 diag_log "HIVE: Starting";
 
 //Set the Time

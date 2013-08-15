@@ -73,26 +73,7 @@ _object_position = {
 };
 
 _object_inventory = {
-// ### BASE BUILDING 1.2 ### START 
-//This forces object to write to database changing the inventory of the object twice 
-// so it updates the object from operate_gates.sqf 
-
 	private["_inventory","_previous","_key"];
-	// This writes to database if object is buildable
-	if (typeOf(_object) in allbuildables_class) then {
-	// Lets write the array of playerUIDs to database the same way we would write items
-		//set _inventory to the array of playerUIDs from the object using getVariable
-		_inventory = _object getVariable "AuthorizedUID";
-		//Write to DB
-			if (_objectID == "0") then {
-				_key = format["CHILD:309:%1:%2:",_uid,_inventory];
-			} else {
-				_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
-			};
-			diag_log ("HIVE: WRITE: "+ str(_key));
-			_key call server_hiveWrite;
-	//Normal way we would write to DB
-	} else {
 	_inventory = [
 		getWeaponCargo _object,
 		getMagazineCargo _object,
@@ -110,10 +91,8 @@ _object_inventory = {
 		diag_log ("HIVE: WRITE: "+ str(_key));
 		#endif
 		_key call server_hiveWrite;
-		};
 	};
 };
-// ### BASE BUILDING 1.2 ### END
 
 _object_damage = {
 	//Allow dmg process

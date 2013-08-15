@@ -33,6 +33,7 @@ if (isServer) then {
 	//"PVDZ_plr_Discorem"		addPublicVariableEventHandler {dayz_disco = dayz_disco - [(_this select 1)];};
 	"PVDZ_plr_Save"	addPublicVariableEventHandler {_id = (_this select 1) call server_playerSync;};
 	"PVDZ_obj_Publish"	addPublicVariableEventHandler {(_this select 1) call server_publishObj};
+	"PVDZ_bld_Publish"	addPublicVariableEventHandler {(_this select 1) call server_publishBld};
 	"PVDZ_veh_Save" addPublicVariableEventHandler {(_this select 1) call server_updateObject};
 	"PVDZ_plr_Login1"			addPublicVariableEventHandler {_id = (_this select 1) call server_playerLogin};
 	"PVDZ_plr_Login2"		addPublicVariableEventHandler {(_this select 1) call server_playerSetup};

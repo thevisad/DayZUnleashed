@@ -87,7 +87,6 @@ if (!isDedicated) then {
 	player_makeFire = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_makefire.sqf";
 	//player_chopWood = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_chopWood.sqf";
 	player_chopWood = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_chopWood.sqf";
-	player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_build.sqf";
 	
 	player_wearClothes = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_wearClothes.sqf";
 	player_dropWeapon = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_dropWeapon.sqf";
@@ -130,14 +129,6 @@ if (!isDedicated) then {
 	infectedcamps = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\object_infectedcamps.sqf";
 	camp_spawnZombies = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\camp_spawnZombies.sqf";			//Server compile, used for loiter behaviour
 	
-	//Base Building 1.2 specific compiles
-	player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_build.sqf"; 		// This overwrites default dayz building mechanic
-	antiWall = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\antiWall.sqf";				// This prevents players from exiting vehicles to get into bases
-	anti_discWall = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\anti_discWall.sqf";	// This prevents players from driving into a wall and disconnecting to get into bases
-	refresh_build_recipe_dialog = compile preprocessFileLineNumbers "\z\addons\dayz_code\buildRecipeBook\refresh_build_recipe_dialog.sqf"; 				// Builder menu dialog functionality
-	refresh_build_recipe_list_dialog = compile preprocessFileLineNumbers "\z\addons\dayz_code\buildRecipeBook\refresh_build_recipe_list_dialog.sqf"; 	// Builder Menu dialog list
-	add_UIDCode  = compile preprocessFileLineNumbers "\z\addons\dayz_code\external\keypad\fnc_keyPad\functions\add_UIDCode.sqf";
-	remove_UIDCode  = compile preprocessFileLineNumbers "\z\addons\dayz_code\external\keypad\fnc_keyPad\functions\remove_UIDCode.sqf";
 	//Crafting
 	//player_craftItem = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_craftItem.sqf";
 	DZE_player_craftItem =	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\DZE\player_craftItem.sqf";
@@ -561,7 +552,6 @@ if (!isDedicated) then {
 	
 
 	//Unleashed
-	call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\settings.sqf"; 				//Initialize custom clientside settings
 	[] execVM "\z\addons\dayz_code\compile\houseLighting.sqf";
 	[] execVM "\z\addons\dayz_code\actions\player_repairActions.sqf";
 	

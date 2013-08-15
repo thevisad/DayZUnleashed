@@ -306,8 +306,8 @@ if (_hasrequireditem) then {
 				_tmpbuilt setVariable ["characterID",dayz_characterID,true];
 	
 				//["dayzPublishObj",[dayz_characterID,_tmpbuilt,[_dir,_location],_classname]] call callRpcProcedure;
-				PVDZ_obj_Publish = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
-				publicVariableServer "PVDZ_obj_Publish";
+				PVDZ_bld_Publish = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
+				publicVariableServer "PVDZ_bld_Publish";
 
 
 			} else {

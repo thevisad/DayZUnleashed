@@ -4,11 +4,10 @@ _modeldex = "";
 _nameKillerP = "unknown";
 _body = _this select 3;
 _typedeP = 0;
-
+_SomesOnesClothing = getText ( configFile >> "CfgVehicles" >> (typeOf _body) >> "clothingDZ");
 _modeldex = typeOf _body;
 diag_log("_modeldex = "+str(_modeldex));
-if (_modeldex in  ["AllPlayers","BAF_Soldier_DDPM","BAF_Soldier_L_DDPM","BAF_Soldier_L_MTP","BAF_Soldier_MTP","BAF_Soldier_Officer_DDPM","BAF_Soldier_Officer_MTP","BAF_Soldier_Sniper_MTP","BAF_Soldier_SniperH_MTP","BAF_Soldier_Sni","erN_MTP","Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ","BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Band","twl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ","Camo1_DZ","CamoWinter_DZN","CamoWinterW_DZN","Citizen3","Civilian1_DZ","Civilian10_DZ","Civilian11_DZ","Civilian2_DZ","Civilian3_DZ","Civili","n4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","CivilianW1_DZ","CivilianW2_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ","CZ_Soldier_DES_EP1","Herol11_DZ","Herol21_DZ","H","rol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ","Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ","Rocket_DZ","Sniper1_DZ","Sniper1W_DZN","Soldier1_DZ","Survivor2_DZ","Survivor3_DZ","SurvivorW2_DZ","TK_CIV_Takistani01_EP1","TK_CIV_Takistani05_EP1","TK_INS_Soldier_EP1","US_Soldier_EP1","Villager1","Worker1","XyberViri","TheVisad"]) then 
-{
+if( _SomesOnesClothing != "") then {
 	private ["_weapons", "_magazines", "_backpack", "_backpackWeapons", "_backpackMagazines", "_backpackType", "_position", "_holder", "_i", "_itemsCount", "_isZombie"];
 	
 	
@@ -38,7 +37,7 @@ if (_modeldex in  ["AllPlayers","BAF_Soldier_DDPM","BAF_Soldier_L_DDPM","BAF_Sol
 
 	_isZombie = _body isKindOf "zZombie_Base";
 
-	deleteVehicle _body;
+	
 
 	_itemsCount = (count _weapons) + (count _magazines) + (count (_backpackWeapons select 0)) + (count (_backpackMagazines select 0));
 
@@ -47,16 +46,23 @@ if (_modeldex in  ["AllPlayers","BAF_Soldier_DDPM","BAF_Soldier_L_DDPM","BAF_Sol
 		_holder =  createVehicle ["WeaponHolder", _position, [], 0, "CAN_COLLIDE"];
 		_holder setPos _position;
 		// createVehicle _position;
+		_xt = _position select 0;
+		_yt = _position select 1;
+		_dx = _yt + 2;
+		_ammoboxPos = [_xt,_dx, 0];
 		_holder setVariable ["RepLoot", (time+3600), true];
-		_cross =  createVehicle ["GraveCrossHelmet", _position, [], 0, "CAN_COLLIDE"];
-		_cross setPos _position;
+		_cross =  createVehicle ["GraveCross1", _position, [], 0, "CAN_COLLIDE"];
+		_grave =  createVehicle ["Grave", _position, [], 0, "CAN_COLLIDE"];
+		_grave modelToWorld _position;
+		_cross modelToWorld _position;
 
 		_cross setVariable ["RepBody", _nameBody, true];
 		_cross setVariable ["nameKillerP",_nameKillerP, true];
 		_cross setVariable ["typedeP", _typedeP, true];
+		_cross setVariable ["deathType", _method, true];
 
-		{ _holder addWeaponCargoGlobal [_body, 1]; } forEach _weapons;
-		{ _holder addMagazineCargoGlobal [_body, 1]; } forEach _magazines;
+		{ _holder addWeaponCargoGlobal [_x, 1]; } forEach _weapons;
+		{ _holder addMagazineCargoGlobal [_x, 1]; } forEach _magazines;
 
 		for "_i" from 0 to ((count (_backpackWeapons select 0)) - 1) do
 		{
@@ -70,7 +76,7 @@ if (_modeldex in  ["AllPlayers","BAF_Soldier_DDPM","BAF_Soldier_L_DDPM","BAF_Sol
 				[((_backpackMagazines select 0) select _i), ((_backpackMagazines select 1) select _i)];
 		};
 	};
-
+	deleteVehicle _body;
 	if ((_backpackType != "") and (!_isZombie)) then
 	{
 		//_backpackHolder = "WeaponHolder" createVehicle _position;

@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "D:\Programme\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Player Monitor">*/
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Player Monitor">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"init",0,250,-75.000000,-350.000000,25.000000,-300.000000,0.000000,"init"};
@@ -47,8 +47,8 @@ item42[] = {"Enable_Sim",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000
 item43[] = {"Initialized",4,218,-175.000000,-150.000000,-75.000000,-100.000000,0.000000,"Initialized"};
 item44[] = {"New_Character",4,218,-625.000000,425.000000,-525.000000,475.000000,5.000000,"New" \n "Character"};
 item45[] = {"Gender_Selection",2,250,-625.000000,550.000000,-525.000000,600.000000,0.000000,"Gender Selection" \n "Dialog"};
-item46[] = {"Selected",4,218,-625.000000,700.000000,-525.000000,750.000000,0.000000,"Selected"};
-item47[] = {"Process",2,4346,-625.000000,800.000000,-525.000000,850.000000,0.000000,"Process"};
+item46[] = {"Selected",4,4314,-625.000000,700.000000,-525.000000,750.000000,0.000000,"Selected"};
+item47[] = {"Process",2,250,-625.000000,800.000000,-525.000000,850.000000,0.000000,"Process"};
 item48[] = {"no_PlayerID",4,218,50.000000,-100.000000,150.000000,-50.000000,2.000000,"no PlayerID"};
 item49[] = {"ERROR__No_Player_1",2,250,175.000000,-100.000000,275.000000,-50.000000,0.000000,"ERROR:" \n "No PlayerID"};
 item50[] = {"Too_Long",4,218,300.000000,-100.000000,400.000000,-50.000000,0.000000,"Too" \n "Long"};
@@ -163,8 +163,8 @@ link82[] = {72,73};
 link83[] = {73,74};
 link84[] = {74,75};
 link85[] = {75,68};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-823.237427,-32.766369,1489.744751,550.804199,772,917,1};
-window[] = {0,-1,-1,-1,-1,1499,113,2045,437,1,790};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-901.454529,45.450603,1138.248657,13.492171,772,917,1};
+window[] = {0,-1,-1,-1,-1,1301,24,1956,239,1,790};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -1363,7 +1363,7 @@ class FSM
     class Gender_Selection
     {
       name = "Gender_Selection";
-      init = /*%FSM<STATEINIT""">*/"dayz_selectGender = 1;" \n
+      init = /*%FSM<STATEINIT""">*/"dayz_selectGender = ""Survivor2_DZ"";" \n
        "1 cutText ["""", ""BLACK"",0];" \n
        "endLoadingScreen;" \n
        "createDialog ""RscDisplayGenderSelect"";"/*%FSM</STATEINIT""">*/;
@@ -1387,17 +1387,8 @@ class FSM
     class Process
     {
       name = "Process";
-      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
-      precondition = /*%FSM<STATEPRECONDITION""">*/"_female = dayz_selectGender == 2;" \n
-       "_rndGender = [];" \n
-       "" \n
-       "if (_female) then {" \n
-       "_rndGender = [""SurvivorW2_DZ"",""SurvivorW2_DZ""];" \n
-       "//_rndGender = [""SurvivorW2_DZ"",""CivilianW1_DZ"",""CivilianW2_DZ"",""CivilianW3_DZ"",""CivilianW4_DZ"",""CivilianW5_DZ""];" \n
-       "} else {" \n
-       "_rndGender = [""Civilian1_DZ"",""Civilian2_DZ"",""Civilian3_DZ"",""Civilian4_DZ"",""Civilian5_DZ"",""Civilian6_DZ"",""Civilian7_DZ"",""Civilian8_DZ"",""Civilian9_DZ"",""Civilian10_DZ""];" \n
-       "};" \n
-       "_model = _rndGender call BIS_fnc_selectRandom;"/*%FSM</STATEPRECONDITION""">*/;
+      init = /*%FSM<STATEINIT""">*/"_model = dayz_selectGender;"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
         /*%FSM<LINK "True">*/
