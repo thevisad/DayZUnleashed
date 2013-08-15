@@ -14,6 +14,7 @@
 "PVDZ_veh_SF"		addPublicVariableEventHandler {(_this select 1) call fnc_veh_handleRepair}; // repair a part from a vehicle
 "PVDZ_obj_HideBody"		addPublicVariableEventHandler {hideBody (_this select 1)};
 "PVDZ_obj_GutBody"		addPublicVariableEventHandler {(_this select 1) spawn local_gutObject};
+"PVDZ_del_Flies"		addPublicVariableEventHandler {(_this select 1) spawn delete_flies};
 //Moved from isserver
 "PVDZ_veh_SetFuel"		addPublicVariableEventHandler {(_this select 1) spawn local_setFuel};
 //

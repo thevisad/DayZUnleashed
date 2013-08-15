@@ -83,11 +83,8 @@ if( _SomesOnesClothing != "") then {
 	_body removeAllEventHandlers "Local";
 	deleteVehicle _body;
 	
+	[_position] spawn PVDZ_del_Flies;
 	
-	_sfx = nearestObject [_position,"Sound_Flies"];
-	if (!(isNull _sfx)) then {
-		deleteVehicle _sfx;
-	};
 	if ((_backpackType != "") and (!_isZombie)) then
 	{
 		//_backpackHolder = "WeaponHolder" createVehicle _position;

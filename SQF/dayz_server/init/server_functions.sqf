@@ -19,6 +19,7 @@ server_deleteObj =			compile preprocessFileLineNumbers "\z\addons\dayz_server\co
 server_playerSync =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSync.sqf";
 zombie_findOwner =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\zombie_findOwner.sqf";
 server_updateNearbyObjects =	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_updateNearbyObjects.sqf";
+
 server_spawnCrashSite  =    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnCrashSite.sqf";
 fnc_plyrHit   = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
 spawn_carePackages = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_carePkgs.sqf";
@@ -95,10 +96,7 @@ eh_localCleanup = {
 			_unit removeAllEventHandlers "GetOut";
 			_unit removeAllEventHandlers "GetIn";
 			_unit removeAllEventHandlers "Local";
-			_sfx = nearestObject [_position,"Sound_Flies"];
-			if (!(isNull _sfx)) then {
-				deleteVehicle _sfx;
-			};
+			[_position] spawn PVDZ_del_Flies;
 			clearVehicleInit _unit;
 			deleteVehicle _unit;
 			deleteGroup _myGroupUnit;

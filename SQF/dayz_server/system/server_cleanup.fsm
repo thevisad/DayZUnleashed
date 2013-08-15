@@ -9,9 +9,9 @@ item4[] = {"cleanup_dead",2,250,-125.000000,50.000000,-25.000000,100.000000,0.00
 item5[] = {"too_many_objects",4,218,-25.000000,-25.000000,75.000000,25.000000,2.000000,"too many" \n "objects"};
 item6[] = {"cleanup_objects",2,250,-25.000000,50.000000,75.000000,100.000000,0.000000,"cleanup" \n "objects"};
 item7[] = {"time_sync",4,218,-225.000000,-25.000000,-125.000000,25.000000,0.000000,"time" \n "sync"};
-item8[] = {"sync_the_time",2,4346,-225.000000,50.000000,-125.000000,100.000000,0.000000,"sync" \n "the time"};
+item8[] = {"sync_the_time",2,250,-225.000000,50.000000,-125.000000,100.000000,0.000000,"sync" \n "the time"};
 item9[] = {"true",8,218,-75.000000,100.000000,25.000000,150.000000,0.000000,"true"};
-item10[] = {"general_cleanup",2,250,-75.000000,200.000000,25.000000,250.000000,0.000000,"general" \n "cleanup"};
+item10[] = {"general_cleanup",2,4346,-75.000000,200.000000,25.000000,250.000000,0.000000,"general" \n "cleanup"};
 item11[] = {"",7,210,-304.000000,220.999985,-296.000000,229.000015,0.000000,""};
 item12[] = {"",7,210,-304.000000,-154.000000,-296.000000,-146.000000,0.000000,""};
 item13[] = {"",7,210,221.000000,-79.000000,229.000000,-71.000000,0.000000,""};
@@ -43,8 +43,8 @@ link19[] = {15,16};
 link20[] = {16,1};
 link21[] = {17,9};
 link22[] = {18,17};
-globals[] = {25.000000,1,0,0,0,640,480,1,29,6316128,1,-431.984222,389.675323,321.625061,-399.664032,727,895,1};
-window[] = {2,-1,-1,-1,-1,904,2585,4061,25,3,745};
+globals[] = {25.000000,1,0,0,0,640,480,1,29,6316128,1,-431.984222,389.675323,737.053101,139.926193,865,734,1};
+window[] = {0,-1,-1,-1,-1,1063,722,2198,184,1,883};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -163,10 +163,11 @@ class FSM
        "	_body = _deadBodies select _i;" \n
        "	if(!isNil ""_body"") then {" \n
        "		_pos = getPosATL _body;" \n
-       "		_sfx = nearestObject [_pos,""Sound_Flies""];" \n
+       "		[_pos] spawn PVDZ_del_Flies;" \n
+       "		/*_sfx = nearestObject [_pos,""Sound_Flies""];" \n
        "		if (!(isNull _sfx)) then {" \n
        "			deleteVehicle _sfx;" \n
-       "		};" \n
+       "		};*/" \n
        "		deleteVehicle _body;" \n
        "		_delQtyP = _delQtyP + 1;" \n
        "	};" \n
@@ -296,15 +297,6 @@ class FSM
        "	};" \n
        "} forEach allGroups;" \n
        "" \n
-       "/*" \n
-       "//Check for Ammobox" \n
-       " {" \n
-       "	if(!(_x isKindOf ""WeaponHolder"")) then {" \n
-       "		diag_log (""CLEANUP: DELETING AN AMMOBOX "" + (typeOf _x));" \n
-       "		deleteVehicle _x;" \n
-       "	};" \n
-       " } forEach allMissionObjects ""ReammoBox"";" \n
-       "*/" \n
        "" \n
        "//Check for hackers" \n
        " {" \n
@@ -315,26 +307,6 @@ class FSM
        "   		_x setDamage 1;" \n
        "	 };" \n
        " } forEach allUnits;" \n
-       "" \n
-       "/*" \n
-       "//Let's move this into the body removal sequence so uncontrolled flies are removed only if corpses are cleaned" \n
-       "//Check Flies" \n
-       "_isOK=-1;" \n
-       "_dwUSOFC=0;" \n
-       "{" \n
-       "	//_isOk = {!alive _x} count (nearestObjects [_x, [""CAManBase""], 2]);" \n
-       "	_isOk = {!alive _x} count (_x nearEntities [[""CAManBase""], 2]);" \n
-       "	if (_isOk>-1) then {" \n
-       "		diag_log (""DW_DEBUG _isOK: "" + str(_isOK) );" \n
-       "	};" \n
-       "	if ((_isOk>-1) AND (isOK<1)) then {" \n
-       "		//diag_log (""CLEANUP: DELETING A SOUND OF FLIES"");" \n
-       "_dwUSOFC=_dwUSOFC+1;" \n
-       "		deleteVehicle _x;" \n
-       "		diag_log (""CLEANUP: DELETED AN UNCONTROLLED SOUND OF FLIES:"" + str(_dwUSOFC) );" \n
-       "	};" \n
-       "} forEach allMissionObjects ""Sound_Flies"";" \n
-       "*/" \n
        "" \n
        "dayz_serverObjectMonitor = _safety;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
