@@ -95,6 +95,10 @@ eh_localCleanup = {
 			_unit removeAllEventHandlers "GetOut";
 			_unit removeAllEventHandlers "GetIn";
 			_unit removeAllEventHandlers "Local";
+			_sfx = nearestObject [_position,"Sound_Flies"];
+			if (!(isNull _sfx)) then {
+				deleteVehicle _sfx;
+			};
 			clearVehicleInit _unit;
 			deleteVehicle _unit;
 			deleteGroup _myGroupUnit;

@@ -58,7 +58,24 @@ if( _SomesOnesClothing != "") then
 		_oldUnit = _body;
 		ClearWeaponCargo _oldUnit; 
 		ClearMagazineCargo _oldUnit; 
+		
+		_oldUnit removeAllMPEventHandlers "mpkilled";
+		_oldUnit removeAllMPEventHandlers "mphit";
+		_oldUnit removeAllMPEventHandlers "mprespawn";
+		_oldUnit removeAllEventHandlers "FiredNear";
+		_oldUnit removeAllEventHandlers "HandleDamage";
+		_oldUnit removeAllEventHandlers "Killed";
+		_oldUnit removeAllEventHandlers "Fired";
+		_oldUnit removeAllEventHandlers "GetOut";
+		_oldUnit removeAllEventHandlers "GetIn";
+		_oldUnit removeAllEventHandlers "Local";
+	
 		deleteVehicle _oldUnit;
+		
+		_sfx = nearestObject [_position,"Sound_Flies"];
+		if (!(isNull _sfx)) then {
+			deleteVehicle _sfx;
+		};
 		
 		_xt = _position select 0;
 		_yt = _position select 1;
@@ -67,12 +84,6 @@ if( _SomesOnesClothing != "") then
 		_grave = createVehicle ["Body", _position, [], 0, "CAN_COLLIDE"];
 		_wpn = createVehicle ["WeaponHolder", _ammoboxPos, [], 1, "CAN_COLLIDE"];
 		_grave modelToWorld _position;
-	
-		_grave setVariable ["RepBody", _nameBody, true];
-		_grave setVariable ["nameKillerP",_nameKillerP, true];
-		_grave setVariable ["typedeP", _typedeP, true];
-		_grave setVariable ["deathType", _method, true];
-
 		
 		ClearWeaponCargo _ammobox; 
 		ClearMagazineCargo _ammobox; 

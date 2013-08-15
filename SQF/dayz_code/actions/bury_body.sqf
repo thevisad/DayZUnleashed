@@ -56,11 +56,6 @@ if( _SomesOnesClothing != "") then {
 		_grave modelToWorld _position;
 		_cross modelToWorld _position;
 
-		_cross setVariable ["RepBody", _nameBody, true];
-		_cross setVariable ["nameKillerP",_nameKillerP, true];
-		_cross setVariable ["typedeP", _typedeP, true];
-		_cross setVariable ["deathType", _method, true];
-
 		{ _holder addWeaponCargoGlobal [_x, 1]; } forEach _weapons;
 		{ _holder addMagazineCargoGlobal [_x, 1]; } forEach _magazines;
 
@@ -76,7 +71,23 @@ if( _SomesOnesClothing != "") then {
 				[((_backpackMagazines select 0) select _i), ((_backpackMagazines select 1) select _i)];
 		};
 	};
+	_body removeAllMPEventHandlers "mpkilled";
+	_body removeAllMPEventHandlers "mphit";
+	_body removeAllMPEventHandlers "mprespawn";
+	_body removeAllEventHandlers "FiredNear";
+	_body removeAllEventHandlers "HandleDamage";
+	_body removeAllEventHandlers "Killed";
+	_body removeAllEventHandlers "Fired";
+	_body removeAllEventHandlers "GetOut";
+	_body removeAllEventHandlers "GetIn";
+	_body removeAllEventHandlers "Local";
 	deleteVehicle _body;
+	
+	
+	_sfx = nearestObject [_position,"Sound_Flies"];
+	if (!(isNull _sfx)) then {
+		deleteVehicle _sfx;
+	};
 	if ((_backpackType != "") and (!_isZombie)) then
 	{
 		//_backpackHolder = "WeaponHolder" createVehicle _position;
