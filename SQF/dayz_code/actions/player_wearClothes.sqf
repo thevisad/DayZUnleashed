@@ -1,7 +1,7 @@
 /*
 _item spawn player_wearClothes;
 */
-private["_item","_onLadder","_hasclothesitem","_config","_text","_isFemale","_myModel","_humanity","_isBandit","_isHero","_itemNew","_model","_femaleSkins"];
+private["_item","_onLadder","_hasclothesitem","_config","_text","_myModel","_humanity","_isBandit","_isHero","_itemNew","_model","_femaleSkins"];
 _item = _this;
 call gear_ui_init;
 _onLadder = (getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
@@ -14,7 +14,7 @@ _text = getText (_config >> _item >> "displayName");                //Name of cl
 _location = "skinModel";                                            //Name of the class parm that we will look for the unit name
 _myModel = (typeOf player);                                         //Name of the players existing model
 _itemNew = getText ( _configVehicles >> _myModel >> "clothingDZ");  //Players existing skin package, the one we drop
-_isFemale = false;                                                  //Is this player female
+
 if (!_hasclothesitem) exitWith {cutText [format[(localize "str_player_31"),_text,(localize "str_player_31_wear")] , "PLAIN DOWN"]};    
 if(getNumber(_config >> _item >> "isHumanitySkin") == 1) then {     //Does this skin pack humanity features
    _humanity = player getVariable ["humanity",0];  
