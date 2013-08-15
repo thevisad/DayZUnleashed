@@ -156,17 +156,17 @@ class CfgInGameUI
         cueFriendlyColor[] = {0,0,0,0};
         cueEnemyColor[] = {0,0,0,0};
     };
-	/*
+	
     class IslandMap
     {
-        colorFriendly[] = {0,0.5,0,1};
-        colorEnemy[] = {0.5,0,0,1};//{0.5,0,0,1};
-        colorNeutral[] = {1.0,0.5,0,1};//{1.0,0.5,0,1};
-        colorCivilian[] = {0,0,1,1};
+        colorFriendly[] = {0,0.5,0,0};
+        colorEnemy[] = {0.5,0,0,0};//{0.5,0,0,1};
+        colorNeutral[] = {1.0,0.5,0,0};//{1.0,0.5,0,1};
+        colorCivilian[] = {0,0,1,0};
         colorUnknown[] = {1.0,0.5,0,0};//{1.0,0.5,0,0.8};
         shadow = 2;
         iconPlayer = "\ca\ui\data\map_player_ca.paa";
-        iconPlayerDirection = "\ca\ui\data\map_dir_ca.paa";
+        iconPlayerDirection = "";//"\ca\ui\data\map_dir_ca.paa";
         iconCheckpoint = "\ca\ui\data\map_target_ca.paa";
         iconCamera = "\ca\ui\data\map_camera_ca.paa";
         iconSelect = "\ca\ui\data\map_select_ca.paa";
@@ -184,7 +184,8 @@ class CfgInGameUI
         colorGrid[] = {0.05,0.1,0,0.6};
         colorGridMap[] = {0.05,0.1,0,0.4};
     };
-    */
+    
+    /*
 	class MPTable
 	{
 		color[] = {0,0,0,0}; //{0.7,0.7,0.7,1};
@@ -255,6 +256,7 @@ class CfgInGameUI
 			};
 		};
 	};
+    */
 }; 
 
 class CfgVoice {
