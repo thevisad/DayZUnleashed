@@ -27,12 +27,14 @@ if(CraftingInprogress) exitWith { cutText ["Crafting already in progress." , "PL
 CraftingInprogress = true;
 
 // This is used to find correct recipe based what itemaction was click allows multiple recipes per item.
-_crafting = DZE_Crafting select 0;
+//_crafting = DZE_Crafting select 0;
+_crafting = "Crafting";
 
 // This tells the script what type of item we are clicking on
-_baseClass = DZE_Crafting select 1;
+//_baseClass = DZE_Crafting select 1;
+_baseClass = "CfgMagazines";
 
-DZE_Crafting = nil;
+// DZE_Crafting = nil;
 
 _item = _this;
 _temp_removed_array = [];
