@@ -20,6 +20,7 @@ _hasFuelE5 = "ItemFuelcanEmpty" in magazines player;
 //boiled Water
 _hasbottleitem = "ItemWaterbottle" in magazines player;
 _hastinitem = false;
+
 {
     if (_x in magazines player) then {
         _hastinitem = true;

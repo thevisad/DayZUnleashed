@@ -1370,6 +1370,23 @@ class RscTitles
 		movingEnable = 0;
 		duration = 4;
 	};
+	class DeathScreen
+	{
+		idd = -1;
+		movingEnable = "false";
+		duration = 120;
+		fadein = 0;
+		name = "DeathScreen";
+		controls[] = {"DeathScreen"};
+		class DeathScreen: RscPicture
+		{
+			x = "0.00001 * safezoneW + safezoneX";
+			y = "0.00001 * safezoneH + safezoneY";
+			w = "1 * safezoneW";
+			h = "1 * safezoneH";
+			text = "\z\addons\dayz_code\gui\youaredead2.paa";
+		};
+	};
 	class playerKillScore 
 	{
 		idd = 6902;

@@ -11,7 +11,7 @@ class ItemActions
 	class Crafting
 	{
 		text = "Craft Tent";
-		script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+		script = ";['Crafting','CfgMagazines', _id] call DZE_player_craftItem;";
 		neednearby[] = {"workshop","fire"};
 		requiretools[] = {"ItemToolbox","ItemKnife"}; // (cfgweapons only)
 		output[] = {{"ItemTent",1}}; // (CfgMagazines, qty)
@@ -27,16 +27,14 @@ if(CraftingInprogress) exitWith { cutText ["Crafting already in progress." , "PL
 CraftingInprogress = true;
 
 // This is used to find correct recipe based what itemaction was click allows multiple recipes per item.
-//_crafting = DZE_Crafting select 0;
-_crafting = "Crafting";
+_crafting = _this select 0;
 
 // This tells the script what type of item we are clicking on
-//_baseClass = DZE_Crafting select 1;
-_baseClass = "CfgMagazines";
+_baseClass = _this select 1;
 
-// DZE_Crafting = nil;
+DZE_Crafting = nil;
 
-_item = _this;
+_item =  _this select 2;
 _temp_removed_array = [];
 _abort = false;
 _distance = 3;

@@ -35,7 +35,7 @@ class CfgWeapons {
 	#include "CfgWeapons\Item\ItemEtool.hpp"
 	#include "CfgWeapons\Item\ItemShovel.hpp"
 	
-	//Sniper Rifel
+	//Sniper Rifle
 	//#include "CfgWeapons\Weapon\Sniper\AS50.hpp"
 	#include "CfgWeapons\Weapon\Sniper\M107.hpp"
 	
