@@ -11,7 +11,7 @@ class PartWoodPile: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Lumber";
-			script = "DZE_Crafting = {'Crafting','CfgMagazines'}; spawn DZE_player_craftItem;";
+			script = "spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"PartWoodLumber",1}};
