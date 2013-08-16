@@ -12,7 +12,7 @@ class ItemGoldBar: CA_Magazine
 		class Crafting
 		{
 			text = "Smelt 10oz bar";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"ItemGoldBar10oz",1}};
@@ -35,7 +35,7 @@ class ItemGoldBar10oz: CA_Magazine
 		class Crafting
 		{
 			text = "Smelt 1oz bars";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"ItemGoldBar",10}};
@@ -57,7 +57,7 @@ class ItemSilverBar: CA_Magazine
 		class Crafting
 		{
 			text = "Smelt 10oz bar";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"ItemSilverBar10oz",1}};
@@ -79,7 +79,7 @@ class ItemSilverBar10oz: CA_Magazine
 		class Crafting
 		{
 			text = "Smelt 1oz bars";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"ItemSilverBar",10}};
@@ -101,7 +101,7 @@ class ItemCopperBar: CA_Magazine
 		class Crafting
 		{
 			text = "Smelt 10oz bar";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"ItemCopperBar10oz",1}};
@@ -123,7 +123,7 @@ class ItemCopperBar10oz: CA_Magazine
 		class Crafting
 		{
 			text = "Smelt 1oz bars";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"ItemCopperBar",10}};

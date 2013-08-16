@@ -18,7 +18,7 @@ class ItemTent: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Desert Net";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"desert_net_kit",1}};
@@ -27,7 +27,7 @@ class ItemTent: CA_Magazine
 		class Crafting1
 		{
 			text = "Craft Forest Net";
-			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"forest_net_kit",1}};
@@ -54,7 +54,7 @@ class ItemTentDomed : ItemTent {
 		class Crafting
 		{
 			text = "Craft Desert Net";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"desert_net_kit",1}};
@@ -63,7 +63,7 @@ class ItemTentDomed : ItemTent {
 		class Crafting1
 		{
 			text = "Craft Forest Net";
-			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"forest_net_kit",1}};
@@ -88,7 +88,7 @@ class ItemTentDomed2 : ItemTent {
 		class Crafting
 		{
 			text = "Craft Desert Net";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"desert_net_kit",1}};
@@ -97,7 +97,7 @@ class ItemTentDomed2 : ItemTent {
 		class Crafting1
 		{
 			text = "Craft Desert Net";
-			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"forest_net_kit",1}};

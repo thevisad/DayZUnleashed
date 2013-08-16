@@ -11,7 +11,7 @@ class PartWoodPile: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Lumber";
-			script = ";['Crafting','CfgMagazines', _id] call DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"PartWoodLumber",1}};
@@ -20,7 +20,7 @@ class PartWoodPile: CA_Magazine
 		class Crafting1
 		{
 			text = "Craft Arrows";
-			script = ";['Crafting','CfgMagazines', _id] call DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines', _id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemKnife"};
 			output[] = {{"WoodenArrow",3}};

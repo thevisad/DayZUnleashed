@@ -16,7 +16,7 @@ class bulk_empty: bulk
 		class Crafting
 		{
 			text = "Pack 6 Coke";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"bulk_ItemSodaCoke",1}};
@@ -25,7 +25,7 @@ class bulk_empty: bulk
 		class Crafting1
 		{
 			text = "Pack 6 Pepsi";
-			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"bulk_ItemSodaPepsi",1}};

@@ -17,7 +17,7 @@ class ItemSandbag : CA_Magazine {
 		class Crafting
 		{
 			text = "Craft Large Sandbag";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemEtool","ItemToolbox"};
 			output[] = {{"ItemSandbagLarge",1}};
@@ -26,7 +26,7 @@ class ItemSandbag : CA_Magazine {
 		class Crafting1
 		{
 			text = "Craft Sandbag Nest";
-			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemEtool","ItemToolbox"};
 			output[] = {{"sandbag_nest_kit",1}};

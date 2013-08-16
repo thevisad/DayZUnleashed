@@ -11,7 +11,7 @@ class PartWoodPlywood: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Workbench";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"workbench_kit",1}};
@@ -22,7 +22,7 @@ class PartWoodPlywood: CA_Magazine
 		class Crafting1
 		{
 			text = "Craft Shack";
-			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"wood_shack_kit",1}};

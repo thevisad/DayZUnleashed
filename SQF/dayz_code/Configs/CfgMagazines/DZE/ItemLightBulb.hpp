@@ -12,7 +12,7 @@ class ItemLightBulb: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Light Pole";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemEtool","ItemToolbox"};
 			output[] = {{"light_pole_kit",1}};

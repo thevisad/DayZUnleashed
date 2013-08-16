@@ -18,7 +18,7 @@ class SkinBase: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Canvas";
-			script = "DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"ItemCanvas",1}};
@@ -27,7 +27,7 @@ class SkinBase: CA_Magazine
 		class Crafting1
 		{
 			text = "Craft Bandages";
-			script = "DZE_Crafting = ['Crafting1','CfgMagazines']; spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"ItemBandage",2}};
