@@ -4,7 +4,6 @@
     class Survivor2_DZ : Soldier_Crew_PMC {
         displayName = $STR_CHAR_1;
         side = 1;
-        isFemaleDZ = 0;
         clothingDZ = "Skin_Survivor2_DZ";   //The skin parcel this unit gives when looted/changed
         faction = "DZU_FACTION_SURVIVOR";
         vehicleClass = "survivor";
@@ -31,7 +30,6 @@
     class Bandit1_DZ : GER_Soldier_EP1 {
         displayName = $STR_CHAR_2;
         side = 1;
-        isFemaleDZ = 0;
         clothingDZ = "Skin_Survivor2_DZ";
         faction = "DZU_FACTION_BANDIT";
         vehicleClass = "survivor";
@@ -50,7 +48,6 @@
     class SurvivorW2_DZ : Soldier_Crew_PMC {
         displayName = $STR_CHAR_1;
         side = 1;
-        isFemaleDZ = 1;
         clothingDZ = "Skin_Survivor2_DZ";
         faction = "DZU_FACTION_SURVIVOR";
         vehicleClass = "survivor";

@@ -3,7 +3,6 @@ class BAF_Soldier_L_W;
 class Camo1_DZ: BAF_Soldier_L_W {
 	displayName = $STR_CHAR_1;
 	side = 1;
-    isFemaleDZ = 0;
     clothingDZ = "Skin_Camo1_DZ";
     faction = "DZU_FACTION_SURVIVOR";
     vehicleClass = "survivor";
@@ -25,7 +24,6 @@ class BAF_Soldier_W;
 class Soldier1_DZ: BAF_Soldier_W {
     displayName = "Soldier";
     side = 1;
-    isFemaleDZ = 0;
     clothingDZ = "Skin_Soldier1_DZ";
     faction = "DZU_FACTION_SURVIVOR";
     vehicleClass = "survivor";
@@ -47,7 +45,6 @@ class BAF_Soldier_Officer_W;
 class Rocket_DZ: BAF_Soldier_Officer_W {
     displayName = "Rocket";
     side = 1;
-    isFemaleDZ = 0;
     clothingDZ = "Skin_Officer1_DZ";
     faction = "DZU_FACTION_SURVIVOR";
     vehicleClass = "survivor";
@@ -69,7 +66,6 @@ class BAF_Soldier_SniperH_W;
 class Sniper1_DZ: BAF_Soldier_SniperH_W {
     displayName = "Sniper";
     side = 1;
-    isFemaleDZ = 0;
     clothingDZ = "Skin_Sniper1_DZ";
     faction = "DZU_FACTION_SURVIVOR";
     vehicleClass = "survivor";
@@ -135,4 +131,4 @@ class TKWorker1_DZ : Survivor3_DZ{
 class TKWorker2_DZ : TKWorker1_DZ{    
     clothingDZ = "Skin_TKWorker2_DZ";
     hiddenselectionstextures[] = {"\Ca\characters_E\Overall\Data\Overall_3_co.paa"};
-}
+};
