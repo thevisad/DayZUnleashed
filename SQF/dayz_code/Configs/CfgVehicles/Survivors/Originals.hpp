@@ -14,7 +14,7 @@
         respawnWeapons[] = {"Throw", "Put"};
         respawnMagazines[] = {};
         weaponSlots = 1  +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072;
-        canHideBodies = true;
+        canHideBodies = 0;
     };
     //base male hero/survivor
     class Survivor3_DZ : Survivor2_DZ {
@@ -43,7 +43,7 @@
         respawnWeapons[] = {"Throw","Put"};
         respawnMagazines[] = {};
         weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-        canHideBodies = 1;
+        canHideBodies = 0;
 };    
     
     //Base female unit       
@@ -60,7 +60,7 @@
         respawnWeapons[] = {"Throw", "Put"};
         respawnMagazines[] = {};
         weaponSlots = 1  +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072;
-        canHideBodies = true;
+        canHideBodies = 0;
         //faceType = "WomanHead";
         identityTypes[] = {"Language_W_EN_EP1", "Woman"};
         languages[] = {"EN"};
