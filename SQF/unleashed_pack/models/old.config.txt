@@ -1,4 +1,5 @@
 // Unleashed Packe Skins
+//Unleashed pack is for assets only!!
 
 class CfgPatches {
 	class unleashed_skins {
@@ -7,8 +8,9 @@ class CfgPatches {
 		requiredAddons[] = {};
 	};
 };
-
+/*
 class CfgVehicles {
+    
 
 	class zZombie_Base;	// External class reference
 
@@ -693,3 +695,4 @@ class CfgVehicles {
 		canCarryBackPack = 1;
 	};
 };
+*/

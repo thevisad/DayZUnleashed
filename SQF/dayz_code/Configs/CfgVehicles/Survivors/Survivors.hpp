@@ -13,10 +13,10 @@ class Camo1_DZ: BAF_Soldier_L_W {
 	respawnWeapons[] = {"Throw","Put"};
 	respawnMagazines[] = {};
 	weaponSlots = "1	 + 	4	 + 12*		256	 + 2*	4096	 + 	2	 + 8*	16  + 12*131072";
-	canHideBodies = 1;
+	canHideBodies = 0;
 };	
 class Camo2_DZ: Camo1_DZ{
-  clothingDZ = "Skin_Camo_DZ";
+  clothingDZ = "Skin_Camo1_DZ";
   hiddenselectionstextures[] = {"\ca\characters_d_baf\data\camo_MTP_co.paa", "\ca\characters_d_baf\data\armour_co.paa", "\ca\characters_d_baf\data\equip_d_co.paa"};  
 };
 
@@ -35,7 +35,7 @@ class Soldier1_DZ: BAF_Soldier_W {
     respawnWeapons[] = {"Throw","Put"};
     respawnMagazines[] = {};
     weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-    canHideBodies = 1;
+    canHideBodies = 0;
 };
 class Soldier2_DZ: Soldier1_DZ {
   clothingDZ = "Skin_Soldier1_DZ";
@@ -57,7 +57,7 @@ class Rocket_DZ: BAF_Soldier_Officer_W {
     respawnWeapons[] = {"Throw","Put"};
     respawnMagazines[] = {};
     weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-    canHideBodies = 1;
+    canHideBodies = 0;
 };
 class Officer_DZ : Rocket_DZ {
     displayName = "Officer";
@@ -79,7 +79,7 @@ class Sniper1_DZ: BAF_Soldier_SniperH_W {
     respawnWeapons[] = {"Throw","Put"};
     respawnMagazines[] = {};
     weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-    canHideBodies = 1;
+    canHideBodies = 0;
 };
 class Sniper2_DZ : Sniper1_DZ {
     hiddenselectionstextures[] = {"\ca\characters_E\Ghillie\Data\ghillie_overall1_desert_co.paa"};
