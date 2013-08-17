@@ -29,7 +29,6 @@
     };
 
     class SniperW1_DZ: Sniper1_DZ {
-        isFemaleDZ = 1;
         clothingDZ = "Skin_Sniper1_DZ";
         identityTypes[] = {"Language_W_EN_EP1", "Woman"};
         languages[] = {"EN"};
@@ -152,4 +151,5 @@ class TKCivilW2_DZ : TKWorkerW1_DZ {
             mat[] = {"CA\characters_E\civil\Tak_civil01\Data\Tak_civil01.rvmat", "CA\characters_E\civil\Tak_civil01\Data\W1_Tak_civil01.rvmat", "CA\characters_E\civil\Tak_civil01\Data\W2_Tak_civil01.rvmat"};
             tex[] = {};
         };
-};    
+};
+ 
