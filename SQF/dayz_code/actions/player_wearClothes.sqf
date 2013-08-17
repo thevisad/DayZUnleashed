@@ -22,6 +22,8 @@ if(getNumber(_config >> _item >> "isHumanitySkin") == 1) then {     //Does this 
    if (_humanity > 5000) then {_location = "heroSkin";};        
 }; 
 
+//if (getNumber(_configVehicles >> _myModel >> "isFemaleDZ") == 1) then {_location = _location+"ALT";};
+//if(_itemNew=="")then{_itemNew="Skin_Survivor_DZ";};
 if(getText(_configVehicles >> _myModel >> "TextPlural") == "Women") then {_location = _location+"ALT";};
    _model = getText (_config >> _item >> _location);    
 if (!isClass(_configVehicles >> _model)) exitWith {cutText [format["Something broke and went to shit, sorry but '%1' wont work",_model], "PLAIN DOWN"]};

@@ -57,7 +57,6 @@ class CfgVehicles {
     #include "CfgVehicles\Survivors\Originals.hpp"
 	#include "CfgVehicles\Survivors\Survivors.hpp"
     #include "CfgVehicles\Survivors\SurvivorsW.hpp"
-    #include "CfgVehicles\Survivors\aiSurvivors.hpp"
     #include "CfgVehicles\Survivors\Devs.hpp"     //Dev Survivors
 	//Bags
 	#include "CfgVehicles\Bags.hpp"
