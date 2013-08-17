@@ -19,7 +19,7 @@
 #include "Configs\basicDefines.hpp"
 
 //Weight System
-#include "R3F_CfgWeight.h" 
+#include "R3F_Realism\R3F_Weight\R3F_CfgWeight.h" 
 
 //#include "Configs\CfgWorlds.hpp"
 #include "Configs\CfgFaction.hpp"

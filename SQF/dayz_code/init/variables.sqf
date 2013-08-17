@@ -523,6 +523,8 @@ dayz_localagroSpawned = 60;  // how many zeds will spawn around you during a com
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\loot_init.sqf";
 
 if(isServer) then {
+	dayz_flyMonitor = [];
+	DZE_FlyWorkingSet = [];
 	dayz_players = [];
 	dead_bodyCleanup = [];
 	needUpdate_objects = [];

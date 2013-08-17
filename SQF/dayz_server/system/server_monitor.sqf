@@ -264,18 +264,11 @@ if (isServer and isNil "sm_done") then {
 				_combination = floor(random 899) + 100;
 				diag_log ("combination of " + str(_combination) + " was used");
 				// insert className damage characterId  worldSpace inventory  hitPoints  fuel uniqueId  
-				if (typeOf(_entity) in allbuildables_class) then {
-					//|CHILD:400:1:Fort_RazorWire:12787015029211235:[235.339,[12787,15029.2,1.0506]]:[]:[]:929:0:242:|
-					_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_ObjectID,_worldspace, [],[],dayz_playerUID,_squad ,_combination];
-				}
-				else 
-				{
 					_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:", dayZ_instance, 
 						_class, _damage , 1, 
 						[_dir, _point], 
 						[getWeaponCargo _entity, getMagazineCargo _entity ,getBackpackCargo _entity], 
 						_hitpoints, _fuel, _ObjectID ];
-				};
 				//diag_log (_key);
 				_rawData = "HiveEXT" callExtension _key;
 			};

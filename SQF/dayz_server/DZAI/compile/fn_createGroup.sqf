@@ -46,7 +46,8 @@ for "_i" from 1 to _totalAI do {
 		_unit addEventHandler ["HandleDamage",{_this call DDOPP_taser_handleHit;_this call fnc_damageAI;}];
 	} else {
 		_unit addEventHandler ["HandleDamage",{_this call fnc_damageAI;}];};					// Handle incoming damage. Note: AI durability can be modified in dayz_ai_variables.sqf
-	_unit addEventHandler ["Killed",{_this spawn DZAI_deathFlies;_this call fnc_banditAIKilled;[_this,"banditKills"] call local_eventKill;(_this select 0) setDamage 1;}];
+	_unit addEventHandler ["Killed",{_this call fnc_banditAIKilled;[_this,"banditKills"] call local_eventKill;(_this select 0) setDamage 1;}];
+	//_unit addEventHandler ["Killed",{_this spawn DZAI_deathFlies;_this call fnc_banditAIKilled;[_this,"banditKills"] call local_eventKill;(_this select 0) setDamage 1;}];
 		
 	_unit setVehicleInit "if (isServer) then {[this] spawn fnc_unit_resupply;};";		// Background-running script that automatically reloads ammo when depleted, and sets hostility to nearby zombies
 	_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;

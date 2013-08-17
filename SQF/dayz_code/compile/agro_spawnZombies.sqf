@@ -10,7 +10,7 @@ _agent = 	objNull;
 if (dayz_agroSpawnZombies > dayz_localagroSpawned) exitwith {}; 
 
 _spawnChance = (ceil(random 10) + 1);
-//diag_log("_random: " + str(_random) + " _spawnChance:" + str(_spawnChance));
+//diag_log("ASZ: Chance Set to: " + str(_random) + " Chance to spawn:" + str(_spawnChance));
 if (_random < _spawnChance) exitwith {}; 
 
 _type = _unitTypes call BIS_fnc_selectRandom;

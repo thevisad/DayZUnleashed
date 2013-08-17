@@ -123,9 +123,12 @@ class CfgVehicles {
 	//Tents,storage
 	#include "CfgVehicles\Storage.hpp"
 	#include "CfgVehicles\DZE\VaultStorage.hpp"
+	#include "CfgVehicles\DZE\WeaponHolder.hpp"
 	
 	// Buildables
 	#include "CfgVehicles\DZE\BuiltItems.hpp"
+	#include "CfgVehicles\DZE\MoreBuiltItems.hpp"
+	
 	
 	// Player zombies
 	

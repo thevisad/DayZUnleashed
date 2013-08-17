@@ -5,6 +5,7 @@ _building = 		_this select 1;
 _worldspace = 	_this select 2;
 _class = 		_this select 3;
 //_squad = 		_this select 4;
+
 _squad = 0;
 _playerUID = 0;
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
@@ -17,20 +18,14 @@ if (!(_building isKindOf "Building")) exitWith {
 //_allowed = [_building, "Server"] call check_publishobject;
 //if (!_allowed) exitWith { };
 
-diag_log ("USPB: Attempt " + str(_building));
-
 //get UID
-_uid = _worldspace call dayz_buildingUID2;
-_playerUID = getPlayerUID player;
-diag_log ("SPO: _playerUID " + str(_playerUID));
-diag_log ("SPO: dayz_playerUID " + str(dayz_playerUID));
+_uid = _worldspace call dayz_objectUID2;
 
 //Send request
 
 _combination = floor(random 899) + 100;
-_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],dayz_playerUID,_squad ,_combination];
+_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],_charID,_squad ,_combination];
 //_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_uid,_class,_charID,_worldspace, [],[],_squad ,_combination];
-
 //diag_log ("HIVE: WRITE: "+ str(_key));
 _key call server_hiveWrite;
 

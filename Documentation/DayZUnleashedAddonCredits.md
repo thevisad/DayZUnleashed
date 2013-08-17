@@ -20,5 +20,8 @@ Addon Credits
 * Player Knockout http://opendayz.net/threads/release-player2s-knockout.9644/
 * House Lighting http://opendayz.net/threads/working-house-lighting.7153/
 * Repair and Refuel http://www.opendayz.net/threads/working-repair-and-refueling-stations.12339/
+* st_evasive - Created by Rg (Extended from DayZ Mod Official)
+* st_collision - Created for ArmA2 by Rg, original ArmA1 concept by Rocko, original ArmA1 implementation by Kju. (Extended from DayZ Mod Official)
+
 
 If we missed a credit line here it was not intentional at all. We credit anyone and everyone whose work we utilize in any format. If you feel that you should be credited for some work, please contact me on Skype or via email at thevisad ( at ) gmail ( dot ) com.

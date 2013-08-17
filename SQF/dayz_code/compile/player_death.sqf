@@ -31,7 +31,7 @@ player setVariable ["startcombattimer", 0];
 r_player_unconscious = false;
 r_player_cardiac = false;
 
-_id = player spawn spawn_flies;
+//_id = player spawn spawn_flies;
 
 _array = _this;
 if (count _array > 0) then {

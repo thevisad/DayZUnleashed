@@ -28,7 +28,7 @@ class PartWoodLumber: CA_Magazine
 		{
 			text = "Craft Supply Crate";
 			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
-			neednearby[] = {"sawmil"};
+			neednearby[] = {"sawmill"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"bulk_empty",1}};
 			input[] = {{"PartWoodLumber",4},{"PartGeneric",1}};
