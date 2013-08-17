@@ -26,7 +26,7 @@
 		DZAI_weaponsInitialized = true;
 	};
 
-	DZAI_BanditTypes = ["Survivor2_DZ", "SurvivorW2_DZ", "Bandit1_DZ", "BanditW1_DZ", "Camo1_DZ", "Sniper1_DZ"]; //List of skins for AI units to use
+	DZAI_BanditTypes = ["BRT_Commander_DZ", "BRT_Officer_DZ", "BRT_Pilot_DZ", "BRT_Scout_DZ", "BRT_Looter_DZ", "BRT_Grunt_DZ"]; //List of skins for AI units to use
 
 	DZAI_Backpacks0 = ["DZ_Patrol_Pack_EP1","DZ_Assault_Pack_EP1","DZ_Czech_Vest_Puch"];
 	DZAI_Backpacks1 = ["DZ_Czech_Vest_Puch","DZ_Assault_Pack_EP1","DZ_British_ACU","DZ_TK_Assault_Pack_EP1","DZ_CivilBackpack_EP1","DZ_ALICE_Pack_EP1"];
