@@ -18,13 +18,13 @@ item13[] = {"",7,210,-29.000006,-29.000004,-20.999996,-20.999996,0.000000,""};
 item14[] = {"",7,210,-279.000061,-29.000004,-270.999969,-20.999996,0.000000,""};
 item15[] = {"",7,210,-254.000046,146.000000,-245.999954,154.000000,0.000000,""};
 item16[] = {"Has_Target",4,218,-150.000000,225.000000,-50.000000,275.000000,1.000000,"Has" \n "Target"};
-item17[] = {"Chase",2,4346,-150.000000,325.000000,-50.000000,375.000000,0.000000,"Chase"};
+item17[] = {"Chase",2,250,-150.000000,325.000000,-50.000000,375.000000,0.000000,"Chase"};
 item18[] = {"Time_Check",4,218,50.000000,75.000000,150.000000,125.000000,0.000000,"Time" \n "Check"};
 item19[] = {"",7,210,-29.000006,146.000000,-20.999996,154.000000,0.000000,""};
 item20[] = {"",7,210,-29.000006,196.000000,-20.999996,204.000000,0.000000,""};
 item21[] = {"",7,210,-104.000008,196.000000,-95.999992,204.000000,0.000000,""};
 item22[] = {"Time_Check",4,218,-450.000000,75.000000,-350.000000,125.000000,0.000000,"Time" \n "Check"};
-item23[] = {"Time_Check",4,218,-250.000000,250.000000,-150.000000,300.000000,0.000000,"Time" \n "Check"};
+item23[] = {"Time_Check",4,4314,-250.000000,250.000000,-150.000000,300.000000,0.000000,"Time" \n "Check"};
 item24[] = {"No_Target",4,218,-250.000000,575.000000,-150.000000,625.000000,3.000000,"No" \n "Target"};
 item25[] = {"",7,210,-479.000000,596.000000,-471.000000,604.000000,0.000000,""};
 item26[] = {"",7,210,-479.000000,146.000000,-471.000000,154.000000,0.000000,""};
@@ -206,8 +206,8 @@ link112[] = {60,88};
 link113[] = {88,60};
 link114[] = {62,88};
 link115[] = {88,62};
-globals[] = {25.000000,1,0,0,0,640,480,1,138,6316128,1,-413.331146,648.105347,1132.835815,-145.281494,1063,1415,1};
-window[] = {0,-1,-1,-1,-1,1267,175,1923,175,1,1081};
+globals[] = {25.000000,1,0,0,0,640,480,1,138,6316128,1,-627.076355,434.360168,798.823364,-146.783798,1063,947,1};
+window[] = {0,-1,-1,-1,-1,1165,457,2205,73,1,1081};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -552,9 +552,6 @@ class FSM
        "_target = _agent call zombie_findTargetAgent;" \n
        "_targetPosition = getPosATL _target;" \n
        "_agentPosition = getPosATL _agent;" \n
-       "" \n
-       "_dir = [_agent,_target] call BIS_Fnc_dirTo;" \n
-       "_agent setDir _dir;" \n
        "" \n
        "_isAlive = alive _agent;" \n
        "_isAliveTarget = alive _target;" \n
@@ -943,7 +940,7 @@ class FSM
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _timeN) > 0.1"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"//Count los checks" \n
-           "_losCheck = _losCheck + 1;"/*%FSM</ACTION""">*/;
+           "//_losCheck = _losCheck + 1;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "Target_Alive">*/
@@ -975,7 +972,7 @@ class FSM
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _timeN) > 0.1"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"//Count los checks" \n
-           "_losCheck = _losCheck + 1;"/*%FSM</ACTION""">*/;
+           "//_losCheck = _losCheck + 1;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };

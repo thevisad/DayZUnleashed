@@ -1698,25 +1698,13 @@ class CfgWeight
 		{
 			weight = 3.6;
 		};
-		class ItemSandbag
-		{
-			weight = 3.6;
-		};		
 		class ItemSandbagLarge
 		{
 			weight = 3.6;
 		};
-		class ItemSodaEmpty
-		{
-			weight = 3.6;
-		};
 		class ItemSodaRbull
 		{
-			weight = 3.6;
-		};
-		class ItemSodaRbull
-		{
-			weight = 3.6;
+			weight = 0.3;
 		};
 		class ItemTentDomed
 		{
@@ -1732,11 +1720,7 @@ class CfgWeight
 		};
 		class ItemGoldBar
 		{
-			weight = 3.6;
-		};
-		class ItemGoldBar
-		{
-			weight = 3.6;
+			weight = 10.0;
 		};
 		class ItemSilverBar
 		{
@@ -1766,15 +1750,7 @@ class CfgWeight
 		{
 			weight = 3.6;
 		};
-		class PartWoodPile
-		{
-			weight = 3.6;
-		};
 		class PartWoodPlywood
-		{
-			weight = 3.6;
-		};
-		class TrashTinCan
 		{
 			weight = 3.6;
 		};
@@ -1791,10 +1767,6 @@ class CfgWeight
 			weight = 3.6;
 		};
 		class deer_stand_kit
-		{
-			weight = 3.6;
-		};
-		class desert_large_net_kit
 		{
 			weight = 3.6;
 		};
