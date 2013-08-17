@@ -14,12 +14,14 @@
         faceType = "bb_female_helmet";
         identityTypes[] = {"Language_W_EN_EP1", "Woman","Head_BB_Fem_helmet"};
         model = "\bb_oa_female\female_soldier_oa_helmet.p3d";
+        clothingDZ = "Skin_Soldier1_DZ";
     };
     
     class OfficerW1_DZ : CamoW1_DZ {
         faceType = "bb_female";
         identityTypes[] = {"Language_W_EN_EP1", "Woman","Head_BB_Fem_helmet"};
         model = "\bb_oa_female\female_pilot2_oa.p3d";
+        clothingDZ = "Skin_Officer1_DZ";
         class Wounds {
             tex[] = {};
             mat[] = {"bb_oa_female\textures\pilot_soldier_nic.rvmat", "bb_oa_female\textures\w1_pilot_soldier_nic.rvmat", "bb_oa_female\textures\w2_pilot_soldier_nic.rvmat"};

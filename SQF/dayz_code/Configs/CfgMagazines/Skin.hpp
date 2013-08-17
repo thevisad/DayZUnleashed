@@ -49,7 +49,7 @@
     class Skin_Officer1_DZ : SkinBase {
         scope = public;
         displayName = "Officers Outfit";
-        descriptionShort = "An military officer's outfit, not than ranks matter anymore.."; 
+        descriptionShort = "An officer's outfit, not than ranks matter anymore.."; 
         skinModel="Rocket_DZ";
         skinModelALT="OfficerW1_DZ";        
     };

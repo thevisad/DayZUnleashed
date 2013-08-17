@@ -16,7 +16,7 @@ class Camo1_DZ: BAF_Soldier_L_W {
 	canHideBodies = 0;
 };	
 class Camo2_DZ: Camo1_DZ{
-  clothingDZ = "Skin_Camo_DZ";
+  clothingDZ = "Skin_Camo1_DZ";
   hiddenselectionstextures[] = {"\ca\characters_d_baf\data\camo_MTP_co.paa", "\ca\characters_d_baf\data\armour_co.paa", "\ca\characters_d_baf\data\equip_d_co.paa"};  
 };
 
