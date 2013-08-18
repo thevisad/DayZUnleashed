@@ -10,48 +10,7 @@ class Plastic_Pole_EP1_DZ: Sign_1L_Noentry_EP1
 	vehicleClass = "Fortifications";
 	removeoutput[] = {{"30m_plot_kit",1}};
 };
-class Land_covering_hut_EP1;
-class CanvasHut_DZ: Land_covering_hut_EP1
-{
-	armor = 200;
-	scope = 2;
-	offset[] = {0,2.5,1};
-	displayName = "Canvas Hut";
-	vehicleClass = "Fortifications";
-};
-class Land_CamoNet_EAST_EP1;
-class DesertCamoNet_DZ: Land_CamoNet_EAST_EP1
-{
-	armor = 300;
-	destrType = "DestructNo";
-	scope = 2;
-	offset[] = {0,5,0};
-	displayName = "Desert Camo Net";
-	vehicleClass = "Fortifications";
-	removeoutput[] = {{"desert_net_kit",1}};
-};
-class Land_CamoNet_EAST;
-class ForestCamoNet_DZ: Land_CamoNet_EAST
-{
-	armor = 300;
-	destrType = "DestructNo";
-	scope = 2;
-	offset[] = {0,5,0};
-	displayName = "Forest Camo Net";
-	vehicleClass = "Fortifications";
-	removeoutput[] = {{"forest_net_kit",1}};
-};
-class Land_CamoNetB_EAST_EP1;
-class DesertLargeCamoNet_DZ: Land_CamoNetB_EAST_EP1
-{
-	armor = 300;
-	destrType = "DestructNo";
-	scope = 2;
-	offset[] = {0,9,0};
-	displayName = "Large Desert Camo Net";
-	vehicleClass = "Fortifications";
-	removeoutput[] = {{"desert_large_net_kit",1}};
-};
+
 class Land_Misc_deerstand;
 class DeerStand_DZ: Land_Misc_deerstand
 {

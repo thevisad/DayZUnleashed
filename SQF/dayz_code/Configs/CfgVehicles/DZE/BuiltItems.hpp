@@ -135,3 +135,82 @@ class Land_HBarrier1_DZ : BuiltItems {
 	constructioncount = 4;
 	removeoutput[] = {{"ItemSandbagLarge",1}};
 };
+
+class CanvasHut_DZ: BuiltItems
+{
+	scope = 2; 
+	model = "\ca\Structures_E\Misc\Misc_Market\covering_hut_EP1"; 
+	vehicleClass = "Misc"; 
+	displayName = "Canvas hut"; 
+	animated = 0; 
+	simulation = "house"; 
+	accuracy = 0.2; 
+	cost = 0; 
+	ladders[] = {}; 
+	armor = 300; 
+	offset[] = {0,2.5,1};
+	expansion = 1; 
+};
+class DesertCamoNet_DZ: BuiltItems
+{
+	armor = 300;
+	destrType = "DestructNo";
+	scope = 2;
+	offset[] = {0,5,0};
+	displayName = "Desert Camo Net";
+	vehicleClass = "Fortifications";
+	removeoutput[] = {{"desert_net_kit",1}};
+	model = "\ca\Misc_E\CamoNet_EAST_ep1"; 
+	expansion = 1; 
+	// destrType = "DestructTent"; 
+	icon = "\Ca\misc3\data\Icons\icon_camoNet_ca.paa"; 
+	mapSize = 13.5; 
+	//armor = 3; 
+	animated = 0; 
+	simulation = "house"; 
+	accuracy = 0.2; 
+	cost = 0; 
+	ladders[] = {}; 
+
+};
+class ForestCamoNet_DZ: BuiltItems
+{
+	armor = 300;
+	destrType = "DestructNo";
+	scope = 2;
+	offset[] = {0,5,0};
+	displayName = "Forest Camo Net";
+	vehicleClass = "Fortifications";
+	removeoutput[] = {{"forest_net_kit",1}};
+	model = "\Ca\misc3\CamoNet_EAST"; 
+	//destrType = "DestructTent"; 
+	icon = "\Ca\misc3\data\Icons\icon_camoNet_ca.paa"; 
+	mapSize = 13.5; 
+	//armor = 3; 
+	animated = 0; 
+	simulation = "house"; 
+	accuracy = 0.2; 
+	cost = 0; 
+	ladders[] = {}; 
+};
+class DesertLargeCamoNet_DZ: BuiltItems
+{
+	armor = 300;
+	destrType = "DestructNo";
+	scope = 2;
+	offset[] = {0,9,0};
+	displayName = "Large Desert Camo Net";
+	vehicleClass = "Fortifications";
+	removeoutput[] = {{"desert_large_net_kit",1}};
+	model = "\ca\Misc_E\CamoNetB_EAST_ep1"; 
+	expansion = 1; 
+	icon = "\Ca\misc3\data\Icons\icon_camoNetBig_ca.paa"; 
+	mapSize = 18; 
+	//destrType = "DestructTent"; 
+	//armor = 3; 
+	animated = 0; 
+	simulation = "house"; 
+	accuracy = 0.2; 
+	cost = 0; 
+	ladders[] = {}; 
+};
