@@ -1,0 +1,44 @@
+class _prefix_0
+{
+	objectType="prefix";
+	class Arguments
+	{
+	};
+};
+class _center_0
+{
+	objectType="center";
+	class Arguments
+	{
+		SIDE="west";
+	};
+};
+class _group_0
+{
+	objectType="group";
+	class Arguments
+	{
+		CENTER="_center_0";
+	};
+};
+class _unit_0
+{
+	objectType="unit";
+	class Arguments
+	{
+		POSITION="[10384.849, 18998.607]";
+		GROUP="_group_0";
+		TYPE="CZ_Special_Forces_MG_DES_EP1";
+		INIT="this addaction [""Get Buildings"", ""getBuildings.sqf""];nul = [] execVM ""AnimationViewer\init.sqf"";this addaction [""Find Spawns"", ""findSpawns.sqf""];this addAction [""Select Loot Position"", ""Make_lootPos.sqf"", [""select""], 99];this addAction [""Save Loot Position"", ""Make_lootPos.sqf"", [""start""], 99];this addAction [""Raise Z .1"", ""Make_lootPos.sqf"", [""up""], 99];this addAction [""Lower Z .1"", ""Make_lootPos.sqf"", [""down""], 99];this addAction [""Raise Z .01"", ""Make_lootPos.sqf"", [""up_small""], 99];this addAction [""Lower Z .01"", ""Make_lootPos.sqf"", [""down_small""], 99];this addaction [""Show Loot Position"", ""getBuildings.sqf""];";
+		SKILL="0.60000002";
+		PLAYER="true";
+		LEADER="true";
+	};
+};
+class _postfix_0
+{
+	objectType="postfix";
+	class Arguments
+	{
+	};
+};

@@ -1,0 +1,1 @@
+DEV_RemoteCodeLogic globalChat "F9.sqf executed";
