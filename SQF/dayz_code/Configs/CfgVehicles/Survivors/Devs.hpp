@@ -13,6 +13,7 @@ class TheVisad_DZU: GER_Soldier_Medic_EP1 {
     respawnMagazines[] = {};
     weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
     canHideBodies = 0;
+    cancarrybackpack = 1;
 };
 
 class XerXes_DZU: TheVisad_DZU {
@@ -31,7 +32,8 @@ class XyberViri_DZU: CIV_EuroMan02_EP1 {
     respawnWeapons[] = {"Throw","Put"};
     respawnMagazines[] = {};
     weaponSlots = "1     +  4    + 12*      256  + 2*   4096     +  2    + 8*   16  + 12*131072";
-    canHideBodies = 0;    
+    canHideBodies = 0;  
+    cancarrybackpack = 1;  
 };
 
 class PvtAmmo_DZU: TheVisad_DZU {
