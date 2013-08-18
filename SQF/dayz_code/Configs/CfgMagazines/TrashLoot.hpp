@@ -53,7 +53,7 @@ class ItemTrashToiletpaper : CA_Magazine {
 			class Crafting
 			{
 				text = "Craft Satchel Charge";
-				script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+				script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PipeBomb",1}};

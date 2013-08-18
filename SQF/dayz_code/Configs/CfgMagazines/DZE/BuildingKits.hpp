@@ -142,7 +142,7 @@ class desert_net_kit: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Lg Camo Net";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"desert_large_net_kit",1}};
@@ -171,7 +171,7 @@ class forest_net_kit: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Lg Camo Net";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"forest_large_net_kit",1}};
