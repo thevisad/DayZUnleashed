@@ -23,8 +23,8 @@ class CfgWeapons {
 	#include "CfgWeapons\Melee\ItemCrowbar.hpp"
 	#include "CfgWeapons\Melee\Crossbow.hpp"
 	#include "CfgWeapons\Melee\MeleeBaseBallBat.hpp"
-//	#include "CfgWeapons\Melee\MeleeBaseBallBatBarbed.hpp"
-//	#include "CfgWeapons\Melee\MeleeBaseBallBatNails.hpp"
+	#include "CfgWeapons\Melee\MeleeBaseBallBatBarbed.hpp"
+	#include "CfgWeapons\Melee\MeleeBaseBallBatNails.hpp"
 	
 	#include "CfgWeapons\Item\ItemWatch.hpp"
 	#include "CfgWeapons\Item\ItemMap.hpp"

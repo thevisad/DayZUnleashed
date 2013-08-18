@@ -394,6 +394,7 @@ r_fracture_legs = false;
 r_fracture_arms = false;
 r_player_vehicle = player;
 r_player_blood = 12000;
+class_player_blood = 12000;
 //Blood Regen
 r_player_bloodregen = 0;
 //Blood Gain Per Sec

@@ -172,13 +172,10 @@ if (_characterID != "0") then {
 			_currentWpn = "";
 			};
 		};
-		_character setVariable["classSelected",dayz_selectClass,true];
-		_classSelected = _character getVariable ["classSelected",9];
+		
 		_temp = round(_character getVariable ["temperature",100]);
 		_currentState = [_currentWpn,_currentAnim,_temp];
 		_class = 0;
-		//diag_log ("dayz_selectClass playerSync:" + str(dayz_selectClass));
-		//diag_log ("_classSelected playerSync:" + str(_classSelected));
 		/*
 			Everything is ready, now publish to HIVE
 		*/

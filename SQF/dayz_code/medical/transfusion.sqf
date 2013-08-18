@@ -1,4 +1,4 @@
-private ["_unit","_blood","_lowBlood","_injured","_inPain","_lastused","_text","_animState","_started","_finished","_timer","_i","_isMedic","_isClose"];
+private ["_unit","_blood","_lowBlood","_injured","_inPain","_lastused","_text","_animState","_started","_finished","_timer","_i","_isMedic","_isClose","_MedicTime"];
 // bleed.sqf
 _unit = (_this select 3) select 0;
 _blood = _unit getVariable ["USEC_BloodQty", 0];
@@ -24,8 +24,14 @@ _started = false;
 _finished = false;
 _timer = diag_tickTime;
 _i = 0;
+_medicTime = 0;
+if (dayz_selectClass == 2) then {
+	_medicTime = 12;
+} else {
+	_medicTime = 3;
+};
 
-while {r_doLoop and (_i < 12)} do {
+while {r_doLoop and (_i < _medicTime)} do {
 	_animState = animationState player;
 	_isMedic = ["medic",_animState] call fnc_inString;
 
@@ -40,7 +46,7 @@ while {r_doLoop and (_i < 12)} do {
 	if (_started) then {
 		if ((diag_tickTime - _timer) >= 1) then {
 			_timer = diag_tickTime;
-			PVDZ_hlt_Transfuse = [_unit,player,1000];
+			PVDZ_hlt_Transfuse = [_unit,player,1000,dayz_selectClass];
 			publicVariable "PVDZ_hlt_Transfuse";
 			[player,25] call player_humanityChange;
 			_i = _i + 1;

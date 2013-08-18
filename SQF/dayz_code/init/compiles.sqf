@@ -553,7 +553,7 @@ if (!isDedicated) then {
 	//Unleashed
 	[] execVM "\z\addons\dayz_code\compile\houseLighting.sqf";
 	[] execVM "\z\addons\dayz_code\actions\player_repairActions.sqf";
-	
+
 	player_sumMedical = {
 		private["_character","_wounds","_legs","_arms","_medical", "_status"];
 		_character = _this;

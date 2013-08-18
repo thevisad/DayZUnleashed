@@ -63,6 +63,7 @@ while {true} do {
 	if (_speed > 0.1) then {
 		_timeOut = _timeOut + 1;
 	};
+
 	_humanity = player getVariable ["humanity",0];
 	if (_timeOut > 150) then {
 		_timeOut = 0;
@@ -276,7 +277,7 @@ while {true} do {
 		player setVariable["startcombattimer", 0];
 		dayz_combat = 1;
 	};
-
+	
 	_combattimeout = player getVariable["combattimeout",0];
 	if (_combattimeout > 0) then {
 		_timeleft = _combattimeout - time;

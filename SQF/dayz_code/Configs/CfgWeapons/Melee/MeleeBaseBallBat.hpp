@@ -22,4 +22,25 @@ class MeleeBaseBallBat: MeleeWeapon
 			libTextDesc="$STR_EQUIP_DESC_BASEBALLBAT";
 		};
 		descriptionShort="$STR_EQUIP_DESC_BASEBALLBAT";
+		class ItemActions
+		{
+			class Crafting
+			{
+				text = "Craft Barbed Bat";
+				script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+				neednearby[] = {"workshop"};
+				requiretools[] = {"ItemToolbox","ItemKnife"};
+				output[] = {{"MeleeBaseBallBatBarbed",1}};
+				input[] = {{"MeleeBaseBallBat",1},{"ItemWire",1}};
+			};
+			class Crafting1
+			{
+				text = "Craft Nailed Bat";
+				script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+				neednearby[] = {"workshop"};
+				requiretools[] = {"ItemToolbox","ItemKnife"};
+				output[] = {{"MeleeBaseBallBatNails",1}};
+				input[] = {{"MeleeBaseBallBat",1},{"equip_nail",2}};
+			};
+		};
 	};

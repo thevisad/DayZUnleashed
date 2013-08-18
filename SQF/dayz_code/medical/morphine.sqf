@@ -28,6 +28,12 @@ while {r_doLoop} do {
 		r_doLoop = false;
 		_finished = true;
 	};
+
+	if ((random 10 < 3) and (dayz_selectClass != 2)) then {
+		r_player_infected = true;
+		player setVariable["USEC_infected",true,true];
+	};
+
 	if (r_interrupt) then {
 		r_doLoop = false;
 	};
@@ -45,7 +51,7 @@ if (_finished) then {
 	};
 
 	//["PVDZ_hlt_Morphine",[_unit,player]] call broadcastRpcCallAll;
-	PVDZ_hlt_Morphine = [_unit,player];
+	PVDZ_hlt_Morphine = [_unit,player,dayz_selectClass];
 	publicVariable "PVDZ_hlt_Morphine";
 	
 	

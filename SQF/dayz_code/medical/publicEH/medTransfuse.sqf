@@ -5,9 +5,18 @@ _array = _this; //_this select 0;
 _unit = _array select 0;
 _medic = _array select 1;
 _amount = _array select 2;
+_classTransfusing = _array select 3;
 
 _rndInfection = (random 20);
-_TransfusionInfection = (_rndInfection < 0.3);
+
+if (_classTransfusing != 2) then {
+	_TransfusionInfection = (_rndInfection < 5);
+}
+else {
+	_TransfusionInfection = (_rndInfection < 0.3);
+};
+
+
 
 if (_unit == player) then {
 	if ((r_player_blood + _amount) >= r_player_bloodTotal) then {

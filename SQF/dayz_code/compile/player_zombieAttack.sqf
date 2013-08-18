@@ -4,7 +4,7 @@
         Please request permission to use/alter/distribute from project leader (R4Z0R49) AND the author (facoptere@gmail.com)
 */
 
-private ["_unit", "_type", "_vehicle", "_speed", "_nextPlayerPos", "_distance", "_isVehicle", "_isSameFloor", "_isStairway", "_isClear", "_epu", "_epv", "_gpu_asl", "_gpv_asl", "_areaAffect", "_hu", "_hv", "_ob_arr", "_cob", "_deg", "_sign", "_a", "_rnd", "_move", "__FILE__", "_vel", "_hpList", "_hp", "_wound", "_damage", "_strH", "_dam", "_total", "_cnt", "_index", "_woundDamage"];
+private ["_unit", "_type", "_vehicle", "_speed", "_nextPlayerPos", "_distance", "_isVehicle", "_isSameFloor", "_isStairway", "_isClear", "_epu", "_epv", "_gpu_asl", "_gpv_asl", "_areaAffect", "_hu", "_hv", "_ob_arr", "_cob", "_deg", "_sign", "_a", "_rnd", "_move", "__FILE__", "_vel", "_hpList", "_hp", "_wound", "_damage", "_strH", "_dam", "_total", "_cnt", "_index", "_woundDamage","_classTackleTime"];
 _start = diag_tickTime;
 
 _unit = _this select 0;
@@ -190,8 +190,13 @@ if (_isVehicle) then {
 				_deg = [player, _unit] call BIS_fnc_relativeDirTo;
 				_lastTackle = player getVariable ["lastTackle", 0];
 				_move = "";
-
-				if ((diag_tickTime - _lastTackle) > 7) then {
+				_classTackleTime = 0;
+				if (dayz_selectClass != 4) then {
+					_classTackleTime = 7;
+				} else {
+					_classTackleTime = 14;
+				};
+				if ((diag_tickTime - _lastTackle) > _classTackleTime) then {
 					switch true do {
 						// front
 						case (((!_isVehicle) and (_speed >= 5.62)) and (((_deg > 315) and (_deg <= 360)) or ((_deg > 0) and (_deg < 45)))) : {
@@ -228,23 +233,28 @@ if (_isVehicle) then {
 							//player setVelocity [-(_vel select 0),  -(_vel select 1),  0];
 
 							// rotate player 'smoothly'
-							[_deg] spawn {
-								private["_step","_i"];
-								_step = 90 / 5;
-								_i = 0;
-								while { _i < 5 } do {
-									player setDir ((getDir player) + _step);
-									_i = _i + 1;
-									sleep 0.01;
+							
+							
+							
+									[_deg] spawn {
+									private["_step","_i"];
+									_step = 90 / 5;
+									_i = 0;
+									while { _i < 5 } do {
+										player setDir ((getDir player) + _step);
+										_i = _i + 1;
+										sleep 0.01;
+									};
+								
+
+								// make player dive
+								_move = switch (toArray(animationState player) select 17) do {
+									case 114 : {"ActsPercMrunSlowWrflDf_TumbleOver"}; // rifle
+									case 112 : {"AmovPercMsprSlowWpstDf_AmovPpneMstpSrasWpstDnon"}; // pistol
+									default {"ActsPercMrunSlowWrflDf_TumbleOver"};
 								};
 							};
-
-							// make player dive
-							_move = switch (toArray(animationState player) select 17) do {
-								case 114 : {"ActsPercMrunSlowWrflDf_TumbleOver"}; // rifle
-								case 112 : {"AmovPercMsprSlowWpstDf_AmovPpneMstpSrasWpstDnon"}; // pistol
-								default {"ActsPercMrunSlowWrflDf_TumbleOver"};
-							};
+							
 						};
 						// right
 						case (((!_isVehicle) and (_speed >= 5.62)) and ((_deg > 45) and (_deg < 135))) : {

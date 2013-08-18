@@ -109,7 +109,10 @@ while {_isOk} do {
 		// 10% chance to break a required tool each pass
 		if(_isDestructable or _isRemovable) then {
 			if((random 10) <= 1) then {
-				_brokenTool = true;
+				if (dayz_selectClass != 1) 
+				{
+					_brokenTool = true;
+				};
 			};
 		};
 	};

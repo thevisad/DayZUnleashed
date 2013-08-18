@@ -8,10 +8,6 @@ _classSelection = _this select 4;
 _playerID = getPlayerUID _playerObj;
 dayz_selectClass = _classSelection;
 
-
-//diag_log ("_classSelection before: " + str(_classSelection));
-//diag_log ("dayz_selectClass before: " + str(dayz_selectClass));
-
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 
 if (isNull _playerObj) exitWith {
@@ -245,6 +241,9 @@ if (_randomSpot) then {
 
 //Record player for management
 dayz_players set [count dayz_players,_playerObj];
+
+_playerObj setVariable["classSelected",dayz_selectClass,true];
+_classSelected = _playerObj getVariable ["classSelected",9];
 
 //record player pos locally for server checking
 _playerObj setVariable["characterID",_characterID,true];
