@@ -29,7 +29,7 @@ class _unit_0
 		POSITION="[10384.849, 18998.607]";
 		GROUP="_group_0";
 		TYPE="CZ_Special_Forces_MG_DES_EP1";
-		INIT="this addaction [""Get Buildings"", ""getBuildings.sqf""];nul = [] execVM ""AnimationViewer\init.sqf"";this addaction [""Find Spawns"", ""findSpawns.sqf""];this addAction [""Select Loot Position"", ""Make_lootPos.sqf"", [""select""], 99];this addAction [""Save Loot Position"", ""Make_lootPos.sqf"", [""start""], 99];this addAction [""Raise Z .1"", ""Make_lootPos.sqf"", [""up""], 99];this addAction [""Lower Z .1"", ""Make_lootPos.sqf"", [""down""], 99];this addAction [""Raise Z .01"", ""Make_lootPos.sqf"", [""up_small""], 99];this addAction [""Lower Z .01"", ""Make_lootPos.sqf"", [""down_small""], 99];this addaction [""Show Loot Position"", ""getBuildings.sqf""];";
+		INIT="this addaction [""Dump Classes"", ""getBuildings.sqf""];nul = [] execVM ""AnimationViewer\init.sqf"";this addaction [""Find Spawns"", ""findSpawns.sqf""];this addAction [""Select Loot Position"", ""Make_lootPos.sqf"", [""select""], 99];this addAction [""Save Loot Position"", ""Make_lootPos.sqf"", [""start""], 99];this addAction [""Raise Z .1"", ""Make_lootPos.sqf"", [""up""], 99];this addAction [""Lower Z .1"", ""Make_lootPos.sqf"", [""down""], 99];this addAction [""Raise Z .01"", ""Make_lootPos.sqf"", [""up_small""], 99];this addAction [""Lower Z .01"", ""Make_lootPos.sqf"", [""down_small""], 99];this addaction [""Show Loot Position"", ""lootPos.sqf""];";
 		SKILL="0.60000002";
 		PLAYER="true";
 		LEADER="true";
