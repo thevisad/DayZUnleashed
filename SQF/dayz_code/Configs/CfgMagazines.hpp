@@ -105,6 +105,35 @@ class CfgMagazines {
 	#include "CfgMagazines\DZE\PartWoodPile.hpp"
 	#include "CfgMagazines\DZE\PartWoodLumber.hpp"
 	#include "CfgMagazines\DZE\PartWoodPlywood.hpp"
+
+	// blood bag
 	#include "CfgMagazines\ItemBloodBag.hpp"
+
+	//  ItemBurlap
+	#include "CfgMagazines\DZE\ItemBurlap.hpp"
+	//  ItemCanvas
+	#include "CfgMagazines\DZE\ItemCanvas.hpp"
+	// ItemCorrugated 
+	#include "CfgMagazines\DZE\ItemCorrugated.hpp"
+	// ItemFuelPump
+	#include "CfgMagazines\DZE\ItemFuelPump.hpp"
+	// ItemBriefcase
+	#include "CfgMagazines\DZE\ItemBriefcase.hpp"
+	// ItemPole
+	#include "CfgMagazines\DZE\ItemPole.hpp"
+	// ItemSandbagLarge
+	#include "CfgMagazines\DZE\ItemSandbagLarge.hpp"
+	// bulk 
+	#include "CfgMagazines\DZE\bulk.hpp"
+	// FoodBioMeat 
+	#include "CfgMagazines\DZE\FoodBioMeat.hpp"
+	// ItemLightBulb 
+	#include "CfgMagazines\DZE\ItemLightBulb.hpp"
+	// ItemSodaOrangeSherbet
+	#include "CfgMagazines\DZE\ItemSodaOrangeSherbet.hpp"
+	// ItemZombieParts
+	#include "CfgMagazines\DZE\ItemZombieParts.hpp"
+	// MetalBars
+	#include "CfgMagazines\DZE\MetalBars.hpp"
 	
 };
