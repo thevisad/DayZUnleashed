@@ -27,20 +27,24 @@ class MeleeBaseBallBat: MeleeWeapon
 			class Crafting
 			{
 				text = "Craft Barbed Bat";
-				script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+				script = ";['Crafting','CfgWeapons',_id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox","ItemKnife"};
-				output[] = {{"MeleeBaseBallBatBarbed",1}};
-				input[] = {{"MeleeBaseBallBat",1},{"ItemWire",1}};
+				output[] = {};
+				outputweapons[] = {"MeleeBaseBallBatBarbed"};
+				input[] = {{"ItemWire",1}};
+				inputweapons[] = {"MeleeBaseBallBat"};
 			};
 			class Crafting1
 			{
 				text = "Craft Nailed Bat";
-				script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+				script = ";['Crafting1','CfgWeapons',_id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox","ItemKnife"};
-				output[] = {{"MeleeBaseBallBatNails",1}};
-				input[] = {{"MeleeBaseBallBat",1},{"equip_nail",2}};
+				output[] = {};
+				outputweapons[] = {"MeleeBaseBallBatNails"};
+				input[] = {{"equip_nail",2}};
+				inputweapons[] = {"MeleeBaseBallBat"};
 			};
 		};
 	};
