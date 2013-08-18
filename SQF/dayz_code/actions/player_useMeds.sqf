@@ -28,6 +28,9 @@ switch (_item) do {
 	case "ItemAntibiotic": {
 		_id = [0,0,0,[player]] execVM "\z\addons\dayz_code\medical\antibiotics.sqf";
 	};
+	case "ItemBloodbag": {
+		_id = [0,0,0,[player]] execVM "\z\addons\dayz_code\actions\player_selfbloodbag.sqf";
+	};
 	case "ItemHeatPack": {
 		player removeMagazine "ItemHeatPack";
 		dayz_temperatur = (dayz_temperatur + 5) min dayz_temperaturmax;

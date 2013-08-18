@@ -615,25 +615,6 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_followdog = -1;
 	};
 	
-	
-// ---------------------------------------Krixes Self Bloodbag Start------------------------------------
-    _mags = magazines player;
-
-    // Krixes Self Bloodbag
-    if ("ItemBloodbag" in _mags and (dayz_selectClass == 2)) then {
-        hasBagItem = true;
-    } else { hasBagItem = false;};
-    if((speed player <= 1) && hasBagItem && _canDo) then {
-        if (s_player_selfBloodbag < 0) then {
-            s_player_selfBloodbag = player addaction[("<t color=""#c70000"">" + ("Give yourself blood") +"</t>"),"\z\addons\dayz_code\actions\player_selfbloodbag.sqf","",5,false,true,"", ""];
-        };
-    } else {
-        player removeAction s_player_selfBloodbag;
-        s_player_selfBloodbag = -1;
-    };
-// ---------------------------------------Krixes Self Bloodbag End------------------------------------
-
-	
 	if( _canDo and _isStorage ) then {
 		if( churchie_check < 0 ) then {
 			stow_vehicle = player addAction [("<t color=""#FF0000"">" + ("Pull Vehicle From Garage") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 3], 6, false, true, "","getDammage _target < 0.95"]; 

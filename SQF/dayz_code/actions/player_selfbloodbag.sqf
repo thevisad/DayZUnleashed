@@ -12,14 +12,15 @@
 
 private ["_bloodAmount","_humanityBool","_infectionChance","_humanityNegBool","_humanityNegAmount","_humanityAmount","_infectedLifeLost","_infectedLifeBool","_lastBloodbag","_bloodbagLastUsedTime","_bloodbagTime","_bloodbagUseTime","_bloodbagUsageTime"];
 
+if (dayz_selectClass != 2) exitwith {cutText [format["You do not understand how to use this on yourself."], "PLAIN DOWN"];};
 
-
+ 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Config Start-----------------------------------------------------------------------------------------------------------------------//
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 _bloodAmount = 4000; // Amount of blood to give to player
-_bloodbagUseTime = 30; // Amount of time it takes in second for the player to use the self bloodbag
+_bloodbagUseTime = 15; // Amount of time it takes in second for the player to use the self bloodbag
 _bloodbagLastUsedTime = 60; // Amount of time in seconds before player can use self bloodbag again after a succesful use
 
 _infectionChance = 10; // Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)

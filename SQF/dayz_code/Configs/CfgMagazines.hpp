@@ -105,5 +105,6 @@ class CfgMagazines {
 	#include "CfgMagazines\DZE\PartWoodPile.hpp"
 	#include "CfgMagazines\DZE\PartWoodLumber.hpp"
 	#include "CfgMagazines\DZE\PartWoodPlywood.hpp"
+	#include "CfgMagazines\ItemBloodBag.hpp"
 	
 };
