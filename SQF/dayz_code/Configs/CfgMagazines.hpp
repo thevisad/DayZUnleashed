@@ -121,6 +121,8 @@ class CfgMagazines {
 	#include "CfgMagazines\DZE\ItemBriefcase.hpp"
 	// ItemPole
 	#include "CfgMagazines\DZE\ItemPole.hpp"
+	// ItemSandbag
+	#include "CfgMagazines\DZE\ItemSandbag.hpp"
 	// ItemSandbagLarge
 	#include "CfgMagazines\DZE\ItemSandbagLarge.hpp"
 	// bulk 
@@ -135,5 +137,10 @@ class CfgMagazines {
 	#include "CfgMagazines\DZE\ItemZombieParts.hpp"
 	// MetalBars
 	#include "CfgMagazines\DZE\MetalBars.hpp"
+	// Bulk Supply Crates
+	#include "CfgMagazines\DZE\bulk.hpp"
+	// Cans with smelting
+	// #include "CfgMagazines\DZE\TrashTinCan.hpp"
+	// #include "CfgMagazines\DZE\ItemSodaEmpty.hpp"
 	
 };
