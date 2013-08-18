@@ -17,7 +17,7 @@ class PartWoodLumber: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Plywood";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"sawmill"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"PartWoodPlywood",1}};
@@ -27,7 +27,7 @@ class PartWoodLumber: CA_Magazine
 		class Crafting1
 		{
 			text = "Craft Supply Crate";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"sawmill"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"bulk_empty",1}};
@@ -37,7 +37,7 @@ class PartWoodLumber: CA_Magazine
 		class Crafting2
 		{
 			text = "Craft Deer Stand";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
 			output[] = {{"deer_stand_kit",1}};

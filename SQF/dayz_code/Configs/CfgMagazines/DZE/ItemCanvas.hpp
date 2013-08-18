@@ -12,7 +12,7 @@ class ItemCanvas: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Tent";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"ItemTent",1}};
@@ -21,7 +21,7 @@ class ItemCanvas: CA_Magazine
 		class Crafting1
 		{
 			text = "Craft Domed Tent";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"ItemDomeTent",1}};
@@ -39,7 +39,7 @@ class ItemCanvas: CA_Magazine
 		class Crafting3
 		{
 			text = "Craft Burlap";
-			script = ";['Crafting3','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting3','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
 			output[] = {{"ItemBurlap",1}};

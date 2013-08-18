@@ -16,7 +16,7 @@ class ItemBriefcaseEmpty: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase10oz",1}};
@@ -25,7 +25,7 @@ class ItemBriefcaseEmpty: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcaseEmpty",1}};
@@ -42,7 +42,7 @@ class ItemBriefcase10oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase20oz",1}};
@@ -51,7 +51,7 @@ class ItemBriefcase10oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Add 9 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase100oz",1}};
@@ -60,7 +60,7 @@ class ItemBriefcase10oz: ItemBriefcase_Base
 		class Crafting2
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcaseEmpty",1}};
@@ -78,7 +78,7 @@ class ItemBriefcase20oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase30oz",1}};
@@ -87,7 +87,7 @@ class ItemBriefcase20oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Add 8 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase100oz",1}};
@@ -96,7 +96,7 @@ class ItemBriefcase20oz: ItemBriefcase_Base
 		class Crafting2
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase10oz",1}};
@@ -105,7 +105,7 @@ class ItemBriefcase20oz: ItemBriefcase_Base
 		class Crafting3
 		{
 			text = "Empty Case";
-			script = ";['Crafting3','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting3','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",2},{"ItemBriefcaseEmpty",1}};
@@ -122,7 +122,7 @@ class ItemBriefcase30oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase40oz",1}};
@@ -131,7 +131,7 @@ class ItemBriefcase30oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Add 7 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase100oz",1}};
@@ -140,7 +140,7 @@ class ItemBriefcase30oz: ItemBriefcase_Base
 		class Crafting2
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase20oz",1}};
@@ -149,7 +149,7 @@ class ItemBriefcase30oz: ItemBriefcase_Base
 		class Crafting3
 		{
 			text = "Empty Case";
-			script = ";['Crafting3','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting3','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",3},{"ItemBriefcaseEmpty",1}};
@@ -166,7 +166,7 @@ class ItemBriefcase40oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase50oz",1}};
@@ -175,7 +175,7 @@ class ItemBriefcase40oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Add 6 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase100oz",1}};
@@ -184,7 +184,7 @@ class ItemBriefcase40oz: ItemBriefcase_Base
 		class Crafting2
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase30oz",1}};
@@ -193,7 +193,7 @@ class ItemBriefcase40oz: ItemBriefcase_Base
 		class Crafting3
 		{
 			text = "Empty Case";
-			script = ";['Crafting3','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting3','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",4},{"ItemBriefcaseEmpty",1}};
@@ -210,7 +210,7 @@ class ItemBriefcase50oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase60oz",1}};
@@ -219,7 +219,7 @@ class ItemBriefcase50oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Add 5 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase100oz",1}};
@@ -228,7 +228,7 @@ class ItemBriefcase50oz: ItemBriefcase_Base
 		class Crafting2
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase40oz",1}};
@@ -237,7 +237,7 @@ class ItemBriefcase50oz: ItemBriefcase_Base
 		class Crafting3
 		{
 			text = "Empty Case";
-			script = ";['Crafting3','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting3','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",5},{"ItemBriefcaseEmpty",1}};
@@ -254,7 +254,7 @@ class ItemBriefcase60oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase70oz",1}};
@@ -263,7 +263,7 @@ class ItemBriefcase60oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Add 4 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase100oz",1}};
@@ -272,7 +272,7 @@ class ItemBriefcase60oz: ItemBriefcase_Base
 		class Crafting2
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase50oz",1}};
@@ -281,7 +281,7 @@ class ItemBriefcase60oz: ItemBriefcase_Base
 		class Crafting3
 		{
 			text = "Empty Case";
-			script = ";['Crafting3','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting3','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",6},{"ItemBriefcaseEmpty",1}};
@@ -298,7 +298,7 @@ class ItemBriefcase70oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase80oz",1}};
@@ -307,7 +307,7 @@ class ItemBriefcase70oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Add 3 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase100oz",1}};
@@ -316,7 +316,7 @@ class ItemBriefcase70oz: ItemBriefcase_Base
 		class Crafting2
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase60oz",1}};
@@ -325,7 +325,7 @@ class ItemBriefcase70oz: ItemBriefcase_Base
 		class Crafting3
 		{
 			text = "Empty Case";
-			script = ";['Crafting3','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting3','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",7},{"ItemBriefcaseEmpty",1}};
@@ -342,7 +342,7 @@ class ItemBriefcase80oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase90oz",1}};
@@ -351,7 +351,7 @@ class ItemBriefcase80oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Add 2 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase100oz",1}};
@@ -360,7 +360,7 @@ class ItemBriefcase80oz: ItemBriefcase_Base
 		class Crafting2
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase70oz",1}};
@@ -369,7 +369,7 @@ class ItemBriefcase80oz: ItemBriefcase_Base
 		class Crafting3
 		{
 			text = "Empty Case";
-			script = ";['Crafting3','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting3','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",8},{"ItemBriefcaseEmpty",1}};
@@ -386,7 +386,7 @@ class ItemBriefcase90oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Add 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemBriefcase100oz",1}};
@@ -395,7 +395,7 @@ class ItemBriefcase90oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase80oz",1}};
@@ -404,7 +404,7 @@ class ItemBriefcase90oz: ItemBriefcase_Base
 		class Crafting2
 		{
 			text = "Empty Case";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",9},{"ItemBriefcaseEmpty",1}};
@@ -421,7 +421,7 @@ class ItemBriefcase100oz: ItemBriefcase_Base
 		class Crafting
 		{
 			text = "Remove 1 10oz Gold";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",1},{"ItemBriefcase90oz",1}};
@@ -430,7 +430,7 @@ class ItemBriefcase100oz: ItemBriefcase_Base
 		class Crafting1
 		{
 			text = "Empty Case";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};
 			output[] = {{"ItemGoldBar10oz",10},{"ItemBriefcaseEmpty",1}};

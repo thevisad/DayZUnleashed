@@ -11,7 +11,7 @@ class ItemPole: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Corrugated Fence";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
 			output[] = {{"ItemCorrugated",1}};
@@ -20,7 +20,7 @@ class ItemPole: CA_Magazine
 		class Crafting1
 		{
 			text = "Craft Rusty Gate";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
 			output[] = {{"rusty_gate_kit",1}};
@@ -29,7 +29,7 @@ class ItemPole: CA_Magazine
 		class Crafting2
 		{
 			text = "Craft Metal Panel";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
 			output[] = {{"metal_panel_kit",1}};

@@ -1,17 +1,14 @@
 /*
-	DayZ Unleashed Crafting 0.1
-	Usage: DZE_Crafting = ['Crafting','CfgMagazines']; spawn DZE_player_craftItem;
+	DayZ Unleashed Crafting 0.2
 	Made for DayZ Unleashed by [VB]AWOL please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
-*/
 
-/*
 USAGE EXAMPLE:
 class ItemActions
 {
 	class Crafting
 	{
 		text = "Craft Tent";
-		script = ";['Crafting','CfgMagazines', _id] call DZE_player_craftItem;";
+		script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
 		neednearby[] = {"workshop","fire"};
 		requiretools[] = {"ItemToolbox","ItemKnife"}; // (cfgweapons only)
 		output[] = {{"ItemTent",1}}; // (CfgMagazines, qty)
@@ -31,8 +28,6 @@ _crafting = _this select 0;
 
 // This tells the script what type of item we are clicking on
 _baseClass = _this select 1;
-
-DZE_Crafting = nil;
 
 _item =  _this select 2;
 _temp_removed_array = [];

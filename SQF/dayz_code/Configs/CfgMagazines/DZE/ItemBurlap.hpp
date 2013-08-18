@@ -12,7 +12,7 @@ class ItemBurlap: CA_Magazine
 		class Crafting
 		{
 			text = "Craft Sandbag";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"sand"}; // todo add sand requirement
 			requiretools[] = {"ItemEtool","ItemToolbox"};
 			output[] = {{"ItemSandbag",1}};

@@ -17,7 +17,7 @@ class ItemCorrugated : CA_Magazine
 		class Crafting
 		{
 			text = "Craft Wooden Shed";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
 			output[] = {{"wooden_shed_kit",1}};
@@ -26,7 +26,7 @@ class ItemCorrugated : CA_Magazine
 		class Crafting1
 		{
 			text = "Craft Outhouse";
-			script = ";['Crafting1','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
 			output[] = {{"outhouse_kit",1}};
@@ -35,7 +35,7 @@ class ItemCorrugated : CA_Magazine
 		class Crafting2
 		{
 			text = "Craft Storage Shed";
-			script = ";['Crafting2','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
 			output[] = {{"storage_shed_kit",1}};

@@ -11,7 +11,7 @@ class ItemSodaEmpty: HandGrenade
 		class Crafting
 		{
 			text = "Melt into Bars";
-			script = ";['Crafting','CfgMagazines'] spawn DZE_player_craftItem;";
+			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
 			output[] = {{"ItemAluminumBar",1}};
