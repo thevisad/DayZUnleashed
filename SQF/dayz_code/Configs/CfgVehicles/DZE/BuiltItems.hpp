@@ -309,14 +309,14 @@ class MetalGate_DZ: BuiltItems
 			position = "DoorL"; 
 			radius = 10; 
 			onlyForPlayer = 0; 
-			condition = "this animationPhase "DoorL" < 0.5"; 
-			statement = "this animate ["DoorL", 1]"; 
+			condition = "this animationPhase 'DoorL' < 0.5"; 
+			statement = "this animate ['DoorL', 1]"; 
 		};
 	class CloseDoors : OpenDoors { 
 		displayNameDefault = "<img image='\ca\ui\data\ui_action_close_ca.paa' size='4' />"; 
 		displayName = "Close door"; 
-		condition = "this animationPhase "DoorL" >= 0.5"; 
-		statement = "this animate ["DoorL", 0]"; 
+		condition = "this animationPhase 'DoorL' >= 0.5"; 
+		statement = "this animate ['DoorL', 0]"; 
 		};
 	};
 };
@@ -355,8 +355,8 @@ class OutHouse_DZ: BuiltItems
 			position = "osa_dvere1"; 
 			radius = 2.5; 
 			onlyForPlayer = 0; 
-			condition = "this animationPhase "Dvere1" < 0.5"; 
-			statement = "this animate ["Dvere1", 1]"; 
+			condition = "this animationPhase 'Dvere1' < 0.5"; 
+			statement = "this animate ['Dvere1', 1]"; 
 		};
 		class CloseDoors { 
 		  displayNameDefault = "<img image='\ca\ui\data\ui_action_close_ca.paa' size='4' />"; 
@@ -364,8 +364,8 @@ class OutHouse_DZ: BuiltItems
 		  position = "osa_dvere1"; 
 		  radius = 2.5; 
 		  onlyForPlayer = 0; 
-		  condition = "this animationPhase "Dvere1" >= 0.5"; 
-		  statement = "this animate ["Dvere1", 0]"; 
+		  condition = "this animationPhase 'Dvere1' >= 0.5"; 
+		  statement = "this animate ['Dvere1', 0]"; 
 		};
 	};
 	class transportmagazines
@@ -494,8 +494,8 @@ class Wooden_shed_DZ: BuiltItemsDestructBase
 			position = "osa_dvere1"; 
 			radius = 3; 
 			onlyForPlayer = 0; 
-			condition = "this animationPhase "dvere1" >= 0.5"; 
-			statement = "this animate ["dvere1", 0]"; 
+			condition = "this animationPhase 'dvere1' >= 0.5"; 
+			statement = "this animate ['dvere1', 0]"; 
 		};
 		class CloseDoors1 { 
 			displayNameDefault = "<img image='\ca\ui\data\ui_action_close_ca.paa' size='4' />"; 
@@ -503,8 +503,8 @@ class Wooden_shed_DZ: BuiltItemsDestructBase
 			position = "osa_dvere1"; 
 			radius = 3; 
 			onlyForPlayer = 0; 
-			condition = "this animationPhase "dvere1" < 0.5"; 
-			statement = "this animate ["dvere1", 1]"; 
+			condition = "this animationPhase 'dvere1' < 0.5"; 
+			statement = "this animate ['dvere1', 1]"; 
 		};
 	};
 };

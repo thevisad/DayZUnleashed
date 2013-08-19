@@ -35,5 +35,5 @@ class MeleeFishingPole: MeleeWeapon
 	{
 		libTextDesc="";
 	};
-	descriptionShort="Fishing Pole: This carbon fiber rod may be old but, she still works like a charm.";
+	descriptionShort="Fishing Pole: This carbon fiber rod may be old but she still works like a charm.";
 };	

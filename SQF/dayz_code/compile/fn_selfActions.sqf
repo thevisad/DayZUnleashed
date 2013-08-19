@@ -14,7 +14,7 @@ _bag = unitBackpack player;
 _classbag = typeOf _bag;
 _isWater = (surfaceIsWater (position player)) or dayz_isSwimming;
 _hasAntiB = "ItemAntibiotic" in magazines player;
-_hasETool = "ItemETool" in magazines player;
+_hasETool = "ItemEtool" in weapons player;
 _hasFuelE20 = "ItemJerrycanEmpty" in magazines player;
 _hasFuelE5 = "ItemFuelcanEmpty" in magazines player;
 //boiled Water
@@ -345,6 +345,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	} else {
 		hasSecondary = false;
 	};
+	
 	if((speed player <= 1) && hasSecondary && _canDo) then {
 		if (s_player_suicide < 0) then {
 			s_player_suicide = player addaction[("<t color=""#ff0000"">" + ("Commit Suicide") +"</t>"),"\z\addons\dayz_code\actions\player_suicide.sqf",_handGun,0,false,true,"", ""];

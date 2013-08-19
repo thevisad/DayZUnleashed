@@ -7,17 +7,19 @@ player setdir _angle;
 
 if (primaryWeapon player == "" && secondaryWeapon player == "") then 
 {
-	player playActionNow "AmelPercMstpSnonWnonDnon_amaterUder3";
-	sleep 1;
+	player playActionNow "AmelPercMstpSlowWrflDnon_StrokeGun";
+	sleep 3;
 	_man_damag = getdammage _man;
 	_man_damag = _man_damag + 0.05;
-	[nil,_man,rSwitchmove, "AmelPercMstpSnonWnonDnon_zasah6hlava"] call RE;
+	[nil,_man,rSwitchmove, "AmelPercMstpSnonWnonDnon_zasah2"] call RE;
 	_man setdamage _man_damag;
 } else
 {
-	sleep 1;
+	_randomLoon = ["AmelPercMstpSnonWnonDnon_amaterUder1","AmelPercMstpSnonWnonDnon_amaterUder2","AmelPercMstpSnonWnonDnon_amaterUder3"] call BIS_fnc_selectRandom;
+	player playActionNow _randomLoon;
+	sleep 3;
 	_man_damag = getdammage _man;
 	_man_damag = _man_damag + 0.10;
-	[nil,_man,rSwitchmove, "AmelPercMstpSnonWnonDnon_zasah6hlava"] call RE;
+	[nil,_man,rSwitchmove, "AmelPercMstpSnonWnonDnon_zasah2"] call RE;
 	_man setdamage _man_damag;
 };

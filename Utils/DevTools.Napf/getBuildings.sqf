@@ -1,16 +1,4 @@
-/*
-	title: Get ArmA2 Classnames
-	author: Xerxes (from the "anti-hack") [Modifed by Pwnoz0r, to work in this script]
-	description: Get ArmA2 classnames from in game.
-	usage: Load this mission file up in the 2D editor.
-		Once executed, the output will simply log to your (client) ArmA2OA.RPT file.
-		Make sure to only have one block uncommented at a time. diag_log will crash after printing so many lines (around 1.3k)
-	version: 1.0
-*/
-
-/*
-	Objects (Buildings, etc.)
-*/
+	//Objects (Buildings, etc.)
 _cfgobjects = configFile >> "cfgVehicles";
 diag_log("Buildings Starts Here!");
 	for "_i" from 0 to (count _cfgobjects)-1 do{

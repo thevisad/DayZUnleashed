@@ -9,6 +9,8 @@ private ["_arr","_vehicle","_argument","_hasToolbox","_nearPipe","_nearBomb","_b
 if( _argument == 0 ) then { 
 	player removeAction churchie_rig_veh; 
 	churchie_rig_veh = -1; 
+	player playActionNow "Medic"; 
+	sleep 4; 
 	_nearPipe = nearestObject [player,"BAF_ied_v1"];
 	if( _nearPipe distance player < 2 ) then {
 		cutText ["You set a bomb off that was attached to the vehicle!", "PLAIN DOWN"];
@@ -55,7 +57,7 @@ if( _argument == 1 ) then {
 	player removeAction churchie_defuse; 
 	churchie_defuse = -1; 
 	churchie_defusing_started = true; 
-	player playActionNow "Medic"; 
+	player playActionNow "Medic";	
 	[player,"repair",25,false] call dayz_zombieSpeak; 
 	sleep 6; 
 	churchie_defusing_started = false; 
@@ -110,6 +112,8 @@ if( _argument == 2 ) then {
 if( _argument == 3 ) then { 
 	player removeAction churchie_check;
 	churchie_check = -1; 
+	player playActionNow "Medic"; 
+	sleep 4;
 	_vehicle = _this select 0; 
 	//diag_log ("arg3 churchie_explosion_checked before: " +str(churchie_explosion_checked));
 	_nearBomb = (getPos _vehicle) nearObjects["BAF_ied_v1", 1];
