@@ -15,7 +15,8 @@ if (!(_building isKindOf "Building")) exitWith {
 };
 
 //Commenting this out for the time being to identify potential issues.
-//_allowed = [_building, "Server"] call check_publishobject;
+// Uncomment if every buildable has been added to DZE_allowedObjects array.
+//_allowed = [_building, "Server"] call check_publishbuilding;
 //if (!_allowed) exitWith { };
 
 //get UID

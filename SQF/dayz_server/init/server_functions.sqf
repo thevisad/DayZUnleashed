@@ -58,14 +58,34 @@ check_publishobject = {
 
 	_object = _this select 0;
 	_playername = _this select 1;
-	_allowedObjects = ["TentStorage", "Hedgehog_DZ", "Sandbag1_DZ", "TrapBear", "Wire_cat1", "StashSmall", "StashMedium","USOrdnanceBox_EP1","Generator_DZ"];
 	_allowed = false;
 
 #ifdef OBJECT_DEBUG
 	diag_log format ["DEBUG: Checking if Object: %1 is allowed published by %2", _object, _playername];
 #endif
 
-	if ((typeOf _object) in _allowedObjects) then {
+	if ((typeOf _object) in SafeObjects) then {
+#ifdef OBJECT_DEBUG
+		diag_log format ["DEBUG: Object: %1 published by %2 is Safe",_object, _playername];
+#endif
+		_allowed = true;
+	};
+
+	_allowed
+};
+
+check_publishbuilding = {
+	private["_allowed","_allowedObjects","_object"];
+
+	_object = _this select 0;
+	_playername = _this select 1;
+	_allowed = false;
+
+#ifdef OBJECT_DEBUG
+	diag_log format ["DEBUG: Checking if Object: %1 is allowed published by %2", _object, _playername];
+#endif
+
+	if ((typeOf _object) in DZE_allowedObjects) then {
 #ifdef OBJECT_DEBUG
 		diag_log format ["DEBUG: Object: %1 published by %2 is Safe",_object, _playername];
 #endif
