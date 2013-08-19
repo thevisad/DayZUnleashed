@@ -3,19 +3,22 @@
 	Usage: [_obj] spawn player_unlockVault;
 	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
 */
-private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_alreadyPacking"];
+private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_alreadyPacking","_lockedClass","_text","_playerNear"];
 
 if(CodeInProgress) exitWith { cutText ["Lock already in progress." , "PLAIN DOWN"]; };
 CodeInProgress = true;
 
 _obj = _this;
 
+_lockedClass = getText (configFile >> "CfgVehicles" >> (typeOf _obj) >> "lockedClass");
+_text = 		getText (configFile >> "CfgVehicles" >> (typeOf _obj) >> "displayName");
+
 // Silently exit if object no longer exists
 if(isNull _obj) exitWith { CodeInProgress = false; };
 
 // Test cannot lock while another player is nearby
 _playerNear = {isPlayer _x} count (player nearEntities ["CAManBase", 6]) > 1;
-if(_playerNear) exitWith { CodeInProgress = false; cutText ["Cannot lock vault while another player is nearby." , "PLAIN DOWN"];  };
+if(_playerNear) exitWith { CodeInProgress = false; cutText ["Cannot lock while another player is nearby." , "PLAIN DOWN"];  };
 
 _ownerID = _obj getVariable["CharacterID","0"];
 _objectID 	= _obj getVariable["ObjectID","0"];
@@ -25,11 +28,11 @@ player playActionNow "Medic";
 player removeAction s_player_lockvault;
 s_player_lockvault = 1;
 
-if((_ownerID != dayz_combination) and (_ownerID != dayz_playerUID)) exitWith {CodeInProgress = false; s_player_lockvault = -1; cutText ["You cannot lock this Safe, you do not know the combination", "PLAIN DOWN"]; };
+if((_ownerID != dayz_combination) and (_ownerID != dayz_playerUID)) exitWith {CodeInProgress = false; s_player_lockvault = -1; cutText [format["You cannot lock this %1, you do not know the combination.",_text], "PLAIN DOWN"]; };
 
 _alreadyPacking = _obj getVariable["packing",0];
 
-if (_alreadyPacking == 1) exitWith {CodeInProgress = false; s_player_lockvault = -1; cutText ["That Safe is already being locked." , "PLAIN DOWN"]};
+if (_alreadyPacking == 1) exitWith {CodeInProgress = false; s_player_lockvault = -1; cutText [format["That %1 is already being locked.",_text] , "PLAIN DOWN"]};
 
 _obj setVariable["packing",1];
 
@@ -46,7 +49,7 @@ if(!isNull _obj) then {
 	publicVariableServer "PVDZ_veh_Save";
 
 	//place tent (local)
-	_holder = createVehicle ["VaultStorageLocked",_pos,[], 0, "CAN_COLLIDE"];
+	_holder = createVehicle [_lockedClass,_pos,[], 0, "CAN_COLLIDE"];
 	_holder setdir _dir;
 	_holder setpos _pos;
 	player reveal _holder;
@@ -74,7 +77,7 @@ if(!isNull _obj) then {
 		_holder setVariable ["BackpackCargo", _backpacks, true];
 	};
 	
-	cutText ["Your Safe has been locked", "PLAIN DOWN"];
+	cutText [format["Your %1 has been locked",_text], "PLAIN DOWN"];
 
 	s_player_lockvault = -1;
 };
