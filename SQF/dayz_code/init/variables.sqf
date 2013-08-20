@@ -649,4 +649,6 @@ if(!isDedicated) then {
 	DZE_8 = false;
 	DZE_2 = false;
 	DZE_5 = false;
+	DZE_4 = false;
+	DZE_6 = false;
 };

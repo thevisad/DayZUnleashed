@@ -345,6 +345,12 @@ if (!isDedicated) then {
 		if (_dikCode == 0x50) then {
 			DZE_2 = true;
 		};
+		if (_dikCode == 0x4B) then {
+			DZE_4 = true;
+		};		
+		if (_dikCode == 0x4D) then {
+			DZE_6 = true;
+		};
 		if (_dikCode == 0x4C) then {
 			DZE_5 = true;
 		};
