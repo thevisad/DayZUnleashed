@@ -95,20 +95,12 @@ if(_isPZombie) then {
 	};
 };
 
-//DZU-Helicopter TakeControl/Locl Control functions//
-_vehDriver = driver _vehicle;               //Current drivrer, returns null if there is no driver, returns player if they are not in a vehicle. 
-_isPilot = (_vehDriver == player);          //is the player the driver/pilot of the vehicle. 
-_isPilotAvalible = !isNull _vehDriver;      //is the pilot seat avalible. 
-_isSwapableAirVehicle = (_vehicle isKindOf "Air" and !(_vehicle isKindOf "ParachuteBase"));    //are we in an air type vehicle. (not chute)
-_canTakeControls = ((_vehicle getVariable["heliContrlsUnlocked",false]) or _isPilotAvalible );
-//hintsilent format["_inVehicle: %1\n_isSwapableAirVehicle:%2",_inVehicle,_isSwapableAirVehicle];
-
-//"Take Controls" Action
+//Take Control Air action
 //
-if ( _inVehicle and _isSwapableAirVehicle and !_isPilot and _canTakeControls )then {
+if ( _inVehicle and (_vehicle isKindOf "Air" and !(_vehicle isKindOf "ParachuteBase"))then {
         if(s_pilot_swap < 0) then {        
             s_pilot_swapObj = _vehicle;
-            s_pilot_swap = s_pilot_swapObj addAction ["Take Control","\z\addons\dayz_code\actions\actionHeliSwitchSeat.sqf","",1,false,true, "", ""];
+            s_pilot_swap = s_pilot_swapObj addAction ["Take Control","\z\addons\dayz_code\actions\actionHeliSwitchSeat.sqf","",1,false,true, "", "((isNull(driver(vehicle player)))&&(vehicle player != player))"];
             };
     } else {
         if (!isNull s_pilot_swapObj) then {
@@ -118,8 +110,9 @@ if ( _inVehicle and _isSwapableAirVehicle and !_isPilot and _canTakeControls )th
         };
     };
 //End
-//"Unlock/Lock Controls" Action
-//   
+//Unlock-Lock Controls Action
+// 
+/*  
 if (_inVehicle and _isSwapableAirVehicle and _isPilot) then {
         if(s_pilot_lock < 0) then {
             s_pilot_lockObj = _vehicle;
@@ -135,9 +128,10 @@ if (_inVehicle and _isSwapableAirVehicle and _isPilot) then {
         s_pilot_lockObj = objNull;
         s_pilot_lock = -1;
         };
-}; 
+};
+*/ 
 //End 
-//DZU-Helicopter TakeControl/Locl Control functions//
+//DZU-Helicopter TakeControl-Locl Control functions//
 
 if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cursorTarget < 4)) then { //Has some kind of target
 	_isHarvested = cursorTarget getVariable["meatHarvested",false];
