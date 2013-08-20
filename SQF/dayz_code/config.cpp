@@ -114,13 +114,16 @@ class CfgAddons
 };
 
 class CfgVehicleClasses {
+    class radsource {
+        displayName = "Radiation Source";
+    };    
     class survivor {
         displayName = "Survivors";
     };
     class zombie {
         displayName = "Zombie";
     };
-    class istraction {
+    class distraction {
         displayName = "Distraction";
     };
 };
