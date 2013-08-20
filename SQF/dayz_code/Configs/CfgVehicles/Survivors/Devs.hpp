@@ -23,7 +23,7 @@ class XerXes_DZU: TheVisad_DZU {
 class CIV_EuroMan02_EP1;
 class XyberViri_DZU: CIV_EuroMan02_EP1 {
     displayName = "DEV";
-    hiddenSelectionsTextures[] = {"\z\addons\unleashed_pack\textures\xyberviri_skinb.paa"};
+    hiddenSelectionsTextures[] = {"\ca\characters_e\Civil\Hladik\Data\european-man_02_co.paa"};
     side = 1;
     faction = "DZU_FACTION_DEV";
     weapons[] = {"Throw","Put"};
