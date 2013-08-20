@@ -24,6 +24,10 @@
 //#include "Configs\CfgWorlds.hpp"
 #include "Configs\CfgFaction.hpp"
 #include "Configs\rscTitles.hpp"
+
+// Safe UI
+#include "Configs\safegui.hpp"
+
 #include "Configs\CfgMoves.hpp"
 #include "Configs\CfgVehicles.hpp"
 #include "Configs\CfgWeapons.hpp"
