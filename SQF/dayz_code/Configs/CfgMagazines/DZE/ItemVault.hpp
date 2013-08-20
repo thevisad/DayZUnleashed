@@ -11,7 +11,7 @@ class ItemVault: CA_Magazine
 	{
 		class Build {
 			text = "Place Safe";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemToolbox"};
 			create = "VaultStorageLocked";
 		};
@@ -30,7 +30,7 @@ class ItemLockbox: CA_Magazine
 	{
 		class Build {
 			text = "Place Lockbox";
-			script = "spawn player_build;";
+			script = "spawn DZE_player_build;";
 			require[] = {"ItemToolbox"};
 			create = "LockboxStorageLocked";
 		};
