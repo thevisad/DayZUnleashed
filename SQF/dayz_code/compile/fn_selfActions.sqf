@@ -97,7 +97,7 @@ if(_isPZombie) then {
 
 //Take Control Air action
 //
-if ( _inVehicle and (_vehicle isKindOf "Air" and !(_vehicle isKindOf "ParachuteBase"))then {
+if ( _inVehicle and _vehicle isKindOf "Air" and !(_vehicle isKindOf "ParachuteBase")) then {
         if(s_pilot_swap < 0) then {        
             s_pilot_swapObj = _vehicle;
             s_pilot_swap = s_pilot_swapObj addAction ["Take Control","\z\addons\dayz_code\actions\actionHeliSwitchSeat.sqf","",1,false,true, "", "((isNull(driver(vehicle player)))&&(vehicle player != player))"];
