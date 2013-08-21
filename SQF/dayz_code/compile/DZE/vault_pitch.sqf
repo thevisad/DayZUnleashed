@@ -161,10 +161,10 @@ if(!_cancel) then {
 			diag_log ("Safe Tent:" + str(_tent));
 			diag_log ("Safe Dir:" + str(_dir));
 			diag_log ("Safe Location:" + str(_location));
-			
-			PVDZ_obj_Publish = [_combination,_tent,[_dir,_location],"VaultStorageLocked"];
-			diag_log ("DEBUG: SAFE // obj_Publish" + str(PVDZ_obj_Publish));
-			publicVariableServer  "PVDZ_obj_Publish";
+
+			PVDZ_bld_Publish = [_combination,_tent,[_dir,_location],"VaultStorageLocked"];
+			diag_log ("DEBUG: SAFE // obj_Publish" + str(PVDZ_bld_Publish));
+			publicVariableServer  "PVDZ_bld_Publish";
 	
 			cutText [format["You have setup your Safe. Combination is %1",_combination], "PLAIN DOWN", 5];
 		};

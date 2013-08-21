@@ -109,29 +109,6 @@ if ( _inVehicle and (_vehicle isKindOf "Air" and !(_vehicle isKindOf "ParachuteB
             s_pilot_swap = -1;
         };
     };
-//End
-//Unlock-Lock Controls Action
-// 
-/*  
-if (_inVehicle and _isSwapableAirVehicle and _isPilot) then {
-        if(s_pilot_lock < 0) then {
-            s_pilot_lockObj = _vehicle;
-            _text = "Lock Controls";
-            _color = "color='#ff0000'";
-            if (!_canTakeControls) then {_text = "Unlock Controls";_color = "color='#66AC47'";};
-            _string = format["<t %2>%1</t>",_text,_color];
-            s_pilot_lock = s_pilot_lockObj addAction [_string,"\z\addons\dayz_code\actions\heli_unlockControls.sqf",_canTakeControls,1,false,true, "", ""];
-            };
-} else {
-        if (!isNull s_pilot_lockObj) then {
-        s_pilot_lockObj removeAction s_pilot_lock;
-        s_pilot_lockObj = objNull;
-        s_pilot_lock = -1;
-        };
-};
-*/ 
-//End 
-//DZU-Helicopter TakeControl-Locl Control functions//
 
 if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cursorTarget < 4)) then { //Has some kind of target
 	_isHarvested = cursorTarget getVariable["meatHarvested",false];
