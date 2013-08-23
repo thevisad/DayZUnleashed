@@ -6,7 +6,7 @@ DayZ Unleashed! Origins watch out!
 
 Current Version
 ==================================
- - 1.0
+ - 0.9
  
 Files updated
 ------------
