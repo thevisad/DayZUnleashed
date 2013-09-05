@@ -627,14 +627,14 @@ if(!isDedicated) then {
 	dayzState = -1;
 	player_Cannibalism = -1;
     //Player aggro system
-    dayz_aggro_limit = 1099;        //Max aggro rating that a player can reach 
-    dayz_aggro_move_rate = 0;       //rate of which movement affects aggro ratings. 
-    dayz_aggro_move_decay = 0;      //rate if which movement affects aggro ratings.
-    dayz_aggro_move_min = 0;        //rate if which movement affects aggro ratings.
-    dayz_aggro_decay = 1;           //Rate of decay that we subtract from our rating
-    dayz_aggro_rank_formula = 100;  // rank = floor(aggro/dayz_aggro_rank_formula)
-    dayz_aggro_value = 0;
-    dayz_aggro_value_min = 0;
+    dayz_aggro_limit = 1099;        //Max aggro rating that a player can reach, changes affect max aggro rank
+    dayz_aggro_move_rate = 0;       //rate of which movement affects aggro ratings, this is a varible and it changes on its own
+    dayz_aggro_move_decay = 0;      //rate if which movement affects aggro ratings, varible
+    dayz_aggro_move_min = 0;        //rate if which movement affects aggro ratings, varible
+    dayz_aggro_decay = 3;           //Rate of decay that we subtract from our rating, hard settings to help with decay. 
+    dayz_aggro_rank_formula = 100;  // rank = floor(aggro/dayz_aggro_rank_formula), changing this will affect aggro ranks
+    dayz_aggro_value = 0;           //varible
+    dayz_aggro_value_min = 0;       //varible
 	//uiNamespace setVariable ['DAYZ_GUI_display',displayNull];
 	//if (uiNamespace getVariable ['DZ_displayUI', 0] == 2) then {
 	//	dayzDebug = true;

@@ -27,13 +27,13 @@ if (["pknl",_anim] call fnc_inString) then {
 	_scaleMvmt = 0.2;	//0.1;
 	_scalePose = 0.6;	//0.4
     _aggro_mv_mod = 25;
-    _aggro_mv_mod_decay_rate = 2;
+    _aggro_mv_mod_decay_rate = 3;
 } else {
 	if (["ppne",_anim] call fnc_inString) then {
 		_scaleMvmt = 0.3;
 		_scalePose = 0.14;
         _aggro_mv_mod = 10;
-        _aggro_mv_mod_decay_rate = 3;
+        _aggro_mv_mod_decay_rate = 5;
 	};
 };
 
@@ -86,25 +86,25 @@ _scaleLight = _scaleLight max 0;
 //Terrain Visibility
 if (["grass",dayz_surfaceType] call fnc_inString) then {
     _aggro_mv_mod =_aggro_mv_mod - 15;
-    _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate + 1;    
+    _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate + 2;    
 	_initial = _initial * 0.75;
 	_scaleMvmt = _scaleMvmt - 0.05;
 } else {
 	if (["forest",dayz_surfaceType] call fnc_inString) then {
         _aggro_mv_mod =_aggro_mv_mod - 30;
-        _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate + 2;
+        _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate + 3;
 		_initial = _initial * 0.5;
 		_scaleMvmt = _scaleMvmt - 0.1;
 	} else {
 		if (["concrete",dayz_surfaceType] call fnc_inString) then {
              _aggro_mv_mod =_aggro_mv_mod + 10;
-             _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate - 1;
+             _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate - 2;
 			_initial = _initial * 1.2;
 			_scaleMvmt = _scaleMvmt + 0.1;
 		} else {
 			if (["rock",dayz_surfaceType] call fnc_inString) then {
              _aggro_mv_mod =_aggro_mv_mod + 8;
-             _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate - 0.5;
+             _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate - 1;
 				_initial = _initial * 1.1;
 				_scaleMvmt = _scaleMvmt + 0.05;
 			};

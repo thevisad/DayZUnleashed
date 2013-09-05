@@ -1,5 +1,7 @@
 //LEADER GUE_Commander
 class BRT_Commander_DZ : Survivor3_DZ {
+        cost = 900000;
+        banditRank=6;
         clothingDZ = "Skin_Survivor2_DZ";
         side = 0;
         facetype = "Man";
@@ -17,12 +19,16 @@ class BRT_Commander_DZ : Survivor3_DZ {
 
 //Officer GUE_Soldier_2
 class BRT_Officer_DZ : BRT_Commander_DZ {
+        cost = 750000;
+        banditRank=5;
         clothingDZ = "Skin_Survivor2_DZ";
         model = "\ca\characters2\IndepIns\Soldier2.p3d";
 };
 
 //PILOT GUE_Soldier_Pilot
 class BRT_Pilot_DZ : BRT_Commander_DZ {
+        cost = 500000;
+        banditRank=4;
         clothingDZ = "Skin_Survivor2_DZ";
         facetype = "HeadMask1Black";
         model = "\ca\characters2\civil\Pilot\Pilot";
@@ -34,12 +40,16 @@ class BRT_Pilot_DZ : BRT_Commander_DZ {
 
 //SCOUT GUE_Soldier_Scout
 class BRT_Scout_DZ : BRT_Commander_DZ {
+        cost = 400000;
+        banditRank=3;
         clothingDZ = "Skin_Survivor2_DZ";
         model = "\ca\characters2\Ghillie_Top";
 };
 
 //LOOTER GUE_Soldier_Medic
 class BRT_Looter_DZ : BRT_Commander_DZ {
+        cost = 100000;
+        banditRank=2;
         clothingDZ = "Skin_Survivor2_DZ";
         facetype = "HeadMask1Black";
         model = "\ca\characters2\IndepIns\Soldier_Back.p3d";
@@ -47,6 +57,8 @@ class BRT_Looter_DZ : BRT_Commander_DZ {
 
 //Grunt GUE_Soldier_CO
 class BRT_Grunt_DZ : BRT_Commander_DZ {
+        cost = 50000;
+        banditRank=1;
         clothingDZ = "Skin_Survivor2_DZ";
         model = "\ca\characters2\IndepIns\Soldier_COM.p3d";
 };
