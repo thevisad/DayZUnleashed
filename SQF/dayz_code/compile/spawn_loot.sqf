@@ -52,18 +52,17 @@ switch (_iClass) do {
 		if ((count _mags) > 0) then {
 		//	if (_mags select 0 == "Quiver") then { _mags set [0, "WoodenArrow"] }; // Prevent spawning a Quiver
 			if (!(_iItem in MeleeWeapons)) then {
-                //Minimum loot spawn will be 1-4
-				_magQty = floor(random 4); //equal chance of 0 - 3
-				_item addMagazineCargoGlobal [(_mags select 0), (_magQty) + 1)];				
+				_magQty = round(random 10);
+				if (_magQty > 3) then {
+					_item addMagazineCargoGlobal [(_mags select 0), (round(random 1) + 1)];
+				};
 			};
 		};
 	};
 	case "magazine": {
 		//Item is one magazine
-        //Changed to spawn 1-2 mags
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
-        _magQty = floor(random 2);
-		_item addMagazineCargoGlobal [_iItem,(_magQty)+1];
+		_item addMagazineCargoGlobal [_iItem,1];
 	};
 	case "object": {
 		//Item is one magazine

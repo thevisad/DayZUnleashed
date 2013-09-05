@@ -155,6 +155,7 @@ class CfgAISkill {
 
 class CfgInGameUI
 {
+  
     class PeripheralVision
     {
         cueColor[] = {0,0,0,0};
@@ -606,10 +607,9 @@ class CfgSurvival {
 			RandomMagazines = 3;
 			weapons[] = {"Revolver"}; //8Rnd_9x18_Makarov
 			GuaranteedMagazines[] = {"ItemBandage","B_45ACP_Ball","HandRoadFlare"};
-			RandomPossibilitieMagazines[] = {"ItemBandage","ItemPainkiller"};
-			//weapons[] = {"HandRoadFlare"};
-			backpackWeapon = "";
-			//backpack = "DZ_Patrol_Pack_EP1";
+			RandomPossibilitieMagazines[] = {"ItemBandage","ItemPainkiller"};//weapons[] = {"HandRoadFlare"};
+			
+			backpackWeapon = "";//backpack = "DZ_Patrol_Pack_EP1";
 		};
 	};
 	class Meat {
