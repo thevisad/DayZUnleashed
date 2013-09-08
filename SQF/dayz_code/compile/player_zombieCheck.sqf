@@ -1,7 +1,11 @@
 private ["_refObj",  "_listTalk",  "_pHeight",  "_attacked",  "_multiplier",  "_type",  "_dist",  "_chance",  "_last",  "_targets",  "_cantSee",  "_tPos",  "_zPos",  "_eyeDir",  "_inAngle",  "_lowBlood",  "_attackResult", "_near","_minDist","_agroRank"];
 
 _refObj = vehicle player;
-_minDist = dayz_aggro_value_min + 125;
+
+_playerCurAggroRank = floor(dayz_aggro_value/dayz_aggro_rank_formula);
+
+_minDist = dayz_aggro_value_min + 20;
+
 //_agroRank = player getVariable ["aggroRank",0]; //not needed yet. 
 //if (_agroRank < 2 && player class == stealth) then {_minDist = (_minDist*0.5);};
 _listTalk = (position _refObj) nearEntities ["zZombie_Base", _minDist]; //originally 200, need to tweak aggro distance to generate up to max 200 minium aggro
@@ -31,25 +35,6 @@ _multiplier = 1;
 				if ((!isNil "_attackResult") AND {(_attackResult == "")}) then {
 					_x setVariable["lastAttack", diag_tickTime - random(1)];
 					_attacked = true;
-				}
- 				else {
-/*					_move = "amovpercmrunsnonwnondf";
-					if (local _x) then {
-						_x playMove _move;
-					}
-					else {
-						[objNull,  _x,  rPlayMove,  _move] call RE;
-					};
-
- 					if(isNull group _x) then {
- 						_x moveTo (getPosATL player);
- 					} else {
- 						_x domove (getPosATL player);
- 					};
-*/
-//					doStop _x;
-//					_x setVariable["doLoiter", false];
-//					_x forceSpeed (if ([(getPosATL _x)] call fnc_isInsideBuilding) then {2} else {2});
  				};
 			};
 		} else {
