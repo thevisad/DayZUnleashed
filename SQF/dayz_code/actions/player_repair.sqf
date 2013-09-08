@@ -40,6 +40,7 @@ if (!ib_refueling_in_progress) then {
 				_cfcust2 = _cfcust2 - _amount2;
 				if (_cfcust2 <= 0.0) then { _cfcust2 = 0.0; };
 				_target setDamage _cfcust2;
+				[player,10,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
         };
  
         titleFadeOut 1;

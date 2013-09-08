@@ -13,7 +13,6 @@ _listTalk = _pos nearEntities ["zZombie_Base",_distance];
 		if (!(_unit in _targets)) then {
 			_targets set [count _targets,_unit];
 			_zombie setVariable ["targets",_targets,true];
-//			diag_log("AIAZ: " + str(_zombie) + " Targets: " + str(_targets));
 		};
 	} else {
 		_zombie setVariable ["myDest",_pos,true];

@@ -50,18 +50,10 @@ while {(count DZAI_respawnQueue) > 0} do {
 			_grpArray = _trigger getVariable "GroupArray";
 			
 			if ((!isNull _unitGroup) && (_unitGroup in _grpArray)) then {
-				private["_maxUnits","_dummy"];
+				private["_maxUnits","_respawn"];
 				_maxUnits = _trigger getVariable "maxUnits";
-				//Delete corpses of dead AI units before respawn.
-				{deleteVehicle _x} forEach (_unitGroup getVariable "deadUnits");
-				_unitGroup setVariable ["deadUnits",[]];
-				[_unitGroup,_trigger,_maxUnits] call fnc_respawnBandits;
-				//Delete group's dummy unit
-				_dummy = _unitGroup getVariable "dummyUnit";
-				[_dummy] joinSilent grpNull;
-				deleteVehicle _dummy;
-				_unitGroup setVariable ["dummyUnit",nil];
-				if (DZAI_debugLevel > 0) then {diag_log format["DZAI Debug: Deleted 1 dummy AI unit for group %1. (respawnHandler)",_unitGroup];};
+				_respawn = [_unitGroup,_trigger,_maxUnits] call fnc_respawnBandits;
+				if (!_respawn) then {if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: No units were respawned for group %1 at %2. Group %1 reinserted into respawn queue.",_unitGroup,(triggerText _trigger)];};};
 			};
 			DZAI_respawnQueue set [_i,objNull];
 			sleep PROCESSING_WAIT_TIME;

@@ -109,12 +109,12 @@ while {_isOk} do {
 		// 10% chance to break a required tool each pass
 		if(_isDestructable or _isRemovable) then {
 			if((random 10) <= 1) then {
-				if (dayz_selectClass != 1) 
-				{
+				if (engineer_skill_total < 700 ) then {
 					_brokenTool = true;
 				};
 			};
 		};
+		[player,25,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 	};
 	if(_brokenTool) exitWith {
 		_isOk = false;

@@ -30,6 +30,7 @@ if( _argument == 0 ) then {
 			} forEach _vehCrew; 
 			sleep 0.05; 
 			null = "HelicopterExploSmall" createVehicle (position _bomb); 
+			[player,-1,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 			deleteVehicle _bomb; 
 		};
 	} else {
@@ -47,6 +48,7 @@ if( _argument == 0 ) then {
 		sleep 6; 
 		churchieseventrig = _vehicle addEventHandler ["Engine", {null = [_this select 0, 0, 0, [_vehicle, 2, _bomb]] execVM "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf"} ];
 		cutText ["You have rigged the vehicles engine to blow on ignition.", "PLAIN DOWN"];
+		[player,10,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 		churchie_explosion_checked = false;
 		//diag_log ("arg0 churchie_explosion_checked: " +str(churchie_explosion_checked));
 	};
@@ -70,6 +72,7 @@ if( _argument == 1 ) then {
 			deleteVehicle _pipe; 
 		}; 
 		null = "HelicopterExploSmall" createVehicle (position _vehicle); 
+		[player,-1,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 		deleteVehicle _vehicle; 
 	} else { 
 		player addMagazine "PipeBomb"; 
@@ -79,6 +82,7 @@ if( _argument == 1 ) then {
 			deleteVehicle _pipe; 
 		}; 
 		deleteVehicle _vehicle; 
+		[player,10,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 		cutText ["You defused the bomb!", "PLAIN DOWN"];
 		//_vehicle = _this select 0;
 	};
@@ -105,6 +109,7 @@ if( _argument == 2 ) then {
 		} forEach _vehCrew; 
 		sleep 0.05; 
 		null = "HelicopterExploSmall" createVehicle (position _bomb); 
+		[player,-1,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 		deleteVehicle _bomb; 
 	}; 
 };
@@ -122,10 +127,12 @@ if( _argument == 3 ) then {
 	if( count _nearBomb > 0 ) then {
 		//diag_log ("arg3 _nearBomb > 0: " +str(_nearBomb));
 		cutText ["You find a bomb rigged to blow the vehicle!", "PLAIN DOWN"];
+		[player,1,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 		churchie_explosion_checked = true;
 	} else {	
 		//diag_log ("arg3 _nearBomb else: " +str(_nearBomb));
 		cutText ["There appear to be no bombs on this vehicle.", "PLAIN DOWN"];
+		[player,1,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 		churchie_explosion_checked = false;
 	};
 	//diag_log ("arg3 churchie_explosion_checked after: " +str(churchie_explosion_checked));

@@ -23,6 +23,7 @@
       3 Boolean             Water position allowed? Default is false.
                               false    Allow water positions.
                               true     Find closest land. Search outwards 360 degrees (20 degree steps) and 20m steps.
+							  DZAI Edit: false = no water allowed. true = water allowed.
       4 Array               Road positions.
                               0  Number  Road position forcing. Default is 0.
                                    0    Do not search for road positions.

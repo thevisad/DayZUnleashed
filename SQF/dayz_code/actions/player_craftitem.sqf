@@ -112,6 +112,7 @@ if (_hasInput) then {
 							};
 						};
 						cutText[format[(localize "str_crafting_success"),_itemName], "PLAIN DOWN"];
+						[player,10,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 						sleep 2;
 					} else {
 						cutText[format[(localize "str_crafting_failed"),_itemName], "PLAIN DOWN"];

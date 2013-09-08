@@ -51,9 +51,11 @@ if (isServer) then
 
 	//_grp setBehaviour _dzai_behavior;
 	_grp setBehaviour "AWARE";
-	_grp setSpeedMode (["FULL","NORMAL"] call BIS_fnc_selectRandom);
-	_grp setCombatMode (["YELLOW", "RED"] call BIS_fnc_selectRandom);
-	_grp setFormation (["STAG COLUMN", "WEDGE", "ECH LEFT", "ECH RIGHT", "VEE", "DIAMOND"] call BIS_fnc_selectRandom);
+	//_grp setSpeedMode (["FULL","NORMAL"] call BIS_fnc_selectRandom2);
+	_grp setSpeedMode "FULL";
+	//_grp setCombatMode (["YELLOW", "RED"] call BIS_fnc_selectRandom2);
+	_grp setCombatMode "RED";
+	//_grp setFormation (["STAG COLUMN", "WEDGE", "ECH LEFT", "ECH RIGHT", "VEE", "DIAMOND"] call BIS_fnc_selectRandom2);
 
 	_center_x = (_pos) select 0;
 	_center_y = (_pos) select 1;
@@ -109,7 +111,7 @@ if (isServer) then
 			// The following code is an extract from Random Building Position Script v1.0 by Tophe of Östgöta Ops
 			//////////////////////////////////////////////////////////////////
 			_bldgpos = [];
-			_bldgs = nearestObjects [[_a,_b,0], ["Building"], 50];
+			_bldgs = nearestObjects [[_a,_b,0], ["HouseBase"], 50];
 			{
 			  private["_i","_y"];
 				_i = 0;
@@ -121,7 +123,7 @@ if (isServer) then
 				};
 			} forEach _bldgs;
 			
-			if(count _bldgpos != 0) then {_wp_pos = _bldgpos call BIS_fnc_selectRandom;};
+			if(count _bldgpos != 0) then {_wp_pos = _bldgpos call BIS_fnc_selectRandom2;};
 			_wp_array = _wp_array + [_wp_pos];
 
 			sleep 0.5;
@@ -129,35 +131,33 @@ if (isServer) then
 
 	sleep 1;
 
-	_j = count (waypoints _grp);
-
 	for "_i" from 1 to (_wp_count - 1) do
 	{
 		private ["_wp","_cur_pos","_marker","_markername"];
 
 		_cur_pos = (_wp_array select _i);
-
-		// Create waypoints based on array of positions
-		/* The index i is changed so it matches previous waypoints - j+i */
 		
-		_wp = _grp addWaypoint [_cur_pos, 0];
-		_wp setWaypointType "MOVE";
-		_wp setWaypointCompletionRadius (5 + _slack);
-		[_grp,_j+_i] setWaypointTimeout [0, 2, 16];
-		// When completing waypoint have 33% chance to choose a random next wp
-		[_grp,_j+_i] setWaypointStatements ["true", "if ((random 3) > 2) then { group this setCurrentWaypoint [(group this), (floor (random (count (waypoints (group this)))))];};"];
-		
-		if (_debug > 0) then {
-			_markername = format["%1_%2",_grp,_i];
-			//diag_log format ["DEBUG :: Created patrol waypoint %1.",_markername];
-			_marker = createMarker[_markername,[_cur_pos select 0,_cur_pos select 1]];
-			_marker setMarkerShape "ELLIPSE";
-			_marker setMarkerType "Dot";
-			_marker setMarkerColor "ColorBlue";
-			_marker setMarkerBrush "SolidBorder";
-			_marker setMarkerSize [20, 20];
+		if (!(surfaceIsWater _cur_pos)) then {
+			_wp = _grp addWaypoint [_cur_pos, 0];
+			_wp setWaypointType "MOVE";
+			_wp setWaypointCompletionRadius (5 + _slack);
+			_wp setWaypointTimeout [0, 2, 16];
+			// When completing waypoint have 33% chance to choose a random next wp
+			_wp setWaypointStatements ["true", "if ((random 3) > 2) then { group this setCurrentWaypoint [(group this), (floor (random (count (waypoints (group this)))))];} else {_nul = [(group this),100] spawn DZAI_findLootPile;};"];
+			
+			if (_debug > 0) then {
+				_markername = str (_wp);
+				if ((getMarkerColor _markername) != "") then {deleteMarker _markername};
+				//diag_log format ["DEBUG :: Created patrol waypoint %1.",_markername];
+				_marker = createMarker[_markername,[_cur_pos select 0,_cur_pos select 1]];
+				//diag_log format ["DEBUG :: Created waypoint marker name %1. Waypoint is %2.",_markername,_wp];
+				_marker setMarkerShape "ELLIPSE";
+				_marker setMarkerType "Dot";
+				_marker setMarkerColor "ColorBlue";
+				_marker setMarkerBrush "SolidBorder";
+				_marker setMarkerSize [20, 20];
+			};
 		};
-
 		sleep 0.5;
 	};
 

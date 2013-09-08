@@ -3,11 +3,11 @@
 	
 	Description:
 	
-	Last updated: 7:39 PM 7/13/2013
+	Last updated: 2:21 PM 8/27/2013
 */
 private ["_randomizeCount"];
 
-diag_log "Spawning AI helicopter patrols and dynamic triggers in 30 seconds.";
+diag_log "Starting DZAI Scheduler in 30 seconds.";
 
 sleep 30;
 
@@ -23,25 +23,45 @@ if (DZAI_dynAISpawns) then {
 	_randomizeCount = ceil(0.25*DZAI_dynTriggersMax);
 };
 sleep 3;
-if (DZAI_aiHeliPatrols) then {
-	_helipatrols = [] spawn fnc_spawnHeliPatrol;
-	waitUntil {sleep 1; scriptDone _helipatrols};
-};
 
-diag_log "Starting DZAI Scheduler in 15 minutes.";
+diag_log "DZAI Scheduler will continue tasks in 15 minutes.";
 sleep 900;
 
 while {true} do {
 	if (DZAI_debugLevel > 0) then {diag_log "DZAI Scheduler is now running.";};
+
+	//Randomize some dynamic triggers
 	if (DZAI_dynAISpawns) then {
 		_dynTriggers = [_randomizeCount] spawn fnc_randomizeTriggers;
 		waitUntil {sleep 1; scriptDone _dynTriggers};
 	};
+	
 	sleep 3;
+	
+	//Respawn any destroyed AI helicopters
 	if (DZAI_aiHeliPatrols) then {
 		_helipatrols = [] spawn fnc_spawnHeliPatrol;
 		waitUntil {sleep 1; scriptDone _helipatrols};
 	};
-	if (DZAI_debugLevel > 0) then {diag_log "DZAI Scheduler is returning to sleeping state.";};
+	
+	sleep 3;
+	
+	//Clean up dead units spawned by DZAI.
+	{
+		private ["_deathTime"];
+		_deathTime = _x getVariable "DZAI_deathTime";
+		if (!isNil "_deathTime") then {
+			if ((time - _deathTime) > DZAI_cleanupDelay) then {
+				private ["_soundFlies"];
+				_soundFlies = _x getVariable "sound_flies";
+				deleteVehicle _soundFlies;
+				deleteVehicle _x;
+			};
+		};
+		sleep 0.005;
+	} forEach allDead;
+	
+	//Wait until next cycle.
+	if (DZAI_debugLevel > 0) then {diag_log "DZAI Scheduler is returning to sleeping state. Resuming in 15 minutes";};
 	sleep 900;
 };

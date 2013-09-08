@@ -47,4 +47,5 @@ if (_hasKnife and !_hasHarvested) then {
  
     sleep 8;
     cutText ["You have cut up another human for food, you feel your humanity lower.", "PLAIN DOWN"];
+	[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 };

@@ -45,7 +45,7 @@ if (_finished) then {
 		call fnc_usec_resetWoundPoints;
 	} else {
 		//PVDZ_plr_Humanity = [player,20];
-		[player,20] call player_humanityChange;
+		[player,1,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 	};
 } else {
 	r_interrupt = false;

@@ -63,7 +63,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzunleashed.com";
-		version = "0.9-Devbuild-08202013";
+		version = "0.9-Devbuild-08222013";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld

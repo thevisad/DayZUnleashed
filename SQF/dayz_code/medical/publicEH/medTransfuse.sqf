@@ -9,14 +9,25 @@ _classTransfusing = _array select 3;
 
 _rndInfection = (random 20);
 
-if (_classTransfusing != 2) then {
-	_TransfusionInfection = (_rndInfection < 5);
-}
-else {
-	_TransfusionInfection = (_rndInfection < 0.3);
+if (_classTransfusing > 800 ) then {
+	_TransfusionInfection = (_rndInfection < 2);
 };
 
+if (_classTransfusing > 600 and _classTransfusing < 799 ) then {
+	_TransfusionInfection = (_rndInfection < 4);
+};
 
+if (_classTransfusing > 400 and _classTransfusing < 599 ) then {
+	_TransfusionInfection = (_rndInfection < 6);
+};
+
+if (_classTransfusing > 200 and _classTransfusing < 399 ) then {
+	_TransfusionInfection = (_rndInfection < 8);
+};
+
+if (_classTransfusing < 199 ) then {
+	_TransfusionInfection = (_rndInfection < 10);
+};
 
 if (_unit == player) then {
 	if ((r_player_blood + _amount) >= r_player_bloodTotal) then {

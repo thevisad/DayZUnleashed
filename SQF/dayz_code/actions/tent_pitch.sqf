@@ -52,10 +52,11 @@ if ((count _worldspace) == 2) then {
 	_location = getPosATL _tent;
 
 	_tent setVariable ["characterID",dayz_characterID,true];
-	PVDZ_obj_Publish = [dayz_characterID,_tent,[_dir,_location],"TentStorage"];
-	publicVariableServer "PVDZ_obj_Publish";
+	PVDZ_bld_Publish = [dayz_characterID,_tent,[_dir,_location],"TentStorage"];
+	publicVariableServer "PVDZ_bld_Publish";
 
 	cutText [localize "str_success_tent_pitch", "PLAIN DOWN"];
+	[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 	sleep 1;
 	r_action_count = 0;
 } else {

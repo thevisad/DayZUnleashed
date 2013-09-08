@@ -3,7 +3,7 @@
 	
 	Description: Handles automatic refueling and resupplying ammo for AI helicopter. Destroys helicopter if pilot is killed and allows another AI helicopter to be respawned.
 	
-	Last updated: 7:23 PM 7/9/2013
+	Last updated: 4:44 PM 8/2/2013
 	
 */
 
@@ -17,15 +17,19 @@ _unitGroup = _helicopter getVariable "unitGroup";
 
 //Create debug position markers. Helicopter position: Red, Current waypoint position: Blue.
 _markername = format["Helicopter_%1",_helicopter];
+if ((getMarkerColor _markername) != "") then {deleteMarker _markername; sleep 5;};	//Delete the previous marker if it wasn't deleted for some reason.
+//diag_log format ["Helicopter marker name is %1.",_markername];
 _marker = createMarker[_markername,(getposATL _helicopter)];
-_marker setMarkerShape "ELLIPSE";
-_marker setMarkerType "Dot";
+_marker setMarkerText format ["AI %1 %2",(typeOf _helicopter),_unitGroup];
+_marker setMarkerType "Attack";
 _marker setMarkerColor "ColorRed";
-_marker setMarkerBrush "SolidBorder";
-_marker setMarkerSize [50, 50];
+_marker setMarkerBrush "Solid";
+//_marker setMarkerSize [50, 50];
 
 diag_log format ["Helicopter is part of group %1.",_unitGroup];
 _wpmarkername = format ["HeliWP_%1",_helicopter];
+if ((getMarkerColor _wpmarkername) != "") then {deleteMarker _markername};	//Delete the previous marker if it wasn't deleted for some reason.
+//diag_log format ["Helicopter waypoint name is %1.",_wpmarkername];
 _wpmarker = createMarker[_wpmarkername,(getWPPos [_unitGroup,0])];
 _wpmarker setMarkerShape "ELLIPSE";
 _wpmarker setMarkerType "Dot";
@@ -34,11 +38,11 @@ _wpmarker setMarkerBrush "SolidBorder";
 _wpmarker setMarkerSize [100, 100];
 
 //Wait until helicopter has pilot and script has finished finding helicopter's weapons.
-waitUntil {sleep 0.01; (!isNil "_heliWeapons" && !isNull (driver _helicopter))};
+waitUntil {sleep 0.1; (!isNil "_heliWeapons" && !isNull (driver _helicopter))};
 diag_log format ["Helicopter driver is %1.",(driver _helicopter)];
 _startTime = time;
 
-while {alive _helicopter} do {
+while {(alive _helicopter)&&(!(isNull _helicopter))} do {	
 	//Check if helicopter ammunition needs to be replenished
 	{
 		if ((_helicopter ammo _x) < 20) then {
@@ -61,12 +65,13 @@ while {alive _helicopter} do {
 	if (!alive (driver _helicopter)) exitWith {
 		if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Patrol helicopter pilot killed, helicopter is going down!";};
 		_helicopter removeAllEventHandlers "LandedStopped";
+		_helicopter setFuel 0;
 		_helicopter setDamage 1;
 	};
-
+	
 	//Periodically vary the helicopter's altitude
 	if ((random 1) < 0.3) then {
-		_helicopter flyInHeight (90 + (random 40));
+		_helicopter flyInHeight (100 + (random 40));
 	};
 	
 	//Uncomment to test despawn/respawn process. Destroys helicopter after ~60 seconds of flight
@@ -83,7 +88,7 @@ deleteMarker _wpmarker;
 
 //Report length of time helicopter patrol was active. Add a warning entry to RPT log if helicopter was destroyed unusually early (< 30 seconds), likely due to the server admin forgetting to edit the server_cleanup.fsm.
 _timePatrolled = time - _startTime;
-if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: AI helicopter patrol destroyed after %1 seconds of flight.",_timePatrolled];};
+if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: AI helicopter patrol crash-landed at %1 after %2 seconds of flight.",(getPosATL _helicopter),_timePatrolled];};
 if (_timePatrolled < 30) then {
 	diag_log "DZAI Warning: An AI helicopter was destroyed less than 30 seconds after being spawned. Please check if server_cleanup.fsm was edited properly.";
 };

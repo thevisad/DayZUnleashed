@@ -10,7 +10,7 @@
 */
 #include "\z\addons\dayz_server\DZAI\init\dyn_trigger_configs\dyn_trigger_defs.hpp"
 
-private ["_trigger","_grpArray","_isCleaning","_grpCount","_waitTime","_newPos","_forceDespawn","_attempts","_totalGroupSize"];
+private ["_trigger","_grpArray","_isCleaning","_grpCount","_waitTime","_newPos","_forceDespawn","_attempts"];
 if (!isServer) exitWith {};										//Execute script only on server.
 
 _trigger = _this select 0;										//Get the trigger object
@@ -18,7 +18,6 @@ _trigger = _this select 0;										//Get the trigger object
 _grpArray = _trigger getVariable ["GroupArray",[]];				//Find the groups spawned by the trigger. Or set an empty group array if none are found.
 _isCleaning = _trigger getVariable ["isCleaning",nil];			//Find whether or not the trigger has been marked for cleanup, otherwise assume a cleanup has already happened.
 _forceDespawn = _trigger getVariable ["forceDespawn",false];	//Check whether to run despawn script even if players are present in the trigger area.
-//_preventDespawn = _trigger getVariable ["preventDespawn",false];
 if (isNil "_forceDespawn") then {_forceDespawn = false;};
 
 if (_forceDespawn) then {
@@ -54,45 +53,28 @@ if ((triggerActivated _trigger) && (!_forceDespawn)) exitWith {
 	};
 };			
 
-_totalGroupSize = 0;
 {
-	if !(isNull _x) then {
-		if (DZAI_debugMarkers > 0) then {
-			private["_markerName","_markerCount"];
-			//_markerCount = (count (waypoints _x)) - 3;
-			//diag_log format ["DEBUG :: Estimating %1 waypoints for group %2.",_markerCount,_x];
-			for "_i" from 1 to (count (waypoints _x) - 2) do {
-				_markerName = format ["%1_%2",_x,_i];
-				//diag_log format ["DEBUG :: Deleting marker: %1_%2. (Actual: %3)",_x,_i,_markerName];
-				deleteMarker _markerName;
-			};
-			sleep 0.2;
-		};
-		{deleteVehicle _x} forEach (_x getVariable ["deadUnits",[]]);	//Delete dead units
-		{deleteVehicle _x} forEach (units _x);							//Delete live units
-		_totalGroupSize = _totalGroupSize + (_x getVariable ["groupSize",0]);
-		sleep 0.5;
-		deleteGroup _x;										//Delete the group after its units are deleted.
+	if (DZAI_debugMarkers > 0) then {
+		{
+			private["_markername"];
+			_markername = (str _x);
+			//diag_log format ["DEBUG :: Deleting waypoint marker %1. Waypoint is %2.",_markername,_x];
+			deleteMarker _markername;
+		} forEach (waypoints _x);
+		sleep 0.1;
 	};
+	DZAI_numAIUnits = DZAI_numAIUnits - (_x getVariable ["groupSize",0]);	//Update active AI count
+	{deleteVehicle _x} forEach (units _x);							//Delete live units
+	sleep 0.5;
+	deleteGroup _x;													//Delete the group after its units are deleted.
+	sleep 0.1;
 } forEach _grpArray;
-
-//Update active AI count
-DZAI_numAIUnits = DZAI_numAIUnits - _totalGroupSize;
-if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: _totalGroupSize: %1",_totalGroupSize];};
 
 //Restore original trigger statements
 _trigger setTriggerStatements [DYNTRIG_STATEMENTS_INACTIVE];
 
 //Relocate trigger
-_newPos = [(getMarkerPos DZAI_centerMarker),random(DZAI_centerSize),random(360),false,[1,500]] call SHK_pos;
-_attempts = 0;
-while {(({([_newPos select 0,_newPos select 1] distance _x) < (2*DZAI_dynTriggerRadius - 2*DZAI_dynTriggerRadius*DZAI_dynOverlap)} count DZAI_dynTriggerArray) > 0)&&(_attempts < 3)} do {
-	sleep 0.5;
-	_attempts = _attempts +1;
-	_newPos = [(getMarkerPos DZAI_centerMarker),random(DZAI_centerSize),random(360),false,[1,500]] call SHK_pos;
-	if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Calculated trigger position intersects with at least 1 other trigger (attempt %1/3).",_attempts];};
-};
-_trigger setPos _newPos;
+_newPos = _trigger call DZAI_relocDynTrigger;
 
 if (DZAI_debugMarkers > 0) then {
 	private["_marker"];
@@ -111,6 +93,6 @@ _trigger setVariable ["gradeChances",nil,false];
 _trigger setVariable ["forceDespawn",nil,false];
 
 DZAI_actDynTrigs = (DZAI_actDynTrigs - 1);
-if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Despawned %1 AI in dynamic trigger area. Trigger relocated to %2.",_totalGroupSize,_newPos];};
+if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Despawned AI in dynamic trigger area. Trigger relocated to %1.",_newPos];};
 
 true

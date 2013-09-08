@@ -184,7 +184,7 @@ class RscDisplayMain : RscStandardDisplay
 		class DAYZ_Version : CA_Version
 		{
 			idc = -1;
-			text = "0.9-Devbuild-08202013";
+			text = "0.9-Devbuild-08222013";
 			y = "(SafeZoneH + SafeZoneY) - (1 - 0.95)";
 		};
 		delete CA_TitleMainMenu;
@@ -420,80 +420,6 @@ class RscDisplayMPInterrupt : RscStandardDisplay {
 		};
 	};
 };
-
-class RscDisplayClassSelecter {
-	idd = 6904;
-	enableDisplay = 1;
-	class controlsBackground {
-		class Mainback: RscPicture
-		{
-			idc = -1;
-
-			text = "\z\addons\dayz_code\gui\spawn_bg.paa";
-			x = 0 * safezoneW + safezoneX;
-			y = 0 * safezoneH + safezoneY;
-			w = 1 * safezoneW;
-			h = 1 * safezoneH;
-		};
-	};
-	class controls
-	{
-		
-		class class_engineer: RscActiveText
-		{
-			idc = -1;
-			style = 48;
-			text = "\z\addons\dayz_code\gui\class_engineer.paa";
-			x = 0.304012 * safezoneW + safezoneX;
-			y = 0.217803 * safezoneH + safezoneY;
-			w = 0.147342 * safezoneW;
-			h = 0.234565 * safezoneH;
-			color[] = { 0.5, 0.5, 0.5, 1 };
-			colorActive[] = { 1, 1, 1, 1 };
-			action = "closeDialog 0;dayz_selectClass = 1;";
-		};
-		class class_medic: RscActiveText
-		{
-			idc = -1;
-			style = 48;
-			text = "\z\addons\dayz_code\gui\class_medic.paa";
-			x = 0.304515 * safezoneW + safezoneX;
-			y = 0.571177 * safezoneH + safezoneY;
-			w = 0.147342 * safezoneW;
-			h = 0.234565 * safezoneH;
-			color[] = { 0.5, 0.5, 0.5, 1 };
-			colorActive[] = { 1, 1, 1, 1 };
-			action = "closeDialog 0;dayz_selectClass = 2;";
-		};
-		class class_silentHunter: RscActiveText
-		{
-			idc = -1;
-			style = 48;
-			text = "\z\addons\dayz_code\gui\class_silentHunter.paa";
-			x = 0.549059 * safezoneW + safezoneX;
-			y = 0.217803 * safezoneH + safezoneY;
-			w = 0.147342 * safezoneW;
-			h = 0.234565 * safezoneH;
-			color[] = { 0.5, 0.5, 0.5, 1 };
-			colorActive[] = { 1, 1, 1, 1 };
-			action = "closeDialog 0;dayz_selectClass = 3;";
-		};
-		class class_soldier: RscActiveText
-		{
-			idc = -1;
-			style = 48;
-			text = "\z\addons\dayz_code\gui\class_soldier.paa";
-			x = 0.548558 * safezoneW + safezoneX;
-			y = 0.572014 * safezoneH + safezoneY;
-			w = 0.147342 * safezoneW;
-			h = 0.234565 * safezoneH;
-			color[] = { 0.5, 0.5, 0.5, 1 };
-			colorActive[] = { 1, 1, 1, 1 };
-			action = "closeDialog 0;dayz_selectClass = 4;";
-		};
-	};
-};
-
 
 class RscDisplaySpawnSelecter {
 	idd = 6903;

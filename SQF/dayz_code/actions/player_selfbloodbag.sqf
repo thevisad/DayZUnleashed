@@ -12,23 +12,50 @@
 
 private ["_bloodAmount","_humanityBool","_infectionChance","_humanityNegBool","_humanityNegAmount","_humanityAmount","_infectedLifeLost","_infectedLifeBool","_lastBloodbag","_bloodbagLastUsedTime","_bloodbagTime","_bloodbagUseTime","_bloodbagUsageTime"];
 
-if (dayz_selectClass != 2) exitwith {cutText [format["You do not understand how to use this on yourself."], "PLAIN DOWN"];};
-
- 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Config Start-----------------------------------------------------------------------------------------------------------------------//
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_bloodAmount = 4000; // Amount of blood to give to player
-_bloodbagUseTime = 15; // Amount of time it takes in second for the player to use the self bloodbag
+if (medic_skill_total > 800 ) then {
+	_bloodAmount = 6000; 
+	_infectionChance = 10;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
+	_bloodbagUseTime = 8; // Amount of time it takes in second for the player to use the self bloodbag
+};
+
+if (medic_skill_total > 600 and medic_skill_total < 799 ) then {
+	_bloodAmount = 5000; 
+	_infectionChance = 8;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
+	_bloodbagUseTime = 10; // Amount of time it takes in second for the player to use the self bloodbag
+};
+
+if (medic_skill_total > 400 and medic_skill_total < 599 ) then {
+	_bloodAmount = 4000; 
+	_infectionChance = 6;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
+	_bloodbagUseTime = 15; // Amount of time it takes in second for the player to use the self bloodbag
+};
+
+if (medic_skill_total > 200 and medic_skill_total < 399 ) then {
+	_bloodAmount = 3000; 
+	_infectionChance = 4;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
+	_bloodbagUseTime = 20; // Amount of time it takes in second for the player to use the self bloodbag
+};
+
+if (medic_skill_total < 199 ) then {
+	_bloodAmount = 2000; 
+	_infectionChance = 2;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
+	_bloodbagUseTime = 25; // Amount of time it takes in second for the player to use the self bloodbag
+};
+
 _bloodbagLastUsedTime = 60; // Amount of time in seconds before player can use self bloodbag again after a succesful use
 
-_infectionChance = 10; // Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
 _infectedLifeBool = true; // Whether the player can loose life if infected (True = On | False = off)
 _infectedLifeLost = 1000; // Amount of life to loose in becomes infected
 
 _humanityBool = false; // Whether the player can get humanity from giving self a bloodbag (True = On | False = off)
 _humanityAmount = 50; // Amount of humanity to give player if _humanityBool is true (250 is default for normal bloodbags)
+
+_variablesBool = true; // Whether the player can get humanity from giving self a bloodbag (True = On | False = off)
+_variablesAmount = 20; // Amount of humanity to give player if _humanityBool is true (250 is default for normal bloodbags)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Config End-------------------------------------------------------------------------------------------------------------------------//
@@ -132,6 +159,11 @@ if (dayz_combat == 1) then { // Check if in combat
 		if(_humanityBool) then {
 			[player,_humanityAmount] call player_humanityChange; // Set players humanity based on amount listed in config area
 		};
+		
+		if (_variablesBool) then {
+			[player,_variablesAmount,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+		};
+		
 	} else {
 		// this is for handling if interrupted
 		r_interrupt = false;

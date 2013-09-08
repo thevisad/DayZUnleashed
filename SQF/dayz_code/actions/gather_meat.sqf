@@ -28,6 +28,19 @@ if ((_hasKnife or _hasKnifeBlunt) and !_hasHarvested) then {
 	if (_isListed) then {
 		_qty = getNumber (_config >> "yield");
 	};
+	
+	if (hunter_skill_server > 900 ) then {
+		_qty = _qty + 4;
+	};
+
+	if (hunter_skill_server > 700 and hunter_skill_server < 899 ) then {
+		_qty = _qty + 2;
+	};
+
+	if (hunter_skill_server > 500 and hunter_skill_server < 699 ) then {
+		_qty = _qty + 1;
+	};
+
 
 	if (_hasKnifeBlunt) then { _qty = round(_qty / 2); };
 
@@ -42,5 +55,6 @@ if ((_hasKnife or _hasKnifeBlunt) and !_hasHarvested) then {
 
 	sleep 6;
 	_string = format[localize "str_success_gutted_animal",_text,_qty];
+	[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 	cutText [_string, "PLAIN DOWN"];
 };

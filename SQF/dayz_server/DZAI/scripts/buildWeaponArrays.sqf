@@ -3,12 +3,12 @@
 	
 	Description:
 	
-	Last updated: 6:16 PM 6/17/2013
+	Last updated: 11:24 AM 7/23/2013
 */
 
 private ["_bldgClasses","_weapons","_lootItem","_aiWeaponBanList","_unwantedWeapons","_lootList","_cfgBuildingLoot","_lootListCheck","_startTime"];
 
-if !(isNil "DZAI_weaponsInitialized") exitWith {};
+if (!isNil "DZAI_weaponsInitialized") exitWith {};
 
 _startTime = diag_tickTime;
 diag_log "[DZAI] Building DZAI weapon arrays using CfgBuildingLoot data.";
@@ -16,7 +16,7 @@ diag_log "[DZAI] Building DZAI weapon arrays using CfgBuildingLoot data.";
 _bldgClasses = [["Residential","Farm"],["Military"],["MilitarySpecial"],["HeliCrash"]];
 _unwantedWeapons = _this select 0;		//User-specified weapon banlist.
 
-_aiWeaponBanList = ["Crossbow_DZ","Crossbow","MeleeBaseBallBat","MeleeMachete"];
+_aiWeaponBanList = ["Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails"];
 
 //Add user-specified banned weapons to DZAI weapon banlist.
 for "_i" from 0 to ((count _unwantedWeapons) - 1) do {
@@ -25,9 +25,12 @@ for "_i" from 0 to ((count _unwantedWeapons) - 1) do {
 //diag_log format ["DEBUG :: List of weapons to be removed from DZAI classname tables: %1",_aiWeaponBanList];
 
 //Compatibility with Namalsk's selectable loot table feature.
-_cfgBuildingLoot = "";
 if (isNil "dayzNam_buildingLoot") then {
 	_cfgBuildingLoot = "cfgBuildingLoot";
+	if ((toLower worldName) == "trinity") then {
+		//Fix for Trinity Island's Barracks loot table.
+		_bldgClasses set [2,["Barracks"]];
+	};
 } else {
 	_cfgBuildingLoot = dayzNam_buildingLoot;
 	(_bldgClasses select 3) set [((_bldgClasses select 3) find "HeliCrash"),"HeliCrashNamalsk"];
@@ -98,9 +101,6 @@ if ((count DZAI_Rifles3) == 0) then {
 	diag_log "DZAI_Rifles3 is empty. Populating with entries from DZAI_Rifles2.";
 	DZAI_Rifles3 = [] + DZAI_Rifles2;
 };
-
-//Combine lowest pistol and rifle tiers
-for "_i" from 0 to ((count DZAI_Pistols0) - 1) do {DZAI_Rifles0 set [(count DZAI_Rifles0),(DZAI_Pistols0 select _i)];};
 
 if (DZAI_debugLevel > 0) then {
 	//Display finished weapon arrays

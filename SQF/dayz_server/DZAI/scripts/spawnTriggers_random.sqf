@@ -20,18 +20,16 @@ if (DZAI_debugLevel > 0) then {diag_log format["DZAI Debug: Spawning %1 dynamic 
 
 for "_i" from 1 to _numTriggers do {
 	private ["_trigger","_trigPos","_attempts"];
-	_trigPos = [(getMarkerPos DZAI_centerMarker),random(DZAI_centerSize),random(360),false,[1,500]] call SHK_pos;
 	_attempts = 0;
-	while {(({([_trigPos select 0,_trigPos select 1] distance _x) < (2*DZAI_dynTriggerRadius - 2*DZAI_dynTriggerRadius*DZAI_dynOverlap)} count DZAI_dynTriggerArray) > 0)&&(_attempts < 3)} do {
-		sleep 0.5;
+	while {_trigPos = [(getMarkerPos "DZAI_centerMarker"),300 + random((getMarkerSize "DZAI_centerMarker") select 0),random(360),false,[1,300]] call SHK_pos;(({([_trigPos select 0,_trigPos select 1] distance _x) < (2*(DZAI_dynTriggerRadius - (DZAI_dynTriggerRadius*DZAI_dynOverlap)))} count DZAI_dynTriggerArray) > 0)&&(_attempts < 5)} do {
 		_attempts = _attempts +1;
-		_trigPos = [(getMarkerPos DZAI_centerMarker),random(DZAI_centerSize),random(360),false,[1,500]] call SHK_pos;
-		if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Calculated trigger position intersects with at least 1 other trigger (attempt %1/3).",_attempts];};
+		if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Calculated trigger position intersects with at least 1 other trigger (attempt %1/5).",_attempts];};
+		sleep 0.5;
 	};
 	_trigger = createTrigger ["EmptyDetector",_trigPos];
 	_trigger setTriggerArea [DZAI_dynTriggerRadius, DZAI_dynTriggerRadius, 0, false];
 	_trigger setTriggerActivation ["ANY", "PRESENT", true];
-	_trigger setTriggerTimeout [5, 7, 20, true];
+	_trigger setTriggerTimeout [5, 7, 10, true];
 	_trigger setTriggerStatements [DYNTRIG_STATEMENTS_INACTIVE];
 	if (DZAI_debugMarkers > 0) then {
 		private ["_markername","_marker"];

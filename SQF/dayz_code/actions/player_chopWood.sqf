@@ -14,7 +14,7 @@ if (["forest",dayz_surfaceType] call fnc_inString) then {
 		_sfx = "chopwood";
 		[player,_sfx,0,false,_dis] call dayz_zombieSpeak;
 		[player,_dis,true,(getPosATL player)] spawn player_alertZombies;
-
+		[player,1,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 		sleep 5;
 		cutText [localize "str_player_25", "PLAIN DOWN"];
 	} else {

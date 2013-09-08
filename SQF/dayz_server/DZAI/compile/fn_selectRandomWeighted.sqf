@@ -54,6 +54,6 @@ for "_i" from 0 to ((count _weights) - 1) do
 
 //Randomly select an index from the weighted array and therefore an element.
 private ["_index"];
-_index = _weighted call BIS_fnc_selectRandom;
+_index = _weighted call BIS_fnc_selectRandom2;
 
 _array select _index

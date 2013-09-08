@@ -75,6 +75,7 @@ if ((count _worldspace) == 2) then {
 
 	r_action_count = 0;
 	cutText [format[(localize "str_success_stash_pitch"),_stashtype], "PLAIN DOWN"];
+	[player,1,4] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 	//cutText [format[(localize "str_player_31_missingtools"),_config,_consume,(localize "str_player_31_build")] , "PLAIN DOWN"];
 } else {
 	r_action_count = 0;

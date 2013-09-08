@@ -1,16 +1,4 @@
 private ["_characterID","_temp","_class","_currentWpn","_magazines","_force","_isNewPos","_humanity","_isNewGear","_currentModel","_modelChk","_playerPos","_playerGear","_playerBackp","_backpack","_killsB","_killsH","_medical","_isNewMed","_character","_timeSince","_charPos","_isInVehicle","_distanceFoot","_lastPos","_kills","_headShots","_timeGross","_timeLeft","_onLadder","_isTerminal","_currentAnim","_muzzles","_array","_key","_lastTime","_config","_currentState","_pos"];
-//[player,array]
-//diag_log ("UPDATE: " + str(_this) );
-
-//waituntil {(typeName(_this) == "ARRAY");sleep 0.01;};	//seems to cause often infinite waits (but not for first n players)
-
-//this only happens when we don't follow the correct parameter format...
-//(like supplying just the player object instead of the array in player_eat.sqf)
-//i've fixed this in player_eat so i can comment this part out
-/*if ( typeName(_this) == "OBJECT" ) then {
-	_this = [_this,[],true];
-	//diag_log ("DW_DEBUG: #manual fix _this: " + str(_this));
-};*/
 
 //correct
 //"UPDATE: [B 1-1-B:1 (THE BEAST) REMOTE,[],true]"
@@ -124,6 +112,12 @@ if (_characterID != "0") then {
 		_killsH = 		["humanKills",_character] call server_getDiff;
 		_headShots = 	["headShots",_character] call server_getDiff;
 		_humanity = 	["humanity",_character] call server_getDiff2;
+
+		_engineer_rank =["estot",_character] call server_getDiff;
+		_hunter_rank = 	["hstot",_character] call server_getDiff;
+		_medic_rank = 	["mstot",_character] call server_getDiff;
+		_soldier_rank = ["sstot",_character] call server_getDiff;
+		
 		//_humanity = 	_character getVariable ["humanity",0];
 		_character addScore _kills;		
 		/*
@@ -133,6 +127,11 @@ if (_characterID != "0") then {
 		_timeGross = 	(time - _lastTime);
 		_timeSince = 	floor(_timeGross / 60);
 		_timeLeft =		(_timeGross - (_timeSince * 60));
+		
+		diag_log("USPSYNC: Time Last:" + str(_lastTime));
+		diag_log("USPSYNC: Time Gross:" + str(_timeGross));
+		diag_log("USPSYNC: Time Since:" + str(_timeSince));
+		diag_log("USPSYNC: Time Left:" + str(_timeLeft));
 		/*
 			Get character state details
 		*/
@@ -192,7 +191,7 @@ if (_characterID != "0") then {
 			if (alive _character) then {
 				//Wait for HIVE to be free
 				//Send request
-				_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity,dayz_selectClass];
+				_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity];
 				diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _characterID);
 				_key call server_hiveWrite;
 			};
@@ -210,6 +209,60 @@ if (_characterID != "0") then {
 		} forEach nearestObjects [_pos, ["Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "StashSmall","StashMedium"], 10];
 		//[_charPos] call server_updateNearbyObjects;
 
+		_variablessetup = [];
+		_engineer_skill_total=0;
+		_hunter_skill_total=0;
+		_medic_skill_total=0;
+		_soldier_skill_total=0;
+		_engineer_rank = _character getVariable["estot", 1];
+		_hunter_rank = _character getVariable["hstot", 1];
+		_medic_rank = _character getVariable["mstot", 1];
+		_soldier_rank = _character getVariable["sstot", 1];
+		
+		diag_log("USPSYNC: Character: " + str(_character));
+		diag_log("USPSYNC: Engineer Rank: " + str(_engineer_rank));
+		diag_log("USPSYNC: Hunter Rank: " + str(_hunter_rank));
+		diag_log("USPSYNC: Medic Rank: " + str(_medic_rank));
+		diag_log("USPSYNC: Soldier Rank: " + str(_soldier_rank));
+		
+		
+		// get variables from character
+		_key_variables = format["CHILD:151:%1:",_characterID];
+		_variablesdata = _key_variables call server_hiveReadWrite;
+		//["PASS",[600,321,421,121]]
+		if (count _variables > 0) then {
+			_variables = _variablesdata select 1;
+			_engineer_skill_total = _variables select 0;
+			_hunter_skill_total = _variables select 1;
+			_medic_skill_total = _variables select 2;
+			_soldier_skill_total = _variables select 3;
+		};
+		
+		diag_log("USPSYNC: Player Engineer Variable: " + str(_engineer_rank));
+		diag_log("USPSYNC: Player Hunter Variable: " + str(_hunter_rank));
+		diag_log("USPSYNC: Player Medic Variable: " + str(_medic_rank));
+		diag_log("USPSYNC: Player Soldier Variable: " + str(_soldier_rank));
+
+		
+		diag_log("USPSYNC: Engineer 151 Variable: " + str(_engineer_skill_total));
+		diag_log("USPSYNC: Hunter 151 Variable: " + str(_hunter_skill_total));
+		diag_log("USPSYNC: Medic 151 Variable: " + str(_medic_skill_total));
+		diag_log("USPSYNC: Soldier 151 Variable: " + str(_soldier_skill_total));
+
+		if ((_engineer_skill_total < _engineer_rank) || (_hunter_skill_total < _hunter_rank) || (_medic_skill_total < _medic_rank) || (_soldier_skill_total < _soldier_rank)) then 
+		{
+			_variablessetup = [_engineer_rank,_hunter_rank,_medic_rank,_soldier_rank];
+			//diag_log("USPSYNC: Character ID: " + str(_characterID));
+			//diag_log("USPSYNC: Character Variables: " + str(_variablessetup));
+			_key_variables_publish = format["CHILD:152:%1:%2:",_characterID,_variablessetup];
+			_variablespublish = _key_variables_publish call server_hiveReadWrite;
+		}; 
+		/*
+		_variablessetup = [_engineer_rank,_hunter_rank,_medic_rank,_soldier_rank];
+		_key_variables_publish = format["CHILD:152:%1:%2:",_characterID,_variablessetup];
+		_variablespublish = _key_variables_publish call server_hiveReadWrite;
+		*/
+		
 		//Reset timer
 		if (_timeSince > 0) then {
 			_character setVariable ["lastTime",(time - _timeLeft)];

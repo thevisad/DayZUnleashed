@@ -4,9 +4,7 @@ private ["_characterID","_playerObj","_playerID","_dummy","_worldspace","_state"
 _characterID = _this select 0;
 _playerObj = _this select 1;
 _spawnSelection = _this select 3;
-_classSelection = _this select 4;
 _playerID = getPlayerUID _playerObj;
-dayz_selectClass = _classSelection;
 
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 
@@ -66,17 +64,6 @@ _worldspace = _primary select 4;
 _humanity = _primary select 5;
 _playerClass = _primary select 6;
 
-if (dayz_selectClass == 0 || dayz_selectClass == 9) then {
-	if (_playerClass == 0 || _playerClass == 9) then {
-		dayz_selectClass = floor(random 3) + 1;
-	} else {
-		dayz_selectClass = _playerClass;
-	};
-};
-
-
-//diag_log ("_playerClass after: " + str(_playerClass));
-//diag_log ("dayz_selectClass after: " + str(dayz_selectClass));
 
 //Set position
 _randomSpot = false;
@@ -239,11 +226,48 @@ if (_randomSpot) then {
 	_worldspace = [0,_position];
 };
 
+// get variables from character
+_key_variables = format["CHILD:151:%1:",_characterID];
+_variablesdata = _key_variables call server_hiveReadWrite;
+_engineer_skill_total = 1;
+_hunter_skill_total = 1;
+_medic_skill_total = 1;
+_soldier_skill_total = 1;
+
+diag_log("USPSETUP: Variables from Hive: " + str(_variablesdata));
+diag_log("USPSETUP: Hive Variables Count: " + str(count _variablesdata));
+
+
+
+if ((_variablesdata select 0) == "PASS") then {
+	_variables = _variablesdata select 1;
+	_engineer_skill_total = _variables select 0;
+	_hunter_skill_total = _variables select 1;
+	_medic_skill_total = _variables select 2;
+	_soldier_skill_total = _variables select 3;
+
+	_playerObj setVariable["estot", _engineer_skill_total, true];
+	_playerObj setVariable["hstot", _hunter_skill_total, true];
+	_playerObj setVariable["mstot", _medic_skill_total, true];
+	_playerObj setVariable["sstot", _soldier_skill_total, true];
+	diag_log("USPSETUP: Set variables from hive.");
+} 
+	else 
+{
+	_playerObj setVariable["estot", _engineer_skill_total, true];
+	_playerObj setVariable["hstot", _hunter_skill_total, true];
+	_playerObj setVariable["mstot", _medic_skill_total, true];
+	_playerObj setVariable["sstot", _soldier_skill_total, true];
+	diag_log("USPSETUP: Set default variables.");
+};
+
+diag_log("USPSETUP: Engineer Skills from Hive: " + str(_engineer_skill_total));
+diag_log("USPSETUP: Hunter Skills from Hive: " + str(_hunter_skill_total));
+diag_log("USPSETUP: Medic Skills from Hive: " + str(_medic_skill_total));
+diag_log("USPSETUP: Soldier Skills from Hive: " + str(_soldier_skill_total));
+	
 //Record player for management
 dayz_players set [count dayz_players,_playerObj];
-
-_playerObj setVariable["classSelected",dayz_selectClass,true];
-_classSelected = _playerObj getVariable ["classSelected",9];
 
 //record player pos locally for server checking
 _playerObj setVariable["characterID",_characterID,true];

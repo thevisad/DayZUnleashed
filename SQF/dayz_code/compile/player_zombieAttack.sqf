@@ -191,11 +191,26 @@ if (_isVehicle) then {
 				_lastTackle = player getVariable ["lastTackle", 0];
 				_move = "";
 				_classTackleTime = 0;
-				if (dayz_selectClass != 4) then {
-					_classTackleTime = 7;
-				} else {
+				if (soldier_skill_total > 800 ) then {
+					_classTackleTime = 35;
+				};
+
+				if (soldier_skill_total > 600 and soldier_skill_total < 799 ) then {
+					_classTackleTime = 28;
+				};
+
+				if (soldier_skill_total > 400 and soldier_skill_total < 599 ) then {
+					_classTackleTime = 21;
+				};
+
+				if (soldier_skill_total > 200 and soldier_skill_total < 399 ) then {
 					_classTackleTime = 14;
 				};
+				
+				if (soldier_skill_total < 199 ) then {
+					_classTackleTime = 7;
+				};
+				
 				if ((diag_tickTime - _lastTackle) > _classTackleTime) then {
 					switch true do {
 						// front

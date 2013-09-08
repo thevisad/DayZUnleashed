@@ -1,4 +1,4 @@
-private ["_vel","_speed","_scalePose","_scaleMvmt","_scaleLight","_scaleAlert","_anim","_anim4","_initial","_nearFlare","_scaler","_pos","_nearFire","_isPZombie","_scaleSound","_building","_isPlayerInside","_audial"];
+private ["_vel","_speed","_scalePose","_scaleMvmt","_scaleLight","_scaleAlert","_anim","_anim4","_initial","_nearFlare","_scaler","_pos","_nearFire","_isPZombie","_scaleSound","_building","_isPlayerInside","_audial","_isWater"];
 
 _isPZombie = player isKindOf "PZombie_VB";
 if(_isPZombie) exitWith { DAYZ_disAudial = 0; DAYZ_disVisual = 0; };
@@ -42,9 +42,25 @@ if (_anim4 == "aswm") then {
     _aggro_mv_mod_decay_rate = 2;
 	_scaleMvmt = 0.3;
 	dayz_isSwimming = true;
+
+	// if surface is not water abort 
+	_isWater = surfaceIsWater _pos;
+	if(!_isWater) then {
+
+		// Stops swimming in ground
+		if (vehicle player == player) then {
+			[objNull, player, rSwitchMove,""] call RE;
+			player playActionNow "stop";
+		};
+		// This sleep was much needed
+		sleep 5;
+
+		dayz_isSwimming = false;
+	};
 } else {
 	dayz_isSwimming = false;
 };
+
 
 _initial = 20 + (sunOrMoon * 20);
 

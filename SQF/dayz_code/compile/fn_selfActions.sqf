@@ -46,6 +46,17 @@ if (!isNull _nearLight) then {
 };
 _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 
+if (!_isPZombie) then {
+	if (unleashed_change_variable1 < 0) then {
+		unleashed_change_variable1 = player addAction ["Increase Values", "\z\addons\dayz_code\actions\unleashed\increaseVariables.sqf",player, 3, true, false, "",""];
+		unleashed_change_variable2 = player addAction ["Decrease Values", "\z\addons\dayz_code\actions\unleashed\decreaseVariables.sqf",player, 3, true, false, "",""];
+	};
+} else {
+	player removeAction unleashed_change_variable1;
+	player removeAction unleashed_change_variable2;
+	unleashed_change_variable1 = -1;
+	unleashed_change_variable2 = -1;
+};
 
 //Grab Flare
 if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
@@ -180,7 +191,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	};
 
 	//flip vehicle
-	if ((_isVehicletype) and !_canmove and _isAlive and (player distance cursorTarget >= 2) and (count (crew cursorTarget))== 0 and ((vectorUp cursorTarget) select 2) < 0.5 and ((dayz_selectClass == 1) || (dayz_selectClass == 4))) then {
+	if ((_isVehicletype) and !_canmove and _isAlive and (player distance cursorTarget >= 2) and (count (crew cursorTarget))== 0 and ((vectorUp cursorTarget) select 2) < 0.5 and ((engineer_skill_total > 200) || (soldier_skill_total > 200))) then {
 		if (s_player_flipveh < 0) then {
 			s_player_flipveh = player addAction [format[localize "str_actions_flipveh",_text], "\z\addons\dayz_code\actions\player_flipvehicle.sqf",cursorTarget, 1, true, true, "", ""];
 		};
@@ -240,7 +251,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 
 
 	//Harvested
-	if (!alive cursorTarget and _isAnimal and _hasKnife and !_isHarvested and _canDo and (dayz_selectClass == 3)) then {
+	if (!alive cursorTarget and _isAnimal and _hasKnife and !_isHarvested and _canDo ) then {
 		if (s_player_butcher < 0) then {
 			s_player_butcher = player addAction [localize "str_actions_self_04", "\z\addons\dayz_code\actions\gather_meat.sqf",cursorTarget, 3, true, true, "", ""];
 		};
@@ -329,7 +340,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	// ---------------------------------------SUICIDE------------------------------------
 
 	//Repairing Vehicles / Remove Parts from Vehicle
-	if ((dayz_myCursorTarget != cursorTarget) and !_isMan and _hasToolbox and (damage cursorTarget < 1) and (dayz_selectClass == 1)) then {
+	if ((dayz_myCursorTarget != cursorTarget) and !_isMan and _hasToolbox and (damage cursorTarget < 1)) then {
 		_vehicle = cursorTarget;
 		_totpa = ["HitFuel","HitEngine","HitLFWheel","HitRFWheel","HitLBWheel","HitRBWheel","HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGlass6","HitHRotor"];
 		if ((_vehicle isKindOf "Truck") or (_newCuTyp == "rth_amphicar") or (_newCuTyp == "rth_ScrapApc")) then { _totpa set [count _totpa,"HitLMWheel"]; _totpa set [count _totpa,"HitRMWheel"]; };
@@ -598,7 +609,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	
     _unconscious = cursorTarget getVariable ["NORRN_unconscious", false];
 
-	if (_isMan and _isAlive and !_isZombie and _canDo and !_unconscious and ((dayz_selectClass == 3) || (dayz_selectClass == 4))) then {
+	if (_isMan and _isAlive and !_isZombie and _canDo and !_unconscious) then {
         if (s_player_meleeattack < 0) then {
             s_player_meleeattack = player addAction [("<t color=""#FF9800"">" + ("Melee Target!") + "</t>"), "\z\addons\dayz_code\actions\player_weaponButtAttack.sqf",cursorTarget, 0, false, true, "",""];
         };
@@ -607,7 +618,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
         s_player_meleeattack = -1;
     };
 
-	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and _hasToolbox and getDammage cursorTarget < 0.95 and ((dayz_selectClass == 1) || (dayz_selectClass == 4))) then { 
+	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and _hasToolbox and getDammage cursorTarget < 0.95) then { 
 				//diag_log ("check churchie_check before: " +str(_nearPipe));
 				if( churchie_check < 0 ) then {
 					churchie_check = player addAction [("<t color=""#FF0000"">" + ("Check vehicle for bomb") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 3], 6, false, true, "","getDammage _target < 0.95"]; 
@@ -619,7 +630,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		churchie_check = -1; 
 	};
 	
-	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and churchie_explosion_checked and _hasToolbox and getDammage cursorTarget < 0.95 and ((dayz_selectClass == 1) || (dayz_selectClass == 4))) then { 
+	if( _canDo and !churchie_defusing_started and cursorTarget isKindOf "LandVehicle" and churchie_explosion_checked and _hasToolbox and getDammage cursorTarget < 0.95 ) then { 
 		_nearPipe = nearestObject [player,"BAF_ied_v1"];
 		if( _nearPipe distance player < 2 ) then { 
 			if( churchie_defuse < 0 ) then { 
@@ -635,7 +646,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		churchie_defuse = -1; 
 	};
 	
-	if( _canDo and "PipeBomb" in magazines player and cursorTarget isKindOf "LandVehicle" and _hasToolbox and getDammage cursorTarget < 0.95 and ((dayz_selectClass == 1) || (dayz_selectClass == 4))) then {
+	if( _canDo and "PipeBomb" in magazines player and cursorTarget isKindOf "LandVehicle" and _hasToolbox and getDammage cursorTarget < 0.95) then {
 			//diag_log ("rig churchie_rig_veh inside: " +str(churchie_rig_veh));
 			if( (churchie_rig_veh < 0) ) then {
 				churchie_rig_veh = player addAction [("<t color=""#FF0000"">" + ("Rig engine to detonate on ignition") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [cursorTarget, 0], 5, false, true, ""
@@ -655,7 +666,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
     	
 	//Player Gutting
 	
-	if (!_isAlive and !_isZombie and !_isAnimal and !_isHarvested and _isMan and _hasKnife and _canDo and (dayz_selectClass == 3)) then {
+	if (!_isAlive and !_isZombie and !_isAnimal and !_isHarvested and _isMan and _hasKnife and _canDo) then {
         if (player_Cannibalism < 0) then {
             player_Cannibalism = player addAction [format["<t color='#42426F'>Gut Player%1</t>"], "\z\addons\dayz_code\actions\player_cannibalism.sqf",cursorTarget, 3, true, true, "", ""];
         };
@@ -741,6 +752,10 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	s_player_waterdog = -1;
 	player removeAction s_player_staydog;
 	s_player_staydog = -1;
+	player removeAction unleashed_change_variable2;
+	unleashed_change_variable2 = -1;
+	player removeAction unleashed_change_variable1;
+	unleashed_change_variable1 = -1;
 	player removeAction s_player_trackdog;
 	s_player_trackdog = -1;
 	player removeAction s_player_barkdog;

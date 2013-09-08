@@ -7,7 +7,7 @@
 	
 	Description: Checks an array of arrays for classnames banned by DayZ or non-existent classnames. If any banned/invalid classnames are found, they are removed and reported into the RPT log.
 	
-	Last updated: 12:12 AM 6/27/2013
+	Last updated: 2:33 PM 7/28/2013
 */
 
 private["_unverified","_verified","_errorFound","_weapChk","_vehChk","_magCheck","_stringArray","_startTime"];
@@ -23,7 +23,7 @@ _errorFound = false;
 
 //Build array of unverified classnames
 {
-	_unverified set [(count _unverified),(call compile _x)];
+	_unverified set [count _unverified,missionNamespace getVariable _x];
 } forEach _stringArray;
 
 diag_log "[DZAI] DZAI is verifying all tables for banned or invalid classnames...";
@@ -55,7 +55,7 @@ diag_log "[DZAI] DZAI is verifying all tables for banned or invalid classnames..
 
 if (_errorFound) then { //If a classname table requires editing, perform the required edits then report their final states.
 	for "_i" from 0 to ((count _unverified) - 1) do {
-		if ((count (_unverified select _i)) != (count (_verified select _i))) then {call compile format ["%1 = %2;",(_stringArray select _i),(_verified select _i)];	diag_log format ["Contents of %1: %2.",(_stringArray select _i),(call compile (_stringArray select _i))];};
+		if ((count (_unverified select _i)) != (count (_verified select _i))) then {missionNamespace setVariable [_stringArray select _i,_verified select _i];	diag_log format ["Contents of %1: %2.",_stringArray select _i,missionNamespace getVariable (_stringArray select _i)];};
 	};
 } else {
 	diag_log "[DZAI] All tables have been verified. No invalid entries found.";

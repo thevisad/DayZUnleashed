@@ -46,11 +46,13 @@ if (_hasToolbox) then {
                         //check if there is enough space in inventar
                         if (_result) then {
                             cutText [format["You have successfully taken %1 from the %2",_namePart,_nameType], "PLAIN DOWN"];
+							[player,1,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
                         } else {
                             //if not enought space say "not enough space"
                             cutText [localize "str_player_24", "PLAIN DOWN"];
                             //and add the part back to the vehicle.
                             [_vehicle, _selection, 0, true] call fnc_veh_handleRepair;
+							[player,-1,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
                         };               
                 };
             } else {

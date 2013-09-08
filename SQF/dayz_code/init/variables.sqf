@@ -310,7 +310,19 @@ churchie_defusing_started = false;
 churchie_explosion_set = false;
 churchie_explosion_checked = false;
 churchie_vehicle_checked = 0;
-dayz_selectClass = 0;
+engineer_rank = 0;
+hunter_rank = 0;
+medic_rank = 0;
+soldier_rank = 0;
+engineer_skill_total = 0;
+hunter_skill_total = 0;
+medic_skill_total = 0;
+soldier_skill_total = 0;
+engineer_skill_current = 0;
+hunter_skill_current = 0;
+medic_skill_current = 0;
+soldier_skill_current = 0;
+
 
 //Player self-action handles
 dayz_resetSelfActions = {
@@ -367,6 +379,8 @@ dayz_resetSelfActions = {
 	s_player_pzombiesattack = 	-1;
 	s_player_pzombiesvision =	-1;
 	s_player_pzombiesfeed = 	-1;
+	unleashed_change_variable1 = -1;
+	unleashed_change_variable2 = -1;
 };
 call dayz_resetSelfActions;
 

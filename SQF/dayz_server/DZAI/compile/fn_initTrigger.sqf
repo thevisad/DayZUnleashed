@@ -8,7 +8,7 @@
 	
 	Note: "_patrolDist" may also contain an array of markers for manual waypoint creation.
 	
-	Last updated: 6/2/2013
+	Last updated: 11:18 PM 7/27/2013
 */
 
 private["_trigger"];
@@ -20,13 +20,13 @@ if ((count _this) > 3) then {
 	_trigger setVariable ["patrolDist",(_this select 2)];
 	_trigger setVariable ["gradeChances",(_this select 3)];
 	_trigger setVariable ["locationArray",(_this select 4)];
-	_trigger setVariable ["spawnType",(_this select 5)];
-	_trigger setVariable ["maxUnits",(_this select 6)];
+	_trigger setVariable ["maxUnits",(_this select 5)];
+	_trigger setVariable ["initialized",true];
 	DZAI_actTrigs = DZAI_actTrigs + 1;
-	if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Initialized static trigger %1. GroupArray: %2, PatrolDist: %3. GradeChances: %4. %LocationArray %5, SpawnType %6, MaxUnits %7.",(_this select 0),(_this select 1),(_this select 2),(_this select 3),(_this select 4),(_this select 5),(_this select 6)];};
+	if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Initialized static trigger at %1. GroupArray: %2, PatrolDist: %3. GradeChances: %4. %LocationArray %5 positions, MaxUnits %6.",triggerText(_this select 0),(_this select 1),(_this select 2),(_this select 3),count (_this select 4),(_this select 5)];};
 	} else {
 	DZAI_actDynTrigs = DZAI_actDynTrigs + 1;
-	if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Initialized dynamic trigger %1. GroupArray: %2.",(_this select 0),(_this select 1)];};
+	if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Initialized dynamic trigger at %1. GroupArray: %2.",getPosATL (_this select 0),(_this select 1)];};
 };
 
 true

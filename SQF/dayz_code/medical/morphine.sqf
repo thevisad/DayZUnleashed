@@ -29,11 +29,11 @@ while {r_doLoop} do {
 		_finished = true;
 	};
 
-	if ((random 10 < 3) and (dayz_selectClass != 2)) then {
+	if ((random 10 < 3) and (medic_skill_total < 600)) then {
 		r_player_infected = true;
 		player setVariable["USEC_infected",true,true];
 	};
-
+	
 	if (r_interrupt) then {
 		r_doLoop = false;
 	};
@@ -51,7 +51,7 @@ if (_finished) then {
 	};
 
 	//["PVDZ_hlt_Morphine",[_unit,player]] call broadcastRpcCallAll;
-	PVDZ_hlt_Morphine = [_unit,player,dayz_selectClass];
+	PVDZ_hlt_Morphine = [_unit,player];
 	publicVariable "PVDZ_hlt_Morphine";
 	
 	
@@ -109,10 +109,9 @@ if (_finished) then {
 				ppe3 ppEffectEnable false;
 				wetdist1 ppEffectEnable false;
 				nonapsi_ef ppEffectEnable false;
-				if (_drugeffects == 1) then {breakOut  "drugeffect"};
 
 		}] call RE;
-		
+		[player,1,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 } else {
 	player addMagazine "ItemMorphine";
 	r_interrupt = false;
