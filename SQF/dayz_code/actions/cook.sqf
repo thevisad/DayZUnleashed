@@ -29,6 +29,7 @@ a_player_cooking = true;
 		};
 		cutText [format[(localize "str_success_cooked"),_qty,_text], "PLAIN DOWN"];
 		[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+
 	};
 } forEach _rawmeat;
 

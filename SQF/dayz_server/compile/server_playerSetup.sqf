@@ -234,8 +234,8 @@ _hunter_skill_total = 1;
 _medic_skill_total = 1;
 _soldier_skill_total = 1;
 
-diag_log("USPSETUP: Variables from Hive: " + str(_variablesdata));
-diag_log("USPSETUP: Hive Variables Count: " + str(count _variablesdata));
+//diag_log("USPSETUP: Variables from Hive: " + str(_variablesdata));
+//diag_log("USPSETUP: Hive Variables Count: " + str(count _variablesdata));
 
 
 
@@ -250,7 +250,7 @@ if ((_variablesdata select 0) == "PASS") then {
 	_playerObj setVariable["hstot", _hunter_skill_total, true];
 	_playerObj setVariable["mstot", _medic_skill_total, true];
 	_playerObj setVariable["sstot", _soldier_skill_total, true];
-	diag_log("USPSETUP: Set variables from hive.");
+	//diag_log("USPSETUP: Set variables from hive.");
 } 
 	else 
 {
@@ -258,13 +258,13 @@ if ((_variablesdata select 0) == "PASS") then {
 	_playerObj setVariable["hstot", _hunter_skill_total, true];
 	_playerObj setVariable["mstot", _medic_skill_total, true];
 	_playerObj setVariable["sstot", _soldier_skill_total, true];
-	diag_log("USPSETUP: Set default variables.");
+	//diag_log("USPSETUP: Set default variables.");
 };
 
-diag_log("USPSETUP: Engineer Skills from Hive: " + str(_engineer_skill_total));
-diag_log("USPSETUP: Hunter Skills from Hive: " + str(_hunter_skill_total));
-diag_log("USPSETUP: Medic Skills from Hive: " + str(_medic_skill_total));
-diag_log("USPSETUP: Soldier Skills from Hive: " + str(_soldier_skill_total));
+//diag_log("USPSETUP: Engineer Skills from Hive: " + str(_engineer_skill_total));
+//diag_log("USPSETUP: Hunter Skills from Hive: " + str(_hunter_skill_total));
+//diag_log("USPSETUP: Medic Skills from Hive: " + str(_medic_skill_total));
+//diag_log("USPSETUP: Soldier Skills from Hive: " + str(_soldier_skill_total));
 	
 //Record player for management
 dayz_players set [count dayz_players,_playerObj];

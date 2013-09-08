@@ -20,7 +20,7 @@
 //"dayzDelLocal"		addPublicVariableEventHandler {(_this select 1) call object_delLocal};
 //"dayzVehicleInit"	addPublicVariableEventHandler {(_this select 1) call fnc_vehicleEventHandler};
 "PVDZ_plr_Humanity"		addPublicVariableEventHandler {(_this select 1) spawn player_humanityChange};
-"PVDZ_plr_Variables"		addPublicVariableEventHandler {(_this select 1) spawn player_variablesChange};
+"PVDZ_plr_Variables"		addPublicVariableEventHandler {(_this select 1) spawn player_variableChange};
 //"dayz_serverObjectMonitor"		addPublicVariableEventHandler {dayz_serverObjectMonitor = dayz_safety};
 "dayzInfectedCamps"		addPublicVariableEventHandler {(_this select 1) spawn infectedcamps};
 

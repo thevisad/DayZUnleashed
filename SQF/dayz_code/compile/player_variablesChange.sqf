@@ -1,9 +1,9 @@
 private ["_object","_change","_variable","_engineer_rank","_hunter_rank","_medic_rank","_soldier_rank"];
 //Set Variables
+diag_log("UPVC: Calling player variables update.");
 _object = _this select 0;
 _change = _this select 1;
 _variable = _this select 2;
-diag_log("UPVC: Calling player variables update.");
 diag_log("UPVC: Object: " + str(_object));
 diag_log("UPVC: Change Amount: " + str(_change));
 diag_log("UPVC: Variable Amount: " + str(_variable));

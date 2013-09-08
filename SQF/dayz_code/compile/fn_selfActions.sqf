@@ -45,7 +45,7 @@ if (!isNull _nearLight) then {
 	};
 };
 _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
-
+/*
 if (!_isPZombie) then {
 	if (unleashed_change_variable1 < 0) then {
 		unleashed_change_variable1 = player addAction ["Increase Values", "\z\addons\dayz_code\actions\unleashed\increaseVariables.sqf",player, 3, true, false, "",""];
@@ -57,7 +57,7 @@ if (!_isPZombie) then {
 	unleashed_change_variable1 = -1;
 	unleashed_change_variable2 = -1;
 };
-
+*/
 //Grab Flare
 if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 	if (s_player_grabflare < 0) then {
