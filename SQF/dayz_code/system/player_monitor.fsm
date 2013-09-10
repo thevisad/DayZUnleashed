@@ -340,12 +340,12 @@ class FSM
            "	_currentState = [_currentWpn,_currentAnim,_temp];" \n
            "	" \n
            "	dayz_Magazines = _magazineArray;" \n
-           "	//PVDZ_plr_Save = [player,dayz_Magazines,false];" \n
-           "	//publicVariableServer ""PVDZ_plr_Save"";" \n
+           "	PVDZ_plr_Save = [player,dayz_Magazines,false];" \n
+           "	publicVariableServer ""PVDZ_plr_Save"";" \n
            "			" \n
-           "	//if (isServer) then {" \n
-           "		//PVDZ_plr_Save call server_playerSync;" \n
-           "	//};" \n
+           "	if (isServer) then {" \n
+           "		PVDZ_plr_Save call server_playerSync;" \n
+           "	};" \n
            "						" \n
            "	dayz_lastSave = diag_tickTime;" \n
            "	dayz_Magazines = [];" \n

@@ -218,9 +218,6 @@ if (_characterID != "0") then {
 		_hunter_rank = _character getVariable["hstot", 1];
 		_medic_rank = _character getVariable["mstot", 1];
 		_soldier_rank = _character getVariable["sstot", 1];
-		_data = [];
-		_data2 = [];
-		_count = 0;
 		//diag_log("USPSYNC: Character: " + str(_character));
 		//diag_log("USPSYNC: Engineer Rank: " + str(_engineer_rank));
 		//diag_log("USPSYNC: Hunter Rank: " + str(_hunter_rank));
@@ -232,9 +229,7 @@ if (_characterID != "0") then {
 		_key_variables = format["CHILD:151:%1:",_characterID];
 		_variablesdata = _key_variables call server_hiveReadWrite;
 		//["PASS",[600,321,421,121]]
-		_count = count _variables;
 		_data = _variablesdata select 0;
-		_data2 = _variablesdata select 1;
 		//diag_log("USPSYNC: Variables First Value: " + str(_data));
 		//diag_log("USPSYNC: Variables Second Value: " + str(_data2));
 		//diag_log("USPSYNC: Count Variables: " + str(_count));
@@ -265,11 +260,6 @@ if (_characterID != "0") then {
 			_key_variables_publish = format["CHILD:152:%1:%2:",_characterID,_variablessetup];
 			_variablespublish = _key_variables_publish call server_hiveReadWrite;
 		}; 
-		/*
-		_variablessetup = [_engineer_rank,_hunter_rank,_medic_rank,_soldier_rank];
-		_key_variables_publish = format["CHILD:152:%1:%2:",_characterID,_variablessetup];
-		_variablespublish = _key_variables_publish call server_hiveReadWrite;
-		*/
 		
 		//Reset timer
 		if (_timeSince > 0) then {

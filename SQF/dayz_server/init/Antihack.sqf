@@ -21,7 +21,7 @@ if (_status1 == "AntiHackStreamStart") then {
 				_result1 = call compile format ["%1",_data];
 				_status = _result1 select 0;
 				//_adminArray set [count _adminArray, _result1];
-				_adminArray3 = _result1;
+				_adminArray3 = _adminArray3 + _result1;
 				//_adminCount = _adminCount + 1;
 			};
 			//diag_log ("ANTIHACK: Found " + str(_adminCount) + " Level 3 Admins!");
@@ -43,7 +43,7 @@ if (_status1 == "AntiHackStreamStart") then {
 				_result1 = call compile format ["%1",_data];
 				_status = _result1 select 0;
 				//_adminArray set [count _adminArray, _result1];
-				_adminArray2 = _result1;
+				_adminArray2 = _adminArray2 + _result1;
 				//_adminCount = _adminCount + 1;
 			};
 			//diag_log ("ANTIHACK: Found " + str(_adminCount) + " Level 2 Admins!");
@@ -64,7 +64,7 @@ if (_status1 == "AntiHackStreamStart") then {
 				_result1 = call compile format ["%1",_data];
 				_status = _result1 select 0;
 				//_adminArray set [count _adminArray, _result1];
-				_adminArray1 = _result1;
+				_adminArray1 = _adminArray1 + _result1;
 				//_adminCount = _adminCount + 1;
 			};
 			//diag_log ("ANTIHACK: Found " + str(_adminCount) + " Level 1 Admins!");
@@ -85,7 +85,7 @@ if (_status1 == "AntiHackStreamStart") then {
 				_result1 = call compile format ["%1",_data];
 				_status = _result1 select 0;
 				//_adminArray set [count _adminArray, _result1];
-				_banArray = _result1;
+				_banArray = _banArray + _result1;
 				_adminCount = _adminCount + 1;
 			};
 			diag_log ("ANTIHACK: Found " + str(_adminCount) + " bans!");
