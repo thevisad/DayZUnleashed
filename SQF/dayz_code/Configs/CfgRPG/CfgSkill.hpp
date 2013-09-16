@@ -1,10 +1,4 @@
-//CFGRpg system for unleashed.
-#define PSkill       0
-#define VSkill       1
-#define OSkill       2
-
-class CfgRPG {
-    class CfgSkill {
+class CfgSkill {
         class Engineer {
           skill=1;
           displayName="Engineer";
@@ -117,74 +111,4 @@ class CfgRPG {
                 description="Setting traps and blowing shit up.";
             };
         */
-    };    
- 
-    class CfgAbility {
-        class Default{ 
-            description="Base skill template";
-            scope=private;
-            exp=0;    
-            min=0;
-            max=1000;
-            skill[]={"Engineer","Survival","Medical","Combat"};
-            class action {
-                unit=0;
-                title="Ability";
-                script="none.sqf";
-                arguments="";
-                showWindow=0;
-                hideOnUse=0;
-                shortcut="";
-                condition="(FALSE)";                
-            };   
-        };
 };
-    class CfgEXP{
-        class Default{
-            class SkillAction{
-                class none{
-                    
-                };
-            };
-        };
-        class Engineer: Default{
-            exp=10;       
-        };
-        class Survival: Default{
-            exp=10;           
-        };
-        class Medical: Default{
-            exp=10;          
-        };
-        class Combat: Default{
-            exp=10;         
-        };
-
-        
-        //Survival Skills
-        
-        //Medical Skills
-        
-        //Combat Skills
-        
-        //Universal Skills
-        
-        class Cook: Default{
-            scope=public;
-            
-        };
-        class Cook: Default{
-            
-        };
-        class Guting: Default{
-            
-        };
-        class Chopwood: Default{
-            
-        };
-        class Chopwood: Default{
-            
-        };                
-};
-    
-
