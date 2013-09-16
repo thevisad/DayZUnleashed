@@ -37,6 +37,7 @@
 #include "Configs\CfgAmmo.hpp"
 #include "Configs\CfgObjectCompositions.hpp"
 #include "Configs\CfgTownGenerator\CfgTownGeneratorUnleashed.hpp"
+#include "Configs\CfgRPG.hpp"
 
 class CfgPatches {
 	class dayz_code {
