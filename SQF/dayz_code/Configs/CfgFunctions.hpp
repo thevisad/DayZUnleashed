@@ -7,8 +7,13 @@ class cfgFunctions
             file = "\z\addons\dayz_code\functions\core";
             class loadVariables
             {
-                description = "Verifies DZU functions work.";
+                description = "Loads all varible classes with load=true";
                 //file = "\z\addons\dayz_code\functions\core\fn_loadVariables.sqf";
+            };
+            class getVariable
+            {
+                description = "Verifies DZU functions work.";
+                //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
         };
         class Diag
