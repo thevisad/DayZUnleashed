@@ -2,71 +2,91 @@
 This class contains the player varibles for unleashed, varibles are loaded from this list onto the player. 
 These varibles should only be manipulated by the DZU_fnc_XXXX functions
 Config          _config = configFile >> "CfgPlayerVariables";    
-skill id       _skillID = getNumber(_config >> _VAR >> "id");
+skill id       _VaribleID = getNumber(_config >> _VAR >> "id");
 default value _defvalue = getNumber(_config >> _VAR >> "def");
 varible cap        _cap = getNumber(_config >> _VAR >> "cap");
 increase limit   _limit = getNumber(_config >> _VAR >> "limit");
 Description       _desc = getText(_config >> _VAR >> "desc");
 VaribleName        _var = getText(_config >> _VAR >> "pVar");
+
 */
 
 class CfgPlayerVariables{
-    class varEngineer {
-      id=1;               //SkillId
-      def=1;              //Default amount if null
-      desc="Engineering"; //Friendly description to show player
-      pVar="estot";       //Name of public varible to assign on player. 
-      cap=100;            //Max Limit this varible can reach
-      limit=0;            //Max per instance change that can occur with this varible
+    class default{  
+      id=0;         //number:
+      desc="";      //  text: Friendly description to show player 
+      load=0;       //  bool: should DZU_fnc_loadVaribles load this?
+      hide=0;       //  bool: listing varibles in a UI should this be shown?
+      global=1;     //  bool: _obj setvarible[_somthing,_something,_this];
+      vardefault=1;    //   var: _obj setvarible[_somthing,_this,_something];  
+      varname="";   //  text: _obj setvarible[_this,_somthing,_something]; 
+      vartype="";   //  text: "array","number",text,"object","raw"
+      return=1;     //  bool: should '_return= [] call DZU_fnc_loadVaribles' return this?
+      cap=100;      //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored. 
+      limit=0;      //  read: depends on type: array affects number of items, number affects max change, text affects length, object is ignored, raw is ignored.
+        
+    };
+    class varEngineer:default {
+         load=1;
+           id=1;
+         desc="Engineering";
+      varname="estot"; 
+      vartype="number";
+
     };    
-    class varHunting{
-      id=2;         //SkillId
-      def=1;        //Default amount if null
-      desc="Hunting";
-      pVar="hstot"; //Name   
-      cap=100;      //Max Limit this value can go
-      limit=0;      //Limit changes by X, 0=nolimit  
+    class varHunting:default{
+         load=1;        
+           id=2;
+         desc="Hunting";
+      varname="hstot"; 
+      vartype="number";
+
     };
-    class varMedical{
-      id=3;         //SkillId
-      def=1;        //Default amount if null
-      desc="Medical Knowledge";
-      pVar="mstot"; //Name   
-      cap=100;      //Max Limit this value can go
-      limit=0;      //Limit changes by X, 0=nolimit  
+    class varMedical:default{
+         load=1;
+           id=3;
+         desc="Medical Knowledge";
+      varname="mstot";  
+      vartype="number";
+ 
     };
-    class varCombat{
-      id=4;         //SkillId
-      def=1;        //Default amount if null
-      desc="Combat Training";
-      pVar="sstot"; //Name   
-      cap=100;      //Max Limit this value can go
-      limit=0;      //Limit changes by X, 0=nolimit  
+    class varCombat:default{
+         load=1;
+           id=4;
+         desc="Combat Training";
+      varname="sstot"; 
+      vartype="number";
     };
-    class varSneaking{
-      id=5;         //SkillId
-      def=1;        //Default amount if null
+    class varSneaking:default{
+         load=1;
+      id=5;
       desc="Sneaking";
-      pVar="vSS";   //Name   
-      cap=100;      //Max Limit this value can go
-      limit=0;      //Limit changes by X, 0=nolimit  
+      varname="vSS"; 
+      vartype="number";
+
     };
-    class varExp{
-      hide=1;       //not user editable
-      id=6;         //SkillId
-      def=0;        //Default amount if null
-      desc="Experience  Points";
-      pVar="vXP";   //Name   
-      cap=1000;     //Max Limit this value can go
-      limit=50;     //Limit changes by X, 0=nolimit  
+    class varExp:default{
+         load=1;
+         hide=1;
+           id=6;
+      vardefault=0;
+         desc="Experience  Points";
+      varname="vXP"; 
+      vartype="number";   
+      cap=1000;
+      limit=50;  
+
     };
-    class varTags{
-      hide=1;       //not user editable
-      id=7;         //SkillId
-      def=0;        //Default amount if null
+    class varTags:default{
+         load=1;
+         hide=1;   
+          cap=0;
+        limit=1;
+           id=7;
+       global=0;
+      vardefault=0;
       desc="Dog Tags";
-      pVar="vTC";  //Name   
-      cap=0;        //Max Limit this value can go
-      limit=1;     //Limit changes by X, 0=nolimit  
+      varname="vTC"; 
+      vartype="number";
     };
 };
