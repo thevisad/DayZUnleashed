@@ -9,11 +9,13 @@
 //monitor: bool
 
 private ["_object","_variables","_config","_classname","_isGlobal","_defaultValue","_variableName","_variableCap","_newValue","_debug","_classtree"];
-_object = (_this select 0);
 _debug=false;
 _variables = [];
+
 if((count _this)<1) exitWith{diag_log "error: dzu_fnc_LoadVars requires at least an object";_variables};
 if (({isNil "_x"} count _this) != 0) exitWith {debugLog "error: dzu_fnc_LoadVars all parameters must be defined values!"; _variables};
+
+_object = (_this select 0);
 if((count _this)>1)then{_debug=_this select 1;};
 
 _config = configFile >> "CfgPlayerVariables";
