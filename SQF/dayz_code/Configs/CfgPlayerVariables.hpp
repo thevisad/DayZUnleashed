@@ -17,12 +17,12 @@ class CfgPlayerVariables{
       desc="";      //  text: Friendly description to show player 
       load=0;       //  bool: should DZU_fnc_loadVaribles load this?
       hide=0;       //  bool: listing varibles in a UI should this be shown?
-      global=1;     //  bool: _obj setvarible[_somthing,_something,_this];
+      global=0;     //  bool: _obj setvarible[_somthing,_something,_this];
       vardefault=1;    //   var: _obj setvarible[_somthing,_this,_something];  
       varname="";   //  text: _obj setvarible[_this,_somthing,_something]; 
       vartype="";   //  text: "array","number",text,"object","raw"
-      return=1;     //  bool: should '_return= [] call DZU_fnc_loadVaribles' return this?
-      cap=100;      //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored. 
+      varmin=1;     //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored.    
+      varmax=100;      //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored. 
       limit=0;      //  read: depends on type: array affects number of items, number affects max change, text affects length, object is ignored, raw is ignored.
         
     };
@@ -32,7 +32,6 @@ class CfgPlayerVariables{
          desc="Engineering";
       varname="estot"; 
       vartype="number";
-
     };    
     class varHunting:default{
          load=1;        
@@ -40,15 +39,13 @@ class CfgPlayerVariables{
          desc="Hunting";
       varname="hstot"; 
       vartype="number";
-
     };
     class varMedical:default{
          load=1;
            id=3;
          desc="Medical Knowledge";
       varname="mstot";  
-      vartype="number";
- 
+      vartype="number"; 
     };
     class varCombat:default{
          load=1;
@@ -63,7 +60,6 @@ class CfgPlayerVariables{
       desc="Sneaking";
       varname="vSS"; 
       vartype="number";
-
     };
     class varExp:default{
          load=1;
@@ -72,21 +68,20 @@ class CfgPlayerVariables{
       vardefault=0;
          desc="Experience  Points";
       varname="vXP"; 
-      vartype="number";   
-      cap=1000;
-      limit=50;  
-
+      vartype="number";
+      varmin=0;   
+      varmax=1000;
+      limit=50;
     };
     class varTags:default{
-         load=1;
-         hide=1;   
-          cap=0;
-        limit=1;
-           id=7;
-       global=0;
-      vardefault=0;
+               load=1;
+               hide=1;   
+              limit=1;
+                 id=7;
+         vardefault=0;
+             varmin=0;
       desc="Dog Tags";
-      varname="vTC"; 
-      vartype="number";
+        varname="vTC"; 
+     vartype="number";
     };
 };

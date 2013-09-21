@@ -8,7 +8,7 @@
 //vartype: "array","number","text","object","raw"
 //monitor: bool
 
-private ["_object","_variables","_config","_classname","_isGlobal","_defaultValue","_variableName","_variableCap","_newValue","_debug","_classtree"];
+private ["_object","_variables","_config","_classname","_isGlobal","_defaultValue","_variableName","_variableMax","_variableMin","_newValue","_debug","_classtree"];
 _debug=false;
 _variables = [];
 
@@ -26,38 +26,28 @@ for "_i" from 0 to ((count _config) - 1) do {
     //Start
                 
         _isGlobal       = if(getNumber(_config >> _classname >> "global")==1)then{true}else{false};
-        _defaultValue   =    getNumber(_config >> _classname >> "vardefault");
-        _variableName   =      getText(_config >> _classname >> "varname");
-        _variableCap    =    getNumber(_config >> _classname >> "cap");
-        _newValue   = _object getVariable[_variableName, _defaultValue];
+        _defaultValue   = getNumber(_config >> _classname >> "vardefault");
+        _variableName   = getText(_config >> _classname >> "varname");
+        _variableMax    = getNumber(_config >> _classname >> "varmax");
+        _variableMin    = getNumber(_config >> _classname >> "varmin");
+        _newValue       = _object getVariable[_variableName, _defaultValue];
         
-        //Check value limits
-        if(_variableCap !=0 )then{
-        switch(true) do {
-            case (_variableCap > 0 ):
-                {
-                  _newValue=_newValue min _variableCap;                    
-                };
-            case (_variableCap < 0 ):
-                {
-                  _newValue=_newValue max _variableCap;                    
-                };            
-            }; 
-        };
+        _newValue=_newValue min _variableMax;                    
+        _newValue=_newValue max _variableMin;                    
+        
         
         _variables = _variables + [_classname];
         _object setVariable[_variableName,_newValue,_isGlobal];
         
         if(_debug)then{
           private["_text"];
-          _text=format["Loaded %1 with value of %2\nVarible Name: %3\n(%4/%5)",_classname,_newValue,_variableName,_defaultValue,_variableCap];
+          _text=format["Loaded %1 with value of %2\nVarible Name: %3\n(%4/%5-%6)",_classname,_newValue,_variableName,_defaultValue,_variableMin,_variableMax];
           diag_log _text;
           cutText[_text,"PLAIN DOWN"];  
         };    
         
     //End
-    } else {        
-    
+    } else {
         if(_debug)then{
             diag_log format["Skipping %1",_classname];
             };
