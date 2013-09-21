@@ -7,6 +7,7 @@
 //Add:
 //vartype: "array","number","text","object","raw"
 //monitor: bool
+// <array of classnames> = [_object] call DZU_fnc_loadVaribles;
 
 private ["_object","_variables","_config","_classname","_isGlobal","_defaultValue","_variableName","_variableMax","_variableMin","_newValue","_debug","_classtree"];
 _debug=false;
@@ -30,8 +31,7 @@ for "_i" from 0 to ((count _config) - 1) do {
         _variableName   = getText(_config >> _classname >> "varname");
         _variableMax    = getNumber(_config >> _classname >> "varmax");
         _variableMin    = getNumber(_config >> _classname >> "varmin");
-        _newValue       = _object getVariable[_variableName, _defaultValue];
-        
+        _newValue       = _object getVariable[_variableName, _defaultValue];        
         _newValue=_newValue min _variableMax;                    
         _newValue=_newValue max _variableMin;                    
         
