@@ -130,6 +130,9 @@ class CfgVehicleClasses {
     class distraction {
         displayName = "Distraction";
     };
+    class Survival {
+        displayName = "Survival";
+    };
 };
 
 class CfgActions {

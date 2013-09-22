@@ -1285,7 +1285,7 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={11341.731,11.745319,18454.434};
+			position[]={-13000.0,0.0,0.0};//11341.731,11.745319,18454.434
 			name="respawn_west";
 			type="Empty";
 		};
