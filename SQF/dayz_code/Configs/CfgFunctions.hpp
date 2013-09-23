@@ -21,6 +21,14 @@ class cfgFunctions
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
         };
+        class Rpg
+        {
+          file = "\z\addons\dayz_code\functions\rpg";
+          class getEXP
+          {
+              description = "Return the amount of experience the player should receive for the given activity.";
+          };
+        };
         class Diag
         {
             file = "\z\addons\dayz_code\functions\diag";
