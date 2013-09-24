@@ -2,7 +2,7 @@ private ["_object","_variables","_config","_classname","_isGlobal","_defaultValu
 _variables = [];
 
 if((count _this)<1) exitWith{diag_log "error: dzu_fnc_LoadVars requires at least an object";_variables};
-if (({isNil "_x"} count _this) != 0) exitWith {debugLog "error: dzu_fnc_LoadVars all parameters must be defined values!"; _variables};
+if (({isNil "_x"} count _this) != 0) exitWith {diag_log "error: dzu_fnc_LoadVars all parameters must be defined values!"; _variables};
 _object = (_this select 0);
 
 _config = configFile >> "CfgPlayerVariables";

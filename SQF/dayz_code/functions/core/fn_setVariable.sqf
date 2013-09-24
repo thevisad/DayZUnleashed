@@ -3,21 +3,20 @@ private ["_object","_value","_config","_classname","_defaultValue","_variableNam
 _return=0;
 
 if((count _this)<2) exitWith{diag_log "error: dzu_fnc_setVariable requires at least an object"; _return};
-if (({isNil "_x"} count _this) != 0) exitWith {debugLog "error: dzu_fnc_setVariable all parameters must be defined values!"; _return};
+if (({isNil "_x"} count _this) != 0) exitWith {diag_log "error: dzu_fnc_setVariable all parameters must be defined values!"; _return};
 
 _object = (_this select 0);
 _classname = (_this select 1);
 _variableChange = (_this select 2);
 
-if ((typeName _classname) != (typeName ""))exitWith{debugLog format["ERROR(%1): Expected string received: %2","dzu_fnc_getVariable",(typeName _classname)]; _return};
-if ((typeName _variableChange) != (typeName 1))exitWith{debugLog format["ERROR(%1): Expected number received: %2","dzu_fnc_getVariable",(typeName _classname)]; _return};
+if ((typeName _classname) != (typeName ""))exitWith{diag_log format["ERROR(%1): Expected string received: %2","dzu_fnc_getVariable",(typeName _classname)]; _return};
+if ((typeName _variableChange) != (typeName 1))exitWith{diag_log format["ERROR(%1): Expected number received: %2","dzu_fnc_getVariable",(typeName _classname)]; _return};
 if (_variableChange==0)exitWith{_return};
 //if((count _this)>3)then{_debug=_this select 3;};
 
     _config = configFile >> "CfgPlayerVariables";
-    _classname = "var" + _classname;
 
-if (!isClass(_config >> _classname)||(getNumber(_config >> _classname >> "load")!=1)) exitWith{debugLog format["ERROR(%1): '%2' is NOT a valid variable.","dzu_fnc_getVariable",_classname]; _return};
+if (!isClass(_config >> _classname)||(getNumber(_config >> _classname >> "load")!=1)) exitWith{diag_log format["ERROR(%1): '%2' is NOT a valid variable.","dzu_fnc_getVariable",_classname]; _return};
 
 _variableName   =      getText(_config >> _classname >> "varname");
 _isGlobal       =  if(getNumber(_config >> _classname >> "global")==1)then{true}else{false};
