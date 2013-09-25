@@ -24,9 +24,17 @@ class cfgFunctions
         class Rpg
         {
           file = "\z\addons\dayz_code\functions\rpg";
-          class getEXP
+          class getLevel
+          {
+                description = "Return the players current level.";
+          };
+          class giveEXP
           {
               description = "Return the amount of experience the player should receive for the given activity.";
+          };
+          class levelUp
+          {
+                description = "Attempt to level up a skill line up to a specific point.";
           };
         };
         class Diag
