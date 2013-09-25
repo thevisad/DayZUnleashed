@@ -47,12 +47,8 @@ if (isServer) then {
 //Client only
 if (!isDedicated) then {
 	"dayzSetDate"		addPublicVariableEventHandler {setDate (_this select 1)};
-	//"dayzFlies"			addPublicVariableEventHandler {(_this select 1) call spawn_flies};
 	"PVDZ_obj_RoadFlare"		addPublicVariableEventHandler {(_this select 1) spawn object_roadFlare};
-	"PVDZ_drg_RaDrag"   	addPublicVariableEventHandler {[_this select 1] execVM "\z\addons\dayz_code\medical\publicEH\animDrag.sqf"};
-	//"norrnRnoAnim"  	addPublicVariableEventHandler {[_this select 1] execVM "\z\addons\dayz_code\medical\publicEH\noAnim.sqf"};
-	//"changeCharacter"	addPublicVariableEventHandler {(_this select 1) call player_serverModelChange};
-	//"dayzSwitch"		addPublicVariableEventHandler {(_this select 1) call server_switchPlayer};
+	"PVDZ_drg_RaDrag"   	addPublicVariableEventHandler {(_this select 1) execVM "\z\addons\dayz_code\medical\publicEH\animDrag.sqf"};
 	"PVDZ_obj_Fire"			addPublicVariableEventHandler {nul=(_this select 1) spawn BIS_Effects_Burn};
     "dzuSwapPilot" addPublicVariableEventHandler {_id = (_this select 1) spawn fnc_dzuSwapPilot}; 
 };

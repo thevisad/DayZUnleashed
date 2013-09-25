@@ -67,7 +67,6 @@ if (!isDedicated) then {
 	zombie_findTargetAgent = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\zombie_findTargetAgent.sqf";
 	zombie_loiter = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\zombie_loiter.sqf";			//Server compile, used for loiter behaviour
 	zombie_generate = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\zombie_generate.sqf";			//Server compile, used for loiter behaviour
-	//swarm_generate = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\swarm_generate.sqf";			//Server compile, used for Swarms behaviour
 
 	//
 	dog_findTargetAgent = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\dog_findTargetAgent.sqf";
@@ -259,27 +258,7 @@ if (!isDedicated) then {
 		_cantSee
 	};
 
-// 	eh_zombieInit = {
-// 		private["_unit","_pos"];
-// 		//_unit = _this select 0;
-// 		//_pos = getPosATL _unit;
-// 		//_id = [_pos,_unit] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";
-// 	};
 
-// 	dayz_equipCheck = {
-// 		private ["_empty", "_needed","_diff","_success"];
-// 		_config = _this;
-// 		_empty = [player] call BIS_fnc_invSlotsEmpty;
-// 		_needed = [_config] call BIS_fnc_invSlotType;
-// 		_diff = [_empty,_needed] call BIS_fnc_vectorDiff;
-//
-// 		_success = true;
-// 		{
-// 			if (_x > 0) then {_success = false};
-// 		} forEach _diff;
-// 		hint format["Config: %5\nEmpty: %1\nNeeded: %2\nDiff: %3\nSuccess: %4",_empty,_needed,_diff,_success,_config];
-// 		_success
-// 	};
 
 	dayz_spaceInterrupt = {
 		private ["_dikCode", "_handled","_displayg"];
@@ -459,13 +438,6 @@ if (!isDedicated) then {
 		_control ctrlCommit 0;
 	};
 
-// 	dayz_eyeDir = {
-// 		private["_vval","_vdir"];
-// 		_vval = (eyeDirection _this);
-// 		_vdir = (_vval select 0) atan2 (_vval select 1);
-// 		if (_vdir < 0) then {_vdir = 360 + _vdir};
-// 		_vdir
-// 	};
 
 	dayz_lowHumanity = {
 		private["_unit","_humanity","_delay"];

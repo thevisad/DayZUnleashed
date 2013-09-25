@@ -76,7 +76,7 @@ fa_spawninventory = {
 	_config = configFile >> "CfgBuildingLoot" >> "HeliCrash";
 	// append parts to loot item
 	_itemType =	(getArray (_config >> "itemType"));
-	{ _itemType set [count _itemType, [_x,"object"]] } forEach _partType;;
+	{ _itemType set [count _itemType, [_x,"object"]] } forEach _partType;
 	_itemChance = getArray (_config >> "itemChance");
 	//diag_log (format["FACO _itemType:%1  _itemChance:%2", _itemType, _itemChance]);
 	// _partWeight : sum of weights of parts list

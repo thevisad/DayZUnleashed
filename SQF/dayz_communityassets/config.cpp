@@ -4,5 +4,6 @@ class CfgPatches {
 		weapons[] = {};
 		requiredVersion = 0.1;
 		requiredAddons[] = {"dayz_code"};
+		unleashedVersion = 1.8;
 	};
 };

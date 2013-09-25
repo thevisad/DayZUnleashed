@@ -71,6 +71,11 @@ if (_characterID != "0") then {
 			if (count _lastPos > 2 and count _charPos > 2) then {
 				if (!_isInVehicle) then {
 					_distanceFoot = round(_charPos distance _lastPos);
+					if ( _distanceFoot > 2000 ) then 
+					{
+					_distanceFoot = 0;
+					};
+					//diag_log ("debug _distanceFoot = " + str(_distanceFoot));
 				};
 				_character setVariable["lastPos",_charPos];
 			};
