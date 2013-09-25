@@ -135,17 +135,7 @@ if (isOnRoad _pos) then {
 	_scaleMvmt = _scaleMvmt + 0.2;
 	//dayz_surfaceNoise = dayz_surfaceNoise + 10;
 };
-/*
-if (_speed > 5) then {
-	_speed = _speed * 1;
-} else {
-	if (_speed > 3) then {
-		_speed = _speed * 0.7;
-	} else {
-		_speed = _speed * 0.3;
-	};
-};
-*/
+
 
 //Are they inside a building
 _building = nearestObject [getPos (vehicle player), "Building"];
@@ -175,4 +165,4 @@ DAYZ_disVisual = (round((_initial + (_speed * 3)) * _scalePose * _scaleLight)) *
 
 dayz_aggro_move_decay = _aggro_mv_mod_decay_rate max 0;
 dayz_aggro_move_rate = _aggro_mv_mod_rate min _aggro_mv_mod_rate_cap;
-dayz_aggro_move_min = _aggro_mv_mod max 0;
+dayz_aggro_move_min = (_aggro_mv_mod + _audial) max 0;

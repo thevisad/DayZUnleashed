@@ -129,6 +129,9 @@ class CfgVehicles {
 	// Buildables
 	#include "CfgVehicles\DZE\BuiltItems.hpp"
 	#include "CfgVehicles\DZE\MoreBuiltItems.hpp"
+    
+    //Misc
+    #include "CfgVehicles\Misc.hpp"
 	
 	
 	// Player zombies
