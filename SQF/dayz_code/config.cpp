@@ -37,6 +37,10 @@
 #include "Configs\CfgAmmo.hpp"
 #include "Configs\CfgObjectCompositions.hpp"
 #include "Configs\CfgTownGenerator\CfgTownGeneratorUnleashed.hpp"
+#include "Configs\CfgRPG.hpp"
+//HNGSpeedBoost
+#include "Configs\CfgPlayerVariables.hpp"
+#include "Configs\CfgFunctions.hpp"
 
 class CfgPatches {
 	class dayz_code {
@@ -125,6 +129,9 @@ class CfgVehicleClasses {
     };
     class distraction {
         displayName = "Distraction";
+    };
+    class Survival {
+        displayName = "Survival";
     };
 };
 
