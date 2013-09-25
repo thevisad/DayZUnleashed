@@ -57,17 +57,16 @@ class CfgPlayerVariables{
       varname="sstot"; 
       vartype="number";
     };
-    class Sneaking : default {
+    class Survival : default {
          load=1;
-      id=5;
-           global=1;
-      desc="Sneaking";
+           id=5;
+       global=1;
+      desc="Survival";
       varname="vSS"; 
       vartype="number";
     };
     class Experience : default {
          load=1;
-         hide=1;
            id=6;
       vardefault=0;
          desc="Experience  Points";
@@ -75,11 +74,9 @@ class CfgPlayerVariables{
       vartype="number";
       varmin=0;   
       varmax=1000;
-      limit=50;
     };
     class Dogtags : default {
-               load=1;
-               hide=1;   
+               load=1;   
               limit=1;
                  id=7;
          vardefault=0;

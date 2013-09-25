@@ -14,7 +14,7 @@ class CfgRPG {
        class Experiences {           
            class Experience {
                levelCurve=5;       //Every one of these skill points will lower our exp gain by 1,including ones we haven't spent.
-               skillPoints=100;    //Every one of these we get 1 skill point.    
+               skillPoints=100;    //Cost to level up skills.    
                displayName="Experience Points";
                descriptionShort="These are experience points, they make you level up.";               
            };
@@ -47,8 +47,8 @@ class CfgRPG {
              
          };
          
-         class Sneaking {
-             displayName="Sneaking";
+         class Survival {
+             displayName="Survival";
              descriptionShort="Become the shadow,nothing like a ninja.";
              
          }; 

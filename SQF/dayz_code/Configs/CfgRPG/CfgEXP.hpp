@@ -20,7 +20,7 @@ class CfgEXP{
     class Generic_Hunting: Generic{};
     class Generic_Medical: Generic{};
     class Generic_Combat: Generic{};
-    class Generic_Sneaking: Generic{};
+    class Generic_Survival: Generic{};
 
     class Build: Generic_Engineering{};
     class Repair: Generic_Engineering{};
@@ -30,7 +30,6 @@ class CfgEXP{
     class Cook: Generic_Hunting{};
     class Gut: Generic_Hunting{};
     class ChopWood: Generic_Hunting{};
-    class Sneak: Generic_Hunting{};
     class Trap: Generic_Hunting{};
         
     class Blood_Self: Generic_Medical{};
