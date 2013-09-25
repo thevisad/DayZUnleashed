@@ -9,9 +9,9 @@ Skill Variables  ("CfgRPG" >> "CfgConfig" >> "Skills")
 
 
 class CfgRPG {
-    
-   class CfgConfig {   
-       class Experiences {           
+        
+   class CfgConfig {
+       class Experiences {
            class Experience {
                levelCurve=5;       //Every one of these skill points will lower our exp gain by 1,including ones we haven't spent.
                skillPoints=100;    //Cost to level up skills.    
@@ -25,7 +25,7 @@ class CfgRPG {
            
          class Engineer {
              displayName="Engineering";
-             descriptionShort="This is your ability to figure out mechanical things";
+             descriptionShort="This is your ability to figure out mechanical things.";
                           
          };
          
@@ -49,7 +49,7 @@ class CfgRPG {
          
          class Survival {
              displayName="Survival";
-             descriptionShort="Become the shadow,nothing like a ninja.";
+             descriptionShort="Some times its better to run and hide.";
              
          }; 
           
