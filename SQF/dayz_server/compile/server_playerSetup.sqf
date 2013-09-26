@@ -229,6 +229,9 @@ if (_randomSpot) then {
 // get variables from character
 _key_variables = format["CHILD:151:%1:",_characterID];
 _variablesdata = _key_variables call server_hiveReadWrite;
+
+_saved_variables = ["NONE"];
+
 _engineer_skill_total = 1;
 _hunter_skill_total = 1;
 _medic_skill_total = 1;
@@ -237,28 +240,9 @@ _soldier_skill_total = 1;
 //diag_log("USPSETUP: Variables from Hive: " + str(_variablesdata));
 //diag_log("USPSETUP: Hive Variables Count: " + str(count _variablesdata));
 
-
-
 if ((_variablesdata select 0) == "PASS") then {
-	_variables = _variablesdata select 1;
-	_engineer_skill_total = _variables select 0;
-	_hunter_skill_total = _variables select 1;
-	_medic_skill_total = _variables select 2;
-	_soldier_skill_total = _variables select 3;
-
-	_playerObj setVariable["estot", _engineer_skill_total, true];
-	_playerObj setVariable["hstot", _hunter_skill_total, true];
-	_playerObj setVariable["mstot", _medic_skill_total, true];
-	_playerObj setVariable["sstot", _soldier_skill_total, true];
+    _saved_variables = ["LOAD"] + (_variablesdata select 1);
 	//diag_log("USPSETUP: Set variables from hive.");
-} 
-	else 
-{
-	_playerObj setVariable["estot", _engineer_skill_total, true];
-	_playerObj setVariable["hstot", _hunter_skill_total, true];
-	_playerObj setVariable["mstot", _medic_skill_total, true];
-	_playerObj setVariable["sstot", _soldier_skill_total, true];
-	//diag_log("USPSETUP: Set default variables.");
 };
 
 //diag_log("USPSETUP: Engineer Skills from Hive: " + str(_engineer_skill_total));
@@ -277,7 +261,7 @@ _playerObj setVariable["humanity_CHK",_humanity];
 //_playerObj setVariable["state",_state,true];
 _playerObj setVariable["lastPos",getPosATL _playerObj];
 
-dayzPlayerLogin2 = [_worldspace,_state];
+dayzPlayerLogin2 = [_worldspace,_state,_saved_variables];
 _clientID = owner _playerObj;
 _clientID publicVariableClient "dayzPlayerLogin2";
 
