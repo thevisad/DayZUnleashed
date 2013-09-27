@@ -28,39 +28,34 @@ class CfgPlayerVariables{
     class Engineer : default {
          load=1;
            id=1;
-           global=1;
          desc="Engineering";
-      varname="estot"; 
+      varname="vEN"; 
       vartype="number";
     };    
     class Hunting : default {
          load=1;        
            id=2;
-           global=1;
          desc="Hunting";
-      varname="hstot"; 
+      varname="vHN"; 
       vartype="number";
     };
     class Medical : default {
          load=1;
            id=3;
-           global=1;
          desc="Medical Knowledge";
-      varname="mstot";  
+      varname="vMK";  
       vartype="number"; 
     };
     class Combat : default {
          load=1;
            id=4;
-           global=1;
          desc="Combat Training";
-      varname="sstot"; 
+      varname="vCT"; 
       vartype="number";
     };
     class Survival : default {
          load=1;
            id=5;
-       global=1;
       desc="Survival";
       varname="vSS"; 
       vartype="number";

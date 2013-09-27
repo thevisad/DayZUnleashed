@@ -232,24 +232,22 @@ _variablesdata = _key_variables call server_hiveReadWrite;
 
 _saved_variables = ["NONE"];
 
-_engineer_skill_total = 1;
-_hunter_skill_total = 1;
-_medic_skill_total = 1;
-_soldier_skill_total = 1;
-
 //diag_log("USPSETUP: Variables from Hive: " + str(_variablesdata));
 //diag_log("USPSETUP: Hive Variables Count: " + str(count _variablesdata));
 
 if ((_variablesdata select 0) == "PASS") then {
-    _saved_variables = ["LOAD"] + (_variablesdata select 1);
+     + (_variablesdata select 1);
+    diag_log("USPSETUP: Set variables from hive." + str(_saved_variables));
+};
+
+if ((_variablesdata select 0) == "PASS") then {
+	_variables = _variablesdata select 1;
+    _saved_variables = ["LOAD"] + [["Engineer","Hunting","Medical","Combat","Survival","Experience","Dogtags"],
+    [(_variables select 0),(_variables select 1),(_variables select 2),(_variables select 3),(_variables select 4),(_variables select 5),(_variables select 6)]];
+
 	//diag_log("USPSETUP: Set variables from hive.");
 };
 
-//diag_log("USPSETUP: Engineer Skills from Hive: " + str(_engineer_skill_total));
-//diag_log("USPSETUP: Hunter Skills from Hive: " + str(_hunter_skill_total));
-//diag_log("USPSETUP: Medic Skills from Hive: " + str(_medic_skill_total));
-//diag_log("USPSETUP: Soldier Skills from Hive: " + str(_soldier_skill_total));
-	
 //Record player for management
 dayz_players set [count dayz_players,_playerObj];
 

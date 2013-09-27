@@ -20,6 +20,11 @@ class cfgFunctions
                 description = "Verifies DZU functions work.";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
+            class exportVariables
+            {
+                description = "Export the variables as an array for resetting.";
+                //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
+            };
         };
         class Rpg
         {
