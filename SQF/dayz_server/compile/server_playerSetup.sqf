@@ -236,14 +236,12 @@ _saved_variables = ["NONE"];
 //diag_log("USPSETUP: Hive Variables Count: " + str(count _variablesdata));
 
 if ((_variablesdata select 0) == "PASS") then {
-     + (_variablesdata select 1);
-    diag_log("USPSETUP: Set variables from hive." + str(_saved_variables));
-};
-
-if ((_variablesdata select 0) == "PASS") then {
 	_variables = _variablesdata select 1;
-    _saved_variables = ["LOAD"] + [["Engineer","Hunting","Medical","Combat","Survival","Experience","Dogtags"],
-    [(_variables select 0),(_variables select 1),(_variables select 2),(_variables select 3),(_variables select 4),(_variables select 5),(_variables select 6)]];
+    diag_log("USPSETUP: Set variables from hive." + str(_saved_variables));
+    if(count _variables >= 7) then {
+        _saved_variables = ["LOAD"] + [["Engineer","Hunting","Medical","Combat","Survival","Experience","Dogtags"],
+        [(_variables select 0),(_variables select 1),(_variables select 2),(_variables select 3),(_variables select 4),(_variables select 5),(_variables select 6)]];
+    };
 
 	//diag_log("USPSETUP: Set variables from hive.");
 };

@@ -155,8 +155,8 @@ link78[] = {68,69};
 link79[] = {69,70};
 link80[] = {70,20};
 link81[] = {71,68};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-959.043457,709.203430,1211.051514,48.526768,881,771,1};
-window[] = {2,-1,-1,-1,-1,1004,125,2079,125,3,899};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-483.982788,234.142700,1092.734009,464.272247,881,771,1};
+window[] = {2,-1,-1,-1,-1,1054,175,2129,175,3,899};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -641,7 +641,7 @@ class FSM
        "dayz_playerName = name player;" \n
        "_model call player_switchModel;" \n
        "" \n
-       "_initRPGSkills = [] call DZU_fnc_initRPG;" \n
+       "call DZU_fnc_initRPG;" \n
        "" \n
        "player allowDamage false;" \n
        "_lastAte = _survival select 1;" \n
@@ -866,6 +866,7 @@ class FSM
        "" \n
        "if((_playerVariables select 0) == ""LOAD"") then {" \n
        "    _loadVariableArgs = [player,(_playerVariables select 1)];" \n
+       "    diag_log format[""Saved Skills %1"",_loadVariableArgs];" \n
        "};" \n
        "_skillCount = _loadVariableArgs call DZU_fnc_loadVariables;" \n
        "" \n
