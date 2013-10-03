@@ -48,7 +48,8 @@ if ((count _worldspace) == 2) then {
 	_fire spawn player_fireMonitor;
 
 	cutText [localize "str_fireplace_01", "PLAIN DOWN"];
-	[player,1,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+	//[player,1,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+    [player,"Generic_Hunting"] call DZU_fnc_giveEXP;
 } else {
 	cutText [localize "str_fireplace_02", "PLAIN DOWN"];
 };

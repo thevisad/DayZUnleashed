@@ -161,7 +161,8 @@ if (dayz_combat == 1) then { // Check if in combat
 		};
 		
 		if (_variablesBool) then {
-			[player,_variablesAmount,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+			//[player,_variablesAmount,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+            [player,"Generic_Medical"] call DZU_fnc_giveEXP;
 		};
 		
 	} else {

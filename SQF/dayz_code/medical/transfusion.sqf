@@ -46,8 +46,9 @@ if (medic_skill_total < 199 ) then {
 	_medicTime = 12;
 };
 
-[player,25,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
-	
+//[player,25,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+[player,"Generic_Medical"] call DZU_fnc_giveEXP;
+    	
 while {r_doLoop and (_i < _medicTime)} do {
 	_animState = animationState player;
 	_isMedic = ["medic",_animState] call fnc_inString;

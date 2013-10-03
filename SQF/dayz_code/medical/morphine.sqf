@@ -111,7 +111,8 @@ if (_finished) then {
 				nonapsi_ef ppEffectEnable false;
 
 		}] call RE;
-		[player,1,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+		//[player,1,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+        [player,"Generic_Medical"] call DZU_fnc_giveEXP;        
 } else {
 	player addMagazine "ItemMorphine";
 	r_interrupt = false;
