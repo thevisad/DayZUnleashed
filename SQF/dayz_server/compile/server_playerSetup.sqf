@@ -226,25 +226,45 @@ if (_randomSpot) then {
 	_worldspace = [0,_position];
 };
 
-// get variables from character
-_key_variables = format["CHILD:151:%1:",_characterID];
+//---------------------------------------------------------//
+//      Check for player variables saved on the server     //
+//---------------------------------------------------------//
+    diag_log("USPSETUP: Checking for saved variables");
+private["_saved_variables","_saved_variable_keys","_saved_variable_values"];
+_saved_variables=[];
+_saved_variable_keys=[];
+_saved_variable_values=[];    
+
+_key_variables = format["CHILD:153:%1:",_characterID];
 _variablesdata = _key_variables call server_hiveReadWrite;
 
-_saved_variables = ["NONE"];
-
-//diag_log("USPSETUP: Variables from Hive: " + str(_variablesdata));
-//diag_log("USPSETUP: Hive Variables Count: " + str(count _variablesdata));
-
 if ((_variablesdata select 0) == "PASS") then {
-	_variables = _variablesdata select 1;
-    diag_log("USPSETUP: Set variables from hive." + str(_saved_variables));
-    if(count _variables >= 7) then {
-        _saved_variables = ["LOAD"] + [["Engineer","Hunting","Medical","Combat","Survival","Experience","Dogtags"],
-        [(_variables select 0),(_variables select 1),(_variables select 2),(_variables select 3),(_variables select 4),(_variables select 5),(_variables select 6)]];
-    };
+    _variables_list = _variablesdata select 1;
+    diag_log format["USPSETUP: Found %1 for saved variables",(count _variables_list)];
+    if( (count _variables_list) > 0) then {
+        {
+            _query = format["CHILD:152:%1:%2:",_characterID,_x];
+            _variableData = _query call server_hiveReadWrite;
 
-	//diag_log("USPSETUP: Set variables from hive.");
+            if((_variableData select 0) == "PASS") then {
+                _saved_value = _variableData select 1;
+                _saved_variable_values set [count _saved_variable_keys,_saved_value];
+                _saved_variable_keys   set [count _saved_variable_keys,_x];
+                diag_log format["USPSETUP: Received '%1' with value of '%2', %3/%4 total.",_x,_saved_value,(count _saved_variable_keys),(count _saved_variable_values)];
+            };
+        } forEach _variables_list;
+        
+        _kcount = count _saved_variable_keys;
+        _vcount = count _saved_variable_values;
+        if ((_kcount > 0) && (_kcount == _vcount) ) then {
+        _saved_variables = [_saved_variable_keys,_saved_variable_values];
+        };        
+    };
 };
+
+//---------------------------------------------------------//
+//      Check for player variables saved on the server     //
+//---------------------------------------------------------//
 
 //Record player for management
 dayz_players set [count dayz_players,_playerObj];
