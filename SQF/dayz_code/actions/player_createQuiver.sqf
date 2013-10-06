@@ -14,4 +14,5 @@ for "_x" from 1 to _qty_quiverarrows do {
 };
 player addMagazine ["Quiver",_qty_quiverarrows];
 cutText [format["You have create a quiver containing %1 arrows.",_qty_quiverarrows], "PLAIN DOWN"];
-[player,1,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+//[player,1,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+[player,"Generic_Hunting"] call DZU_fnc_giveEXP;

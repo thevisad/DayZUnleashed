@@ -55,6 +55,7 @@ if ((_hasKnife or _hasKnifeBlunt) and !_hasHarvested) then {
 
 	sleep 6;
 	_string = format[localize "str_success_gutted_animal",_text,_qty];
-	[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+	//[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+    [player,"Generic_Hunting"] call DZU_fnc_giveEXP;
 	cutText [_string, "PLAIN DOWN"];
 };

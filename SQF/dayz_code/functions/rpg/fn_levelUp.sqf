@@ -2,7 +2,7 @@ private["_object","_targetSkill","_skillIncrease","_current_experience","_calc_S
 _object = (_this select 0);
 _targetSkill = (_this select 1);
 _skillIncrease = (_this select 2);
-if( !(_targetSkill in ["Engineer","Hunting","Medical","Combat","Survival"]) )exitWith{0};
+if( !(_targetSkill in DZU_rpg_skillsList) )exitWith{0};
 
 _current_experience = [_object,"Experience"] call DZU_fnc_getVariable;
 _calc_SkillPoints = getNumber (configFile >> "CfgRPG" >> "CfgConfig" >> "Experiences" >> "Experience" >> "skillPoints");

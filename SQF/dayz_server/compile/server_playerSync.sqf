@@ -213,7 +213,7 @@ if (_characterID != "0") then {
 			[_x, "gear"] call server_updateObject;
 		} forEach nearestObjects [_pos, ["Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "StashSmall","StashMedium"], 10];
 		//[_charPos] call server_updateNearbyObjects;
-
+/*
 		_variablessetup = [];
 		_engineer_skill_total=1;
 		_hunter_skill_total=1;
@@ -265,7 +265,7 @@ if (_characterID != "0") then {
 			_key_variables_publish = format["CHILD:152:%1:%2:",_characterID,_variablessetup];
 			_variablespublish = _key_variables_publish call server_hiveReadWrite;
 		}; 
-		
+*/
 		//Reset timer
 		if (_timeSince > 0) then {
 			_character setVariable ["lastTime",(time - _timeLeft)];

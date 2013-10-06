@@ -114,7 +114,8 @@ while {_isOk} do {
 				};
 			};
 		};
-		[player,25,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+		//[player,25,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+        [player,"Generic_Engineering"] call DZU_fnc_giveEXP;
 	};
 	if(_brokenTool) exitWith {
 		_isOk = false;
