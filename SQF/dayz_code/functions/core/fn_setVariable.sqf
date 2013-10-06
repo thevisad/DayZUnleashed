@@ -44,6 +44,11 @@ _newValue=_newValue max _variableMin;
 
 if(_newValue != _currentValue)then{
 _object setVariable[_variableName,_newValue,_isGlobal];
+    PVDZ_plr_VarSave = [player,_variableName,_newValue];
+    publicVariableServer "PVDZ_plr_VarSave";
+    if (isServer) then {
+        PVDZ_plr_VarSave call server_playerVariableChange;
+    };
 _return=if(abs _newValue > abs _currentValue)then{abs _newValue - abs _currentValue}else{abs _currentValue - abs _newValue};
 };
 
