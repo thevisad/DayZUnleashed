@@ -20,7 +20,7 @@
 //"dayzDelLocal"		addPublicVariableEventHandler {(_this select 1) call object_delLocal};
 //"dayzVehicleInit"	addPublicVariableEventHandler {(_this select 1) call fnc_vehicleEventHandler};
 "PVDZ_plr_Humanity"		addPublicVariableEventHandler {(_this select 1) spawn player_humanityChange};
-"PVDZ_plr_Variables"		addPublicVariableEventHandler {(_this select 1) spawn player_variableChange};
+//"PVDZ_plr_Variables"      addPublicVariableEventHandler {(_this select 1) spawn player_variableChange};
 //"dayz_serverObjectMonitor"		addPublicVariableEventHandler {dayz_serverObjectMonitor = dayz_safety};
 "dayzInfectedCamps"		addPublicVariableEventHandler {(_this select 1) spawn infectedcamps};
 
@@ -38,6 +38,7 @@ if (isServer) then {
 	"PVDZ_veh_Save" addPublicVariableEventHandler {(_this select 1) call server_updateObject};
 	"PVDZ_plr_Login1"			addPublicVariableEventHandler {_id = (_this select 1) call server_playerLogin};
 	"PVDZ_plr_Login2"		addPublicVariableEventHandler {(_this select 1) call server_playerSetup};
+    "PVDZ_plr_VarSave"      addPublicVariableEventHandler {(_this select 1) spawn server_playerVariableChange};
 	//"dayzPlayerMorph"	addPublicVariableEventHandler {(_this select 1) call server_playerMorph};
 	//"dayzUpdate"		addPublicVariableEventHandler {_id = (_this select 1) spawn dayz_processUpdate};
 	"PVDZ_plr_LoginRecord"	addPublicVariableEventHandler {_id = (_this select 1) spawn dayz_recordLogin};

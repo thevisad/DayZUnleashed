@@ -56,7 +56,8 @@ if ((count _worldspace) == 2) then {
 	publicVariableServer "PVDZ_bld_Publish";
 
 	cutText [localize "str_success_tent_pitch", "PLAIN DOWN"];
-	[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+	//[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+    [player,"Generic_Hunting"] call DZU_fnc_giveEXP;
 	sleep 1;
 	r_action_count = 0;
 } else {

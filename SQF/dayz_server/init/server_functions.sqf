@@ -7,24 +7,25 @@ BIS_MPF_remoteExecutionServer = {
 	};
 };
 
-BIS_Effects_Burn =			{};
-server_playerLogin =		compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerLogin.sqf";
-server_playerSetup =		compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSetup.sqf";
-server_onPlayerDisconnect = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_onPlayerDisconnect.sqf";
-server_updateObject =		compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_updateObject.sqf";
-server_playerDied =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDied.sqf";
-server_publishObj = 		compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishObject.sqf";	//Creates the object in DB
-server_publishBld = 		compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishBuilding.sqf";	//Creates the building in DB
-server_deleteObj =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_deleteObj.sqf"; 	//Removes the object from the DB
-server_playerSync =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSync.sqf";
-zombie_findOwner =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\zombie_findOwner.sqf";
+BIS_Effects_Burn =			    {};
+server_playerLogin =		    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerLogin.sqf";
+server_playerSetup =		    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSetup.sqf";
+server_onPlayerDisconnect =     compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_onPlayerDisconnect.sqf";
+server_updateObject =           compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_updateObject.sqf";
+server_playerDied =             compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDied.sqf";
+server_publishObj =             compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishObject.sqf";	//Creates the object in DB
+server_publishBld = 	        compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishBuilding.sqf";	//Creates the building in DB
+server_deleteObj =			    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_deleteObj.sqf"; 	//Removes the object from the DB
+server_playerSync =		    	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSync.sqf";
+zombie_findOwner =			    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\zombie_findOwner.sqf";
 server_updateNearbyObjects =	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_updateNearbyObjects.sqf";
-server_spawnCrashSite  =    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnCrashSite.sqf";
-fnc_plyrHit   = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
-spawn_carePackages = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_carePkgs.sqf";
-spawnComposition = compile preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectMapper.sqf"; //"\z\addons\dayz_code\compile\object_mapper.sqf";
-fn_bases = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fn_bases.sqf";
-
+server_spawnCrashSite  =        compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnCrashSite.sqf";
+fnc_plyrHit   =                 compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
+spawn_carePackages =            compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_carePkgs.sqf";
+spawnComposition =              compile preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectMapper.sqf"; //"\z\addons\dayz_code\compile\object_mapper.sqf";
+fn_bases =                      compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fn_bases.sqf";
+server_playerVariableChange =   compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerVariableChange.sqf";
+ 
 // vehicle_handleInteract = {
 // 	private["_object"];
 // 	_object = _this select 0;

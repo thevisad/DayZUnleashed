@@ -20,10 +20,19 @@ class cfgFunctions
                 description = "Verifies DZU functions work.";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
+            class exportVariables
+            {
+                description = "Export the variables as an array for resetting.";
+                //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
+            };
         };
         class Rpg
         {
           file = "\z\addons\dayz_code\functions\rpg";
+          class initRPG
+          {
+                description = "Initilize RPG System.";
+          };
           class getLevel
           {
                 description = "Return the players current level.";
@@ -35,6 +44,10 @@ class cfgFunctions
           class levelUp
           {
                 description = "Attempt to level up a skill line up to a specific point.";
+          };
+          class getSkills
+          {
+                description = "Return an array of variables used by the RPG System.";
           };
         };
         class Diag
