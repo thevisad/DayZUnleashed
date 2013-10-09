@@ -23,23 +23,23 @@ class CfgRPG {
        class Skills {
          class Engineer {
              displayName="Engineering";
-             descriptionShort="This is your ability to figure out mechanical things.";
+             descriptionShort="Engineering helps with all things technical.";
          };
          class Hunting {
              displayName="Hunting";
-             descriptionShort="The skills of a mountain man, the kind that keep you alive.";
+             descriptionShort="Huntering helps you adapt to the wilderness";
          };
          class Medical {
-             displayName="Medical";
-             descriptionShort="You might grow up to be a doctor one day.";
+             displayName="Medical Expertise";
+             descriptionShort="Medical Expertise helps you prevent diseases and cure existing ones.";
          };
          class Combat {
-             displayName="Combat";
-             descriptionShort="The more you know the more dangerous you become.";
+             displayName="Combat Training";
+             descriptionShort="Combat Training helps you become more deadly in combat.";
          };
          class Survival {
-             displayName="Survival";
-             descriptionShort="Some times its better to run and hide.";
+             displayName="Survivalism";
+             descriptionShort="Survivalism helps keep you alive, but does not offer any benefits by itself.";
          }; 
        };
        
