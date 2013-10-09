@@ -1,13 +1,15 @@
 class CfgEXP{
     class Default {
+        Name="";
         Description="";
         Image="";
-        Message="";
+        Message="You were awarded %1 %2 experience.";
         Experience=1;
-        MiniumGain=0;
+        MiniumGain=1;
     };
     
     class Generic: Default{
+        Name="Generic";
         Experience=10;
     };
     
@@ -16,11 +18,21 @@ class CfgEXP{
         Experience=5;
     };
     
-    class Generic_Engineering: Generic{};
-    class Generic_Hunting: Generic{};
-    class Generic_Medical: Generic{};
-    class Generic_Combat: Generic{};
-    class Generic_Survival: Generic{};
+    class Generic_Engineering: Generic{
+        Name="Engineering";
+        };
+    class Generic_Hunting: Generic{
+        Name="Wilderness";
+        };
+    class Generic_Medical: Generic{
+        Name="Medical";
+        };
+    class Generic_Combat: Generic{
+        Name="Combat";
+        };
+    class Generic_Survival: Generic{
+        Name="Survivalist";
+        };
 
      class Build: Generic_Engineering{};
     class Repair: Generic_Engineering{};
