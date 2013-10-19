@@ -28,8 +28,8 @@ while {r_doLoop} do {
 		r_doLoop = false;
 		_finished = true;
 	};
-
-	if ((random 10 < 3) and (medic_skill_total < 600)) then {
+    _skillMedical    = [player,"Medical"] call DZU_fnc_getVariable;
+	if ((random 10 < 3) and (_skillMedical < 60)) then {
 		r_player_infected = true;
 		player setVariable["USEC_infected",true,true];
 	};

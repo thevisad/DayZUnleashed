@@ -189,27 +189,13 @@ if (_isVehicle) then {
 				// player may fall if hit...
 				_deg = [player, _unit] call BIS_fnc_relativeDirTo;
 				_lastTackle = player getVariable ["lastTackle", 0];
+                _skillCombat= [player,"Combat"] call DZU_fnc_getVariable;
 				_move = "";
 				_classTackleTime = 0;
-				if (soldier_skill_total > 800 ) then {
-					_classTackleTime = 35;
-				};
+                
+                
+                _classTackleTime = 6.72 + (0.28 * _skillCombat);
 
-				if (soldier_skill_total > 600 and soldier_skill_total < 799 ) then {
-					_classTackleTime = 28;
-				};
-
-				if (soldier_skill_total > 400 and soldier_skill_total < 599 ) then {
-					_classTackleTime = 21;
-				};
-
-				if (soldier_skill_total > 200 and soldier_skill_total < 399 ) then {
-					_classTackleTime = 14;
-				};
-				
-				if (soldier_skill_total < 199 ) then {
-					_classTackleTime = 7;
-				};
 				
 				if ((diag_tickTime - _lastTackle) > _classTackleTime) then {
 					switch true do {

@@ -26,25 +26,10 @@ _timer = diag_tickTime;
 _i = 0;
 _medicTime = 0;
 
-if (medic_skill_total > 800 ) then {
-	_medicTime = 3;
-};
+_skillMedical    = [player,"Medical"] call DZU_fnc_getVariable;
+_medicTime = 12 - ((0.09 * _skillMedical) max 9);
 
-if (medic_skill_total > 600 and medic_skill_total < 799 ) then {
-	_medicTime = 6;
-};
 
-if (medic_skill_total > 400 and medic_skill_total < 599 ) then {
-	_medicTime = 9;
-};
-
-if (medic_skill_total > 200 and medic_skill_total < 399 ) then {
-	_medicTime = 12;
-};
-
-if (medic_skill_total < 199 ) then {
-	_medicTime = 12;
-};
 
 //[player,25,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 [player,"Generic_Medical"] call DZU_fnc_giveEXP;
@@ -64,7 +49,7 @@ while {r_doLoop and (_i < _medicTime)} do {
 	if (_started) then {
 		if ((diag_tickTime - _timer) >= 1) then {
 			_timer = diag_tickTime;
-			PVDZ_hlt_Transfuse = [_unit,player,1000,medic_skill_total];
+			PVDZ_hlt_Transfuse = [_unit,player,1000,_skillMedical];
 			publicVariable "PVDZ_hlt_Transfuse";
 			[player,25] call player_humanityChange;
 			_i = _i + 1;

@@ -310,19 +310,6 @@ churchie_defusing_started = false;
 churchie_explosion_set = false;
 churchie_explosion_checked = false;
 churchie_vehicle_checked = 0;
-engineer_rank = 0;
-hunter_rank = 0;
-medic_rank = 0;
-soldier_rank = 0;
-engineer_skill_total = 0;
-hunter_skill_total = 0;
-medic_skill_total = 0;
-soldier_skill_total = 0;
-engineer_skill_current = 0;
-hunter_skill_current = 0;
-medic_skill_current = 0;
-soldier_skill_current = 0;
-
 
 //Player self-action handles
 dayz_resetSelfActions = {

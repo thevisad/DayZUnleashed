@@ -1,6 +1,9 @@
 /*
 This class contains the player varibles for unleashed, varibles are loaded from this list onto the player. 
 These varibles should only be manipulated by the DZU_fnc_XXXX functions
+                                                                         
+    _skillMedical = [player,"Medical"] call DZU_fnc_getVariable;
+                                                                        
 Config          _config = configFile >> "CfgPlayerVariables";    
 skill id       _VaribleID = getNumber(_config >> _VAR >> "id");
 default value _defvalue = getNumber(_config >> _VAR >> "def");
