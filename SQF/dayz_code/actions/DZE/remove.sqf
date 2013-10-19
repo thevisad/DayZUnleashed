@@ -108,10 +108,9 @@ while {_isOk} do {
 		_counter = _counter + 1;
 		// 10% chance to break a required tool each pass
 		if(_isDestructable or _isRemovable) then {
-			if((random 10) <= 1) then {
-				if (engineer_skill_total < 700 ) then {
+            _engineering_skill =  [player,"Engineer"] call DZU_fnc_getVariable;
+			if( (_engineering_skill < 70)&&((random 10) <= 1) ) then {
 					_brokenTool = true;
-				};
 			};
 		};
 		//[player,25,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier

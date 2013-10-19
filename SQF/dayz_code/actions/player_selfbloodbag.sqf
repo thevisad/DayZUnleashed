@@ -15,36 +15,10 @@ private ["_bloodAmount","_humanityBool","_infectionChance","_humanityNegBool","_
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Config Start-----------------------------------------------------------------------------------------------------------------------//
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-if (medic_skill_total > 800 ) then {
-	_bloodAmount = 6000; 
-	_infectionChance = 10;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
-	_bloodbagUseTime = 8; // Amount of time it takes in second for the player to use the self bloodbag
-};
-
-if (medic_skill_total > 600 and medic_skill_total < 799 ) then {
-	_bloodAmount = 5000; 
-	_infectionChance = 8;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
-	_bloodbagUseTime = 10; // Amount of time it takes in second for the player to use the self bloodbag
-};
-
-if (medic_skill_total > 400 and medic_skill_total < 599 ) then {
-	_bloodAmount = 4000; 
-	_infectionChance = 6;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
-	_bloodbagUseTime = 15; // Amount of time it takes in second for the player to use the self bloodbag
-};
-
-if (medic_skill_total > 200 and medic_skill_total < 399 ) then {
-	_bloodAmount = 3000; 
-	_infectionChance = 4;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
-	_bloodbagUseTime = 20; // Amount of time it takes in second for the player to use the self bloodbag
-};
-
-if (medic_skill_total < 199 ) then {
-	_bloodAmount = 2000; 
-	_infectionChance = 2;// Percent chance of player infection on self bloodbag (10 = 10% | 2 = 50% | 1 = 100%)
-	_bloodbagUseTime = 25; // Amount of time it takes in second for the player to use the self bloodbag
-};
+_skillMedical    = [player,"Medical"] call DZU_fnc_getVariable;
+_bloodAmount     = 1960 + ((40 * _skillMedical) min 4000);
+_infectionChance = random(101);
+_bloodbagUseTime = 25.17 - ((0.17 * _skillMedical) max 0.17);
 
 _bloodbagLastUsedTime = 60; // Amount of time in seconds before player can use self bloodbag again after a succesful use
 
@@ -127,10 +101,10 @@ if (dayz_combat == 1) then { // Check if in combat
 		};
 		
 		// check if infected
-		if (random(_infectionChance) < 1) then {
+		if (_infectionChance < _skillMedical) then {
 			r_player_infected = true; //set players client to show infection
 			player setVariable["USEC_infected",true,true]; //tell the server the player is infected
-			cutText [format["You have used a bloodbag on yourself but the bloodbag was infected!"], "PLAIN DOWN"]; //display text at bottom center of screen if infected
+			cutText [format["You have used a bloodbag on yourself, but didn't realize it was infected!"], "PLAIN DOWN"]; //display text at bottom center of screen if infected
 			
 			// check for if loosing life on infection is turned on
 			if(_infectedLifeBool) then {

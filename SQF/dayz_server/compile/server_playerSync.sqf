@@ -118,11 +118,6 @@ if (_characterID != "0") then {
 		_headShots = 	["headShots",_character] call server_getDiff;
 		_humanity = 	["humanity",_character] call server_getDiff2;
 
-		_engineer_rank =["estot",_character] call server_getDiff;
-		_hunter_rank = 	["hstot",_character] call server_getDiff;
-		_medic_rank = 	["mstot",_character] call server_getDiff;
-		_soldier_rank = ["sstot",_character] call server_getDiff;
-		
 		//_humanity = 	_character getVariable ["humanity",0];
 		_character addScore _kills;		
 		/*
@@ -212,60 +207,7 @@ if (_characterID != "0") then {
 		{
 			[_x, "gear"] call server_updateObject;
 		} forEach nearestObjects [_pos, ["Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "StashSmall","StashMedium"], 10];
-		//[_charPos] call server_updateNearbyObjects;
-/*
-		_variablessetup = [];
-		_engineer_skill_total=1;
-		_hunter_skill_total=1;
-		_medic_skill_total=1;
-		_soldier_skill_total=1;
-		_engineer_rank = _character getVariable["estot", 1];
-		_hunter_rank = _character getVariable["hstot", 1];
-		_medic_rank = _character getVariable["mstot", 1];
-		_soldier_rank = _character getVariable["sstot", 1];
-		//diag_log("USPSYNC: Character: " + str(_character));
-		//diag_log("USPSYNC: Engineer Rank: " + str(_engineer_rank));
-		//diag_log("USPSYNC: Hunter Rank: " + str(_hunter_rank));
-		//diag_log("USPSYNC: Medic Rank: " + str(_medic_rank));
-		//diag_log("USPSYNC: Soldier Rank: " + str(_soldier_rank));
-		
-		
-		// get variables from character
-		_key_variables = format["CHILD:151:%1:",_characterID];
-		_variablesdata = _key_variables call server_hiveReadWrite;
-		//["PASS",[600,321,421,121]]
-		_data = _variablesdata select 0;
-		//diag_log("USPSYNC: Variables First Value: " + str(_data));
-		//diag_log("USPSYNC: Variables Second Value: " + str(_data2));
-		//diag_log("USPSYNC: Count Variables: " + str(_count));
-		if (_data == "PASS") then {
-			_variables = _variablesdata select 1;
-			_engineer_skill_total = _variables select 0;
-			_hunter_skill_total = _variables select 1;
-			_medic_skill_total = _variables select 2;
-			_soldier_skill_total = _variables select 3;
-		};
-		
-		//diag_log("USPSYNC: Player Engineer Variable: " + str(_engineer_rank));
-		//diag_log("USPSYNC: Player Hunter Variable: " + str(_hunter_rank));
-		//diag_log("USPSYNC: Player Medic Variable: " + str(_medic_rank));
-		//diag_log("USPSYNC: Player Soldier Variable: " + str(_soldier_rank));
 
-		
-		//diag_log("USPSYNC: Engineer 151 Variable: " + str(_engineer_skill_total));
-		//diag_log("USPSYNC: Hunter 151 Variable: " + str(_hunter_skill_total));
-		//diag_log("USPSYNC: Medic 151 Variable: " + str(_medic_skill_total));
-		//diag_log("USPSYNC: Soldier 151 Variable: " + str(_soldier_skill_total));
-
-		if ((_engineer_skill_total <= _engineer_rank) || (_hunter_skill_total <= _hunter_rank) || (_medic_skill_total <= _medic_rank) || (_soldier_skill_total <= _soldier_rank)) then 
-		{
-			_variablessetup = [_engineer_rank,_hunter_rank,_medic_rank,_soldier_rank];
-			//diag_log("USPSYNC: Character ID: " + str(_characterID));
-			//diag_log("USPSYNC: Character Variables updated: " + str(_variablessetup));
-			_key_variables_publish = format["CHILD:152:%1:%2:",_characterID,_variablessetup];
-			_variablespublish = _key_variables_publish call server_hiveReadWrite;
-		}; 
-*/
 		//Reset timer
 		if (_timeSince > 0) then {
 			_character setVariable ["lastTime",(time - _timeLeft)];
