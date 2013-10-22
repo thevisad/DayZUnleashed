@@ -334,6 +334,14 @@ if (!isDedicated) then {
 			DZE_5 = true;
 		};
 		
+		
+		if (_dikCode == 0x15 ) then {
+			if (!dayz_isSwimming and !dialog) then {
+				createDialog "levels";
+			};
+			_handled = true;
+		};
+		
 		if ((_dikCode == 0x3E or _dikCode == 0x0F or _dikCode == 0xD3) and (time - dayz_lastCheckBit > 10)) then {
 			dayz_lastCheckBit = time;
 			call dayz_forceSave;

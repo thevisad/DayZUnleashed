@@ -27,6 +27,7 @@ class BOX;
 #include "CfgPlayerStats\p_headshots.hpp"
 #include "CfgPlayerStats\p_murders.hpp"
 #include "CfgPlayerStats\sound.hpp"
+#include "CFGUnleashed.hpp"
 
 class RscPictureGUI
 {
