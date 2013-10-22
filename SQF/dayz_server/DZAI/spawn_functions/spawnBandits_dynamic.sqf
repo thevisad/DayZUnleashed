@@ -5,7 +5,7 @@
 	
 	Description: Spawns a group of AI units some distance from a dynamically-spawned trigger. These units do not respawn after death.
 	
-	Last updated: 6:15 PM 8/18/2013
+	Last updated: 7:47 PM 8/31/2013
 */
 #include "\z\addons\dayz_server\DZAI\init\dyn_trigger_configs\dyn_trigger_defs.hpp"
 
@@ -24,7 +24,7 @@ if (surfaceIsWater (getPosATL _trigger)) exitWith {
 };
 
 //Reduce number of AI spawned if trigger area intersects another activated trigger to avoid overwhelming AI spawns.
-_nearbyTriggers = ({((_trigger distance _x) < ((triggerArea _trigger) select 0))&&(triggerActivated _x)} count DZAI_dynTriggerArray) - 1;
+_nearbyTriggers = ({((_trigger distance _x) < (((triggerArea _trigger) select 0) - (((triggerArea _trigger) select 0) * DZAI_dynOverlap)))&&(triggerActivated _x)} count DZAI_dynTriggerArray) - 1;
 if (_nearbyTriggers > 0) exitWith {
 	_newPos = _trigger call DZAI_relocDynTrigger;
 	if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Dynamic trigger intersects with another active trigger, relocating trigger to position %1. (spawnBandits_dynamic)",_newPos];};
