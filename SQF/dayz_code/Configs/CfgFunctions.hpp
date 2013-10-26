@@ -15,6 +15,11 @@ class cfgFunctions
                 description = "Verifies DZU functions work.";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
+            class getVariableName
+            {
+                description = "Verifies DZU functions work.";
+                //file = "\z\addons\dayz_code\functions\core\fn_getVariableName.sqf";
+            };
             class setVariable
             {
                 description = "Verifies DZU functions work.";
