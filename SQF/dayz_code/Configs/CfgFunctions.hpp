@@ -35,7 +35,15 @@ class cfgFunctions
           };
           class getLevel
           {
-                description = "Return the players current level.";
+                description = "Return objects current level.";
+          };
+          class getSkillPoints
+          {
+                description = "Return objects current skill points";
+          };
+          class getExperience
+          {
+                description = "Return objects current experience points";
           };
           class giveEXP
           {

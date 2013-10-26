@@ -50,6 +50,8 @@ if (("ItemJerrycanEmpty" in magazines player) or ("ItemFuelcanEmpty" in magazine
 	};
 
 	cutText [format[(localize "str_player_09"),_qty], "PLAIN DOWN"];
+    sleep 1;
+    [player,"Refuel_Can"] call DZU_fnc_giveEXP;
 } else {
 	cutText [(localize "str_player_10") , "PLAIN DOWN"];
 };

@@ -93,6 +93,8 @@ if(_IsNearVehicle >= 1) then {
 			[player,"refuel",0,false] call dayz_zombieSpeak;
 
 			cutText [format["%1 filled to %2 percent capacity.",_nameText,round(_newFuel*100)], "PLAIN DOWN"];
+            sleep 1;
+            [player,"Refuel_Object"] call DZU_fnc_giveEXP;
 		};
 
 		if(_abort) exitWith {};

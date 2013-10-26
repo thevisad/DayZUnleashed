@@ -1,10 +1,10 @@
 class CfgEXP{
     class Default {
-        Name="";
+        Name="";        //value of %2
         Description="";
         Image="";
         Message="You were awarded %1 %2 experience.";
-        Experience=1;
+        Experience=1;   //value of %1
         MiniumGain=1;
     };
     
@@ -13,7 +13,9 @@ class CfgEXP{
         Experience=10;
     };
     
-    class Refuel_Can: Generic{};
+    class Refuel_Can: Generic{
+        MiniumGain=0;
+    };
     class Refuel_Object: Refuel_Can{
         Experience=5;
     };
@@ -48,7 +50,7 @@ class CfgEXP{
     class Blood_Other: Generic_Medical{
         Experience=20;
     };
-    class Blood_Bag: Generic_Medical{
+    class Blood_Bag: Generic_Medical{ //Blood Bag crafting exp
         Experience=30;
     };
        
