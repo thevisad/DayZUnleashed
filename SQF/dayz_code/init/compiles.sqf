@@ -339,6 +339,9 @@ if (!isDedicated) then {
 			if (!dayz_isSwimming and !dialog) then {
 				createDialog "levels";
 			};
+			_keys = ["skill1", "skill2", "skill3", "etc"];
+			_values = ["val1", "val2", "val3", "etc"];
+			[_keys, _values] call updateUI;
 			_handled = true;
 		};
 		
@@ -346,6 +349,7 @@ if (!isDedicated) then {
 			dayz_lastCheckBit = time;
 			call dayz_forceSave;
 		};
+		
 		if (_dikCode == 0xB8 or _dikCode == 0x38 or _dikCode == 0x3E or _dikCode == 0x2A or _dikCode == 0x36 or _dikCode == 0x01) then {
 			_displayg = findDisplay 106;
 			if (!isNull _displayg) then {
@@ -371,6 +375,29 @@ if (!isDedicated) then {
 		};
 		*/
 		_handled
+	};
+	
+	updateUI = {
+		private["_keys", "_values", "_display", "_i"];
+		_keys = _this select 0;
+		_values = _this select 1;
+		_skillpoints = [player] call DZU_fnc_getSkillPoints;
+		_display = findDisplay 8567;
+		_i = 0;
+		_control = _display displayCtrl (8020);
+		_control ctrlSetText _skillpoints;
+		
+		{
+			_control = _display displayCtrl (8010 + _i);
+			_control ctrlSetText _x;
+			_i = _i + 1;
+		} forEach _keys;
+ 
+		{
+			_control = _display displayCtrl (8000 + _i);
+			_control ctrlSetText _x;
+			_i = _i + 1;
+		} forEach _values;
 	};
 
 	player_CombatRoll = {
