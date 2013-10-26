@@ -12,6 +12,11 @@ _nameType = getText(_configVeh >> "displayName");
 _curFuel = ((fuel _vehicle) * _capacity);
 _newFuel = (_curFuel + _canSize);
 _fueling = player getVariable "fueling";
+_exp_type = switch (_cantype) do {
+    case "ItemFuelcan":{"Refuel_Object_5l"};
+    case "ItemJerrycan":{"Refuel_Object_20l"};
+    default {"Generic_limited"};
+};
 
 player removeAction s_player_fillfuel + _capacity;
 
@@ -65,6 +70,7 @@ if (isnil "_fueling") then {
 		r_action = false;
 		[player] allowGetIn true;
 		player setVariable ["fueling", nil];
+        [player,_exp_type] call DZU_fnc_giveEXP;
 	};
 	[player] allowGetIn true;
 } else {

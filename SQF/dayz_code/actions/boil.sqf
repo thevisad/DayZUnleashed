@@ -37,8 +37,9 @@ if (_hasbottleitem and _hastinitem) then {
 	for "_x" from 1 to _qty do {
 		player removeMagazine "ItemWaterbottle";
 		player addMagazine "ItemWaterbottleBoiled";
-
+        [player,"Boil"] call DZU_fnc_giveEXP;
 	};
+    sleep 2;
     cutText [format[(localize "str_player_01"),_qty], "PLAIN DOWN"];
 } else {
     cutText [(localize "str_player_02") , "PLAIN DOWN"];

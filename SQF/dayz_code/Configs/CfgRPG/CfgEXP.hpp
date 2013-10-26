@@ -1,3 +1,5 @@
+//[player,"Boil"] call DZU_fnc_giveEXP;
+
 class CfgEXP{
     class Default {
         Name="";        //value of %2
@@ -13,11 +15,23 @@ class CfgEXP{
         Experience=10;
     };
     
-    class Refuel_Can: Generic{
+    class Generic_limited: Generic{
         MiniumGain=0;
     };
-    class Refuel_Object: Refuel_Can{
+    
+    class Refuel_5l: Generic{
+        MiniumGain=0;
+    };
+    class Refuel_Object_5l: Refuel_5l{
         Experience=5;
+    };
+    
+    class Refuel_20l: Generic{
+        Experience=40;
+        MiniumGain=0;
+    };
+    class Refuel_Object_20l: Refuel_20l{
+        Experience=20;
     };
     
     class Generic_Engineering: Generic{
@@ -36,7 +50,18 @@ class CfgEXP{
         Name="Survivalist";
         };
 
-     class Build: Generic_Engineering{};
+     class Build: Generic_Engineering{
+        Experience=25;
+        MiniumGain=0;
+     };
+     
+     class Build_med: Build{
+        Experience=50;
+     };
+     class Build_large: Build{
+        Experience=100;
+     };
+     
     class Repair: Generic_Engineering{};
      class Craft: Generic_Engineering{};
     
