@@ -42,14 +42,17 @@ if (("ItemJerrycanEmpty" in magazines player) or ("ItemFuelcanEmpty" in magazine
 		for "_x" from 1 to _qty20 do {
 			player removeMagazine "ItemJerrycanEmpty";
 			player addMagazine "ItemJerrycan";
+            [player,"Refuel_20l"] call DZU_fnc_giveEXP;
 		};
 		for "_x" from 1 to _qty5 do {
 			player removeMagazine "ItemFuelcanEmpty";
 			player addMagazine "ItemFuelcan";
+            [player,"Refuel_5l"] call DZU_fnc_giveEXP;
 		};
 	};
-
-	cutText [format[(localize "str_player_09"),_qty], "PLAIN DOWN"];
+    
+    sleep 1;
+	cutText [format[(localize "str_player_09"),_qty], "PLAIN DOWN"];    
 } else {
 	cutText [(localize "str_player_10") , "PLAIN DOWN"];
 };

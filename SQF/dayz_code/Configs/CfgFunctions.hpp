@@ -15,6 +15,11 @@ class cfgFunctions
                 description = "Verifies DZU functions work.";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
+            class getVariableName
+            {
+                description = "Verifies DZU functions work.";
+                //file = "\z\addons\dayz_code\functions\core\fn_getVariableName.sqf";
+            };
             class setVariable
             {
                 description = "Verifies DZU functions work.";
@@ -35,7 +40,15 @@ class cfgFunctions
           };
           class getLevel
           {
-                description = "Return the players current level.";
+                description = "Return objects current level.";
+          };
+          class getSkillPoints
+          {
+                description = "Return objects current skill points";
+          };
+          class getExperience
+          {
+                description = "Return objects current experience points";
           };
           class giveEXP
           {

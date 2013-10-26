@@ -1,10 +1,12 @@
+//[player,"Boil"] call DZU_fnc_giveEXP;
+
 class CfgEXP{
     class Default {
-        Name="";
+        Name="";        //value of %2
         Description="";
         Image="";
         Message="You were awarded %1 %2 experience.";
-        Experience=1;
+        Experience=1;   //value of %1
         MiniumGain=1;
     };
     
@@ -13,9 +15,23 @@ class CfgEXP{
         Experience=10;
     };
     
-    class Refuel_Can: Generic{};
-    class Refuel_Object: Refuel_Can{
+    class Generic_limited: Generic{
+        MiniumGain=0;
+    };
+    
+    class Refuel_5l: Generic{
+        MiniumGain=0;
+    };
+    class Refuel_Object_5l: Refuel_5l{
         Experience=5;
+    };
+    
+    class Refuel_20l: Generic{
+        Experience=40;
+        MiniumGain=0;
+    };
+    class Refuel_Object_20l: Refuel_20l{
+        Experience=20;
     };
     
     class Generic_Engineering: Generic{
@@ -34,7 +50,18 @@ class CfgEXP{
         Name="Survivalist";
         };
 
-     class Build: Generic_Engineering{};
+     class Build: Generic_Engineering{
+        Experience=25;
+        MiniumGain=0;
+     };
+     
+     class Build_med: Build{
+        Experience=50;
+     };
+     class Build_large: Build{
+        Experience=100;
+     };
+     
     class Repair: Generic_Engineering{};
      class Craft: Generic_Engineering{};
     
@@ -48,7 +75,7 @@ class CfgEXP{
     class Blood_Other: Generic_Medical{
         Experience=20;
     };
-    class Blood_Bag: Generic_Medical{
+    class Blood_Bag: Generic_Medical{ //Blood Bag crafting exp
         Experience=30;
     };
        

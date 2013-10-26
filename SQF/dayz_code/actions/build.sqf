@@ -42,4 +42,5 @@ PVDZ_obj_Publish = [dayz_characterID,_object,[_dir,_location],_classname];
 publicVariableServer "PVDZ_obj_Publish";
 
 sleep 2;
+ [player,"Build"] call DZU_fnc_giveEXP;
 player allowDamage true;

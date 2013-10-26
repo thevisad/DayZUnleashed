@@ -3,7 +3,7 @@ _object = (_this select 0);
 _experience_type = (_this select 1);
 _experience_penalty = 0;
 
-_current_level = ((([_object,TRUE] call DZU_fnc_getLevel) - 16) max 1);
+_current_level =  ([_object,TRUE] call DZU_fnc_getLevel);
 
 _experience_config     = configFile >> "CfgRPG" >> "CfgEXP" >> _experience_type;
 _experience_reward     = getNumber(_experience_config >> "Experience");
