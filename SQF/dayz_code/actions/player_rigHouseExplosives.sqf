@@ -20,6 +20,7 @@ player removeMagazine "PipeBomb";
 	_bomb setDir (_dir + 200); 
 	player playActionNow "Medic"; 
 	[player,"repair",0,false] call dayz_zombieSpeak; 
+    [player,"Generic_Combat"] call DZU_fnc_giveEXP;
 	sleep 6; 
 	_nearBomb = (_playerPos) nearObjects["BAF_ied_v1", 10]; 
 	_bomb2 = _nearBomb select 0; 
