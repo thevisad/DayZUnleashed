@@ -17,7 +17,7 @@ call fnc_usec_medic_removeActions;
 sleep 8;
 //Delete old Object
 deleteVehicle _object;
-
+[player,"Build_med"] call DZU_fnc_giveEXP;
 //New Object
 _weapon = _classname createVehicle _location;
 _weapon setDir _dir;

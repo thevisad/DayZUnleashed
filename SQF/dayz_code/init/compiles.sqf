@@ -103,6 +103,7 @@ if (!isDedicated) then {
 	DZE_player_goFishing =	compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_goFishing.sqf";
 	DZE_player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_build.sqf";
 	player_breaklegs =	compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\publicEH\medBreakLegs.sqf";
+    player_giveEXP = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_giveEXP.sqf";
 	
 	//ui
 	player_selectSlot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_selectSlot.sqf";

@@ -10,6 +10,7 @@ player playActionNow "Medic";
 call fnc_usec_engineer_removeActions;
 r_action_engineer = false;
 sleep 8;
+[player,"Build"] call DZU_fnc_giveEXP;
 _weapon = _classname createVehicle _location;
 _weapon setDir _dir;
 _weapon setpos _location;

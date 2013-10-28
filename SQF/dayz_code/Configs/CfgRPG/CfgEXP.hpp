@@ -1,4 +1,4 @@
-//[player,"Boil"] call DZU_fnc_giveEXP;
+//[player,"Generic_Survival"] call DZU_fnc_giveEXP;
 
 class CfgEXP{
     class Default {
