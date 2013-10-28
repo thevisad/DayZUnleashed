@@ -48,4 +48,4 @@ if (_playerOldAggroRank != _playerNewAggroRank) then {
     //player setVariable ["aggroUpdateEventNeeded",1,false];
 };
 
-hintsilent format["Current Agro: %1\nMinimum Gained: %2\nOld Agro Rank: %3\nNew Agro Rank: %4\nEngineer Rank:%5\nMedic Rank: %6\nHunter Rank: %7\nSoldier Rank:%8",dayz_aggro_value,dayz_aggro_value_min,_playerOldAggroRank,_playerNewAggroRank,engineer_skill_total,medic_skill_total,hunter_skill_total,soldier_skill_total];
+hintsilent format["Current Agro: %1\nMinimum Gained: %2\nOld Agro Rank: %3\nNew Agro Rank: %4\n",dayz_aggro_value,dayz_aggro_value_min,_playerOldAggroRank,_playerNewAggroRank];

@@ -379,25 +379,24 @@ if (!isDedicated) then {
 	
 	updateUI = {
 		private["_keys", "_values", "_display", "_i"];
-		_keys = _this select 0;
-		_values = _this select 1;
 		_skillpoints = [player] call DZU_fnc_getSkillPoints;
 		_display = findDisplay 8567;
 		_i = 0;
 		_control = _display displayCtrl (8020);
-		_control ctrlSetText _skillpoints;
+		_control ctrlSetText str(_skillpoints);
 		
 		{
-			_control = _display displayCtrl (8010 + _i);
-			_control ctrlSetText _x;
-			_i = _i + 1;
-		} forEach _keys;
- 
-		{
-			_control = _display displayCtrl (8000 + _i);
-			_control ctrlSetText _x;
-			_i = _i + 1;
-		} forEach _values;
+			_skill_value = [player,_x] call DZU_fnc_getVariable;
+			_skill_name  = [player,_x] call DZU_fnc_getVariableName;
+            _control = _display displayCtrl (8010 + _i);
+			_control2 = _display displayCtrl (8000 + _i);
+			_control3 = _display displayCtrl (8030 + _i);
+            _control2 ctrlSetText str(_skill_value);
+			_control ctrlSetText str(_skill_name);
+			_control3 ctrlSetText str(_x);
+			_control3 ctrlEnable false;
+            _i = _i + 1;
+        } forEach DZU_rpg_skillsList;
 	};
 
 	player_CombatRoll = {

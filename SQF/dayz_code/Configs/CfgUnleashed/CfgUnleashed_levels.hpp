@@ -28,7 +28,7 @@ class levels
 		y = 0.85;
 		w = 0.0937499;
 		h = 0.0750001;
-		action = "close dialog 0;";
+		action = "closeDialog 0;";
 	};
 	class value1:RscText
 	{
@@ -86,7 +86,7 @@ class levels
 		text = "";
 		x = 0.187501;
 		y = 0.174999;
-		w = 0.0999999;
+		w = 0.14;
 		h = 0.0999999;
 	};
 	
@@ -96,7 +96,7 @@ class levels
 		text = "";
 		x = 0.187501;
 		y = 0.299999;
-		w = 0.0999999;
+		w = 0.14;
 		h = 0.0999999;
 	};
 	
@@ -106,7 +106,7 @@ class levels
 		text = "";
 		x = 0.187501;
 		y = 0.424999;
-		w = 0.0999999;
+		w = 0.14;
 		h = 0.0999999;
 	};
 	
@@ -116,7 +116,7 @@ class levels
 		text = "";
 		x = 0.187501;
 		y = 0.55;
-		w = 0.0999999;
+		w = 0.14;
 		h = 0.0999999;
 	};
 	
@@ -126,10 +126,60 @@ class levels
 		text = "";
 		x = 0.187501;
 		y = 0.675;
-		w = 0.0999999;
+		w = 0.14;
 		h = 0.0999999;
 	};
 
+	class faketext1:RscText
+	{
+		idc=8030;
+		text = "";
+		x = 0.187501;
+		y = 0.174999;
+		w = 0.0999999;
+		h = 0.0999999;
+	};
+	
+	class faketext2:RscText
+	{
+		idc=8031;
+		text = "";
+		x = 0.187501;
+		y = 0.299999;
+		w = 0.0999999;
+		h = 0.0999999;
+	};
+	
+	class faketext3:RscText
+	{
+		idc=8032;
+		text = "";
+		x = 0.187501;
+		y = 0.424999;
+		w = 0.0999999;
+		h = 0.0999999;
+	};
+	
+	class faketext4:RscText
+	{
+		idc=8033;
+		text = "";
+		x = 0.187501;
+		y = 0.55;
+		w = 0.0999999;
+		h = 0.0999999;
+	};
+	
+	class faketext5:RscText
+	{
+		idc=8034;
+		text = "";
+		x = 0.187501;
+		y = 0.675;
+		w = 0.0999999;
+		h = 0.0999999;
+	};
+	
 	class up1:RscButton
 	{
 		idc=-1;
@@ -139,7 +189,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "_XXXvalue = 1;";
+		action = "_text = ctrlText 8030;[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 
@@ -152,7 +202,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "_XXXvalue = 1;";
+		action = "_text = ctrlText 8031;[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 
@@ -165,7 +215,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "_XXXvalue = 1;";
+		action = "_text = ctrlText 8032;[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 	
@@ -178,7 +228,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "_XXXvalue = 1;";
+		action = "_text = ctrlText 8033;[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 	
@@ -191,7 +241,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "_XXXvalue = 1;";
+		action = "_text = ctrlText 8034;[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 
@@ -210,7 +260,7 @@ class levels
 		text = "Unspent";
 		x = 0.328126;
 		y = 0.050001;
-		w = 0.0999999;
+		w = 0.12;
 		h = 0.0999999;
 	};
 	class UnspentValue: RscText
@@ -219,7 +269,7 @@ class levels
 		text = "Value";
 		x = 0.546874;
 		y = 0.050001;
-		w = 0.0999999;
+		w = 0.12;
 		h = 0.0999999;
 	};
 

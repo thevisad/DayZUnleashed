@@ -13,12 +13,12 @@ item8[] = {"moveToCompleted",4,218,-200.000000,75.000000,-100.000000,125.000000,
 item9[] = {"",7,210,-29.000042,346.000000,-20.999958,354.000000,0.000000,""};
 item10[] = {"",7,210,-29.000042,595.999939,-20.999958,604.000061,0.000000,""};
 item11[] = {"true",8,218,-75.000000,-175.000000,25.000000,-125.000000,0.000000,"true"};
-item12[] = {"Begin",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Begin"};
+item12[] = {"Begin",2,4346,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Begin"};
 item13[] = {"",7,210,-29.000006,-29.000004,-20.999996,-20.999996,0.000000,""};
 item14[] = {"",7,210,-279.000061,-29.000004,-270.999969,-20.999996,0.000000,""};
 item15[] = {"",7,210,-254.000046,146.000000,-245.999954,154.000000,0.000000,""};
 item16[] = {"Has_Target",4,218,-150.000000,225.000000,-50.000000,275.000000,1.000000,"Has" \n "Target"};
-item17[] = {"Chase",2,4346,-150.000000,325.000000,-50.000000,375.000000,0.000000,"Chase"};
+item17[] = {"Chase",2,250,-150.000000,325.000000,-50.000000,375.000000,0.000000,"Chase"};
 item18[] = {"Time_Check",4,218,50.000000,75.000000,150.000000,125.000000,0.000000,"Time" \n "Check"};
 item19[] = {"",7,210,-29.000006,146.000000,-20.999996,154.000000,0.000000,""};
 item20[] = {"",7,210,-29.000006,196.000000,-20.999996,204.000000,0.000000,""};
@@ -145,7 +145,7 @@ link78[] = {60,30};
 link79[] = {60,59};
 link80[] = {61,10};
 globals[] = {25.000000,1,0,0,0,640,480,1,140,6316128,1,-627.076355,434.360168,1202.873169,-383.333221,803,1200,1};
-window[] = {0,-1,-1,-32000,-32000,1376,1151,2489,31,1,821};
+window[] = {0,-1,-1,-1,-1,1405,865,2203,60,1,821};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -162,7 +162,7 @@ class FSM
        "" \n
        "if (count _this > 2) then {" \n
        "	_secondHand = true;" \n
-       "	diag_log (""Second Hand Zombie Initialized: "" + str(_this));" \n
+       "	//diag_log (""Second Hand Zombie Initialized: "" + str(_this));" \n
        "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -458,7 +458,7 @@ class FSM
        "" \n
        "//Debug" \n
        "if (_secondHand) then {" \n
-       "	diag_log (""Zombie Brain Initialized "" + str(_agent) + "" doLoiter: "" + str(_doLoiter));" \n
+       "	//diag_log (""Zombie Brain Initialized "" + str(_agent) + "" doLoiter: "" + str(_doLoiter));" \n
        "	[_agent,_position] call zombie_loiter;" \n
        "	_myDest = _agent getVariable [""myDest"",getposATL _agent];" \n
        "" \n
@@ -531,27 +531,27 @@ class FSM
        "" \n
        "if ( _targetdistance < 2.2 ) then " \n
        "{" \n
-       "diag_log (""ZFSM: Attack Range"");" \n
+       "//diag_log (""ZFSM: Attack Range"");" \n
        "_r = 1;" \n
        "_agent forceSpeed 1;" \n
        "};" \n
        "" \n
        "if (_targetdistance > 2.2 AND _targetdistance < 10) then " \n
        "{" \n
-       "diag_log (""ZFSM: Zero In Range"");" \n
+       "//diag_log (""ZFSM: Zero In Range"");" \n
        "_r = 6;" \n
        "_agent forceSpeed 6;" \n
        "};" \n
        "if ( _targetdistance > 10 AND _targetdistance < 25 ) then " \n
        "{" \n
-       "diag_log (""ZFSM: Center Range"");" \n
+       "//diag_log (""ZFSM: Center Range"");" \n
        "_r = 8;" \n
        "_agent forceSpeed 6;" \n
        "};" \n
        "" \n
        "if ( _targetdistance > 25 ) then " \n
        "{" \n
-       "diag_log (""ZFSM: Faraway Range"");" \n
+       "//diag_log (""ZFSM: Faraway Range"");" \n
        "_r = 10;" \n
        "_agent forceSpeed 12;" \n
        "};" \n
@@ -583,7 +583,7 @@ class FSM
        "   {" \n
        "    _sightCheck = true;" \n
        "   };" \n
-       "   diag_log (""Bloodhounds"");" \n
+       "   //diag_log (""Bloodhounds"");" \n
        "  } forEach _listTalk;" \n
        " };" \n
        "" \n
@@ -652,7 +652,7 @@ class FSM
            "//Move to pos" \n
            "//_agent moveTo _targetPos;" \n
            "" \n
-           "diag_log (""ZFSM: Lost LOS"");"/*%FSM</ACTION""">*/;
+           "//diag_log (""ZFSM: Lost LOS"");"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "Time_Check">*/
@@ -668,7 +668,7 @@ class FSM
            "//LOS Tick" \n
            "_agroCheck= _agroCheck + 1;" \n
            "" \n
-           "diag_log (""ZFSM: Agro Check: "" + str(_agroCheck));"/*%FSM</ACTION""">*/;
+           "//diag_log (""ZFSM: Agro Check: "" + str(_agroCheck));"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -736,7 +736,7 @@ class FSM
           to="Reset_Targeting";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"_agent distance _targetPos <  3"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"diag_log (""ZFSM: Zombie Finished"");"/*%FSM</ACTION""">*/;
+          action=/*%FSM<ACTION""">*/"//diag_log (""ZFSM: Zombie Finished"");"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "too_long">*/
@@ -834,7 +834,7 @@ class FSM
           to="Loiter";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"diag_log (""FSM: Reset Zed"");"/*%FSM</ACTION""">*/;
+          action=/*%FSM<ACTION""">*/"//diag_log (""FSM: Reset Zed"");"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
