@@ -61,10 +61,10 @@ if (_canFill) then {
 		_sfx = "fillwater";
 		[player,_sfx,0,false,_dis] call dayz_zombieSpeak;
 		[player,_dis,true,(getPosATL player)] spawn player_alertZombies;
-
+        [player,"Generic_Survival"] call DZU_fnc_giveEXP;
 		player addMagazine "ItemWaterbottle";
 		};
-
+        sleep 1;
 		cutText [format[(localize "str_player_01"),_qty], "PLAIN DOWN"];
 	} else {
 		cutText [(localize "str_player_02") , "PLAIN DOWN"];

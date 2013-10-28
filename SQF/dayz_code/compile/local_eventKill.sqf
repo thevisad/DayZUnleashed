@@ -11,4 +11,10 @@ _type = _this select 1;
 if (local _zed) then {
 	_kills = _killer getVariable[_type,0];
 	_killer setVariable[_type,(_kills + 1),true];
+    if(_killer == player) then {
+        [player,"Combat_Zed"] call DZU_fnc_giveEXP;
+    } else{ 
+        PVDZ_plr_exp =[_killer,"Combat_Zed"];
+        publicVariable "PVDZ_plr_exp";
+    };
 };
