@@ -1,4 +1,4 @@
-private ["_object","_variables","_config","_classname","_isGlobal","_defaultValue","_variableName","_variableMax","_variableMin","_newValue","_variableID","_KeyMapSearch","_overrideValue","_override_variables"];
+private ["_object","_variables","_config","_classname","_isGlobal","_defaultValue","_variableName","_variableMax","_variableMin","_newValue","_KeyMapSearch","_overrideValue","_override_variables"];
 /*
  KeyMap search finds previously saved values as [[keys],[values]]
  */
@@ -27,7 +27,6 @@ for "_i" from 0 to ((count _config) - 1) do {
     if(getNumber(_config >> _classname >> "load")==1)then{
     //Start      
         _isGlobal       = (getNumber(_config >> _classname >> "global")==1);
-        _variableID     = getNumber(_config >> _classname >> "id");
         _defaultValue   = getNumber(_config >> _classname >> "vardefault");
         _variableName   = getText(_config >> _classname >> "varname");
         _variableMax    = getNumber(_config >> _classname >> "varmax");
