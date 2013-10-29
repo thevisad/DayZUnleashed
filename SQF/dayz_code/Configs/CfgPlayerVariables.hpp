@@ -58,14 +58,12 @@ class CfgPlayerVariables{
     };
     class Survival : default {
          load=1;
-           id=5;
       desc="Survival";
       varname="vSS"; 
       vartype="number";
     };
     class Experience : default {
          load=1;
-           id=6;
       vardefault=0;
          desc="Experience  Points";
       varname="vXP"; 
@@ -76,11 +74,28 @@ class CfgPlayerVariables{
     class Dogtags : default {
                load=1;   
               limit=1;
-                 id=7;
          vardefault=0;
              varmin=0;
       desc="Dog Tags";
         varname="vTC"; 
      vartype="number";
     };
+    class Pin : default {
+               load=1;
+         vardefault=0;
+             varmin=0;
+             varmax=99999999;
+        desc="Pin";
+        varname="vPN"; 
+     vartype="number";
+    };
+    class Registered : default {
+               load=1;
+         vardefault=0;
+             varmin=0;
+             varmax=1;
+        desc="Registered";
+        varname="vRG"; 
+     vartype="boolean";
+    };       
 };
