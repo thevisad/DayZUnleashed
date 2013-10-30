@@ -44,7 +44,7 @@ _newValue=_newValue max _variableMin;
 
 if(_newValue != _currentValue)then{
 _object setVariable[_variableName,_newValue,_isGlobal];
-    PVDZ_plr_VarSave = [player,_variableName,_newValue];
+    PVDZ_plr_VarSave = [player,_classname,_newValue];
     publicVariableServer "PVDZ_plr_VarSave";
     if (isServer) then {
         PVDZ_plr_VarSave call server_playerVariableChange;
