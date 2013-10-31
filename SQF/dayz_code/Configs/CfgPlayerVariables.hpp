@@ -84,18 +84,18 @@ class CfgPlayerVariables{
                load=1;
          vardefault=0;
              varmin=0;
-             varmax=99999999;
+             varmax=9999;
         desc="Pin";
         varname="vPN"; 
      vartype="number";
     };
-    class Registered : default {
+    class Reg : default {
                load=1;
-         vardefault=0;
-             varmin=0;
-             varmax=1;
+         vardefault=1;
+             varmin=1;
+             varmax=2;
         desc="Registered";
         varname="vRG"; 
-     vartype="boolean";
+     vartype="number";
     };       
 };

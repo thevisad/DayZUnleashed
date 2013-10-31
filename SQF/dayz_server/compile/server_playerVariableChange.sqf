@@ -12,16 +12,16 @@ if (isnil "_target_characterID") exitWith {
     diag_log ("ERROR: Cannot Save Character " + (name _target_character) + " has nil characterID");    
 };
 
-if (_target_character == "0") exitWith {
+if (_target_characterID == "0") exitWith {
     diag_log ("ERROR: Cannot Sync Character " + (name _target_character) + " as no characterID");
 };
 
-if (_target_character != "0") then {
+if (_target_characterID != "0") then {
         if (!isNull _target_character) then {
             if (alive _target_character) then {
                              //CHILD:152:14276:hunter:fdghfdghdf:
                 _key = format["CHILD:152:%1:%2:%3:",_target_characterID,_target_variable,_target_value];
-                diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _target_character);
+                diag_log ("HIVE: WRITE: "+ str(_key) + " / " + str(_target_character));
                 _key call server_hiveWrite;
             };
         };

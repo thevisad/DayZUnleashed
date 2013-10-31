@@ -253,13 +253,14 @@ if ((_variablesdata select 0) == "PASS") then {
                 diag_log format["USPSETUP: Received '%1' with value of '%2', %3/%4 total.",_x,_saved_value,(count _saved_variable_keys),(count _saved_variable_values)];
             };
         } forEach _variables_list;
-        
+		
         _kcount = count _saved_variable_keys;
         _vcount = count _saved_variable_values;
         if ((_kcount > 0) && (_kcount == _vcount) ) then {
         _saved_variables = [_saved_variable_keys,_saved_variable_values];
         };        
     };
+	diag_log("USPSETUP: Finished loading the player variables.");
 };
 
 //---------------------------------------------------------//
