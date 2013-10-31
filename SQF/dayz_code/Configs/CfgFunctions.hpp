@@ -31,6 +31,16 @@ class cfgFunctions
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
         };
+        
+        class Net
+        {
+            file = "\z\addons\dayz_code\functions\Net";
+            class saveVariables
+            {
+                description = "saves variables in network enviroment.";
+            };
+        };
+ 
         class Rpg
         {
           file = "\z\addons\dayz_code\functions\rpg";
