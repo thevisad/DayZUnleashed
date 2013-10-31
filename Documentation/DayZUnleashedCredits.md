@@ -9,7 +9,7 @@ Dev Project Managers
 ---------------
 
  * [TheVisad] (https://github.com/thevisad)
- * [Skaronator] (https://github.com/Skaronator)
+ * [Xyberviri] (https://github.com/xyberviri)
 
  
 -------------------------
@@ -20,7 +20,7 @@ These contributors are part of the team and help out constantly.
 
  * [hungoverfurball] (https://github.com/hungoverfurball)
  * [Finest] (https://github.com/Finest)
- * [xyberviri] (https://github.com/xyberviri)
+ * [Skaronator] (https://github.com/Skaronator)
  * [Pwnoz0r] (https://github.com/Pwnoz0r)
  * [Kiotie] (https://github.com/Kiotie)
  * [k4n30] (https://github.com/k4n30)
