@@ -26,7 +26,7 @@ class CfgPlayerVariables{
       varmin=1;         //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored.    
       varmax=100;       //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored. 
       limit=0;          //  read: depends on type: array affects number of items, number affects max change, text affects length, object is ignored, raw is ignored.
-      forcedSave=0;     //  force this variable to save every time it changes?
+      alwaysSave=0;     //  force this variable to save every time it changes?
     };
     class Engineer : default {
          load=1;
