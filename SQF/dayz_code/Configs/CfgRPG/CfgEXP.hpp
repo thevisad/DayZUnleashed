@@ -78,6 +78,8 @@ class CfgEXP{
     class Blood_Bag: Generic_Medical{ //Blood Bag crafting exp
         Experience=30;
     };
+    class Bandage_Self: Generic_Medical{};
+    //class Bandage_Other: Generic_Medical{};
        
     class Combat_Player: Generic_Combat{};
     class Combat_NPC: Generic_Combat{};
