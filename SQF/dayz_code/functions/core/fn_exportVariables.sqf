@@ -19,7 +19,7 @@ for "_i" from 0 to ((count _config) - 1) do {
         _newValue       = _newValue max (getNumber(_config >> _classname >> "varmin"));
         //Set the key after the value because of count
         _variable_values set [count _variable_keys,_newValue];
-          _variable_keys set [count _variable_keys,_classname];
+          _variable_keys set [count _variable_keys,_variableName];//Compatibility_Fix:Changed to _variableName from _classname for Unleashed.
     //End
     };
 };

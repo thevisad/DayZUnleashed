@@ -44,13 +44,14 @@ _newValue=_newValue max _variableMin;
 
 if(_newValue != _currentValue)then{
 _object setVariable[_variableName,_newValue,_isGlobal];
-    if(getNumber(_config >> _classname >> "alwaysSave")==1) then {
-        PVDZ_plr_VarSave = [player,[[_classname],[_newValue]] ];
+//TODO: Create Variable sync stack move this functionality there. 
+   // if(getNumber(_config >> _classname >> "alwaysSave")==1) then {
+        PVDZ_plr_VarSave = [player,_variableName,_newValue];//Compatibility_Fix:Changed to _variableName from _classname for Unleashed.
         publicVariableServer "PVDZ_plr_VarSave";
         if (isServer) then {
             PVDZ_plr_VarSave call server_playerVariableChange;
         };
-    };    
+   //};    
 _return=if(abs _newValue > abs _currentValue)then{abs _newValue - abs _currentValue}else{abs _currentValue - abs _newValue};
 };
 
