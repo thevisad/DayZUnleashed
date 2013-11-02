@@ -36,7 +36,7 @@ for "_i" from 0 to ((count _config) - 1) do {
         _newValue       = _newValue max _variableMin;
         
         if((count _override_variables) > 0) then {
-        _overrideValue = [_override_variables,_classname] call _KeyMapSearch;
+        _overrideValue = [_override_variables,_variableName] call _KeyMapSearch;//Compatibility_Fix:Changed to _variableName from _classname for Unleashed.
             if(!isNull _overrideValue) then {
                 _newValue = _overrideValue;  
             };
