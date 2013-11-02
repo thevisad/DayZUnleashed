@@ -7,7 +7,7 @@ class levels
 	objects[]={};
 	access = 0;
 	controls[]={RscPicture, closeButton, faketext1, faketext2, faketext3, faketext4, faketext5, value5, value4, value3, value2, value1, up1, up5, up4, up3, up2, unspentValue, unspentText, playerPassText, playerIDText, skill1, skill2, skill3, skill4, skill5 };
-
+	class RscPicture;
 	class RscBgFrame
 	{
 		
@@ -22,7 +22,6 @@ class levels
 	class level_bg: RscFrame
 	{
 		idc=-1;
-		text = "\z\addons\unleashed_pack\textures\classes\green.paa";
 		x = 0.128125;
 		y = -0.113972;
 		w = 0.69375;
@@ -32,7 +31,7 @@ class levels
 		class background: RscPicture
 	{
 		idc=-1;
-		text = "\z\addons\unleashed_pack\textures\classes\green.paa";
+		text = "\z\addons\dayz_code\gui\green.paa";
 		x = 0.128125;
 		y = -0.113972;
 		w = 0.69375;
@@ -49,7 +48,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "_text = ctrlText 8030;hintsilent format [""Target Skill %1"",_text];[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
+		action = "[player,""Engineer"",1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 
@@ -62,7 +61,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "_text = ctrlText 8031;hintsilent format [""Target Skill %1"",_text];[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
+		action = "[player,""Hunting"",1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 
@@ -75,7 +74,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "_text = ctrlText 8032;hintsilent format [""Target Skill %1"",_text];[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
+		action = "[player,""Medical"",1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 	
@@ -88,7 +87,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "_text = ctrlText 8033;hintsilent format [""Target Skill %1"",_text];[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
+		action = "[player,""Combat"",1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 	
@@ -101,7 +100,7 @@ class levels
 		h = 0.0750001;
 		text = "ADD";
 		font = "Zeppelin33";
-		action = "[player,""Generic""] call DZU_fnc_giveEXP;[player,""Generic_Engineering""] call DZU_fnc_giveEXP;_text = ctrlText 8034;[player,_text,1] call DZU_fnc_levelUp;[] call updateUI;";
+		action = "[player,""Survival"",1] call DZU_fnc_levelUp;[] call updateUI;";
 		soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 	};
 	
@@ -258,7 +257,7 @@ class levels
 		w = 0.16683;
 		h = 0.0929895;
 	};
-
+	/*
 	class faketext1:RscText
 	{
 		idc=8030;
@@ -308,4 +307,5 @@ class levels
 		w = 0.0999999;
 		h = 0.0999999;
 	};
+	*/
 };

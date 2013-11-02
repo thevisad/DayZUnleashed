@@ -418,13 +418,8 @@ if (!isDedicated) then {
 			_skill_name  = [player,_x] call DZU_fnc_getVariableName;
 			_control = _display displayCtrl (8010 + _i);
 			_control2 = _display displayCtrl (8000 + _i);
-			_control3 = _display displayCtrl (8030 + _i);
 			_control2 ctrlSetText str(_skill_value);
 			_control ctrlSetText str(_skill_name);
-			_control3 ctrlSetText str(_x);
-
-			//_control3 ctrlEnable false;
-			_control3 ctrlSetFade 0;
             _i = _i + 1;
         } forEach DZU_rpg_skillsList;
 
