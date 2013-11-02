@@ -15,4 +15,4 @@ _skillChange=[_object,_targetSkill,_skillIncrease] call DZU_fnc_setVariable;
 
 _experience_change=[_object,"Experience",-(_skillChange*_calc_SkillPoints)] call DZU_fnc_setVariable;
 
-[_skillChange,_experience_change]
+_skillChange
