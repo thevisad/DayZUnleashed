@@ -52,4 +52,10 @@ if (_finished) then {
 	[objNull, player, rSwitchMove,""] call RE;
 	player playActionNow "stop";
 	player addMagazine "ItemBandage";
+    if (_unit == player) then {
+        [player,"Bandage_Self"] call DZU_fnc_giveEXP;    
+    } else {
+        [player,"Blood_Other"] call DZU_fnc_giveEXP;
+    };
+    
 };

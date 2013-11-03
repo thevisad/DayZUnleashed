@@ -41,7 +41,8 @@ if (isServer) then {
 	"PVDZ_veh_Save" addPublicVariableEventHandler {(_this select 1) call server_updateObject};
 	"PVDZ_plr_Login1"			addPublicVariableEventHandler {_id = (_this select 1) call server_playerLogin};
 	"PVDZ_plr_Login2"		addPublicVariableEventHandler {(_this select 1) call server_playerSetup};
-    "PVDZ_plr_VarSave"      addPublicVariableEventHandler {(_this select 1) spawn server_playerVariableChange};
+    "PVDZ_plr_VarSave1"      addPublicVariableEventHandler {(_this select 1) spawn server_playerVariableChange};
+    "PVDZ_plr_VarSave2"      addPublicVariableEventHandler {(_this select 1) spawn server_playerVariablesChange};    
 	//"dayzPlayerMorph"	addPublicVariableEventHandler {(_this select 1) call server_playerMorph};
 	//"dayzUpdate"		addPublicVariableEventHandler {_id = (_this select 1) spawn dayz_processUpdate};
 	"PVDZ_plr_LoginRecord"	addPublicVariableEventHandler {_id = (_this select 1) spawn dayz_recordLogin};
