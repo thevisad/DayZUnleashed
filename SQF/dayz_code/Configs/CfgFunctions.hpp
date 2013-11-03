@@ -35,6 +35,10 @@ class cfgFunctions
         class Net
         {
             file = "\z\addons\dayz_code\functions\Net";
+            class KeyMapADD
+            {
+                description = "builds keymaps with network error checking.";
+            };            
             class saveVariables
             {
                 description = "saves variables in network enviroment.";
