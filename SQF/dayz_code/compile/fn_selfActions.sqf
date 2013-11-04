@@ -543,6 +543,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
         s_clothes = -1;
     };
 
+	if(dayz_tameDogs) then {
 	//Dog
 	if (_isDog and _isAlive and (_hasRawMeat) and _canDo and _ownerID == "0" and player getVariable ["dogID", 0] == 0) then {
 		if (s_player_tamedog < 0) then {
@@ -597,6 +598,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_followdog = -1;
 	};
 	
+    };
 	if( _canDo and _isStorage ) then {
 		if( churchie_check < 0 ) then {
 			stow_vehicle = player addAction [("<t color=""#FF0000"">" + ("Pull Vehicle From Garage") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 3], 6, false, true, "","getDammage _target < 0.95"]; 
@@ -779,4 +781,33 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	// fill and start generator
 	player removeAction s_player_fillgen;
 	s_player_fillgen = -1;
+};
+
+//Dog actions on player self
+_dogHandle = player getVariable ["dogID", 0];
+if (_dogHandle > 0) then {
+	_dog = _dogHandle getFSMVariable "_dog";
+	_ownerID = "0";
+	if (!isNull cursorTarget) then { _ownerID = cursorTarget getVariable ["CharacterID","0"]; };
+	if (_canDo and !_inVehicle and alive _dog and _ownerID != dayz_characterID) then {
+		if (s_player_movedog < 0) then {
+			s_player_movedog = player addAction [localize "str_actions_movedog", "\z\addons\dayz_code\actions\dog\move.sqf", player getVariable ["dogID", 0], 1, false, true, "", ""];
+		};
+		if (s_player_speeddog < 0) then {
+			_text = "Walk";
+			_speed = 0;
+			if (_dog getVariable ["currentSpeed",1] == 0) then { _speed = 1; _text = "Run"; };
+			s_player_speeddog = player addAction [format[localize "str_actions_speeddog", _text], "\z\addons\dayz_code\actions\dog\speed.sqf",[player getVariable ["dogID", 0],_speed], 0, false, true, "", ""];
+		};
+		if (s_player_calldog < 0) then {
+			s_player_calldog = player addAction [localize "str_actions_calldog", "\z\addons\dayz_code\actions\dog\follow.sqf", [player getVariable ["dogID", 0], true], 2, false, true, "", ""];
+		};
+	};
+} else {
+	player removeAction s_player_movedog;		
+	s_player_movedog =		-1;
+	player removeAction s_player_speeddog;
+	s_player_speeddog =		-1;
+	player removeAction s_player_calldog;
+	s_player_calldog = 		-1;
 };
