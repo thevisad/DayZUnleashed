@@ -643,13 +643,19 @@ if(!isDedicated) then {
 	
 	s_player_combi = [];
 	dayz_combination = "";
-	
 	CraftingInprogress = false;
 	CodeInProgress = false;
-	
-	DZE_8 = false;
-	DZE_2 = false;
+	DZE_Q = false;
+	DZE_Z = false;
+
+	DZE_Q_alt = false;
+	DZE_Z_alt = false;
+
+	DZE_Q_ctrl = false;
+	DZE_Z_ctrl = false;
+
 	DZE_5 = false;
 	DZE_4 = false;
 	DZE_6 = false;
+	DZE_cancelBuilding = false;
 };

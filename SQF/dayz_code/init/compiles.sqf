@@ -318,21 +318,54 @@ if (!isDedicated) then {
 			_nill = execvm "\z\addons\dayz_code\actions\playerstats.sqf";
 		};
 		
-		// TODO: should use action keys instead
-		if (_dikCode == 0x48) then {
-			DZE_8 = true;
+		// numpad 8 0x48 now pgup 0xC9 1
+		if ((_dikCode == 0xC9 and (!_alt or !_ctrl)) or (_dikCode in actionKeys "User15")) then {
+			DZE_Q = true;
 		};
-		if (_dikCode == 0x50) then {
-			DZE_2 = true;
+		// numpad 2 0x50 now pgdn 0xD1
+		if ((_dikCode == 0xD1 and (!_alt or !_ctrl)) or (_dikCode in actionKeys "User16")) then {
+			DZE_Z = true;
 		};
-		if (_dikCode == 0x4B) then {
+
+
+		// numpad 8 0x48 now pgup 0xC9 0.1
+		if ((_dikCode == 0xC9 and (_alt and !_ctrl)) or (_dikCode in actionKeys "User13")) then {
+			DZE_Q_alt = true;
+		};
+		// numpad 2 0x50 now pgdn 0xD1
+		if ((_dikCode == 0xD1 and (_alt and !_ctrl)) or (_dikCode in actionKeys "User14")) then {
+			DZE_Z_alt = true;
+		};
+
+
+		// numpad 8 0x48 now pgup 0xC9 0.01
+		if ((_dikCode == 0xC9 and (!_alt and _ctrl)) or (_dikCode in actionKeys "User7")) then {
+			DZE_Q_ctrl = true;
+		};
+		// numpad 2 0x50 now pgdn 0xD1
+		if ((_dikCode == 0xD1 and (!_alt and _ctrl)) or (_dikCode in actionKeys "User8")) then {
+			DZE_Z_ctrl = true;
+		};
+
+
+
+
+		// numpad 4 0x4B now Q 0x10
+		if (_dikCode == 0x10 or (_dikCode in actionKeys "User17")) then {
 			DZE_4 = true;
 		};		
-		if (_dikCode == 0x4D) then {
+		// numpad 6 0x4D now E 0x12
+		if (_dikCode == 0x12 or (_dikCode in actionKeys "User18")) then {
 			DZE_6 = true;
 		};
-		if (_dikCode == 0x4C) then {
+		// numpad 5 0x4C now space 0x39
+		if (_dikCode == 0x39 or (_dikCode in actionKeys "User19")) then {
 			DZE_5 = true;
+		};
+
+		// esc
+		if (_dikCode == 0x01) then {
+			DZE_cancelBuilding = true;
 		};
 		
 		
