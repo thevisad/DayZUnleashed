@@ -33,8 +33,8 @@ _humanityAmount = 50; // Amount of humanity to give player if _humanityBool is t
 _variablesBool = true; // Whether the player can get humanity from giving self a bloodbag (True = On | False = off)
 _variablesAmount = 20; // Amount of humanity to give player if _humanityBool is true (250 is default for normal bloodbags)
 
-if(_biotic_level > 0) then {
-  _infectionChance = 0;  
+if((_biotic_level > 0) && (_infectionChance > 50))then{
+   _infectionChance = floor(random 50);
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

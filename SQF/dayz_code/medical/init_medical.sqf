@@ -72,7 +72,7 @@ while {true} do {
     [] call player_aggro_check;
     
     //Reduce antibiotics from player
-    [player,"biotics",-1.5] call DZU_fnc_setVariable;
+    [player,"biotics",-1] call DZU_fnc_setVariable;
 	//Low Blood Effects
 	[] spawn {
 		if (!r_player_unconscious) then {

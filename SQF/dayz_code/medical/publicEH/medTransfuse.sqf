@@ -12,7 +12,7 @@ _rndInfection = (random 50);
 _biotic_level    = [player,"biotics"] call DZU_fnc_getVariable;
 
 if((_biotic_level > 0) && (_rndInfection > 25))then{
-   _rndInfection = (random 25);
+   _rndInfection = floor(random 25);
 };
 
 if (_rndInfection > _classTransfusing ) then {
