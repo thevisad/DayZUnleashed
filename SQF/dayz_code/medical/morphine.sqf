@@ -30,8 +30,11 @@ while {r_doLoop} do {
 	};
     _skillMedical    = [player,"Medical"] call DZU_fnc_getVariable;
 	if ((random 10 < 3) and (_skillMedical < 60)) then {
-		r_player_infected = true;
-		player setVariable["USEC_infected",true,true];
+         _biotic_level = [player,"biotics"] call DZU_fnc_getVariable;
+      if(_biotic_level==0)then{
+        r_player_infected = true;
+        player setVariable["USEC_infected",true,true];          
+      };
 	};
 	
 	if (r_interrupt) then {

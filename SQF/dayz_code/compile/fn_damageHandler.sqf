@@ -166,8 +166,11 @@ if (_damage > 0.4) then { //0.25
 				_hitInfection = ((exp _rndInfection) > (dayz_infectionTreshold / _zClose));
 			};
 			if (_hitInfection) then {
-				r_player_infected = true;
-				player setVariable["USEC_infected",true,true];
+                 _biotic_level = [player,"biotics"] call DZU_fnc_getVariable;
+                if(_biotic_level==0)then{
+                   r_player_infected = true;
+                   player setVariable["USEC_infected",true,true];                    
+                };
 			};
 			//diag_log format["%1  (_damage - _bloodPercentage):%2  _rndInfection:%3  (exp _rndInfection):%4  _hitInfection:%5 ", __FILE__, (_damage - _bloodPercentage), _rndInfection, exp _rndInfection, _hitInfection];
 		};

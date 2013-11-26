@@ -16,6 +16,8 @@ private ["_bloodAmount","_humanityBool","_infectionChance","_humanityNegBool","_
 // Config Start-----------------------------------------------------------------------------------------------------------------------//
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 _skillMedical    = [player,"Medical"] call DZU_fnc_getVariable;
+_biotic_level    = [player,"biotics"] call DZU_fnc_getVariable;
+
 _bloodAmount     = 1960 + ((40 * _skillMedical) min 4000);
 _infectionChance = random(101);
 _bloodbagUseTime = 25.17 - ((0.17 * _skillMedical) max 0.17);
@@ -30,6 +32,10 @@ _humanityAmount = 50; // Amount of humanity to give player if _humanityBool is t
 
 _variablesBool = true; // Whether the player can get humanity from giving self a bloodbag (True = On | False = off)
 _variablesAmount = 20; // Amount of humanity to give player if _humanityBool is true (250 is default for normal bloodbags)
+
+if((_biotic_level > 0) && (_infectionChance > 50))then{
+   _infectionChance = floor(random 50);
+};
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Config End-------------------------------------------------------------------------------------------------------------------------//

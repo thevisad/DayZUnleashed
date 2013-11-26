@@ -102,5 +102,41 @@ class CfgPlayerVariables{
         desc="Registered";
         varname="vRG"; 
      vartype="number";
-    };       
+    };
+    class biocon : default {
+         load=1;
+      vardefault=0;
+         desc="Contamination";
+      varname="vBC"; 
+      vartype="number";
+      varmin=0;   
+      varmax=1000;
+    };
+    class radcon : default {
+         load=1;
+      vardefault=0;
+         desc="Radiation";
+      varname="vRC"; 
+      vartype="number";
+      varmin=0;   
+      varmax=1000;
+    };
+    class blood : default {
+         load=1;
+      vardefault=12000;
+         desc="Blood Level";
+      varname="vBL"; 
+      vartype="number";
+      varmin=0;   
+      varmax=12000;
+    };
+    class biotics : default {
+            load=1;
+      vardefault=0;
+         desc="Antibiotics";
+      varname="vAB"; 
+      vartype="number";
+       varmin=0;   
+      varmax= 12000;
+    };
 };
