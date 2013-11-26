@@ -21,7 +21,7 @@ while {true} do {
 	_vel = velocity player;
 	_speed = round((_vel distance [0,0,0]) * 3.5);
 	_saveTime = (playersNumber west * 2) + 10;
-    
+    _biotic_level = [player,"biotics"] call DZU_fnc_getVariable;
 	//reset position
 	_randomSpot = true;
 	_tempPos = getPosATL player;
@@ -124,7 +124,7 @@ while {true} do {
 					_rnd = (random 1) * (((dayz_temperaturnormal - dayz_temperatur) * (100 /(dayz_temperaturnormal - dayz_temperaturmin)))/ 50);	//TeeChange
 					if (_rnd < 0.1) then {
 						_rnd = random 1;
-						if (_rnd > 0.7) then {
+						if (_rnd > 0.7 && _biotic_level==0) then {
 							r_player_infected = true;
 							//player setVariable["USEC_infected",true];
 						};
@@ -135,7 +135,7 @@ while {true} do {
 				_rnd = (random 1) * (((dayz_temperaturnormal - dayz_temperatur) * (100 /(dayz_temperaturnormal - dayz_temperaturmin)))/ 25);	//TeeChange
 				if (_rnd < 0.05) then {
 					_rnd = random 1;
-					if (_rnd > 0.95) then {
+					if (_rnd > 0.95 && _biotic_level==0) then {
 						r_player_infected = true;
 						//player setVariable["USEC_infected",true];
 					};
