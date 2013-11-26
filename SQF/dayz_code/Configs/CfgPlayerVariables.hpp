@@ -21,8 +21,7 @@ class CfgPlayerVariables{
       hide=0;           //  bool: listing varibles in a UI should this be shown?
       global=0;         //  bool: _obj setvarible[_somthing,_something,_this];
       vardefault=1;     //   var: _obj setvarible[_somthing,_this,_something];  
-      varname="";       //  text: _obj setvarible[_this,_somthing,_something]; 
-      vartype="none";   //  text: "array","number",text,"object","raw","none"
+      varname="";       //  text: _obj setvarible[_this,_somthing,_something];
       varmin=1;         //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored.    
       varmax=100;       //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored. 
       limit=0;          //  read: depends on type: array affects number of items, number affects max change, text affects length, object is ignored, raw is ignored.
@@ -31,39 +30,33 @@ class CfgPlayerVariables{
     class Engineer : default {
          load=1;
          desc="Engineering";
-      varname="vEN"; 
-      vartype="number";
+      varname="vEN";
     };    
     class Hunting : default {
          load=1;
          desc="Hunting";
-      varname="vHN"; 
-      vartype="number";
+      varname="vHN";
     };
     class Medical : default {
          load=1;
          desc="Medical Knowledge";
-      varname="vMK";  
-      vartype="number"; 
+      varname="vMK";
     };
     class Combat : default {
          load=1;
          desc="Combat Training";
-      varname="vCT"; 
-      vartype="number";
+      varname="vCT";
     };
     class Survival : default {
          load=1;
       desc="Survival";
-      varname="vSS"; 
-      vartype="number";
+      varname="vSS";
     };
     class Experience : default {
          load=1;
       vardefault=0;
          desc="Experience  Points";
-      varname="vXP"; 
-      vartype="number";
+      varname="vXP";
       varmin=0;   
       varmax=1000;
     };
@@ -73,8 +66,7 @@ class CfgPlayerVariables{
          vardefault=0;
              varmin=0;
       desc="Dog Tags";
-        varname="vTC"; 
-     vartype="number";
+        varname="vTC";
     };
     class Pin : default {
                load=1;
@@ -82,8 +74,7 @@ class CfgPlayerVariables{
              varmin=0;
              varmax=9999;
            desc="Pin";
-        varname="vPN"; 
-     vartype="number";
+        varname="vPN";
     };
     class OneTimePass : default {
                load=1;
@@ -91,8 +82,7 @@ class CfgPlayerVariables{
              varmin=0;
              varmax=9999;
         desc="Pass";
-        varname="vPA"; 
-     vartype="number";
+        varname="vPA";
     };
     class Reg : default {
                load=1;
@@ -100,15 +90,13 @@ class CfgPlayerVariables{
              varmin=1;
              varmax=2;
         desc="Registered";
-        varname="vRG"; 
-     vartype="number";
+        varname="vRG";
     };
     class biocon : default {
          load=1;
       vardefault=0;
          desc="Contamination";
-      varname="vBC"; 
-      vartype="number";
+      varname="vBC";
       varmin=0;   
       varmax=1000;
     };
@@ -116,8 +104,7 @@ class CfgPlayerVariables{
          load=1;
       vardefault=0;
          desc="Radiation";
-      varname="vRC"; 
-      vartype="number";
+      varname="vRC";
       varmin=0;   
       varmax=1000;
     };
@@ -125,8 +112,7 @@ class CfgPlayerVariables{
          load=1;
       vardefault=12000;
          desc="Blood Level";
-      varname="vBL"; 
-      vartype="number";
+      varname="vBL";
       varmin=0;   
       varmax=12000;
     };
@@ -134,9 +120,17 @@ class CfgPlayerVariables{
             load=1;
       vardefault=0;
          desc="Antibiotics";
-      varname="vAB"; 
-      vartype="number";
+      varname="vAB";
        varmin=0;   
       varmax= 12000;
     };
+    class septic : default {
+         load=1;
+      vardefault=0;
+         desc="Septic Level";
+      varname="vSL";
+      varmin=0;   
+      varmax=12000;
+    };
+    
 };
