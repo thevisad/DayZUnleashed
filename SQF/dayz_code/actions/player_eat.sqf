@@ -66,8 +66,11 @@ if (_hasoutput) then{
 };
 
 if ( _rawfood and (random 15 < 1)) then {
+     _biotic_level = [player,"biotics"] call DZU_fnc_getVariable;
+    if(_biotic_level==0)then{
     r_player_infected = true;
     player setVariable["USEC_infected",true,true];
+    };
 };
 
 //r_player_blood = r_player_blood + _regen;
