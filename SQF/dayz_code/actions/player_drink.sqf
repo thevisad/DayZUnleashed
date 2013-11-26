@@ -53,8 +53,11 @@ if (_hasoutput) then{
 
 //add infection chance for "ItemWaterbottle",
 if ((random 15 < 1) and (_itemorignal == "ItemWaterbottle")) then {
-    r_player_infected = true;
-    player setVariable["USEC_infected",true,true];
+    _biotic_level = [player,"biotics"] call DZU_fnc_getVariable;
+    if(_biotic_level==0)then{
+        r_player_infected = true;
+        player setVariable["USEC_infected",true,true];        
+    };
 };
 
 player setVariable ["messing",[dayz_hunger,dayz_thirst],true];
