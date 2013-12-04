@@ -61,13 +61,14 @@ class CfgPlayerVariables{
       varmax=1000;
     };
     class Dogtags : default {
-               load=1;   
+               load=0;   
               limit=1;
          vardefault=0;
              varmin=0;
       desc="Dog Tags";
         varname="vTC";
-    };
+    };    
+    /*
     class Pin : default {
                load=1;
          vardefault=0;
@@ -92,28 +93,29 @@ class CfgPlayerVariables{
         desc="Registered";
         varname="vRG";
     };
+    */
     class biocon : default {
-         load=1;
+         load=0;
       vardefault=0;
          desc="Contamination";
       varname="vBC";
-      varmin=0;   
+      varmin=0;
       varmax=1000;
     };
     class radcon : default {
-         load=1;
+         load=0;
       vardefault=0;
          desc="Radiation";
       varname="vRC";
-      varmin=0;   
+      varmin=0;
       varmax=1000;
     };
     class blood : default {
-         load=1;
+         load=0;
       vardefault=12000;
          desc="Blood Level";
       varname="vBL";
-      varmin=0;   
+      varmin=0;
       varmax=12000;
     };
     class biotics : default {
@@ -121,16 +123,15 @@ class CfgPlayerVariables{
       vardefault=0;
          desc="Antibiotics";
       varname="vAB";
-       varmin=0;   
+       varmin=0;
       varmax= 12000;
     };
     class septic : default {
-         load=1;
+         load=0;
       vardefault=0;
          desc="Septic Level";
       varname="vSL";
-      varmin=0;   
+      varmin=0;
       varmax=12000;
     };
-    
 };
