@@ -2,7 +2,7 @@
 	DayZ Base Building
 	Made for DayZ Epoch and Unleashed please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
 */
-private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_objHupDiff","_objHdwnDiff","_needNear","_vehicle","_inVehicle","_previewCounter"];
+private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_objHupDiff","_needNear","_vehicle","_inVehicle","_previewCounter","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
 
 if(CodeInprogress) exitWith { cutText ["\n\nBuilding already in progress." , "PLAIN DOWN"]; };
 CodeInprogress = true;
@@ -102,6 +102,11 @@ if(isNumber (configFile >> "CfgVehicles" >> _classname >> "lockable")) then {
 _requireplot = 1;
 if(isNumber (configFile >> "CfgVehicles" >> _classname >> "requireplot")) then {
 	_requireplot = getNumber(configFile >> "CfgVehicles" >> _classname >> "requireplot");
+};
+
+_isAllowedUnderGround = 1;
+if(isNumber (configFile >> "CfgVehicles" >> _classname >> "nounderground")) then {
+	_isAllowedUnderGround = getNumber(configFile >> "CfgVehicles" >> _classname >> "nounderground");
 };
 
 _offset = 	getArray (configFile >> "CfgVehicles" >> _classname >> "offset");
@@ -262,7 +267,7 @@ if (_hasrequireditem) then {
 		if(_rotate) then {
 			_object setDir _dir;
 			_object setPosATL _position;
-			diag_log format["DEBUG Rotate BUILDING POS: %1", _position];
+			//diag_log format["DEBUG Rotate BUILDING POS: %1", _position];
 		};
 
 		if(_zheightchanged) then {
@@ -299,9 +304,13 @@ if (_hasrequireditem) then {
 			
 			_object setDir (getDir _object);
 
+			if((_isAllowedUnderGround == 0) and ((_position select 2) < 0)) then {
+				_position set [2,0];
+			};
+
 			_object setPosATL _position;
 			
-			diag_log format["DEBUG Change BUILDING POS: %1", _position];
+			//diag_log format["DEBUG Change BUILDING POS: %1", _position];
 			
 			_object attachTo [player];
 			
@@ -316,14 +325,14 @@ if (_hasrequireditem) then {
 			detach _object;
 			_dir = getDir _object;
 			_position = getPosATL _object;
-			diag_log format["DEBUG BUILDING POS: %1", _position];
+			//diag_log format["DEBUG BUILDING POS: %1", _position];
 			deleteVehicle _object;
 		};
 
 		if(_location1 distance _location2 > 5) exitWith {
 			_isOk = false;
 			_cancel = true;
-			_reason = "You've moved to far away from where you started building (within 5 meters)."; 
+			_reason = "You've moved to far away from where you started building (within 5 meters)"; 
 			detach _object;
 			deleteVehicle _object;
 		};
@@ -333,7 +342,7 @@ if (_hasrequireditem) then {
 		if(_previewCounter <= 0) exitWith {
 			_isOk = false;
 			_cancel = true;
-			_reason = "Ran out of time to find position."; 
+			_reason = "Ran out of time to find position"; 
 			detach _object;
 			deleteVehicle _object;
 		};
@@ -366,7 +375,7 @@ if (_hasrequireditem) then {
 	};
 
 	// No building on roads
-	if (isOnRoad _location) then { _cancel = true; _reason = "Cannot build on a road."; };
+	if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
 
 	// No building in trader zones
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
@@ -383,6 +392,10 @@ if (_hasrequireditem) then {
 	
 		// Get position based on object
 		_location = _position;
+	
+		if((_isAllowedUnderGround == 0) and ((_location select 2) < 0)) then {
+			_location set [2,0];
+		};
 	
 		_tmpbuilt setPosATL _location;
 
@@ -517,7 +530,7 @@ if (_hasrequireditem) then {
 					_tmpbuilt setVariable ["characterID",dayz_characterID,true];
 					
 					// fire?
-					if(_tmpbuilt isKindOf "Land_Fire") then {
+					if(_tmpbuilt isKindOf "Land_Fire_DZ") then {
 						_tmpbuilt spawn player_fireMonitor;
 					} else {
 						PVDZ_bld_Publish = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
