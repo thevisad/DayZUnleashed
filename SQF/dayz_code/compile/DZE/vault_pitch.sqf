@@ -1,8 +1,12 @@
+/*
+	DayZ Safe
+	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
+*/
 private ["_tent","_location","_isOk","_cancel","_location3","_location4","_location1","_location2","_counter","_pondPos","_isPond","_ppos","_hastentitem","_dir","_building","_isBuilding","_playerPos","_item","_offset_x","_offset_y","_offset_z","_offset_z_attach","_config","_text","_tmpvault","_vault_location","_objectsPond","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_removed"];
 //check if can pitch here
 
-if(CodeInProgress) exitWith { cutText ["Vault pitching already in progress." , "PLAIN DOWN"]; };
-CodeInProgress = true;
+if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_108") , "PLAIN DOWN"]; };
+DZE_ActionInProgress = true;
 
 //disableSerialization;
 
@@ -48,7 +52,7 @@ _counter = 0;
 while {_isOk} do {
 	
 	if(_counter == 0) then {
-		cutText ["Planning construction stand still 5 seconds to build.", "PLAIN DOWN"];
+		cutText [(localize "str_epoch_player_109"), "PLAIN DOWN"];
 		sleep 5; 
 		_location1 = getPosATL player;
 		sleep 5;
@@ -56,7 +60,7 @@ while {_isOk} do {
 	
 		if(_location1 distance _location2 < 0.1) exitWith {
 			
-			cutText ["Started construction move within 5 seconds to cancel.", "PLAIN DOWN"];
+			cutText [(localize "str_epoch_player_109"), "PLAIN DOWN"];
 			_location3 = getPosATL player;
 			sleep 5;
 			_location4 = getPosATL player;
@@ -116,7 +120,7 @@ if(!_cancel) then {
 			//call dayz_forceSave;
 
 			_dir = round(direction player);	
-	
+			//[1,1] call dayz_HungerThirst;
 			//wait a bit
 			player playActionNow "Medic";
 			sleep 1;
@@ -145,8 +149,6 @@ if(!_cancel) then {
 	
 			// Generate Combination
 			_combination_1 = floor(random 10);
-			// Not needed as we fix leading zeros on server spawning
-			//if (_combination_1 == 0) then {_combination_1 = 1;}; 
 			_combination_2 = floor(random 10);
 			_combination_3 = floor(random 10);
 			_combination_4 = floor(random 10);
@@ -166,15 +168,15 @@ if(!_cancel) then {
 			diag_log ("DEBUG: SAFE // obj_Publish" + str(PVDZ_bld_Publish));
 			publicVariableServer  "PVDZ_bld_Publish";
 	
-			cutText [format["You have setup your Safe. Combination is %1",_combination], "PLAIN DOWN", 5];
+			cutText [format[(localize "str_epoch_player_179"),_combination], "PLAIN DOWN", 5];
 		};
 	
 	} else {
-		cutText ["You cannot place a Safe here. The area must be flat, and free of other objects", "PLAIN DOWN"];
+		cutText [(localize "str_epoch_player_110"), "PLAIN DOWN"];
 	};
 
 } else {
-	cutText ["Canceled construction of Safe.", "PLAIN DOWN"];
+	cutText [(localize "str_epoch_player_111"), "PLAIN DOWN"];
 };
 
-CodeInProgress = false;
+DZE_ActionInProgress = false;
