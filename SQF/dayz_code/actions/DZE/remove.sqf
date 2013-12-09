@@ -2,14 +2,22 @@
 delete object from db with extra waiting by [VB]AWOL
 parameters: _obj
 */
-private ["_obj","_objectID","_objectUID","_started","_finished","_animState","_isMedic","_isOk","_proceed","_counter","_limit","_objType","_sfx","_dis","_itemOut","_countOut","_selectedRemoveOutput","_friendlies","_nearestPole","_ownerID","_refundpart","_isWreck","_findNearestPoles","_findNearestPole","_IsNearPlot","_brokenTool","_removeTool","_isDestructable","_isRemovable"];
+private ["_activatingPlayer","_obj","_objectID","_objectUID","_started","_finished","_animState","_isMedic","_isOk","_proceed","_counter","_limit","_objType","_sfx","_dis","_itemOut","_countOut","_selectedRemoveOutput","_friendlies","_nearestPole","_ownerID","_refundpart","_isWreck","_findNearestPoles","_findNearestPole","_IsNearPlot","_brokenTool","_removeTool","_isDestructable","_isRemovable","_objOwnerID","_isOwnerOfObj","_preventRefund","_ipos","_item","_radius","_isWreckBuilding","_nameVehicle","_isModular"];
 
-if(CodeInProgress) exitWith { cutText ["Remove already in progress." , "PLAIN DOWN"]; };
-CodeInProgress = true;
+if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_88") , "PLAIN DOWN"]; };
+DZE_ActionInProgress = true;
+
+player removeAction s_player_deleteBuild;
+s_player_deleteBuild = 1;
 
 _obj = _this select 3;
 
-if(_obj getVariable ["GeneratorRunning", false]) exitWith {CodeInProgress = false; cutText ["Cannot remove running generator.", "PLAIN DOWN"];};
+_activatingPlayer = player;
+
+_objOwnerID = _obj getVariable["CharacterID","0"];
+_isOwnerOfObj = (_objOwnerID == dayz_characterID);
+
+if(_obj getVariable ["GeneratorRunning", false]) exitWith {DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_89"), "PLAIN DOWN"];};
 
 _objectID 	= _obj getVariable ["ObjectID","0"];
 _objectUID	= _obj getVariable ["ObjectUID","0"];
@@ -22,6 +30,8 @@ _objType = typeOf _obj;
 _isDestructable = _obj isKindOf "BuiltItems";
 _isWreck = _objType in DZE_isWreck;
 _isRemovable = _objType in DZE_isRemovable;
+_isWreckBuilding = _objType in DZE_isWreckBuilding;
+_isModular = _obj isKindOf "ModularItems";
 
 _limit = 3;
 if(isNumber (configFile >> "CfgVehicles" >> _objType >> "constructioncount")) then {
@@ -52,7 +62,14 @@ if(_IsNearPlot >= 1) then {
 	};
 };
 
-cutText [format["Starting de-construction of %1.",_objType], "PLAIN DOWN"];
+_nameVehicle = getText(configFile >> "CfgVehicles" >> _objType >> "displayName");
+
+cutText [format[(localize "str_epoch_player_162"),_nameVehicle], "PLAIN DOWN"];
+
+if (_isModular) then {
+     //allow previous cutText to show, then show this if modular.
+     cutText ["Deconstructing modular buildables will not refund any components.", "PLAIN"];
+};
 
 // Alert zombies once.
 [player,50,true,(getPosATL player)] spawn player_alertZombies;
@@ -121,7 +138,7 @@ while {_isOk} do {
 		_proceed = false;
 	};
 
-	cutText [format["De-constructing %1 stage %2 of %3 walk away at anytime to cancel.",_objType, _counter,_limit], "PLAIN DOWN"];
+	cutText [format[(localize "str_epoch_player_163"), _nameVehicle, _counter,_limit], "PLAIN DOWN"];
 
 	if(_counter == _limit) exitWith {
 		_isOk = false;
@@ -137,7 +154,7 @@ if(_brokenTool) then {
 		_removeTool = ["ItemCrowbar","ItemToolbox"] call BIS_fnc_selectRandom;
 	};
 	if(([player,_removeTool,1] call BIS_fnc_invRemove) > 0) then {
-		cutText [format["Tool (%1) broke cannot remove %2.",_removeTool,_objType], "PLAIN DOWN"];
+		cutText [format[(localize "str_epoch_player_164"),getText(configFile >> "CfgWeapons" >> _removeTool >> "displayName"),_nameVehicle], "PLAIN DOWN"];
 	};
 };
 
@@ -147,11 +164,18 @@ if (_proceed) then {
 	// Double check that object is not null
 	if(!isNull(_obj)) then {
 		
-		PVDZ_obj_Delete = [_objectID,_objectUID];
-		publicVariableServer "PVDZ_obj_Delete";
+		_ipos = getPosATL _obj;
+
 		deleteVehicle _obj;
 
-		cutText [format["De-constructing %1.",_objType], "PLAIN DOWN"];
+		if(!_isWreck) then {
+			PVDZ_obj_Delete = [_objectID,_objectUID];
+			publicVariableServer "PVDZ_obj_Delete";
+		};
+
+		cutText [format[(localize "str_epoch_player_165"),_nameVehicle], "PLAIN DOWN"];
+		
+		_preventRefund = false;
 		
 		_selectedRemoveOutput = [];
 		if(_isWreck) then {
@@ -159,24 +183,45 @@ if (_proceed) then {
 			_refundpart = ["PartEngine","PartGeneric","PartFueltank","PartWheel","PartGlass","ItemJerrycan"] call BIS_fnc_selectRandom;
 			_selectedRemoveOutput set [count _selectedRemoveOutput,[_refundpart,1]];
 		} else {
-			_selectedRemoveOutput = getArray (configFile >> "CfgVehicles" >> _objType >> "removeoutput");
+			if(_isWreckBuilding) then {
+				_selectedRemoveOutput = getArray (configFile >> "CfgVehicles" >> _objType >> "removeoutput");
+			} else {
+				_selectedRemoveOutput = getArray (configFile >> "CfgVehicles" >> _objType >> "removeoutput");
+				_preventRefund = (_objectID == "0" && _objectUID == "0");
+			
+			};
 		};
 		
+		if((count _selectedRemoveOutput) <= 0) then {
+			cutText [(localize "str_epoch_player_90"), "PLAIN DOWN"];
+		};
+		
+		if (_ipos select 2 < 0) then {
+			_ipos set [2,0];
+		};
+
+		_radius = 1;
+
 		// give refund items
-		if((count _selectedRemoveOutput) > 0) then {
-			// Put itemsg
+		if((count _selectedRemoveOutput) > 0 and !_preventRefund) then {
+			_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 			{
 				_itemOut = _x select 0;
 				_countOut = _x select 1;
-				for "_x" from 1 to _countOut do {
-					player addMagazine _itemOut;
+				if (typeName _countOut == "ARRAY") then {
+					_countOut = round((random (_countOut select 1)) + (_countOut select 0));
 				};
-				
+				_item addMagazineCargoGlobal [_itemOut,_countOut];				
 			} forEach _selectedRemoveOutput;
-			cutText ["De-constructed parts are now in your inventory.", "PLAIN DOWN"];
+				
+			_item setposATL _iPos;
+
+			player reveal _item;
+
+			player action ["Gear", _item];
 		};
 	} else {
-		cutText ["Failed object not longer exists.", "PLAIN DOWN"];
+		cutText [(localize "str_epoch_player_91"), "PLAIN DOWN"];
 	};
 
 } else {
@@ -186,4 +231,5 @@ if (_proceed) then {
 		player playActionNow "stop";
 	};
 };
-CodeInProgress = false;
+DZE_ActionInProgress = false;
+s_player_deleteBuild = -1;
