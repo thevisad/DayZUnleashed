@@ -1,4 +1,8 @@
 class CfgVehicles {
+	class All;
+	class HouseBase;
+	class Ruins: HouseBase {};
+    
 	class AllVehicles;
 	class Air : AllVehicles 
 	{
@@ -44,6 +48,42 @@ class CfgVehicles {
 	class Animal;
 	class Pastor;
 	class Fin;
+
+	class ModularItems: NonStrategic{
+		placement = "vertical";
+	
+		class DestructionEffects {
+			class Sound {
+				simulation = "sound";
+				type = "DestrHouse";
+				position = "destructionEffect1";
+				intensity = 1;
+				interval = 1;
+				lifeTime = 0.05;
+			};
+
+			class DestroyPhase1 {
+				simulation = "destroy";
+				type = "DelayedDestruction";
+				lifeTime = 2.5;
+				position = "";
+				intensity = 1;
+				interval = 1;
+			};
+
+			class DamageAround1 {
+				simulation = "damageAround";
+				type = "DamageAroundHouse";
+				position = "";
+				intensity = 0.1;
+				interval = 1;
+				lifeTime = 1;
+			};
+		};
+	};
+		
+	#include "CfgVehicles\DZE\Modular.hpp"
+	#include "CfgVehicles\DZE\Doors.hpp"
 
 	#include "CfgVehicles\RepairParts.hpp"    //names for all reapir parts. Needs moving to hitpoints
 	//ZEDS
