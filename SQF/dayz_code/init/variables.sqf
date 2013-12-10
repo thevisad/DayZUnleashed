@@ -645,6 +645,7 @@ if(!isDedicated) then {
 	dayz_combination = "";
 	CraftingInprogress = false;
 	CodeInProgress = false;
+	DZE_ActionInProgress = false;
 	DZE_Q = false;
 	DZE_Z = false;
 
