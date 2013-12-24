@@ -1,14 +1,95 @@
+/*
+class FJ_Button
+{
+	type = 16;
+	idc = -1;
+	style = 0;
+	default = 0;
+	x = 0.1;
+	y = 0.1;
+	w = 0.183825;
+	h = 0.104575;
+	color[] = {0.543, 0.5742, 0.4102, 1.0};
+	color2[] = {0.95, 0.95, 0.95, 1};
+	colorBackground[] = {1, 1, 1, 1};
+	colorbackground2[] = {1, 1, 1, 1};
+	colorDisabled[] = {1, 1, 1, 0.25};
+	periodFocus = 1.2;
+	periodOver = 0.8;
+
+	class HitZone
+	{
+		left = 0.004;
+		top = 0.029;
+		right = 0.004;
+		bottom = 0.029;
+	};
+
+	class ShortcutPos
+	{
+		left = 0.0145;
+		top = 0.026;
+		w = 0.0392157;
+		h = 0.0522876;
+	};
+
+	class TextPos
+	{
+		left = 0.05;
+		top = 0.034;
+		right = 0.005;
+		bottom = 0.005;
+	};
+
+
+	textureNoShortcut = "";
+	animTextureNormal = "\ca\ui\data\ui_button_normal_ca.paa";
+	animTextureDisabled = "\ca\ui\data\ui_button_disabled_ca.paa";
+	animTextureOver = "\ca\ui\data\ui_button_over_ca.paa";
+	animTextureFocused = "\ca\ui\data\ui_button_focus_ca.paa";
+	animTexturePressed = "\ca\ui\data\ui_button_down_ca.paa";
+	animTextureDefault = "\ca\ui\data\ui_button_default_ca.paa";
+	period = 0.4;
+	font = "Zeppelin32";
+	size = 0.03921;
+	sizeEx = 0.03921;
+	text = "";
+	soundEnter[] = {"\ca\ui\data\sound\mouse2", 0.09, 1};
+	soundPush[] = {"\ca\ui\data\sound\new1", 0.09, 1};
+	soundClick[] = {"\ca\ui\data\sound\mouse3", 0.07, 1};
+	soundEscape[] = {"\ca\ui\data\sound\mouse1", 0.09, 1};
+	action = "";
+	toolTip = "";
+
+	class Attributes
+	{
+		font = "Zeppelin32";
+		color = "#E5E5E5";
+		align = "left";
+		shadow = "true";
+	};
+
+	class AttributesImage
+	{
+		font = "Zeppelin32";
+		color = "#E5E5E5";
+		align = "left";
+		shadow = "true";
+	};
+};
+*/
+
 class levels
 {
 	idd=8567;
-	movingenable = 1;
+	movingenable=1;
 	
 	class Controls
 	{	
 		class background: RscPicture
 		{
 			idc=-1;
-			text = "\z\addons\dayz_code\gui\green.paa";
+			text = "\z\addons\dayz_code\gui\levels.paa";
 			x = 0.128125;
 			y = -0.113972;
 			w = 0.69375;

@@ -21,8 +21,7 @@ class CfgPlayerVariables{
       hide=0;           //  bool: listing varibles in a UI should this be shown?
       global=0;         //  bool: _obj setvarible[_somthing,_something,_this];
       vardefault=1;     //   var: _obj setvarible[_somthing,_this,_something];  
-      varname="";       //  text: _obj setvarible[_this,_somthing,_something]; 
-      vartype="none";   //  text: "array","number",text,"object","raw","none"
+      varname="";       //  text: _obj setvarible[_this,_somthing,_something];
       varmin=1;         //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored.    
       varmax=100;       //  read: depends on type: array affects size, number affects limit, text affects length, object is ignored, raw is ignored. 
       limit=0;          //  read: depends on type: array affects number of items, number affects max change, text affects length, object is ignored, raw is ignored.
@@ -31,103 +30,83 @@ class CfgPlayerVariables{
     class Engineer : default {
          load=1;
          desc="Engineering";
-      varname="vEN"; 
-      vartype="number";
+      varname="vEN";
     };    
     class Hunting : default {
          load=1;
          desc="Hunting";
-      varname="vHN"; 
-      vartype="number";
+      varname="vHN";
     };
     class Medical : default {
          load=1;
          desc="Medical Knowledge";
-      varname="vMK";  
-      vartype="number"; 
+      varname="vMK";
     };
     class Combat : default {
          load=1;
          desc="Combat Training";
-      varname="vCT"; 
-      vartype="number";
+      varname="vCT";
     };
     class Survival : default {
          load=1;
       desc="Survival";
-      varname="vSS"; 
-      vartype="number";
+      varname="vSS";
     };
     class Experience : default {
-		load=1;
-		vardefault=0;
-		desc="Experience  Points";
-		varname="vXP"; 
-		vartype="number";
-		varmin=0;   
-		varmax=1000;
+         load=1;
+      vardefault=0;
+         desc="Experience  Points";
+      varname="vXP";
+      varmin=0;   
+      varmax=1000;
     };
     class Dogtags : default {
-               load=1;   
+               load=0;   
               limit=1;
          vardefault=0;
              varmin=0;
       desc="Dog Tags";
-        varname="vTC"; 
-     vartype="number";
-    };
-    class OneTimePass : default {
-               load=1;
-         vardefault=0;
-             varmin=0;
-             varmax=9999;
-        desc="Pass";
-        varname="vPA"; 
-     vartype="number";
-    };
-    class Reg : default {
-               load=1;
-         vardefault=1;
-             varmin=1;
-             varmax=2;
-        desc="Registered";
-        varname="vRG"; 
-     vartype="number";
-    };
+        varname="vTC";
+    };    
+
     class biocon : default {
-         load=1;
+         load=0;
       vardefault=0;
          desc="Contamination";
-      varname="vBC"; 
-      vartype="number";
-      varmin=0;   
+      varname="vBC";
+      varmin=0;
       varmax=1000;
     };
     class radcon : default {
-         load=1;
+         load=0;
       vardefault=0;
          desc="Radiation";
-      varname="vRC"; 
-      vartype="number";
-      varmin=0;   
+      varname="vRC";
+      varmin=0;
       varmax=1000;
     };
     class blood : default {
-         load=1;
+         load=0;
       vardefault=12000;
          desc="Blood Level";
-      varname="vBL"; 
-      vartype="number";
-      varmin=0;   
+      varname="vBL";
+      varmin=0;
       varmax=12000;
     };
     class biotics : default {
             load=1;
       vardefault=0;
          desc="Antibiotics";
-      varname="vAB"; 
-      vartype="number";
-       varmin=0;   
+      varname="vAB";
+       varmin=0;
       varmax= 12000;
+    };
+    class septic : default {
+         load=0;
+      vardefault=0;
+         desc="Septic Level";
+      varname="vSL";
+      varmin=0;
+      varmax=12000;
     };
 };
