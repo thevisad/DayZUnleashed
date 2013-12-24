@@ -1,7 +1,7 @@
 //  Function: DZU_fnc_saveVariable
 
-_updateInterval=1000;   //How often to save this to the server
-    _stackLimit=5;      //How large to all this list to grow before sending to server.
+_updateInterval=100;   //How often to save this to the server
+    _stackLimit=1;      //How large to all this list to grow before sending to server.
        _timeNow=diag_tickTime;
 if((count _this)<2) exitWith{
     diag_log "error: DZU_fnc_saveVariable requires at least'Variable' & 'Value'.";
@@ -26,7 +26,7 @@ _stackSize = (count(DZU_stack_saveVariable select 1));
 
 diag_log format["DZU_fnc_saveVariables:Last save(%1) Time(%2)",_lastSave,_timeNow];
 diag_log format["DZU_fnc_saveVariables:Change(%1) Value(%2)",_updateVariable,_updateValue];
-diag_log format["DZU_fnc_saveVariables:Stack Contents==>",DZU_stack_saveVariable];
+diag_log format["DZU_fnc_saveVariables:Stack Contents==> %1",DZU_stack_saveVariable];
 if((_stackSize > _stackLimit)||(_lastSave>_updateInterval)||(_saveRequest))then{
     PVDZ_plr_VarSave2 = [player,DZU_stack_saveVariable];
     DZU_time_saveVariable=_timeNow;

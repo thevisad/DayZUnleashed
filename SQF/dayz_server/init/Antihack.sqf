@@ -338,7 +338,7 @@ _LoadPlease = compile ("
 						if !(_i in _dayzActions) then {player removeAction _i};
 					};
 					
-					if (isNull (findDisplay 106) and isNull (findDisplay 20900) and isNull (findDisplay 6902) and isNull (findDisplay 6903) and isNull (findDisplay 6904) and isNull (findDisplay 6905) ) then {closeDialog 0;};
+					if (isNull (findDisplay 106) and isNull (findDisplay 20900) and isNull (findDisplay 6902) and isNull (findDisplay 6903) and isNull (findDisplay 6904) and isNull (findDisplay 6905)  and isNull (findDisplay 8567) ) then {closeDialog 0;};
 					player allowDamage true;
 					sleep 0.2;
 				};
@@ -658,7 +658,7 @@ call compile ("
 				nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
 				endMission 'LOSER';
 			};
-			if (isNull (findDisplay 106) and isNull (findDisplay 6902) and isNull (findDisplay 6903) and isNull (findDisplay 6904)  and isNull (findDisplay 6905) and !(ctrlEnabled 1900)) then {closeDialog 0;};
+			if (isNull (findDisplay 106) and isNull (findDisplay 6902) and isNull (findDisplay 6903) and isNull (findDisplay 6904) and isNull (findDisplay 6905) and isNull (findDisplay 8567)and !(ctrlEnabled 1900)) then {closeDialog 0;};
 			if (!isNull (findDisplay 49)) then {
 				(findDisplay 49) displayRemoveAllEventHandlers 'KeyDown';
 				(findDisplay 49) displayRemoveAllEventHandlers 'KeyUp';

@@ -6,7 +6,7 @@ class levels
 	controlsBackground[]={level_bg};
 	objects[]={};
 	access = 0;
-	controls[]={RscPicture, closeButton, faketext1, faketext2, faketext3, faketext4, faketext5, value5, value4, value3, value2, value1, up1, up5, up4, up3, up2, unspentValue, unspentText, playerPassText, playerIDText, skill1, skill2, skill3, skill4, skill5 };
+	controls[]={RscPicture, closeButton, value5, value4, value3, value2, value1, up1, up5, up4, up3, up2, unspentValue, unspentText, playerPassText, playerIDText, skill1, skill2, skill3, skill4, skill5 };
 	class RscPicture;
 	class RscBgFrame
 	{
@@ -28,7 +28,7 @@ class levels
 		h = 1.11375;
 	};
 	
-		class background: RscPicture
+	class background: RscPicture
 	{
 		idc=-1;
 		text = "\z\addons\dayz_code\gui\green.paa";
@@ -257,55 +257,5 @@ class levels
 		w = 0.16683;
 		h = 0.0929895;
 	};
-	/*
-	class faketext1:RscText
-	{
-		idc=8030;
-		text = "";
-		x = 0.187501;
-		y = 0.174999;
-		w = 0.0999999;
-		h = 0.0999999;
-	};
-	
-	class faketext2:RscText
-	{
-		idc=8031;
-		text = "";
-		x = 0.187501;
-		y = 0.299999;
-		w = 0.0999999;
-		h = 0.0999999;
-	};
-	
-	class faketext3:RscText
-	{
-		idc=8032;
-		text = "";
-		x = 0.187501;
-		y = 0.424999;
-		w = 0.0999999;
-		h = 0.0999999;
-	};
-	
-	class faketext4:RscText
-	{
-		idc=8033;
-		text = "";
-		x = 0.187501;
-		y = 0.55;
-		w = 0.0999999;
-		h = 0.0999999;
-	};
-	
-	class faketext5:RscText
-	{
-		idc=8034;
-		text = "";
-		x = 0.187501;
-		y = 0.675;
-		w = 0.0999999;
-		h = 0.0999999;
-	};
-	*/
+
 };

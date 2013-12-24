@@ -1,19 +1,5 @@
 
 -- ----------------------------
--- View structure for `server_ip`
--- ----------------------------
-DROP VIEW IF EXISTS `server_ip`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`dayzserver`@`localhost` SQL SECURITY DEFINER VIEW `server_ip` AS select substring_index(`information_schema`.`processlist`.`HOST`,':',1) AS `serverip` from `information_schema`.`processlist` where (`information_schema`.`processlist`.`ID` = connection_id()) ;
-
--- ----------------------------
--- View structure for `server_instance`
--- ----------------------------
-DROP VIEW IF EXISTS `server_instance`;
-CREATE ALGORITHM=UNDEFINED DEFINER=`dayzserver`@`localhost` SQL SECURITY DEFINER VIEW `server_instance` AS select `dayzunleashed`.`instance_user`.`id` AS `id` from (`dayzunleashed`.`server_ip` join `dayzunleashed`.`instance_user` on((`server_ip`.`serverip` = convert(`dayzunleashed`.`instance_user`.`userIP` using utf8)))) ;
-
-
-
--- ----------------------------
 -- Procedure structure for `pCleanup`
 -- ----------------------------
 DROP PROCEDURE IF EXISTS `pCleanup`;

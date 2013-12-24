@@ -1,0 +1,3 @@
+ALTER TABLE `instance_user` DROP PRIMARY KEY;
+ALTER TABLE `instance_user` ADD COLUMN `instanceID`  int(11) NOT NULL AFTER `userIP`;
+ALTER TABLE `instance_user` ADD PRIMARY KEY (`id`);

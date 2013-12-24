@@ -243,7 +243,7 @@ if ((_variablesdata select 0) == "PASS") then {
     diag_log format["USPSETUP: Found %1 for saved variables",(count _variables_list)];
     if( (count _variables_list) > 0) then {
         {
-            _query = format["CHILD:152:%1:%2:",_characterID,_x];
+            _query = format["CHILD:151:%1:%2:",_characterID,_x];
             _variableData = _query call server_hiveReadWrite;
 
             if((_variableData select 0) == "PASS") then {
