@@ -418,11 +418,13 @@ if (!isDedicated) then {
 		_i = 0;
 		_control = _display displayCtrl (8020);
 		_control ctrlSetText str(_skillpoints);
-		_target_characterID =  player getVariable ["characterID","0"];
+		//_target_characterID =  player getVariable ["characterID","0"];
 		_userid = _display displayCtrl (8040);
-		_userid ctrlSetText str(_target_characterID);
+		_userid ctrlSetText str(dayz_playerID);
+		/*
 		_consumedPassword = 1;
 		_playerRegged = [player,"Reg"] call DZU_fnc_getVariable;
+		
 		if (_playerRegged != 2) then {
 			diag_log("VARIABLES: Setup player Pin for new player.");
 			_accountPasswordText = "Pin";
@@ -444,7 +446,7 @@ if (!isDedicated) then {
 			_consumedText = "consumed";
 			_userpass = _display displayCtrl (8041);
 			_userpass ctrlSetText str(_consumedText);	
-		};
+		};*/
 		
 		{
 			_skill_value = [player,_x] call DZU_fnc_getVariable;

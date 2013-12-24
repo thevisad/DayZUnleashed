@@ -59,13 +59,13 @@ class CfgPlayerVariables{
       vartype="number";
     };
     class Experience : default {
-         load=1;
-      vardefault=0;
-         desc="Experience  Points";
-      varname="vXP"; 
-      vartype="number";
-      varmin=0;   
-      varmax=1000;
+		load=1;
+		vardefault=0;
+		desc="Experience  Points";
+		varname="vXP"; 
+		vartype="number";
+		varmin=0;   
+		varmax=1000;
     };
     class Dogtags : default {
                load=1;   
@@ -74,15 +74,6 @@ class CfgPlayerVariables{
              varmin=0;
       desc="Dog Tags";
         varname="vTC"; 
-     vartype="number";
-    };
-    class Pin : default {
-               load=1;
-         vardefault=0;
-             varmin=0;
-             varmax=9999;
-           desc="Pin";
-        varname="vPN"; 
      vartype="number";
     };
     class OneTimePass : default {
