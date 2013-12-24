@@ -61,7 +61,7 @@ class CfgPlayerVariables{
       varmax=1000;
     };
     class Dogtags : default {
-               load=0;   
+               load=1;   
               limit=1;
          vardefault=0;
              varmin=0;
