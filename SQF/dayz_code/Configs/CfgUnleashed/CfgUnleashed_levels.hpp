@@ -82,8 +82,7 @@ class FJ_Button
 class levels
 {
 	idd=8567;
-	movingenable=1;
-	
+
 	class Controls
 	{	
 		class background: RscPicture
@@ -106,7 +105,7 @@ class levels
 			text = "ADD";
 			font = "Zeppelin33";
 			action = "[player,""Engineer"",1] call DZU_fnc_levelUp;[] call updateUI;";
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
+			//soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 		};
 
 		class up2:RscButton
@@ -119,7 +118,7 @@ class levels
 			text = "ADD";
 			font = "Zeppelin33";
 			action = "[player,""Hunting"",1] call DZU_fnc_levelUp;[] call updateUI;";
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
+			//soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 		};
 
 		class up3:RscButton
@@ -132,7 +131,7 @@ class levels
 			text = "ADD";
 			font = "Zeppelin33";
 			action = "[player,""Medical"",1] call DZU_fnc_levelUp;[] call updateUI;";
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
+			//soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 		};
 		
 		class up4:RscButton
@@ -145,7 +144,7 @@ class levels
 			text = "ADD";
 			font = "Zeppelin33";
 			action = "[player,""Combat"",1] call DZU_fnc_levelUp;[] call updateUI;";
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
+			//soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 		};
 		
 		class up5:RscButton
@@ -158,7 +157,7 @@ class levels
 			text = "ADD";
 			font = "Zeppelin33";
 			action = "[player,""Survival"",1] call DZU_fnc_levelUp;[] call updateUI;";
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
+			//soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.5,1};
 		};
 		
 		

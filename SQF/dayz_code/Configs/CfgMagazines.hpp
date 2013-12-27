@@ -1,9 +1,9 @@
 class CfgMagazines {
 	class CA_Magazine;	// External class reference
 	class FoodDrink; //External class reference
-	class ItemSodaEmpty; //External class reference
+	//class ItemSodaEmpty; //External class reference
 	class FoodEdible; //External class reference
-	class TrashTinCan; //External class reference
+	//class TrashTinCan; //External class reference
 	class HandGrenade; //External class reference
 	
 	class Quiver : CA_Magazine {
@@ -70,11 +70,12 @@ class CfgMagazines {
 	#include "CfgMagazines\FoodMeatCooked.hpp"
 	#include "CfgMagazines\FoodMeatRaw.hpp"
 	#include "CfgMagazines\ItemSoda.hpp"
-	#include "CfgMagazines\ItemSodaEmpty.hpp"
+	
 	#include "CfgMagazines\MeleeSwing.hpp"
-	#include "CfgMagazines\TrashTinCan.hpp"
+	
 	#include "CfgMagazines\Deployable.hpp"
 	#include "CfgMagazines\TrashLoot.hpp"
+
 	//Chemlight and Roadflare
 	#include "CfgMagazines\HandGrenade.hpp"
 	//Skins
@@ -82,63 +83,45 @@ class CfgMagazines {
 	//Fuelcan
 	#include "CfgMagazines\Fuelcan.hpp"
 	#include "CfgMagazines\Jerrycan.hpp"
-	// fuel barrel
-	#include "CfgMagazines\DZE\ItemFuelBarrel.hpp"
 	
 	//crafting
 	#include "CfgCrafting\Mats.hpp"
-	
-	// DZE Building kits
-	#include "CfgMagazines\DZE\BuildingKits.hpp"
-	
-	// ItemGenerator
-	#include "CfgMagazines\DZE\ItemGenerator.hpp"
-	
-	// DZE Fishes
-	#include "CfgMagazines\DZE\FoodFishCooked.hpp"
-	#include "CfgMagazines\DZE\FoodFishRaw.hpp"
-	
-	// Vault
-	#include "CfgMagazines\DZE\ItemVault.hpp"
-	
-	// Wood
-	#include "CfgMagazines\DZE\PartWoodPile.hpp"
-	#include "CfgMagazines\DZE\PartWoodLumber.hpp"
-	#include "CfgMagazines\DZE\PartWoodPlywood.hpp"
 
 	// blood bag
 	#include "CfgMagazines\ItemBloodBag.hpp"
 
-	//  ItemBurlap
-	#include "CfgMagazines\DZE\ItemBurlap.hpp"
-	//  ItemCanvas
-	#include "CfgMagazines\DZE\ItemCanvas.hpp"
-	// ItemCorrugated 
-	#include "CfgMagazines\DZE\ItemCorrugated.hpp"
-	// ItemFuelPump
-	#include "CfgMagazines\DZE\ItemFuelPump.hpp"
-	// ItemBriefcase
-	#include "CfgMagazines\DZE\ItemBriefcase.hpp"
-	// ItemPole
-	#include "CfgMagazines\DZE\ItemPole.hpp"
-	// ItemSandbag
-	// #include "CfgMagazines\DZE\ItemSandbag.hpp"
-	// ItemSandbagLarge
-	#include "CfgMagazines\DZE\ItemSandbagLarge.hpp"
-	// bulk 
+	#include "CfgMagazines\DZE\BuildingKits.hpp"
 	#include "CfgMagazines\DZE\bulk.hpp"
-	// FoodBioMeat 
+	#include "CfgMagazines\DZE\CinderBlocks.hpp"
+	#include "CfgMagazines\DZE\Fishing_Swing.hpp"
 	#include "CfgMagazines\DZE\FoodBioMeat.hpp"
-	// ItemLightBulb 
+	#include "CfgMagazines\DZE\FoodFishCooked.hpp"
+	#include "CfgMagazines\DZE\FoodFishRaw.hpp"
+	#include "CfgMagazines\DZE\ItemBriefcase.hpp"
+	#include "CfgMagazines\DZE\ItemBurlap.hpp"
+	#include "CfgMagazines\DZE\ItemCanvas.hpp"
+	#include "CfgMagazines\DZE\ItemCorrugated.hpp"
+	#include "CfgMagazines\DZE\ItemFuelBarrel.hpp"
+	#include "CfgMagazines\DZE\ItemFuelPump.hpp"
+	#include "CfgMagazines\DZE\ItemGenerator.hpp"
+	#include "CfgMagazines\DZE\ItemJerrycan.hpp"
 	#include "CfgMagazines\DZE\ItemLightBulb.hpp"
-	// ItemSodaOrangeSherbet
+	#include "CfgMagazines\DZE\ItemPole.hpp"
+	//#include "CfgMagazines\DZE\ItemSandbag.hpp"
+	#include "CfgMagazines\DZE\ItemSandbagLarge.hpp"
+	#include "CfgMagazines\DZE\ItemSodaEmpty.hpp"
+	#include "CfgMagazines\ItemSodaEmpty.hpp"
 	#include "CfgMagazines\DZE\ItemSodaOrangeSherbet.hpp"
-	// ItemZombieParts
+	//#include "CfgMagazines\DZE\ItemSodaRbull.hpp"
+	//#include "CfgMagazines\DZE\ItemTent.hpp"
+	#include "CfgMagazines\DZE\ItemVault.hpp"
 	#include "CfgMagazines\DZE\ItemZombieParts.hpp"
-	// MetalBars
 	#include "CfgMagazines\DZE\MetalBars.hpp"
-	// Cans with smelting
-	// #include "CfgMagazines\DZE\TrashTinCan.hpp"
-	// #include "CfgMagazines\DZE\ItemSodaEmpty.hpp"
-	
+	#include "CfgMagazines\DZE\PartWoodLumber.hpp"
+	#include "CfgMagazines\DZE\PartWoodPile.hpp"
+	#include "CfgMagazines\DZE\PartWoodPlywood.hpp"
+	#include "CfgMagazines\DZE\TrashTinCan.hpp"
+	#include "CfgMagazines\TrashTinCan.hpp"
+	//#include "CfgMagazines\DZE_CfgMagazines.hpp"
+	//#include "CfgMagazines\Fuelcan.hpp"
 };

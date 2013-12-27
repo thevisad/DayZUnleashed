@@ -16,7 +16,6 @@ class workbench_kit: CA_Magazine
 			script = "spawn DZE_player_build;";
 			require[] = {"ItemToolbox"};
 			create = "WorkBench_DZ";
-			needNearby[] = {"none"};
 		};
 	};
 };

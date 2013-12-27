@@ -455,6 +455,9 @@ if (!isDedicated) then {
 			_control2 = _display displayCtrl (8000 + _i);
 			_control2 ctrlSetText str(_skill_value);
 			_control ctrlSetText str(_skill_name);
+			diag_log ("Compiles _skill_name: " + str(_skill_name));
+			diag_log ("Compiles _skill_value: " + str(_skill_value));
+			diag_log ("Compiles _x: " + str(_x));
             _i = _i + 1;
         } forEach DZU_rpg_skillsList;
 
