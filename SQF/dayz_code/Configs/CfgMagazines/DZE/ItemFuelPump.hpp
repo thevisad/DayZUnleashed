@@ -15,7 +15,7 @@ class ItemFuelPump: CA_Magazine
 			script = "spawn DZE_player_build;";
 			require[] = {"ItemToolbox"};
 			create = "FuelPump_DZ";
-			needNearby[] = {"dayz_fuelsources"};
+			needNearby[] = {"fueltank"};
 		};
 	};
 };
