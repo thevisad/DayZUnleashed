@@ -1,1 +1,0 @@
-All content in this PBO was made exclusively for DayZ Epoch with permission to DayZ Unleashed. To use/edit/distribute any of the content in this mod please contact vbawol@veteranbastards.com or ptomany@gmail.com
