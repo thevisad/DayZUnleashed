@@ -9,18 +9,19 @@
 
 if (!isServer) exitWith {};
 
-private ["_helicopter","_heliWeapons","_markername","_marker","_startTime","_timePatrolled","_unitGroup","_wpmarkername","_wpmarker"];
+private ["_helicopter","_heliWeapons","_markername","_marker","_startTime","_timePatrolled","_unitGroup","_wpmarkername","_wpmarker","_baseHeight","_nearTargets"];
 
 _helicopter = _this select 0;
 _heliWeapons = weapons _helicopter;
 _unitGroup = _helicopter getVariable "unitGroup";
 
+_baseHeight = if ((typeOf _helicopter) isKindOf "Helicopter") then {100} else {125};
 //Create debug position markers. Helicopter position: Red, Current waypoint position: Blue.
 _markername = format["Helicopter_%1",_helicopter];
 if ((getMarkerColor _markername) != "") then {deleteMarker _markername; sleep 5;};	//Delete the previous marker if it wasn't deleted for some reason.
 //diag_log format ["Helicopter marker name is %1.",_markername];
 _marker = createMarker[_markername,(getposATL _helicopter)];
-_marker setMarkerText format ["AI %1 %2",(typeOf _helicopter),_unitGroup];
+_marker setMarkerText format ["AI %1 (Health: %2)",(typeOf _helicopter),"???"];
 _marker setMarkerType "Attack";
 _marker setMarkerColor "ColorRed";
 _marker setMarkerBrush "Solid";
@@ -39,56 +40,83 @@ _wpmarker setMarkerSize [100, 100];
 
 //Wait until helicopter has pilot and script has finished finding helicopter's weapons.
 waitUntil {sleep 0.1; (!isNil "_heliWeapons" && !isNull (driver _helicopter))};
-diag_log format ["Helicopter driver is %1.",(driver _helicopter)];
+if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Helicopter %1 driver is %2. Crew is %3. Vehicle weapons: %4.",(typeOf _helicopter),(driver _helicopter),(crew _helicopter),_heliWeapons];};
 _startTime = time;
 
-while {(alive _helicopter)&&(!(isNull _helicopter))} do {	
-	//Check if helicopter ammunition needs to be replenished
-	{
-		if ((_helicopter ammo _x) < 20) then {
-			_helicopter setVehicleAmmo 1;
-			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Reloaded ammo for AI patrol helicopter.";};
+if ((count _heliWeapons) > 0) then {
+	//For armed air vehicles
+	while {(alive _helicopter)&&(!(isNull _helicopter))} do {	
+		//Check if helicopter ammunition needs to be replenished
+		{
+			if ((_helicopter ammo _x) < 20) then {
+				_helicopter setVehicleAmmo 1;
+				if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Reloaded ammo for AI patrol helicopter.";};
+			};
+		} forEach _heliWeapons;
+		
+		//Check if helicopter fuel is low
+		if (fuel _helicopter < 0.20) then {
+			_helicopter setFuel 1;
+			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Refueled AI patrol helicopter.";};
 		};
-	} forEach _heliWeapons;
-	
-	//Check if helicopter fuel is low
-	if (fuel _helicopter < 0.20) then {
-		_helicopter setFuel 1;
-		if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Refueled AI patrol helicopter.";};
+				
+		//Update helicopter position and waypoint markers
+		_marker setMarkerText format ["AI %1 (Health: %2)",(typeOf _helicopter),(_helicopter getVariable "durability")];
+		_marker setMarkerPos (getposATL _helicopter);
+		_wpmarker setMarkerPos (getWPPos [_unitGroup,0]);
+		
+		//Destroy helicopter if pilot is killed
+		if ((!alive (driver _helicopter))&&(isEngineOn _helicopter)) exitWith {
+			if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Patrol helicopter pilot killed, helicopter is going down!";};
+			_helicopter setFuel 0;
+			_helicopter setVehicleAmmo 0;
+			_helicopter setDamage 1;
+		};
+
+		//Uncomment to test despawn/respawn process. Destroys helicopter after ~60 seconds of flight
+		/*
+		if ((time - _startTime) > 60) then {
+			_helicopter setDamage 1;
+		};
+		*/
+		
+		sleep DZAI_refreshRate;
 	};
-	
-	//Update helicopter position and waypoint markers
-	_marker setMarkerPos (getposATL _helicopter);
-	_wpmarker setMarkerPos (getWPPos [_unitGroup,0]);
-	
-	//Destroy helicopter if pilot is killed
-	if (!alive (driver _helicopter)) exitWith {
-		if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Patrol helicopter pilot killed, helicopter is going down!";};
-		_helicopter removeAllEventHandlers "LandedStopped";
-		_helicopter setFuel 0;
-		_helicopter setDamage 1;
+} else {
+	//For unarmed air vehicles
+	while {(alive _helicopter)&&(!(isNull _helicopter))} do {		
+		//Check if helicopter fuel is low
+		if (fuel _helicopter < 0.20) then {
+			_helicopter setFuel 1;
+			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Refueled AI patrol helicopter.";};
+		};
+		
+		//Update helicopter position and waypoint markers
+		_marker setMarkerText format ["AI %1 (Health: %2)",(typeOf _helicopter),(_helicopter getVariable "durability")];
+		_marker setMarkerPos (getposATL _helicopter);
+		_wpmarker setMarkerPos (getWPPos [_unitGroup,0]);
+		
+		//Destroy helicopter if pilot is killed
+		if ((!alive (driver _helicopter))&&(isEngineOn _helicopter)) exitWith {
+			if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Patrol helicopter pilot killed, helicopter is going down!";};
+			_helicopter setFuel 0;
+			_helicopter setVehicleAmmo 0;
+			_helicopter setDamage 1;
+		};
+		
+		sleep DZAI_refreshRate;
 	};
-	
-	//Periodically vary the helicopter's altitude
-	if ((random 1) < 0.3) then {
-		_helicopter flyInHeight (100 + (random 40));
-	};
-	
-	//Uncomment to test despawn/respawn process. Destroys helicopter after ~60 seconds of flight
-	/*
-	if ((time - _startTime) > 60) then {
-		_helicopter setDamage 1;
-	};
-	*/
-	
-	sleep DZAI_refreshRate;
 };
-deleteMarker _marker;
-deleteMarker _wpmarker;
 
 //Report length of time helicopter patrol was active. Add a warning entry to RPT log if helicopter was destroyed unusually early (< 30 seconds), likely due to the server admin forgetting to edit the server_cleanup.fsm.
 _timePatrolled = time - _startTime;
+sleep 0.5;
+
+//Cleanup helicopter and waypoint markers
+deleteMarker _marker;
+deleteMarker _wpmarker;
+
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: AI helicopter patrol crash-landed at %1 after %2 seconds of flight.",(getPosATL _helicopter),_timePatrolled];};
-if (_timePatrolled < 30) then {
-	diag_log "DZAI Warning: An AI helicopter was destroyed less than 30 seconds after being spawned. Please check if server_cleanup.fsm was edited properly.";
+if (_timePatrolled < 35) then {
+	diag_log "DZAI Warning: An AI helicopter was destroyed less than 35 seconds after being spawned. Please check if server_cleanup.fsm was edited properly.";
 };

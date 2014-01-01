@@ -1,24 +1,22 @@
 /*
-	fnc_seekPlayer
+	DZAI_dyn_huntPlayer
 	
 	Description: Used for dynamically spawned AI. Creates a MOVE waypoint directing AI to a random player's position, then uses BIN_taskPatrol to create a circular patrol path around player's position.
 	
-	Last updated: 2:54 PM 8/10/2013
+	Last updated: 8:41 PM 11/17/2013
 */
 
-private ["_unitGroup","_spawnPos","_waypoint","_patrolDist","_statement","_targetPlayer","_patrolCenter","_smokeCover"];
+private ["_unitGroup","_spawnPos","_waypoint","_patrolDist","_statement","_targetPlayer","_triggerPos","_transmitRange","_leader","_seekRange"];
 
 _unitGroup = _this select 0;
 _spawnPos = _this select 1;
 _patrolDist = _this select 2;
 _targetPlayer = _this select 3;
-
-//_smokeCover = _spawnPos spawn DZAI_smokeCover;
-_unitGroup setBehaviour "AWARE";//"CARELESS"
-_unitGroup setSpeedMode "FULL";
-_unitGroup setCombatMode "RED";//"BLUE"
+_triggerPos = _this select 4;
 
 deleteWaypoint [_unitGroup,0];
+_transmitRange = 50;	//distance to broadcast radio text around target player
+_seekRange = 450;		//distance to chase player from initial group spawn location
 
 //_statement = format ["deleteWaypoint[(group this),0]; 0 = [(group this),%1,%2,%3] spawn fnc_BIN_taskPatrol;",_spawnPos,_patrolDist,DZAI_debugMarkers];
 _waypoint = _unitGroup addWaypoint [_spawnPos,0];
@@ -28,40 +26,89 @@ _waypoint setWaypointTimeout [5,5,5];
 _waypoint setWaypointStatements ["true","group this setCurrentWaypoint [group this,0]"];
 _unitGroup setCurrentWaypoint _waypoint;
 
-if (_targetPlayer hasWeapon "ItemRadio") then {
-	[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] A nearby bandit group is preparing an ambush.","PLAIN DOWN",0] call RE;
+if (DZAI_radioMsgs) then {
+	_leader = (leader _unitGroup);
+	if (((_unitGroup getVariable ["GroupSize",0]) > 1) && !(_leader getVariable ["unconscious",false])) then {
+		private ["_nearbyUnits","_radioSpeech","_radioText"];
+		_nearbyUnits = (getPosATL _targetPlayer) nearEntities ["CAManBase",_transmitRange];
+		{
+			if ((isPlayer _x)&&(_x hasWeapon "ItemRadio")) then {
+			//if (isPlayer _x) then {
+				[nil,_x,"loc",rTITLETEXT,"[RADIO] You hear static coming from your radio...","PLAIN DOWN",2] call RE;
+			};
+		} forEach _nearbyUnits;
+	};
 };
-
-sleep 30;
+sleep 10;
 
 //Begin hunting phase
-while {(alive _targetPlayer) && !(isNull _targetPlayer) && (_targetPlayer isKindOf "Man") && ((_targetPlayer distance _spawnPos) < 300) && ((_unitGroup getVariable ["groupSize",0]) > 0)} do {
+while {(alive _targetPlayer) && !(isNull _targetPlayer) && ((_targetPlayer distance _spawnPos) < _seekRange) && ((_unitGroup getVariable ["GroupSize",0]) > 0)} do {
+	_leader = (leader _unitGroup);
 	if !(_unitGroup getVariable ["inPursuit",false]) then {
 		_waypoint setWPPos getPosATL _targetPlayer;
 		_unitGroup setCurrentWaypoint _waypoint;
-		_unitGroup setFormDir ([(leader _unitGroup),_targetPlayer] call BIS_fnc_dirTo);
+		_unitGroup setFormDir ([_leader,_targetPlayer] call BIS_fnc_dirTo);
 		(units _unitGroup) doTarget _targetPlayer;
-		(units _unitGroup) doFire _targetPlayer;
-		//Warn player of AI bandit presence if they have a radio.
-		if (_targetPlayer hasWeapon "ItemRadio") then {
-			[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] You are being followed by a bandit group.","PLAIN DOWN",0] call RE;
+		if ((_leader distance _targetPlayer) < 100) then {(units _unitGroup) doFire _targetPlayer};
+		if (DZAI_radioMsgs) then {
+			//Warn player of AI bandit presence if they have a radio.
+			if (((_unitGroup getVariable ["GroupSize",0]) > 1) && !(_leader getVariable ["unconscious",false]) && (isNull (_unitGroup getVariable ["targetKiller",objNull])) && !(isNull _targetPlayer)) then {
+				private ["_nearbyUnits","_radioSpeech"];
+				_nearbyUnits = (getPosATL _leader) nearEntities ["CAManBase",_transmitRange];
+				
+				{
+					if ((isPlayer _x)&&(_x hasWeapon "ItemRadio")) then {
+					//if (isPlayer _x) then {
+						_radioSpeech = switch (floor (random 3)) do {
+							case 0: {
+								format ["[RADIO] %1 (Bandit Leader): Target's name is %2. Find him!",(name _leader),(name _targetPlayer)]
+							};
+							case 1: {
+								format ["[RADIO] %1 (Bandit Leader): Target is a %2. Find him!",(name _leader),(typeOf _targetPlayer)]
+							};
+							case 2: {
+								format ["[RADIO] %1 (Bandit Leader): Target's distance is %2 meters. Find him!",(name _leader),round (_leader distance _targetPlayer)]
+							};
+							case default {
+								"ERROR"
+							};
+						};
+						diag_log format ["DEBUG :: %1",_radioSpeech];
+						[nil,_x,"loc",rTITLETEXT,_radioSpeech,"PLAIN DOWN",2] call RE;
+					};
+				} forEach _nearbyUnits;
+			};
 		};
+		sleep 25;
 	};
-	sleep 30;
 };
 
-if ((_unitGroup getVariable ["groupSize",0]) < 1) exitWith {};
+if ((_unitGroup getVariable ["GroupSize",0]) < 1) exitWith {};
 
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Group %1 has exited hunting phase. Moving to patrol phase. (fn_seekPlayer)",_unitGroup];};
 
 //Begin patrol phase
 _waypoint setWaypointStatements ["true","if ((random 1) < 0.50) then { group this setCurrentWaypoint [(group this), (floor (random (count (waypoints (group this)))))];};"];
-_patrolCenter = if (!(isNull _targetPlayer)) then {getPosATL _targetPlayer} else {getPosATL (leader _unitGroup)};
-0 = [_unitGroup,_patrolCenter,_patrolDist,DZAI_debugMarkers] spawn fnc_BIN_taskPatrol;
+//_patrolCenter = if (!(isNull _targetPlayer)) then {getPosATL _targetPlayer} else {getPosATL (leader _unitGroup)};
+0 = [_unitGroup,_triggerPos,_patrolDist,DZAI_debugMarkers] spawn DZAI_BIN_taskPatrol;
 
 sleep 5;
-if ((_targetPlayer hasWeapon "ItemRadio") && !(_unitGroup getVariable ["inPursuit",false])) then {
-	[nil,_targetPlayer,"loc",rTITLETEXT,"[RADIO] You have successfully evaded the pursuing bandits.","PLAIN DOWN",0] call RE;
+
+if (DZAI_radioMsgs) then {
+	_leader = (leader _unitGroup);
+	if (((_unitGroup getVariable ["GroupSize",0]) > 1) && !(_leader getVariable ["unconscious",false]) && !(isNull _targetPlayer)) then {
+		private ["_nearbyUnits","_radioSpeech","_radioText"];
+		_nearbyUnits = (getPosATL (leader _unitGroup)) nearEntities ["CAManBase",_transmitRange];
+		{
+			if ((isPlayer _x)&&(_x hasWeapon "ItemRadio")) then {
+			//if (isPlayer _x) then {
+				_radioSpeech = if (alive _targetPlayer) then {"%1 (Bandit Leader): Lost contact with target. Breaking off pursuit."} else {"%1 (Bandit Leader): Target has been eliminated."};
+				_radioText = format [_radioSpeech,(name _leader)];
+				diag_log _radioText;
+				[nil,_x,"loc",rTITLETEXT,_radioText,"PLAIN DOWN",2] call RE;
+			};
+		} forEach _nearbyUnits;
+	};
 };
-	
+
 true

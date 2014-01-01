@@ -3,11 +3,11 @@ private ["_startTime","_generatorStr","_cfgLocation","_locationArray","_config",
 _startTime = diag_tickTime;
 _generatorStr = format ["CfgTownGenerator%1",worldName];
 
-diag_log format ["OBJECT PATCH :: Spawning in serverside objects... Reading from file %1.",_generatorStr];
-
 _cfgLocation = configFile >> _generatorStr;
-if ((count _cfgLocation) < 1) then {_cfgLocation = configFile >> "CfgTownGenerator";};
+if ((count _cfgLocation) < 1) then {_generatorStr = "CfgTownGenerator";_cfgLocation = configFile >> "CfgTownGenerator";};
 _locationArray = [];
+
+diag_log format ["OBJECT PATCH :: Spawning in serverside objects... Reading from file %1.",_generatorStr];
 
 for "_i" from 0 to ((count _cfgLocation) - 1) do {
 	_locationArray set [count _locationArray,configName (_cfgLocation select _i)];

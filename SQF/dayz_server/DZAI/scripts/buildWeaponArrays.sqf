@@ -1,9 +1,9 @@
 /*
 	buildWeaponArrays
 	
-	Description:
+	Description: Do not edit anything in this file unless instructed by the developer.
 	
-	Last updated: 11:24 AM 7/23/2013
+	Last updated: 4:31 PM 12/6/2013
 */
 
 private ["_bldgClasses","_weapons","_lootItem","_aiWeaponBanList","_unwantedWeapons","_lootList","_cfgBuildingLoot","_lootListCheck","_startTime"];
@@ -16,7 +16,7 @@ diag_log "[DZAI] Building DZAI weapon arrays using CfgBuildingLoot data.";
 _bldgClasses = [["Residential","Farm"],["Military"],["MilitarySpecial"],["HeliCrash"]];
 _unwantedWeapons = _this select 0;		//User-specified weapon banlist.
 
-_aiWeaponBanList = ["Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails"];
+_aiWeaponBanList = ["Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails","Chainsaw"];
 
 //Add user-specified banned weapons to DZAI weapon banlist.
 for "_i" from 0 to ((count _unwantedWeapons) - 1) do {
@@ -27,7 +27,7 @@ for "_i" from 0 to ((count _unwantedWeapons) - 1) do {
 //Compatibility with Namalsk's selectable loot table feature.
 if (isNil "dayzNam_buildingLoot") then {
 	_cfgBuildingLoot = "cfgBuildingLoot";
-	if ((toLower worldName) == "trinity") then {
+	if (((toLower worldName) == "trinity")&&(DZAI_modName != "epoch")) then {
 		//Fix for Trinity Island's Barracks loot table.
 		_bldgClasses set [2,["Barracks"]];
 	};
@@ -54,7 +54,7 @@ if (_lootListCheck) then {
 };
 //diag_log format ["DEBUG :: _lootList: %1",_lootList];
 
-//Declare all DZAI weapon arrays.
+//Declare all DZAI weapon arrays. DO NOT EDIT.
 DZAI_Pistols0 = [];
 DZAI_Pistols1 = [];
 DZAI_Pistols2 = [];
@@ -84,6 +84,22 @@ for "_i" from 0 to (count _bldgClasses - 1) do {					//_i = weapongrade
 							call compile format ["DZAI_Pistols%1 set [(count DZAI_Pistols%1),'%2'];",_i,_weaponItem];
 						};
 					};
+				};
+			} else {
+				if ((_lootItem select 1) == "cfglootweapon") then {
+					private ["_weapons"];
+					_weapons = [] + getArray (configFile >> "cfgLoot" >> (_lootItem select 0));
+					{
+						if (!(_x in _aiWeaponBanList)) then {
+							if ((getNumber (configFile >> "CfgWeapons" >> _x >> "type")) == 1) then {
+								call compile format ["DZAI_Rifles%1 set [(count DZAI_Rifles%1),'%2'];",_i,_x];
+							} else {
+								if ((getNumber (configFile >> "CfgWeapons" >> _x >> "type")) == 2) then {
+									call compile format ["DZAI_Pistols%1 set [(count DZAI_Pistols%1),'%2'];",_i,_x];
+								};
+							};
+						};
+					} forEach (_weapons select 0);
 				};
 			};
 		};

@@ -39,24 +39,24 @@
       pos = [parameters] call SHK_pos;
 */
 // Functions
-SHK_pos_getPos = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_getpos.sqf";
-SHK_pos_getPosMarker = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_getposmarker.sqf";
+SHK_pos_getPos = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_getpos.sqf",DZAI_directory];
+SHK_pos_getPosMarker = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_getposmarker.sqf",DZAI_directory];
 
 // Sub functions
-SHK_pos_fnc_findClosestPosition = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_findclosestposition.sqf";
-SHK_pos_fnc_getMarkerCorners = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_getmarkercorners.sqf";
-SHK_pos_fnc_getMarkerShape = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_getmarkershape.sqf";
-SHK_pos_fnc_getPos = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_getpos.sqf";
-SHK_pos_fnc_getPosFromCircle = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_getposfromcircle.sqf";
-SHK_pos_fnc_getPosFromEllipse = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_getposfromellipse.sqf";
-SHK_pos_fnc_getPosFromRectangle = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_getposfromrectangle.sqf";
-SHK_pos_fnc_getPosFromSquare = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_getposfromsquare.sqf";
-SHK_pos_fnc_isBlacklisted = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_isblacklisted.sqf";
-SHK_pos_fnc_isInCircle = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_isincircle.sqf";
-SHK_pos_fnc_isInEllipse = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_isinellipse.sqf";
-SHK_pos_fnc_isInRectangle = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_isinrectangle.sqf";
-SHK_pos_fnc_isSamePosition = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_issameposition.sqf";
-SHK_pos_fnc_rotatePosition = compile preprocessfilelinenumbers "\z\addons\dayz_server\DZAI\shk_pos\shk_pos_fnc_rotateposition.sqf";
+SHK_pos_fnc_findClosestPosition = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_findclosestposition.sqf",DZAI_directory];
+SHK_pos_fnc_getMarkerCorners = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_getmarkercorners.sqf",DZAI_directory];
+SHK_pos_fnc_getMarkerShape = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_getmarkershape.sqf",DZAI_directory];
+SHK_pos_fnc_getPos = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_getpos.sqf",DZAI_directory];
+SHK_pos_fnc_getPosFromCircle = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_getposfromcircle.sqf",DZAI_directory];
+SHK_pos_fnc_getPosFromEllipse = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_getposfromellipse.sqf",DZAI_directory];
+SHK_pos_fnc_getPosFromRectangle = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_getposfromrectangle.sqf",DZAI_directory];
+SHK_pos_fnc_getPosFromSquare = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_getposfromsquare.sqf",DZAI_directory];
+SHK_pos_fnc_isBlacklisted = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_isblacklisted.sqf",DZAI_directory];
+SHK_pos_fnc_isInCircle = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_isincircle.sqf",DZAI_directory];
+SHK_pos_fnc_isInEllipse = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_isinellipse.sqf",DZAI_directory];
+SHK_pos_fnc_isInRectangle = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_isinrectangle.sqf",DZAI_directory];
+SHK_pos_fnc_isSamePosition = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_issameposition.sqf",DZAI_directory];
+SHK_pos_fnc_rotatePosition = compile preprocessfilelinenumbers format ["%1\shk_pos\shk_pos_fnc_rotateposition.sqf",DZAI_directory];
 
 // Wrapper function
 // Decide which function to call based on parameters.

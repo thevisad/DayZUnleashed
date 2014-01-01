@@ -21,6 +21,7 @@ scriptName "Functions\arrays\fn_selectRandomWeighted.sqf";
 private ["_array", "_weights","_index","_weighted","_i"];
 _array = _this select 0;
 _weights = _this select 1;
+//_amount = if ((count _this) > 2) then {_this select 2} else {1};
 
 //Parameter validation.
 if ((typeName _array) != (typeName [])) exitWith {debugLog "Log: [selectRandomWeighted] Array (0) must be an Array!"; nil};

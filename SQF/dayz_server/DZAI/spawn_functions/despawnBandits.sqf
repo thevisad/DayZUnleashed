@@ -48,10 +48,7 @@ if (triggerActivated _trigger) exitWith {			//Exit script if trigger has been re
 {
 	if (DZAI_debugMarkers > 0) then {
 		{
-			private["_markername"];
-			_markername = (str _x);
-			//diag_log format ["DEBUG :: Deleting waypoint marker %1. Waypoint is %2.",_markername,_x];
-			deleteMarker _markername;
+			deleteMarker (str _x);
 		} forEach (waypoints _x);
 		sleep 0.1;
 	};
@@ -62,18 +59,27 @@ if (triggerActivated _trigger) exitWith {			//Exit script if trigger has been re
 	deleteGroup _x;									//Delete the group after its units are deleted.
 } forEach _grpArray;
 
-//Cleanup variables attached to trigger
-_trigger setVariable ["GroupArray",[],false];
-_trigger setVariable ["isCleaning",nil,false];
-_trigger setVariable ["patrolDist",nil,false];
-_trigger setVariable ["gradeChances",nil,false];
-DZAI_actTrigs = (DZAI_actTrigs - 1);
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Despawned AI units at %1. Resetting trigger's group array.",(triggerText _trigger)];};
-if (DZAI_debugMarkers > 0) then {
-	private["_tMarker"];
-	_tMarker = str (_trigger);
-	_tMarker setMarkerText "STATIC TRIGGER (INACTIVE)";
-	_tMarker setMarkerColor "ColorGreen";
+
+if !(_trigger getVariable ["permadelete",false]) then {
+	//Cleanup variables attached to trigger
+	_trigger setVariable ["GroupArray",[],false];
+	_trigger setVariable ["isCleaning",nil,false];
+
+	if (DZAI_debugMarkers > 0) then {
+		private["_tMarker"];
+		_tMarker = str (_trigger);
+		_tMarker setMarkerText "STATIC TRIGGER (INACTIVE)";
+		_tMarker setMarkerColor "ColorGreen";
+	};
+} else {
+	if (DZAI_debugMarkers > 0) then {
+		deleteMarker (str (_trigger));
+	};
+	deleteMarker (_trigger getVariable ["spawnmarker",""]);
+	deleteVehicle _trigger;
 };
+
+DZAI_actTrigs = (DZAI_actTrigs - 1);
 
 true
