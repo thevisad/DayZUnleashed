@@ -36,6 +36,8 @@ fnc_usec_damageUnconscious = {
 	_inVehicle = (vehicle _unit != _unit);
 	if (_unit == player) then {
 		r_player_timeout = round((((random 2) max 0.1) * _damage) * 20);
+        _skillCombat     = 1 - (0.005 * [player,"Combat"] call DZU_fnc_getVariable);
+        r_player_timeout = r_player_timeout * _skillCombat ;
 		r_player_unconscious = true;
 		player setVariable["medForceUpdate",true,true];
 		player setVariable ["unconsciousTime", r_player_timeout, true];
@@ -161,7 +163,7 @@ fnc_usec_calculateBloodPerSec = {
 fnc_usec_playerHandleBlood = {
 	private["_bloodPerSec","_bleedTime","_elapsedTime"];
 	if (r_player_injured) then { // bleeding
-		_bleedTime = (random 500) + 100;
+		_bleedTime = (random 500) + 100 - ([player,"Combat"] call DZU_fnc_getVariable);
 		_elapsedTime = 0;
 
 		while {(r_player_injured) and (r_player_blood > 0)} do {
