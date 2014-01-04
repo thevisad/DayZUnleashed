@@ -22,6 +22,8 @@ while {true} do {
 	_speed = round((_vel distance [0,0,0]) * 3.5);
 	_saveTime = (playersNumber west * 2) + 10;
     _biotic_level = [player,"biotics"] call DZU_fnc_getVariable;
+    _skillCombat    = [player,"Combat"] call DZU_fnc_getVariable;
+    
 	//reset position
 	_randomSpot = true;
 	_tempPos = getPosATL player;
@@ -93,15 +95,16 @@ while {true} do {
 		};
 	};
 
-	//Hunger
-	_hunger = +((((r_player_bloodTotal - r_player_blood) / r_player_bloodTotal) * 5) + _speed + dayz_myLoad) * 3;
+    _htres = 1 - (0.005 * _skillCombat);
+	//Hunger    
+	_hunger = (+((((r_player_bloodTotal - r_player_blood) / r_player_bloodTotal) * 5) + _speed + dayz_myLoad) * 3) * _htres;
 	if (time - dayz_panicCooldown < 120) then {
 		_hunger = _hunger * 2;
 	};
 	dayz_hunger = dayz_hunger + (_hunger / 60);
 
 	//Thirst
-	_thirst = 2;
+	_thirst = 2 * _htres;
 	if (_refObj == player) then {
 		_thirst = (_speed + 4) * 3;
 	};
@@ -120,22 +123,22 @@ while {true} do {
 		if (dayz_temperatur < ((80 / 100) * (dayz_temperaturnormal - dayz_temperaturmin) + dayz_temperaturmin)) then { //TeeChange
 			_listTalk = _mylastPos nearEntities ["CAManBase",8];
 			{
-				if (_x getVariable["USEC_infected",false]) then {
+				if (_x getVariable["USEC_infected",false] && _biotic_level==0) then {
 					_rnd = (random 1) * (((dayz_temperaturnormal - dayz_temperatur) * (100 /(dayz_temperaturnormal - dayz_temperaturmin)))/ 50);	//TeeChange
 					if (_rnd < 0.1) then {
 						_rnd = random 1;
-						if (_rnd > 0.7 && _biotic_level==0) then {
+						if (_rnd > 0.7) then {
 							r_player_infected = true;
 							//player setVariable["USEC_infected",true];
 						};
 					};
 				};
 			} forEach _listTalk;
-			if (dayz_temperatur < ((50 / 100) * (dayz_temperaturnormal - dayz_temperaturmin) + dayz_temperaturmin)) then { //TeeChange
+			if (dayz_temperatur < ((50 / 100) * (dayz_temperaturnormal - dayz_temperaturmin) + dayz_temperaturmin)  && _biotic_level==0) then { //TeeChange
 				_rnd = (random 1) * (((dayz_temperaturnormal - dayz_temperatur) * (100 /(dayz_temperaturnormal - dayz_temperaturmin)))/ 25);	//TeeChange
 				if (_rnd < 0.05) then {
 					_rnd = random 1;
-					if (_rnd > 0.95 && _biotic_level==0) then {
+					if (_rnd > 0.95) then {
 						r_player_infected = true;
 						//player setVariable["USEC_infected",true];
 					};
@@ -145,6 +148,7 @@ while {true} do {
 	};
 
 	//If has infection reduce blood cough and add shake
+    _shakepower= 2 * _htres;
 	if (r_player_infected) then {
 		if !(player getVariable["USEC_infected",false]) then {
 			player setVariable["USEC_infected",true,true];
@@ -155,7 +159,7 @@ while {true} do {
 			[player,"cough",_rnd,false,9] call dayz_zombieSpeak;
 
 			if (_rnd < 3) then {
-				addCamShake [2, 1, 25];
+				addCamShake [_shakepower, 1, 25];
 			};
 		};
 		//if (r_player_blood > 100) then {
@@ -174,7 +178,7 @@ while {true} do {
 	//Pain Shake Effects
 	if (r_player_inpain and !r_player_unconscious) then {
 		playSound "breath_1";
-		addCamShake [2, 1, 25];
+		addCamShake [_shakepower, 1, 25];
 	};
 
 	//Hunger Effect
@@ -242,6 +246,7 @@ while {true} do {
 			dayz_lastSave = time;
 			dayz_Magazines = [];
 		};
+        ["","",true] call DZU_fnc_saveVariables;
 		_lastSave = _lastSave + 2;
 	} else {
 		dayz_lastSave = time;
