@@ -12,10 +12,10 @@ diag_log "[DZAI] Reading DZAI configuration file.";
 --------------------------------------------------------------------------------------------------------------------*/	
 
 //Enable or disable event logging to arma2oaserver.rpt. Debug level setting. 0: Off, 1: Basic Debug, 2: Extended Debug. (Default: 0)
-DZAI_debugLevel = 0;
+DZAI_debugLevel = 2;
 
 //Enable or disable debug markers. 0: Off, 1: Basic markers (Track AI position, locate patrol waypoints, locate dynamically-spawned triggers), 2: Extended markers (Basic markers + Static trigger markers and refreshing dynamic trigger markers) (Default: 0)										
-DZAI_debugMarkers = 0;	
+DZAI_debugMarkers = 2;	
 
 //Frequency of server monitor update to RPT log in seconds. The monitor periodically reports number of max/current AI units and dynamically spawned triggers into RPT log. (Default: 300, 0 = Disabled)										
 DZAI_monitorRate = 300;
@@ -26,7 +26,7 @@ DZAI_verifyTables = true;
 
 //Enable to have server spawn in objects/buildings normally spawned clientside by DayZ's CfgTownGenerator. Prevents AI from walking/shooting through clutter and other objects. (Default: false)	
 //If running DayZ Mod ("vanilla DayZ") or DayZ Overwatch, it is highly recommended to enable this option, as many added buildings are handled by the CfgTownGenerator.								
-DZAI_objPatch = false;
+DZAI_objPatch = true;
 
 //Minimum seconds to pass until a dead AI body can be cleaned up by DZAI's task scheduler. Affects both static and dynamic AI units (Default: 300).										
 DZAI_cleanupDelay = 600;									
@@ -69,7 +69,7 @@ DZAI_refreshRate = 15;
 DZAI_zDetectRange = 200;									
 
 //Enable or disable AI hostility to zombies. If enabled, AI will attack zombies. (default: true)
-DZAI_zombieEnemy = false;	
+DZAI_zombieEnemy = true;	
 
 //Enable or disable "Free For All" mode. If FFA mode is enabled, all AI groups will be hostile to each other. (default: false)
 //Exceptions: AI units of the same group, AI air patrols, and custom-spawn AI will not attack each other.
@@ -80,10 +80,10 @@ DZAI_freeForAll = true;
 DZAI_findKiller = true;	
 
 //If normal probability check for spawning NVGs fails, then give AI temporary NVGs only if they are spawned with weapongrade 1 or higher (applies only during nighttime hours). Temporary NVGs are unlootable and will be removed at death (Default: false).									
-DZAI_tempNVGs = true;	
+DZAI_tempNVGs = false;	
 
 //Amount of humanity to reward player for killing an AI unit (Default: 0)									
-DZAI_humanityGain = 0;										
+DZAI_humanityGain = 100;										
 
 //If enabled, players with radios will be given text warnings if they are being pursued by AI groups. Text warnings include distance of pursuing AI group (Default: true)
 DZAI_radioMsgs = true;
@@ -209,7 +209,7 @@ DZAI_bpmedicals = 2;
 DZAI_bpedibles = 1;	
 
 //Maximum number of items to select from DZAI_MiscItemS table.										
-DZAI_numMiscItemS = 3;						
+DZAI_numMiscItemS = 2;						
 
 //Maximum number of items to select from DZAI_MiscItemL table.				
 DZAI_numMiscItemL = 1;										
@@ -281,44 +281,44 @@ DZAI_skill0 = [
 
 //AI skill settings level 1 (Skill, Minimum skill, Maximum skill).
 DZAI_skill1 = [	
-	["aimingAccuracy",0.40,0.10],
-	["aimingShake",0.55,0.10],
-	["aimingSpeed",0.60,0.10],
-	["endurance",0.75,0.20],
-	["spotDistance",0.65,0.20],
-	["spotTime",0.75,0.20],
-	["courage",0.65,0.20],
-	["reloadSpeed",0.75,0.20],
-	["commanding",0.75,0.20],
-	["general",0.75,0.20]
+	["aimingAccuracy",0.40,0.50],
+	["aimingShake",0.55,0.65],
+	["aimingSpeed",0.60,0.70],
+	["endurance",0.75,0.85],
+	["spotDistance",0.65,0.75],
+	["spotTime",0.75,0.85],
+	["courage",0.65,0.75],
+	["reloadSpeed",0.75,0.85],
+	["commanding",0.75,0.85],
+	["general",0.75,0.85]
 ];
 
 //AI skill settings level 2 (Skill, Minimum skill, Maximum skill).
 DZAI_skill2 = [	
-	["aimingAccuracy",0.50,0.10],
-	["aimingShake",0.75,0.10],
-	["aimingSpeed",0.80,0.10],
-	["endurance",0.85,0.20],
-	["spotDistance",0.75,0.20],
-	["spotTime",0.85,0.20],
-	["courage",0.75,0.20],
-	["reloadSpeed",0.85,0.20],
-	["commanding",0.85,0.20],
-	["general",0.85,0.20]
+	["aimingAccuracy",0.50,0.60],
+	["aimingShake",0.75,0.85],
+	["aimingSpeed",0.80,0.90],
+	["endurance",0.85,0.95],
+	["spotDistance",0.75,0.85],
+	["spotTime",0.85,0.95],
+	["courage",0.75,0.85],
+	["reloadSpeed",0.85,0.95],
+	["commanding",0.85,0.95],
+	["general",0.85,0.95]
 ];
 
 //AI skill settings level 3 (Skill, Minimum skill, Maximum skill).
 DZAI_skill3 = [	
-	["aimingAccuracy",0.60,0.10],
-	["aimingShake",0.75,0.10],
-	["aimingSpeed",0.90,0.10],
-	["endurance",0.95,0.20],
-	["spotDistance",0.90,0.20],
-	["spotTime",0.95,0.20],
-	["courage",0.85,0.20],
-	["reloadSpeed",0.95,0.20],
-	["commanding",0.95,0.20],
-	["general",0.95,0.20]
+	["aimingAccuracy",0.60,0.70],
+	["aimingShake",0.75,0.85],
+	["aimingSpeed",0.90,0.95],
+	["endurance",0.95,0.98],
+	["spotDistance",0.90,0.95],
+	["spotTime",0.95,0.98],
+	["courage",0.85,0.95],
+	["reloadSpeed",0.95,0.98],
+	["commanding",0.95,0.98],
+	["general",0.95,0.98]
 ];
 
 //Note: Additional AI skill settings can be defined (DZAI_skill4 - DZAI_skill9) using the same format above.

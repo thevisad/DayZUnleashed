@@ -49,10 +49,6 @@ switch (DZAI_modName) do {
 		DZAI_tempNVGs = false;	//Disable temporary NVG chance for DayZ 2017.
 		diag_log "DayZ 2017 classnames loaded.";
 	};
-	case "epoch":
-	{
-		#include "mod_configs\epoch_classnames.sqf"
-	};
 	case "civilian":
 	{
 		DZAI_Backpacks0 set [count DZAI_Backpacks0,"ice_apo_pack3"];

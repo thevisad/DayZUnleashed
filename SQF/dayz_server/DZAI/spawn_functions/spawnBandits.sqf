@@ -57,13 +57,13 @@ if ((count _locationArray) == 0) then {
 		};
 		if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Spawning AI from building positions (spawnBandits).";};
 	} else {
-		if ((((getMarkerPos _x) select 0) != 0)&&(((getMarkerPos _x) select 1) != 0)) then {
-			{
+		{
+			if ((((getMarkerPos _x) select 0) != 0)&&(((getMarkerPos _x) select 1) != 0)) then {
 				_spawnPositions set [(count _spawnPositions),(getMarkerPos _x)];
 				deleteMarker _x;
-			} forEach _positionArray;
-			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Spawning AI from marker positions (spawnBandits).";};
-		};
+			};
+		} forEach _positionArray;
+		if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Spawning AI from marker positions (spawnBandits).";};
 	};
 } else {
 	if (DZAI_debugMarkers > 0) then {
