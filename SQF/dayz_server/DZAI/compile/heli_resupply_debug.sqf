@@ -66,7 +66,7 @@ if ((count _heliWeapons) > 0) then {
 		_wpmarker setMarkerPos (getWPPos [_unitGroup,0]);
 		
 		//Destroy helicopter if pilot is killed
-		if ((!alive (driver _helicopter))&&(isEngineOn _helicopter)) exitWith {
+		if ((!alive (driver _helicopter))&&{(isEngineOn _helicopter)}) exitWith {
 			if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Patrol helicopter pilot killed, helicopter is going down!";};
 			_helicopter setFuel 0;
 			_helicopter setVehicleAmmo 0;
@@ -97,7 +97,7 @@ if ((count _heliWeapons) > 0) then {
 		_wpmarker setMarkerPos (getWPPos [_unitGroup,0]);
 		
 		//Destroy helicopter if pilot is killed
-		if ((!alive (driver _helicopter))&&(isEngineOn _helicopter)) exitWith {
+		if ((!alive (driver _helicopter))&&{(isEngineOn _helicopter)}) exitWith {
 			if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Patrol helicopter pilot killed, helicopter is going down!";};
 			_helicopter setFuel 0;
 			_helicopter setVehicleAmmo 0;

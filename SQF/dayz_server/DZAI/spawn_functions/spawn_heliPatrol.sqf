@@ -3,7 +3,7 @@
 	
 	Description:
 	
-	Last updated:	1:29 AM 9/29/2013
+	Last updated:	5:59 PM 1/3/2014
 	
 */
 
@@ -44,6 +44,8 @@ for "_i" from 1 to _amount do {
 		_helicopter setVelocity [(sin _heliDir * _heliSpd),(cos _heliDir * _heliSpd), 0];
 	};
 	_nul = _helicopter call DZAI_protectObject;
+	clearWeaponCargoGlobal _helicopter;
+	clearMagazineCargoGlobal _helicopter;
 	_helicopter setVariable ["unitGroup",_unitGroup];
 	_helicopter setVariable ["durability",[0,0]];	//[structural, engine]
 	if (DZAI_debugLevel > 0) then {diag_log format ["Spawned helicopter type %1 for group %2 at %3.",_heliType,_unitGroup,mapGridPosition _helicopter];};
@@ -89,14 +91,17 @@ for "_i" from 1 to _amount do {
 		};
 	} else {
 		if (((count (weapons _helicopter)) < 1) && (_heliType in (DZAI_airWeapons select 0))) then {
-			private ["_index","_vehWeapon","_vehMag"];
+			private ["_index","_vehWeapon","_vehMag","_check"];
 			_index = (DZAI_airWeapons select 0) find _heliType;
 			if (_index > -1) then {
 				_vehWeapon = (DZAI_airWeapons select 1) select _index;
-				_helicopter addWeapon _vehWeapon;
-				_vehMag = getArray (configFile >> "CfgWeapons" >> _vehWeapon >> "magazines") select 0;
-				_helicopter addMagazine _vehMag;
-				if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Added weapon %1 and magazine %2 to air vehicle %3.",_vehWeapon,_vehMag,_heliType]};
+				_check = [_vehWeapon,"weapon"] call DZAI_checkClassname;
+				if (_check) then {
+					_helicopter addWeapon _vehWeapon;
+					_vehMag = getArray (configFile >> "CfgWeapons" >> _vehWeapon >> "magazines") select 0;
+					_helicopter addMagazine _vehMag;
+					if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Added weapon %1 and magazine %2 to air vehicle %3.",_vehWeapon,_vehMag,_heliType]};
+				};
 			};
 		};
 	};

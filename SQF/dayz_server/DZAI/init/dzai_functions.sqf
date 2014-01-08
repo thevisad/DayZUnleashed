@@ -53,10 +53,10 @@ if (DZAI_debugMarkers < 1) then {
 };
 
 //Compile zombie aggro functions
-if (DZAI_zombieEnemy && (DZAI_weaponNoise > 0)) then { // Optional Zed-to-AI aggro functions
+if (DZAI_zombieEnemy && {(DZAI_weaponNoise > 0)}) then { // Optional Zed-to-AI aggro functions
 	ai_fired = compile preprocessFileLineNumbers format ["%1\compile\ai_fired.sqf",DZAI_directory];
 };
-if (DZAI_zombieEnemy && (DZAI_passiveAggro || (DZAI_weaponNoise > 0))) then {
+if (DZAI_zombieEnemy && {(DZAI_passiveAggro || {(DZAI_weaponNoise > 0)})}) then {
 	ai_alertzombies = compile preprocessFileLineNumbers format ["%1\compile\ai_alertzombies.sqf",DZAI_directory];
 };
 
@@ -123,11 +123,27 @@ DZAI_spawn = {
 	*/
 	
 	if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Created custom spawn area %1 at %2 with %3 AI units, weapongrade %4, respawn %5.",_spawnMarker,mapGridPosition _trigger,_totalAI,_weapongrade,_respawn];};
-	true
+	
+	_trigger
 };
 
 //Miscellaneous functions 
 //------------------------------------------------------------------------------------------------------------------------
+
+if (DZAI_radioMsgs) then {
+	if (DZAI_useRadioAddon) then {
+		DZAI_radioSend = {
+			DZAI_SMS = (_this select 1);
+			(owner (_this select 0)) publicVariableClient "DZAI_SMS";
+			true
+		};
+	} else {
+		DZAI_radioSend = {
+			[nil,(_this select 0),"loc",rTITLETEXT,(_this select 1),"PLAIN DOWN",2] call RE;
+			true
+		};
+	};
+};
 
 //DZAI group side assignment function. Detects when East side has too many groups, then switches to Resistance side.
 DZAI_getFreeSide = {
@@ -310,12 +326,12 @@ DZAI_findSpawnPos = {
 	_attempts = 0;
 	_continue = true;
 	_spawnpool = [] + _this;
-	while {((_attempts <= 5)&&_continue)} do {
-		_spawnPos = _spawnpool select floor (random count _spawnpool);
-		_spawnpool = _spawnpool - _spawnPos;	//Prevent this position from being reused if player distance check fails.
-		if ((({isPlayer _x} count (_spawnPos nearEntities [["AllVehicles","CAManBase"],50])) == 0) or ((count _spawnpool) == 0)) then {_continue = false};
-		_attempts = _attempts + 1;
-		if ((DZAI_debugLevel > 0)&&(_attempts > 1)) then {diag_log format ["DZAI Debug: Player found within 50m of chosen spawn position. (attempt %1/5).",_attempts];};
+	while {_continue && {(_attempts <= 6)}} do {
+		_index = floor (random (count _spawnpool));
+		_spawnPos = _spawnpool select _index;
+		_spawnpool set [_index,objNull]; _spawnpool = _spawnpool - [objNull];
+		if ((({isPlayer _x} count (_spawnPos nearEntities [["AllVehicles","CAManBase"],50])) == 0) or {((count _spawnpool) == 0)}) then {_continue = false} else {_attempts = _attempts + 1;};
+		if ((DZAI_debugLevel > 0) && {(_attempts > 0)}) then {diag_log format ["DZAI Debug: Player found within 50m of chosen spawn position. (attempt %1/6).",_attempts];};
 	};
 	_spawnPos
 };
@@ -432,3 +448,39 @@ DZAI_getWeapongrade = {
 	
 	DZAI_weaponGrades select _index
 };
+
+DZAI_checkClassname = {
+	private ["_classname","_checkType","_result","_config","_banString","_check"];
+
+	_classname = _this select 0;
+	_checkType = _this select 1;
+	_result = true;
+
+	switch (toLower _checkType) do {
+		case "weapon": {
+			_config = "CfgWeapons";
+			_banString = "bin\config.bin/CfgWeapons/FakeWeapon";
+		};
+		case "vehicle": {
+			_config = "CfgVehicles";
+			_banString = "bin\config.bin/CfgVehicles/Banned";
+		};
+		case "magazine": {
+			_config = "CfgMagazines";
+			_banString = "bin\config.bin/CfgMagazines/FakeMagazine";
+		};
+		case default {
+			_config = "";
+			_banString = "";
+		};
+	};
+	
+	_check = (str(inheritsFrom (configFile >> _config >> _classname)));
+
+	if ((_check == "") or (_check == _banString)) then {
+		_result = false;
+	};
+	
+	_result
+};
+

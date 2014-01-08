@@ -28,16 +28,16 @@ if (isPlayer _killer) then {
 
 	_unitGroup reveal [vehicle _killer,4];
 	_unitGroup setFormDir ([(leader _unitGroup),_killer] call BIS_fnc_dirTo);
-	if (DZAI_findKiller) then {_unitGroup setBehaviour "AWARE"; 0 = [_victim,_killer,_unitGroup] spawn DZAI_huntKiller} else {_unitGroup setBehaviour "COMBAT"};
+	_trigger = _unitGroup getVariable ["trigger",objNull];
+	if (DZAI_findKiller) then {_unitGroup setBehaviour "AWARE"; 0 = [_trigger,_killer,_unitGroup] spawn DZAI_huntKiller} else {_unitGroup setBehaviour "COMBAT"};
 
-	_trigger = _unitGroup getVariable "trigger";
 	//_gradeChances = if (!isNil "_trigger") then {_trigger getVariable ["gradeChances",DZAI_gradeChances1]} else {DZAI_gradeChances1};
 	_equipType = if (!isNil "_trigger") then {_trigger getVariable ["equipType",1]} else {1};
 	
 	//_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;
 	_weapongrade = _equipType call DZAI_getWeapongrade;
 	0 = [_victim,_weapongrade] spawn DZAI_addLoot;
-	0 = [_killer,"banditKills"] call DZAI_countKills;
+	0 = [_killer,_victim,"banditKills"] call DZAI_countKills;
 } else {
 	if (_killer != _victim) then {
 		{

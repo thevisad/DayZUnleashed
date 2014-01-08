@@ -40,10 +40,14 @@ if ((count _positionArray) > 0) then {
 	private ["_spawnPositions"];
 	_spawnPositions = [];
 	{
-		_spawnPositions set [count _spawnPositions,getMarkerPos _x];
-		deleteMarker _x;
+		if ((((getMarkerPos _x) select 0) != 0)&&(((getMarkerPos _x) select 1) != 0)) then {
+			_spawnPositions set [(count _spawnPositions),(getMarkerPos _x)];
+			deleteMarker _x;
+		};
 	} forEach _positionArray;
-	0 = [_trigger,[],_patrolDist,_equipType,_spawnPositions,[_minAI,_addAI]] call DZAI_setTrigVars; 	
+	if ((count _spawnPositions) > 0) then {
+		0 = [_trigger,[],_patrolDist,_equipType,_spawnPositions,[_minAI,_addAI]] call DZAI_setTrigVars;
+	};
 };
 
 deleteMarker _spawnMarker;

@@ -7,6 +7,8 @@ _loot = 	"";
 _array = 	[];
 _agent = 	objNull;
 
+_sp4wnAroundObjects = ["building"];
+
 if (dayz_agroSpawnZombies > dayz_localagroSpawned) exitwith {}; 
 
 _spawnChance = (ceil(random 10) + 1);
@@ -20,8 +22,14 @@ _type = _unitTypes call BIS_fnc_selectRandom;
 //diag_log ("ZASZ: Count: " + str(dayz_agroSpawnZombies));
 _radius = 40;
 _method = "NONE";
+_playerposition = getPosATL player;
+_position = [_player,30,200,0,0,0,0] call BIS_fnc_findSafePos;
 
-_position = [_player,60,200,0,0,0,0] call BIS_fnc_findSafePos;
+_nearby = (nearestObjects [_playerposition, _sp4wnAroundObjects,dayz_spawnArea]) - (nearestObjects [_playerposition, _sp4wnAroundObjects, dayz_safeDistPlr]);
+
+_nearbyCount = count _nearby;
+if ((_nearbyCount < 1) or (vehicle player != player)) exitwith {"ZASZ: Nothing close to spawn zeds"};
+
 
 _agent = createAgent [_type, _position, [], _radius, _method];
 
@@ -44,4 +52,4 @@ _agent setVariable ["newDest",_player];
 */
 //Start behavior
 _id = [_position,_agent] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";
-//diag_log ("ZASZ: Agent: " + str(_agent) + " Spawned At: " + str(_position));
+diag_log ("ZASZ: " + str(_agent) + " Spawned At: " + str(_position));

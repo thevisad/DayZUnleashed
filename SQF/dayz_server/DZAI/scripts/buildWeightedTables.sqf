@@ -2,6 +2,7 @@ private ["_startTime","_getWeightedIndices"];
 
 _startTime = diag_tickTime;
 
+//Function exerpt from fn_selectRandomWeighted.sqf written by Joris-Jan van 't Land
 _getWeightedIndices = {
 	private ["_array", "_weights","_index","_weighted","_i"];
 	_array = _this select 0;
@@ -47,8 +48,13 @@ _getWeightedIndices = {
 	_weightedTable = [DZAI_weaponGrades,_gradeChances] call _getWeightedIndices;
 	missionNamespace setVariable [_x select 1,_weightedTable];
 } forEach [
-			["DZAI_gradeChancesNewbie","DZAI_gradeIndicesNewbie"],["DZAI_gradeChances0","DZAI_gradeIndices0"],["DZAI_gradeChances1","DZAI_gradeIndices1"],
-			["DZAI_gradeChances2","DZAI_gradeIndices2"],["DZAI_gradeChances3","DZAI_gradeIndices3"],["DZAI_gradeChancesDyn","DZAI_gradeIndicesDyn"],
+			//Input variable - Gradechances array, Output variable - Gradeindices array
+			["DZAI_gradeChancesNewbie","DZAI_gradeIndicesNewbie"],
+			["DZAI_gradeChances0","DZAI_gradeIndices0"],
+			["DZAI_gradeChances1","DZAI_gradeIndices1"],
+			["DZAI_gradeChances2","DZAI_gradeIndices2"],
+			["DZAI_gradeChances3","DZAI_gradeIndices3"],
+			["DZAI_gradeChancesDyn","DZAI_gradeIndicesDyn"],
 			["DZAI_gradeChancesHeli","DZAI_gradeIndicesHeli"]
 		];
 		

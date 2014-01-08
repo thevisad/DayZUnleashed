@@ -51,7 +51,8 @@ if (isNil "DZAI_newMap") then {
 				_placePos = [] + getArray (_cfgWorldName >> _x >> "position");
 				if (DZAI_staticAI) then {
 					if (_placeType != "NameLocal") then {
-						private["_trigger","_statements","_aiCount","_equipType","_patrolRad"];
+						private["_trigger","_statements","_aiCount","_equipType","_patrolRad","_blacklist"];
+						_blacklist = createLocation ["Strategic",_placePos,600,600];
 						_trigger = createTrigger ["EmptyDetector", _placePos];
 						_trigger setTriggerArea [600, 600, 0, false];
 						_trigger setTriggerActivation ["ANY", "PRESENT", true];
@@ -61,19 +62,19 @@ if (isNil "DZAI_newMap") then {
 							case "NameCityCapital":
 							{
 								_aiCount = [2,1];
-								_equipType = 2;
+								_equipType = 1;
 								_patrolRad = 200;
 							};
 							case "NameCity":
 							{
 								_aiCount = [1,2];
-								_equipType = 1;
+								_equipType = 0;
 								_patrolRad = 175;
 							};
 							case "NameVillage":
 							{
 								_aiCount = [0,2];
-								_equipType = 0;
+								_equipType = -1;
 								_patrolRad = 150;
 							};
 						};
@@ -88,6 +89,9 @@ if (isNil "DZAI_newMap") then {
 			if ((_forEachIndex % 25) == 0) then {sleep 0.01;};
 		} forEach _allPlaces;
 };
+
+
+
 DZAI_locations_ready = true;
 
 diag_log format ["[DZAI] %1 locations gathered in %2 seconds.",_locCount,(diag_tickTime - _startTime)];

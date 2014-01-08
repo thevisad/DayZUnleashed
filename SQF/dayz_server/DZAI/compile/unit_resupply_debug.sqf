@@ -43,7 +43,7 @@ _unitMagazines = [_weaponMagazine]; _weaponMagazine = nil;
 
 _unitGroup = (group _unit);
 
-if ((((units _unitGroup) select 0) == _unit) && (_weapongrade in DZAI_launcherLevels) && ((count DZAI_launcherTypes) > 0)) then {
+if (((count DZAI_launcherTypes) > 0) && {(((units _unitGroup) select 0) == _unit)} && {(_weapongrade in DZAI_launcherLevels)}) then {
 	private ["_launchWeapon","_launchAmmo"];
 	_launchWeapon = DZAI_launcherTypes call BIS_fnc_selectRandom2;
 	_launchAmmo = getArray (configFile >> "CfgWeapons" >> _launchWeapon >> "magazines") select 0;
@@ -68,9 +68,9 @@ if (DZAI_debugLevel > 0) then {
 	};
 };
 
-while {(alive _unit)&&(!(isNull _unit))} do {													//Run script for as long as unit is alive
+while {(alive _unit)&&{(!(isNull _unit))}} do {													//Run script for as long as unit is alive
 	_marker setmarkerpos (getposATL _unit);
-	if (DZAI_zombieEnemy && ((leader _unitGroup) == _unit)) then {
+	if (DZAI_zombieEnemy && {((leader _unitGroup) == _unit)}) then {
 		_nearbyZeds = (getPosATL _unit) nearEntities ["zZombie_Base",DZAI_zDetectRange];
 		{
 			if (rating _x > -30000) then {
@@ -86,12 +86,7 @@ while {(alive _unit)&&(!(isNull _unit))} do {													//Run script for as lo
 	};
 	if !(_unit getVariable ["unconscious",false]) then {
 		for "_i" from 0 to ((count _unitWeapons) -1) do {
-			private ["_needsReload"];
-			_needsReload = true;
-			if ((_unitMagazines select _i) in magazines _unit) then {						//If unit already has at least one magazine, assume reload is not needed
-				_needsReload = false;
-			}; 
-			if ((_unit ammo (_unitWeapons select _i) == 0) || (_needsReload))  then {		//If active weapon has no ammunition, or AI has no magazines, remove empty magazines and add a new magazine.
+			if ((_unit ammo (_unitWeapons select _i) == 0) || {!(((_unitMagazines select _i) in magazines _unit))})  then {		//If active weapon has no ammunition, or AI has no magazines, remove empty magazines and add a new magazine.
 				_unit removeMagazines (_unitMagazines select _i);
 				_unit addMagazine (_unitMagazines select _i);
 				if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: AI ammo depleted, added magazine %1 to AI %2.",(_unitMagazines select _i),_unit];};
@@ -105,12 +100,12 @@ while {(alive _unit)&&(!(isNull _unit))} do {													//Run script for as lo
 				_unit disableAI "TARGET"; _unit disableAI "AUTOTARGET"; _unit disableAI "MOVE";
 				_unit playActionNow "Medic";
 				_healTimes = 0;
-				while {(!(_unit getVariable ["unconscious",false]))&&(_healTimes < 3)&&(alive _unit)} do {
+				while {(alive _unit) && {(!(_unit getVariable ["unconscious",false]))} && {(_healTimes < 3)}} do {
 					sleep 2;
 					_health set [0,(((_health select 0) + 2000) min 12000)];
 					if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: AI %1 is healing. Current Blood: %2.",_unit,(_health select 0)];};
 					_healTimes = _healTimes + 1;
-					if ((_healTimes == 3)&&(alive _unit)) then {
+					if ((alive _unit) && {(_healTimes == 3)}) then {
 						_health set [1,0];
 						_health set [2,0];
 						_health set [3,false];
@@ -126,8 +121,8 @@ while {(alive _unit)&&(!(isNull _unit))} do {													//Run script for as lo
 			} else {
 				private ["_lowblood","_brokenbones"];
 				_lowblood = ((_health select 0) < 7200);
-				_brokenbones = ((_health select 3) or (_health select 4));
-				if ((_lowblood or _brokenbones) && (time - _lastBandage) > 60) then {
+				_brokenbones = ((_health select 3) or {(_health select 4)});
+				if ((_lowblood or _brokenbones) && {((time - _lastBandage) > 60)}) then {
 					_needsHeal = true;
 					if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: AI %1 needs to heal! Blood low: %2, Broken bones: %3.",_unit,_lowblood,_brokenbones];};
 				};

@@ -27,7 +27,7 @@ for "_i" from 0 to ((count _unwantedWeapons) - 1) do {
 //Compatibility with Namalsk's selectable loot table feature.
 if (isNil "dayzNam_buildingLoot") then {
 	_cfgBuildingLoot = "cfgBuildingLoot";
-	if (((toLower worldName) == "trinity")&&(DZAI_modName != "epoch")) then {
+	if (((toLower worldName) == "trinity")&&{(DZAI_modName != "epoch")}) then {
 		//Fix for Trinity Island's Barracks loot table.
 		_bldgClasses set [2,["Barracks"]];
 	};
@@ -38,7 +38,7 @@ if (isNil "dayzNam_buildingLoot") then {
 //diag_log format ["DEBUG :: _cfgBuildingLoot: %1",_cfgBuildingLoot];
 
 //Compatibility with DayZ 1.7.7's new HeliCrash tables
-if ((isClass (configFile >> _cfgBuildingLoot >> "HeliCrashWEST")) && (isClass (configFile >> _cfgBuildingLoot >> "HeliCrashEAST"))) then {
+if ((isClass (configFile >> _cfgBuildingLoot >> "HeliCrashWEST")) && {(isClass (configFile >> _cfgBuildingLoot >> "HeliCrashEAST"))}) then {
 	_bldgClasses set [3,["HeliCrashWEST","HeliCrashEAST"]];
 	//diag_log format ["DEBUG :: HeliCrash tables modified: %1",(_bldgClasses select 3)];
 };
@@ -76,7 +76,7 @@ for "_i" from 0 to (count _bldgClasses - 1) do {					//_i = weapongrade
 				private ["_weaponItem","_weaponMags"];
 				_weaponItem = _lootItem select 0;
 				_weaponMags = count (getArray (configFile >> "cfgWeapons" >> _weaponItem >> "magazines"));
-				if ((_weaponMags > 0) && !(_weaponItem in _aiWeaponBanList)) then {							//Consider an item as a "weapon" if it has at least one magazine type.
+				if ((_weaponMags > 0) && {!(_weaponItem in _aiWeaponBanList)}) then {							//Consider an item as a "weapon" if it has at least one magazine type.
 					if ((getNumber (configFile >> "CfgWeapons" >> _weaponItem >> "type")) == 1) then {
 						call compile format ["DZAI_Rifles%1 set [(count DZAI_Rifles%1),'%2'];",_i,_weaponItem];
 					} else {

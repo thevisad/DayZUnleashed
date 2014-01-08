@@ -41,14 +41,16 @@ if (isNull _unitGroup) then {diag_log format ["DZAI Error :: Respawned group was
 //DZAI_numAIUnits = DZAI_numAIUnits + _totalAI;
 if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Created group %1 of size %2.",_unitGroup,_totalAI];};
 
-if ((count (waypoints _unitGroup)) > 1) then {
-	_unitGroup setCurrentWaypoint ((waypoints _unitGroup) call BIS_fnc_selectRandom2);
-} else {
-	if ((count _spawnPositions) >= 100) then {
-		//diag_log format ["DEBUG :: Counted %1 spawn positions.",count _spawnPositions];
-		_nul = [_unitGroup,_spawnPositions] spawn DZAI_bldgPatrol;
+if (_patrolDist > 1) then {
+	if ((count (waypoints _unitGroup)) > 1) then {
+		_unitGroup setCurrentWaypoint ((waypoints _unitGroup) call BIS_fnc_selectRandom2);
 	} else {
-		0 = [_unitGroup,(getPosATL _trigger),_patrolDist,DZAI_debugMarkers] spawn DZAI_BIN_taskPatrol;
+		if ((count _spawnPositions) >= 100) then {
+			//diag_log format ["DEBUG :: Counted %1 spawn positions.",count _spawnPositions];
+			_nul = [_unitGroup,_spawnPositions] spawn DZAI_bldgPatrol;
+		} else {
+			0 = [_unitGroup,(getPosATL _trigger),_patrolDist,DZAI_debugMarkers] spawn DZAI_BIN_taskPatrol;
+		};
 	};
 };
 

@@ -15,7 +15,7 @@ _unithealth = _unit getVariable "unithealth"; 		// Retrieve unit's health statis
 if (isNil "_unithealth") exitWith {_damage};
 
 _scale = 300;
-if (_damage > 0.1) then {
+if (_damage > 0.4) then {
 	//Calculate locational damage
 	switch (_hit) do {
 		case "hands": {
@@ -40,21 +40,22 @@ if (_damage > 0.1) then {
 			_scale = _scale * 6;
 			if ((_damage > 1.5)&&(_ammo != "")) then {
 				_unit setVariable ["deathType","shothead"];
+				_nul = [_unit,_source] call DZAI_unitDeath;
 			};
 		};
 	};
-	if ((isPlayer _source) and !(_unit == _source)) then {
+	if (isPlayer _source) then {
 		_scale = _scale + 800;
 		if (_hit == "head_hit") then {
 			_scale = _scale + 500;
 		};
 	};
-	if ((_ammo isKindOf "Grenade") or (_ammo isKindof "B_127x107_Ball") or (_ammo isKindof "B_127x99_Ball")) then {_scale = _scale + 200};
+	if ((_ammo isKindOf "Grenade") or {(_ammo isKindof "B_127x107_Ball")} or {(_ammo isKindof "B_127x99_Ball")}) then {_scale = _scale + 200};
 	_blooddamage = (_damage * _scale);
 	_newbloodlevel = (_unithealth select 0) - _blooddamage;
 	_unithealth set [0,_newbloodlevel];
 	//diag_log format ["DEBUG :: Unit %1 took %2 blood damage (Total blood: %3).",_unit,_blooddamage,_newbloodlevel];
-	if (((_damage > 2) || ((_damage > 0.5) && (_hit == "head_hit"))) && !(_unit getVariable ["unconscious",false])) then {_nul = [_unit,_hit] spawn DZAI_unconscious; _unit setVariable ["unconscious",true];};
+	if (!(_unit getVariable ["unconscious",false]) && {((_damage > 2) || {((_damage > 0.5) && (_hit == "head_hit"))})}) then {_nul = [_unit,_hit] spawn DZAI_unconscious; _unit setVariable ["unconscious",true];};
 };
 
 if (_newbloodlevel <= 0) then {

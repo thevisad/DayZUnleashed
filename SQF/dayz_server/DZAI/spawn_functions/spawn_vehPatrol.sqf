@@ -3,7 +3,7 @@
 	
 	Description:
 	
-	Last updated:
+	Last updated: 5:59 PM 1/3/2014
 	
 */
 #define MAX_CARGO_COUNT 3
@@ -37,6 +37,8 @@ for "_i" from 1 to _amount do {
 	_vehicle engineOn true;
 
 	_nul = _vehicle call DZAI_protectObject;
+	clearWeaponCargoGlobal _vehicle;
+	clearMagazineCargoGlobal _vehicle;
 	_vehicle setVariable ["unitGroup",_unitGroup];
 	if (DZAI_debugLevel > 0) then {diag_log format ["Spawned vehicle type %1 for group %2 at %3.",_vehType,_unitGroup,mapGridPosition _vehicle];};
 

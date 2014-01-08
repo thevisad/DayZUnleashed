@@ -29,7 +29,7 @@ _vehOK = true;
 _driverOK = true;
 
 if ((count _vehWeapons) > 0) then {
-	while {_vehOK && _driverOK} do {	
+	while {_vehOK && {_driverOK}} do {	
 		//Check if vehicle ammunition needs to be replenished
 		{
 			if ((_vehicle ammo _x) < 20) then {
@@ -44,8 +44,8 @@ if ((count _vehWeapons) > 0) then {
 			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Refueled AI patrol vehicle.";};
 		};
 		
-		_vehOK = ((alive _vehicle)&&(!(isNull _vehicle))&&(canMove _vehicle));
-		_driverOK = ((!(isNull (driver _vehicle))) && (alive (driver _vehicle)));
+		_vehOK = ((alive _vehicle)&& {(!(isNull _vehicle))} && {(canMove _vehicle)});
+		_driverOK = ((!(isNull (driver _vehicle))) && {(alive (driver _vehicle))});
 
 		sleep DZAI_refreshRate;
 	};
@@ -57,6 +57,9 @@ if ((count _vehWeapons) > 0) then {
 			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Refueled AI patrol vehicle.";};
 		};
 
+		_vehOK = ((alive _vehicle)&& {(!(isNull _vehicle))} && {(canMove _vehicle)});
+		_driverOK = ((!(isNull (driver _vehicle))) && {(alive (driver _vehicle))});
+		
 		sleep DZAI_refreshRate;
 	};
 };

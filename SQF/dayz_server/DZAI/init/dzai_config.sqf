@@ -88,6 +88,9 @@ DZAI_humanityGain = 100;
 //If enabled, players with radios will be given text warnings if they are being pursued by AI groups. Text warnings include distance of pursuing AI group (Default: true)
 DZAI_radioMsgs = true;
 
+//If enabled, send radio messages using client-side DZAI radio addon. If disabled, send radio messages by remote execution method. (Default: false)
+DZAI_useRadioAddon = true;
+
 
 /*	AI Spawning Settings (Static AI spawns)
 --------------------------------------------------------------------------------------------------------------------*/	
@@ -281,8 +284,8 @@ DZAI_skill0 = [
 
 //AI skill settings level 1 (Skill, Minimum skill, Maximum skill).
 DZAI_skill1 = [	
-	["aimingAccuracy",0.40,0.50],
-	["aimingShake",0.55,0.65],
+	["aimingAccuracy",0.125,0.15],
+	["aimingShake",0.60,0.70],
 	["aimingSpeed",0.60,0.70],
 	["endurance",0.75,0.85],
 	["spotDistance",0.65,0.75],
@@ -295,7 +298,7 @@ DZAI_skill1 = [
 
 //AI skill settings level 2 (Skill, Minimum skill, Maximum skill).
 DZAI_skill2 = [	
-	["aimingAccuracy",0.50,0.60],
+	["aimingAccuracy",0.15,0.20],
 	["aimingShake",0.75,0.85],
 	["aimingSpeed",0.80,0.90],
 	["endurance",0.85,0.95],
@@ -309,8 +312,8 @@ DZAI_skill2 = [
 
 //AI skill settings level 3 (Skill, Minimum skill, Maximum skill).
 DZAI_skill3 = [	
-	["aimingAccuracy",0.60,0.70],
-	["aimingShake",0.75,0.85],
+	["aimingAccuracy",0.20,0.25],
+	["aimingShake",0.85,0.95],
 	["aimingSpeed",0.90,0.95],
 	["endurance",0.95,0.98],
 	["spotDistance",0.90,0.95],
@@ -346,16 +349,16 @@ DZAI_skill9 = nil;
 
 //AI skill settings - AI helicopter crew (Skill, Minimum skill, Maximum skill).
 DZAI_heliCrewSkills = [	
-	["aimingAccuracy",0.50,0.10],
-	["aimingShake",0.75,0.10],
-	["aimingSpeed",0.80,0.10],
-	["endurance",0.60,0.20],
-	["spotDistance",0.9,0.10],
-	["spotTime",0.90,0.10],
-	["courage",0.90,0.10],
-	["reloadSpeed",0.90,0.10],
-	["commanding",0.90,0.10],
-	["general",0.90,0.10]
+	["aimingAccuracy",0.50,0.50],
+	["aimingShake",0.85,0.95],
+	["aimingSpeed",0.85,0.95],
+	["endurance",0.60,0.80],
+	["spotDistance",0.90,1.00],
+	["spotTime",0.90,1.00],
+	["courage",0.90,1.00],
+	["reloadSpeed",0.90,1.00],
+	["commanding",0.90,1.00],
+	["general",0.90,1.00]
 ];
 
 

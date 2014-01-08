@@ -2,64 +2,54 @@
 #define VEHICLE_BANNED_STRING "bin\config.bin/CfgVehicles/Banned"
 #define MAGAZINE_BANNED_STRING "bin\config.bin/CfgMagazines/FakeMagazine"
 
-/*
-	verifyTables script written for DZAI
-	
-	Description: Checks an array of arrays for classnames banned by DayZ or non-existent classnames. If any banned/invalid classnames are found, they are removed and reported into the RPT log.
-	
-	Last updated: 2:33 PM 7/28/2013
-*/
-
-private["_unverified","_verified","_errorFound","_weapChk","_vehChk","_magCheck","_stringArray","_startTime"];
-
-waitUntil {!isNil "DZAI_weaponsInitialized"};	//Wait for DZAI to finish building weapon classname arrays.
+private["_verified","_errorFound","_allArrays","_startTime"];
+waitUntil {!isNil "DZAI_weaponsInitialized"};
 
 _startTime = diag_tickTime;
 
-_stringArray = _this;
-_unverified = [];
+_allArrays = ["DZAI_Rifles0","DZAI_Rifles1","DZAI_Rifles2","DZAI_Rifles3","DZAI_Pistols0","DZAI_Pistols1","DZAI_Pistols2","DZAI_Pistols3",
+				"DZAI_Backpacks0","DZAI_Backpacks1","DZAI_Backpacks2","DZAI_Backpacks3","DZAI_Edibles","DZAI_Medicals1","DZAI_Medicals2",
+				"DZAI_MiscItemS","DZAI_MiscItemL","DZAI_BanditTypes","DZAI_heliTypes","DZAI_launcherTypes"];
+
 _verified = [];
-_errorFound = false;
 
-//Build array of unverified classnames
 {
-	_unverified set [count _unverified,missionNamespace getVariable _x];
-} forEach _stringArray;
+	if ((typeName (missionNamespace getVariable _x)) == "ARRAY") then {
+		_allArrays set [count _allArrays,_x];
+	};
+} forEach ["DZAI_Rifles4","DZAI_Rifles5","DZAI_Rifles6","DZAI_Rifles7","DZAI_Rifles8","DZAI_Rifles9"];
 
-diag_log "[DZAI] DZAI is verifying all tables for banned or invalid classnames...";
 {
-	private["_removeArray"];
-	_removeArray = [];	//Will contain all invalid classnames. Is reset for each element of _unverified cleaned.
+	_array = missionNamespace getVariable [_x,[]];
+	_errorFound = false;
 	{
-		_weapChk = format["%1",inheritsFrom (configFile >> "CfgWeapons" >> _x)];
-		_vehChk = format["%1",inheritsFrom (configFile >> "CfgVehicles" >> _x)];
-		_magCheck = format["%1",inheritsFrom (configFile >> "CfgMagazines" >> _x)];
-		if ((_weapChk == "") && (_vehChk == "") && (_magCheck == "")) then {	//Check if classname does not exist
-			diag_log format ["WARNING :: Classname %1 is invalid. Removing entry.",_x];
-			_removeArray set [(count _removeArray),_x];		//Build array of invalid classnames
-			if (!_errorFound) then {_errorFound = true;};
-		} else {
-			if ((_weapChk == WEAPON_BANNED_STRING) || (_vehChk == VEHICLE_BANNED_STRING) || (_magCheck == MAGAZINE_BANNED_STRING)) then {	//If classname exists, check if it is banned
-				diag_log format ["WARNING :: Classname %1 is banned. Removing entry.",_x];
-				_removeArray set [(count _removeArray),_x];		//Build array of banned classnames
-				if (!_errorFound) then {_errorFound = true;};
+		if !(_x in _verified) then {
+			_isOK = true;
+			if (((str(inheritsFrom (configFile >> "CfgWeapons" >> _x))) != "") || {((str(inheritsFrom (configFile >> "CfgVehicles" >> _x))) != "")} || {((str(inheritsFrom (configFile >> "CfgMagazines" >> _x))) != "")}) then {
+				if (((str(inheritsFrom (configFile >> "CfgWeapons" >> _x))) == WEAPON_BANNED_STRING) || {((str(inheritsFrom (configFile >> "CfgVehicles" >> _x))) == VEHICLE_BANNED_STRING)} || {((str(inheritsFrom (configFile >> "CfgMagazines" >> _x))) == MAGAZINE_BANNED_STRING)}) then {
+					_isOK = false;
+				};
+			} else {
+				_isOK = false;
+			};
+			if (_isOK) then {
+				_verified set [count _verified,_x];
+			} else {
+				diag_log format ["[DZAI] Removing invalid entry (%1).",_x];
+				_array set [_forEachIndex,objNull];
+				if (!_errorFound) then {_errorFound = true};
 			};
 		};
-	} forEach _x;
-	if ((count _removeArray) > 0) then {
-		diag_log format ["Removing entries: %1",_removeArray];
-		_x = _x - _removeArray;				//Remove invalid classnames
+	} forEach _array;
+	if (_errorFound) then {
+		_array = _array - [objNull];
+		missionNamespace setVariable [_x,_array];
+		diag_log format ["[DZAI] Contents of %1 failed verification. Invalid entries removed.",_x];
+		//diag_log format ["DEBUG :: Corrected contents of %1: %2.",_x,_array];
+		//diag_log format ["DEBUG :: Comparison check of %1: %2.",_x,missionNamespace getVariable [_x,[]]];
 	};
-	_verified set [(count _verified),_x];	//Build array of verified classnames
-} forEach _unverified;
+} forEach _allArrays;
 
-if (_errorFound) then { //If a classname table requires editing, perform the required edits then report their final states.
-	for "_i" from 0 to ((count _unverified) - 1) do {
-		if ((count (_unverified select _i)) != (count (_verified select _i))) then {missionNamespace setVariable [_stringArray select _i,_verified select _i];	diag_log format ["Contents of %1: %2.",_stringArray select _i,missionNamespace getVariable (_stringArray select _i)];};
-	};
-} else {
-	diag_log "[DZAI] All tables have been verified. No invalid entries found.";
-};
-diag_log format ["[DZAI] Table verification completed in %1 seconds.",(diag_tickTime - _startTime)];
+diag_log format ["[DZAI] Verified %1 unique classnames in %2 seconds.",(count _verified),(diag_tickTime - _startTime)];
 
 DZAI_classnamesVerified = true;

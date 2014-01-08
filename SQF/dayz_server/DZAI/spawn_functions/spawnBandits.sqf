@@ -68,8 +68,16 @@ if ((count _locationArray) == 0) then {
 } else {
 	if (DZAI_debugMarkers > 0) then {
 		_tMarker = str (_trigger);
-		_tMarker setMarkerText "STATIC TRIGGER (ACTIVE)";
-		_tMarker setMarkerColor "ColorRed";
+		if ((getMarkerColor _tMarker) == "") then {
+			_tMarker = createMarker [_tMarker, (getPosATL _trigger)];
+			_tMarker setMarkerText "STATIC TRIGGER (ACTIVE)";
+			_tMarker setMarkerType "Defend";
+			_tMarker setMarkerColor "ColorRed";
+			_tMarker setMarkerBrush "Solid";
+		} else {
+			_tMarker setMarkerText "STATIC TRIGGER (ACTIVE)";
+			_tMarker setMarkerColor "ColorRed";
+		};
 		if (DZAI_debugMarkers > 1) then {_nul = [_trigger] spawn DZAI_updateSpawnMarker;};
 	};
 	//If spawn points are already defined (subsequent trigger activations)

@@ -34,6 +34,7 @@ call compile preprocessFileLineNumbers format ["%1\init\world_classname_configs\
 
 //Set internal-use variables
 DZAI_weaponGrades = [-1,0,1,2,3];							//All possible weapon grades (does not include custom weapon grades). A "weapon grade" is a tiered classification of gear. -1: Civilian (Low-grade), 0: Civilian, 1: Military, 2: MilitarySpecial, 3: Heli Crash. Weapon grade also influences the general skill level of the AI unit.
+DZAI_weaponGradesAll = [-1,0,1,2,3,4,5,6,7,8,9];			//All possible weapon grades (including custom weapon grades).
 DZAI_numAIUnits = 0;										//Tracks current number of currently active AI units, including dead units waiting for respawn.
 DZAI_actDynTrigs = 0;										//Tracks current number of active dynamically-spawned triggers
 DZAI_curDynTrigs = 0;										//Tracks current number of inactive dynamically-spawned triggers.
@@ -93,7 +94,7 @@ if (DZAI_modName == "") then {
 };
 
 //Create reference marker for dynamic triggers and set default values. These values are modified on a per-map basis.
-if ((DZAI_maxHeliPatrols > 0) or (DZAI_maxLandPatrols > 0) or DZAI_dynAISpawns) then {
+if (DZAI_dynAISpawns or {(DZAI_maxHeliPatrols > 0)} or {(DZAI_maxLandPatrols > 0)}) then {
 	DZAI_centerMarker = createMarker ["DZAI_centerMarker", (getMarkerPos 'center')];
 	DZAI_centerMarker setMarkerShape "ELLIPSE";
 	DZAI_centerMarker setMarkerType "Empty";

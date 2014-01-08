@@ -32,9 +32,9 @@ if (DZAI_radioMsgs) then {
 		private ["_nearbyUnits","_radioSpeech","_radioText"];
 		_nearbyUnits = (getPosATL _targetPlayer) nearEntities ["CAManBase",_transmitRange];
 		{
-			if ((isPlayer _x)&&(_x hasWeapon "ItemRadio")) then {
-			//if (isPlayer _x) then {
-				[nil,_x,"loc",rTITLETEXT,"[RADIO] You hear static coming from your radio...","PLAIN DOWN",2] call RE;
+			if ((isPlayer _x)&&{(_x hasWeapon "ItemRadio")}) then {
+				_radioSpeech = "[RADIO] You hear static coming from your radio...";
+				[_x,_radioSpeech] call DZAI_radioSend;
 			};
 		} forEach _nearbyUnits;
 	};
@@ -42,9 +42,14 @@ if (DZAI_radioMsgs) then {
 sleep 10;
 
 //Begin hunting phase
-while {(alive _targetPlayer) && !(isNull _targetPlayer) && ((_targetPlayer distance _spawnPos) < _seekRange) && ((_unitGroup getVariable ["GroupSize",0]) > 0)} do {
-	_leader = (leader _unitGroup);
+while {
+	((_unitGroup getVariable ["GroupSize",0]) > 0) &&
+	{((_targetPlayer distance _spawnPos) < _seekRange)} &&
+	{(alive _targetPlayer)} && 
+	{!(isNull _targetPlayer)}
+} do {
 	if !(_unitGroup getVariable ["inPursuit",false]) then {
+		_leader = (leader _unitGroup);
 		_waypoint setWPPos getPosATL _targetPlayer;
 		_unitGroup setCurrentWaypoint _waypoint;
 		_unitGroup setFormDir ([_leader,_targetPlayer] call BIS_fnc_dirTo);
@@ -54,17 +59,17 @@ while {(alive _targetPlayer) && !(isNull _targetPlayer) && ((_targetPlayer dista
 			//Warn player of AI bandit presence if they have a radio.
 			if (((_unitGroup getVariable ["GroupSize",0]) > 1) && !(_leader getVariable ["unconscious",false]) && (isNull (_unitGroup getVariable ["targetKiller",objNull])) && !(isNull _targetPlayer)) then {
 				private ["_nearbyUnits","_radioSpeech"];
-				_nearbyUnits = (getPosATL _leader) nearEntities ["CAManBase",_transmitRange];
+				_nearbyUnits = (getPosATL _targetPlayer) nearEntities ["CAManBase",_transmitRange];
 				
 				{
-					if ((isPlayer _x)&&(_x hasWeapon "ItemRadio")) then {
+					if ((isPlayer _x)&&{(_x hasWeapon "ItemRadio")}) then {
 					//if (isPlayer _x) then {
 						_radioSpeech = switch (floor (random 3)) do {
 							case 0: {
 								format ["[RADIO] %1 (Bandit Leader): Target's name is %2. Find him!",(name _leader),(name _targetPlayer)]
 							};
 							case 1: {
-								format ["[RADIO] %1 (Bandit Leader): Target is a %2. Find him!",(name _leader),(typeOf _targetPlayer)]
+								format ["[RADIO] %1 (Bandit Leader): Target is a %2. Find him!",(name _leader),(getText (configFile >> "CfgVehicles" >> (typeOf _targetPlayer) >> "displayName"))]
 							};
 							case 2: {
 								format ["[RADIO] %1 (Bandit Leader): Target's distance is %2 meters. Find him!",(name _leader),round (_leader distance _targetPlayer)]
@@ -73,14 +78,14 @@ while {(alive _targetPlayer) && !(isNull _targetPlayer) && ((_targetPlayer dista
 								"ERROR"
 							};
 						};
-						diag_log format ["DEBUG :: %1",_radioSpeech];
-						[nil,_x,"loc",rTITLETEXT,_radioSpeech,"PLAIN DOWN",2] call RE;
+						//diag_log format ["DEBUG :: %1",_radioSpeech];
+						[_x,_radioSpeech] call DZAI_radioSend;
 					};
 				} forEach _nearbyUnits;
 			};
 		};
-		sleep 25;
 	};
+	sleep 25;
 };
 
 if ((_unitGroup getVariable ["GroupSize",0]) < 1) exitWith {};
@@ -100,12 +105,11 @@ if (DZAI_radioMsgs) then {
 		private ["_nearbyUnits","_radioSpeech","_radioText"];
 		_nearbyUnits = (getPosATL (leader _unitGroup)) nearEntities ["CAManBase",_transmitRange];
 		{
-			if ((isPlayer _x)&&(_x hasWeapon "ItemRadio")) then {
+			if ((isPlayer _x)&&{(_x hasWeapon "ItemRadio")}) then {
 			//if (isPlayer _x) then {
-				_radioSpeech = if (alive _targetPlayer) then {"%1 (Bandit Leader): Lost contact with target. Breaking off pursuit."} else {"%1 (Bandit Leader): Target has been eliminated."};
-				_radioText = format [_radioSpeech,(name _leader)];
-				diag_log _radioText;
-				[nil,_x,"loc",rTITLETEXT,_radioText,"PLAIN DOWN",2] call RE;
+				_radioText = if (alive _targetPlayer) then {"%1 (Bandit Leader): Lost contact with target. Breaking off pursuit."} else {"%1 (Bandit Leader): Target has been eliminated."};
+				_radioSpeech = format [_radioText,(name _leader)];
+				[_x,_radioSpeech] call DZAI_radioSend;
 			};
 		} forEach _nearbyUnits;
 	};

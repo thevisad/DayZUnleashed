@@ -9,7 +9,7 @@
 	_trigger: The trigger object responsible for spawning the AI unit.
 	_weapongrade: weapongrade to be used for generating equipment. Influences weapon quality and skill level.
 	
-	Last updated: 6:08 PM 11/1/2013
+	Last updated: 2:14 AM 1/3/2014
 	
 */
 private ["_totalAI","_spawnPos","_unitGroup","_trigger","_attempts","_baseDist","_dummy","_weapongrade"];
@@ -34,7 +34,7 @@ while {((count _pos) < 1)&&(_attempts < 3)} do {
 };
 
 if ((count _pos) < 1) then {
-	_pos = [(getPosATL _trigger),random (125),random(360),false] call SHK_pos;
+	_pos = [_spawnPos,random (125),random(360),false] call SHK_pos;
 	_attempts = (_attempts + 1);
 };
 

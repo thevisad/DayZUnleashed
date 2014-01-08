@@ -34,7 +34,6 @@ switch (_unitType) do {
 	};
 	case "air": 
 	{
-		_victim setVariable ["DZAI_deathTime",time];
 		if ((_victim getVariable ["removeNVG",0]) == 1) then {
 			_victim removeWeapon "NVGoggles";
 		};
@@ -46,7 +45,6 @@ switch (_unitType) do {
 	};
 	case "land":
 	{
-		_victim setVariable ["DZAI_deathTime",time];
 		if ((_victim getVariable ["removeNVG",0]) == 1) then {
 			_victim removeWeapon "NVGoggles";
 		};
@@ -57,6 +55,14 @@ switch (_unitType) do {
 		_victim enableSimulation false;
 	};
 	case default {
+		if ((_victim getVariable ["removeNVG",0]) == 1) then {
+			_victim removeWeapon "NVGoggles";
+		};
+		_victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
+		_victim setVariable ["deathType",_victim getVariable ["deathType","bled"],true];
+		_victim setVariable ["DZAI_deathTime",time];
+		_victim spawn DZAI_deathFlies;
+		_victim enableSimulation false;
 		if (DZAI_debugMarkers > 0) then {
 			if (({alive _x} count (units _unitGroup)) == 0) then {
 				{
@@ -64,6 +70,7 @@ switch (_unitType) do {
 				} forEach (waypoints _unitGroup);
 			};
 		};
+		DZAI_numAIUnits = DZAI_numAIUnits - 1;
 	};
 };
 
@@ -81,4 +88,4 @@ if (_launchWeapon in DZAI_launcherTypes) then {
 
 //diag_log format ["DEBUG :: AI %1 (Group %2) killed by %3",_victim,_unitGroup,_killer];
 
-true
+_victim

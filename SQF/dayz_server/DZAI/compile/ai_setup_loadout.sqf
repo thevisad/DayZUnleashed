@@ -1,10 +1,10 @@
-private ["_unit","_weapongrade","_weapons","_weapon","_magazine","_backpacks","_gadgetsArray","_backpack","_gadget"];
+private ["_unit","_weapongrade","_weapons","_weapon","_magazine","_backpacks","_gadgetsArray","_backpack","_gadget","_inventory"];
 _unit = _this select 0;
 _weapongrade = _this select 1;
 
 if (_unit getVariable ["loadoutDone",false]) exitWith {diag_log "DZAI Error: Unit already has loadout!";};
 
-if ((typeName _weapongrade) != "SCALAR") then {
+if !(_weapongrade in DZAI_weaponGradesAll) then {
 	diag_log format ["DZAI Error: Invalid weapongrade provided! (%1). Generating random weapongrade...",_weapongrade];
 	_weapongrade = DZAI_weaponGrades call BIS_fnc_selectRandom2;
 };

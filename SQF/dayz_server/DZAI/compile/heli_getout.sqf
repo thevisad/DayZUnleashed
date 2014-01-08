@@ -74,6 +74,7 @@ if (!surfaceIsWater _vehPos) then {
 			_nul = [_x,_x] call DZAI_unitDeath;
 			0 = [_x,_weapongrade] spawn DZAI_addLoot;
 		} forEach _units;
+		deleteGroup _unitGroup;
 	};
 } else {
 	{
@@ -81,6 +82,7 @@ if (!surfaceIsWater _vehPos) then {
 			deleteVehicle _x;
 		};
 	} forEach (units _unitGroup);
+	deleteGroup _unitGroup;
 };
 
 DZAI_curHeliPatrols = DZAI_curHeliPatrols - 1;
