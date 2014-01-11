@@ -24,11 +24,13 @@ _headShots = player getVariable ["headShots",0];
 _humanKills = player getVariable ["humanKills",0];
 _banditKills = player getVariable ["banditKills",0];
 _playerAggro = player getVariable ["aggroRank",0];
+_playerVariables = [player] call DZU_fnc_exportVariables;
 
 //Switch
 	_model call player_switchModel;
 
 //Login
+_varCount = [player,_playerVariables] call DZU_fnc_loadVariables;
 
 //set medical values
 if (count _medical > 0) then {
