@@ -101,11 +101,19 @@ class CfgPlayerVariables{
        varmin=0;
       varmax= 12000;
     };
-    class septic : default {
+    class infection : default {
          load=0;
       vardefault=0;
-         desc="Septic Level";
-      varname="vSL";
+         desc="Infection Level";
+      varname="vIL";
+      varmin=0;
+      varmax=12000;
+    };
+    class resist : default {
+         load=0;
+      vardefault=0;
+         desc="Antibiotic Resistance";
+      varname="vAR";
       varmin=0;
       varmax=12000;
     };
