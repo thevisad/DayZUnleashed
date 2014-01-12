@@ -1,14 +1,5 @@
-#include "CfgBackpacks.hpp"
-#include "CfgBuilding.hpp"
-#include "CfgCivilian.hpp"
-#include "CfgDrink.hpp"
-#include "CfgFood.hpp"
-#include "CfgGeneric.hpp"
-#include "CfgMedical.hpp"
-#include "CfgMilitary.hpp"
-#include "CfgSkins.hpp"
-#include "CfgTrash.hpp"
-#include "CfgVehicleParts.hpp"
+#include "CfgLoot.hpp"
+
 
 class CfgBuildingLoot {
 	class Default {

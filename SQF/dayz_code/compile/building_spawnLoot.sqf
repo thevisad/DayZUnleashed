@@ -9,6 +9,8 @@ _positions = [] + getArray (_config >> "lootPos");
 _itemTypes = [] + getArray (_config >> "lootType");
 _lootChance = getNumber (_config >> "lootChance");
 _countPositions = count _positions;
+
+
 _qty = 0; // effective quantity of spawned weaponholder
 
 // bias for this building. The lower it is, the lower chance some of the lootpiles will spawn
@@ -32,7 +34,6 @@ _bias = (_bias + random(100-_bias)) / 100;
 	//diag_log ("_type: " +str(_type));
 				_index = dayz_CBLBase find _type;
 	//diag_log ("index: " +str(_index));
-				_weights = dayz_CBLChances select _index;
 	//diag_log ("weights: " +str(_weights));
 				_cntWeights = count _weights;
 	//diag_log ("cntWeights: " +str(_cntWeights));
@@ -44,6 +45,7 @@ _bias = (_bias + random(100-_bias)) / 100;
 	//diag_log ("_itemType: " +str(_itemType));
 	//diag_log format["Item: %1, Group: %2", _itemType select 0, _itemType select 1];
 				[_itemType select 0, _itemType select 1 , _iPos, 0.0] call spawn_loot;
+
 				_qty = _qty +1;
 			};
 		};
