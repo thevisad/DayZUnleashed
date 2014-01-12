@@ -337,6 +337,17 @@
 			<French>Eteindre %1</French>
 			<Czech>Uhasit %1</Czech>
 		</Key>
+		<Key ID="STR_MOD_LAUNCHER_ACTION">
+			<English>Launching Unleashed Mod</English>
+			<German>Starten Unleashed Mod</German>
+			<Italian>Avvio Unleashed Mod</Italian>
+			<Spanish>Lanzamiento desatada Mod</Spanish>
+			<French>Lancement Unleashed Mod</French>
+			<Czech>Spuštění Unleashed Mod</Czech>
+			<Russian>Запуск Развязанный Mod</Russian>
+			<Polish>Uruchomienie Unleashed Mod</Polish>
+			<Hungarian>Elindítása póráz Mod</Hungarian>
+		</Key>
 		<Key ID="str_action_fire_inflame">
 			<English>Light fire</English>
 			<German>Feuer entzünden</German>
@@ -2092,6 +2103,18 @@
 			<French>Un uniforme de la BAF. Peut être porté.</French>
 		</Key>
 -->
+		<Key ID="STR_WPN_HOLDR_1">	
+			<Original>Colt 1911</Original>
+			<English>Colt 1911</English>
+			<German>Colt 1911</German>
+			<Russian>Кольт 1911</Russian>
+		</Key>	
+		<Key ID="STR_WPN_HOLDR_3">	
+			<Original>M4A1</Original>
+			<English>M4A1</English>
+			<German>M4A1</German>
+			<Russian>M4A1</Russian>
+		</Key>
 		<Key ID="STR_WPN_HOLDR_2">
 			<English>Hunting Rifle</English>
 			<German>Jagdgewehr</German>
@@ -2099,6 +2122,12 @@
 			<Spanish>Rifle de Caza</Spanish>
 			<French>Fusil de chasse</French>
 			<Czech>Lovecká puška</Czech>
+		</Key>
+		<Key ID="STR_DAYZ_OBJ_1">	
+				<Original>Cardboard Box (Food)</Original>
+				<English>Cardboard Box (Food)</English>
+				<German>Pappkarton (Lebensmittel)</German>
+				<Russian>Картонная коробка (Пища)</Russian>
 		</Key>
 		<Key ID="STR_DAYZ_OBJ_2">
 			<English>Cardboard Box (Medical)</English>
@@ -2116,6 +2145,12 @@
 			<French>Boîte de munitions</French>
 			<Czech>Krabice s municí</Czech>
 		</Key>
+		<Key ID="STR_WPN_NAME_1">
+			<Original>Winchester 1866</Original>
+			<English>Winchester 1866</English>
+			<German>Winchester 1866</German>
+			<Russian>Винчестер 1866</Russian>
+		</Key>
 		<Key ID="STR_WPN_DESC_1">
 			<English>Shotgun 12 gauge</English>
 			<German>Flinte, Kaliber 12</German>
@@ -2123,6 +2158,12 @@
 			<Spanish>Escopeta calibre 12</Spanish>
 			<French>Fusil cal. 12</French>
 			<Czech>Brokovnice cal. 12</Czech>
+		</Key>
+		<Key ID="STR_WPN_NAME_2">
+			<Original>Remington 870</Original>
+			<English>Remington 870</English>
+			<German>Remington 870</German>	
+			<Russian>Ремингтон 870</Russian>
 		</Key>
 		<Key ID="STR_WPN_DESC_2">
 			<English>The Remington Model 870 is a pump-action shotgun with a military torch attachment.</English>
@@ -2211,6 +2252,18 @@
 			<Spanish>Calibre 12</Spanish>
 			<French>Calibre 12</French>
 			<Czech>Ráže 12</Czech>
+		</Key>
+				<Key ID="STR_MAG_NAME_3">
+			<Original>Steel Bolt</Original>
+			<English>Steel Bolt</English>
+			<German>Stahlbolzen</German>	
+			<Russian>Стальной болт</Russian>
+		</Key>
+		<Key ID="STR_MAG_DESC_3">
+			<Original>A Crossbow Bolt made from hardened steel with feathered tips. Rugged and able to withstand many uses.</Original>
+			<English>A Crossbow Bolt made from hardened steel with feathered tips. Rugged and able to withstand many uses.</English>
+			<German>Ein Armbrustbolzen aus gehärtetem Stahl mit gefiederten Spitzen. Durch die robuste Machart kann er wiederverwendet werden.</German>	
+			<Russian>Стальной оперенный арбалетный болт. Многоразовый.</Russian>
 		</Key>
 		<Key ID="STR_MAG_NAME_4">
 			<English>Road Flare</English>
@@ -2364,24 +2417,6 @@
 			<French>Du fil de fer tranchant comme un rasoir et bardé de pointes métalliques, utilisé comme obstacle barbelé militaire.</French>
 			<Dutch>Scheermesdraad in grote spoelen die uitgebreid kunnen worden als een soort harmonica met stalen piketten dat gebruikt wordt om militaire draadobstacles te vormen.</Dutch>
 		</Key>
-		<Key ID="STR_EQUIP_NAME_24">
-			<English>Camping Tent</English>
-			<German>Zelt</German>
-			<Russian>Палатка</Russian>
-			<Spanish>Carpa</Spanish>
-			<Czech>Stan</Czech>
-			<French>Tente de camping</French>
-			<Dutch>Kampeertent</Dutch>
-		</Key>
-		<Key ID="STR_EQUIP_DESC_24">
-			<English>A camping tent that can be pitched, allowing you extended storage safe from others.</English>
-			<German>Ein kleines Zelt, das aufgeschlagen werden kann und sicheren Lagerplatz zu bietet.</German>
-			<Russian>Палатку можно развернуть и использовать как безопасное хранилище ваших вещей.</Russian>
-			<Spanish>Una carpa que puede ser asentada permitiendo almacenar objetos.</Spanish>
-			<Czech>Stan může být postaven a poskytnout uložný prostor.</Czech>
-			<French>Une tente de camping qui peut être montée, permettant un espace de stockage étendu à l'abri des autres.</French>
-			<Dutch>Een kampeertent die opgezet kan worden, waarin je meerdere voorwerpen kan opslaan, veilig weg van anderen.</Dutch>
-		</Key>		
 		<Key ID="STR_EQUIP_NAME_BEARTRAP">
 			<English>Bear Trap</English>
 			<Spanish>Trampa de Osos</Spanish>
@@ -2742,6 +2777,15 @@
 			<French>Viande de chèvre crue</French>
 			<Czech>Syrové kozí maso</Czech>
 		</Key>
+		<Key ID="STR_FOOD_NAME_DOG_RAW">
+			<English>Raw Dog</English>
+			<German>Rohes Hund</German>
+			<Russian>сырье Собака</Russian>
+			<Spanish>Perro Cruda</Spanish>
+			<Dutch>Rauw Hond</Dutch>
+			<French>Chien Brut</French>
+			<Czech>Syrové Pes</Czech>
+		</Key>
 		<Key ID="STR_FOOD_EQUIP_GOAT_RAW">
 			<English>Goat Meat to be used for sustainment, should be cooked prior to safe eating.</English>
 			<German>Ziegenfleisch für den Verzehr, muss vorher gekocht werden</German>
@@ -2750,6 +2794,15 @@
 			<Dutch>Geitenvlees dat gebruikt wordt om te overleven, moet gekookt worden om het veilig te eten.</Dutch>
 			<French>La viande de chèvre crue peut être consommée mais devrait être cuite avant de le manger.</French>
 			<Czech>Kvůli bezpečnosti by mělo být syrové kozí maso nejdříve upečeno.</Czech>
+		</Key>
+		<Key ID="STR_FOOD_EQUIP_DOG_RAW">
+			<English>Dog Meat to be used for sustainment, should be cooked prior to safe eating.</English>
+			<German>Hundefleisch für Erhaltung verwendet werden, sollten vor der sicher essen gekocht werden.</German>
+			<Russian>Собака Мясо будет использоваться для самообеспечения, должны быть приготовлены до безопасного питания.</Russian>
+			<Spanish>Perro Carne que se utilizará para mantenimiento, se deben cocinar antes de comer seguro.</Spanish>
+			<Dutch>Hondenvlees te worden gebruikt voor ondersteuning, moeten voor veilig eten worden gekookt.</Dutch>
+			<French>La viande de chien à être utilisé pour le maintien, doit être cuit avant de manger sans danger.</French>
+			<Czech>Psí maso má být použit k podporou perspektivních, by mělo být vařené před bezpečnému stravování.</Czech>
 		</Key>
 		<Key ID="STR_FOODCOOKED_EQUIP_CODE_NAME_0">
 			<English>Cooked Meat</English>
@@ -2886,6 +2939,15 @@
 			<French>Chèvre grillée</French>
 			<Czech>Opečené kozí maso</Czech>
 		</Key>
+		<Key ID="STR_FOOD_NAME_DOG_COOKED">
+			<English>Grilled Goat</English>
+			<German>Gegrilltes Hund</German>
+			<Russian>жареная собака</Russian>
+			<Spanish>Perro a la Parrilla</Spanish>
+			<Dutch>Gegrilde Hond</Dutch>
+			<French>Chien grillée</French>
+			<Czech>Grilované Pes</Czech>
+		</Key>
 		<Key ID="STR_FOOD_EQUIP_GOAT_COOKED">
 			<English>Goat Meat to be used for sustainment.</English>
 			<German>Ziegenfleisch, für den Verzehr geeignet.</German>
@@ -2894,6 +2956,15 @@
 			<Dutch>Geitenvlees dat gebruikt wordt om te overleven.</Dutch>
 			<French>La Chèvre grillée peut être consommée.</French>
 			<Czech>Kozí maso, které lze sníst aby jste přežili.</Czech>
+		</Key>
+		<Key ID="STR_FOOD_EQUIP_DOG_COOKED">
+			<English>Dog Meat to be used for sustainment.</English>
+			<German>Hundefleisch für Erhaltung verwendet werden.</German>
+			<Russian>Собака Мясо будет использоваться для самообеспечения.</Russian>
+			<Spanish>Perro Carne que se utilizará para el sostenimiento..</Spanish>
+			<Dutch>Hondenvlees te worden gebruikt voor onderhoudsbedrijven.</Dutch>
+			<French>La viande de chien à utiliser pour le maintien.</French>
+			<Czech>Psí maso má být použit k podporou perspektivních.</Czech>
 		</Key>
 		<Key ID="STR_ITEMWATERBOTTLEBOILED_CODE_NAME">
 			<English>Water Bottle (Boiled)</English>
@@ -4284,26 +4355,7 @@
 			<French>Chargement des données du personnage. Veuillez patienter.</French>
 			<Czech>Načítám data postavy. Prosím čekejte.</Czech>
 		</Key>
-		
-		<Key ID="R3F_VERSION_WEIGHTED">
-			<Original>1.04</Original>
-			<English>1.04</English>
-			<German>1.04</German>
-			<Russian>1.04</Russian>
-		</Key>
-		<Key ID="STR_R3F_WEIGHT_InGearBox">
-			<Original>%1 | Weight carried : %2 lb</Original>
-			<English>%1 | Weight carried : %2 lb</English>
-			<German>%1 | Weight carried : %2 lb</German>
-			<Russian>%1 | Weight carried : %2 lb</Russian>
-		</Key>
-		<Key ID="STR_R3F_WEIGHT_English">
-			<Original>kg</Original>
-			<English>lb</English>
-			<German>kg</German>
-			<Russian>kg</Russian>
-		</Key> 
-		
+	
 		
 		<Key ID="str_player_13">
 			<English>Waiting for character to create</English>

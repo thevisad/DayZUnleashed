@@ -1,6 +1,6 @@
 respawn = "BASE";
 respawndelay = 5;
-onLoadMission= "DayZ Unleashed";
+onLoadMission= "Unleashed";
 OnLoadIntro = "Welcome to Napf";
 OnLoadIntroTime = False;
 OnLoadMissionTime = False;

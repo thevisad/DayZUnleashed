@@ -12,10 +12,10 @@ diag_log "[DZAI] Reading DZAI configuration file.";
 --------------------------------------------------------------------------------------------------------------------*/	
 
 //Enable or disable event logging to arma2oaserver.rpt. Debug level setting. 0: Off, 1: Basic Debug, 2: Extended Debug. (Default: 0)
-DZAI_debugLevel = 2;
+DZAI_debugLevel = 0;
 
 //Enable or disable debug markers. 0: Off, 1: Basic markers (Track AI position, locate patrol waypoints, locate dynamically-spawned triggers), 2: Extended markers (Basic markers + Static trigger markers and refreshing dynamic trigger markers) (Default: 0)										
-DZAI_debugMarkers = 2;	
+DZAI_debugMarkers = 0;	
 
 //Frequency of server monitor update to RPT log in seconds. The monitor periodically reports number of max/current AI units and dynamically spawned triggers into RPT log. (Default: 300, 0 = Disabled)										
 DZAI_monitorRate = 300;
@@ -100,7 +100,9 @@ DZAI_staticAI = true;
 
 //Set minimum and maximum wait time in seconds to respawn an AI group after all units have been killed. Applies to both static AI and custom spawned AI (Default: Min 300, Max 600).									
 DZAI_respawnTimeMin = 300;
-DZAI_respawnTimeMax = 1200;
+DZAI_respawnTimeMax = 900;
+DZAI_levelTwoTimer = 1800;
+DZAI_levelThreeTimer = 3600;
 
 //Time to allow spawned AI units to exist in seconds before being despawned when no players are present in a trigger area. Applies to both static AI and custom spawned AI (Default: 120)										
 DZAI_despawnWait = 120;										
@@ -136,7 +138,25 @@ DZAI_respawnTMaxA = 1200;
 
 //Classnames of air vehicle types to use. Valid vehicle types: Helicopters and Planes (Default: "UH1H_DZ").
 //Air vehicles that are normally unarmed may have weapons added by DZAI (see "DZAI_airWeapons" setting below).								
-DZAI_heliTypes = ["UH1H_DZ"];	
+DZAI_heliTypes = [
+"AH6J_EP1",
+"AH6X_DZ",
+"AH6X_EP1",
+"CH_47F_BAF",
+"CH_47F_EP1",
+"MH6J_DZ",
+"MH6J_EP1",
+"Mi17_Civilian",
+"Mi17_DZ",
+"Mi17_Ins",
+"Mi17_medevac_CDF",
+"Mi17_medevac_Ins",
+"Mi17_medevac_RU",
+"UH1H_DZ",
+"UH1Y",
+"UH60M_EP1",
+"UH60M_MEV_EP1"
+];	
 
 //Specify vehicle weapon for air vehicles that are unarmed by default. DZAI will arm these air vehicles with the specified weapons upon spawning each vehicle.
 //NOTE: These classnames are not verified by DZAI - it is the user's responsibility to make sure they are valid and unbanned.
@@ -171,7 +191,146 @@ DZAI_respawnTMinL = 600;
 DZAI_respawnTMaxL = 1200;
 
 //Classnames of land vehicle types to use. (Default: "UAZ_Unarmed_TK_EP1")
-DZAI_vehTypes = ["UAZ_Unarmed_TK_EP1"];
+DZAI_vehTypes = [
+"BAF_Offroad_D",
+"BAF_Offroad_W",
+"car_hatchback",
+"car_sedan",
+"datsun1_civil_1_open",
+"datsun1_civil_2_covered",
+"datsun1_civil_3_open",
+"hilux1_civil_1_open",
+"hilux1_civil_2_covered",
+"hilux1_civil_3_open",
+"hilux1_civil_3_open_EP1",
+"HMMWV",
+"HMMWV_Ambulance",
+"HMMWV_Ambulance_CZ_DES_EP1",
+"HMMWV_Ambulance_DES_EP1",
+"HMMWV_DES_EP1",
+"HMMWV_M1035_DES_EP1",
+"HMMWV_M1151_M2_CZ_DES_EP1",
+"HMMWV_M1151_M2_DES_EP1",
+"HMMWV_M2",
+"HMMWV_M998A2_SOV_DES_EP1",
+"HMMWV_M998_crows_M2_DES_EP1",
+"HMMWV_M998_crows_MK19_DES_EP1",
+"HMMWV_MK19",
+"HMMWV_MK19_DES_EP1",
+"HMMWV_Terminal_EP1",
+"Kamaz",
+"KamazOpen",
+"KamazReammo",
+"KamazRefuel",
+"KamazRepair",
+"Lada1",
+"Lada1_TK_CIV_EP1",
+"Lada2",
+"Lada2_TK_CIV_EP1",
+"LadaLM",
+"LandRover_CZ_EP1",
+"LandRover_MG_TK_EP1",
+"LandRover_MG_TK_INS_EP1",
+"LandRover_Special_CZ_EP1",
+"LandRover_SPG9_TK_EP1",
+"LandRover_SPG9_TK_INS_EP1",
+"LandRover_TK_CIV_EP1",
+"MTVR",
+"MtvrReammo",
+"MtvrReammo_DES_EP1",
+"MtvrRefuel",
+"MtvrRefuel_DES_EP1",
+"MtvrRepair",
+"MtvrRepair_DES_EP1",
+"MtvrSalvage_DES_EP1",
+"MtvrSupply_DES_EP1",
+"MTVR_DES_EP1",
+"Offroad_DSHKM_Gue",
+"Offroad_DSHKM_INS",
+"Offroad_DSHKM_TK_GUE_EP1",
+"Offroad_SPG9_Gue",
+"Offroad_SPG9_TK_GUE_EP1",
+"Pickup_PK_GUE",
+"Pickup_PK_INS",
+"Pickup_PK_TK_GUE_EP1",
+"S1203_ambulance_EP1",
+"S1203_TK_CIV_EP1",
+"Skoda",
+"SkodaBlue",
+"SkodaGreen",
+"SkodaRed",
+"SUV_DZ",
+"SUV_PMC",
+"SUV_PMC_BAF",
+"SUV_TK_CIV_EP1",
+"SUV_TK_EP1",
+"SUV_UN_EP1",
+"Tractor",
+"tractorOld",
+"UAZ_AGS30_CDF",
+"UAZ_AGS30_INS",
+"UAZ_AGS30_RU",
+"UAZ_AGS30_TK_EP1",
+"UAZ_CDF",
+"UAZ_INS",
+"UAZ_MG_CDF",
+"UAZ_MG_INS",
+"UAZ_MG_TK_EP1",
+"UAZ_RU",
+"UAZ_Unarmed_TK_CIV_EP1",
+"UAZ_Unarmed_TK_EP1",
+"UAZ_Unarmed_UN_EP1",
+"UralCivil",
+"UralCivil2",
+"UralOpen_CDF",
+"UralOpen_INS",
+"UralReammo_CDF",
+"UralReammo_INS",
+"UralReammo_TK_EP1",
+"UralRefuel_CDF",
+"UralRefuel_INS",
+"UralRefuel_TK_EP1",
+"UralRepair_CDF",
+"UralRepair_INS",
+"UralRepair_TK_EP1",
+"UralSalvage_TK_EP1",
+"UralSupply_TK_EP1",
+"Ural_CDF",
+"Ural_INS",
+"Ural_TK_CIV_EP1",
+"Ural_UN_EP1",
+"V3S_Civ",
+"V3S_Gue",
+"V3S_Open_TK_CIV_EP1",
+"V3S_Open_TK_EP1",
+"V3S_Reammo_TK_GUE_EP1",
+"V3S_Refuel_TK_GUE_EP1",
+"V3S_Repair_TK_GUE_EP1",
+"V3S_Salvage_TK_GUE_EP1",
+"V3S_Supply_TK_GUE_EP1",
+"V3S_TK_EP1",
+"V3S_TK_GUE_EP1",
+"Volha_1_TK_CIV_EP1",
+"VolhaLimo_TK_CIV_EP1",
+"Volha_2_TK_CIV_EP1",
+"VWGolf",
+"WarfareReammoTruck_CDF",
+"WarfareReammoTruck_Gue",
+"WarfareReammoTruck_INS",
+"WarfareReammoTruck_RU",
+"WarfareReammoTruck_USMC",
+"WarfareRepairTruck_Gue",
+"WarfareSalvageTruck_CDF",
+"WarfareSalvageTruck_Gue",
+"WarfareSalvageTruck_INS",
+"WarfareSalvageTruck_RU",
+"WarfareSalvageTruck_USMC",
+"WarfareSupplyTruck_CDF",
+"WarfareSupplyTruck_Gue",
+"WarfareSupplyTruck_INS",
+"WarfareSupplyTruck_RU",
+"WarfareSupplyTruck_USMC"
+];
 
 
 /*	AI weapon selection settings
@@ -190,10 +349,10 @@ DZAI_banAIWeapons = [];
 //List of launcher-type weapons for mid/high-level AI to use (by default, weapongrade 1/2/3), example: ["M136"]. If left empty, AI will not use launcher weapons. (Default: [])
 //If AI encounter an armored player vehicle, they will switch to a randomly-selected launcher-type weapon to engage. (Maximum 1 launcher per AI group).
 //Weapon classnames added here are verified if DZAI_verifyTables is set to true. Note: Launcher weapons are removed from the AI unit upon death.
-DZAI_launcherTypes = [];	
+DZAI_launcherTypes = ["SMAW","Javelin","Stinger","M136"];	
 
 //List of AI weapongrades that are permitted to use launcher-type weapons. Individual custom weapongrade levels may be added to allow launcher use (Default: [1,2,3])
-DZAI_launcherLevels = [1,2,3];								
+DZAI_launcherLevels = [3];								
 
 
 /*	AI loot quantity settings

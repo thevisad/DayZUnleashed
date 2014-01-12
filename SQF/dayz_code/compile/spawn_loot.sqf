@@ -7,7 +7,10 @@ _iClass = _this select 1;
 _iPos = _this select 2;
 _radius = _this select 3;
 _uniq = ["ItemWaterbottle", "ItemWaterbottleUnfilled"];
-
+diag_log("SL: Item " + str(_iItem));
+diag_log("SL: iClass " + str(_iClass));
+diag_log("SL: iPos " + str(_iPos));
+diag_log("SL: iRadius " + str(_radius));
 _iPosZ = _iPos select 2;
 if((isNil "_iPosZ") OR {( _iPosZ < 0)}) then { _iPos = [_iPos select 0,_iPos select 1,0]; };
 

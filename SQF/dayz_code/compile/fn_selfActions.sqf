@@ -130,6 +130,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_ownerID = cursorTarget getVariable ["characterID","0"];
 	_isAnimal = cursorTarget isKindOf "Animal";
 	_isDog = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
+	_isBoar = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
+	_isRabbit = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
 	_isZombie = cursorTarget isKindOf "zZombie_base";
 	_isDestructable = cursorTarget isKindOf "BuiltItems";
 	_isTent = cursorTarget isKindOf "TentStorage";
@@ -542,8 +544,62 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
         player removeAction s_clothes;
         s_clothes = -1;
     };
+	
+	//Dog
+	if (_isBoar and _isAlive and (_hasRawMeat) and _canDo and _ownerID == "0" and player getVariable ["boarID", 0] == 0) then {
+		if (s_player_tameboar < 0) then {
+			s_player_tameboar = player addAction [localize "str_actions_tameboar", "\z\addons\dayz_code\actions\tame_boar.sqf", cursorTarget, 1, false, true, "", ""];
+		};
+	} else {
+		player removeAction s_player_tameboar;
+		s_player_tameboar = -1;
+	};
 
-	if(dayz_tameDogs) then {
+	if (_isBoar and _ownerID == dayz_characterID and _isAlive and _canDo) then {
+		_boarHandle = player getVariable ["boarID", 0];
+		if (s_player_feedboar < 0 and _hasRawMeat) then {
+			s_player_feedboar = player addAction [localize "str_actions_feedboar","\z\addons\dayz_code\actions\boar\feed.sqf",[_boarHandle,0], 0, false, true,"",""];
+		};
+		if (s_player_waterboar < 0 and "ItemWaterbottle" in magazines player) then {
+			s_player_waterboar = player addAction [localize "str_actions_waterboar","\z\addons\dayz_code\actions\boar\feed.sqf",[_boarHandle,1], 0, false, true,"",""];
+		};
+		if (s_player_stayboar < 0) then {
+			_lieDown = _boarHandle getFSMVariable "_actionLieDown";
+			if (_lieDown) then { _text = "str_actions_lieboar"; } else { _text = "str_actions_sitboar"; };
+			s_player_stayboar = player addAction [localize _text,"\z\addons\dayz_code\actions\boar\stay.sqf", _boarHandle, 5, false, true,"",""];
+		};
+		if (s_player_trackboar < 0) then {
+			s_player_trackboar = player addAction [localize "str_actions_trackboar","\z\addons\dayz_code\actions\boar\track.sqf", _boarHandle, 4, false, true,"",""];
+		};
+		if (s_player_barkboar < 0) then {
+			s_player_barkboar = player addAction [localize "str_actions_barkboar","\z\addons\dayz_code\actions\boar\speak.sqf", cursorTarget, 3, false, true,"",""];
+		};
+		if (s_player_warnboar < 0) then {
+			_warn = _boarHandle getFSMVariable "_watchDog";
+			if (_warn) then { _text = "Quiet"; _warn = false; } else { _text = "Alert"; _warn = true; };
+			s_player_warnboar = player addAction [format[localize "str_actions_warnboar",_text],"\z\addons\dayz_code\actions\boar\warn.sqf",[_boarHandle, _warn], 2, false, true,"",""];
+		};
+		if (s_player_followboar < 0) then {
+			s_player_followboar = player addAction [localize "str_actions_followboar","\z\addons\dayz_code\actions\boar\follow.sqf",[_boarHandle,true], 6, false, true,"",""];
+		};
+	} else {
+		player removeAction s_player_feedboar;
+		s_player_feedboar = -1;
+		player removeAction s_player_waterboar;
+		s_player_waterboar = -1;
+		player removeAction s_player_stayboar;
+		s_player_stayboar = -1;
+		player removeAction s_player_trackboar;
+		s_player_trackboar = -1;
+		player removeAction s_player_barkboar;
+		s_player_barkboar = -1;
+		player removeAction s_player_warnboar;
+		s_player_warnboar = -1;
+		player removeAction s_player_followboar;
+		s_player_followboar = -1;
+	};
+
+	
 	//Dog
 	if (_isDog and _isAlive and (_hasRawMeat) and _canDo and _ownerID == "0" and player getVariable ["dogID", 0] == 0) then {
 		if (s_player_tamedog < 0) then {
@@ -598,7 +654,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_followdog = -1;
 	};
 	
-    };
+	
 	if( _canDo and _isStorage ) then {
 		if( churchie_check < 0 ) then {
 			stow_vehicle = player addAction [("<t color=""#FF0000"">" + ("Pull Vehicle From Garage") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 3], 6, false, true, "","getDammage _target < 0.95"]; 

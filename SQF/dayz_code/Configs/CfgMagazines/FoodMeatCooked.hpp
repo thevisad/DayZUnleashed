@@ -14,6 +14,14 @@ class FoodgoatCooked : FoodCooked {
 	bloodRegen = 600;
 };
 
+class FooddogCooked : FoodCooked {
+	displayName = $STR_FOOD_NAME_DOG_COOKED;
+	model = "\dayz_equip\models\food_steak_cooked_gear.p3d";
+	picture = "\dayz_equip\textures\equip_steak_cooked_ca.paa";
+	descriptionShort = $STR_FOOD_EQUIP_DOG_COOKED;
+	bloodRegen = 600;
+};
+
 class FoodmuttonCooked : FoodCooked {
 	displayName = $STR_FOODCOOKED_EQUIP_CODE_NAME_1;
 	descriptionShort = $STR_FOODCOOKED_EQUIP_CODE_DESC_1;

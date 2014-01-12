@@ -1309,7 +1309,7 @@ class CfgWeight
 		{
 			weight = 1.0;
 		};
-		class ItemAntibiotics
+		class ItemAntibiotic
 		{
 			weight = 0.05;
 		};

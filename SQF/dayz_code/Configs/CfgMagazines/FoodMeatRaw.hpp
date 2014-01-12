@@ -64,3 +64,12 @@ class FoodgoatRaw : FoodRaw {
     cooked ="FoodbeefCooked";
     badmeat="Foodbeefbad";
 };
+class FooddogRaw : FoodRaw {
+	displayName = $STR_FOOD_NAME_DOG_RAW;
+	descriptionShort = $STR_FOOD_EQUIP_DOG_RAW;
+	model = "\dayz_equip\models\food_steak_gear.p3d";
+	picture = "\dayz_equip\textures\equip_steak_ca.paa";	
+	bloodRegen = 100;
+    cooked ="FoodbeefCooked";
+    badmeat="Foodbeefbad";
+};

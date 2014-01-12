@@ -16,10 +16,21 @@ if ((count _this) > 1) then {
 	private["_trigger","_unitGroup","_fastMode"];
 	//Add group to respawn queue.
 	_trigger = _this select 0; //attached variables: _patrolDist, _gradeChances, _spawnPositions, _spawnType, _maxUnits
+	_equipType = _trigger getVariable "equipType";
 	_unitGroup = _this select 1;
 	_fastMode = if ((count _this) > 2) then {_this select 2} else {false};
-	_respawnSleep = (DZAI_respawnTimeMin + random (DZAI_respawnTimeMax - DZAI_respawnTimeMin));	//Calculate wait time for respawn
+	
 	if (_fastMode) then {_respawnSleep = (_respawnSleep/2) max 60};
+
+	if (_equipType > 1) then {
+		if (_equipType == 3) then {
+			_respawnSleep = (DZAI_respawnTimeMin + random (DZAI_respawnTimeMax - DZAI_respawnTimeMin) + DZAI_levelThreeTimer);	//Calculate wait time for respawn
+		} else {
+			_respawnSleep = (DZAI_respawnTimeMin + random (DZAI_respawnTimeMax - DZAI_respawnTimeMin) + DZAI_levelTwoTimer);	//Calculate wait time for respawn
+		};
+	} else {
+		_respawnSleep = (DZAI_respawnTimeMin + random (DZAI_respawnTimeMax - DZAI_respawnTimeMin));	//Calculate wait time for respawn
+	};
 	_nextRespawnTime = (time + _respawnSleep);	//Determine time of next respawn
 	DZAI_respawnQueue set [(count DZAI_respawnQueue),[time + _respawnSleep,_trigger,_unitGroup]];
 	if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Added Group %1 to respawn queue. Queue position %2. Wait Time %3 (respawnHandler)",_unitGroup,(count DZAI_respawnQueue),_respawnSleep];};

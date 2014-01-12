@@ -4,7 +4,7 @@ _list = getposATL player nearEntities [["CAAnimalBase"],dayz_animalDistance];
 
 if (count _list < dayz_maxAnimals) then {
 	//Find where animal likes
-	_animalssupported = ["Chicken","Cow","Sheep","WildBoar","WildBoar","WildBoar","Goat","Rabbit","Rabbit","Dog"];
+	_animalssupported = ["Chicken","Cow","Sheep","WildBoar","WildBoar","WildBoar","Goat","Rabbit","Rabbit","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog"];
 	
 	_type =  (_animalssupported select floor(random(count _animalssupported)));
 	if (_type == "Cow") then {
@@ -35,13 +35,22 @@ if (count _list < dayz_maxAnimals) then {
 	_PosList = 		selectbestplaces [_randrefpoint,dayz_animalDistance,_favouritezones,10,5];
 	_PosSelect = 	_PosList select (floor random (count _PosList));
 	_Pos =  		_PosSelect select 0;
+	diag_log("PAC: Position " + str(_Pos));
 	_list = 		_Pos nearEntities [["CAAnimalBase","Man"],50];
 	
 	
 	if (player distance _Pos < dayz_animalDistance and NOT surfaceIsWater _Pos and (count _list <= 1)) then {
-		if (_type == "DZ_Pastor") then { _agent = createAgent [_type, _Pos, [], 0, "NONE"]; } else { _agent = createAgent [_type, _Pos, [], 0, "FORM"]; };
-		_agent setpos _Pos;
-		_id = [_pos,_agent] execFSM "\z\addons\dayz_code\system\animal_agent.fsm";
+		if (_type == "DZ_Pastor" || _type == "DZ_Fin") then { 
+			_agent = createAgent [_type, _Pos, [], 0, "NONE"]; 
+			_agent setpos _Pos;
+			_id = [_pos,_agent,_type] execFSM "\z\addons\dayz_code\system\dog_agent.fsm";
+		}
+		else 
+		{ 
+			_agent = createAgent [_type, _Pos, [], 0, "FORM"]; 
+			_agent setpos _Pos;
+			_id = [_pos,_agent] execFSM "\z\addons\dayz_code\system\animal_agent.fsm";
+		};
 	};
 	sleep 1;
 };

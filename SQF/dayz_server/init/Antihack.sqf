@@ -3384,61 +3384,20 @@ publicVariable "PVDZ_AdminMenuCode";
 		_pos = [(_pos select 0)+8*sin(_dir),(_pos select 1)+8*cos(_dir),0];
 		_admincrate_boxcreate = "USBasicAmmunitionBox" createVehicle _pos;
 		{_admincrate_boxcreate addWeaponCargoGlobal [_x, 5];} forEach
-		["BAF_AS50_Scoped","AK_107_GL_Kobra","AK_107_Kobra","AK_107_PSO","AK_47_M",
-		"AK_47_S","AK_74","AK_74_GL","AK_74_GL_Kobra",
-		"BAF_AS50_TWS","BAF_L110A1_Aim","BAF_L7A2_GPMG","BAF_L85A2_RIS_ACOG",
-		"BAF_L85A2_RIS_CWS","BAF_L85A2_RIS_Holo","BAF_L85A2_RIS_SUSAT",
-		"BAF_L85A2_UGL_ACOG","BAF_L85A2_UGL_Holo","BAF_L85A2_UGL_SUSAT",
-		"BAF_L86A2_ACOG","BAF_LRR_scoped","BAF_LRR_scoped_W","bizon","bizon_silenced",
-		"Colt1911","Crossbow","DMR","G36_C_SD_camo","G36_C_SD_eotech","G36a",
-		"G36A_camo","G36C","G36C_camo","G36K","G36K_camo","FN_FAL","FN_FAL_ANPVS4",
-		"glock17_EP1","Huntingrifle","ksvk","LeeEnfield","M1014","m107_DZ",
-		"M14_EP1","M16A2","M16A2GL","m16a4","m16a4_acg","M16A4_ACG_GL","M16A4_GL",
-		"M24","M24_des_EP1","M240","m240_scoped_EP1","M249","M249_EP1","M249_m145_EP1",
-		"M40A3","M4A1","M4A1_Aim","M4A1_Aim_camo","M4A1_AIM_SD_camo","M4A1_HWS_GL",
-		"M4A1_HWS_GL_camo","M4A1_HWS_GL_SD_Camo","M4A1_RCO_GL","M4A3_CCO_EP1",
-		"M4A3_RCO_GL_EP1","M4SPR","M60A4_EP1","M9","M9SD","Makarov","MakarovSD",
-		"MeleeHatchet","MeleeCrowbar","MG36","Mk_48_DES_EP1","Mk_48_DZ","MP5A5",
-		"MP5SD","MR43","Pecheneg","PK","Remington870_lamp","revolver_EP1",
-		"revolver_gold_EP1","RPK_74","Sa61_EP1","Saiga12K","SVD","SVD_CAMO",
-		"SVD_des_EP1","SVD_NSPU_EP1","UZI_EP1","UZI_SD_EP1","Winchester1866",
-		"Binocular","Binocular_Vector","ItemCompass","ItemEtool","ItemFlashlight",
-		"ItemFlashlightRed","ItemGPS","ItemHatchet","ItemKnife","ItemMap",
-		"ItemMatchbox","ItemToolbox","ItemWatch","Laserdesignator",
-		"NVGoggles"];
+		["AK_107_GL_Kobra","AK_107_Kobra","AK_107_PSO","AK_47_M","AK_47_S","AK_74","AK_74_GL","AK_74_GL_Kobra","AKS_74_kobra","AKS_74_U","BAF_AS50_Scoped","BAF_AS50_TWS","BAF_L110A1_Aim","BAF_L7A2_GPMG","BAF_L85A2_RIS_ACOG","BAF_L85A2_RIS_CWS","BAF_L85A2_RIS_Holo","BAF_L85A2_RIS_SUSAT","BAF_L85A2_UGL_ACOG","BAF_L85A2_UGL_Holo","BAF_L85A2_UGL_SUSAT","BAF_L86A2_ACOG","BAF_LRR_scoped","BAF_LRR_scoped_W","Binocular","Binocular_Vector","bizon","bizon_silenced","Colt1911","Crossbow","DMR","DMR_DZ","FN_FAL","FN_FAL","FN_FAL_ANPVS4","FN_FAL_ANPVS4","G36_C_SD_camo","G36_C_SD_camo","G36_C_SD_eotech","G36a","G36A_camo","G36A_camo","G36C","G36C","G36C_camo","G36C_camo","G36K","G36K_camo","G36K_camo","glock17_EP1","glock17_EP1","hecate2","Huntingrifle","ItemCompass","ItemEtool","ItemFlashlight","ItemFlashlightRed","ItemGPS","ItemHatchet","ItemKnife","ItemMap","ItemMatchbox","ItemToolbox","ItemWatch","KPfs_g36a1","KPfs_g36a2","KPfs_g36a4","KPfs_g36k","KPfs_g36ksk","kpfs_g3a2","KPfs_G3a3","KPfs_g3a3zf","KPfs_g3a4","KPfs_g3dmr","kpfs_glock17","KPfs_hk32","KPFS_HK4","KPFS_HK416_Aim","KPFS_HKP30","KPFS_HKP7","KPFS_KarS","KPFS_Makarov","KPFS_Mauser_Hsc","KPFS_MG3","KPFS_MG3_eot","KPFS_MG42","KPFS_MP2","KPFS_MP2A1","KPFS_MP44","KPFS_MP5A3","KPFS_MP5A3SD","KPFS_MPi_AK_74","KPFS_MPi_AKS_74","KPFS_MPi_AKS_74K","KPFS_MPi_KM_72","KPFS_MPi_KMKIX","KPFS_MPi_KMS_72","KPFS_P1","KPFS_P12","KPFS_P12SD","KPFS_P2000","KPFS_P220","KPFS_P225","KPFS_P226","KPFS_P38","KPFS_P38k","KPFS_P5","KPFS_P8","KPFS_P88","KPFS_P99QA","KPFS_PM63","KPFS_PSL","KPFS_PZF60","KPFS_Sauer_38h","KPFS_TT33","KPFS_Walther_M9","KPFS_Walther_PP","ksvk","Laserdesignator","LeeEnfield","M1014","M1014","m107_DZ","M14_EP1","M14_EP1","M16A2","M16A2","M16A2GL","M16A2GL","m16a4","M16A4_ACG","m16a4_acg","M16A4_ACG_GL","M16A4_GL","M24","M24","M24_des_EP1","M240","M240_DZ","m240_scoped_EP1","M249","M249_DZ","M249_EP1","M249_m145_EP1","M40A3","M40A3","M4A1","M4A1","M4A1_Aim","M4A1_Aim","M4A1_Aim_camo","M4A1_AIM_SD_camo","M4A1_AIM_SD_camo","M4A1_HWS_GL","M4A1_HWS_GL_camo","M4A1_HWS_GL_camo","M4A1_HWS_GL_SD_Camo","M4A1_RCO_GL","M4A3_CCO_EP1","M4A3_CCO_EP1","M4A3_RCO_GL_EP1","M4SPR","M60A4_EP1","M9","M9","M9SD","M9SD","Makarov","MakarovSD","MakarovSD","MeleeCrowbar","MeleeHatchet","MG36","Mk_48_DES_EP1","Mk_48_DZ","Mk_48_DZ","MP5A5","MP5A5","mp5a5_acog","mp5a5_aimpoint","mp5a5_reflex","mp5a5n","mp5k","MP5SD","MP5SD","mp5sd6","mp5sd6_acog","mp5sd6_aimpoint","mp5sd6_reflex","MR43","NVGoggles","p220","p226","p226_sd","p226sf","p226sf_sd","Pecheneg","PK","Remington870_lamp","Remington870_lamp","revolver_EP1","revolver_gold_EP1","RPK_74","RPK_74","Sa58P_EP1","Sa58V_CCO_EP1","Sa58V_EP1","Sa58V_RCO_EP1","Sa61_EP1","Saiga12K","sapr_aimpoint","sapr_aimpoint_sd","sapr_hensoldt","sapr_hensoldt_sd","sg550","sg550_commando_hensoldt","sg550_kern","sg550_lg97","sg550_lg97_aimpoint","sg550_lg97_aimpoint_camo","sg550_sniper","sg551","sg551_acog","sg551_acog_lg97","sg551_commando_acog","sg551_commando_aim","sg551_commando_lg97_acog","sg551_commando_lg97_aim","sg551_commando_lg97_aim_camo","sg551_lg97","sg552","sg552_commando","sg552_commando_mg","sg552_commando_mg_eotech","sg552_commando_sd","sg552_mp_aimpoint","sg552_mp_aimpoint_sd","sg552_reflex","sg552lb","sg552lb_acog","sg552lb_aimpoint","sg552lb_commando_acog","sg552lb_commando_reflex","sg552sd_reflex","SVD","SVD_CAMO","SVD_CAMO","SVD_des_EP1","SVD_NSPU_EP1","trg42","trg42_camo","trg42_t8m","trg42_t8m_camo","UZI_EP1","UZI_EP1","UZI_SD_EP1","Winchester1866"];
 		{_admincrate_boxcreate addMagazineCargoGlobal [_x, 20];} forEach
-		["5Rnd_127x99_as50","2Rnd_shotgun_74Slug","2Rnd_shotgun_74Pellets","5Rnd_127x108_KSVK",
-		"5Rnd_762x51_M24","5Rnd_86x70_L115A1","5x_22_LR_17_HMR",
-		"6Rnd_45ACP","7Rnd_45ACP_1911","8Rnd_9x18_Makarov","8Rnd_9x18_MakarovSD",
-		"8Rnd_B_Beneli_74Slug","8Rnd_B_Beneli_Pellets","8Rnd_B_Saiga12_74Slug",
-		"8Rnd_B_Saiga12_Pellets","10Rnd_127x99_M107","10Rnd_762x54_SVD",
-		"10x_303","15Rnd_9x19_M9","15Rnd_9x19_M9SD","15Rnd_W1866_Slug",
-		"15Rnd_W1866_Pellet","17Rnd_9x19_glock17","20Rnd_556x45_Stanag",
-		"20Rnd_762x51_DMR","20Rnd_762x51_FNFAL","20Rnd_B_765x17_Ball",
-		"30Rnd_545x39_AK","30Rnd_556x45_G36","30Rnd_556x45_G36SD",
-		"30Rnd_556x45_Stanag","30Rnd_556x45_StanagSD","30Rnd_762x39_AK47",
-		"30Rnd_9x19_MP5","30Rnd_9x19_MP5SD","30Rnd_9x19_UZI","30Rnd_9x19_UZI_SD",
-		"50Rnd_127x108_KORD","64Rnd_9x19_Bizon","64Rnd_9x19_SD_Bizon","75Rnd_545x39_RPK",
-		"100Rnd_762x51_M240","100Rnd_762x54_PK","100Rnd_556x45_BetaCMag","100Rnd_556x45_M249",
-		"200Rnd_556x45_L110A1","200Rnd_556x45_M249","BoltSteel","1Rnd_HE_GP25",
-		"1Rnd_HE_M203","1Rnd_Smoke_GP25","1Rnd_SmokeGreen_GP25","1Rnd_SmokeRed_GP25",
-		"1Rnd_SmokeYellow_GP25","1Rnd_Smoke_M203","1Rnd_SmokeGreen_M203",
-		"1Rnd_SmokeRed_M203","1Rnd_SmokeYellow_M203","6Rnd_HE_M203","BAF_ied_v1",
-		"FlareGreen_GP25","FlareRed_GP25","FlareWhite_GP25","FlareYellow_GP25",
-		"FlareGreen_M203","FlareRed_M203","FlareWhite_M203","FlareYellow_M203",
-		"HandGrenade_East","HandGrenade_West","M136","SmokeShell","SmokeShellBlue",
-		"SmokeShellGreen","SmokeShellOrange","SmokeShellPurple","SmokeShellRed",
-		"SmokeShellYellow","PipeBomb","FoodCanBakedBeans","FoodCanFrankBeans",
-		"FoodCanPasta","FoodCanSardines","FoodSteakCooked","FoodSteakRaw",
-		"HandChemBlue","HandChemGreen","HandChemRed","HandRoadFlare","ItemAntibiotic",
-		"ItemBandage","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemJerrycan",
-		"ItemJerrycanEmpty","ItemMorphine","ItemPainkiller","ItemSandbag","ItemSodaCoke",
-		"ItemSodaEmpty","ItemSodaMdew","ItemSodaPepsi","ItemTankTrap","ItemTent",
-		"ItemWire","ItemWaterbottle","ItemWaterbottleUnfilled","PartEngine",
-		"PartFueltank","PartGeneric","PartGlass","PartWheel","PartWoodPile",
-		"PartVRotor","TrapBear","TrashTinCan","TrashJackDaniels","Skin_Camo1_DZ",
-		"Skin_Soldier1_DZ","Skin_Sniper1_DZ","Skin_Survivor2_DZ"];
+		["100Rnd_556x45_BetaCMag","100Rnd_556x45_M249","100Rnd_56x45_GP90","100Rnd_762x51_M240","100Rnd_762x54_PK","10Rnd_127x99_M107","10Rnd_762x54_SVD","10Rnd_86x70_LAPUA","10Rnd_86x70SD_LAPUA","10x_303","120Rnd_75x55_GP11","15Rnd_9x19_LUGER","15Rnd_9x19_M9","15Rnd_9x19_M9SD","15Rnd_9x19sd_LUGER","15Rnd_W1866_Pellet","15Rnd_W1866_Slug","17Rnd_9x19_glock17","1Rnd_HE_GP25","1Rnd_HE_M203","1Rnd_Smoke_GP25","1Rnd_Smoke_M203","1Rnd_SmokeGreen_GP25","1Rnd_SmokeGreen_M203","1Rnd_SmokeRed_GP25","1Rnd_SmokeRed_M203","1Rnd_SmokeYellow_GP25","1Rnd_SmokeYellow_M203","200Rnd_556x45_L110A1","200Rnd_556x45_M249","200Rnd_56x45_GP90","200Rnd_762x51_M240","20Rnd_556x45_Stanag","20Rnd_56x45_GP90","20Rnd_762x51_DMR","20Rnd_762x51_DMR","20Rnd_762x51_FNFAL","20Rnd_762x51_FNFAL","20Rnd_762x55_SWISS_P_AP","20Rnd_762x55_SWISS_P_SD","20Rnd_B_765x17_Ball","2Rnd_shotgun_74Pellets","2Rnd_shotgun_74Slug","30Rnd_545x39_AK","30Rnd_545x39_AK","30Rnd_556x45_G36","30Rnd_556x45_G36SD","30Rnd_556x45_Stanag","30Rnd_556x45_StanagSD","30Rnd_56x45_GP90","30Rnd_56x45SD_GP90","30Rnd_762x39_AK47","30Rnd_762x39_AK47","30Rnd_762x39_SA58","30Rnd_9x19_LUGER","30Rnd_9x19_MP5","30Rnd_9x19_MP5","30Rnd_9x19_MP5SD","30Rnd_9x19_MP5SD","30Rnd_9x19_UZI","30Rnd_9x19_UZI","30Rnd_9x19_UZI_SD","30Rnd_9x19_UZI_SD","30Rnd_9x19sd_LUGER","50Rnd_127x108_KORD","5Rnd_127x108_KSVK","5Rnd_127x99_as50","5Rnd_762x51_M24","5Rnd_762x51_M24","5Rnd_86x70_L115A1","5x_22_LR_17_HMR","64Rnd_9x19_Bizon","64Rnd_9x19_Bizon","64Rnd_9x19_SD_Bizon","64Rnd_9x19_SD_Bizon","6Rnd_45ACP","6Rnd_HE_M203","75Rnd_545x39_RPK","7Rnd_127x99_AP","7Rnd_127x99_HE","7Rnd_45ACP_1911","8Rnd_9x18_Makarov","8Rnd_9x18_MakarovSD","8Rnd_B_Beneli_74Slug","8Rnd_B_Beneli_Pellets","8Rnd_B_Saiga12_74Slug","8Rnd_B_Saiga12_Pellets","9Rnd_9x19_LUGER","BAF_ied_v1","BagFenceRound_DZ_kit","BoltSteel","bulk_ItemSandbag","bulk_ItemSodaCoke","bulk_ItemSodaPepsi","cinder_door_kit","cinder_garage_kit","cinder_wall_kit","CinderBlocks","deer_stand_kit","desert_large_net_kit","desert_net_kit","FlareGreen_GP25","FlareGreen_M203","FlareRed_GP25","FlareRed_M203","FlareWhite_GP25","FlareWhite_M203","FlareYellow_GP25","FlareYellow_M203","FoodCanBadguy","FoodCanBakedBeans","FoodCanBeef","FoodCanBoneboy","FoodCanCorn","FoodCanCurgon","FoodCanDemon","FoodCanDerpy","FoodCandyAnders","FoodCandyChubby","FoodCandyLegacys","FoodCandyMintception","FoodCanFraggleos","FoodCanFrankBeans","FoodCanGriff","FoodCanHerpy","FoodCanLongSprats","FoodCanOrlok","FoodCanPasta","FoodCanPotatoes","FoodCanPowell","FoodCanRusCorn","FoodCanRusMilk","FoodCanRusPeas","FoodCanRusPork","FoodCanRusStew","FoodCanRusUnlabeled","FoodCanSardines","FoodCanTylers","FoodCanUnlabeled","FoodChipsChocolate","FoodChipsMysticales","FoodChipsSulahoops","FoodMRE","FoodNutmix","FoodPistachio","FoodSteakCooked","FoodSteakRaw","forest_large_net_kit","forest_net_kit","fuel_pump_kit","HandChemBlue","HandChemGreen","HandChemRed","HandGrenade_East","HandGrenade_West","HandRoadFlare","ItemAluminumBar","ItemAntibiotic","ItemBandage","ItemBloodbag","ItemBookBible","ItemBurlap","ItemCanvas","ItemCards","ItemCopperBar","ItemCopperBar10oz","ItemCorrugated","ItemEpinephrine","ItemFireBarrel_kit","ItemFuelBarrel","ItemFuelBarrelEmpty","ItemFuelcan","ItemFuelPump","ItemGenerator","ItemGoldBar","ItemGoldBar10oz","ItemHeatPack","ItemJerrycan","ItemJerrycanEmpty","ItemLightBulb","ItemLockbox","ItemMorphine","ItemNails","ItemPainkiller","ItemPole","ItemSandbag","ItemSandbagExLarge5x","ItemSandbagLarge","ItemSilverBar","ItemSilverBar10oz","ItemSodaClays","ItemSodaCoke","ItemSodaDrwaste","ItemSodaEmpty","ItemSodaLemonade","ItemSodaLvg","ItemSodaMdew","ItemSodaMtngreen","ItemSodaMzly","ItemSodaPepsi","ItemSodaR4z0r","ItemSodaRabbit","ItemSodaRbull","ItemSodaSmasht","ItemTankTrap","ItemTent","ItemTinBar","ItemTrashRazor","ItemTrashToiletpaper","ItemVault","ItemWaterbottle","ItemWaterbottleBoiled","ItemWaterbottleUnfilled","ItemWire","ItemWoodFloor","ItemWoodFloorHalf","ItemWoodFloorQuarter","ItemWoodLadder","ItemWoodStairs","ItemWoodStairsSupport","ItemWoodWall","ItemWoodWallDoor","ItemWoodWallDoorLg","ItemWoodWallGarageDoor","ItemWoodWallGarageDoorLocked","ItemWoodWallLg","ItemWoodWallThird","ItemWoodWallWindow","ItemWoodWallWindowLg","ItemWoodWallWithDoor","ItemWoodWallWithDoorLg","ItemWoodWallWithDoorLgLocked","ItemWoodWallWithDoorLocked","M136","metal_floor_kit","metal_panel_kit","MortarBucket","outhouse_kit","PartEngine","PartFueltank","PartGeneric","PartGlass","PartPlankPack","PartPlywoodPack","PartVRotor","PartWheel","PartWoodLumber","PartWoodPile","PartWoodPlywood","PipeBomb","rusty_gate_kit","sandbag_nest_kit","Skin_Camo1_DZ","Skin_Sniper1_DZ","Skin_Soldier1_DZ","Skin_Survivor2_DZ","SmokeShell","SmokeShellBlue","SmokeShellGreen","SmokeShellOrange","SmokeShellPurple","SmokeShellRed","SmokeShellYellow","stick_fence_kit","storage_shed_kit","sun_shade_kit","TrapBear","TrashJackDaniels","TrashTinCan","wood_ramp_kit","wood_shack_kit","wooden_shed_kit","workbench_kit","KPFS_100Rnd_762x39_RPD","KPFS_10Rnd_762x39_SKS","KPFS_10Rnd_PSL","KPFS_12Rnd_45ACP_P12","KPFS_12Rnd_45ACP_P12SD","KPFS_16Rnd_9x19_para","KPFS_25Rnd_pm","KPFS_32Rnd_MP2","KPFS_8Rnd_762x25_TT33","KPFS_8Rnd_9x19_P1","Mine_DM11"];
+		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_Assault_Pack_EP1", 1];
+		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_Czech_Vest_Puch", 1];
+		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_ALICE_Pack_EP1", 1];
+		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_TK_Assault_Pack_EP1", 1];
+		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_Patrol_Pack_EP1", 1];
+		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_GunBag_EP1", 1];
+		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_LargeGunBag_EP1", 1];
+		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_CivilBackpack_EP1", 1];
 		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_Backpack_EP1", 1];
+		_admincrate_boxcreate addBackpackCargoGlobal ["DZ_British_ACU", 1];		
+
 		if (isNil "PVDZ_boooox_array") then {PVDZ_boooox_array = [];};
 		PVDZ_boooox_array = PVDZ_boooox_array + [_admincrate_boxcreate];
 		[_admincrate_boxcreate] spawn {

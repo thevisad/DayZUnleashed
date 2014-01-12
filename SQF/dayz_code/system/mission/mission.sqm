@@ -11,8 +11,7 @@ class Mission
 		"dayz_weapons",
 		"dayz_equip",
 		"cacharacters_pmc",
-		"ca_modules_functions",
-		"dayz_epoch"
+		"ca_modules_functions"
 	};
 	addOnsAuto[]=
 	{

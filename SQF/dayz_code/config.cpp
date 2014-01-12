@@ -47,7 +47,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"dayz_equip","dayz_weapons","CAMisc3","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT","BB_OA_Female"};
+		requiredAddons[] = {"CAMisc3","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT"};
 	};
 	class DZ_DebriefingRemoved	{
 		units[] = {};
@@ -62,12 +62,12 @@ class CfgMods
 	class DayZ
 	{
 		dir = "@DayZUnleashed";
-		name = "Arma 2: DayZ Unleashed";
+		name = "Arma 2: Unleashed";
 		picture = "z\addons\dayz_code\gui\mod.paa";
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzunleashed.com";
-		version = "0.96-Devbuild-12272013";
+		version = "0.97-Devbuild-01142014";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld
@@ -107,11 +107,7 @@ class CfgAddons
 		class dayz
 		{
 			list[] = {
-						"dayz_code","dayz","dayz_equip","dayz_weapons","dayz_sfx","dayz_communityassets",
-						"KPFS_UAZ451","SWM_SwissArms","SWM_Misc","unleashed_equip","unleashed_skins",
-						"unleashed_vehicles","KPFS_G36","KPFS_G3","KPFS_P38","KPFS_MPi74","KPFS_SKS",
-						"KPFS_STG","KPFS_P99","KPFS_MP2","KPFS_Weapons","dayz_epoch","unleashed_pack",
-						"BB_OA_Female"
+						"aif_arma1buildings","BB_OA_Female","cwr2_Buildings_Data","cwr2_Buildings","cwr2_Furniture","dayz","dayz_anim","dayz_communityassets","dayz_epoch","dayz_equip","dayz_sfx","dayz_vehicles","dayz_weapons","CAWheeled2_Kamaz","ibr_rn","KPFS_UAZ451","KPFSWaySigns","KPFS_Weapons","KPFS_Weapons_WW2","MAP_EU","MBG_Buildings_2","MBG_Buildings_3","mbg_african_buildings","MBG_Killhouses","OSShDY","st_collision","st_evasive","SWM_Misc","SWM_SwissArms","unleashed_pack"
 			};
 		};
 	};
@@ -635,6 +631,10 @@ class CfgSurvival {
 		class Goat: Default {
 			yield = 4;
 			rawfoodtype = "FoodgoatRaw";
+		};
+		class Dog: Default {
+			yield = 4;
+			rawfoodtype = "FooddogRaw";
 		};
 		class Sheep: Default {
 			yield = 4;

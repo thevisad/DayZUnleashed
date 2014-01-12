@@ -105,4 +105,6 @@ if (!isNil "dayZ_serverName") then {
 };
 
 waitUntil{!(isNil "BIS_fnc_init")};
-[str ("DayZ Unleashed") ,  str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("Napf")] spawn BIS_fnc_infoText;
+[str ("Unleashed") ,  str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("Napf")] spawn BIS_fnc_infoText;
+execVM "\z\addons\dayz_code\R3F_ARTY_AND_LOG\init.sqf";
+_nul = [] execVM "\z\addons\dayz_code\system\mission\DZAI_Client\dzai_initclient.sqf";

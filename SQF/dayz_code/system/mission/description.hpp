@@ -118,6 +118,7 @@ class DayZ_loadingScreen
 
 // logo watermark
 class RscTitles {
+	#include "\z\addons\dayz_code\R3F_ARTY_AND_LOG\desc_rsct_include.h"
 	class wm_disp {
 		idd = -1;
 		onLoad = "uiNamespace setVariable ['wm_disp', _this select 0]";
@@ -152,4 +153,4 @@ class RscTitles {
 		};
 	};
 };
-
+#include "\z\addons\dayz_code\R3F_ARTY_AND_LOG\desc_include.h"

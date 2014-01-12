@@ -114,6 +114,7 @@ meatraw = [
     "FoodrabbitRaw",
     "FoodbaconRaw",
     "FoodgoatRaw",
+	"FooddogRaw",
 	"ItemTrout",
 	"ItemSeaBass",
 	"ItemTuna"
@@ -127,6 +128,7 @@ meatcooked = [
     "FoodrabbitCooked",
     "FoodbaconCooked",
 	"FoodgoatCooked",
+	"FooddogCooked",
 	"ItemTroutCooked",
 	"ItemSeaBassCooked",
 	"ItemTunaCooked"
@@ -379,6 +381,15 @@ s_pilot_lockObj = objNull;
 s_player_lastTarget = objNull;
 s_player_repairActions = [];
 
+//tameanimals
+unleashed_tameChickens = true;
+unleashed_tameCows = true;
+unleashed_tameSheep = true;
+unleashed_tameBoars = true;
+unleashed_tameGoats = true;
+unleashed_tameRabbits = true;
+unleashed_tameDogs = true;
+
 //Initialize Medical Variables
 force_dropBody = false;
 r_interrupt = false;
@@ -507,9 +518,9 @@ PVDZ_obj_HideBody = objNull;
 //DayZ settings
 dayz_dawn = 4; //6
 dayz_dusk = 22; //18
-dayz_maxAnimals = 5;
+dayz_maxAnimals = 50;
 DAYZ_agentnumber = 0;
-dayz_animalDistance = 800;
+dayz_animalDistance = 50;
 dayz_zSpawnDistance = 1000;
 
 dayz_maxLocalZombies = 50; // max quantity of Z controlled by local gameclient, used by player_spawnCheck. Below this limit we can spawn Z

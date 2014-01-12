@@ -443,6 +443,40 @@ if (isServer and isNil "sm_done") then {
 
 	// antiwallhack
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_antiwallhack.sqf";	
+/*
+	_randomNumber=floor(random 2000);
+	[[8874.6816, 16211.182],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[5774.1006, 15338.052],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[6227.7485, 10607.113],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[14515.929, 14088.871],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[9084.0244, 5414.1055],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[12732.915, 9606.4668],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[2049.9753, 9823.7285],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[13503.379, 5314.5892],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[12128.687, 15343.262],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[10731.167, 15866.504,1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[17234.045, 13922.325],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[6593.8179, 9664.7422],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[7839.4561, 9301.1377],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[7540.3667, 14205.227],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[5926.4014, 13604.709],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	_randomNumber=floor(random 2000);
+	[[10046.984, 16577.133],1000,_randomNumber,[]] call bis_fnc_destroyCity;
+	*/
 	sm_done = true;
 	publicVariable "sm_done";
 };
