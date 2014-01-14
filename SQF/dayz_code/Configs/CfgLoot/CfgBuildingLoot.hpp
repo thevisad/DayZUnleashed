@@ -1,6 +1,5 @@
 #include "CfgLoot.hpp"
 
-
 class CfgBuildingLoot {
 	class Default {
 		zombieChance = 0.2;
@@ -16,6 +15,7 @@ class CfgBuildingLoot {
 	class Master {
 		weapons[] = {"SMAW","Javelin","G36C","Stinger"};
 	};
+	
 	class Church: Default {
 		zombieChance = 0.3;
 		minRoaming = 1;
@@ -51,7 +51,7 @@ class CfgBuildingLoot {
 		};
 	};
 
-		class Estate: Default {
+	class Estate: Default {
 		zombieChance = 0.4;
 		maxRoaming = 4;
 		zombieClass[] = {"zZombie_Base","z_hunter","z_teacher","z_villager1","z_villager2","z_villager3"};
@@ -90,6 +90,7 @@ class CfgBuildingLoot {
 			{"","vehicleparts",0.10}
 		};
 	};
+	
 	class InfectedCamps: Default { //5
 		lootPos[] = {};
 		lootType[] = {
@@ -109,7 +110,7 @@ class CfgBuildingLoot {
 		zombieClass[] = {"zZombie_Base","z_hunter","z_hunter","z_hunter","z_villager1","z_villager2","z_villager3"};
 		lootChance = 0.9;
 		lootPos[] = {};
-		lootType[] =	{
+		lootType[] = {
 			{"","generic",0.25},
 			{"","food",0.05},
 			{"","trash",0.15},
@@ -120,6 +121,7 @@ class CfgBuildingLoot {
 			{"","military",0.05}
 		};
 	};
+	
 	class Supermarket: Default {
 		lootChance = 0.4;
 		minRoaming = 2;
@@ -136,6 +138,7 @@ class CfgBuildingLoot {
 			{"","drink",0.25}
 		};
 	};
+	
 	class HeliCrash: Default {
 		zombieChance = 0.4;
 		maxRoaming = 2;
@@ -153,6 +156,7 @@ class CfgBuildingLoot {
 			{"","military",0.35}
 		};
 	};	
+	
 	class HeliCrashWEST: Default {
 		zombieChance = 0.4;
 		maxRoaming = 2;
@@ -171,6 +175,7 @@ class CfgBuildingLoot {
 			{"","military",0.35}
 		};
 	};
+	
 	class HeliCrashEAST: Default {
 		zombieChance = 0.5;
 		maxRoaming = 8;
@@ -189,6 +194,7 @@ class CfgBuildingLoot {
 			{"","military",0.35}
 		};
 	};
+	
 	class Hospital: Default {
 		zombieChance = 0.4;
 		minRoaming = 2;
@@ -204,6 +210,7 @@ class CfgBuildingLoot {
 			{"","generic",0.10}
 		};
 	};
+	
 	class Military: Default {
 		zombieChance = 0.3;
 		maxRoaming = 6;
@@ -223,6 +230,7 @@ class CfgBuildingLoot {
 			{"","military",0.50}
 		};
 	};
+	
 	class MilitarySpecial: Default {
 		zombieChance = 0.8;
 		minRoaming = 2;
@@ -243,6 +251,7 @@ class CfgBuildingLoot {
 			{"","military",0.60}
 		};
 	};
+	
 	class Hunting: Default {
 		zombieChance = 0.6;
 		minRoaming = 1;

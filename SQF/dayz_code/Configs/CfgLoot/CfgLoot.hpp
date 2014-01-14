@@ -1,4 +1,5 @@
 class CfgLoot {
+
 	normalbackpacks[] = {
 		{"DZ_Assault_Pack_EP1",0.04}, // 12
 		{"DZ_Czech_Vest_Puch",0.03}, // 12-0
@@ -6,14 +7,15 @@ class CfgLoot {
 		{"DZ_TK_Assault_Pack_EP1",0.02}, // 16
 		{"DZ_Patrol_Pack_EP1",0.05}, //8
 		{"DZ_GunBag_EP1",0.01}
-
 	};
+	
 	rarebackpacks[] = {
 		{"DZ_LargeGunBag_EP1",0.01},
 		{"DZ_CivilBackpack_EP1",0.01}, // 24	
 		{"DZ_Backpack_EP1",0.01}, // 24	
 		{"DZ_British_ACU",0.03}	
 	};
+	
 	vehicleparts[]={
 		{"WeaponHolder_PartGeneric",0.07},
 		{"WeaponHolder_PartWheel",0.05},
@@ -21,10 +23,12 @@ class CfgLoot {
 		{"WeaponHolder_PartEngine",0.03},
 		{"WeaponHolder_PartGlass",0.04}
 	};
+	
 	airparts[]={
 		{"WeaponHolder_PartVRotor",0.02}
 	};
-		trash[] = {
+	
+	trash[] = {
 		{"FoodCanBadguyEmpty",0.02},
 		{"FoodCanBeefEmpty",0.02},
 		{"FoodCanBoneboyEmpty",0.02},
@@ -73,12 +77,14 @@ class CfgLoot {
 		{"TrashJackDaniels",0.02},
 		{"TrashTinCan",0.02}
 	};
+	
 	civskins[] = {
 		{"Skin_TKCivil1_DZ",0.01},
 		{"Skin_TKCivil2_DZ",0.01},
 		{"Skin_TKWorker1_DZ",0.01},
 		{"Skin_TKWorker2_DZ",0.01}
 	};		
+	
 	milskins[] = {
 		{"Skin_Camo1_DZ",0.01},
 		{"Skin_Soldier1_DZ",0.01},
@@ -87,7 +93,8 @@ class CfgLoot {
 		{"Skin_Sniper2_DZ",0.01},
 		{"Skin_TKSoldier1_DZ",0.01}
 	};
-		military[] = {
+	
+	military[] = {
 		{"100Rnd_56x45_GP90",0.01},
 		{"100Rnd_762x51_M240",0.01},
 		{"100Rnd_762x54_PK",0.01},
@@ -353,7 +360,8 @@ class CfgLoot {
 			{"ItemBloodbag",0.03},
 			{"MedBox0",0.05}
 	};
-		milgeneric[]={
+	
+	milgeneric[]={
 		{"NVGoggles",0.01},
 		{"ItemFlashlightRed",0.06},
 		{"ItemGPS",0.01},
@@ -363,6 +371,7 @@ class CfgLoot {
 		{"ItemTankTrap",0.04},
 		{"bulk_ItemSandbag",0.01}
 	};
+	
 	generic[] = {
 		{"Binocular",0.02},
 		{"HandChemBlue",0.02},
