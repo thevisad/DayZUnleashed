@@ -627,1248 +627,215 @@ class CfgWeight
 	
 	class Magazines
 	{
-		class 30Rnd_762x39_SA58
-		{
-			weight = 0.25;
-		};
-		class 20rnd_762x51_SB_SCAR
-		{
-			weight = 3.6;
-		};
-		class 20rnd_762x51_B_SCAR
-		{
-			weight = 3.6;
-		};
-		class 20Rnd_762x51_FNFAL
-		{
-			weight = 0.25;
-		};
-		class 100Rnd_556x45_M249
-		{
-			weight = 15;
-		};
-		class 100Rnd_556x45_BetaCMag
-		{
-			weight = 3.6;
-		};
-		class 20Rnd_B_765x17_Ball
-		{
-			weight = 3.6;
-		};
-		class 10Rnd_B_765x17_Ball
-		{
-			weight = 0.3;
-		};
-		class 30Rnd_9x19_UZI_SD
-		{
-			weight = 3.6;
-		};
-		class 30Rnd_9x19_UZI
-		{
-			weight = 0.1;
-		};
-		class 17Rnd_9x19_glock17
-		{
-			weight = 0.1;
-		};
-		class 6Rnd_45ACP
-		{
-			weight =  0.1;
-		};
-		class MAAWS_HEAA
-		{
-			weight = 3.6;
-		};
-		class MAAWS_HEDP
-		{
-			weight = 3.6;
-		};
-		class Dragon_EP1
-		{
-			weight = 3.6;
-		};
-		class 30Rnd_556x45_StanagSD
-		{
-			weight = 0.3;
-		};
-		class 30Rnd_556x45_Stanag
-		{
-			weight = 0.3;
-		};
-		class 30Rnd_556x45_G36
-		{
-			weight = 0.3;
-		};
-		class 30Rnd_556x45_G36SD
-		{
-			weight = 0.3;
-		};
-		class 30Rnd_9x19_MP5
-		{
-			weight = 0.3;
-		};
-		class 30Rnd_9x19_MP5SD
-		{
-			weight = 0.3;
-		};
-		class 15Rnd_9x19_M9
-		{
-			weight = 0.3;
-		};
-		class 15Rnd_9x19_M9SD
-		{
-			weight = 0.3;
-		};
-		class 1Rnd_HE_M203
-		{
-			weight = 1;
-		};
-		class 1Rnd_Smoke_M203
-		{
-			weight = 1;
-		};
-		class 1Rnd_SmokeGreen_M203
-		{
-			weight = 1;
-		};
-		class 1Rnd_SmokeRed_M203
-		{
-			weight = 1;
-		};
-		class 1Rnd_SmokeYellow_M203
-		{
-			weight = 1;
-		};
-		class FlareRed_M203
-		{
-			weight = 1;
-		};
-		class FlareGreen_M203
-		{
-			weight = 1;
-		};
-		class FlareWhite_M203
-		{
-			weight = 1;
-		};
-		class FlareYellow_M203
-		{
-			weight = 1;
-		};
-		class 6Rnd_HE_M203
-		{
-			weight = 6;
-		};
-		class 6Rnd_FlareRed_M203
-		{
-			weight = 6;
-		};
-		class 6Rnd_FlareGreen_M203
-		{
-			weight = 6;
-		};
-		class 6Rnd_FlareWhite_M203
-		{
-			weight = 6;
-		};
-		class 6Rnd_FlareYellow_M203
-		{
-			weight = 6;
-		};
-		class 6Rnd_Smoke_M203
-		{
-			weight = 6;
-		};
-		class 6Rnd_SmokeRed_M203
-		{
-			weight = 6;
-		};
-		class 6Rnd_SmokeGreen_M203
-		{
-			weight = 6;
-		};
-		class 6Rnd_SmokeYellow_M203
-		{
-			weight = 6;
-		};
-		class 10Rnd_127x99_m107
-		{
-			weight = 3.6;
-		};
-		class 5Rnd_762x51_M24
-		{
-			weight = 0.25;
-		};
-		class 20Rnd_762x51_DMR
-		{
-			weight = 0.5;
-		};
-		class 20Rnd_556x45_Stanag
-		{
-			weight = 0.25;
-		};
-		class 200Rnd_556x45_M249
-		{
-			weight = 15;
-		};
-		class 100Rnd_762x51_M240
-		{
-			weight = 15;
-		};
-		class Javelin
-		{
-			weight = 3.6;
-		};
-		class M136
-		{
-			weight = 3.6;
-		};
-		class Stinger
-		{
-			weight = 3.6;
-		};
-		class SMAW_HEAA
-		{
-			weight = 3.6;
-		};
-		class SMAW_HEDP
-		{
-			weight = 3.6;
-		};
-		class HandGrenade_west
-		{
-			weight = 2;
-		};
-		class PipeBomb
-		{
-			weight = 5;
-		};
-		class TimeBomb
-		{
-			weight = 3.6;
-		};
-		class Mine
-		{
-			weight = 1;
-		};
-		class SmokeShellRed
-		{
-			weight = 0.4;
-		};
-		class SmokeShellYellow
-		{
-			weight = 0.4;
-		};
-		class SmokeShellGreen
-		{
-			weight = 0.4;
-		};
-		class SmokeShellBlue
-		{
-			weight = 0.4;
-		};
-		class SmokeShellPurple
-		{
-			weight = 0.4;
-		};
-		class SmokeShellOrange
-		{
-			weight = 0.4;
-		};
-		class SmokeShell
-		{
-			weight = 0.4;
-		};
-		
-		//Ammo	
-		class 10x_303
-		{
-			weight = 0.25;
-		};
-		class 30Rnd_545x39_AK
-		{
-			weight = 0.25;
-		};
-		class 30Rnd_545x39_AKSD
-		{
-			weight = 3.6;
-		};
-		class 75Rnd_545x39_RPK
-		{
-			weight = 0.5;
-		};
-		class 30Rnd_762x39_AK47
-		{
-			weight = 0.25;
-		};
-		class 100Rnd_762x54_PK
-		{
-			weight = 0.5;
-		};
-		class 5x_22_LR_17_HMR
-		{
-			weight = 0.15;
-		};
-		class 5Rnd_127x108_KSVK
-		{
-			weight = 3.6;
-		};
-		class 10Rnd_762x54_SVD
-		{
-			weight = 0.25;
-		};
-		class 10Rnd_9x39_SP5_VSS
-		{
-			weight = 0.25;
-		};
-		class 20Rnd_9x39_SP5_VSS
-		{
-			weight = 0.25;
-		};
-		class 8Rnd_9x18_Makarov
-		{
-			weight =  0.15;
-		};
-		class 8Rnd_9x18_MakarovSD
-		{
-			weight = 0.15;
-		};
-		class 8Rnd_B_Saiga12_74Slug
-		{
-			weight = 3.6;
-		};
-		class 64Rnd_9x19_Bizon
-		{
-			weight = 0.25;
-		};
-		class 64Rnd_9x19_SD_Bizon
-		{
-			weight = 3.6;
-		};
-		class 1Rnd_HE_GP25
-		{
-			weight = 1;
-		};
-		class 7Rnd_45ACP_1911
-		{
-			weight = 0.25;
-		};
-		class 2Rnd_shotgun_74Slug
-		{
-			weight = 0.1;
-		};
-		class 2Rnd_shotgun_74Pellets
-		{
-			weight = 0.1;
-		};
-		class WoodenArrow
-		{
-			weight = 0.2;
-		};
-			
-		class FlareWhite_GP25
-		{
-			weight = 3.6;
-		};
-		class FlareGreen_GP25
-		{
-			weight = 3.6;
-		};
-		class FlareRed_GP25
-		{
-			weight = 3.6;
-		};
-		class FlareYellow_GP25
-		{
-			weight = 3.6;
-		};
-		class 1Rnd_SMOKE_GP25
-		{
-			weight = 3.6;
-		};
-		class 1Rnd_SMOKERED_GP25
-		{
-			weight = 3.6;
-		};
-		class 1Rnd_SMOKEGREEN_GP25
-		{
-			weight = 3.6;
-		};
-		class 1Rnd_SMOKEYELOW_GP25
-		{
-			weight = 3.6;
-		};
-		class PG7V
-		{
-			weight = 3.6;
-		};
-		class PG7VL
-		{
-			weight = 3.6;
-		};
-		class PG7VR
-		{
-			weight = 3.6;
-		};
-		class OG7
-		{
-			weight = 3.6;
-		};
-		class RPG18
-		{
-			weight = 3.6;
-		};
-		class AT13
-		{
-			weight = 3.6;
-		};
-		class Igla
-		{
-			weight = 3.6;
-		};
-		class Strela
-		{
-			weight = 3.6;
-		};
-		class HandGrenade_east
-		{
-			weight = 3.6;
-		};
-		class IR_Strobe_Target
-		{
-			weight = 3.6;
-		};
-		class Laserbatteries
-		{
-			weight = 3.6;
-		};
-		
-		//Dayz Trash Loot
-		class ItemSodaCokeEmpty
-		{
-			weight = 0.1;
-		};
-		class ItemSodaPepsiEmpty
-		{
-			weight = 0.1;
-		};
-		class FoodCanUnlabeledEmpty
-		{
-			weight = 0.1;
-		};
-		class FoodCanRusUnlabeledEmpty
-		{
-			weight = 0.1;
-		};
-		class FoodCanRusPorkEmpty
-		{
-			weight = 0.1;
-		};
-		class FoodCanRusPeasEmpty
-		{
-			weight = 0.1;
-		};
-		class FoodCanRusMilkEmpty
-		{
-			weight = 0.1;
-		};
-		class FoodCanRusCornEmpty
-		{
-			weight = 0.1;
-		};
-		class FoodCanRusStewEmpty
-		{
-			weight = 0.1;
-		};
-		class TrashTinCan
-		{
-			weight = 0.1;
-		};
-		class TrashJackDaniels
-		{
-			weight = 0.2;
-		};
-		class ItemSodaEmpty
-		{
-			weight = 0.1;
-		};
-		class ItemTrashToiletpaper
-		{
-			weight = 0.1;
-		};
-		class ItemTrashRazor
-		{
-			weight = 0.1;
-		};
-		class ItemCards
-		{
-			weight = 0.1;
-		};
-		class ItemNails
-		{
-			weight = 0.1;
-		};
-		
-		// Food / Drink
-		class ItemSodaCoke
-		{
-			weight = 0.4;
-		};
-		class ItemSodaPepsi
-		{
-			weight = 0.4;
-		};
-		class ItemSodaMDew
-		{
-			weight = 0.4;
-		};
-		class FoodCanBakedBeans
-		{
-			weight = 0.8;
-		};
-		class FoodCanFrankBeans
-		{
-			weight = 0.8;
-		};
-		class FoodCanPasta
-		{
-			weight = 0.8;
-		};
-		class FoodCanSardines
-		{
-			weight = 0.8;
-		};
-		class FoodCanDogFood
-		{
-			weight = 0.8;
-		};
-		class ItemWaterbottle
-		{
-			weight = 2.0;
-		};
-		class ItemWaterbottleUnfilled
-		{
-			weight = 1.0;
-		};
-		
-		class ItemSodaR4z0r
-		{
-			weight = 1.0;
-		};
-		class ItemSodaClays
-		{
-			weight = 1.0;
-		};
-		class ItemSodaSmasht
-		{
-			weight = 1.0;
-		};
-		class ItemSodaDrwaste
-		{
-			weight = 1.0;
-		};
-		class ItemSodaLemonade
-		{
-			weight = 1.0;
-		};
-		class ItemSodaLvg
-		{
-			weight = 1.0;
-		};
-		class ItemSodaMzly
-		{
-			weight = 1.0;
-		};
-		class ItemSodaRabbit
-		{
-			weight = 1.0;
-		};
-		class FoodCanBadguy
-		{
-			weight = 1.0;
-		};
-		class FoodCanBoneboy
-		{
-			weight = 1.0;
-		};
-		class FoodCanCorn
-		{
-			weight = 1.0;
-		};
-		class FoodCanCurgon
-		{
-			weight = 1.0;
-		};
-		class FoodCanDemon
-		{
-			weight = 1.0;
-		};
-		class FoodCanFraggleos
-		{
-			weight = 1.0;
-		};
-		class FoodCanHerpy
-		{
-			weight = 1.0;
-		};
-		class FoodCanDerpy
-		{
-			weight = 1.0;
-		};
-		class FoodCanOrlok
-		{
-			weight = 1.0;
-		};
-		class FoodCanPowell
-		{
-			weight = 1.0;
-		};
-		class FoodCanTylers
-		{
-			weight = 1.0;
-		};
-		class FoodCanUnlabeled
-		{
-			weight = 1.0;
-		};
-		class FoodPistachio
-		{
-			weight = 1.0;
-		};
-		class FoodNutmix
-		{
-			weight = 1.0;
-		};
-		class FoodChipsSulahoops
-		{
-			weight = 1.0;
-		};
-		class FoodChipsMysticales
-		{
-			weight = 1.0;
-		};
-		class FoodCandyAnders
-		{
-			weight = 1.0;
-		};
-		class FoodCandyLegacys
-		{
-			weight = 1.0;
-		};
-		class FoodCandyMintception
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusUnlabeled
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusStew
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusPork
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusPeas
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusMilk
-		{
-			weight = 1.0;
-		};
-		class FoodCanRusCorn
-		{
-			weight = 1.0;
-		};
-		class FoodMRE
-		{
-			weight = 1.0;
-		};
-		
-		//Medic
-		class ItemBandage
-		{
-			weight = 0.050;
-		};
-		class ItemMorphine
-		{
-			weight = 0.05;
-		};
-		class ItemEpinephrine
-		{
-			weight = 0.05;
-		};
-		class ItemPainkiller
-		{
-			weight = 0.1;
-		};
-		class ItemBloodbag
-		{
-			weight = 1.0;
-		};
-		class ItemAntibiotic
-		{
-			weight = 0.05;
-		};
-		class ItemHeatpack
-		{
-			weight = 0.01;
-		};
-		
-		//Tools
-		class BoltSteel
-		{
-			weight = 0.3;
-		};
-		class HandRoadFlare
-		{
-			weight = 0.3;
-		};
-		class ItemKnife
-		{
-			weight = 0.25;
-		};
-		class ItemFlashlight
-		{
-			weight = 0.25;
-		};
-		class ItemMatchbox
-		{
-			weight = 0.01;
-		};
-		class ItemEtool
-		{
-			weight = 0.25;
-		};
-		class ItemToolbox
-		{
-			weight = 0.50;
-		};
-		class ItemFlashlightRed
-		{
-			weight = 0.25;
-		};
-		class ItemWire
-		{
-			weight = 5.0;
-		};
-		class ItemTankTrap
-		{
-			weight = 30.0;
-		};
-		class TrapBear
-		{
-			weight = 5.0;
-		};
-		class ItemSandbag
-		{
-			weight = 15.0;
-		};
-		class PartWoodPile
-		{
-			weight = 0.5;
-		};
-		class ItemJerrycan
-		{
-			weight = 15.0;
-		};
-		class ItemJerrycanEmpty
-		{
-			weight = 5.0;
-		};
-		class PartGeneric
-		{
-			weight = 5.0;
-		};
-		class PartWheel
-		{
-			weight = 25.0;
-		};
-		class PartFueltank
-		{
-			weight = 10.0;
-		};
-		class PartEngine
-		{
-			weight = 35.0;
-		};
-		class PartGlass
-		{
-			weight = 7.5;
-		};
-		class PartVRotor
-		{
-			weight = 50.0;
-		};
-		class ItemTent
-		{
-			weight = 5.0;
-		};
-		class ItemHatchet
-		{
-			weight = 5.0;
-		};
-		class MeleeCrowbar
-		{
-			weight = 4;
-		};
-		
-        //Skins
-        class Skin_Survivor2_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_Camo1_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_Soldier1_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_Officer1_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_Sniper1_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_Sniper2_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_TKSoldier1_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_TKCivil1_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_TKCivil2_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_TKWorker1_DZ
-        {
-            weight = 5.0;
-        };
-        class Skin_TKWorker2_DZ
-        {
-            weight = 5.0;
-        };
-		
-		//Custom Weapon
-		class sg550_lg97_aimpoint_camo
-		{
-			weight = 5.0;
-		};
-		class 30Rnd_56x45_GP90
-		{
-			weight = 1.0;
-		};
-		class p226sf
-		{
-			weight = 2.0;
-		};
-		class 15Rnd_9x19_LUGER
-		{
-			weight = 1.0;
-		};
-		class KPFS_G1
-		{
-			weight = 5.0;
-		};
-		class KPFS_G36A2
-		{
-			weight = 5.0;
-		};
-		class kpfs_g3a2
-		{
-			weight = 5.0;
-		};
-		class KPFS_P38
-		{
-			weight = 2.0;
-		};
-		class KPFS_8Rnd_9x19_P1
-		{
-			weight = 1.0;
-		};
-		class KPFS_MPi_KM_72
-		{
-			weight = 5.0;
-		};
-		class KPFS_MPi_AK_74
-		{
-			weight = 5.0;
-		};
-		class KPFS_SKS
-		{
-			weight = 5.0;
-		};
-		class KPFS_10Rnd_762x39_SKS
-		{
-			weight = 1.0;
-		};
-		class KPFS_MP44
-		{
-			weight = 5.0;
-		};
-		class KPFS_P99QA 
-		{
-			weight = 2.0;
-		};
-		class KPFS_16Rnd_9x19_para
-		{
-			weight = 1.0;
-		};
-		class kpfs_glock17
-		{
-			weight = 2.0;
-		};
-		class KPFS_P12SD
-		{
-			weight = 2.0;
-		};
-		class KPFS_12Rnd_45ACP_P12SD
-		{
-			weight = 1.0;
-		};
-		class KPFS_MP2
-		{
-			weight = 5.0;
-		};
-		class KPFS_32Rnd_MP2
-		{
-			weight = 1.0;
-		};
-		
-		//Backpacks
-		class DZ_Patrol_Pack_EP1
-		{
-			weight = 5.0;
-		};
-		class DZ_Assault_Pack_EP1
-		{
-			weight = 5.0;
-		};
-		class DZ_Czech_Vest_Puch
-		{
-			weight = 5.0;
-		};
-		class DZ_ALICE_Pack_EP1
-		{
-			weight = 5.0;
-		};
-		class DZ_TK_Assault_Pack_EP1
-		{
-			weight = 5.0;
-		};
-		class DZ_British_ACU
-		{
-			weight = 5.0;
-		};
-		class DZ_CivilBackpack_EP1
-		{
-			weight = 5.0;
-		};
-		class DZ_Backpack_EP1
-		{
-			weight = 5.0;
-		};
-		
-		class HandChemGreen
-		{
-			weight = 0.5;
-		};
-		class HandChemBlue
-		{
-			weight = 0.5;
-		};
-		class HandChemRed
-		{
-			weight = 0.5;
-		};
-		class Single_W1866_Slug
-		{
-			weight = 0.6;
-		};
-		class Single_Rnd_Pellet
-		{
-			weight = 0.6;
-		};
-		class 15Rnd_556x45_Stanag_tapedmags
-		{
-			weight = 2.6;
-		};
-		class ItemSeaBass
-		{
-			weight = 3.6;
-		};
-		class ItemTuna
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase_Base
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcaseEmpty
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase10oz
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase20oz
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase30oz
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase40oz
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase50oz
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase60oz
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase70oz
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase80oz
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase90oz
-		{
-			weight = 3.6;
-		};
-		class ItemBriefcase100oz
-		{
-			weight = 3.6;
-		};
-		class ItemBurlap
-		{
-			weight = 3.6;
-		};
-		class ItemCanvas
-		{
-			weight = 3.6;
-		};
-		class ItemCorrugated
-		{
-			weight = 3.6;
-		};
-		class ItemFuelBarrel
-		{
-			weight = 3.6;
-		};
-		class ItemFuelBarrelEmpty
-		{
-			weight = 3.6;
-		};
-		class ItemFuelPump
-		{
-			weight = 3.6;
-		};
-		class ItemGenerator
-		{
-			weight = 3.6;
-		};
-		class ItemLightBulb
-		{
-			weight = 3.6;
-		};
-		class ItemPole
-		{
-			weight = 3.6;
-		};
-		class ItemSandbagLarge
-		{
-			weight = 3.6;
-		};
-		class ItemSodaRbull
-		{
-			weight = 0.3;
-		};
-		class ItemTentDomed
-		{
-			weight = 3.6;
-		};
-		class ItemTentDomed2
-		{
-			weight = 3.6;
-		};
-		class ItemVault
-		{
-			weight = 3.6;
-		};
-		class ItemGoldBar
-		{
-			weight = 10.0;
-		};
-		class ItemSilverBar
-		{
-			weight = 3.6;
-		};
-		class ItemSilverBar10oz
-		{
-			weight = 3.6;
-		};
-		class ItemCopperBar
-		{
-			weight = 3.6;
-		};
-		class ItemCopperBar10oz
-		{
-			weight = 3.6;
-		};
-		class ItemAluminumBar
-		{
-			weight = 3.6;
-		};
-		class ItemTinBar
-		{
-			weight = 3.6;
-		};
-		class PartWoodLumber
-		{
-			weight = 3.6;
-		};
-		class PartWoodPlywood
-		{
-			weight = 3.6;
-		};
-		class workbench_kit
-		{
-			weight = 3.6;
-		};
-		class 30m_plot_kit
-		{
-			weight = 3.6;
-		};
-		class metal_panel_kit
-		{
-			weight = 3.6;
-		};
-		class deer_stand_kit
-		{
-			weight = 3.6;
-		};
-		class desert_large_net_kit
-		{
-			weight = 3.6;
-		};
-		class forest_large_net_kit
-		{
-			weight = 3.6;
-		};
-		class desert_net_kit
-		{
-			weight = 3.6;
-		};
-		class forest_net_kit
-		{
-			weight = 3.6;
-		};
-		class fuel_pump_kit
-		{
-			weight = 3.6;
-		};
-		class stick_fence_kit
-		{
-			weight = 3.6;
-		};
-		class wooden_shed_kit
-		{
-			weight = 3.6;
-		};
-		class sun_shade_kit
-		{
-			weight = 3.6;
-		};
-		class rusty_gate_kit
-		{
-			weight = 3.6;
-		};
-		class sandbag_nest_kit
-		{
-			weight = 3.6;
-		};
-		class outhouse_kit
-		{
-			weight = 3.6;
-		};
-		class storage_shed_kit
-		{
-			weight = 3.6;
-		};
-		class bulk
-		{
-			weight = 3.6;
-		};
-		class bulk_empty
-		{
-			weight = 3.6;
-		};
-		class bulk_ItemSodaCoke
-		{
-			weight = 3.6;
-		};
-		class bulk_ItemSodaPepsi
-		{
-			weight = 3.6;
-		};
-		class bulk_30Rnd_9x19_MP5SD
-		{
-			weight = 3.6;
-		};
-		class bulk_15Rnd_9x19_M9SD
-		{
-			weight = 3.6;
-		};
-		class bulk_30Rnd_556x45_StanagSD
-		{
-			weight = 3.6;
-		};
-		class bulk_ItemSandbag
-		{
-			weight = 3.6;
-		};
-		class bulk_17Rnd_9x19_glock17
-		{
-			weight = 3.6;
-		};
-		class FoodBioMeat
-		{
-			weight = 3.6;
-		};
-		class ItemTroutCooked
-		{
-			weight = 3.6;
-		};
-		class ItemSeaBassCooked
-		{
-			weight = 3.6;
-		};		
-		class ItemTunaCooked
-		{
-			weight = 3.6;
-		};
+		class 100Rnd_556x45_BetaCMag {
+        weight=15.0;
+    };
+    class 100Rnd_556x45_BetaCMag {
+        weight=15.0;
+    };
+    class 100Rnd_556x45_M249 {
+        weight=15.0;
+    };
+    class 100Rnd_762x51_M240 {
+        weight=15;
+    };
+    class 100Rnd_762x54_PK {
+        weight=10.0;
+    };
+    class 10Rnd_127x99_m107 {
+        weight=1.0;
+    };
+    class 10Rnd_762x54_SVD {
+        weight=2.0;
+    };
+    class 10Rnd_9x39_SP5_VSS {
+        weight=2.0;
+    };
+    class 10Rnd_B_765x17_Ball {
+        weight=2.0;
+    };
+    class 10x_303 {
+        weight=1.0;
+    };
+    class 15Rnd_556x45_Stanag_tapedmags {
+        weight=1.0;
+    };
+    class 15Rnd_9x19_LUGER {
+        weight=1.0;
+    };
+    class 15Rnd_9x19_M9 {
+        weight=2.0;
+    };
+    class 15Rnd_9x19_M9SD {
+        weight=2.0;
+    };
+    class 17Rnd_9x19_glock17 {
+        weight=1.5;
+    };
+    class 1Rnd_HE_GP25 {
+        weight=0.5;
+    };
+    class 1Rnd_HE_M203 {
+        weight=0.5;
+    };
+    class 1Rnd_SMOKE_GP25 {
+        weight=0.5;
+    };
+    class 1Rnd_Smoke_M203 {
+        weight=0.5;
+    };
+    class 1Rnd_SMOKEGREEN_GP25 {
+        weight=0.5;
+    };
+    class 1Rnd_SmokeGreen_M203 {
+        weight=0.5;
+    };
+    class 1Rnd_SMOKERED_GP25 {
+        weight=0.5;
+    };
+    class 1Rnd_SmokeRed_M203 {
+        weight=0.5;
+    };
+    class 1Rnd_SmokeYellow_M203 {
+        weight=0.5;
+    };
+    class 1Rnd_SMOKEYELOW_GP25 {
+        weight=0.5;
+    };
+    class 200Rnd_556x45_M249 {
+        weight=15;
+    };
+    class 20Rnd_556x45_Stanag {
+        weight=2.0;
+    };
+    class 20rnd_762x51_B_SCAR {
+        weight=2.0;
+    };
+    class 20Rnd_762x51_DMR {
+        weight=2.0;
+    };
+    class 20Rnd_762x51_FNFAL {
+        weight=2.0;
+    };
+    class 20rnd_762x51_SB_SCAR {
+        weight=2.0;
+    };
+    class 20Rnd_9x39_SP5_VSS {
+        weight=2.0;
+    };
+    class 20Rnd_B_765x17_Ball {
+        weight=2.0;
+    };
+    class 2Rnd_shotgun_74Pellets {
+        weight=0.2;
+    };
+    class 2Rnd_shotgun_74Slug {
+        weight=0.2;
+    };
+    class 30m_plot_kit {
+        weight=15.0;
+    };
+    class 30Rnd_545x39_AK {
+        weight=2.0;
+    };
+    class 30Rnd_545x39_AKSD {
+        weight=2.0;
+    };
+    class 30Rnd_556x45_G36 {
+        weight=2.0;
+    };
+    class 30Rnd_556x45_G36SD {
+        weight=2.0;
+    };
+    class 30Rnd_556x45_Stanag {
+        weight=2.0;
+    };
+    class 30Rnd_556x45_StanagSD {
+        weight=2.0;
+    };
+    class 30Rnd_56x45_GP90 {
+        weight=2.0;
+    };
+    class 30Rnd_762x39_AK47 {
+        weight=2.0;
+    };
+    class 30Rnd_762x39_SA58 {
+        weight=2.0;
+    };
+    class 30Rnd_9x19_MP5 {
+        weight=2.0;
+    };
+    class 30Rnd_9x19_MP5SD {
+        weight=2.0;
+    };
+    class 30Rnd_9x19_UZI {
+        weight=2.0;
+    };
+    class 30Rnd_9x19_UZI_SD {
+        weight=2.0;
+    };
+    class 5Rnd_127x108_KSVK {
+        weight=1.0;
+    };
+    class 5Rnd_762x51_M24 {
+        weight=1.0;
+    };
+    class 5x_22_LR_17_HMR {
+        weight=1.0;
+    };
+    class 64Rnd_9x19_Bizon {
+        weight=3.0;
+    };
+    class 64Rnd_9x19_SD_Bizon {
+        weight=3.0;
+    };
+    class 6Rnd_45ACP {
+        weight=0.5;
+    };
+    class 6Rnd_FlareGreen_M203 {
+        weight=3.0;
+    };
+    class 6Rnd_FlareRed_M203 {
+        weight=3.0;
+    };
+    class 6Rnd_FlareWhite_M203 {
+        weight=3.0;
+    };
+    class 6Rnd_FlareYellow_M203 {
+        weight=3.0;
+    };
+    class 6Rnd_HE_M203 {
+        weight=3.0;
+    };
+    class 6Rnd_Smoke_M203 {
+        weight=3.0;
+    };
+    class 6Rnd_SmokeGreen_M203 {
+        weight=3.0;
+    };
+    class 6Rnd_SmokeRed_M203 {
+        weight=3.0;
+    };
+    class 6Rnd_SmokeYellow_M203 {
+        weight=3.0;
+    };
+    class 75Rnd_545x39_RPK {
+        weight=3.0;
+    };
+    class 7Rnd_45ACP_1911 {
+        weight=0.5;
+    };
+    class 8Rnd_9x18_Makarov {
+        weight=1.0;
+    };
+    class 8Rnd_9x18_MakarovSD {
+        weight=1.0;
+    };
+    class 8Rnd_B_Beneli_74Slug {
+        weight=8.0;
+    };
+    class 8Rnd_B_Saiga12_74Slug {
+        weight=1.0;
+    };
 	};
 };

@@ -10,7 +10,7 @@
 
 /*
 	Objects (Buildings, etc.)
-*/
+
 _cfgobjects = configFile >> "cfgVehicles";
 	for "_i" from 0 to (count _cfgobjects)-1 do{
 		_object = _cfgobjects select _i;
@@ -22,22 +22,34 @@ _cfgobjects = configFile >> "cfgVehicles";
 		};
 	};
 
-/*
+
 	Weapons
 */
-/*
+
 _cfgweapons = configFile >> 'cfgWeapons';
 	for "_i" from 0 to (count _cfgweapons)-1 do{
+	
 		_weapon = _cfgweapons select _i;
+		_cfgmagazine = getArray (configFile >> "cfgWeapons" >> _weapon >> "magazines");
 		if (isClass _weapon) then{
 			_wpn_type = configName _weapon;
 			if ((getNumber (_weapon >> "scope") == 0) or (getNumber (_weapon >> "scope") == 2)) then{
-				diag_log _weapon;
+				diag_log( "Weapon: " + str(_weapon) + ", Magazine: " + str(_cfgmagazine));
 			};
 		};
 	};
-		
-*/
+
+_cfgmagazines = configFile >> 'cfgMagazines';
+	for "_i" from 0 to (count _cfgmagazines)-1 do{
+	
+		_magazine = _cfgmagazines select _i;
+		if (isClass _magazine) then{
+			_wpn_type = configName _magazine;
+			if ((getNumber (_magazine >> "scope") == 0) or (getNumber (_weapon >> "scope") == 2)) then{
+				diag_log _magazine;
+			};
+		};
+	};
 
 /*
 	Vehicles
