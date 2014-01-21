@@ -9,7 +9,7 @@
 
 if (!isServer) exitWith {};
 
-private ["_vehicle","_unitGroup","_deleteQueue","_cleanupTime","_crewCount","_killer"];
+private ["_vehicle","_unitGroup","_cleanupTime","_crewCount","_killer"];
 
 _vehicle = _this select 0;
 _killer = _this select 1;
@@ -26,9 +26,8 @@ sleep 0.1;
 deleteGroup _unitGroup;
 
 DZAI_curLandPatrols = DZAI_curLandPatrols - 1;
-_deleteQueue = [_vehicle];
 
 _cleanupTime = 900;
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: AI Land Vehicle patrol destroyed. Cleanup in %1 seconds.",_cleanupTime];};
-[_deleteQueue,_cleanupTime] spawn DZAI_deleteObject;
+[_vehicle,_cleanupTime] call DZAI_deleteObject;
 0 = ["land"] spawn fnc_respawnHandler;

@@ -128,10 +128,10 @@ if (_characterID != "0") then {
 		_timeSince = 	floor(_timeGross / 60);
 		_timeLeft =		(_timeGross - (_timeSince * 60));
 		
-		diag_log("USPSYNC: Time Last:" + str(_lastTime));
-		diag_log("USPSYNC: Time Gross:" + str(_timeGross));
-		diag_log("USPSYNC: Time Since:" + str(_timeSince));
-		diag_log("USPSYNC: Time Left:" + str(_timeLeft));
+		//diag_log("USPSYNC: Time Last:" + str(_lastTime));
+		//diag_log("USPSYNC: Time Gross:" + str(_timeGross));
+		//diag_log("USPSYNC: Time Since:" + str(_timeSince));
+		//diag_log("USPSYNC: Time Left:" + str(_timeLeft));
 		/*
 			Get character state details
 		*/

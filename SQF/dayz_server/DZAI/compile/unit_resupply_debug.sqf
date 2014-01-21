@@ -97,7 +97,7 @@ while {(alive _unit)&&{(!(isNull _unit))}} do {													//Run script for as 
 			if (_needsHeal) then {
 				private ["_healTimes"];
 				_bandages = _bandages - 1;
-				_unit disableAI "TARGET"; _unit disableAI "AUTOTARGET"; _unit disableAI "MOVE";
+				_unit disableAI "FSM";
 				_unit playActionNow "Medic";
 				_healTimes = 0;
 				while {(alive _unit) && {(!(_unit getVariable ["unconscious",false]))} && {(_healTimes < 3)}} do {
@@ -115,7 +115,7 @@ while {(alive _unit)&&{(!(isNull _unit))}} do {													//Run script for as 
 					};
 				};
 				
-				_unit enableAI "TARGET"; _unit enableAI "AUTOTARGET"; _unit enableAI "MOVE";
+				_unit enableAI "FSM";
 				_lastBandage = time;
 				_needsHeal = false;
 			} else {

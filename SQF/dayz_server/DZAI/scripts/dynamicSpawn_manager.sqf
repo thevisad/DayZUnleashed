@@ -19,7 +19,7 @@ if (DZAI_debugLevel > 0) then {diag_log "DZAI V2 Dynamic Spawn Manager started."
 
 _playerUIDs = [];		//Array of all collected playerUIDs
 _timestamps = [];		//Array of timestamps for each corresponding playerUID
-_maxSpawnTime = ((SLEEP_DELAY + 0.5*(SLEEP_VARY)) * 4); //Calculate minimum time to have maximum % spawn probability.
+_maxSpawnTime = ((SLEEP_DELAY + 0.5*(SLEEP_VARY)) * 8); //Calculate minimum time to have maximum % spawn probability.
 
 while {true} do {
 	if (({isPlayer _x} count playableUnits) > 0) then {
@@ -48,7 +48,7 @@ while {true} do {
 			if (!isNull _player) then {
 				_index = _playerUIDs find (getPlayerUID _player);
 				_lastSpawned = _timestamps select _index;
-				_spawnChance = ((time - _lastSpawned) / ((_maxSpawnTime) min 0.95));
+				_spawnChance = (((time - _lastSpawned) / _maxSpawnTime) min 0.95);
 				_playername = name _player;
 				if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Player %1 has %2 probability of generating dynamic spawn.",_playername,_spawnChance];};
 				if ((random 1) < _spawnChance) then {

@@ -90,8 +90,6 @@ if (isNil "DZAI_newMap") then {
 		} forEach _allPlaces;
 };
 
-
-
 DZAI_locations_ready = true;
 
 diag_log format ["[DZAI] %1 locations gathered in %2 seconds.",_locCount,(diag_tickTime - _startTime)];

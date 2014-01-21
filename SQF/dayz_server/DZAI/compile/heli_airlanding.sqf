@@ -20,6 +20,7 @@ _helicopter addEventHandler ["GetIn",{
 		(_this select 2) action ["getOut",(_this select 0)]; 
 		0 = [nil,(_this select 2),"loc",rTITLETEXT,"Players are not permitted to enter AI vehicles!","PLAIN DOWN",5] call RE;
 		(_this select 0) setVehicleLock "LOCKED";
+		(_this select 0) removeAllEventHandlers "GetIn";
 	};
 }];
 
@@ -59,14 +60,14 @@ _trigger setTriggerTimeout [15, 15, 15, true];
 _trigger setTriggerText (format ["HeliLandingArea_%1",mapGridPosition _helicopter]);
 _trigger setTriggerStatements ["{isPlayer _x} count thisList > 0;","","0 = [thisTrigger] spawn fnc_despawnBandits;"];
 0 = [_trigger,[_unitGroup],75,DZAI_heliEquipType,[],[_unitsAlive,0]] call DZAI_setTrigVars;
-_trigger setVariable ["respawn",false];
-_trigger setVariable ["permadelete",true];
+_trigger setVariable ["respawn",false]; //landed AI units should never respawn
+_trigger setVariable ["permadelete",true]; //units should be permanently despawned
 
-_unitGroup setVariable ["unitType","static"];
-_unitGroup setVariable ["trigger",_trigger];
-_unitGroup setVariable ["GroupSize",_unitsAlive];
+_unitGroup setVariable ["unitType","static"]; //convert units to static type
+_unitGroup setVariable ["trigger",_trigger]; //attach trigger object reference to group
+_unitGroup setVariable ["GroupSize",_unitsAlive]; //set group size
 
 DZAI_curHeliPatrols = DZAI_curHeliPatrols - 1;
 0 = ["air"] spawn fnc_respawnHandler;
-[_helicopter,900] spawn DZAI_deleteObject;
+[_helicopter,900] call DZAI_deleteObject;
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: AI helicopter %1 landed at %2.",typeOf _helicopter,mapGridPosition _helicopter];};

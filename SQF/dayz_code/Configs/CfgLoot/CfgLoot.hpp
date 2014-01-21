@@ -1,4 +1,5 @@
 class CfgLoot {
+<<<<<<< Upstream, based on master
 	normalbackpacks[] = {
 		{"DZ_Assault_Pack_EP1",0.04}, // 12
 		{"DZ_Czech_Vest_Puch",0.03}, // 12-0
@@ -7,13 +8,54 @@ class CfgLoot {
 		{"DZ_Patrol_Pack_EP1",0.05}, //8
 		{"DZ_GunBag_EP1",0.01}
 
+=======
+	//0.10
+	attachments[] = {
+		//{"Attachment_AIM",0.03},
+		//{"Attachment_GL",0.03},
+		//{"Attachment_Kobra",0.03},
+		//{"Attachment_CAMO",0.03},
+		//{"Attachment_Pso",0.03},
+		//{"Attachment_Silencer",0.01}
+>>>>>>> 324fe7d Merging in all code prior to moving machines. 
 	};
+<<<<<<< Upstream, based on master
 	rarebackpacks[] = {
 		{"DZ_LargeGunBag_EP1",0.01},
 		{"DZ_CivilBackpack_EP1",0.01}, // 24	
 		{"DZ_Backpack_EP1",0.01}, // 24	
 		{"DZ_British_ACU",0.03}	
+=======
+	craft[] = {
+			//{"equip_wood_pallet",0.03},
+			//{"equip_string",0.03},
+			//{"equip_scrap_electronics",0.01},
+			//{"equip_rope",0.02},
+			//{"equip_rag",0.02},
+			//{"equip_pvc_box",0.01},
+			//{"equip_paper_sheet",0.02},
+			//{"equip_paint",0.02},
+			//{"equip_note",0.01},
+			//{"equip_needle",0.01},
+			//{"equip_nail",0.02},
+			//{"equip_metal_sheet",0.03},
+			//{"equip_scrap_metal",0.03},
+			//{"equip_laser",0.01},
+			//{"equip_hose_clamp",0.01},
+			//{"equip_gauze",0.01},
+			//{"equip_empty_barrel",0.01},
+			//{"equip_duct_tape",0.03},
+			//{"equip_d_battery",0.01},
+			//{"equip_cable_tie",0.03},
+			//{"equip_aa_battery",0.01},
+			//{"equip_2inch_metal_pipe",0.01},
+			//{"equip_1inch_metal_pipe",0.02},
+			//{"ItemNails",0.01},
+			//{"equip_rail_screws",0.01},
+			//{"equip_weapon_rails",0.01}
+>>>>>>> 324fe7d Merging in all code prior to moving machines. 
 	};
+<<<<<<< Upstream, based on master
 	vehicleparts[]={
 		{"WeaponHolder_PartGeneric",0.07},
 		{"WeaponHolder_PartWheel",0.05},
@@ -72,7 +114,27 @@ class CfgLoot {
 		{"ItemZombieParts",0.02},
 		{"TrashJackDaniels",0.02},
 		{"TrashTinCan",0.02}
+=======
+	trash[] = {
+			{"ItemSodaCokeEmpty",0.05},
+			{"ItemSodaPepsiEmpty",0.03},
+			{"FoodCanUnlabeledEmpty",0.05},
+			{"FoodCanRusUnlabeledEmpty",0.02},
+			{"FoodCanRusPorkEmpty",0.02},
+			{"FoodCanRusPeasEmpty",0.03},
+			{"FoodCanRusMilkEmpty",0.02},
+			{"FoodCanRusCornEmpty",0.05},
+			{"FoodCanRusStewEmpty",0.03},
+			{"TrashTinCan",0.05},
+			{"TrashJackDaniels",0.02},
+			{"ItemSodaEmpty",0.03},
+			{"ItemTrashToiletpaper",0.01},
+			{"ItemTrashRazor",0.01},
+			{"ItemCards",0.02},
+			{"ItemNails",0.01}
+>>>>>>> 324fe7d Merging in all code prior to moving machines. 
 	};
+<<<<<<< Upstream, based on master
 	civskins[] = {
 		{"Skin_TKCivil1_DZ",0.01},
 		{"Skin_TKCivil2_DZ",0.01},
@@ -86,7 +148,26 @@ class CfgLoot {
 		{"Skin_Sniper1_DZ",0.01},
 		{"Skin_Sniper2_DZ",0.01},
 		{"Skin_TKSoldier1_DZ",0.01}
+=======
+	civilian[] = {
+			{"TrashTinCan",0.03},
+			{"TrashJackDaniels",0.03},
+			{"ItemSodaEmpty",0.04},
+			{"ItemSodaCoke",0.05},
+			{"ItemSodaPepsi",0.05},
+			{"FoodCanBakedBeans",0.05},
+			{"FoodCanSardines",0.05},
+			{"FoodCanFrankBeans",0.05},
+			{"FoodCanPasta",0.05},
+			{"8Rnd_9x18_Makarov",0.04},
+			{"7Rnd_45ACP_1911",0.04},
+			{"2Rnd_shotgun_74Slug",0.04},
+			{"2Rnd_shotgun_74Pellets",0.04},
+			{"ItemBandage",0.06},
+			{"ItemPainkiller",0.03}
+>>>>>>> 324fe7d Merging in all code prior to moving machines. 
 	};
+<<<<<<< Upstream, based on master
 		military[] = {
 		{"100Rnd_56x45_GP90",0.01},
 		{"100Rnd_762x51_M240",0.01},
@@ -338,8 +419,83 @@ class CfgLoot {
 		{"trg42_t8m",0.01},
 		{"trg42_t8m_camo",0.01},
 		{"UZI_EP1",0.01}
+=======
+	food[] = {
+			{"TrashTinCan",0.05},
+			{"TrashJackDaniels",0.05},
+			{"ItemSodaEmpty",0.05},
+			{"ItemSodaCoke",0.05},
+			{"ItemSodaPepsi",0.05},
+			{"ItemSodaMtngreen",0.01},
+			{"ItemSodaR4z0r",0.01},
+			{"ItemSodaClays",0.01},
+			{"ItemSodaSmasht",0.01}, 
+			{"ItemSodaDrwaste",0.01}, 
+			{"ItemSodaLemonade",0.01}, 
+			{"ItemSodaLvg",0.01}, 
+			{"ItemSodaMzly",0.01}, 
+			{"ItemSodaRabbit",0.01},
+			{"FoodCanBakedBeans",0.05},
+			{"FoodCanSardines",0.05},
+			{"FoodCanFrankBeans",0.05},
+			{"FoodCanPasta",0.05},
+			{"FoodCanBadguy",0.01},
+			{"FoodCanBoneboy",0.01},
+			{"FoodCanCorn",0.01},
+			{"FoodCanCurgon",0.01},
+			{"FoodCanDemon",0.01},
+			{"FoodCanFraggleos",0.01},
+			{"FoodCanHerpy",0.001},
+			{"FoodCanDerpy",0.01},
+			{"FoodCanOrlok",0.01},
+			{"FoodCanPowell",0.01},
+			{"FoodCanTylers",0.01},
+			{"FoodCanUnlabeled",0.04},
+			{"FoodPistachio",0.03},
+			{"FoodNutmix",0.04},
+			{"FoodChipsSulahoops",0.01},
+			{"FoodChipsMysticales",0.01},
+			{"FoodCandyAnders",0.01},
+			{"FoodCandyLegacys",0.01},
+			{"FoodCandyMintception",0.01},
+			{"FoodCanRusUnlabeled",0.05},
+			{"FoodCanRusStew",0.05},
+			{"FoodCanRusPork",0.05},
+			{"FoodCanRusPeas",0.05},
+			{"FoodCanRusMilk",0.04},
+			{"FoodCanRusCorn",0.05}
+>>>>>>> 324fe7d Merging in all code prior to moving machines. 
 	};
-	
+	generic[] = {
+			{"TrashTinCan",0.06},
+			{"ItemSodaEmpty",0.06},
+			{"ItemSodaCoke",0.03},
+			{"ItemSodaPepsi",0.02},
+			{"TrashJackDaniels",0.04},
+			{"FoodCanBakedBeans",0.01},
+			{"FoodCanSardines",0.01},
+			{"FoodCanFrankBeans",0.01},
+			{"FoodCanPasta",0.01},
+			{"ItemWaterbottleUnfilled",0.01},
+			{"ItemBandage",0.03},
+			{"7Rnd_45ACP_1911",0.03},
+			{"5x_22_LR_17_HMR",0.01},
+			{"10x_303",0.04},
+			{"6Rnd_45ACP",0.04},
+			{"2Rnd_shotgun_74Slug",0.05},
+			{"2Rnd_shotgun_74Pellets",0.05},
+			{"8Rnd_9x18_Makarov",0.09},
+			{"ItemWaterbottle",0.01},
+			{"15Rnd_W1866_Slug",0.02},
+			{"WoodenArrow",0.04},
+			{"HandRoadFlare",0.07},
+			{"ItemPainkiller",0.02},
+			{"HandChemGreen",0.01},
+			{"HandChemBlue",0.03},
+			{"HandChemRed",0.03},
+			{"ItemHeatPack",0.04},
+			{"ItemNails",0.01}
+	};
 	medical[] = {
 			{"ItemBandage",0.08},
 			{"ItemPainkiller",0.05},
@@ -348,11 +504,15 @@ class CfgLoot {
 			{"ItemAntibiotic",0.01},
 			{"ItemHeatPack",0.03}
 	};
-	
 	hospital[] = {
+			{"ItemBandage",0.06},
+			{"ItemPainkiller",0.04},
+			{"ItemMorphine",0.04},
+			{"ItemEpinephrine",0.03},
 			{"ItemBloodbag",0.03},
-			{"MedBox0",0.05}
+			{"ItemAntibiotic",0.01}
 	};
+<<<<<<< Upstream, based on master
 		milgeneric[]={
 		{"NVGoggles",0.01},
 		{"ItemFlashlightRed",0.06},
@@ -362,7 +522,50 @@ class CfgLoot {
 		{"ItemSandbag",0.04},
 		{"ItemTankTrap",0.04},
 		{"bulk_ItemSandbag",0.01}
+=======
+	military[] = {
+			{"TrashTinCan",0.06},
+			{"ItemSodaEmpty",0.06},
+			{"ItemSodaCoke",0.04},
+			{"ItemSodaPepsi",0.04},
+			{"ItemBandage",0.04},
+			{"ItemAntibiotic",0.01},
+			{"ItemPainkiller",0.02},
+			{"ItemMorphine",0.01},
+			{"30Rnd_556x45_Stanag",0.02},
+			{"75Rnd_545x39_RPK",0.02},
+			{"20Rnd_762x51_DMR",0.02},
+			{"17Rnd_9x19_glock17",0.05},
+			{"15Rnd_9x19_M9SD",0.01},
+			{"8Rnd_9x18_MakarovSD",0.01},
+			{"15Rnd_9x19_M9",0.03},
+			{"30Rnd_762x39_AK47",0.02},
+			{"30Rnd_545x39_AK",0.02},
+			{"5Rnd_762x51_M24",0.01},
+			//{"10Rnd_127x99_m107",0.01},
+			{"8Rnd_B_Beneli_74Slug",0.04},
+			{"1Rnd_HE_M203",0.01},
+			{"FlareWhite_M203",0.02},
+			{"FlareGreen_M203",0.02},
+			{"1Rnd_Smoke_M203",0.01},		
+			{"200Rnd_556x45_M249",0.01},
+			{"HandGrenade_west",0.01},
+			{"SmokeShell",0.04},
+			{"SmokeShellRed",0.04},
+			{"SmokeShellGreen",0.04},
+			{"8Rnd_B_Beneli_Pellets",0.04},
+			{"30Rnd_556x45_StanagSD",0.01},
+			{"30Rnd_9x19_MP5",0.02},
+			{"30Rnd_9x19_MP5SD",0.01},
+			{"100Rnd_762x51_M240",0.01},
+			{"HandChemGreen",0.04},
+			{"HandChemBlue",0.04},
+			{"HandChemRed",0.04},
+			{"ItemHeatPack",0.04},
+			{"FoodMRE",0.03}
+>>>>>>> 324fe7d Merging in all code prior to moving machines. 
 	};
+<<<<<<< Upstream, based on master
 	generic[] = {
 		{"Binocular",0.02},
 		{"HandChemBlue",0.02},
@@ -406,152 +609,67 @@ class CfgLoot {
 		{"MeleeMachete",0.02},
 		{"PartWoodPile",0.02},
 		{"WeaponHolder_ItemJerrycan",0.02}
+=======
+	militaryWEST[] = {
+			{"ItemBandage",0.06},
+			{"ItemAntibiotic",0.01},
+			{"ItemPainkiller",0.06},
+			{"ItemMorphine",0.02},
+			{"ItemWaterbottleUnfilled",0.02},
+			{"30Rnd_556x45_Stanag",0.04},
+			{"17Rnd_9x19_glock17",0.05},
+			{"7Rnd_45ACP_1911",0.05},
+			{"15Rnd_9x19_M9",0.02},
+			{"8Rnd_B_Beneli_74Slug",0.04},
+			{"1Rnd_HE_M203",0.01},
+			{"FlareWhite_M203",0.01},
+			{"FlareGreen_M203",0.01},
+			{"1Rnd_Smoke_M203",0.01},	
+			{"HandGrenade_west",0.01},
+			{"SmokeShell",0.04},
+			{"SmokeShellRed",0.02},
+			{"SmokeShellGreen",0.02},
+			{"30Rnd_9x19_MP5",0.02},
+			{"HandChemGreen",0.02},
+			{"HandChemBlue",0.02},
+			{"HandChemRed",0.02},
+			{"FoodMRE",0.01},
+			{"ItemHeatPack",0.02}
+>>>>>>> 324fe7d Merging in all code prior to moving machines. 
 	};
-	
-	food[] = {
-		{"FoodCanBadguy",0.03},
-		{"FoodCanBeef",0.03},
-		{"FoodCanBoneboy",0.03},
-		{"FoodCanCorn",0.03},
-		{"FoodCanCurgon",0.03},
-		{"FoodCanDemon",0.03},
-		{"FoodCanDerpy",0.03},
-		{"FoodCandyAnders",0.03},
-		{"FoodCandyChubby",0.03},
-		{"FoodCandyLegacys",0.03},
-		{"FoodCandyMintception",0.03},
-		{"FoodCanFraggleos",0.03},
-		{"FoodCanGriff",0.03},
-		{"FoodCanHerpy",0.03},
-		{"FoodCanLongSprats",0.03},
-		{"FoodCanOrlok",0.03},
-		{"FoodCanPotatoes",0.03},
-		{"FoodCanPowell",0.03},
-		{"FoodCanRusCorn",0.03},
-		{"FoodCanRusMilk",0.03},
-		{"FoodCanRusPeas",0.03},
-		{"FoodCanRusPork",0.03},
-		{"FoodCanRusStew",0.03},
-		{"FoodCanRusUnlabeled",0.03},
-		{"FoodCanTylers",0.03},
-		{"FoodCanUnlabeled",0.03},
-		{"FoodChipsChocolate",0.03},
-		{"FoodChipsMysticales",0.03},
-		{"FoodChipsSulahoops",0.03},
-		{"FoodMRE",0.03},
-		{"FoodNutmix",0.03},
-		{"FoodPistachio",0.03}
+	militaryEAST[] = {
+			{"ItemBandage",0.06},
+			{"ItemAntibiotic",0.01},
+			{"ItemPainkiller",0.06},
+			{"ItemMorphine",0.02},
+			{"HandGrenade_east",0.01},
+			{"75Rnd_545x39_RPK",0.03},
+			{"30Rnd_762x39_AK47",0.04},
+			{"30Rnd_545x39_AK",0.04},
+			{"8Rnd_B_Beneli_74Slug",0.08},
+			{"ItemHeatPack",0.02},
+			{"30Rnd_9x19_UZI",0.02},
+			{"SmokeShell",0.02},
+			{"SmokeShellRed",0.02},
+			{"SmokeShellGreen",0.02}
 	};
-	
-	drink[] = {
-		{"ItemSodaCoke",0.04},
-		{"ItemSodaPepsi",0.04},
-		{"ItemSodaMtngreen",0.04},
-		{"ItemSodaR4z0r",0.04},
-		{"ItemSodaClays",0.04},
-		{"ItemSodaSmasht",0.04}, 
-		{"ItemSodaDrwaste",0.04}, 
-		{"ItemSodaLemonade",0.04}, 
-		{"ItemSodaLvg",0.04}, 
-		{"ItemSodaMzly",0.04}, 
-		{"ItemSodaRabbit",0.04},
-		{"ItemWaterbottle",0.04},
-		{"ItemWaterbottleUnfilled",0.04},
-		{"ItemSodaMdew",0.04},
-		{"bulk_ItemSodaCoke",0.04},
-		{"bulk_ItemSodaPepsi",0.04},
-		{"ItemSodaRbull",0.04},
-		{"ItemSodaRbull",0.04}
+	policeman[] = {
+			{"ItemBandage",0.10},
+			{"7Rnd_45ACP_1911",0.03},
+			{"6Rnd_45ACP",0.03},
+			{"15Rnd_W1866_Slug",0.03},
+			{"8Rnd_B_Beneli_74Slug",0.03},
+			{"HandRoadFlare",0.05}
 	};
-	
-	civilian[] = {
-		{"Makarov",0.02},
-		{"Colt1911",0.02},
-		{"LeeEnfield",0.03},
-		{"revolver_EP1",0.04},
-		{"huntingrifle",0.02},
-		{"Winchester1866",0.03},
-		{"Crossbow_DZ",0.03},
-		{"WeaponHolder_ItemHatchet",0.05},
-		{"MeleeMachete",0.04},
-		{"7Rnd_45ACP_1911",0.03},
-		{"6Rnd_45ACP",0.03},
-		{"15Rnd_W1866_Slug",0.03},
-		{"8Rnd_B_Beneli_74Slug",0.03},
-		{"M14_EP1",0.03},
-		{"MR43",0.03},
-		{"8Rnd_9x18_Makarov",0.04},
-		{"2Rnd_shotgun_74Slug",0.04},
-		{"2Rnd_shotgun_74Pellets",0.04},
-		{"5x_22_LR_17_HMR",0.01},
-		{"10x_303",0.04},
-		{"WoodenArrow",0.04}
-	};
-	
-	buildingkits[]={
-		{"workbench_kit",0.01},
-		{"metal_panel_kit",0.01},
-		{"deer_stand_kit",0.01},
-		{"desert_large_net_kit",0.01},
-		{"forest_large_net_kit",0.01},
-		{"desert_net_kit",0.01},
-		{"forest_net_kit",0.01},
-		{"fuel_pump_kit",0.01},
-		{"stick_fence_kit",0.01},
-		{"wooden_shed_kit",0.01},
-		{"wood_shack_kit",0.01},
-		{"sun_shade_kit",0.01},
-		{"rusty_gate_kit",0.01},
-		{"sandbag_nest_kit",0.01},
-		{"outhouse_kit",0.01},
-		{"storage_shed_kit",0.01},
-		{"ItemFireBarrel_kit",0.01},
-		{"metal_floor_kit",0.01},
-		{"cinder_wall_kit",0.01},
-		{"cinder_garage_kit",0.01},
-		{"cinder_door_kit",0.01},
-		{"wood_ramp_kit",0.01},
-		{"ItemWoodFloor",0.01},
-		{"ItemWoodFloorHalf",0.01},
-		{"ItemWoodFloorQuarter",0.01},
-		{"ItemWoodStairs",0.01},
-		{"ItemWoodStairsSupport",0.01},
-		{"ItemWoodLadder",0.01},
-		{"ItemWoodWall",0.01},
-		{"ItemWoodWallThird",0.01},
-		{"ItemWoodWallDoor",0.01},
-		{"ItemWoodWallWithDoor",0.01},
-		{"ItemWoodWallWithDoorLocked",0.01},
-		{"ItemWoodWallWindow",0.01},
-		{"ItemWoodWallLg",0.01},
-		{"ItemWoodWallGarageDoor",0.01},
-		{"ItemWoodWallGarageDoorLocked",0.01},
-		{"ItemWoodWallDoorLg",0.01},
-		{"ItemWoodWallWithDoorLg",0.01},
-		{"ItemWoodWallWithDoorLgLocked",0.01},
-		{"ItemWoodWallWindowLg",0.01},
-		{"BagFenceRound_DZ_kit",0.01}
-	};
-	
-	buildingitems[]={
-		{"CinderBlocks",0.01},
-		{"MortarBucket",0.01},
-		{"ItemBurlap",0.01},
-		{"ItemCanvas",0.01},
-		{"ItemCorrugated",0.01},
-		{"ItemFuelBarrel",0.01},
-		{"ItemFuelBarrelEmpty",0.01},
-		{"ItemFuelPump",0.01},
-		{"ItemGenerator",0.01},
-		{"ItemLightBulb",0.01},
-		{"ItemPole",0.01},
-		{"ItemSandbagLarge",0.01},
-		{"ItemSandbagLarge",0.01},
-		{"ItemSandbagExLarge5x",0.01},
-		{"PartPlankPack",0.01},
-		{"PartWoodLumber",0.01},
-		{"PartWoodPlywood",0.01},
-		{"PartPlywoodPack",0.01}
-	};
-
+	hunter[] = {
+			{"ItemBandage",0.5},
+			{"5x_22_LR_17_HMR",0.03},
+			{"7Rnd_45ACP_1911",0.02},
+			{"10x_303",0.03},
+			{"ItemWaterbottleUnfilled",0.02},
+			{"WoodenArrow",0.5},
+			{"ItemHeatPack",0.02},
+			{"FoodMRE",0.03},
+			{"FoodNutmix",0.03}
+		};
 };

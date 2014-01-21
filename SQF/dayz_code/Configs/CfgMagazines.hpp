@@ -81,11 +81,12 @@ class CfgMagazines {
 	//Skins
 	#include "CfgMagazines\Skin.hpp"
 	//Fuelcan
-	#include "CfgMagazines\Fuelcan.hpp"
-	#include "CfgMagazines\Jerrycan.hpp"
+	//#include "CfgMagazines\Fuelcan.hpp"
+	//#include "CfgMagazines\Jerrycan.hpp"
 	
 	//crafting
 	#include "CfgCrafting\Mats.hpp"
+	#include "CfgMagazines\Unleashed_weapons.hpp"
 
 	// blood bag
 	#include "CfgMagazines\ItemBloodBag.hpp"
@@ -107,9 +108,10 @@ class CfgMagazines {
 	#include "CfgMagazines\DZE\ItemJerrycan.hpp"
 	#include "CfgMagazines\DZE\ItemLightBulb.hpp"
 	#include "CfgMagazines\DZE\ItemPole.hpp"
-	//#include "CfgMagazines\DZE\ItemSandbag.hpp"
+	#include "CfgMagazines\DZE\ItemSandbag.hpp"
 	#include "CfgMagazines\DZE\ItemSandbagLarge.hpp"
 	#include "CfgMagazines\DZE\ItemSodaEmpty.hpp"
+	#include "CfgMagazines\DZE\ItemTankTrap.hpp"
 	#include "CfgMagazines\ItemSodaEmpty.hpp"
 	#include "CfgMagazines\DZE\ItemSodaOrangeSherbet.hpp"
 	//#include "CfgMagazines\DZE\ItemSodaRbull.hpp"

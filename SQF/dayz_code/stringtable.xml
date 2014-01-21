@@ -2390,6 +2390,7 @@
 			<French>Obstacle anti Tank</French>
 			<Dutch>Tankvalstrik</Dutch>
 		</Key>
+
 		<Key ID="STR_EQUIP_DESC_22">
 			<English>Metal materials that can be used by an engineer to construct a Tank Trap.</English>
 			<German>Metallteile, die von einem Survivor zum Errichten einer Panzersperre verwendet werden können.</German>
@@ -7689,6 +7690,17 @@
 		<Key ID="STR_EPOCH_PLAYER_252">
 		  <Original>Craft Half Wall</Original>
 		  <English>Craft Half Wall</English>
+		  <German>Halbe Wand herstellen</German>
+		  <Russian>Создать: Половина стены</Russian>
+		  <!-- <Spanish></Spanish> -->
+		  <!-- <Dutch></Dutch> -->
+		  <!-- <French></French> -->
+		  <Czech>Vytvořit Poloviční zeď</Czech>
+		</Key>
+		
+		<Key ID="STR_UNLEASHED_CRAFT_PART_GENERIC">
+		  <Original>Craft Scrap Metal</Original>
+		  <English>Craft Scrap Metal</English>
 		  <German>Halbe Wand herstellen</German>
 		  <Russian>Создать: Половина стены</Russian>
 		  <!-- <Spanish></Spanish> -->

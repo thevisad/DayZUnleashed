@@ -99,29 +99,33 @@ for "_j" from 1 to _numGroups do {
 	if (_totalAI > 0) then {
 		//Select spawn location
 		_spawnPos = if ((count _spawnPositions) > 0) then {_spawnPositions call DZAI_findSpawnPos} else {[(getPosATL _trigger),random (_patrolDist),random(360),false] call SHK_pos};
-		
-		//Spawn units
-		//_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;
-		_weapongrade = _equipType call DZAI_getWeapongrade;
-		_unitGroup = [_totalAI,grpNull,_spawnPos,_trigger,_weapongrade] call DZAI_setup_AI;
+		if ((count _spawnPos) > 0) then {
+			//Spawn units
+			//_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;
+			_weapongrade = _equipType call DZAI_getWeapongrade;
+			_unitGroup = [_totalAI,grpNull,_spawnPos,_trigger,_weapongrade] call DZAI_setup_AI;
 
-		//Set group variables
-		_unitGroup setVariable ["unitType","static"];
-		_unitGroup allowFleeing 0;
-		
-		//Update AI count
-		//DZAI_numAIUnits = DZAI_numAIUnits + _totalAI;
-		_totalSpawned = _totalSpawned + _totalAI;
-		if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 has group size %2.",_unitGroup,_totalAI];};
-		
-		if ((count _spawnPositions) >= 100) then {
-			//diag_log format ["DEBUG :: Counted %1 spawn positions.",count _spawnPositions];
-			_nul = [_unitGroup,_spawnPositions] spawn DZAI_bldgPatrol;
+			//Set group variables
+			_unitGroup setVariable ["unitType","static"];
+			_unitGroup allowFleeing 0;
+			
+			//Update AI count
+			//DZAI_numAIUnits = DZAI_numAIUnits + _totalAI;
+			_totalSpawned = _totalSpawned + _totalAI;
+			if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 has group size %2.",_unitGroup,_totalAI];};
+			
+			if ((count _spawnPositions) >= 100) then {
+				//diag_log format ["DEBUG :: Counted %1 spawn positions.",count _spawnPositions];
+				_nul = [_unitGroup,_spawnPositions] spawn DZAI_bldgPatrol;
+			} else {
+				0 = [_unitGroup,_triggerPos,_patrolDist,DZAI_debugMarkers] spawn DZAI_BIN_taskPatrol;
+			};
+			
+			_grpArray set [count _grpArray,_unitGroup];
 		} else {
-			0 = [_unitGroup,_triggerPos,_patrolDist,DZAI_debugMarkers] spawn DZAI_BIN_taskPatrol;
+			_nul = [_trigger] spawn DZAI_retrySpawn;
+			if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Could not find suitable no-player area for AI group %1 of %2.",_j,_numGroups]};
 		};
-		
-		_grpArray set [count _grpArray,_unitGroup];
 	} else {
 		//Add a group to respawn queue.
 		_nul = [_trigger] spawn DZAI_retrySpawn;

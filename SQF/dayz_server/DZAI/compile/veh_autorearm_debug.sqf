@@ -77,10 +77,10 @@ if ((count _vehWeapons) > 0) then {
 		_marker setMarkerPos (getposATL _vehicle);
 		_wpmarker setMarkerPos (getWPPos [_unitGroup,0]);
 
+		sleep DZAI_refreshRate;
+		
 		_vehOK = ((alive _vehicle)&& {(!(isNull _vehicle))} && {(canMove _vehicle)});
 		_driverOK = ((!(isNull (driver _vehicle))) && {(alive (driver _vehicle))});
-		
-		sleep DZAI_refreshRate;
 	};
 } else {
 	//For unarmed air vehicles
@@ -95,10 +95,10 @@ if ((count _vehWeapons) > 0) then {
 		_marker setMarkerPos (getposATL _vehicle);
 		_wpmarker setMarkerPos (getWPPos [_unitGroup,0]);
 
+		sleep DZAI_refreshRate;
+		
 		_vehOK = ((alive _vehicle)&& {(!(isNull _vehicle))} && {(canMove _vehicle)});
 		_driverOK = ((!(isNull (driver _vehicle))) && {(alive (driver _vehicle))});
-		
-		sleep DZAI_refreshRate;
 	};
 };
 

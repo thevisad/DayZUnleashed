@@ -164,9 +164,9 @@ if(!_cancel) then {
 			diag_log ("Safe Dir:" + str(_dir));
 			diag_log ("Safe Location:" + str(_location));
 
-			PVDZ_bld_Publish = [_combination,_tent,[_dir,_location],"VaultStorageLocked"];
-			diag_log ("DEBUG: SAFE // obj_Publish" + str(PVDZ_bld_Publish));
-			publicVariableServer  "PVDZ_bld_Publish";
+			PVDZ_obj_Publish = [_combination,_tent,[_dir,_location],"VaultStorageLocked"];
+			diag_log ("DEBUG: SAFE // obj_Publish" + str(PVDZ_obj_Publish));
+			publicVariableServer  "PVDZ_obj_Publish";
 	
 			cutText [format[(localize "str_epoch_player_179"),_combination], "PLAIN DOWN", 5];
 		};

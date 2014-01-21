@@ -64,14 +64,15 @@ if (_patrolDist > 1) then {
 
 if (DZAI_debugLevel > 0) then {diag_log format["DZAI Debug: Spawned a group of %1 units in %2 seconds at %3 (spawnBandits).",_totalAI,(diag_tickTime - _startTime),(triggerText _trigger)];};
 
-_equipType = switch (_weapongrade) do {
+/*_equipType = switch (_weapongrade) do {
 	case 0: {[0,1] call BIS_fnc_selectRandom2};
 	case 1: {[1,2] call BIS_fnc_selectRandom2};
 	case 2: {[2,3] call BIS_fnc_selectRandom2};
 	case 3: {3};
 	case 4; case 5; case 6; case 7; case 8; case 9: {3};
 	case default {[0,1,2,3] call BIS_fnc_selectRandom2};
-};
+};*/
+_equipType = if (_weapongrade in DZAI_weaponGrades) then {(_weapongrade max 0)} else {3};
 
 0 = [_trigger,[_unitGroup],_patrolDist,_equipType,[],[_totalAI,0]] call DZAI_setTrigVars;
 

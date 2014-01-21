@@ -15,7 +15,7 @@ private ["_respawnSleep","_nextRespawnTime"];
 if ((count _this) > 1) then {
 	private["_trigger","_unitGroup","_fastMode"];
 	//Add group to respawn queue.
-	_trigger = _this select 0; //attached variables: _patrolDist, _gradeChances, _spawnPositions, _spawnType, _maxUnits
+	_trigger = _this select 0; //attached variables: isCleaning, GroupArray, patrolDist, equipType, locationArray, maxUnits, initialized
 	_equipType = _trigger getVariable "equipType";
 	_unitGroup = _this select 1;
 	_fastMode = if ((count _this) > 2) then {_this select 2} else {false};
@@ -99,7 +99,7 @@ while {(count DZAI_respawnQueue) > 0} do {
 					private["_unitGroup","_grpArray"];
 					_unitGroup = (DZAI_respawnQueue select _i) select 2;
 					_grpArray = _trigger getVariable "GroupArray";
-					if (((_unitGroup getVariable ["GroupSize",0]) == 0) && (_unitGroup in _grpArray)) then {
+					if ((_unitGroup in _grpArray) && {((_unitGroup getVariable ["GroupSize",0]) == 0)}) then {
 						private["_maxUnits","_respawned"];
 						_maxUnits = _trigger getVariable "maxUnits";
 						_respawned = [_unitGroup,_trigger,_maxUnits] call fnc_respawnBandits;

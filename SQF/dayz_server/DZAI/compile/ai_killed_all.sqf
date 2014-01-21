@@ -3,9 +3,9 @@
 		
 		Description: Adds loot to AI corpse if killed by a player. Script is shared between AI spawned from static and dynamic triggers.
 		
-        Usage: [_unit,_killer] spawn fnc_banditAIKilled;
+        Usage: [_victim,_killer,_unitGroup] call DZAI_AI_killed_all;
 		
-		Last updated: 2:52 AM 11/9/2013
+		Last updated: 10:42 PM 1/11/2014
 */
 
 private["_victim","_killer","_unitGroup","_groupSize"];
@@ -26,15 +26,8 @@ if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 h
 if (isPlayer _killer) then {
 	private ["_trigger","_equipType","_weapongrade"];
 
-	_unitGroup reveal [vehicle _killer,4];
-	_unitGroup setFormDir ([(leader _unitGroup),_killer] call BIS_fnc_dirTo);
 	_trigger = _unitGroup getVariable ["trigger",objNull];
-	if (DZAI_findKiller) then {_unitGroup setBehaviour "AWARE"; 0 = [_trigger,_killer,_unitGroup] spawn DZAI_huntKiller} else {_unitGroup setBehaviour "COMBAT"};
-
-	//_gradeChances = if (!isNil "_trigger") then {_trigger getVariable ["gradeChances",DZAI_gradeChances1]} else {DZAI_gradeChances1};
 	_equipType = if (!isNil "_trigger") then {_trigger getVariable ["equipType",1]} else {1};
-	
-	//_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;
 	_weapongrade = _equipType call DZAI_getWeapongrade;
 	0 = [_victim,_weapongrade] spawn DZAI_addLoot;
 	0 = [_killer,_victim,"banditKills"] call DZAI_countKills;

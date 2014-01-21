@@ -87,6 +87,6 @@ if (!surfaceIsWater _vehPos) then {
 
 DZAI_curHeliPatrols = DZAI_curHeliPatrols - 1;
 0 = ["air"] spawn fnc_respawnHandler;
-[_helicopter,900] spawn DZAI_deleteObject;
+[_helicopter,900] call DZAI_deleteObject;
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: AI helicopter %1 evacuated at %2.",typeOf _helicopter,mapGridPosition _helicopter];};
 	

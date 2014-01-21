@@ -36,7 +36,7 @@ DZAI_Rifles7 = nil; //weapongrade 7 weapons
 DZAI_Rifles8 = nil; //weapongrade 8 weapons
 DZAI_Rifles9 = nil; //weapongrade 9 weapons
 
-DZAI_BanditTypes = ["BRT_Commander_DZ", "BRT_Officer_DZ", "BRT_Pilot_DZ", "BRT_Scout_DZ", "BRT_Looter_DZ", "BRT_Grunt_DZ"]; //List of skins for AI units to use
+DZAI_BanditTypes = ["Survivor2_DZ", "SurvivorW2_DZ", "Bandit1_DZ", "BanditW1_DZ", "Camo1_DZ", "Sniper1_DZ"]; //List of skins for AI units to use
 
 DZAI_Backpacks0 = ["DZ_Patrol_Pack_EP1","DZ_Czech_Vest_Puch","DZ_Assault_Pack_EP1"];
 DZAI_Backpacks1 = ["DZ_Patrol_Pack_EP1","DZ_Czech_Vest_Puch","DZ_Assault_Pack_EP1","DZ_British_ACU","DZ_TK_Assault_Pack_EP1","DZ_CivilBackpack_EP1","DZ_ALICE_Pack_EP1"];
@@ -56,7 +56,7 @@ DZAI_tools0 = [["ItemFlashlight",0.65],["ItemWatch",0.65],["ItemKnife",0.50],["I
 DZAI_tools1 = [["ItemFlashlight",0.90],["ItemWatch",0.90],["ItemKnife",0.75],["ItemHatchet",0.70],["ItemCompass",0.60],["ItemMap",0.50],["ItemToolbox",0.20],["ItemMatchbox",0.20],["ItemFlashlightRed",0.10],["ItemGPS",0.125],["ItemRadio",0.05]];
 
 //Gadget items are added to AI inventory at unit creation
-DZAI_gadgets0 = [["binocular",0.40],["NVGoggles",0.05]];
-DZAI_gadgets1 = [["binocular",0.60],["NVGoggles",0.10]];
+DZAI_gadgets0 = [["binocular",0.40],["NVGoggles",0.00]];
+DZAI_gadgets1 = [["binocular",0.60],["NVGoggles",0.05]];
 
 diag_log "[DZAI] Base classname tables loaded.";
