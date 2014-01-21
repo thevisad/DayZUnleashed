@@ -1,6 +1,6 @@
 //  Function: DZU_fnc_saveVariable
 
-_updateInterval=100;   //How often to save this to the server
+_updateInterval=10;   //How often to save this to the server
     _stackLimit=1;      //How large to all this list to grow before sending to server.
        _timeNow=diag_tickTime;
 if((count _this)<2) exitWith{
@@ -21,8 +21,10 @@ _updateValue=(_this select 1);
 _saveRequest=((count _this)>2);
 _lastSave=(_timeNow - DZU_time_saveVariable);
 
-if( (_updateVariable != "") && (_updateValue != "") )then{
-    DZU_stack_saveVariable = [_updateVariable,_updateValue,DZU_stack_saveVariable] call DZU_fnc_KeyMapADD;    
+if( (typeName _updateVariable == "STRING") && (typeName _updateValue == "SCALAR") )then{
+    if(_updateVariable !="")then {
+        DZU_stack_saveVariable = [_updateVariable,_updateValue,DZU_stack_saveVariable] call DZU_fnc_KeyMapADD;    
+    };        
 };
 
 _stackSize = (count(DZU_stack_saveVariable select 1));
@@ -38,5 +40,6 @@ if( ((_stackSize > _stackLimit)||(_lastSave>_updateInterval)||(_saveRequest)) &&
     publicVariableServer "PVDZ_plr_VarSave2";
     if (isServer) then {
         PVDZ_plr_VarSave2 call server_playerVariableChange;
-    };   
+    };
+diag_log "DZU_fnc_saveVariables:Save Request Sent";
 };
