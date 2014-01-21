@@ -90,7 +90,7 @@ for "_i" from 1 to _amount do {
 			//diag_log format ["DEBUG :: Assigned gunner %1 of %2 to AI %3.",(_i+1),(count _heliTurrets),_heliType];
 		};
 	} else {
-		if (((count (weapons _helicopter)) < 1) && (_heliType in (DZAI_airWeapons select 0))) then {
+		if (((count (weapons _helicopter)) < 1) && {(_heliType in (DZAI_airWeapons select 0))}) then {
 			private ["_index","_vehWeapon","_vehMag","_check"];
 			_index = (DZAI_airWeapons select 0) find _heliType;
 			if (_index > -1) then {

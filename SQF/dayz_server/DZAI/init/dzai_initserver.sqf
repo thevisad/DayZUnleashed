@@ -53,21 +53,22 @@ DZAI_gradeIndicesHeli = [];
 DZAI_dynEquipType = 4;
 DZAI_heliEquipType = 5;
 DZAI_vehEquipType = 3;
+DZAI_deleteObjectQueue = [];
 
 //Set side relations
 createcenter east;
 createcenter resistance;
 if (DZAI_freeForAll) then {
-	//Free For All mode - All AI groups are hostile to each other.
-	east setFriend [resistance, 0];
-	resistance setFriend [east, 0];	
-	east setFriend [east, 0];	//East is hostile to self (static and dynamic AI)
+        //Free For All mode - All AI groups are hostile to each other.
+        east setFriend [resistance, 0];
+        resistance setFriend [east, 0];        
+        east setFriend [east, 0];        //East is hostile to self (static and dynamic AI)
 } else {
-	//Normal settings - All AI groups are friendly to each other.
-	east setFriend [resistance, 1];
-	resistance setFriend [east, 1];	
+        //Normal settings - All AI groups are friendly to each other.
+        east setFriend [resistance, 1];
+        resistance setFriend [east, 1];        
 };
-east setFriend [west, 0];	
+east setFriend [west, 0];        
 resistance setFriend [west, 0];
 west setFriend [resistance, 0];
 west setFriend [east, 0];
@@ -78,18 +79,8 @@ if (DZAI_modName == "") then {
 	_modVariant = toLower(getText (configFile >> "CfgMods" >> "DayZ" >> "dir"));
 	if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Detected mod variant %1.",_modVariant];};
 	switch (_modVariant) do {
-		case "@dayz_epoch":{
-			DZAI_modName = "epoch"; 
-		};
-		case "dayzoverwatch":{DZAI_modName = "overwatch"};
-		case "@dayzoverwatch":{DZAI_modName = "overwatch"};
-		case "@dayzhuntinggrounds":{DZAI_modName = "huntinggrounds"};
-		case "dayzlingor":{
-			private["_modCheck"];
-			_modCheck = toLower (getText (configFile >> "CfgMods" >> "DayZ" >> "action"));
-			if (_modCheck == "http://www.skaronator.com") then {DZAI_modName = "lingorskaro"};
-			if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Detected DayZ Lingor variant %1.",_modCheck];};
-		};
+		case "@dayzunleashed":{DZAI_modName = "unleashed";};
+		case "dayzunleashed":{DZAI_modName = "unleashed";};
 	};
 };
 
@@ -102,7 +93,7 @@ if (DZAI_dynAISpawns or {(DZAI_maxHeliPatrols > 0)} or {(DZAI_maxLandPatrols > 0
 	DZAI_centerMarker setMarkerSize [7000, 7000];
 	DZAI_centerMarker setMarkerAlpha 0;
 	DZAI_dynTriggerRadius = 600;
-	DZAI_dynOverlap = 0.15;
+	DZAI_dynOverlap = 0.10;
 };
 
 private["_worldname"];
@@ -111,21 +102,17 @@ diag_log format["[DZAI] Server is running map %1. Loading static trigger and cla
 
 //Load map-specific configuration file. Config files contain trigger/marker information, addition and removal of items/skins, and/or other variable customizations.
 //Classname files will overwrite basic settings specified in base_classnames.sqf
-if (_worldname in ["napf"]) then {
+if (_worldname in ["chernarus","utes","zargabad","fallujah","takistan","tavi","lingor","namalsk","mbg_celle2","oring","panthera2","isladuala","sara","smd_sahrani_a2","trinity","napf"]) then {
 	call compile preprocessFileLineNumbers format ["%1\init\world_classname_configs\%2_classnames.sqf",DZAI_directory,_worldname];
 	[] execVM format ["%1\init\world_map_configs\world_%2.sqf",DZAI_directory,_worldname];
 } else {
 	"DZAI_centerMarker" setMarkerSize [7000, 7000];
-
 	DZAI_newMap = true;
-	diag_log "[DZAI] Unrecognized worldname found. Static AI spawns will be generated automatically if enabled.";
+	if (DZAI_staticAI) then {diag_log "[DZAI] Unrecognized worldname found. Static AI spawns will be generated automatically.";};
 };
 
-//Initialize AI settings
-if (DZAI_zombieEnemy) then {diag_log "[DZAI] AI to zombie hostility is enabled.";
-	if (DZAI_weaponNoise > 0) then {DZAI_zAggro = true; diag_log "[DZAI] Zombie aggro to AI is enabled.";} else {DZAI_zAggro = false;diag_log "[DZAI] Zombie aggro to AI is disabled.";};
-} else {diag_log "[DZAI] AI to zombie hostility is disabled.";};
-if (isNil "DDOPP_taser_handleHit") then {DZAI_taserAI = false;} else {DZAI_taserAI = true;diag_log "[DZAI] DDOPP Taser Mod detected.";};
+//Detect DDOPP Taser Addon
+DZAI_taserAI = (!isNil "DDOPP_taser_handleHit");
 
 //Continue loading required DZAI script files
 [] execVM format ['%1\scripts\DZAI_scheduler.sqf',DZAI_directory];
@@ -133,5 +120,5 @@ if (isNil "DDOPP_taser_handleHit") then {DZAI_taserAI = false;} else {DZAI_taser
 //Report DZAI startup settings to RPT log
 diag_log format ["[DZAI] DZAI settings: Debug Level: %1. DebugMarkers: %2. ModName: %3. DZAI_dynamicWeaponList: %4. VerifyTables: %5.",DZAI_debugLevel,DZAI_debugMarkers,DZAI_modName,DZAI_dynamicWeaponList,DZAI_verifyTables];
 diag_log format ["[DZAI] AI spawn settings: Static: %1. Dynamic: %2. Air: %3. Land: %4.",DZAI_staticAI,DZAI_dynAISpawns,(DZAI_maxHeliPatrols>0),(DZAI_maxLandPatrols>0)];
-diag_log format ["[DZAI] AI behavior settings: DZAI_findKiller: %1. DZAI_tempNVGs: %2. DZAI_weaponNoise: %3. DZAI_zombieEnemy: %4. DZAI_freeForAll: %5.",DZAI_findKiller,DZAI_tempNVGs,DZAI_weaponNoise,DZAI_zombieEnemy,DZAI_freeForAll];
+diag_log format ["[DZAI] AI behavior settings: DZAI_findKiller: %1. DZAI_tempNVGs: %2. DZAI_weaponNoise: %3. DZAI_zombieEnemy: %4. DZAI_freeForAll: %5",DZAI_findKiller,DZAI_tempNVGs,DZAI_weaponNoise,DZAI_zombieEnemy,DZAI_freeForAll];
 diag_log format ["[DZAI] DZAI loading completed in %1 seconds.",(diag_tickTime - _startTime)];

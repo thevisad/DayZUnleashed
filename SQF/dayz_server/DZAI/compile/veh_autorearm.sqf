@@ -44,23 +44,23 @@ if ((count _vehWeapons) > 0) then {
 			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Refueled AI patrol vehicle.";};
 		};
 		
+		sleep DZAI_refreshRate;
+		
 		_vehOK = ((alive _vehicle)&& {(!(isNull _vehicle))} && {(canMove _vehicle)});
 		_driverOK = ((!(isNull (driver _vehicle))) && {(alive (driver _vehicle))});
-
-		sleep DZAI_refreshRate;
 	};
 } else {
-	while {_vehOK && _driverOK} do {		
+	while {_vehOK && {_driverOK}} do {		
 		//Check if vehicle fuel is low
 		if (fuel _vehicle < 0.20) then {
 			_vehicle setFuel 1;
 			if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Refueled AI patrol vehicle.";};
 		};
 
+		sleep DZAI_refreshRate;
+		
 		_vehOK = ((alive _vehicle)&& {(!(isNull _vehicle))} && {(canMove _vehicle)});
 		_driverOK = ((!(isNull (driver _vehicle))) && {(alive (driver _vehicle))});
-		
-		sleep DZAI_refreshRate;
 	};
 };
 

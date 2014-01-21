@@ -154,7 +154,7 @@ if (isServer and isNil "sm_done") then {
 	
 	
 	for "_i" from 1 to 5 do {
-		diag_log "HIVE: trying to get objects";
+		diag_log "SM: Streaming Vehicles";
 		_key = format["CHILD:302:%1:", dayZ_instance];
 		_hiveResponse = _key call server_hiveReadWrite;  
 		if ((((isnil "_hiveResponse") || {(typeName _hiveResponse != "ARRAY")}) || {((typeName (_hiveResponse select 1)) != "SCALAR")}) || {(_hiveResponse select 1 > 2000)}) then {
@@ -162,7 +162,7 @@ if (isServer and isNil "sm_done") then {
 			_hiveResponse = ["",0];
 		} 
 		else {
-			diag_log ("HIVE: found "+str(_hiveResponse select 1)+" objects" );
+			diag_log ("SM: found "+str(_hiveResponse select 1)+" vehicles" );
 			_i = 99; // break
 		};
 	};
@@ -177,10 +177,12 @@ if (isServer and isNil "sm_done") then {
 			//diag_log (format["HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]);
 		};
 		diag_log ("HIVE: got " + str(count _objectArray) + " objects");
+		/*
 #ifdef EMPTY_TENTS_CHECK
 		// check empty tents, remove some of them
 		[_objectArray, EMPTY_TENTS_GLOBAL_LIMIT, EMPTY_TENTS_USER_LIMIT] call fa_removeExtraTents;
 #endif
+*/
 		// check vehicles count
 		[_objectArray] call fa_checkVehicles;
 	};
@@ -199,7 +201,18 @@ if (isServer and isNil "sm_done") then {
 		_damage = if ((typeName (_x select 8)) == "SCALAR") then { _x select 8 } else { 0.9 };  
 		_combination =	_x select 3;
 		_entity = nil;
-	
+		//diag_log("SM: _x " + str(_x));
+		//diag_log("SM: _action " + str(_action));
+		//diag_log("SM: _ObjectID " + str(_ObjectID));
+		//diag_log("SM: _class " + str(_class));
+		//diag_log("SM: _CharacterID " + str(_CharacterID));
+		//diag_log("SM: _worldspace " + str(_worldspace));
+		//diag_log("SM: _inventory " + str(_inventory));
+		//diag_log("SM: _hitpoints " + str(_hitpoints));
+		//diag_log("SM: _fuel " + str(_fuel));
+		//diag_log("SM: _damage " + str(_damage));
+		//diag_log("SM: _combination " + str(_combination));
+
 		_dir = floor(random(360));
 		_point = getMarkerpos "respawn_west";	
 		if (count _worldspace >= 1 && {(typeName (_worldspace select 0)) == "SCALAR"}) then { 
@@ -316,7 +329,7 @@ if (isServer and isNil "sm_done") then {
 					if (_class=="TentStorage") then {"NONE"} else {"CAN_COLLIDE"}
 				];	
 				_entity setVariable ["ObjectID", _ObjectID, true];
-				
+				//diag_log("SM: _entity " + str(_entity));
 				// fix for leading zero issues on safe codes after restart
 				if (_class == "VaultStorageLocked") then {
 					_entity setVariable ["OEMPos", _point, true];
@@ -340,15 +353,14 @@ if (isServer and isNil "sm_done") then {
 					_entity addMPEventHandler ["MPKilled",{_this call vehicle_handleServerKilled;}]; 
 				};
 				//diag_log ("DW_DEBUG " + _class + " #" + str(_ObjectID) + " pos=" +  	(_point call fa_coor2str) + ", damage=" + str(_damage)  );
+				diag_log("SM: Spawned " + str(_x));
 			}
 			else { // delete object -- this has been comented out: object are never really deleted from hive
 			/*	_key = format["CHILD:306:%1:%2:%3:", _ObjectID, [], 1];
 				_rawData = "HiveEXT" callExtension _key;
 				_key = format["CHILD:304:%1:",_ObjectID]; // delete by ID (not UID which is handler 310)
 				_rawData = "HiveEXT" callExtension _key;*/
-#ifdef OBJECT_DEBUG
-				diag_log (format["IGNORED %1 oid#%2 cid:%3 ",_class, _ObjectID, _CharacterID ]);
-#endif
+				diag_log (format["SM: IGNORED %1 ObjectUID: %2 Character:%3 dmg: %4",_class, _ObjectID, _CharacterID, _damage ]);
 			};
 		};
 //diag_log(format["VEH MAINTENANCE DEBUG %1 %2", __FILE__, __LINE__]);

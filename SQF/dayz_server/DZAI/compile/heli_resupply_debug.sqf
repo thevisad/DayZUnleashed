@@ -39,13 +39,13 @@ _wpmarker setMarkerBrush "SolidBorder";
 _wpmarker setMarkerSize [100, 100];
 
 //Wait until helicopter has pilot and script has finished finding helicopter's weapons.
-waitUntil {sleep 0.1; (!isNil "_heliWeapons" && !isNull (driver _helicopter))};
+waitUntil {sleep 0.1; (!isNil "_heliWeapons" && {!isNull (driver _helicopter)})};
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Helicopter %1 driver is %2. Crew is %3. Vehicle weapons: %4.",(typeOf _helicopter),(driver _helicopter),(crew _helicopter),_heliWeapons];};
 _startTime = time;
 
 if ((count _heliWeapons) > 0) then {
 	//For armed air vehicles
-	while {(alive _helicopter)&&(!(isNull _helicopter))} do {	
+	while {(alive _helicopter)&&{(!(isNull _helicopter))}} do {	
 		//Check if helicopter ammunition needs to be replenished
 		{
 			if ((_helicopter ammo _x) < 20) then {
@@ -84,7 +84,7 @@ if ((count _heliWeapons) > 0) then {
 	};
 } else {
 	//For unarmed air vehicles
-	while {(alive _helicopter)&&(!(isNull _helicopter))} do {		
+	while {(alive _helicopter)&&{(!(isNull _helicopter))}} do {			
 		//Check if helicopter fuel is low
 		if (fuel _helicopter < 0.20) then {
 			_helicopter setFuel 1;

@@ -10,12 +10,13 @@ private ["_unitGroup","_targetPlayer","_startPos","_transmitRange","_chaseDist"]
 _startPos = _this select 0;
 _targetPlayer = _this select 1;
 _unitGroup = _this select 2;
+_chaseDist = _this select 3;
 
 _groupSize = _unitGroup getVariable ["GroupSize",0];
 if (_groupSize == 0) exitWith {if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: All units in group are dead. (fn_findKiller)";};};
 
 //If group is already pursuing player and target player has killed another group member, then extend pursuit time.
-if (((_unitGroup getVariable ["pursuitTime",0]) > 0)&&((_unitGroup getVariable ["targetKiller",objNull]) == _targetPlayer)) exitWith {
+if (((_unitGroup getVariable ["pursuitTime",0]) > 0) && {((_unitGroup getVariable ["targetKiller",objNull]) == _targetPlayer)}) exitWith {
 	_unitGroup setVariable ["pursuitTime",((_unitGroup getVariable ["pursuitTime",0]) + 20)];
 	if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Pursuit time +20 sec for Group %1 (Target: %2) to %3 seconds (fn_findKiller).",_unitGroup,name _targetPlayer,(_unitGroup getVariable ["pursuitTime",0]) - time]};
 };
@@ -26,7 +27,7 @@ if (((_unitGroup getVariable ["pursuitTime",0]) > 0)&&((_unitGroup getVariable [
 _startPos = _unitGroup getVariable ["trigger",_victim];
 if (isNull _startPos) then {_startPos = getPosATL _targetPlayer};
 _transmitRange = 125; //distance to broadcast radio text around AI group leader
-_chaseDist = 300;
+//_chaseDist = 300;
 
 if ((_startPos distance _targetPlayer) < _chaseDist) then {
 	private ["_targetPlayerPos","_leader"];
@@ -56,7 +57,7 @@ if ((_startPos distance _targetPlayer) < _chaseDist) then {
 		
 		if (DZAI_radioMsgs) then {
 			_leader = (leader _unitGroup);
-			if (((_unitGroup getVariable ["GroupSize",0]) > 1) && !(_leader getVariable ["unconscious",false])) then {
+			if (((_unitGroup getVariable ["GroupSize",0]) > 1) && {!(_leader getVariable ["unconscious",false])}) then {
 				private ["_nearbyUnits","_radioSpeech"];
 				_nearbyUnits = (getPosATL (leader _unitGroup)) nearEntities ["CAManBase",_transmitRange];
 				{
@@ -93,7 +94,7 @@ if ((_startPos distance _targetPlayer) < _chaseDist) then {
 	
 	if (DZAI_radioMsgs) then {
 		_leader = (leader _unitGroup);
-		if (((_unitGroup getVariable ["GroupSize",0]) > 1) && !(_leader getVariable ["unconscious",false])) then {
+		if (((_unitGroup getVariable ["GroupSize",0]) > 1) && {!(_leader getVariable ["unconscious",false])}) then {
 			private ["_nearbyUnits","_radioSpeech","_radioText"];
 			_radioText = if (alive _targetPlayer) then {"%1 (Bandit Leader): Lost contact with target. Breaking off pursuit."} else {"%1 (Bandit Leader): Target has been eliminated."};
 			_radioSpeech = format [_radioText,(name (leader _unitGroup))];

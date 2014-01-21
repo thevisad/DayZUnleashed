@@ -140,6 +140,17 @@ class ItemAluminumBar: CA_Magazine
 	model = "\z\addons\dayz_epoch\models\aluminum_bar.p3d";
 	picture = "\z\addons\dayz_epoch\pictures\equip_alum_bar_CA.paa";
 	descriptionShort = "1oz Aluminum Bar";
+	class ItemActions {			
+		class Crafting
+		{
+			text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
+			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+			neednearby[] = {"workshop"};
+			requiretools[] = {"ItemToolbox"};
+			output[] = {{"PartGeneric",1}};
+			input[] = {{"ItemAluminumBar",4}};
+		};
+	};
 	
 };
 class ItemTinBar: CA_Magazine
@@ -151,5 +162,15 @@ class ItemTinBar: CA_Magazine
 	model = "\z\addons\dayz_epoch\models\tin_bar.p3d";
 	picture = "\z\addons\dayz_epoch\pictures\equip_tin_bar_CA.paa";
 	descriptionShort = "1oz Tin Bar";
-	
+	class ItemActions {			
+		class Crafting
+		{
+			text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
+			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+			neednearby[] = {"workshop"};
+			requiretools[] = {"ItemToolbox"};
+			output[] = {{"PartGeneric",1}};
+			input[] = {{"ItemTinBar",4}};
+		};
+	};
 };

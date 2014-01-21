@@ -33,7 +33,7 @@
 			};
 		};
 	};
-	
+	/*
 	class ItemSandbag : CA_Magazine {
 		scope = public;
 		count = 1;
@@ -52,25 +52,7 @@
 			};
 		};
 	};
-	
-	class ItemTankTrap : CA_Magazine {
-		scope = public;
-		count = 1;
-		type = 256;
-		displayName = $STR_EQUIP_NAME_22;
-		model = "\dayz_equip\models\tank_trap_kit.p3d";
-		picture = "\dayz_equip\textures\equip_tanktrap_kit_CA.paa";
-		descriptionShort = $STR_EQUIP_DESC_22;
-		
-		class ItemActions {
-			class Build {
-				text = $STR_ACTION_BUILD;
-				script = "spawn player_build; r_action_count = r_action_count + 1;";
-				require = "ItemToolbox";
-				create = "Hedgehog_DZ";
-			};
-		};
-	};
+	*/
 	
 	class TrapBear : CA_Magazine {
 		scope = public;
@@ -91,21 +73,3 @@
 		};
 	};
 	
-	class ItemWire : CA_Magazine {
-		scope = public;
-		count = 1;
-		type = 256;
-		displayName = $STR_EQUIP_NAME_23;
-		model = "\dayz_equip\models\Fence_wire_kit.p3d";
-		picture = "\dayz_equip\textures\equip_fencewire_kit_CA.paa";
-		descriptionShort = $STR_EQUIP_DESC_23;
-		
-		class ItemActions {
-			class Build {
-				text = $STR_ACTION_BUILD;
-				script = "spawn player_build; r_action_count = r_action_count + 1;";
-				require = "ItemToolbox";
-				create = "Wire_cat1";
-			};
-		};
-	};

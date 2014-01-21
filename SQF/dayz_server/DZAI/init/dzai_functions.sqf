@@ -53,10 +53,10 @@ if (DZAI_debugMarkers < 1) then {
 };
 
 //Compile zombie aggro functions
-if (DZAI_zombieEnemy && {(DZAI_weaponNoise > 0)}) then { // Optional Zed-to-AI aggro functions
+if (DZAI_zombieEnemy && {DZAI_weaponNoise}) then { // Optional Zed-to-AI aggro functions
 	ai_fired = compile preprocessFileLineNumbers format ["%1\compile\ai_fired.sqf",DZAI_directory];
 };
-if (DZAI_zombieEnemy && {(DZAI_passiveAggro || {(DZAI_weaponNoise > 0)})}) then {
+if (DZAI_zombieEnemy && {(DZAI_passiveAggro || {DZAI_weaponNoise})}) then {
 	ai_alertzombies = compile preprocessFileLineNumbers format ["%1\compile\ai_alertzombies.sqf",DZAI_directory];
 };
 
@@ -262,7 +262,7 @@ DZAI_unconscious = {
 };
 
 //Generic function to delete a specified object (or array of objects) after a specified time (seconds).
-DZAI_deleteObject = {
+/*DZAI_deleteObject = {
 	private["_obj","_delay"];
 	_obj = _this select 0;
 	_delay = if ((count _this) > 1) then {_this select 1} else {300};
@@ -281,6 +281,13 @@ DZAI_deleteObject = {
 		_obj call DZAI_unprotectObject;
 		deleteVehicle _obj;
 	};
+};*/
+
+DZAI_deleteObject = {
+	_obj = _this select 0;
+	_delay = _this select 1;
+	
+	DZAI_deleteObjectQueue set [count DZAI_deleteObjectQueue,[_obj,(time + _delay)]];
 };
 
 //If a trigger's calculated totalAI value is zero, then add new group to respawn queue to retry spawn until a nonzero value is found.
@@ -321,18 +328,28 @@ DZAI_retrySpawn = {
 
 //Finds a position that does not have a player within a certain distance.
 DZAI_findSpawnPos = {
-	private ["_spawnPos","_attempts","_continue","_spawnpool"];
+	private ["_spawnPos","_attempts","_continue","_spawnpool","_maxAttempts"];
 	
 	_attempts = 0;
 	_continue = true;
 	_spawnpool = [] + _this;
-	while {_continue && {(_attempts <= 6)}} do {
+	_maxAttempts = ((count _spawnpool) min 6);
+	while {_continue && {(_attempts <= _maxAttempts)}} do {
 		_index = floor (random (count _spawnpool));
 		_spawnPos = _spawnpool select _index;
-		_spawnpool set [_index,objNull]; _spawnpool = _spawnpool - [objNull];
-		if ((({isPlayer _x} count (_spawnPos nearEntities [["AllVehicles","CAManBase"],50])) == 0) or {((count _spawnpool) == 0)}) then {_continue = false} else {_attempts = _attempts + 1;};
-		if ((DZAI_debugLevel > 0) && {(_attempts > 0)}) then {diag_log format ["DZAI Debug: Player found within 50m of chosen spawn position. (attempt %1/6).",_attempts];};
+		if (({isPlayer _x} count (_spawnPos nearEntities [["AllVehicles","CAManBase"],50])) == 0) then {
+			_continue = false;
+		} else {
+			_spawnpool set [_index,objNull]; 
+			_spawnpool = _spawnpool - [objNull];
+			_attempts = _attempts + 1;
+			if (_attempts == _maxAttempts) then {
+				_spawnPos = [];
+			};
+		};
+		if ((DZAI_debugLevel > 0) && {(_attempts > 0)}) then {diag_log format ["DZAI Debug: Player found within 50m of chosen spawn position. (attempt %1/%2).",_attempts,_maxAttempts];};
 	};
+
 	_spawnPos
 };
 
@@ -381,7 +398,7 @@ DZAI_setTrigVars = {
 		_trigger setVariable ["initialized",true];
 		if (triggerActivated _trigger) then {DZAI_actTrigs = DZAI_actTrigs + 1;};
 		if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Initialized static trigger at %1. GroupArray: %2, PatrolDist: %3. equipType: %4. %LocationArray %5 positions, MaxUnits %6.",triggerText(_this select 0),(_this select 1),(_this select 2),(_this select 3),count (_this select 4),(_this select 5)];};
-		} else {
+	} else {
 		if (triggerActivated _trigger) then {DZAI_actDynTrigs = DZAI_actDynTrigs + 1;};
 		if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Initialized dynamic trigger at %1. GroupArray: %2.",getPosATL (_this select 0),(_this select 1)];};
 	};
@@ -393,7 +410,7 @@ DZAI_setTrigVars = {
 DZAI_getObjMon = {
 	private ["_objectMonitor"];
 	_objectMonitor = switch (true) do {
-		case ((!isNil "dayz_serverObjectMonitor")&&(isNil "PVDZE_serverObjectMonitor")): {dayz_serverObjectMonitor};
+		case ((isNil "PVDZE_serverObjectMonitor") && {(!isNil "dayz_serverObjectMonitor")}): {dayz_serverObjectMonitor};
 		case (!isNil "PVDZE_serverObjectMonitor"): {PVDZE_serverObjectMonitor};
 		case default {[]};
 	};
@@ -484,3 +501,16 @@ DZAI_checkClassname = {
 	_result
 };
 
+DZAI_abortDynSpawn = {
+	private["_trigger"];
+	_trigger = _this;
+	
+	DZAI_dynTriggerArray = DZAI_dynTriggerArray - [_trigger];
+	DZAI_actDynTrigs = DZAI_actDynTrigs - 1;
+	DZAI_curDynTrigs = DZAI_curDynTrigs - 1;
+	if (DZAI_debugMarkers > 0) then {deleteMarker format["trigger_%1",_trigger]};
+
+	deleteVehicle _trigger;
+	
+	false
+};

@@ -30,6 +30,10 @@ if (_totalAI == 0) exitWith {
 
 //Select spawn position
 _spawnPos = if ((count _spawnPositions) > 0) then {_spawnPositions call DZAI_findSpawnPos} else {[(getPosATL _trigger),random (_patrolDist),random(360),false] call SHK_pos};
+if ((count _spawnPos) == 0) exitWith {
+	0 = [_trigger,_unitGroup,true] spawn fnc_respawnHandler;
+	false
+};
 
 //Respawn the group
 //_weapongrade = [DZAI_weaponGrades,_gradeChances] call fnc_selectRandomWeighted;

@@ -71,7 +71,7 @@ _unitGroup setVariable ["groupSize",_unitsAlive];
 
 0 = [_trigger] spawn fnc_despawnBandits;
 
-[_vehicle,900] spawn DZAI_deleteObject;
+[_vehicle,900] call DZAI_deleteObject;
 DZAI_curLandPatrols = DZAI_curLandPatrols - 1;
 0 = ["land"] spawn fnc_respawnHandler;
 if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: AI vehicle %1 evacuated at %2.",typeOf _vehicle,mapGridPosition _vehicle];};

@@ -26,11 +26,11 @@ _unitType = _unitGroup getVariable ["unitType",""];
 switch (_unitType) do {
 	case "static":
 	{
-		[_victim,_unitGroup] spawn DZAI_AI_killed_static;
+		[_victim,_killer,_unitGroup] spawn DZAI_AI_killed_static;
 	};
 	case "dynamic":
 	{
-		[_victim,_unitGroup] spawn DZAI_AI_killed_dynamic;
+		[_victim,_killer,_unitGroup] spawn DZAI_AI_killed_dynamic;
 	};
 	case "air": 
 	{

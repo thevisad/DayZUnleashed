@@ -1,18 +1,19 @@
 /*
 	fnc_staticAIDeath
 
-	Usage: _victim call fnc_staticAIDeath;
+	Usage: [_victim,_killer,_unitGroup] spawn DZAI_AI_killed_static;
 	
 	Description: Script is called when an AI unit is killed, and waits for the specified amount of time before respawning the unit into the same group it was part of previously.
 	If the killed unit was the last surviving unit of its group, a dummy AI unit is created to occupy the group until a dead unit in the group is respawned.
 	
-	Last updated: 3:05 PM 6/24/2013
+	Last updated: 10:42 PM 1/11/2014
 */
 
-private ["_victim","_sleepTime","_unitGroup","_trigger","_dummy","_unitsAlive"];
+private ["_victim","_killer","_sleepTime","_unitGroup","_trigger","_dummy","_unitsAlive"];
 
 _victim = _this select 0;
-_unitGroup = _this select 1;
+_killer = _this select 1;
+_unitGroup = _this select 2;
 
 _trigger = _unitGroup getVariable "trigger";
 _unitsAlive = {alive _x} count (units _unitGroup);
@@ -59,5 +60,11 @@ if (_unitsAlive == 0) then {
 		deleteMarker (_trigger getVariable ["spawnmarker",""]);
 		deleteVehicle _trigger;
 		DZAI_actTrigs = DZAI_actTrigs - 1;
+	};
+} else {
+	if (isPlayer _killer) then {
+		_unitGroup reveal [vehicle _killer,4];
+		_unitGroup setFormDir ([(leader _unitGroup),_killer] call BIS_fnc_dirTo);
+		if (DZAI_findKiller) then {_unitGroup setBehaviour "AWARE"; 0 = [_trigger,_killer,_unitGroup,300] spawn DZAI_huntKiller} else {_unitGroup setBehaviour "COMBAT"};
 	};
 };

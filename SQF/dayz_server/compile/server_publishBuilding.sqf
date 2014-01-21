@@ -5,6 +5,10 @@ _building = 		_this select 1;
 _worldspace = 	_this select 2;
 _class = 		_this select 3;
 //_squad = 		_this select 4;
+diag_log("USPB: CharID " + str(_charID));
+diag_log("USPB: Building " + str(_building));
+diag_log("USPB: Worldspace " + str(_worldspace));
+diag_log("USPB: Class " + str(_class));
 
 _squad = 0;
 _playerUID = 0;
@@ -12,6 +16,7 @@ _playerUID = 0;
 _combination = 0;
 if (!(_building isKindOf "Building")) exitWith {
 	deleteVehicle _building;
+	diag_log("CTP: Deleting Building " + str(_building));
 };
 
 //Commenting this out for the time being to identify potential issues.
@@ -25,9 +30,15 @@ _uid = _worldspace call dayz_objectUID2;
 //Send request
 
 _combination = floor(random 899) + 100;
-_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],_charID,_squad ,_combination];
-//_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_uid,_class,_charID,_worldspace, [],[],_squad ,_combination];
-//diag_log ("HIVE: WRITE: "+ str(_key));
+if (_building isKindOf "TentStorage" || _building isKindOf "VaultStorageLocked" ) then {
+	_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance, _class, 0 , _charID, _worldspace, [], [], 0,_uid];
+} else 
+{
+	_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],_charID,_squad ,_combination];
+	//_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_uid,_class,_charID,_worldspace, [],[],_squad ,_combination];
+	//diag_log ("HIVE: WRITE: "+ str(_key));
+};
+
 _key call server_hiveWrite;
 
 _building setVariable ["ObjectUID", _uid,true];

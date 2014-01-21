@@ -40,7 +40,7 @@ if ((count _positionArray) > 0) then {
 	private ["_spawnPositions"];
 	_spawnPositions = [];
 	{
-		if ((((getMarkerPos _x) select 0) != 0)&&(((getMarkerPos _x) select 1) != 0)) then {
+		if ((((getMarkerPos _x) select 0) != 0)&&{(((getMarkerPos _x) select 1) != 0)}) then {
 			_spawnPositions set [(count _spawnPositions),(getMarkerPos _x)];
 			deleteMarker _x;
 		};
@@ -52,4 +52,4 @@ if ((count _positionArray) > 0) then {
 
 deleteMarker _spawnMarker;
 
-true
+_trigger

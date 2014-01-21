@@ -3,7 +3,7 @@
 	
 	Description: Used for dynamically spawned AI. Creates a MOVE waypoint directing AI to a random player's position, then uses BIN_taskPatrol to create a circular patrol path around player's position.
 	
-	Last updated: 8:41 PM 11/17/2013
+	Last updated: 2:12 AM 1/11/2014
 */
 
 private ["_unitGroup","_spawnPos","_waypoint","_patrolDist","_statement","_targetPlayer","_triggerPos","_transmitRange","_leader","_seekRange"];
@@ -25,10 +25,11 @@ _waypoint setWaypointCompletionRadius 30;
 _waypoint setWaypointTimeout [5,5,5];
 _waypoint setWaypointStatements ["true","group this setCurrentWaypoint [group this,0]"];
 _unitGroup setCurrentWaypoint _waypoint;
+_unitGroup setVariable ["seekActive",true];
 
 if (DZAI_radioMsgs) then {
 	_leader = (leader _unitGroup);
-	if (((_unitGroup getVariable ["GroupSize",0]) > 1) && !(_leader getVariable ["unconscious",false])) then {
+	if (((_unitGroup getVariable ["GroupSize",0]) > 1) && {!(_leader getVariable ["unconscious",false])}) then {
 		private ["_nearbyUnits","_radioSpeech","_radioText"];
 		_nearbyUnits = (getPosATL _targetPlayer) nearEntities ["CAManBase",_transmitRange];
 		{
@@ -57,7 +58,7 @@ while {
 		if ((_leader distance _targetPlayer) < 100) then {(units _unitGroup) doFire _targetPlayer};
 		if (DZAI_radioMsgs) then {
 			//Warn player of AI bandit presence if they have a radio.
-			if (((_unitGroup getVariable ["GroupSize",0]) > 1) && !(_leader getVariable ["unconscious",false]) && (isNull (_unitGroup getVariable ["targetKiller",objNull])) && !(isNull _targetPlayer)) then {
+			if (((_unitGroup getVariable ["GroupSize",0]) > 1) && {!(_leader getVariable ["unconscious",false])} && {!(isNull _targetPlayer)}) then {
 				private ["_nearbyUnits","_radioSpeech"];
 				_nearbyUnits = (getPosATL _targetPlayer) nearEntities ["CAManBase",_transmitRange];
 				
@@ -96,14 +97,15 @@ if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Group %1 has exited
 _waypoint setWaypointStatements ["true","if ((random 1) < 0.50) then { group this setCurrentWaypoint [(group this), (floor (random (count (waypoints (group this)))))];};"];
 //_patrolCenter = if (!(isNull _targetPlayer)) then {getPosATL _targetPlayer} else {getPosATL (leader _unitGroup)};
 0 = [_unitGroup,_triggerPos,_patrolDist,DZAI_debugMarkers] spawn DZAI_BIN_taskPatrol;
+_unitGroup setVariable ["seekActive",false];
 
 sleep 5;
 
 if (DZAI_radioMsgs) then {
 	_leader = (leader _unitGroup);
-	if (((_unitGroup getVariable ["GroupSize",0]) > 1) && !(_leader getVariable ["unconscious",false]) && !(isNull _targetPlayer)) then {
+	if (((_unitGroup getVariable ["GroupSize",0]) > 1) && {!(_leader getVariable ["unconscious",false])} && {!(isNull _targetPlayer)}) then {
 		private ["_nearbyUnits","_radioSpeech","_radioText"];
-		_nearbyUnits = (getPosATL (leader _unitGroup)) nearEntities ["CAManBase",_transmitRange];
+		_nearbyUnits = (getPosATL _leader) nearEntities ["CAManBase",_transmitRange];
 		{
 			if ((isPlayer _x)&&{(_x hasWeapon "ItemRadio")}) then {
 			//if (isPlayer _x) then {

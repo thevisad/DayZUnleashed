@@ -10,12 +10,12 @@ _itemTypes = [] + getArray (_config >> "lootType");
 _lootChance = getNumber (_config >> "lootChance");
 _countPositions = count _positions;
 
-diag_log("BSL: Object " + str(_obj));
-diag_log("BSL: Type " + str(_type));
-diag_log("BSL: Positions " + str(_positions));
-diag_log("BSL: ItemTypes " + str(_itemTypes));
-diag_log("BSL: LootChance " + str(_lootChance));
-diag_log("BSL: CountPositions " + str(_countPositions));
+//diag_log("BSL: Object " + str(_obj));
+//diag_log("BSL: Type " + str(_type));
+//diag_log("BSL: Positions " + str(_positions));
+//diag_log("BSL: ItemTypes " + str(_itemTypes));
+//diag_log("BSL: LootChance " + str(_lootChance));
+//diag_log("BSL: CountPositions " + str(_countPositions));
 
 _qty = 0; // effective quantity of spawned weaponholder
 
@@ -39,16 +39,16 @@ _bias = (_bias + random(100-_bias)) / 100;
 	//diag_log (str(dayz_CBLBase));
 	//diag_log ("_type: " +str(_type));
 				_index = dayz_CBLBase find _type;
-	diag_log("BSL: Loop Index 1 " + str(_index));
+	//diag_log("BSL: Loop Index 1 " + str(_index));
 	//diag_log ("weights: " +str(_weights));
 				_cntWeights = count _weights;
 	//diag_log ("cntWeights: " +str(_cntWeights));
 				_index = floor(random _cntWeights);
-	diag_log("BSL: Loop Index 2 " + str(_index));
+	//diag_log("BSL: Loop Index 2 " + str(_index));
 				_index = _weights select _index;
-	diag_log("BSL: Loop Index 3 " + str(_index));
+	//diag_log("BSL: Loop Index 3 " + str(_index));
 				_itemType = _itemTypes select _index;
-	diag_log("BSL: Loop ItemType " + str(_itemType));
+	//diag_log("BSL: Loop ItemType " + str(_itemType));
 	//diag_log format["Item: %1, Group: %2", _itemType select 0, _itemType select 1];
 				[_itemType select 0, _itemType select 1 , _iPos, 0.0] call spawn_loot;
 
