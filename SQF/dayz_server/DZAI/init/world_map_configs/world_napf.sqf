@@ -43,7 +43,7 @@ if (DZAI_staticAI) then {
 	_this setTriggerActivation ["ANY", "PRESENT", false];
 	_this setTriggerTimeout [20, 25, 30, false];
 	_this setTriggerText "suhrenfeld_internal";
-	_this setTriggerStatements ["{isPlayer _x} count thisList > 0;", "nul = [3,8,850,thisTrigger,[],3,2] call fnc_spawnBandits;", "nul = [thisTrigger] spawn fnc_despawnBandits;"];
+	_this setTriggerStatements ["{isPlayer _x} count thisList > 0;", "nul = [8,24,850,thisTrigger,[],3,1] call fnc_spawnBandits;", "nul = [thisTrigger] spawn fnc_despawnBandits;"];
 	_trigger_6 = _this;
 
 	_this = createTrigger ["EmptyDetector", [18338.666, 17120.857]];
@@ -51,7 +51,7 @@ if (DZAI_staticAI) then {
 	_this setTriggerActivation ["ANY", "PRESENT", false];
 	_this setTriggerTimeout [20, 25, 30, false];
 	_this setTriggerText "pfeffikon";
-	_this setTriggerStatements ["{isPlayer _x} count thisList > 0;", "nul = [3,5,350,thisTrigger,[],3,1] call fnc_spawnBandits;", "nul = [thisTrigger] spawn fnc_despawnBandits;"];
+	_this setTriggerStatements ["{isPlayer _x} count thisList > 0;", "nul = [3,8,350,thisTrigger,[],3,1] call fnc_spawnBandits;", "nul = [thisTrigger] spawn fnc_despawnBandits;"];
 	_trigger_9 = _this;
 
 	_this = createTrigger ["EmptyDetector", [14408.414, 16992.586]];

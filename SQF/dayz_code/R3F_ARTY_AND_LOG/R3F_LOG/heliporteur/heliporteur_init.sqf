@@ -21,6 +21,6 @@ if (isNil "_heliporte") then
 	_heliporteur setVariable ["R3F_LOG_heliporte", objNull, false];
 };
 
-_heliporteur addAction [("<t color=""#dddd00"">" + STR_R3F_LOG_action_heliporter + "</t>"), "R3F_ARTY_AND_LOG\R3F_LOG\heliporteur\heliporter.sqf", nil, 6, true, true, "", "R3F_LOG_objet_addAction == _target && R3F_LOG_action_heliporter_valide"];
+_heliporteur addAction [("<t color=""#dddd00"">" + STR_R3F_LOG_action_heliporter + "</t>"), "\z\addons\dayz_code\R3F_ARTY_AND_LOG\R3F_LOG\heliporteur\heliporter.sqf", nil, 6, true, true, "", "R3F_LOG_objet_addAction == _target && R3F_LOG_action_heliporter_valide"];
 
-_heliporteur addAction [("<t color=""#dddd00"">" + STR_R3F_LOG_action_heliport_larguer + "</t>"), "R3F_ARTY_AND_LOG\R3F_LOG\heliporteur\larguer.sqf", nil, 6, true, true, "", "R3F_LOG_objet_addAction == _target && R3F_LOG_action_heliport_larguer_valide"];
+_heliporteur addAction [("<t color=""#dddd00"">" + STR_R3F_LOG_action_heliport_larguer + "</t>"), "\z\addons\dayz_code\R3F_ARTY_AND_LOG\R3F_LOG\heliporteur\larguer.sqf", nil, 6, true, true, "", "R3F_LOG_objet_addAction == _target && R3F_LOG_action_heliport_larguer_valide"];

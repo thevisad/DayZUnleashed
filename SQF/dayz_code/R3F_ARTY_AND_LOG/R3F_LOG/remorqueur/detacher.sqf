@@ -45,7 +45,7 @@ else
 				(isNull (_objet getVariable "R3F_LOG_est_deplace_par"))
 			) then
 			{
-				[_objet] execVM "R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\deplacer.sqf";
+				[_objet] execVM "\z\addons\dayz_code\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\deplacer.sqf";
 			};
 		}
 		else

@@ -46,7 +46,7 @@ else
 		
 		if ({_objet_a_decharger isKindOf _x} count R3F_LOG_CFG_objets_deplacables > 0) then
 		{
-			[_objet_a_decharger] execVM "R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\deplacer.sqf";
+			[_objet_a_decharger] execVM "\z\addons\dayz_code\R3F_ARTY_AND_LOG\R3F_LOG\objet_deplacable\deplacer.sqf";
 		}
 		else
 		{

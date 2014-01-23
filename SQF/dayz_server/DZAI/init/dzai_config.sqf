@@ -15,7 +15,7 @@ diag_log "[DZAI] Reading DZAI configuration file.";
 DZAI_debugLevel = 2;
 
 //Enable or disable debug markers. 0: Off, 1: Basic markers (Track AI position, locate patrol waypoints, locate dynamically-spawned triggers), 2: Extended markers (Basic markers + Static trigger markers and refreshing dynamic trigger markers) (Default: 0)										
-DZAI_debugMarkers = 2;	
+DZAI_debugMarkers = 0;	
 
 //Frequency of server monitor update to RPT log in seconds. The monitor periodically reports number of max/current AI units and dynamically spawned triggers into RPT log. (Default: 300, 0 = Disabled)										
 DZAI_monitorRate = 300;
