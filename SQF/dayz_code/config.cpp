@@ -47,7 +47,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"CAMisc3","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT"};
+		requiredAddons[] = {"dayz_equip","dayz_weapons","CAMisc3","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT"};
 	};
 	class DZ_DebriefingRemoved	{
 		units[] = {};
@@ -106,9 +106,8 @@ class CfgAddons
 	{
 		class dayz
 		{
-			list[] = {
-						"aif_arma1buildings","BB_OA_Female","cwr2_Buildings_Data","cwr2_Buildings","cwr2_Furniture","dayz","dayz_anim","dayz_communityassets","dayz_epoch","dayz_equip","dayz_sfx","dayz_weapons","CAWheeled2_Kamaz","ibr_rn","KPFS_UAZ451","KPFSWaySigns","KPFS_Weapons","KPFS_Weapons_WW2","MAP_EU","MBG_Buildings_2","MBG_Buildings_3","mbg_african_buildings","MBG_Killhouses","OSShDY","st_collision","st_evasive","SWM_Misc","SWM_SwissArms","unleashed_pack","endworld_wrecks"
-			};
+		list[] = {"dayz_code","dayz","dayz_equip","dayz_communityassets","dayz_weapons","dayz_sfx","ST_bunnyhop","st_collision","st_evasive","BB_OA_Female","swm_swissarms","swm_misc"};
+
 		};
 	};
 };
