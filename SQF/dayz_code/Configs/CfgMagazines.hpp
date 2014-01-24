@@ -114,7 +114,7 @@ class CfgMagazines {
 	#include "CfgMagazines\DZE\ItemTankTrap.hpp"
 	#include "CfgMagazines\ItemSodaEmpty.hpp"
 	#include "CfgMagazines\DZE\ItemSodaOrangeSherbet.hpp"
-	//#include "CfgMagazines\DZE\ItemSodaRbull.hpp"
+	#include "CfgMagazines\DZE\ItemPartGeneric.hpp"
 	#include "CfgMagazines\DZE\ItemSkins.hpp"
 	#include "CfgMagazines\DZE\ItemVault.hpp"
 	#include "CfgMagazines\DZE\ItemZombieParts.hpp"
@@ -124,6 +124,7 @@ class CfgMagazines {
 	#include "CfgMagazines\DZE\PartWoodPlywood.hpp"
 	#include "CfgMagazines\DZE\TrashTinCan.hpp"
 	#include "CfgMagazines\TrashTinCan.hpp"
+	#include "CfgMagazines\ItemNewsPaper.hpp"
 	//#include "CfgMagazines\DZE_CfgMagazines.hpp"
 	//#include "CfgMagazines\Fuelcan.hpp"
 };
