@@ -356,7 +356,6 @@ class CfgBuildingLoot {
 			{"M249_DZ","weapon",0.04},
 			{"BAF_L85A2_RIS_SUSAT","weapon",0.03},
 			{"DMR_DZ","weapon",0.06},
-			{"MedBox0","object",0.05},
 			{"NVGoggles","weapon",0.01},
 			{"AmmoBoxSmall_556","object",0.05},
 			{"AmmoBoxSmall_762","object",0.05},
@@ -400,7 +399,6 @@ class CfgBuildingLoot {
 			{"Mk_48_DZ","weapon",0.03},
 			{"M249_DZ","weapon",0.04},
 			{"BAF_L85A2_RIS_Holo","weapon",0.03},
-			{"MedBox0","object",0.05},
 			{"NVGoggles","weapon",0.01},
 			{"AmmoBoxSmall_556","object",0.05},
             {"Skin_Sniper1_DZ","magazine",0.08},
@@ -478,8 +476,7 @@ class CfgBuildingLoot {
 		lootChance = 0.2;
 		lootPos[] = {};
 		lootType[] = {
-			{"","hospital",0.5},
-			{"MedBox0","object",0.01}
+			{"","hospital",0.5}
 		};
 	};
 	class Military: Default {
@@ -583,7 +580,6 @@ class CfgBuildingLoot {
 			{"trg42_t8m","weapon",0.03},
 			{"trg42_camo","weapon",0.03},
 			{"trg42_t8m_camo","weapon",0.03},
-			{"hecate2","weapon",0.03},
 			{"p220","weapon",0.03},
 			{"p226","weapon",0.03},
 			{"p226_sd","weapon",0.03},
@@ -858,7 +854,6 @@ class CfgBuildingLoot {
 			{"trg42_t8m","weapon",0.03},
 			{"trg42_camo","weapon",0.03},
 			{"trg42_t8m_camo","weapon",0.03},
-			{"hecate2","weapon",0.03},
 			{"p220","weapon",0.03},
 			{"p226","weapon",0.03},
 			{"p226_sd","weapon",0.03},
