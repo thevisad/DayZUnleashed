@@ -33,6 +33,17 @@ while {true} do
 	
 	if(_gearbox_visible) then {
 		R3F_Weight = call R3F_WEIGHT_FNCT_GetWeight;
+		_survival_skill = [player,"Survival"] call DZU_fnc_getVariable;
+		if (!_survival_skill) then {_survival_skill = 1};
+		if (_survival_skill > 0) then 
+		{
+			_weight_reduction = _survival_skill * 4;
+			if (_weight_reduction > R3F_Weight)
+			{
+				R3F_Weight = R3F_Weight - _weight_reduction;
+			};
+		};
+		
 		if(_initial_text == "") then {
 			_control = _display displayCtrl ARMA2_CAPTIONGEARBOX;
 			_initial_text = ctrlText _control ;
@@ -43,6 +54,16 @@ while {true} do
 	}else{
 		if( _n > R3F_WEIGHT_LONG_DELAY) then {
 			R3F_Weight = call R3F_WEIGHT_FNCT_GetWeight;
+			_survival_skill = [player,"Survival"] call DZU_fnc_getVariable;
+			if (!_survival_skill) then {_survival_skill = 1};
+			if (_survival_skill > 0) then 
+			{
+				_weight_reduction = _survival_skill * 4;
+				if (_weight_reduction > R3F_Weight)
+				{
+					R3F_Weight = R3F_Weight - _weight_reduction;
+				};
+			};
 			_n = 0;
 		};
 		_n = _n + 1 ;
