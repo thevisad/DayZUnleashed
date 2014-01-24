@@ -47,7 +47,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"dayz_equip","dayz_weapons","CAMisc3","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT"};
+		requiredAddons[] = {"dayz_equip","dayz_weapons"}; 
 	};
 	class DZ_DebriefingRemoved	{
 		units[] = {};
@@ -67,7 +67,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzunleashed.com";
-		version = "0.97-Devbuild-01142014";
+		version = "0.97-Devbuild-01232014";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld
