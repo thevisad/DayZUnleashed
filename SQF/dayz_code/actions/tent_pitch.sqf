@@ -11,7 +11,7 @@ _model = getText (_config >> "model");
 if (r_action_count != 1) exitWith { cutText ["Wait for the previous action to complete to perform another!", "PLAIN DOWN"]; };
 
 // item is missing or tools are missing
-if ((!(_item IN magazines player)) OR {(_item != "ItemTent")}) exitWith {
+if ((!(_item IN magazines player)) OR {(_item isKindOf "TentStorage")}) exitWith {
 	r_action_count = 0;
 	cutText [format[(localize "str_player_31"),_text,(localize "str_player_31_pitch")] , "PLAIN DOWN"];
 };

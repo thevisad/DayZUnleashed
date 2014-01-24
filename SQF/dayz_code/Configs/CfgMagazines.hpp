@@ -115,7 +115,7 @@ class CfgMagazines {
 	#include "CfgMagazines\ItemSodaEmpty.hpp"
 	#include "CfgMagazines\DZE\ItemSodaOrangeSherbet.hpp"
 	//#include "CfgMagazines\DZE\ItemSodaRbull.hpp"
-	//#include "CfgMagazines\DZE\ItemTent.hpp"
+	#include "CfgMagazines\DZE\ItemSkins.hpp"
 	#include "CfgMagazines\DZE\ItemVault.hpp"
 	#include "CfgMagazines\DZE\ItemZombieParts.hpp"
 	#include "CfgMagazines\DZE\MetalBars.hpp"
