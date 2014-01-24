@@ -66,7 +66,7 @@ _object_position = {
 	};
 	_key = format["CHILD:305:%1:%2:%3:",_objectID,_worldspace,_fuel];
 	#ifdef OBJECT_DEBUG
-	diag_log ("SUO: Object Postion WRITE: "+ str(_key));
+	//diag_log ("SUO: Object Postion WRITE: "+ str(_key));
 	#endif
 
 	_key call server_hiveWrite;
@@ -88,7 +88,7 @@ _object_inventory = {
 			_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
 		};
 		#ifdef OBJECT_DEBUG
-		diag_log ("SUO: Object Inventory WRITE: "+ str(_key));
+		//diag_log ("SUO: Object Inventory WRITE: "+ str(_key));
 		#endif
 		_key call server_hiveWrite;
 	};
@@ -118,13 +118,13 @@ _object_damage = {
 		
 		if (_objectID == "0") then {
 			_key = format["CHILD:306:%1:%2:%3:",_uid,_array,_damage];
-			diag_log ("SUO: Object Damage UID: "+ str(_uid) + " Damage " + str(_damage));
+			//diag_log ("SUO: Object Damage UID: "+ str(_uid) + " Damage " + str(_damage));
 		} else {
 			_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
-			diag_log ("SUO: Object Damage OID: "+ str(_objectID) + " Damage " + str(_damage));
+			//diag_log ("SUO: Object Damage OID: "+ str(_objectID) + " Damage " + str(_damage));
 		};
 		#ifdef OBJECT_DEBUG
-		diag_log ("SUO: Object Damage WRITE: "+ str(_key));
+		//diag_log ("SUO: Object Damage WRITE: "+ str(_key));
 		#endif
 		_key call server_hiveWrite;	
 
@@ -133,7 +133,7 @@ _object_damage = {
 			needUpdate_objects = needUpdate_objects - [_object];
 		};
 		#ifdef OBJECT_DEBUG
-		diag_log format["SUO: Monitoring: %1",_object];
+		//diag_log format["SUO: Monitoring: %1",_object];
 		#endif
 		needUpdate_objects set [count needUpdate_objects, _object];
 	};

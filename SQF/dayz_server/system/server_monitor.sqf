@@ -49,7 +49,7 @@ if (isServer and isNil "sm_done") then {
 		private ["_key","_data","_result","_status","_buildingArray","_bldCount","_val","_countr","_idKey","_type","_ownerID","_worldspace","_dir","_wsDone","_inventory","_hitPoints","_squadID","_combination","_damage","_object","_classname","_i","_requirements","_isDestructable","_objWpnTypes","_objWpnQty","_isOK","_block","_hiveResponse","_objectArray","_objectCount"];
 		_key = format["CHILD:600:%1:", dayZ_instance];
 		_data = "HiveEXT" callExtension _key;
-		diag_log("BASEBUILDING: Fetching Base Buildings...");
+		//diag_log("BASEBUILDING: Fetching Base Buildings...");
 		//Process result
 		_result = call compile format ["%1", _data];
 		_status = _result select 0;
@@ -66,10 +66,10 @@ if (isServer and isNil "sm_done") then {
 				_buildingArray set [count _buildingArray, _result];
 				_bldCount = _bldCount + 1;
 			};
-			diag_log ("BASEBUILDING: Found " + str(_bldCount) + " Base Buildings!");
+			//diag_log ("BASEBUILDING: Found " + str(_bldCount) + " Base Buildings!");
 		};
 		{ //3:50:45 "BASEBUILDING: Info ["WoodGate_DZ","13039915736716","146",[5.799,[13039.9,15736.7,0.091]],[],[],0,942]"
-			diag_log ("BASEBUILDING: Info " + str(_x));
+			//diag_log ("BASEBUILDING: Info " + str(_x));
 			_countr = _countr + 1;
 			_type =		_x select 0;
 			_idKey = 	_x select 1;
