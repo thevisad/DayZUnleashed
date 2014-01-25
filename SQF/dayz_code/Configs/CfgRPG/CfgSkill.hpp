@@ -27,6 +27,7 @@ class CfgSkill {
                 description="";
             };       
        */
+		
         class Survival {
           skill=2;
           displayName="Survival";
