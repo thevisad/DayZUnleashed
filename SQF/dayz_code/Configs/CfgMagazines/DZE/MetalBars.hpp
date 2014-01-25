@@ -11,7 +11,7 @@ class ItemGoldBar: CA_Magazine
 	{
 		class Crafting
 		{
-			text = "Smelt 10oz bar";
+			text = $STR_EPOCH_PLAYER_210;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
@@ -34,7 +34,7 @@ class ItemGoldBar10oz: CA_Magazine
 	{
 		class Crafting
 		{
-			text = "Smelt 1oz bars";
+			text = $STR_EPOCH_PLAYER_211;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
@@ -56,7 +56,7 @@ class ItemSilverBar: CA_Magazine
 	{
 		class Crafting
 		{
-			text = "Smelt 10oz bar";
+			 text = $STR_EPOCH_PLAYER_210;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
@@ -78,7 +78,7 @@ class ItemSilverBar10oz: CA_Magazine
 	{
 		class Crafting
 		{
-			text = "Smelt 1oz bars";
+			text = $STR_EPOCH_PLAYER_211;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
@@ -100,7 +100,7 @@ class ItemCopperBar: CA_Magazine
 	{
 		class Crafting
 		{
-			text = "Smelt 10oz bar";
+			text = $STR_EPOCH_PLAYER_210;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
@@ -122,7 +122,7 @@ class ItemCopperBar10oz: CA_Magazine
 	{
 		class Crafting
 		{
-			text = "Smelt 1oz bars";
+			text = $STR_EPOCH_PLAYER_211;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox"};
@@ -131,6 +131,17 @@ class ItemCopperBar10oz: CA_Magazine
 		};
 	};
 };
+class ItemBronzeBar: CA_Magazine
+        {
+                scope = 2;
+                count = 1;
+                type = 256;
+                displayName = "Bronze";
+                model = "\z\addons\dayz_epoch\models\bronze_bar.p3d";
+                picture = "\z\addons\dayz_epoch\pictures\equip_bar_bronze_CA.paa";
+                descriptionShort = "Bronze Bar";
+        };
+		
 class ItemAluminumBar: CA_Magazine
 {
 	scope = 2;
@@ -153,6 +164,29 @@ class ItemAluminumBar: CA_Magazine
 	};
 	
 };
+class ItemAluminumBar10oz: CA_Magazine
+        {
+                scope = 2;
+                count = 1;
+                type = 256;
+                displayName = "10oz Aluminum";
+                model = "\z\addons\dayz_epoch\models\aluminum_bar.p3d";
+                picture = "\z\addons\dayz_epoch\pictures\equip_alum_bar_10oz_CA.paa";
+                descriptionShort = "10oz Aluminum Bar";
+                class ItemActions
+                {
+                        class Crafting
+                        {
+                                text = $STR_EPOCH_PLAYER_211;
+                                script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+                                neednearby[] = {};
+                                requiretools[] = {};
+                                output[] = {{"ItemAluminumBar",10}};
+                                input[] = {{"ItemAluminumBar10oz",1}};
+                        };
+                };
+        };
+		
 class ItemTinBar: CA_Magazine
 {
 	scope = 2;
@@ -174,3 +208,25 @@ class ItemTinBar: CA_Magazine
 		};
 	};
 };
+class ItemTinBar10oz: CA_Magazine
+        {
+                scope = 2;
+                count = 1;
+                type = 256;
+                displayName = "10oz Tin";
+                model = "\z\addons\dayz_epoch\models\tin_bar.p3d";
+                picture = "\z\addons\dayz_epoch\pictures\equip_tin_bar_10oz_CA.paa";
+                descriptionShort = "10oz Tin Bar";
+                class ItemActions
+                {
+                        class Crafting
+                        {
+                                text = $STR_EPOCH_PLAYER_211;
+                                script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+                                neednearby[] = {"fire"};
+                                requiretools[] = {"ItemToolbox"};
+                                output[] = {{"ItemTinBar",10}};
+                                input[] = {{"ItemTinBar10oz",1}};
+                        };
+                };
+        };

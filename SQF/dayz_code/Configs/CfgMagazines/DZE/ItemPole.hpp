@@ -10,7 +10,7 @@ class ItemPole: CA_Magazine
 	class ItemActions {
 		class Crafting
 		{
-			text = "Craft Corrugated Fence";
+			text = $STR_EPOCH_PLAYER_218;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
@@ -19,7 +19,7 @@ class ItemPole: CA_Magazine
 		};
 		class Crafting1
 		{
-			text = "Craft Rusty Gate";
+			text = $STR_EPOCH_PLAYER_219;
 			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
@@ -28,7 +28,7 @@ class ItemPole: CA_Magazine
 		};
 		class Crafting2
 		{
-			text = "Craft Metal Panel";
+			text = $STR_EPOCH_PLAYER_220;
 			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
@@ -36,6 +36,16 @@ class ItemPole: CA_Magazine
 			input[] = {{"bulk_empty",1},{"ItemPole",4},{"ItemTankTrap",4}};
 		};
 		
+		class Crafting3
+		{
+				text = $STR_EPOCH_PLAYER_305;
+				script = ";['Crafting3','CfgMagazines', _id] spawn DZE_player_craftItem;";
+				neednearby[] = {"workshop"};
+				requiretools[] = {"ItemToolbox","ItemCrowbar"};
+				output[] = {{"ItemScaffoldingKit",1}};
+				input[] = {{"ItemPole",4},{"ItemTankTrap",2},{"PartWoodLumber",4}};
+		};
+
 	};
 };
 

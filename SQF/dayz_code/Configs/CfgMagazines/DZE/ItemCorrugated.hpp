@@ -9,14 +9,14 @@ class ItemCorrugated : CA_Magazine
 	descriptionShort = "Corrugated Fence: A buildable object used for fortification purposes.";
 	class ItemActions {
 		class Build {
-			text = "Build Corrugated Fence";
+			text = $STR_EPOCH_PLAYER_214;
 			script = "spawn DZE_player_build;";
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "Fence_corrugated_DZ";
 		};
 		class Crafting
 		{
-			text = "Craft Wooden Shed";
+			text = $STR_EPOCH_PLAYER_215;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
@@ -25,7 +25,7 @@ class ItemCorrugated : CA_Magazine
 		};
 		class Crafting1
 		{
-			text = "Craft Outhouse";
+			text = $STR_EPOCH_PLAYER_217;
 			script = ";['Crafting1','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};
@@ -34,7 +34,7 @@ class ItemCorrugated : CA_Magazine
 		};
 		class Crafting2
 		{
-			text = "Craft Storage Shed";
+			text = $STR_EPOCH_PLAYER_216;
 			script = ";['Crafting2','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemCrowbar"};

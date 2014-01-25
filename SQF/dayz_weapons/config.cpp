@@ -14,7 +14,7 @@ class CfgPatches
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"dayz_equip"};
+		requiredAddons[] = {"CAWeapons","dayz_equip"};
 	};
 };
 class ItemActions

@@ -82,6 +82,8 @@ class CfgVehicles {
 		};
 	};
 		
+	#include "CfgVehicles\antihack_plants.hpp"
+	#include "CfgVehicles\antihack_logic.hpp"
 	#include "CfgVehicles\DZE\Modular.hpp"
 	#include "CfgVehicles\DZE\Doors.hpp"
 

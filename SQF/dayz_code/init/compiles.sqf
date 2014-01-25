@@ -1,4 +1,4 @@
- /*
+  /*
 	FUNCTION COMPILES
 */
 //Player only
@@ -36,6 +36,9 @@ if (!isDedicated) then {
     player_aggro_check = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_check.sqf";
     player_aggro_lieve = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_decrease.sqf";     //Lowers dayz_aggro_value when above 0
 	player_aggro_vate = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_increase.sqf";     //Increased dayz_aggro_value, up to limit
+	player_deathBoard =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\list_playerDeathsAlt.sqf";
+	player_harvestPlant =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_harvestPlant.sqf";
+	//player_mineOre =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_mineOre.sqf";
 	
 	//BurnTent
 	player_burnTent = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_burnTent.sqf";

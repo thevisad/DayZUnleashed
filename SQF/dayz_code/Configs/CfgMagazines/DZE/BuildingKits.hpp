@@ -40,6 +40,49 @@ class 30m_plot_kit: CA_Magazine
 	};
 };
 
+class ItemGunRackKit: CA_Magazine
+    {
+        scope = 2;
+        count = 1;
+        type = 256;
+        displayName = "Gun Rack Kit";
+        descriptionShort = "A Gun Rack for 20 weapons";
+        model = "\z\addons\dayz_epoch\models\supply_crate.p3d";
+        picture = "\z\addons\dayz_epoch\pictures\equip_wooden_crate_ca.paa";
+        weight = 20;
+        class ItemActions
+        {
+            class Build
+            {
+                    text = $STR_ACTIONS_BUILD;
+                    script = "spawn player_build;";
+                    require[] = {"ItemToolbox"};
+                    create = "GunRack_DZ";
+            };
+        };
+    };
+        class ItemWoodCrateKit: CA_Magazine
+        {
+                scope = 2;
+                count = 1;
+                type = 256;
+                displayName = "Wood Crate";
+                descriptionShort = "A wood crate that holds a lot of items.";
+                model = "\z\addons\dayz_epoch\models\supply_crate.p3d";
+                picture = "\z\addons\dayz_epoch\pictures\equip_wooden_crate_ca.paa";
+                weight = 20;
+                class ItemActions
+                {
+                        class Build
+                        {
+                                text = $STR_ACTIONS_BUILD;
+                                script = "spawn player_build;";
+                                require[] = {"ItemToolbox"};
+                                create = "WoodCrate_DZ";
+                        };
+                };
+        };
+		
 class metal_panel_kit: CA_Magazine
 {
 	scope = 2;
@@ -58,6 +101,15 @@ class metal_panel_kit: CA_Magazine
 			require[] = {"ItemEtool","ItemToolbox"};
 			create = "MetalPanel_DZ";
 		};
+		class Crafting
+                        {
+                                text = $STR_EPOCH_PLAYER_228;
+                                script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+                                neednearby[] = {"workshop","fire"};
+                                requiretools[] = {"ItemToolbox","ItemCrowbar","ItemSledge"};
+                                output[] = {{"metal_floor_kit",1}};
+                                input[] = {{"metal_panel_kit",4}};
+                        };
 	};
 };
 class deer_stand_kit: CA_Magazine
@@ -140,7 +192,7 @@ class desert_net_kit: CA_Magazine
 		};
 		class Crafting
 		{
-			text = "Craft Lg Camo Net";
+			text = $STR_EPOCH_PLAYER_229;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
@@ -169,7 +221,7 @@ class forest_net_kit: CA_Magazine
 		};
 		class Crafting
 		{
-			text = "Craft Lg Camo Net";
+			text = $STR_EPOCH_PLAYER_229;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"workshop"};
 			requiretools[] = {"ItemToolbox","ItemKnife"};
@@ -198,28 +250,28 @@ class fuel_pump_kit: CA_Magazine
 		};
 	};
 };
-/* Needs ASC EU Lights Mod http://www.armaholic.com/page.php?id=12076
+
 class light_pole_kit: CA_Magazine
-{
-	scope = 2;
-	count = 1;
-	type = 256;
-	displayName = "Light Pole";
-	descriptionShort = "Light Pole: A buildable object that can be used with a Generator to provide light in times of darkness.";
-	model = "\z\addons\dayz_epoch\models\supply_crate.p3d";
-	picture = "\z\addons\dayz_epoch\pictures\equip_wooden_crate_ca.paa";
-	class ItemActions
-	{
-		class Build
-		{
-			text = "$STR_ACTIONS_BUILD";
-			script = "spawn DZE_player_build;";
-			require[] = {"ItemEtool","ItemToolbox"};
-			create = "LightPole_DZ";
-		};
-	};
-};
-*/
+        {
+                scope = 2;
+                count = 1;
+                type = 256;
+                displayName = "Light Pole";
+                descriptionShort = "Light Pole: A buildable object that can be used with a Generator to provide light in times of darkness.";
+                model = "\z\addons\dayz_epoch\models\supply_crate.p3d";
+                picture = "\z\addons\dayz_epoch\pictures\equip_wooden_crate_ca.paa";
+                weight = 25;
+                class ItemActions
+                {
+                        class Build
+                        {
+                                text = $STR_ACTIONS_BUILD;
+                                script = "spawn player_build;";
+                                require[] = {"ItemEtool","ItemToolbox"};
+                                create = "LightPole_DZ";
+                        };
+                };
+        };
 class stick_fence_kit: CA_Magazine
 {
 	scope = 2;
@@ -280,6 +332,29 @@ class wood_shack_kit: CA_Magazine
 		};
 	};
 };
+
+class m240_nest_kit: CA_Magazine
+        {
+                scope = 2;
+                count = 1;
+                type = 256;
+                displayName = "M240 Nest";
+                descriptionShort = "M240 Nest";
+                model = "\z\addons\dayz_epoch\models\supply_crate.p3d";
+                picture = "\z\addons\dayz_epoch\pictures\equip_wooden_crate_ca.paa";
+                weight = 125;
+                class ItemActions
+                {
+                        class Build
+                        {
+                                text = $STR_ACTIONS_BUILD;
+                                script = "spawn player_build;";
+                                require[] = {"ItemEtool","ItemToolbox"};
+                                create = "M240Nest_DZ";
+                        };
+                };
+        };
+		
 class sun_shade_kit: CA_Magazine
 {
 	scope = 2;
@@ -300,6 +375,29 @@ class sun_shade_kit: CA_Magazine
 		};
 	};
 };
+
+class park_bench_kit: CA_Magazine
+        {
+                scope = 2;
+                count = 1;
+                type = 256;
+                displayName = "Wood Bench";
+                descriptionShort = "Wood Bench";
+                model = "\z\addons\dayz_epoch\models\supply_crate.p3d";
+                picture = "\z\addons\dayz_epoch\pictures\equip_wooden_crate_ca.paa";
+                weight = 25;
+                class ItemActions
+                {
+                        class Build
+                        {
+                                text = $STR_ACTIONS_BUILD;
+                                script = "spawn player_build;";
+                                require[] = {"ItemEtool","ItemToolbox"};
+                                create = "ParkBench_DZ";
+                        };
+                };
+        };
+		
 class rusty_gate_kit: CA_Magazine
 {
 	scope = 2;
@@ -380,6 +478,29 @@ class storage_shed_kit: CA_Magazine
 		};
 	};
 };
+
+class ItemScaffoldingKit: CA_Magazine
+        {
+                scope = 2;
+                count = 1;
+                type = 256;
+                displayName = "Scaffolding";
+                descriptionShort = "";
+                model = "\z\addons\dayz_epoch\models\supply_crate.p3d";
+                picture = "\z\addons\dayz_epoch\pictures\equip_wooden_crate_ca.paa";
+                weight = 80;
+                class ItemActions
+                {
+                        class Build
+                        {
+                                text = $STR_ACTIONS_BUILD;
+                                script = "spawn player_build;";
+                                require[] = {"ItemEtool","ItemToolbox"};
+                                create = "Scaffolding_DZ";
+                        };
+                };
+        };
+		
 class ItemFireBarrel_kit: CA_Magazine
 {
 		scope = 2;

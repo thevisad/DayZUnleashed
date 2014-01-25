@@ -24,6 +24,7 @@
 //#include "Configs\CfgWorlds.hpp"
 #include "Configs\CfgFaction.hpp"
 #include "Configs\rscTitles.hpp"
+#include "Configs\deathboards.hpp"
 
 // Safe UI
 #include "Configs\safegui.hpp"
@@ -47,7 +48,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"dayz_equip","dayz_weapons"}; 
+		requiredAddons[] = {"dayz_equip","dayz_weapons","CAMisc3","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT"};
 	};
 	class DZ_DebriefingRemoved	{
 		units[] = {};
@@ -67,7 +68,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzunleashed.com";
-		version = "0.97-Devbuild-01232014";
+		version = "0.97-Devbuild-01252014";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld
@@ -606,12 +607,12 @@ class CfgFaces {
 class CfgSurvival {
 	class Inventory {
 		class Default {
-			RandomMagazines = 3;
+			//RandomMagazines = 3;
 			weapons[] = {"Revolver"}; //8Rnd_9x18_Makarov
 			GuaranteedMagazines[] = {"ItemBandage","B_45ACP_Ball","HandRoadFlare"};
-			RandomPossibilitieMagazines[] = {"ItemBandage","ItemPainkiller"};//weapons[] = {"HandRoadFlare"};
-			
-			backpackWeapon = "";//backpack = "DZ_Patrol_Pack_EP1";
+			//RandomPossibilitieMagazines[] = {"ItemBandage","ItemPainkiller"};//weapons[] = {"HandRoadFlare"};
+			backpackWeapon = "";
+			backpack = "DZ_Patrol_Pack_EP1";
 		};
 	};
 	class Meat {
@@ -623,22 +624,23 @@ class CfgSurvival {
 			yield = 6;
 			rawfoodtype = "FoodbeefRaw";
 		};
-		class Cow01: Cow {};
-		class Cow02: Cow {};
-		class Cow03: Cow {};
-		class Cow04: Cow {};
+		class Cow01: Cow{};
+		class Cow02: Cow{};
+		class Cow03: Cow{};
+		class Cow04: Cow{};
+		class Cow01_EP1: Cow{};
 		class Goat: Default {
 			yield = 4;
 			rawfoodtype = "FoodgoatRaw";
 		};
-		class Dog: Default {
-			yield = 4;
-			rawfoodtype = "FooddogRaw";
-		};
+		class Goat01_EP1: Goat{};
+		class Goat02_EP1: Goat{};
 		class Sheep: Default {
 			yield = 4;
 			rawfoodtype = "FoodmuttonRaw";
 		};
+		class Sheep01_EP1: Sheep{};
+		class Sheep02_EP1: Sheep{};
 		class WildBoar: Default {
 			yield = 4;
 			rawfoodtype = "FoodbaconRaw";
@@ -647,8 +649,14 @@ class CfgSurvival {
 			yield = 2;
 			rawfoodtype = "FoodchickenRaw";
 		};
+		class Cock: Hen{};
+		class DZ_Fin: Default {
+			yield = 0;
+			rawfoodtype = "FoodSteakRaw";
+		};
+		class DZ_Pastor: DZ_Fin{};
 		class Rabbit: Default {
-			yield = 2;
+			yield = 1;
 			rawfoodtype = "FoodrabbitRaw";
 		};
 	};

@@ -3,7 +3,7 @@ class AngelCookies : FoodEdible {
 	count = 1;
 	displayName = $STR_FOODCOOKED_EQUIP_CODE_NAME_5;
 	model = "z\addons\dayz_communityassets\models\buiscits_box.p3d";
-	picture = "z\addons\dayz_communityassets\pictures\i_buiscit_ca.paa";
+    picture = "z\addons\dayz_communityassets\pictures\i_buiscit_ca.paa";
 	descriptionShort = $STR_FOODCOOKED_EQUIP_CODE_DESC_5;
 	bloodRegen = 100;
 };

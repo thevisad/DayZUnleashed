@@ -19,7 +19,7 @@
                         class Crafting
                         {
                                 text = $STR_EPOCH_PLAYER_269b;
-                                script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+                                script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
                                 neednearby[] = {};
                                 requiretools[] = {"ItemToolbox","ItemKnife"};
                                 output[] = {{"ItemCanvas",1}};
@@ -28,7 +28,7 @@
                         class Crafting1
                         {
                                 text = $STR_EPOCH_PLAYER_269;
-                                script = ";['Crafting1','CfgMagazines', _id] spawn player_craftItem;";
+                                script = ";['Crafting1','CfgMagazines', _id] spawn DZE_player_craftItem;";
                                 neednearby[] = {};
                                 requiretools[] = {"ItemToolbox","ItemKnife"};
                                 output[] = {{"ItemBandage",2}};
