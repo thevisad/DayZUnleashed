@@ -11,7 +11,7 @@ class ItemBurlap: CA_Magazine
 	{
 		class Crafting
 		{
-			text = "Craft Sandbag";
+			text = $STR_EPOCH_PLAYER_195;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {"sand"}; // todo add sand requirement
 			requiretools[] = {"ItemEtool","ItemToolbox"};

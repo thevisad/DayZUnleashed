@@ -14,6 +14,15 @@ class ItemSandbagLarge : CA_Magazine {
 			require[] = {"ItemEtool"};
 			create = "Land_HBarrier1_DZ";
 		};
+		class Crafting
+		{
+				text = "Craft Triple H-barrier";
+				script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemEtool","ItemToolbox"};
+				output[] = {{"ItemSandbagExLarge",1}};
+				input[] = {{"ItemSandbagLarge",3}};
+		};
 	};
 };
 class ItemSandbagExLarge : CA_Magazine {

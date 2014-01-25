@@ -34,7 +34,6 @@ while {true} do
 	if(_gearbox_visible) then {
 		R3F_Weight = call R3F_WEIGHT_FNCT_GetWeight;
 		_survival_skill = [player,"Survival"] call DZU_fnc_getVariable;
-		if (!_survival_skill) then {_survival_skill = 1};
 		if (_survival_skill > 0) then 
 		{
 			_weight_reduction = _survival_skill * 4;
@@ -55,7 +54,6 @@ while {true} do
 		if( _n > R3F_WEIGHT_LONG_DELAY) then {
 			R3F_Weight = call R3F_WEIGHT_FNCT_GetWeight;
 			_survival_skill = [player,"Survival"] call DZU_fnc_getVariable;
-			if (!_survival_skill) then {_survival_skill = 1};
 			if (_survival_skill > 0) then 
 			{
 				_weight_reduction = _survival_skill * 4;

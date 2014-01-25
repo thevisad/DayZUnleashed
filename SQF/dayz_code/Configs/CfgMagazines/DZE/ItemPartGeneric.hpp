@@ -11,7 +11,7 @@ class PartGeneric: CA_Magazine
 				class Crafting
 				{
 						text = $STR_EPOCH_PLAYER_213;
-						script = ";['Crafting','CfgMagazines', _id] spawn player_craftItem;";
+						script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
 						neednearby[] = {"fire"};
 						requiretools[] = {"ItemToolbox","ItemCrowbar"};
 						output[] = {{"ItemPole",1}};

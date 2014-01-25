@@ -14,6 +14,23 @@ class CfgWeapons {
 	//class M107_DZ;	// External class reference
 	//class BAF_AS50_scoped;	// External class reference
 	class DMR;	// External class reference
+	
+	class ItemKnife: ItemCore
+	{
+		scope = 2;
+		displayName = $STR_EQUIP_NAME_4;
+		model = "\dayz_equip\models\knife_gear.p3d";
+		picture = "\dayz_equip\textures\equip_knife_ca.paa";
+		descriptionShort = $STR_EQUIP_DESC_4;
+		class ItemActions
+		{
+			class Use
+			{
+				text="Harvest Plant";
+				script="spawn player_harvestPlant;";
+			};
+		};
+	};
 		
 	#include "CfgWeapons\Melee\MeleeMachete.hpp"
 	#include "CfgWeapons\Melee\ItemMachete.hpp"
@@ -25,7 +42,7 @@ class CfgWeapons {
 	#include "CfgWeapons\Melee\MeleeBaseBallBat.hpp"
 	#include "CfgWeapons\Melee\MeleeBaseBallBatBarbed.hpp"
 	#include "CfgWeapons\Melee\MeleeBaseBallBatNails.hpp"
-	
+	#include "CfgWeapons\DZE\MeleeSledgehammer.hpp"
 	#include "CfgWeapons\Item\ItemWatch.hpp"
 	#include "CfgWeapons\Item\ItemMap.hpp"
 	#include "CfgWeapons\Item\ItemMap_Debug.hpp"

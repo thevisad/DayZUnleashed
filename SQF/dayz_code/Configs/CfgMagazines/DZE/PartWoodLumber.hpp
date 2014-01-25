@@ -77,6 +77,15 @@ class PartWoodLumber: CA_Magazine
 			    output[] = {{"ItemGunRackKit",1}};
 			    input[] = {{"PartWoodLumber",6}};
 		};
+		class Crafting7
+                        {
+                                text = $STR_EPOCH_PLAYER_304;
+                                Script = ";['Crafting7','CfgMagazines', _id] spawn DZE_player_craftItem;";
+                                neednearby[] = {};
+                                requiretools[] = {"ItemToolbox"};
+                                output[] = {{"ItemWoodCrateKit",1}};
+                                input[] = {{"PartWoodLumber",6}};
+                        };  
 	};
 };
 class PartPlankPack: CA_Magazine

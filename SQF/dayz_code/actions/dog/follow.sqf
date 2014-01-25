@@ -1,3 +1,4 @@
+private["_array","_handle","_whistle","_dog"];
 _array = _this select 3;
 _handle = _array select 0;
 _whistle = _array select 1;
@@ -10,6 +11,6 @@ if(_whistle) then {
 sleep 1;
 
 if (_dog distance player <= 900) then {
-	_handle setFSMVariable ["_command","return"];
+_handle setFSMVariable ["_command","return"];
 };
 
