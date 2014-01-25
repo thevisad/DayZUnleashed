@@ -297,7 +297,7 @@ class ItemBriefcase70oz: ItemBriefcase_Base
 	{
 		class Crafting
 		{
-			text = $STR_EPOCH_PLAYER_199;;
+			text = $STR_EPOCH_PLAYER_199;
 			script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
 			neednearby[] = {};
 			requiretools[] = {};

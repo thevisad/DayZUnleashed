@@ -32,7 +32,7 @@ class FoodrabbitRaw : FoodRaw {
 	descriptionShort = $STR_FOOD_EQUIP_CODE_DESC_3;
 	model = "\dayz_equip\models\food_steak_gear.p3d";
 	picture = "\dayz_equip\textures\equip_steak_ca.paa";	
-	bloodRegen = 200;
+	bloodRegen = 100;
     cooked ="FoodrabbitCooked";
     badmeat="Foodrabbitbad";
 };
@@ -42,7 +42,7 @@ class FoodbaconRaw : FoodRaw {
 	model = "z\addons\dayz_communityassets\models\bacon_raw.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_bacon_raw_CA.paa";
 	descriptionShort = $STR_FOOD_EQUIP_CODE_DESC_4;
-	bloodRegen = 150;
+	bloodRegen = 100;
     cooked ="FoodbaconCooked";
     badmeat="Foodbaconbad";
 };
