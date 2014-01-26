@@ -103,15 +103,17 @@ if (_canDo) then {
 		
 			// Dry run to see if all parts are available.
 			_proceed = true;
-			{
-				_itemIn = _x select 0;
-				_countIn = _x select 1;
-	
-				_qty = { (_x == _itemIn) || (configName(inheritsFrom(configFile >> "cfgMagazines" >> _x)) == _itemIn) } count magazines player;	
-	
-				if(_qty < _countIn) exitWith { _missing = _itemIn; _missingQty = (_countIn - _qty); _proceed = false; };
-	
-			} forEach _selectedRecipeInput;
+			if (count _selectedRecipeInput > 0) then {
+				{
+					_itemIn = _x select 0;
+					_countIn = _x select 1;
+		
+					_qty = { (_x == _itemIn) || (configName(inheritsFrom(configFile >> "cfgMagazines" >> _x)) == _itemIn) } count magazines player;	
+		
+					if(_qty < _countIn) exitWith { _missing = _itemIn; _missingQty = (_countIn - _qty); _proceed = false; };
+		
+				} forEach _selectedRecipeInput;
+			};
 	
 			// If all parts proceed
 			if (_proceed) then {
