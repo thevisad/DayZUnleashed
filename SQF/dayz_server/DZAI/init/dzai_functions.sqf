@@ -24,10 +24,10 @@ DZAI_AI_killed_all = compile preprocessFileLineNumbers format ["%1\compile\ai_ki
 DZAI_AI_killed_static = compile preprocessFileLineNumbers format ["%1\compile\ai_killed_static.sqf",DZAI_directory];
 DZAI_unitDeath = compile preprocessFileLineNumbers format ["%1\compile\ai_death.sqf",DZAI_directory];
 DZAI_countKills = compile preprocessFileLineNumbers format ["%1\compile\fn_countkills.sqf",DZAI_directory];
+fnc_despawnBandits = compile preprocessFileLineNumbers format ["%1\spawn_functions\despawnBandits.sqf",DZAI_directory];
 
 if (DZAI_staticAI) then {
 	fnc_spawnBandits = compile preprocessFileLineNumbers format ["%1\spawn_functions\spawnBandits.sqf",DZAI_directory];
-	fnc_despawnBandits = compile preprocessFileLineNumbers format ["%1\spawn_functions\despawnBandits.sqf",DZAI_directory];
 	DZAI_bldgPatrol = compile preprocessFileLineNumbers format ["%1\compile\ai_buildingpatrol.sqf",DZAI_directory];
 	DZAI_static_spawn = compile preprocessFileLineNumbers format ["%1\compile\fn_createStaticSpawn.sqf",DZAI_directory];
 };
@@ -399,8 +399,11 @@ DZAI_setTrigVars = {
 		if (triggerActivated _trigger) then {DZAI_actTrigs = DZAI_actTrigs + 1;};
 		if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Initialized static trigger at %1. GroupArray: %2, PatrolDist: %3. equipType: %4. %LocationArray %5 positions, MaxUnits %6.",triggerText(_this select 0),(_this select 1),(_this select 2),(_this select 3),count (_this select 4),(_this select 5)];};
 	} else {
-		if (triggerActivated _trigger) then {DZAI_actDynTrigs = DZAI_actDynTrigs + 1;};
+		//if (triggerActivated _trigger) then {DZAI_actDynTrigs = DZAI_actDynTrigs + 1;};
 		if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Initialized dynamic trigger at %1. GroupArray: %2.",getPosATL (_this select 0),(_this select 1)];};
+		//Create temporary dynamic spawn blacklist area
+		_location = createLocation ["Strategic",(getPosATL _trigger),600,600];
+		_trigger setVariable ["triggerLocation",_location];
 	};
 
 	true
@@ -506,8 +509,8 @@ DZAI_abortDynSpawn = {
 	_trigger = _this;
 	
 	DZAI_dynTriggerArray = DZAI_dynTriggerArray - [_trigger];
-	DZAI_actDynTrigs = DZAI_actDynTrigs - 1;
-	DZAI_curDynTrigs = DZAI_curDynTrigs - 1;
+	//DZAI_actDynTrigs = DZAI_actDynTrigs - 1;
+	//DZAI_curDynTrigs = DZAI_curDynTrigs - 1;
 	if (DZAI_debugMarkers > 0) then {deleteMarker format["trigger_%1",_trigger]};
 
 	deleteVehicle _trigger;

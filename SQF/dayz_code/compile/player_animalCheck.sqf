@@ -35,7 +35,7 @@ if (count _list < dayz_maxAnimals) then {
 	_PosList = 		selectbestplaces [_randrefpoint,dayz_animalDistance,_favouritezones,10,5];
 	_PosSelect = 	_PosList select (floor random (count _PosList));
 	_Pos =  		_PosSelect select 0;
-	diag_log("PAC: Position " + str(_Pos));
+	//diag_log("PAC: Position " + str(_Pos));
 	_list = 		_Pos nearEntities [["CAAnimalBase","Man"],50];
 	
 	

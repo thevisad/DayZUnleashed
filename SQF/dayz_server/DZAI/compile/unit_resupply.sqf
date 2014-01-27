@@ -80,10 +80,8 @@ while {(alive _unit)&&{(!(isNull _unit))}} do {
 					_healTimes = _healTimes + 1;
 					if ((alive _unit) && {(_healTimes == 3)}) then {
 						_health set [1,0];
-						_health set [2,0];
-						_health set [3,false];
-						_health set [4,false];
-						_unit setDamage 0;
+						_health set [2,false];
+						_unit setHit["legs",0];
 					};
 				};
 				
@@ -93,7 +91,7 @@ while {(alive _unit)&&{(!(isNull _unit))}} do {
 			} else {
 				private ["_lowblood","_brokenbones"];
 				_lowblood = ((_health select 0) < 7200);
-				_brokenbones = ((_health select 3) or {(_health select 4)});
+				_brokenbones = (_health select 3);
 				if ((_lowblood or _brokenbones) && {((time - _lastBandage) > 60)}) then {
 					_needsHeal = true;
 				};

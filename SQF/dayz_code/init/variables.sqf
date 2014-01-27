@@ -383,8 +383,9 @@ s_pilot_swapObj = objNull;
 s_pilot_lockObj = objNull;
 
 //Engineering variables
-s_player_lastTarget = objNull;
+s_player_lastTarget =	[objNull,objNull,objNull,objNull,objNull];
 s_player_repairActions = [];
+s_player_lockunlock = [];
 
 //tameanimals
 unleashed_tameChickens = true;

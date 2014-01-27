@@ -61,7 +61,7 @@ class CfgWeapons {
 //	#include "CfgWeapons\Weapon\Sniper\DMR_DZ3.hpp"
 	
 	//crafting
-	#include "CfgCrafting\CfgCrafting.hpp"
+	//#include "CfgCrafting\CfgCrafting.hpp"
 	
 	// Fishing pole melee
 	#include "CfgWeapons\DZE\MeleeFishingPole.hpp"

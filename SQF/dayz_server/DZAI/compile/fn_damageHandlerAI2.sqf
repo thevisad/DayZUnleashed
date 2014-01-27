@@ -18,34 +18,19 @@ _scale = 300;
 if (_damage > 0.4) then {
 	//Calculate locational damage
 	switch (_hit) do {
-		case "hands": {
-			_partdamage = (_unithealth select 1) + (_damage/2);
-			_unithealth set [1,_partdamage];	//Record hand damage internally
-			if ((_partdamage >= 1) && {!(_unithealth select 3)}) then {
-				//[nil,_unit,rSAY,["z_fracture_0",40]] call RE;
-				_unit setHit["hands",1];
-				_unithealth set [3,true];
-			};	//Break hands when enough damage taken
-		};
 		case "legs": {
-			_partdamage = (_unithealth select 2) + (_damage/2);
-			_unithealth set [2,_partdamage];	//Record leg damage internally
-			if ((_partdamage >= 1) && {!(_unithealth select 4)}) then {
+			_partdamage = (_unithealth select 1) + (_damage/2);
+			_unithealth set [1,_partdamage];	//Record leg damage internally
+			if ((_partdamage >= 1) && {!(_unithealth select 2)}) then {
 				[nil,_unit,rSAY,["z_fracture_1",40]] call RE;
 				_unit setHit["legs",1];
-				_unithealth set [4,true];
+				_unithealth set [2,true];
 			}; //Break legs when enough damage taken
 		};
 		case "head_hit": {
 			_scale = _scale * 6;
 			if ((_damage > 1.5) && {(_ammo != "")}) then {
-				_unit setVariable ["deathType","shothead"];
-				_nul = [_unit,_source] call DZAI_unitDeath;
-				if (isPlayer _source) then {
-					_headshots = _source getVariable["headShots",0];
-					_headshots = _headshots + 1;
-					_source setVariable["headShots",_headshots,true];
-				};
+				_nul = [_unit,_source,"shothead"] call DZAI_unitDeath;
 			};
 		};
 	};
@@ -64,7 +49,7 @@ if (_damage > 0.4) then {
 };
 
 if (_newbloodlevel <= 0) then {
-	_nul = [_unit,_source] call DZAI_unitDeath;
+	_nul = [_unit,_source,"bled"] call DZAI_unitDeath;
 };
 
 0

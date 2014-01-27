@@ -8,16 +8,19 @@
 		Last updated: 7:09 PM 12/15/2013
 */
 
-private["_victim","_killer","_unitGroup","_unitType","_launchWeapon"];
+private["_victim","_killer","_unitGroup","_unitType","_launchWeapon","_deathType"];
 _victim = _this select 0;
 _killer = _this select 1;
+_deathType = if ((count _this) > 2) then {_this select 2} else {"bled"};
+
+if ((isPlayer _killer) && {(_deathType == "shothead")}) then {
+	_headshots = _killer getVariable["headShots",0];
+	_headshots = _headshots + 1;
+	_killer setVariable["headShots",_headshots,true];
+};
 
 if (_victim getVariable ["deathhandled",false]) exitWith {};
 _victim setVariable ["deathhandled",true];
-/*if ((vehicle _victim) != _victim) then {
-	_victim action ["eject",(vehicle _victim)];
-	unassignVehicle _victim;
-};*/
 _victim setDamage 1;
 _victim removeAllEventHandlers "HandleDamage";
 
@@ -39,7 +42,7 @@ switch (_unitType) do {
 		};
 		_victim spawn DZAI_deathFlies;
 		_victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
-		_victim setVariable ["deathType","bled",true];
+		_victim setVariable ["deathType",_deathType,true];
 		_victim setVariable ["DZAI_deathTime",time];
 		_victim enableSimulation false;
 	};
@@ -50,7 +53,7 @@ switch (_unitType) do {
 		};
 		_victim spawn DZAI_deathFlies;
 		_victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
-		_victim setVariable ["deathType","bled",true];
+		_victim setVariable ["deathType",_deathType,true];
 		_victim setVariable ["DZAI_deathTime",time];
 		_victim enableSimulation false;
 	};
@@ -59,7 +62,7 @@ switch (_unitType) do {
 			_victim removeWeapon "NVGoggles";
 		};
 		_victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
-		_victim setVariable ["deathType",_victim getVariable ["deathType","bled"],true];
+		_victim setVariable ["deathType",_deathType,true];
 		_victim setVariable ["DZAI_deathTime",time];
 		_victim spawn DZAI_deathFlies;
 		_victim enableSimulation false;
@@ -75,7 +78,7 @@ switch (_unitType) do {
 };
 
 if (_unitType in ["static","dynamic"]) then {
-	0 = [_victim,_killer,_unitGroup] call DZAI_AI_killed_all;
+	0 = [_victim,_killer,_unitGroup,_deathType] call DZAI_AI_killed_all;
 };
 
 _launchWeapon = (secondaryWeapon _victim);

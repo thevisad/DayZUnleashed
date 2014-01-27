@@ -93,6 +93,7 @@ while {(alive _unit)&&{(!(isNull _unit))}} do {													//Run script for as 
 			};
 		};
 		if (_bandages > 0) then {
+			private ["_health"];
 			_health = _unit getVariable "unithealth";
 			if (_needsHeal) then {
 				private ["_healTimes"];
@@ -103,15 +104,11 @@ while {(alive _unit)&&{(!(isNull _unit))}} do {													//Run script for as 
 				while {(alive _unit) && {(!(_unit getVariable ["unconscious",false]))} && {(_healTimes < 3)}} do {
 					sleep 2;
 					_health set [0,(((_health select 0) + 2000) min 12000)];
-					if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: AI %1 is healing. Current Blood: %2.",_unit,(_health select 0)];};
 					_healTimes = _healTimes + 1;
 					if ((alive _unit) && {(_healTimes == 3)}) then {
 						_health set [1,0];
-						_health set [2,0];
-						_health set [3,false];
-						_health set [4,false];
-						_unit setDamage 0;
-						if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: AI %1 has completed full heal process.",_unit];};
+						_health set [2,false];
+						_unit setHit["legs",0];
 					};
 				};
 				
@@ -121,10 +118,9 @@ while {(alive _unit)&&{(!(isNull _unit))}} do {													//Run script for as 
 			} else {
 				private ["_lowblood","_brokenbones"];
 				_lowblood = ((_health select 0) < 7200);
-				_brokenbones = ((_health select 3) or {(_health select 4)});
+				_brokenbones = (_health select 3);
 				if ((_lowblood or _brokenbones) && {((time - _lastBandage) > 60)}) then {
 					_needsHeal = true;
-					if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: AI %1 needs to heal! Blood low: %2, Broken bones: %3.",_unit,_lowblood,_brokenbones];};
 				};
 			};
 		};

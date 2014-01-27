@@ -8,10 +8,11 @@
 		Last updated: 10:42 PM 1/11/2014
 */
 
-private["_victim","_killer","_unitGroup","_groupSize"];
+private["_victim","_killer","_unitGroup","_groupSize","_deathType"];
 _victim = _this select 0;
 _killer = _this select 1;
 _unitGroup = _this select 2;
+_deathType = _this select 3;
 
 //Remove temporary NVGs.
 if ((_victim getVariable["removeNVG",0]) == 1) then {_victim removeWeapon "NVGoggles";}; //Remove temporary NVGs from AI.
@@ -47,7 +48,7 @@ if !((_victim getVariable ["CanGivePistol",true]) && (_victim getVariable ["unco
 
 //Set study_body variables.
 _victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
-_victim setVariable ["deathType",_victim getVariable ["deathType","bled"],true];
+_victim setVariable ["deathType",_deathType,true];
 _victim setVariable ["DZAI_deathTime",time];
 _victim setVariable ["unconscious",true];
 

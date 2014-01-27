@@ -8,6 +8,9 @@ if (DZAI_debugLevel > 0) then {diag_log "Starting DZAI Dynamic Spawn Manager in 
 sleep 300;
 if (DZAI_debugLevel > 0) then {diag_log "DZAI V2 Dynamic Spawn Manager started.";};
 
+//Maximum chance to be selected for spawn condition check. Prevents unfairly high probability when few players are online.
+#define CHANCE_CAP 0.3
+
 //Maximum number of players to select each cycle. If number of online players is less than SPAWN_MAX, all online players will be selected.
 #define SPAWN_MAX 10 
 
@@ -38,37 +41,31 @@ while {true} do {
 			sleep 0.05;
 		} forEach playableUnits;
 		
-		_maxSpawnsPossible = ((ceil (0.25 * (count _allPlayers))) min SPAWN_MAX) - DZAI_curDynTrigs;
-		if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Preparing to spawn dynamic triggers, %1 dynamic spawns are possible.",_maxSpawnsPossible];};
+		_activeDynamicSpawns = (count DZAI_dynTriggerArray);
+		_playerCount = (count _allPlayers);
+		_maxSpawnsPossible = (((ceil (0.25 * _playerCount)) min SPAWN_MAX) - _activeDynamicSpawns);
+		_chanceAdjust = (((_maxSpawnsPossible/_playerCount)/CHANCE_CAP) max 1);
 		
-		while {((_maxSpawnsPossible - DZAI_curDynTrigs) > 0) && ((count _allPlayers) > 0)} do {	//_spawns: Have we created enough spawns? _allPlayers: Are there enough players to create spawns for?
+		if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Preparing to spawn dynamic triggers using selection probability limit %1, %2 dynamic spawns are possible.",(1/_chanceAdjust),_maxSpawnsPossible];};
+
+		while {((_maxSpawnsPossible - _activeDynamicSpawns) > 0) && ((count _allPlayers) > 0)} do {	//_spawns: Have we created enough spawns? _allPlayers: Are there enough players to create spawns for?
 			_time = diag_tickTime;
 			_player = _allPlayers call BIS_fnc_selectRandom2;
+			_playername = name _player;
 			//[_player,"DEBUG :: Selected for dynamic spawn."] call DZAI_radioSend;
-			if (!isNull _player) then {
+			if ((!isNull _player) && {((random _chanceAdjust) < 1)}) then {
 				_index = _playerUIDs find (getPlayerUID _player);
 				_lastSpawned = _timestamps select _index;
 				_spawnChance = (((time - _lastSpawned) / _maxSpawnTime) min 0.95);
-				_playername = name _player;
 				if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Player %1 has %2 probability of generating dynamic spawn.",_playername,_spawnChance];};
 				if ((random 1) < _spawnChance) then {
 					_playerPos = getPosATL _player;
-					//_isLandUnit = (((vehicle _player) isKindOf "Man") or ((vehicle _player) isKindOf "Land"));
-					//_onLand = (!(surfaceIsWater _playerPos));
-					//_noNearbySpawns = (({(_playerPos distance _x) < (2*(DZAI_dynTriggerRadius - (DZAI_dynTriggerRadius*DZAI_dynOverlap)))} count DZAI_dynTriggerArray) == 0);
-					//_noNearbyTowns = (!(_playerPos in (nearestLocation [_playerPos,"Strategic"])));
-					//_notInDebug = ((_playerPos distance getMarkerpos "respawn_west") > 2000);
-					//_noPlotpole = ((count (_playerPos nearObjects ["Plastic_Pole_EP1_DZ",100])) == 0);
-					//if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Player %1 - isLandUnit: %2, onLand: %3, noNearbySpawns: %4, noNearbyTowns: %5, notInDebug: %6, noPlotpole: %7.",name _player,_isLandUnit,_onLand,_noNearbySpawns,_noNearbyTowns,_notInDebug,_noPlotPole]};
-					//if (_isLandUnit && _onLand && _noNearbySpawns && _noNearbyTowns && _noPlotpole && _notInDebug) then {
-					//if (({!_x} count [_isLandUnit,_onLand,_noNearbySpawns,_noNearbyTowns,_noPlotpole,_notInDebug]) == 0) then {
 					if (
-						(((vehicle _player) isKindOf "Man") or ((vehicle _player) isKindOf "Land")) &&
-						{(!(_playerPos in (nearestLocation [_playerPos,"Strategic"])))} &&
-						{(({(_playerPos distance _x) < (2*(DZAI_dynTriggerRadius - (DZAI_dynTriggerRadius*DZAI_dynOverlap)))} count DZAI_dynTriggerArray) == 0)} &&
-						{(!(surfaceIsWater _playerPos))} && 
-						{((_playerPos distance getMarkerpos "respawn_west") > 2000)} &&
-						{((count (_playerPos nearObjects ["Plastic_Pole_EP1_DZ",100])) == 0)}
+						(((vehicle _player) isKindOf "Man") or ((vehicle _player) isKindOf "Land")) &&	//Player must be on foot or in land vehicle
+						{(!(_playerPos in (nearestLocation [_playerPos,"Strategic"])))} &&				//Player must not be in blacklisted area
+						{(!(surfaceIsWater _playerPos))} && 											//Player must not be on water position
+						{((_playerPos distance getMarkerpos "respawn_west") > 2000)} &&					//Player must not be in debug area
+						{((count (_playerPos nearObjects ["Plastic_Pole_EP1_DZ",100])) == 0)}			//Player must not be near a plot pole
 					) then {
 						_timestamps set [_index,time];
 						_trigger = createTrigger ["EmptyDetector",getPosATL _player];
@@ -91,7 +88,6 @@ while {true} do {
 							_marker setMarkerAlpha 0;
 						};
 						if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Created dynamic trigger at %1. Target player: %2.",(mapGridPosition _trigger),_playername];};
-						DZAI_curDynTrigs = DZAI_curDynTrigs + 1;
 						DZAI_dynTriggerArray set [count DZAI_dynTriggerArray,_trigger];
 					} else {
 						if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Dynamic spawn conditions failed for player %1.",_playername];};
@@ -99,6 +95,8 @@ while {true} do {
 				} else {
 					if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Dynamic spawn probability check failed for player %1.",_playername];};
 				};
+			} else {
+				if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Cancel dynamic spawn check for player %1 (Reason: Probability reduction or Player logout).",_playername]};
 			};
 			_allPlayers = _allPlayers - [_player];
 			if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Processed a spawning probability check in %1 seconds.",diag_tickTime - _time]};

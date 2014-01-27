@@ -9,8 +9,8 @@ if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_72") , 
 DZE_ActionInProgress = true;
 
 // allowed trees list move this later
-_trees = ["pumpkin.p3d","p_helianthus.p3d","p_fiberplant_ep1.p3d","t_purus2s","t_malus1s","b_corylus","b_corylus2s","b_sambucus","b_prunus","p_urtica","p_heracleum","p_carduus","b_salix2s","b_canina2s","t_carpinus2s"];
-_treesOutput = ["FoodPumpkin","FoodSunFlowerSeed","ItemKiloHemp","ItemPear","ItemApple","ItemHazelnut","ItemHazelnut","ItemElderberry","ItemCherry","ItemNettle","ItemHogWeed","ItemThistle"."ItemWillow","ItemRose","ItemHornBeam"];
+_trees = ["pumpkin.p3d","p_helianthus.p3d","p_fiberplant_ep1.p3d","t_purus2s.p3d","t_malus1s.p3d","b_corylus.p3d","b_corylus2s.p3d","b_sambucus.p3d","b_prunus.p3d","p_urtica.p3d","p_carduus.p3d","b_salix2s.p3d","b_canina2s.p3d"];
+_treesOutput = ["FoodPumpkin","FoodSunFlowerSeed","ItemKiloHemp","ItemPear","ItemApple","ItemHazelnut","ItemHazelnut","ItemElderberry","ItemCherry","ItemNettle","ItemThistle","ItemWillow","ItemRose"];
 
 //_item = _this;
 call gear_ui_init;

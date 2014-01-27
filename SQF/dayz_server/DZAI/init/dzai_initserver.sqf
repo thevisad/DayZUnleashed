@@ -14,13 +14,12 @@ _startTime = diag_tickTime;
 
 //Report DZAI version to RPT log
 #include "DZAI_version.hpp"
-#ifdef DZAI_BASEPATH
-	DZAI_directory = DZAI_BASEPATH;
+#ifdef DZAI_MISSIONFILE_INSTALL
+	DZAI_directory = "DZAI";
 #else
-	diag_log "DZAI Error: DZAI_BASEPATH is undefined. Using default base path.";
 	DZAI_directory = "\z\addons\dayz_server\DZAI";
 #endif
-diag_log format ["Initializing %1 version %2 using base path %3.",DZAI_TYPE,DZAI_VERSION,DZAI_BASEPATH];
+diag_log format ["Initializing %1 version %2 using base path %3.",DZAI_TYPE,DZAI_VERSION,DZAI_directory];
 
 
 //Load DZAI variables
@@ -36,8 +35,8 @@ call compile preprocessFileLineNumbers format ["%1\init\world_classname_configs\
 DZAI_weaponGrades = [-1,0,1,2,3];							//All possible weapon grades (does not include custom weapon grades). A "weapon grade" is a tiered classification of gear. -1: Civilian (Low-grade), 0: Civilian, 1: Military, 2: MilitarySpecial, 3: Heli Crash. Weapon grade also influences the general skill level of the AI unit.
 DZAI_weaponGradesAll = [-1,0,1,2,3,4,5,6,7,8,9];			//All possible weapon grades (including custom weapon grades).
 DZAI_numAIUnits = 0;										//Tracks current number of currently active AI units, including dead units waiting for respawn.
-DZAI_actDynTrigs = 0;										//Tracks current number of active dynamically-spawned triggers
-DZAI_curDynTrigs = 0;										//Tracks current number of inactive dynamically-spawned triggers.
+//DZAI_actDynTrigs = 0;										//Tracks current number of active dynamically-spawned triggers
+//DZAI_curDynTrigs = 0;										//Tracks current number of inactive dynamically-spawned triggers.
 DZAI_actTrigs = 0;											//Tracks current number of active static triggers.	
 DZAI_curHeliPatrols = 0;									//Current number of active air patrols
 DZAI_curLandPatrols = 0;									//Current number of active land patrols
@@ -54,6 +53,7 @@ DZAI_dynEquipType = 4;
 DZAI_heliEquipType = 5;
 DZAI_vehEquipType = 3;
 DZAI_deleteObjectQueue = [];
+DZAI_dynLocations = [];
 
 //Set side relations
 createcenter east;
