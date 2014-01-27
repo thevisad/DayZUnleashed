@@ -340,10 +340,10 @@ DZAI_banAIWeapons = [];
 //List of launcher-type weapons for mid/high-level AI to use (by default, weapongrade 1/2/3), example: ["M136"]. If left empty, AI will not use launcher weapons. (Default: [])
 //If AI encounter an armored player vehicle, they will switch to a randomly-selected launcher-type weapon to engage. (Maximum 1 launcher per AI group).
 //Weapon classnames added here are verified if DZAI_verifyTables is set to true. Note: Launcher weapons are removed from the AI unit upon death.
-DZAI_launcherTypes = [""];	
+DZAI_launcherTypes = [];	
 
 //List of AI weapongrades that are permitted to use launcher-type weapons. Individual custom weapongrade levels may be added to allow launcher use (Default: [1,2,3])
-DZAI_launcherLevels = [];								
+DZAI_launcherLevels = [1,2,3];								
 
 
 /*	AI loot quantity settings

@@ -24,8 +24,8 @@ if (((_unitGroup getVariable ["pursuitTime",0]) > 0) && {((_unitGroup getVariabl
 (units _unitGroup) doTarget (vehicle _targetPlayer);
 (units _unitGroup) doFire (vehicle _targetPlayer);
 
-_startPos = _unitGroup getVariable ["trigger",_victim];
-if (isNull _startPos) then {_startPos = getPosATL _targetPlayer};
+_startPos = _unitGroup getVariable "trigger";
+if ((isNull _startPos) or (isNil "_startPos")) then {_startPos = _unitGroup getVariable ["spawnPos",getPosATL (leader _unitGroup)]};
 _transmitRange = 125; //distance to broadcast radio text around AI group leader
 //_chaseDist = 300;
 

@@ -5,7 +5,7 @@
 	
 */
 
-private ["_trigger","_grpArray","_isCleaning","_grpCount","_waitTime","_forceDespawn"];
+private ["_trigger","_grpArray","_isCleaning","_grpCount","_waitTime","_forceDespawn","_triggerLocation"];
 if (!isServer) exitWith {};										//Execute script only on server.
 
 _trigger = _this select 0;										//Get the trigger object
@@ -62,9 +62,14 @@ if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Deleting e
 
 //Remove dynamic trigger from global dyn trigger array and clean up trigger
 DZAI_dynTriggerArray = DZAI_dynTriggerArray - [_trigger];
-DZAI_actDynTrigs = DZAI_actDynTrigs - 1;
-DZAI_curDynTrigs = DZAI_curDynTrigs - 1;
+//DZAI_actDynTrigs = DZAI_actDynTrigs - 1;
+//DZAI_curDynTrigs = DZAI_curDynTrigs - 1;
 if (DZAI_debugMarkers > 0) then {deleteMarker format["trigger_%1",_trigger]};
+
+//Begin deletion timer for temporary blacklist area
+_triggerLocation = _trigger getVariable "triggerLocation";
+_triggerLocation setVariable ["deletetime",(time + 900)];
+DZAI_dynLocations set [(count DZAI_dynLocations),_triggerLocation];
 
 deleteVehicle _trigger;
 

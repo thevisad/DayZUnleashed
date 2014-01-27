@@ -30,8 +30,7 @@ if (!surfaceIsWater _vehPos) then {
 				0 = [_x, _weapongrade] call DZAI_setSkills;
 				0 = [_x, _weapongrade] spawn DZAI_autoRearm_unit;
 				_x setVariable ["unconscious",false];
-				_x setVariable ["unithealth",[12000,0,0,false,false]];
-				_x setHit["hands",0];
+				_x setVariable ["unithealth",[12000,0,false]];
 				_x setHit["legs",0];
 			} else {
 				0 = [_x,_weapongrade] spawn DZAI_addLoot;

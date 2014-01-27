@@ -70,7 +70,8 @@ class CfgMagazines {
 	#include "CfgMagazines\FoodMeatCooked.hpp"
 	#include "CfgMagazines\FoodMeatRaw.hpp"
 	#include "CfgMagazines\ItemSoda.hpp"
-	
+	#include "CfgUnleashed\Homeopathic.hpp"
+	#include "CfgUnleashed\Unleashed_weapons.hpp"
 	#include "CfgMagazines\MeleeSwing.hpp"
 	
 	#include "CfgMagazines\Deployable.hpp"
@@ -86,8 +87,7 @@ class CfgMagazines {
 	
 	//crafting
 	#include "CfgCrafting\Mats.hpp"
-	#include "CfgMagazines\Unleashed_weapons.hpp"
-
+	
 	// blood bag
 	#include "CfgMagazines\ItemBloodBag.hpp"
 	

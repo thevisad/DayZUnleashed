@@ -8,6 +8,9 @@
 	Last updated: 1:59 AM 11/9/2013
 */
 
+#define CHANCE_LOW 0.50
+#define CHANCE_HIGH 0.90
+
 private ["_patrolDist","_trigger","_totalAI","_unitGroup","_targetPlayer","_playerPos","_playerDir","_playerCount","_spawnPos","_startTime","_baseDist","_distVariance","_dirVariance","_spawnChance","_vehPlayer"];
 if (!isServer) exitWith {};
 
@@ -55,9 +58,9 @@ if (({isPlayer _x} count (_spawnPos nearEntities [["CAManBase"],100])) > 0) exit
 	> 75% spawn chance = 2 units + possibility of 1 more unit. (3 units max)
 */
 _totalAI = switch (true) do {
-	case (_spawnChance <= 0.50): {1 + floor(random 2)};
-	case ((_spawnChance > 0.50)&&(_spawnChance <= 0.90)): {1 + floor(random 3)};
-	case (_spawnChance > 0.90): {2 + floor(random 2)};
+	case (_spawnChance <= CHANCE_LOW): {1 + floor(random 2)};
+	case (_spawnChance > CHANCE_HIGH): {2 + floor(random 2)};
+	case default {1 + floor(random 3)};
 };
 
 if (DZAI_debugMarkers > 0) then {

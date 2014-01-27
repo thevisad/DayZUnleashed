@@ -30,7 +30,7 @@ while {((count _pos) < 1) && {(_attempts < 3)}} do {
 	if ((count _pos) > 1) then {
 		_pos = _pos isFlatEmpty [0,0,0.75,5,0,false,ObjNull];
 	} else {
-		_baseDist = (_baseDist + 100);	_attempts = (_attempts + 1);
+		_baseDist = (_baseDist + 50);	_attempts = (_attempts + 1);
 	};
 };
 
@@ -52,7 +52,7 @@ for "_i" from 1 to _totalAI do {
 	[_unit] joinSilent _unitGroup;														// Add AI unit to group
 
 	_unit setVariable ["bodyName",(name _unit)];										// Set unit body name
-	_unit setVariable ["unithealth",[12000,0,0,false,false]];							// Set unit health (blood, hands health, legs health, hands broken, legs broken)
+	_unit setVariable ["unithealth",[12000,0,false]];									// Set unit health (blood, legs health, legs broken)
 	_unit setVariable ["unconscious",false];											// Set unit consciousness
 
 	if (DZAI_weaponNoise) then {
@@ -80,6 +80,7 @@ if (!isNil "_dummy") then {
 _unitGroup selectLeader ((units _unitGroup) select 0);
 _unitGroup setVariable ["trigger",_trigger];
 _unitGroup setVariable ["GroupSize",_totalAI];
+if (isNull _trigger) then {_unitGroup setVariable ["spawnPos",_spawnPos]};
 DZAI_numAIUnits = DZAI_numAIUnits + _totalAI;
 
 _unitGroup

@@ -3,7 +3,7 @@
 	
 	Description:
 	
-	Last updated: 2:21 PM 8/27/2013
+	Last updated: 6:24 PM 1/20/2014
 */
 
 diag_log "DZAI Scheduler is running required script files...";
@@ -50,6 +50,7 @@ _refreshMarkers = (DZAI_debugMarkers > 1);
 _cleanDead = time;
 _monitorReport = time;
 _deleteObjects = time;
+_dynLocations = time;
 
 diag_log "DZAI Scheduler will continue tasks in 1 minute.";
 sleep 60;
@@ -82,7 +83,7 @@ while {true} do {
 				_object = (_x select 0);
 				_object call DZAI_unprotectObject;
 				deleteVehicle _object;
-				_x set [_forEachIndex,objNull];
+				DZAI_deleteObjectQueue set [_forEachIndex,objNull];
 			};
 			sleep 0.005;
 		} forEach DZAI_deleteObjectQueue;
@@ -90,11 +91,24 @@ while {true} do {
 		_deleteObjects = time;
 	};
 	
+	if ((time - _dynLocations) >= 300) then {
+		{
+			_deletetime = _x getVariable "deletetime";
+			if (time >= _deletetime) then {
+				deleteLocation _x;
+				DZAI_dynLocations set [_forEachIndex,locationNull];
+			};
+			sleep 0.005;
+		} forEach DZAI_dynLocations;
+		DZAI_dynLocations = DZAI_dynLocations - [locationNull];
+		_dynLocations = time;
+	};
+	
 	if ((DZAI_monitorRate > 0) && {((time - _monitorReport) >= DZAI_monitorRate)}) then {
 		_uptime = [] call DZAI_getUptime;
 		diag_log format ["DZAI Monitor :: Server Uptime - %1 d %2 hr %3 min %4 sec. Active AI Units - %5.",_uptime select 0, _uptime select 1, _uptime select 2, _uptime select 3,DZAI_numAIUnits];
 		diag_log format ["DZAI Monitor :: Static Spawns - %1 active static triggers. %2 groups queued for respawn.",DZAI_actTrigs,(count DZAI_respawnQueue)];
-		if (DZAI_dynAISpawns || {_vehiclesEnabled}) then {diag_log format ["DZAI Monitor :: Dynamic Spawns - %1/%2 (active/total). Air Patrols: %3/%4 (cur/max). Land Patrols: %5/%6.",DZAI_actDynTrigs,DZAI_curDynTrigs,DZAI_curHeliPatrols,DZAI_maxHeliPatrols,DZAI_curLandPatrols,DZAI_maxLandPatrols];};
+		if (DZAI_dynAISpawns || {_vehiclesEnabled}) then {diag_log format ["DZAI Monitor :: Dynamic Spawns - %1/%2 (active/total). Air Patrols: %3/%4 (cur/max). Land Patrols: %5/%6.",({triggerActivated _x} count DZAI_dynTriggerArray),(count DZAI_dynTriggerArray),DZAI_curHeliPatrols,DZAI_maxHeliPatrols,DZAI_curLandPatrols,DZAI_maxLandPatrols];};
 		if (_refreshMarkers && {((count DZAI_dynTriggerArray) > 0)}) then {
 			{
 				private["_marker"];

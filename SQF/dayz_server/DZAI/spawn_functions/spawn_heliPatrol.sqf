@@ -57,9 +57,9 @@ for "_i" from 1 to _amount do {
 	_pilot moveInDriver _helicopter;
 	0 = [_pilot,"helicrew"] call DZAI_setSkills;
 	0 = [_pilot, _weapongrade] call DZAI_setupLoadout;
-	_pilot setVariable ["unithealth",[12000,0,0,false,false]];
+	_pilot setVariable ["unithealth",[12000,0,false]];
 	_pilot setVariable ["unconscious",true];	//Prevent AI heli crew from being knocked unconscious
-	_pilot setVariable ["DZAI_deathTime",time];
+	//_pilot setVariable ["DZAI_deathTime",time];
 	_pilot setVariable ["bodyName",(name _pilot)];
 	if (!(_pilot hasWeapon "NVGoggles")) then {
 		_pilot addWeapon "NVGoggles";
@@ -77,9 +77,9 @@ for "_i" from 1 to _amount do {
 			_gunner moveInTurret [_helicopter,[_i]];
 			0 = [_gunner,"helicrew"] call DZAI_setSkills;
 			0 = [_gunner,_weapongrade] call DZAI_setupLoadout;
-			_gunner setVariable ["unithealth",[12000,0,0,false,false]];
+			_gunner setVariable ["unithealth",[12000,0,false]];
 			_gunner setVariable ["unconscious",true];	//Prevent AI heli crew from being knocked unconscious
-			_gunner setVariable ["DZAI_deathTime",time];
+			//_gunner setVariable ["DZAI_deathTime",time];
 			_gunner setVariable ["bodyName",(name _gunner)];
 			if (!(_gunner hasWeapon "NVGoggles")) then {
 				_gunner addWeapon "NVGoggles";

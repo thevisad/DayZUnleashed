@@ -30,12 +30,9 @@ _vehPos = getPosATL _vehicle;
 		private ["_health"];
 		0 = [_x, 3] spawn DZAI_autoRearm_unit;
 		_x setVariable ["unconscious",false];
-		_health = _x getVariable ["unithealth",[12000,0,0,false,false]];
+		_health = _x getVariable ["unithealth",[12000,0,false]];
 		_health set [1,0];
-		_health set [2,0];
-		_health set [3,false];
-		_health set [4,false];
-		_x setHit["hands",0];
+		_health set [2,false];
 		_x setHit["legs",0];
 		if (!canMove _vehicle) then {
 			if (_x != (gunner _vehicle)) then {
