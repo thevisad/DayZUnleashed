@@ -35,6 +35,8 @@ for "_i" from 1 to _amount do {
 	_helicopter = createVehicle [_heliType, [_startPos select 0, _startPos select 1, 180], [], 0, "FLY"];
 	_helicopter setFuel 1;
 	_helicopter engineOn true;
+	_helicopter setVehicleLock "LOCKED";
+	
 	if (_heliType isKindOf "Plane") then {
 		private ["_heliDir","_heliSpd"];
 		_heliDir = random 360;

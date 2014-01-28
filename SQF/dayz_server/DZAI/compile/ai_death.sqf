@@ -25,7 +25,7 @@ _victim setDamage 1;
 _victim removeAllEventHandlers "HandleDamage";
 
 _unitGroup = (group _victim);
-_unitType = _unitGroup getVariable ["unitType",""];
+_unitType = _unitGroup getVariable ["unitType","unknown"];
 switch (_unitType) do {
 	case "static":
 	{
@@ -37,57 +37,41 @@ switch (_unitType) do {
 	};
 	case "air": 
 	{
-		if ((_victim getVariable ["removeNVG",0]) == 1) then {
-			_victim removeWeapon "NVGoggles";
-		};
-		_victim spawn DZAI_deathFlies;
-		_victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
-		_victim setVariable ["deathType",_deathType,true];
-		_victim setVariable ["DZAI_deathTime",time];
-		_victim enableSimulation false;
 	};
 	case "land":
 	{
-		if ((_victim getVariable ["removeNVG",0]) == 1) then {
-			_victim removeWeapon "NVGoggles";
-		};
-		_victim spawn DZAI_deathFlies;
-		_victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
-		_victim setVariable ["deathType",_deathType,true];
-		_victim setVariable ["DZAI_deathTime",time];
-		_victim enableSimulation false;
 	};
 	case default {
-		if ((_victim getVariable ["removeNVG",0]) == 1) then {
-			_victim removeWeapon "NVGoggles";
-		};
-		_victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
-		_victim setVariable ["deathType",_deathType,true];
-		_victim setVariable ["DZAI_deathTime",time];
-		_victim spawn DZAI_deathFlies;
-		_victim enableSimulation false;
-		if (DZAI_debugMarkers > 0) then {
+		if (!isNil "DZAI_debugMarkers") then {
 			if (({alive _x} count (units _unitGroup)) == 0) then {
 				{
 					deleteMarker (str _x);
 				} forEach (waypoints _unitGroup);
 			};
 		};
-		DZAI_numAIUnits = DZAI_numAIUnits - 1;
 	};
 };
 
-if (_unitType in ["static","dynamic"]) then {
-	0 = [_victim,_killer,_unitGroup,_deathType] call DZAI_AI_killed_all;
+if (_unitType in ["static","dynamic","unknown"]) then {
+	0 = [_victim,_killer,_unitGroup] call DZAI_AI_killed_all;
+};
+
+if ((_victim getVariable ["removeNVG",0]) == 1) then {
+	_victim removeWeapon "NVGoggles";
 };
 
 _launchWeapon = (secondaryWeapon _victim);
 if (_launchWeapon in DZAI_launcherTypes) then {
-	private ["_launchAmmo"];
 	_launchAmmo = getArray (configFile >> "CfgWeapons" >> _launchWeapon >> "magazines") select 0;
 	_victim removeMagazines _launchAmmo;
 	_victim removeWeapon _launchWeapon;
 };
+
+_victim spawn DZAI_deathFlies;
+_victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
+_victim setVariable ["deathType",_deathType,true];
+_victim setVariable ["DZAI_deathTime",time];
+_victim setVariable ["unconscious",true];
 
 //diag_log format ["DEBUG :: AI %1 (Group %2) killed by %3",_victim,_unitGroup,_killer];
 

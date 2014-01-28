@@ -46,7 +46,7 @@ if (isServer) then
 	_grp = _this select 0;
 	_pos = _this select 1;
 	_max_dist = _this select 2;
-	_debug = if ((count _this) > 3) then {_this select 3} else {0};
+	_debug = if ((count _this) > 3) then {if ((typeName (_this select 3)) != "") then {1} else {0}} else {0};
 	_blacklist = if ((count _this) > 4) then {_blacklist = _this select 4} else {[]};
 
 	_grp setBehaviour "AWARE";

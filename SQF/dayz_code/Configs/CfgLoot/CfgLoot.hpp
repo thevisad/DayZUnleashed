@@ -194,7 +194,6 @@ class CfgLoot {
 		{"ItemBloodbag",0.03}
 	};
 		milgeneric[]={
-		{"NVGoggles",0.01},
 		{"ItemFlashlightRed",0.06},
 		{"ItemGPS",0.01},
 		{"ItemEtool",0.03},

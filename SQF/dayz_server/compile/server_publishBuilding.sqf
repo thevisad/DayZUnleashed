@@ -14,9 +14,10 @@ _squad = 0;
 _playerUID = 0;
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 _combination = 0;
-if (!(_building isKindOf "Building")) exitWith {
+
+if !((_building isKindOf "Building") || (_building isKindOf "DZE_Base_Object") || (_building isKindOf "DZE_Housebase")) exitWith {
 	deleteVehicle _building;
-	diag_log("CTP: Deleting Building " + str(_building));
+	diag_log("USPB: Deleting Building " + str(_building));
 };
 
 //Commenting this out for the time being to identify potential issues.

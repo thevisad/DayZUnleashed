@@ -590,6 +590,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
     };
 	
 	//Dog
+	/*
 	if (_isBoar and _isAlive and (_hasRawMeat) and _canDo and _ownerID == "0" and player getVariable ["boarID", 0] == 0) then {
 		if (s_player_tameboar < 0) then {
 			s_player_tameboar = player addAction [localize "str_actions_tameboar", "\z\addons\dayz_code\actions\tame_boar.sqf", cursorTarget, 1, false, true, "", ""];
@@ -697,7 +698,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		player removeAction s_player_followdog;
 		s_player_followdog = -1;
 	};
-	
+	*/
 	
 	if( _canDo and _isStorage ) then {
 		if( churchie_check < 0 ) then {

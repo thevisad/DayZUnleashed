@@ -35,6 +35,7 @@ for "_i" from 1 to _amount do {
 	_vehicle = createVehicle [_vehType, [_startPos select 0, _startPos select 1, 0], [], 0, "NONE"];
 	_vehicle setFuel 1;
 	_vehicle engineOn true;
+	_vehicle setVehicleLock "LOCKED";
 
 	_nul = _vehicle call DZAI_protectObject;
 	clearWeaponCargoGlobal _vehicle;

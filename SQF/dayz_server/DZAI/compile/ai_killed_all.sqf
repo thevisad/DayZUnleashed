@@ -8,14 +8,10 @@
 		Last updated: 10:42 PM 1/11/2014
 */
 
-private["_victim","_killer","_unitGroup","_groupSize","_deathType"];
+private["_victim","_killer","_unitGroup","_groupSize"];
 _victim = _this select 0;
 _killer = _this select 1;
 _unitGroup = _this select 2;
-_deathType = _this select 3;
-
-//Remove temporary NVGs.
-if ((_victim getVariable["removeNVG",0]) == 1) then {_victim removeWeapon "NVGoggles";}; //Remove temporary NVGs from AI.
 
 //Update AI count
 _groupSize = _unitGroup getVariable "GroupSize";
@@ -45,14 +41,5 @@ if !((_victim getVariable ["CanGivePistol",true]) && (_victim getVariable ["unco
 	_anim = if ((animationState _victim) in ["amovppnemrunsnonwnondf","amovppnemstpsnonwnondnon","amovppnemstpsraswrfldnon","amovppnemsprslowwrfldf","aidlppnemstpsnonwnondnon0s","aidlppnemstpsnonwnondnon01"]) then {"adthppnemstpsraswpstdnon_2"} else {"adthpercmstpslowwrfldnon_4"};
 	_nul = [objNull, _victim, rSWITCHMOVE, _anim] call RE; 
 };
-
-//Set study_body variables.
-_victim setVariable ["bodyName",_victim getVariable ["bodyName","unknown"],true];		//Broadcast the unit's name (was previously a private variable).
-_victim setVariable ["deathType",_deathType,true];
-_victim setVariable ["DZAI_deathTime",time];
-_victim setVariable ["unconscious",true];
-
-_nul = _victim spawn DZAI_deathFlies;
-_victim enableSimulation false;
 
 true

@@ -46,7 +46,7 @@ if (DZAI_dynAISpawns) then {
 	_dynManagerV2 = [] execVM format ['%1\scripts\dynamicSpawn_manager.sqf',DZAI_directory];
 };
 
-_refreshMarkers = (DZAI_debugMarkers > 1);
+_refreshMarkers = (!isNil "DZAI_debugMarkers");
 _cleanDead = time;
 _monitorReport = time;
 _deleteObjects = time;
@@ -62,9 +62,10 @@ while {true} do {
 			_deathTime = _x getVariable "DZAI_deathTime";
 			if (!isNil "_deathTime") then {
 				if ((time - _deathTime) > DZAI_cleanupDelay) then {
-					if (({isPlayer _x} count (_x nearEntities [["CAManBase"], 10])) == 0) then {
+					if (({isPlayer _x} count (_x nearEntities [["CAManBase"], 20])) == 0) then {
 						_soundFlies = _x getVariable "sound_flies";
-						if (isNil "_soundFlies") then {
+						if (!isNil "_soundFlies") then {
+							detach _soundFlies;
 							deleteVehicle _soundFlies;
 						};
 						deleteVehicle _x;
@@ -91,7 +92,7 @@ while {true} do {
 		_deleteObjects = time;
 	};
 	
-	if ((time - _dynLocations) >= 300) then {
+	if ((time - _dynLocations) >= 360) then {
 		{
 			_deletetime = _x getVariable "deletetime";
 			if (time >= _deletetime) then {

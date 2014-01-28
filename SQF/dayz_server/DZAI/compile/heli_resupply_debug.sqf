@@ -45,7 +45,7 @@ _startTime = time;
 
 if ((count _heliWeapons) > 0) then {
 	//For armed air vehicles
-	while {(alive _helicopter)&&{(!(isNull _helicopter))}} do {	
+	while {!(_helicopter getVariable ["heli_disabled",false]) && {alive _helicopter}} do {	
 		//Check if helicopter ammunition needs to be replenished
 		{
 			if ((_helicopter ammo _x) < 20) then {
@@ -84,7 +84,7 @@ if ((count _heliWeapons) > 0) then {
 	};
 } else {
 	//For unarmed air vehicles
-	while {(alive _helicopter)&&{(!(isNull _helicopter))}} do {			
+	while {!(_helicopter getVariable ["heli_disabled",false]) && {alive _helicopter}} do {		
 		//Check if helicopter fuel is low
 		if (fuel _helicopter < 0.20) then {
 			_helicopter setFuel 1;

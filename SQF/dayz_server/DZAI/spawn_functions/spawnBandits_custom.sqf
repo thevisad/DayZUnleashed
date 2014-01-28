@@ -26,7 +26,7 @@ if (count _grpArray > 0) exitWith {if (DZAI_debugLevel > 0) then {diag_log forma
 _triggerPos = getPosATL _trigger;
 if (_totalAI == 0) then {_totalAI = 1};
 
-if (DZAI_debugMarkers > 0) then {
+if (!isNil "DZAI_debugMarkers") then {
 	_tMarker = str (_trigger);
 	if ((getMarkerColor _tMarker) == "") then {
 		_tMarker = createMarker [_tMarker, (getPosATL _trigger)];
@@ -38,7 +38,7 @@ if (DZAI_debugMarkers > 0) then {
 		_tMarker setMarkerText "STATIC TRIGGER (ACTIVE)";
 		_tMarker setMarkerColor "ColorRed";
 	};
-	if (DZAI_debugMarkers > 1) then {_nul = [_trigger] spawn DZAI_updateSpawnMarker;};
+	_nul = [_trigger] spawn DZAI_updateSpawnMarker;
 };
 
 if (DZAI_debugLevel > 0) then {diag_log format["DZAI Debug: Processed static trigger spawn data in %1 seconds (spawnBandits).",(diag_tickTime - _startTime)];};

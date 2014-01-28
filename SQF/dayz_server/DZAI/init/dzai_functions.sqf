@@ -43,13 +43,11 @@ if (DZAI_findKiller) then {
 	DZAI_huntKiller = compile preprocessFileLineNumbers format ["%1\compile\fn_findKiller.sqf",DZAI_directory];
 };
 
-if (DZAI_debugMarkers < 1) then {
+if (isNil "DZAI_debugMarkers") then {
 	DZAI_autoRearm_unit = compile preprocessFileLineNumbers format ["%1\compile\unit_resupply.sqf",DZAI_directory];
 } else {
 	DZAI_autoRearm_unit = compile preprocessFileLineNumbers format ["%1\compile\unit_resupply_debug.sqf",DZAI_directory];
-	if (DZAI_debugMarkers > 1) then {
-		DZAI_updateSpawnMarker = compile preprocessFileLineNumbers format ["%1\compile\fn_refreshmarker.sqf",DZAI_directory];
-	};
+	DZAI_updateSpawnMarker = compile preprocessFileLineNumbers format ["%1\compile\fn_refreshmarker.sqf",DZAI_directory];
 };
 
 //Compile zombie aggro functions
@@ -62,7 +60,7 @@ if (DZAI_zombieEnemy && {(DZAI_passiveAggro || {DZAI_weaponNoise})}) then {
 
 //Helicopter patrol scripts
 if (DZAI_maxHeliPatrols > 0) then {
-	if (DZAI_debugMarkers < 1) then {
+	if (isNil "DZAI_debugMarkers") then {
 		DZAI_autoRearm_heli = compile preprocessFileLineNumbers format ["%1\compile\heli_resupply.sqf",DZAI_directory];
 	} else {
 		DZAI_autoRearm_heli = compile preprocessFileLineNumbers format ["%1\compile\heli_resupply_debug.sqf",DZAI_directory];
@@ -79,7 +77,7 @@ if (DZAI_maxHeliPatrols > 0) then {
 //Land vehicle patrol scripts
 if (DZAI_maxLandPatrols > 0) then {
 	DZAI_vehDespawn = compile preprocessFileLineNumbers format ["%1\spawn_functions\veh_despawn.sqf",DZAI_directory];
-	if (DZAI_debugMarkers < 1) then {
+	if (isNil "DZAI_debugMarkers") then {
 		DZAI_autoRearm_veh = compile preprocessFileLineNumbers format ["%1\compile\veh_autorearm.sqf",DZAI_directory];
 	} else {
 		DZAI_autoRearm_veh = compile preprocessFileLineNumbers format ["%1\compile\veh_autorearm_debug.sqf",DZAI_directory];
@@ -186,6 +184,8 @@ DZAI_deathFlies = {
 	_soundFlies = createSoundSource["Sound_Flies",getPosATL _this,[],0];
 	_soundFlies attachTo [_this,[0,0,0]];
 	_this setVariable ["sound_flies",_soundFlies];
+	sleep 3;
+	_this enableSimulation false;
 };
 
 //Returns probabilities of generating different grades of weapons based on equipType value
@@ -284,6 +284,7 @@ DZAI_unconscious = {
 };*/
 
 DZAI_deleteObject = {
+	private ["_obj","_delay"];
 	_obj = _this select 0;
 	_delay = _this select 1;
 	
@@ -334,7 +335,7 @@ DZAI_findSpawnPos = {
 	_continue = true;
 	_spawnpool = [] + _this;
 	_maxAttempts = ((count _spawnpool) min 6);
-	while {_continue && {(_attempts <= _maxAttempts)}} do {
+	while {_continue && {(_attempts < _maxAttempts)}} do {
 		_index = floor (random (count _spawnpool));
 		_spawnPos = _spawnpool select _index;
 		if (({isPlayer _x} count (_spawnPos nearEntities [["AllVehicles","CAManBase"],50])) == 0) then {
@@ -346,8 +347,8 @@ DZAI_findSpawnPos = {
 			if (_attempts == _maxAttempts) then {
 				_spawnPos = [];
 			};
+			if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: Player found within 50m of chosen spawn position. (attempt %1/%2).",_attempts,_maxAttempts];};
 		};
-		if ((DZAI_debugLevel > 0) && {(_attempts > 0)}) then {diag_log format ["DZAI Debug: Player found within 50m of chosen spawn position. (attempt %1/%2).",_attempts,_maxAttempts];};
 	};
 
 	_spawnPos
@@ -375,7 +376,7 @@ DZAI_shuffleWP = {
 	_newWPPos = _locationArray call BIS_fnc_selectRandom2;
 	//diag_log format ["DEBUG :: Chosen position: %1.",_newWPPos];
 	_wp = (currentWaypoint _unitGroup);
-	if (DZAI_debugMarkers > 0) then {
+	if (!isNil "DZAI_debugMarkers") then {
 		private["_markername"];
 		_markername = format ["[%1,%2]",_unitGroup,_wp];
 		//diag_log format ["DEBUG :: Relocating marker %1.",_markername];
@@ -511,7 +512,7 @@ DZAI_abortDynSpawn = {
 	DZAI_dynTriggerArray = DZAI_dynTriggerArray - [_trigger];
 	//DZAI_actDynTrigs = DZAI_actDynTrigs - 1;
 	//DZAI_curDynTrigs = DZAI_curDynTrigs - 1;
-	if (DZAI_debugMarkers > 0) then {deleteMarker format["trigger_%1",_trigger]};
+	if (!isNil "DZAI_debugMarkers") then {deleteMarker format["trigger_%1",_trigger]};
 
 	deleteVehicle _trigger;
 	

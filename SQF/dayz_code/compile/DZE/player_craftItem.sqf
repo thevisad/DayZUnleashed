@@ -73,6 +73,11 @@ if (_canDo) then {
 	_selectedRecipeInput = getArray (configFile >> _baseClass >> _item >> "ItemActions" >> _crafting >> "input");	
 	_outputWeapons = getArray (configFile >> _baseClass >> _item >> "ItemActions" >> _crafting >> "outputweapons");
 	_inputWeapons = getArray (configFile >> _baseClass >> _item >> "ItemActions" >> _crafting >> "inputweapons");
+	diag_log("PCI: _selectedRecipeTools " + str(_selectedRecipeTools));
+	diag_log("PCI: _selectedRecipeInput " + str(_selectedRecipeOutput));
+	diag_log("PCI: _selectedRecipeInput " + str(_selectedRecipeInput));
+	diag_log("PCI: _outputWeapons " + str(_outputWeapons));
+	diag_log("PCI: _inputWeapons " + str(_inputWeapons));
 
 	_sfx = getText(configFile >> _baseClass >> _item >> "sfx");
 	if(_sfx == "") then {
@@ -158,7 +163,7 @@ if (_canDo) then {
 						_removed = 0;
 						_itemIn = _x select 0;
 						_countIn = _x select 1;
-						 diag_log format["Recipe Finish: %1 %2", _itemIn,_countIn];
+						 diag_log format["PCI: Recipe Finish: %1 %2", _itemIn,_countIn];
 						_tobe_removed_total = _tobe_removed_total + _countIn;
 	
 						{					
@@ -174,8 +179,29 @@ if (_canDo) then {
 						} forEach magazines player;
 	
 					} forEach _selectedRecipeInput;
+
+					{
+						_removed = 0;
+						_itemIn = _x select 0;
+						_countIn = _x select 1;
+						 diag_log format["PCI: Recipe Finish: %1 %2", _itemIn,_countIn];
+						_tobe_removed_total = _tobe_removed_total + _countIn;
+	
+						{					
+							if( (_removed < _countIn) && ((_x == _itemIn) || configName(inheritsFrom(configFile >> "CfgWeapons" >> _x)) == _itemIn)) then {
+								_num_removed = ([player,_x] call BIS_fnc_invRemove);
+								_removed = _removed + _num_removed;
+								_removed_total = _removed_total + _num_removed;
+								if(_num_removed >= 1) then {
+									_temp_removed_array set [count _temp_removed_array,_x];
+								};
+							};
+	
+						} forEach magazines player;
+	
+					} forEach _inputWeapons;
 					
-					diag_log format["removed: %1 of: %2", _removed, _tobe_removed_total];
+					diag_log format["PCI: removed: %1 of: %2", _removed, _tobe_removed_total];
 	
 					// Only proceed if all parts were removed successfully
 					if(_removed_total == _tobe_removed_total) then {

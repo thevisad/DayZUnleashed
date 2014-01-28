@@ -32,13 +32,13 @@ _triggerPos = getPosATL _trigger;
 _locationArray = _trigger getVariable ["locationArray",[]];	
 if ((count _locationArray) == 0) then {
 	_spawnPositions = [];
-	if (DZAI_debugMarkers > 0) then {
+	if (!isNil "DZAI_debugMarkers") then {
 		_tMarker = createMarker [str(_trigger), (getPosATL _trigger)];
 		_tMarker setMarkerText "STATIC TRIGGER (ACTIVE)";
 		_tMarker setMarkerType "Defend";
 		_tMarker setMarkerColor "ColorRed";
 		_tMarker setMarkerBrush "Solid";
-		if (DZAI_debugMarkers > 1) then {_nul = [_trigger] spawn DZAI_updateSpawnMarker;};
+		_nul = [_trigger] spawn DZAI_updateSpawnMarker;
 	};
 	//If no markers specified in position array, then generate spawn points using building positions (search for buildings within 250m. generate a maximum of 150 positions).
 	if ((count _positionArray) == 0) then {
@@ -66,7 +66,7 @@ if ((count _locationArray) == 0) then {
 		if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Spawning AI from marker positions (spawnBandits).";};
 	};
 } else {
-	if (DZAI_debugMarkers > 0) then {
+	if (!isNil "DZAI_debugMarkers") then {
 		_tMarker = str (_trigger);
 		if ((getMarkerColor _tMarker) == "") then {
 			_tMarker = createMarker [_tMarker, (getPosATL _trigger)];
@@ -78,7 +78,7 @@ if ((count _locationArray) == 0) then {
 			_tMarker setMarkerText "STATIC TRIGGER (ACTIVE)";
 			_tMarker setMarkerColor "ColorRed";
 		};
-		if (DZAI_debugMarkers > 1) then {_nul = [_trigger] spawn DZAI_updateSpawnMarker;};
+		_nul = [_trigger] spawn DZAI_updateSpawnMarker;
 	};
 	//If spawn points are already defined (subsequent trigger activations)
 	_spawnPositions = _locationArray;

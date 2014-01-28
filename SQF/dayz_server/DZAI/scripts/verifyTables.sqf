@@ -25,8 +25,8 @@ _verified = [];
 	{
 		if !(_x in _verified) then {
 			_isOK = true;
-			if (((str(inheritsFrom (configFile >> "CfgWeapons" >> _x))) != "") || {((str(inheritsFrom (configFile >> "CfgVehicles" >> _x))) != "")} || {((str(inheritsFrom (configFile >> "CfgMagazines" >> _x))) != "")}) then {
-				if (((str(inheritsFrom (configFile >> "CfgWeapons" >> _x))) == WEAPON_BANNED_STRING) || {((str(inheritsFrom (configFile >> "CfgVehicles" >> _x))) == VEHICLE_BANNED_STRING)} || {((str(inheritsFrom (configFile >> "CfgMagazines" >> _x))) == MAGAZINE_BANNED_STRING)}) then {
+			if ((isClass (configFile >> "CfgWeapons" >> _x)) || {(isClass (configFile >> "CfgMagazines" >> _x))} || {(isClass (configFile >> "CfgVehicles" >> _x))}) then {
+				if (((str(inheritsFrom (configFile >> "CfgWeapons" >> _x))) == WEAPON_BANNED_STRING) || {((str(inheritsFrom (configFile >> "CfgMagazines" >> _x))) == VEHICLE_BANNED_STRING)} || {((str(inheritsFrom (configFile >> "CfgVehicles" >> _x))) == MAGAZINE_BANNED_STRING)}) then {
 					_isOK = false;
 				};
 			} else {
