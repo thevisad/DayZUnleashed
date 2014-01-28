@@ -181,7 +181,9 @@ if (_canDo) then {
 					if(_removed_total == _tobe_removed_total) then {
 						_num_removed_weapons = 0;
 						{
-							_num_removed_weapons = _num_removed_weapons + ([player,_x] call BIS_fnc_invRemove);
+							_config = (configFile >> "CfgWeapons" >> _x);
+							_configName = configName(_config);
+							_num_removed_weapons = _num_removed_weapons + ([player,_configName] call BIS_fnc_invRemove);
 							diag_log("PCI: _num_removed_weapons " + str(_num_removed_weapons));
 							diag_log("PCI: _inputWeapons _x" + str(_x));
 						} forEach _inputWeapons;
