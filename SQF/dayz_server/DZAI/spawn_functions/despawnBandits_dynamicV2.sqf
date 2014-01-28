@@ -1,72 +1,86 @@
 /*
 	despawnBandits_dynamic
 
-	Last updated: 7:42 PM 10/20/2013
+	Last updated: 4:05 PM 1/25/2014
 	
 */
 
-private ["_trigger","_grpArray","_isCleaning","_grpCount","_waitTime","_forceDespawn","_triggerLocation"];
+private ["_trigger","_isCleaning","_triggerLocation","_forced","_grpArray"];
 if (!isServer) exitWith {};										//Execute script only on server.
 
 _trigger = _this select 0;										//Get the trigger object
+_forced = if ((count _this) > 1) then {_this select 1} else {false};
 
 _grpArray = _trigger getVariable ["GroupArray",[]];				//Find the groups spawned by the trigger. Or set an empty group array if none are found.
-_isCleaning = _trigger getVariable ["isCleaning",nil];			//Find whether or not the trigger has been marked for cleanup, otherwise assume a cleanup has already happened.
-_forceDespawn = _trigger getVariable ["forceDespawn",false];	//Check whether to run despawn script even if players are present in the trigger area.
-if (isNil "_forceDespawn") then {_forceDespawn = false;};
 
-_waitTime = if (_forceDespawn) then {DZAI_dynRemoveDeadWait} else {DZAI_dynDespawnWait};
+if ((_trigger getVariable ["isCleaning",false]) && (!_forced)) exitWith {if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Despawn script is already running. Exiting despawn script.";};};
 
-_grpCount = count _grpArray;
+_trigger setVariable["isCleaning",true];			//Mark the trigger as being in a cleanup state so that subsequent requests to despawn for the same trigger will not run.
 
-if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: _grpArray is %1. _isCleaning is %2.",_grpArray,_isCleaning];};
-if ((_grpCount == 0) && (isNil "_isCleaning")) exitWith {if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Trigger's _grpCount is zero and _isCleaning is nil. (Nothing to despawn).";};};
-if ((_grpCount == 0) || (_isCleaning)) exitWith {if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: Trigger's group array is empty, or a despawn script is already running. Exiting despawn script.";};};				//Exit script if the trigger hasn't spawned any AI units, or if a despawn script is already running for the trigger.
-
-_trigger setVariable["isCleaning",true,false];			//Mark the trigger as being in a cleanup state so that subsequent requests to despawn for the same trigger will not run.
-if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: No players remain in %1 %2. Deleting spawned AI in %3 seconds.",triggerText _trigger,mapGridPosition _trigger,_waitTime];};
-if (DZAI_debugMarkers > 0) then {
-	private["_marker"];
-	_marker = format["trigger_%1",_trigger];
-	_marker setMarkerColor "ColorGreenAlpha";
-	_marker setMarkerAlpha 0.7;							//Light green: Active trigger awaiting despawn.
-};
-sleep _waitTime;								//Wait some time before deleting units. (amount of time to allow units to exist when the trigger area has no players)
-
-if ((triggerActivated _trigger) && (!_forceDespawn)) exitWith {
-	if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: A player has entered the trigger area. Cancelling despawn script.";}; //Exit script if trigger has been reactivated since _waitTime seconds has passed.
-	_trigger setVariable ["isCleaning",false,false];	//Allow next despawn request.
-	if (DZAI_debugMarkers > 0) then {
+//Begin despawn timer if dynamic trigger is not forced to despawn. If player is present in area after timer expires, cancel despawn
+if !(_forced) then {
+	if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: No players remain in %1 %2. Deleting spawned AI in %3 seconds.",triggerText _trigger,mapGridPosition _trigger,DZAI_dynDespawnWait];};
+	
+	if (!isNil "DZAI_debugMarkers") then {
 		private["_marker"];
 		_marker = format["trigger_%1",_trigger];
-		_marker setMarkerColor "ColorOrange";
-		_marker setMarkerAlpha 0.9;						//Reset trigger indicator color to Active.
+		_marker setMarkerColor "ColorGreenAlpha";
+		_marker setMarkerAlpha 0.7;							//Light green: Active trigger awaiting despawn.
 	};
-};			
+	
+	sleep DZAI_dynDespawnWait;								//Wait some time before deleting units. (amount of time to allow units to exist when the trigger area has no players)
 
-{
-	if (DZAI_debugMarkers > 0) then {
-		{
-			deleteMarker (str _x);
-		} forEach (waypoints _x);
-		sleep 0.1;
+	if (isNull _trigger) exitWith {};
+	
+	if (triggerActivated _trigger) exitWith {
+		if (DZAI_debugLevel > 1) then {diag_log "DZAI Extended Debug: A player has entered the trigger area. Cancelling despawn script.";}; //Exit script if trigger has been reactivated since DZAI_dynDespawnWait seconds has passed.
+		_trigger setVariable ["isCleaning",false];	//Allow next despawn request.
+		if (!isNil "DZAI_debugMarkers") then {
+			private["_marker"];
+			_marker = format["trigger_%1",_trigger];
+			_marker setMarkerColor "ColorOrange";
+			_marker setMarkerAlpha 0.9;						//Reset trigger indicator color to Active.
+		};
 	};
-	DZAI_numAIUnits = DZAI_numAIUnits - (_x getVariable ["GroupSize",0]);	//Update active AI count
-	{deleteVehicle _x} forEach (units _x);							//Delete live units
-	sleep 0.5;
-	deleteGroup _x;													//Delete the group after its units are deleted.
-	sleep 0.1;
-} forEach _grpArray;
+
+	{
+		if (!isNil "DZAI_debugMarkers") then {
+			{
+				deleteMarker (str _x);
+			} forEach (waypoints _x);
+			sleep 0.1;
+		};
+		DZAI_numAIUnits = DZAI_numAIUnits - (_x getVariable ["GroupSize",0]);	//Update active AI count
+		{
+			if (alive _x) then {
+				deleteVehicle _x;
+			};
+		} forEach (units _x);							//Delete live units
+		sleep 0.5;
+		deleteGroup _x;													//Delete the group after its units are deleted.
+		sleep 0.1;
+	} forEach _grpArray;	
+} else {
+	//Clean up dynamic AI group in 10 seconds if DayZ's group cleanup hasn't done it already.
+	_nul = _grpArray spawn {
+		sleep 10;
+		{
+			if (!isNull _x) then {
+				(units _x) joinSilent grpNull;
+				sleep 0.5;
+				deleteGroup _x;
+			};
+		} forEach _this;
+	};
+};
 
 if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Deleting expired dynamic trigger at %1.",mapGridPosition _trigger];};
 
 //Remove dynamic trigger from global dyn trigger array and clean up trigger
 DZAI_dynTriggerArray = DZAI_dynTriggerArray - [_trigger];
-//DZAI_actDynTrigs = DZAI_actDynTrigs - 1;
-//DZAI_curDynTrigs = DZAI_curDynTrigs - 1;
-if (DZAI_debugMarkers > 0) then {deleteMarker format["trigger_%1",_trigger]};
+if (!isNil "DZAI_debugMarkers") then {deleteMarker format["trigger_%1",_trigger]};
 
-//Begin deletion timer for temporary blacklist area
+//Begin deletion timer for temporary blacklist area and add it to global dyn location array to allow deletion
 _triggerLocation = _trigger getVariable "triggerLocation";
 _triggerLocation setVariable ["deletetime",(time + 900)];
 DZAI_dynLocations set [(count DZAI_dynLocations),_triggerLocation];

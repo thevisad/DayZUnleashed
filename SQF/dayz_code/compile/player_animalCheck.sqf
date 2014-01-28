@@ -4,7 +4,7 @@ _list = getposATL player nearEntities [["CAAnimalBase"],dayz_animalDistance];
 
 if (count _list < dayz_maxAnimals) then {
 	//Find where animal likes
-	_animalssupported = ["Chicken","Cow","Sheep","WildBoar","WildBoar","WildBoar","Goat","Rabbit","Rabbit","Dog","Dog","Dog","Dog","Dog","Dog"];
+	_animalssupported = ["Chicken","Cow","Sheep","WildBoar","WildBoar","WildBoar","Goat","Rabbit","Rabbit","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog"];
 	
 	_type =  (_animalssupported select floor(random(count _animalssupported)));
 	if (_type == "Cow") then {

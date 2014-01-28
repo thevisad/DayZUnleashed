@@ -5,7 +5,13 @@
 
 if (!isDedicated) then {
 	"filmic" setToneMappingParams [0.07, 0.31, 0.23, 0.37, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
-
+	
+	_void = [] execVM "\z\addons\dayz_code\R3F_Realism\R3F_Realism_Init.sqf";
+	//DZE_player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_build.sqf";
+	DZE_player_build			= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_build_snap.sqf";
+	player_buildControls	= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_buildControls.sqf";
+	snap_object				= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\snap_object.sqf";
+	
 	BIS_Effects_Burn = compile preprocessFile "\ca\Data\ParticleEffects\SCRIPTS\destruction\burn.sqf";
 	player_zombieCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";	//Run on a players computer, checks if the player is near a zombie
 	player_zombieAttack = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieAttack.sqf";	//Run on a players computer, causes a nearby zombie to attack them
@@ -104,7 +110,7 @@ if (!isDedicated) then {
 	
 	// DZE specific
 	DZE_player_goFishing =	compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_goFishing.sqf";
-	DZE_player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\DZE\player_build.sqf";
+	
 	player_breaklegs =	compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\publicEH\medBreakLegs.sqf";
     player_giveEXP = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_giveEXP.sqf";
 	
@@ -194,11 +200,6 @@ if (!isDedicated) then {
 		_myExp
 	};
 	
-	//weight system
-  if (!isDedicated) then
-    {
-    _void = [] execVM "\z\addons\dayz_code\R3F_Realism\R3F_Realism_Init.sqf";
-    }; 
 
 	ui_initDisplay = {
 		private["_control","_ctrlBleed","_display","_ctrlFracture","_ctrlDogFood","_ctrlDogWater","_ctrlDogWaterBorder", "_ctrlDogFoodBorder"];

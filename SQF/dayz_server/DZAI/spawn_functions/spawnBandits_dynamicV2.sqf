@@ -20,7 +20,7 @@ _patrolDist = _this select 0;
 _trigger = _this select 1;
 _spawnChance = _this select 2;
 
-if ((count (_trigger getVariable ["GroupArray",[]]) > 0) or (_trigger getVariable ["forceDespawn",false])) exitWith {if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Active groups found. Exiting spawn script (spawnBandits_dynamic)";};};	
+if (count (_trigger getVariable ["GroupArray",[]]) > 0) exitWith {if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Active groups found. Exiting spawn script (spawnBandits_dynamic)";};};	
 
 _targetPlayer = _trigger getVariable ["targetplayer",objNull];
 if (isNull _targetPlayer) exitWith {
@@ -63,7 +63,7 @@ _totalAI = switch (true) do {
 	case default {1 + floor(random 3)};
 };
 
-if (DZAI_debugMarkers > 0) then {
+if (!isNil "DZAI_debugMarkers") then {
 	private["_marker"];
 	_marker = format["trigger_%1",_trigger];
 	//_marker setMarkerPos _playerPos;
@@ -101,6 +101,6 @@ if (DZAI_debugLevel > 0) then {
 	diag_log format["DZAI Debug: Spawned 1 new AI groups of %1 units each in %2 seconds at %3 (spawnBandits_dynamic).",_totalAI,(diag_tickTime - _startTime),(mapGridPosition _trigger)];
 };
 
-0 = [_trigger,[_unitGroup]] call DZAI_setTrigVars;
+0 = [_trigger,[_unitGroup]] call DZAI_setTrigVars; //set dynamic trigger variables and create dynamic area blacklist
 
 true

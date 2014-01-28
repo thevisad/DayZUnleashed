@@ -15,6 +15,7 @@ _helicopter setVariable ["heli_disabled",true];
 _helicopter removeAllEventHandlers "GetOut";
 _helicopter removeAllEventHandlers "Killed";
 _helicopter removeAllEventHandlers "HandleDamage";
+/*
 _helicopter addEventHandler ["GetIn",{
 	if (isPlayer (_this select 2)) then {
 		(_this select 2) action ["getOut",(_this select 0)]; 
@@ -22,7 +23,7 @@ _helicopter addEventHandler ["GetIn",{
 		(_this select 0) setVehicleLock "LOCKED";
 		(_this select 0) removeAllEventHandlers "GetIn";
 	};
-}];
+}];*/
 
 _unitGroup = _helicopter getVariable ["unitGroup",(group (_this select 2))];
 _heliPos = getPosATL _helicopter;

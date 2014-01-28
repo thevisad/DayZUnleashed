@@ -26,7 +26,7 @@ if (((_unitGroup getVariable ["pursuitTime",0]) > 0) && {((_unitGroup getVariabl
 
 _startPos = _unitGroup getVariable "trigger";
 if ((isNull _startPos) or (isNil "_startPos")) then {_startPos = _unitGroup getVariable ["spawnPos",getPosATL (leader _unitGroup)]};
-_transmitRange = 125; //distance to broadcast radio text around AI group leader
+_transmitRange = 50; //distance to broadcast radio text around AI group leader
 //_chaseDist = 300;
 
 if ((_startPos distance _targetPlayer) < _chaseDist) then {
@@ -57,9 +57,9 @@ if ((_startPos distance _targetPlayer) < _chaseDist) then {
 		
 		if (DZAI_radioMsgs) then {
 			_leader = (leader _unitGroup);
-			if (((_unitGroup getVariable ["GroupSize",0]) > 1) && {!(_leader getVariable ["unconscious",false])}) then {
+			if (((_targetPlayer distance _leader) <= 125) && {((_unitGroup getVariable ["GroupSize",0]) > 1)} && {!(_leader getVariable ["unconscious",false])}) then {
 				private ["_nearbyUnits","_radioSpeech"];
-				_nearbyUnits = (getPosATL (leader _unitGroup)) nearEntities ["CAManBase",_transmitRange];
+				_nearbyUnits = _targetPlayerPos nearEntities ["CAManBase",_transmitRange];
 				{
 					if ((isPlayer _x)&& {(_x hasWeapon "ItemRadio")}) then {
 					//if (isPlayer _x) then {
@@ -94,11 +94,11 @@ if ((_startPos distance _targetPlayer) < _chaseDist) then {
 	
 	if (DZAI_radioMsgs) then {
 		_leader = (leader _unitGroup);
-		if (((_unitGroup getVariable ["GroupSize",0]) > 1) && {!(_leader getVariable ["unconscious",false])}) then {
+		if (((_targetPlayer distance _leader) <= 125) && {((_unitGroup getVariable ["GroupSize",0]) > 1)} && {!(_leader getVariable ["unconscious",false])} && {!(isNull _targetPlayer)}) then {
 			private ["_nearbyUnits","_radioSpeech","_radioText"];
 			_radioText = if (alive _targetPlayer) then {"%1 (Bandit Leader): Lost contact with target. Breaking off pursuit."} else {"%1 (Bandit Leader): Target has been eliminated."};
 			_radioSpeech = format [_radioText,(name (leader _unitGroup))];
-			_nearbyUnits = (getPosATL (leader _unitGroup)) nearEntities ["CAManBase",_transmitRange];
+			_nearbyUnits = (getPosATL _targetPlayer) nearEntities ["CAManBase",_transmitRange];
 			{
 				if ((isPlayer _x)&&{(_x hasWeapon "ItemRadio")}) then {
 					[_x,_radioSpeech] call DZAI_radioSend;

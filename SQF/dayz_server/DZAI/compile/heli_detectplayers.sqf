@@ -21,7 +21,7 @@ if ((count _nearUnits) > 0) then {
 				_playerAimPos = aimPos _x;
 				if !(terrainIntersectASL [_heliAimPos,_playerAimPos]) then {
 					if !(lineIntersects [_heliAimPos,_playerAimPos,_heli,_x]) then {
-						_unitGroup reveal [_x,2.5];
+						_unitGroup reveal [_x,2.25];
 					};
 				};
 			};

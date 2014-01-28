@@ -67,11 +67,11 @@ class CfgMagazines {
 	
 	#include "CfgMagazines\CombineMag.hpp"
 	#include "CfgMagazines\FoodEdible.hpp"
+	#include "CfgUnleashed\Homeopathic.hpp"
 	#include "CfgMagazines\FoodMeatCooked.hpp"
 	#include "CfgMagazines\FoodMeatRaw.hpp"
 	#include "CfgMagazines\ItemSoda.hpp"
 	#include "CfgUnleashed\Homeopathic.hpp"
-	#include "CfgUnleashed\Unleashed_weapons.hpp"
 	#include "CfgMagazines\MeleeSwing.hpp"
 	
 	#include "CfgMagazines\Deployable.hpp"
@@ -133,6 +133,8 @@ class CfgMagazines {
 	#include "CfgMagazines\DZE\TrashTinCan.hpp"
 	#include "CfgMagazines\TrashTinCan.hpp"
 	#include "CfgMagazines\ItemSodaEmpty.hpp"
+	
+	
 	//#include "CfgMagazines\DZE_CfgMagazines.hpp"
 	//#include "CfgMagazines\Fuelcan.hpp"
 };

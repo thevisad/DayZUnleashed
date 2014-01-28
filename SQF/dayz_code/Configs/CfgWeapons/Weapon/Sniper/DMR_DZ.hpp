@@ -16,4 +16,16 @@
 		backgroundReload = 1;
 		handAnim[] = {"OFP2_ManSkeleton", "\Ca\weapons\data\Anim\M24.rtm"};
 		modes[] = {"Single"};
+		class ItemActions
+		{
+			class Crafting
+			{
+				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
+				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				neednearby[] = {"workshop"};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"PartGeneric",1}};input[] = {};
+				inputweapons[] = {{"DMR_DZ"}};
+			};
+		};
 	};

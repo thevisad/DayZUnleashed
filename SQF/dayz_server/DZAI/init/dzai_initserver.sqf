@@ -35,8 +35,6 @@ call compile preprocessFileLineNumbers format ["%1\init\world_classname_configs\
 DZAI_weaponGrades = [-1,0,1,2,3];							//All possible weapon grades (does not include custom weapon grades). A "weapon grade" is a tiered classification of gear. -1: Civilian (Low-grade), 0: Civilian, 1: Military, 2: MilitarySpecial, 3: Heli Crash. Weapon grade also influences the general skill level of the AI unit.
 DZAI_weaponGradesAll = [-1,0,1,2,3,4,5,6,7,8,9];			//All possible weapon grades (including custom weapon grades).
 DZAI_numAIUnits = 0;										//Tracks current number of currently active AI units, including dead units waiting for respawn.
-//DZAI_actDynTrigs = 0;										//Tracks current number of active dynamically-spawned triggers
-//DZAI_curDynTrigs = 0;										//Tracks current number of inactive dynamically-spawned triggers.
 DZAI_actTrigs = 0;											//Tracks current number of active static triggers.	
 DZAI_curHeliPatrols = 0;									//Current number of active air patrols
 DZAI_curLandPatrols = 0;									//Current number of active land patrols
@@ -52,8 +50,8 @@ DZAI_gradeIndicesHeli = [];
 DZAI_dynEquipType = 4;
 DZAI_heliEquipType = 5;
 DZAI_vehEquipType = 3;
-DZAI_deleteObjectQueue = [];
-DZAI_dynLocations = [];
+DZAI_deleteObjectQueue = [];								//Queue of objects marked for deletion
+DZAI_dynLocations = [];										//Queue of temporary dynamic spawn area blacklists
 
 //Set side relations
 createcenter east;
@@ -104,7 +102,7 @@ diag_log format["[DZAI] Server is running map %1. Loading static trigger and cla
 //Classname files will overwrite basic settings specified in base_classnames.sqf
 if (_worldname in ["chernarus","utes","zargabad","fallujah","takistan","tavi","lingor","namalsk","mbg_celle2","oring","panthera2","isladuala","sara","smd_sahrani_a2","trinity","napf"]) then {
 	call compile preprocessFileLineNumbers format ["%1\init\world_classname_configs\%2_classnames.sqf",DZAI_directory,_worldname];
-	[] execVM format ["%1\init\world_map_configs\world_%2.sqf",DZAI_directory,_worldname];
+	[] execVM format ["%1\init\world_spawn_configs\world_%2.sqf",DZAI_directory,_worldname];
 } else {
 	"DZAI_centerMarker" setMarkerSize [7000, 7000];
 	DZAI_newMap = true;
@@ -118,7 +116,7 @@ DZAI_taserAI = (!isNil "DDOPP_taser_handleHit");
 [] execVM format ['%1\scripts\DZAI_scheduler.sqf',DZAI_directory];
 
 //Report DZAI startup settings to RPT log
-diag_log format ["[DZAI] DZAI settings: Debug Level: %1. DebugMarkers: %2. ModName: %3. DZAI_dynamicWeaponList: %4. VerifyTables: %5.",DZAI_debugLevel,DZAI_debugMarkers,DZAI_modName,DZAI_dynamicWeaponList,DZAI_verifyTables];
+diag_log format ["[DZAI] DZAI settings: Debug Level: %1. DebugMarkers: %2. ModName: %3. DZAI_dynamicWeaponList: %4. VerifyTables: %5.",DZAI_debugLevel,(!isNil "DZAI_debugMarkers"),DZAI_modName,DZAI_dynamicWeaponList,DZAI_verifyTables];
 diag_log format ["[DZAI] AI spawn settings: Static: %1. Dynamic: %2. Air: %3. Land: %4.",DZAI_staticAI,DZAI_dynAISpawns,(DZAI_maxHeliPatrols>0),(DZAI_maxLandPatrols>0)];
 diag_log format ["[DZAI] AI behavior settings: DZAI_findKiller: %1. DZAI_tempNVGs: %2. DZAI_weaponNoise: %3. DZAI_zombieEnemy: %4. DZAI_freeForAll: %5",DZAI_findKiller,DZAI_tempNVGs,DZAI_weaponNoise,DZAI_zombieEnemy,DZAI_freeForAll];
 diag_log format ["[DZAI] DZAI loading completed in %1 seconds.",(diag_tickTime - _startTime)];

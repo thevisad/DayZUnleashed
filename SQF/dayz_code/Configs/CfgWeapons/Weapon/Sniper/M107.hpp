@@ -46,4 +46,16 @@ class m107_DZ: m107
 			visionmode[] = {"Normal"};
 		};
 	};
+	class ItemActions
+	{
+		class Crafting
+		{
+			text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
+			script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+			neednearby[] = {"workshop"};
+			requiretools[] = {"ItemToolbox"};
+			output[] = {{"PartGeneric",1}};input[] = {};
+			inputweapons[] = {{"m107_DZ"}};
+		};
+	};
 };

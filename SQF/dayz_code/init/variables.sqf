@@ -525,7 +525,7 @@ PVDZ_obj_HideBody = objNull;
 //DayZ settings
 dayz_dawn = 4; //6
 dayz_dusk = 22; //18
-dayz_maxAnimals = 10;
+dayz_maxAnimals = 80;
 DAYZ_agentnumber = 0;
 dayz_animalDistance = 150;
 dayz_zSpawnDistance = 1000;

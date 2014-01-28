@@ -1,4 +1,4 @@
-private ["_control","_button","_parent","_group","_pos","_item","_conf","_name","_cfgActions","_numActions","_height","_menu","_config","_type","_script","_outputOriented","_compile","_uiControl"];
+private ["_control","_button","_parent","_group","_pos","_item","_conf","_name","_cfgActions","_numActions","_height","_menu","_config","_type","_script","_outputOriented","_compile","_array","_outputClass","_outputType","_erc_cfgActions", "_erc_numActions"];
 disableSerialization;
 _control = _this select 0;
 _button = _this select 1;
@@ -54,6 +54,26 @@ if (_button == 1) then {
 		_menu ctrlSetText format[_type,_name];
 		_menu ctrlSetEventHandler ["ButtonClick",_compile];
 	};
+	
+	// Add extra context menus
+	_erc_cfgActions = (configFile >> "ExtraRc" >> _item >> "ItemActions");
+	_erc_numActions = (count _erc_cfgActions);
+	if (isClass _erc_cfgActions) then {
+		for "_j" from 0 to (_erc_numActions - 1) do 
+		{
+			_menu = 	_parent displayCtrl (1600 + _j + _numActions);
+			_menu ctrlShow true;
+			_config = 	(_erc_cfgActions select _j);
+			_text = 	getText	(_config >> "text");
+			_script = 	getText	(_config >> "script");
+			_height = _height + (0.025 * safezoneH);
+			uiNamespace setVariable ['uiControl', _control];
+			_menu ctrlSetText _text;
+			_compile =  format["_id = '%2' %1;",_script,_item];
+			_menu ctrlSetEventHandler ["ButtonClick",_compile];
+		};
+	};
+
 	_pos set [3,_height];
 	//hint format["Obj: %1 \nHeight: %2\nPos: %3",_item,_height,_grpPos];
 

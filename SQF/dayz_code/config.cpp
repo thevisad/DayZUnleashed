@@ -42,6 +42,8 @@
 //HNGSpeedBoost
 #include "Configs\CfgPlayerVariables.hpp"
 #include "Configs\CfgFunctions.hpp"
+#include "Configs\CfgUnleashed\Unleashed_weapons.hpp"
+#include "Configs\snappoints.hpp"
 
 class CfgPatches {
 	class dayz_code {
@@ -68,7 +70,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzunleashed.com";
-		version = "0.97-Devbuild-0126a2014";
+		version = "0.97-Devbuild-01272014";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld
