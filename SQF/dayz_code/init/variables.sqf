@@ -544,6 +544,14 @@ dayz_lootSpawnBias = 100; // between 50 and 100. The lower it is, the lower chan
 dayz_localswarmSpawned = 40;  // how many zeds will spawn around you during a combat scenario.
 dayz_infectionTreshold = 1.25; // used to trigger infection, see fn_damageHandler.sqf
 dayz_localagroSpawned = 60;  // how many zeds will spawn around you during a combat scenario. 
+dayz_zombiehordeMinSpawns = 2; //Lower limit of Zombie hordes that are allowed to spawn
+dayz_zombiehordeMaxSpawns = 5; //Upper limit of Zombie hordes that are allowed to spawn
+dayz_zombiehordeSpawned = 0; // zombie horde spawn variable
+dayz_zombiehordeMinimum = 20; //minimum amount of zombie spawns per horde 
+dayz_zombiehordeMaximum = 50; // minimum amount of zombie spawns per horde
+dayz_zombiehorde = 0; //current hordes
+dayz_zombiehordeData = []; //current hordes
+dayz_zombiehordes = []; 
 
 //init global arrays for Loot Chances
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\loot_init.sqf";

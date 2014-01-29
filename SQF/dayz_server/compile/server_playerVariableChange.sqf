@@ -21,7 +21,7 @@ if (_target_characterID != "0") then {
             if (alive _target_character) then {
                              //CHILD:152:14276:hunter:fdghfdghdf:
                 _key = format["CHILD:152:%1:%2:%3:",_target_characterID,_target_variable,_target_value];
-                diag_log ("HIVE: WRITE: "+ str(_key) + " / " + str(_target_character));
+                //diag_log ("HIVE: WRITE: "+ str(_key) + " / " + str(_target_character));
                 _key call server_hiveWrite;
             };
         };

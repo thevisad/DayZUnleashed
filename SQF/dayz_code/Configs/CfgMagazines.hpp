@@ -67,13 +67,10 @@ class CfgMagazines {
 	
 	#include "CfgMagazines\CombineMag.hpp"
 	#include "CfgMagazines\FoodEdible.hpp"
-	#include "CfgUnleashed\Homeopathic.hpp"
 	#include "CfgMagazines\FoodMeatCooked.hpp"
 	#include "CfgMagazines\FoodMeatRaw.hpp"
 	#include "CfgMagazines\ItemSoda.hpp"
-	#include "CfgUnleashed\Homeopathic.hpp"
 	#include "CfgMagazines\MeleeSwing.hpp"
-	
 	#include "CfgMagazines\Deployable.hpp"
 	#include "CfgMagazines\TrashLoot.hpp"
 

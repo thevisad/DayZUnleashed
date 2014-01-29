@@ -70,7 +70,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzunleashed.com";
-		version = "0.97-Devbuild-01272014";
+		version = "0.97-Devbuild-01282014";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld
@@ -170,11 +170,11 @@ class CfgInGameUI
 	
     class IslandMap
     {
-        colorFriendly[] = {0,0.5,0,0};
-        colorEnemy[] = {0.5,0,0,0};//{0.5,0,0,1};
-        colorNeutral[] = {1.0,0.5,0,0};//{1.0,0.5,0,1};
-        colorCivilian[] = {0,0,1,0};
-        colorUnknown[] = {1.0,0.5,0,0};//{1.0,0.5,0,0.8};
+        colorFriendly[] = {0,0.5,0,1};
+        colorEnemy[] = {0.5,0,0,1};//{0.5,0,0,1};
+        colorNeutral[] = {1.0,0.5,0,1};//{1.0,0.5,0,1};
+        colorCivilian[] = {0,0,1,1};
+        colorUnknown[] = {1.0,0.5,0,1};//{1.0,0.5,0,0.8};
         shadow = 2;
         iconPlayer = "\ca\ui\data\map_player_ca.paa";
         iconPlayerDirection = "";//"\ca\ui\data\map_dir_ca.paa";

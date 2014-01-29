@@ -35,7 +35,7 @@ class FoodNutmix : FoodEdible {
 	model = "z\addons\dayz_communityassets\models\nutmix.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_nutmix_CA.paa";
 };
-
+/*
 class FoodCanBeef : FoodEdible {
 	scope = public;
 	count = 1;
@@ -45,6 +45,7 @@ class FoodCanBeef : FoodEdible {
 	model = "z\addons\dayz_communityassets\models\can_beef_clean_full.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_can_beef_clean_full_ca.paa";
 };
+*/
 class FoodCanPotatoes : FoodEdible {
 	scope = public;
 	count = 1;
@@ -310,7 +311,7 @@ class ItemAppleFruit : FoodEdible {
 	count = 1;
 	displayName = "Apple";
 	descriptionShort = "An apple, edible fruit";
-	model = "z\addons\dayz_communityassets\models\razor.p3d";
+	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\apple.paa";
 	bloodRegen = 100;
 	
@@ -321,7 +322,7 @@ class ItemCherry : FoodEdible {
 	count = 1;
 	displayName = "Cherry";
 	descriptionShort = "A cherry, edible fruit";
-	model = "z\addons\dayz_communityassets\models\razor.p3d";
+	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\cherries.paa";
 	bloodRegen = 100;
 };
@@ -331,7 +332,7 @@ class ItemElderberry : FoodEdible {
 	count = 1;
 	displayName = "Elderberries";
 	descriptionShort = "An elderberry, edible fruit";
-	model = "z\addons\dayz_communityassets\models\razor.p3d";
+	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\elderberry.paa";
 	bloodRegen = 100;
 };
@@ -341,7 +342,7 @@ class ItemHazelnut : CA_Magazine {
 	count = 1;
 	displayName = "Hazelnuts";
 	descriptionShort = "Useful for making antibiotics";
-	model = "z\addons\dayz_communityassets\models\razor.p3d";
+	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\hazelnut.paa";
 	type = 256;
 	class ItemActions
@@ -363,7 +364,7 @@ class ItemNettle : CA_Magazine {
 	count = 1;
 	displayName = "Nettle";
 	descriptionShort = "Used to make medicine to deal with pain";
-	model = "z\addons\dayz_communityassets\models\razor.p3d";
+	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\nettle.paa";
 	type = 256;
 	class ItemActions
@@ -385,7 +386,7 @@ class ItemPear : FoodEdible {
 	count = 1;
 	displayName = "Pear";
 	descriptionShort = "A pear, edible fruit";
-	model = "z\addons\dayz_communityassets\models\razor.p3d";
+	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\pear.paa";
 	bloodRegen = 100;
 };
@@ -395,7 +396,7 @@ class ItemRosehips : CA_Magazine {
 	count = 1;
 	displayName = "Rosehips";
 	descriptionShort = "Good for use in a antibiotic";
-	model = "z\addons\dayz_communityassets\models\razor.p3d";
+	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\rosehips";
 	type = 256;
 	class ItemActions
@@ -417,7 +418,7 @@ class ItemThistle : CA_Magazine {
 	count = 1;
 	displayName = "Thistle";
 	descriptionShort = "Good for use in an antibiotic";
-	model = "z\addons\dayz_communityassets\models\razor.p3d";
+	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\thistle";
 	type = 256;
 	class ItemActions

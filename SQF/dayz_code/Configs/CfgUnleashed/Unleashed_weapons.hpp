@@ -4,11 +4,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"AK_107_GL_Kobra"}};
 			};
 		};
 	};
@@ -17,11 +17,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_Kobra"};
+				inputweapons[] = {{"AK_107_Kobra"}};
 			};
 		};
 	};
@@ -30,11 +30,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {{"AK_107_PSO",1}};
-				inputweapons[] = {"AK_107_PSO"};
+				inputweapons[] = {{"AK_107_PSO"}};
 			};
 		};
 	};
@@ -43,11 +43,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_47_M"};
+				inputweapons[] = {{"AK_47_M"}};
 			};
 		};
 	};
@@ -56,11 +56,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_47_S"};
+				inputweapons[] = {{"AK_47_S"}};
 			};
 		};
 	};
@@ -69,11 +69,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_74"};
+				inputweapons[] = {{"AK_74"}};
 			};
 		};
 	};
@@ -82,11 +82,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_74_GL"};
+				inputweapons[] = {{"AK_74_GL"}};
 			};
 		};
 	};
@@ -95,11 +95,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_74_GL_Kobra"};
+				inputweapons[] = {{"AK_74_GL_Kobra"}};
 			};
 		};
 	};
@@ -108,11 +108,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AKS_74_kobra"};
+				inputweapons[] = {{"AKS_74_kobra"}};
 			};
 		};
 	};
@@ -121,11 +121,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AKS_74_U"};
+				inputweapons[] = {{"AKS_74_U"}};
 			};
 		};
 	};
@@ -134,11 +134,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_AS50_Scoped"};
+				inputweapons[] = {{"BAF_AS50_Scoped"}};
 			};
 		};
 	};
@@ -147,11 +147,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L110A1_Aim"};
+				inputweapons[] = {{"BAF_L110A1_Aim"}};
 			};
 		};
 	};
@@ -160,11 +160,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L7A2_GPMG"};
+				inputweapons[] = {{"BAF_L7A2_GPMG"}};
 			};
 		};
 	};
@@ -173,11 +173,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L85A2_RIS_ACOG"};
+				inputweapons[] = {{"BAF_L85A2_RIS_ACOG"}};
 			};
 		};
 	};
@@ -186,11 +186,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L85A2_RIS_CWS"};
+				inputweapons[] = {{"BAF_L85A2_RIS_CWS"}};
 			};
 		};
 	};
@@ -199,11 +199,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L85A2_RIS_Holo"};
+				inputweapons[] = {{"BAF_L85A2_RIS_Holo"}};
 			};
 		};
 	};
@@ -212,11 +212,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L85A2_RIS_SUSAT"};
+				inputweapons[] = {{"BAF_L85A2_RIS_SUSAT"}};
 			};
 		};
 	};
@@ -225,11 +225,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L85A2_UGL_ACOG"};
+				inputweapons[] = {{"BAF_L85A2_UGL_ACOG"}};
 			};
 		};
 	};
@@ -238,11 +238,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L85A2_UGL_Holo"};
+				inputweapons[] = {{"BAF_L85A2_UGL_Holo"}};
 			};
 		};
 	};
@@ -251,11 +251,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L85A2_UGL_SUSAT"};
+				inputweapons[] = {{"BAF_L85A2_UGL_SUSAT"}};
 			};
 		};
 	};
@@ -264,11 +264,11 @@ class ExtraRc {
 		class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_L86A2_ACOG"};
+				inputweapons[] = {{"BAF_L86A2_ACOG"}};
 			};
 		};
 	};
@@ -277,11 +277,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_LRR_scoped"};
+				inputweapons[] = {{"BAF_LRR_scoped"}};
 			};
 		};
 	};
@@ -290,11 +290,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"BAF_LRR_scoped_W"};
+				inputweapons[] = {{"BAF_LRR_scoped_W"}};
 			};
 		};
 	};
@@ -303,11 +303,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"bizon"};
+				inputweapons[] = {{"bizon"}};
 			};
 		};
 	};
@@ -316,11 +316,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"bizon_silenced"};
+				inputweapons[] = {{"bizon_silenced"}};
 			};
 		};
 	};
@@ -329,11 +329,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Colt1911"};
+				inputweapons[] = {{"Colt1911"}};
 			};
 		};
 	};
@@ -342,11 +342,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"FN_FAL"};
+				inputweapons[] = {{"FN_FAL"}};
 			};
 		};
 	};
@@ -355,11 +355,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"FN_FAL_ANPVS4"};
+				inputweapons[] = {{"FN_FAL_ANPVS4"}};
 			};
 		};
 	};
@@ -368,11 +368,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"G36_C_SD_camo"};
+				inputweapons[] = {{"G36_C_SD_camo"}};
 			};
 		};
 	};
@@ -381,11 +381,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"G36_C_SD_eotech"};
+				inputweapons[] = {{"G36_C_SD_eotech"}};
 			};
 		};
 	};
@@ -394,11 +394,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"G36a"};
+				inputweapons[] = {{"G36a"}};
 			};
 		};
 	};
@@ -407,11 +407,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"G36A_camo"};
+				inputweapons[] = {{"G36A_camo"}};
 			};
 		};
 	};
@@ -420,11 +420,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"G36C"};
+				inputweapons[] = {{"G36C"}};
 			};
 		};
 	};
@@ -433,11 +433,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"G36K"};
+				inputweapons[] = {{"G36K"}};
 			};
 		};
 	};
@@ -446,11 +446,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"glock17_EP1"};
+				inputweapons[] = {{"glock17_EP1"}};
 			};
 		};
 	};
@@ -459,11 +459,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"hecate2"};
+				inputweapons[] = {{"hecate2"}};
 			};
 		};
 	};
@@ -472,11 +472,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Huntingrifle"};
+				inputweapons[] = {{"Huntingrifle"}};
 			};
 		};
 	};
@@ -485,11 +485,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_g36a1"};
+				inputweapons[] = {{"KPfs_g36a1"}};
 			};
 		};
 	};
@@ -498,11 +498,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_g36a2"};
+				inputweapons[] = {{"KPfs_g36a2"}};
 			};
 		};
 	};
@@ -511,11 +511,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_g36a4"};
+				inputweapons[] = {{"KPfs_g36a4"}};
 			};
 		};
 	};
@@ -524,11 +524,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_g36k"};
+				inputweapons[] = {{"KPfs_g36k"}};
 			};
 		};
 	};
@@ -537,11 +537,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_g36ksk"};
+				inputweapons[] = {{"KPfs_g36ksk"}};
 			};
 		};
 	};
@@ -550,11 +550,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"kpfs_g3a2"};
+				inputweapons[] = {{"kpfs_g3a2"}};
 			};
 		};
 	};
@@ -563,11 +563,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_G3a3"};
+				inputweapons[] = {{"KPfs_G3a3"}};
 			};
 		};
 	};
@@ -576,11 +576,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_g3a3zf"};
+				inputweapons[] = {{"KPfs_g3a3zf"}};
 			};
 		};
 	};
@@ -589,11 +589,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_g3a4"};
+				inputweapons[] = {{"KPfs_g3a4"}};
 			};
 		};
 	};
@@ -602,11 +602,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_g3dmr"};
+				inputweapons[] = {{"KPfs_g3dmr"}};
 			};
 		};
 	};
@@ -615,11 +615,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"kpfs_glock17"};
+				inputweapons[] = {{"kpfs_glock17"}};
 			};
 		};
 	};
@@ -628,11 +628,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPfs_hk32"};
+				inputweapons[] = {{"KPfs_hk32"}};
 			};
 		};
 	};
@@ -641,11 +641,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_HK4"};
+				inputweapons[] = {{"KPFS_HK4"}};
 			};
 		};
 	};
@@ -654,11 +654,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_HK416_Aim"};
+				inputweapons[] = {{"KPFS_HK416_Aim"}};
 			};
 		};
 	};
@@ -667,11 +667,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_HKP30"};
+				inputweapons[] = {{"KPFS_HKP30"}};
 			};
 		};
 	};
@@ -680,11 +680,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_HKP7"};
+				inputweapons[] = {{"KPFS_HKP7"}};
 			};
 		};
 	};
@@ -693,11 +693,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_KarS"};
+				inputweapons[] = {{"KPFS_KarS"}};
 			};
 		};
 	};
@@ -706,11 +706,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_Makarov"};
+				inputweapons[] = {{"KPFS_Makarov"}};
 			};
 		};
 	};
@@ -719,11 +719,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_Mauser_Hsc"};
+				inputweapons[] = {{"KPFS_Mauser_Hsc"}};
 			};
 		};
 	};
@@ -732,11 +732,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MG3"};
+				inputweapons[] = {{"KPFS_MG3"}};
 			};
 		};
 	};
@@ -745,11 +745,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MG3_eot"};
+				inputweapons[] = {{"KPFS_MG3_eot"}};
 			};
 		};
 	};
@@ -758,11 +758,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MG42"};
+				inputweapons[] = {{"KPFS_MG42"}};
 			};
 		};
 	};
@@ -771,11 +771,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MP2"};
+				inputweapons[] = {{"KPFS_MP2"}};
 			};
 		};
 	};
@@ -784,11 +784,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MP2A1"};
+				inputweapons[] = {{"KPFS_MP2A1"}};
 			};
 		};
 	};
@@ -797,11 +797,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MP44"};
+				inputweapons[] = {{"KPFS_MP44"}};
 			};
 		};
 	};
@@ -810,11 +810,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MP5A3"};
+				inputweapons[] = {{"KPFS_MP5A3"}};
 			};
 		};
 	};
@@ -823,11 +823,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MP5A3SD"};
+				inputweapons[] = {{"KPFS_MP5A3SD"}};
 			};
 		};
 	};
@@ -836,11 +836,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MPi_AK_74"};
+				inputweapons[] = {{"KPFS_MPi_AK_74"}};
 			};
 		};
 	};
@@ -849,11 +849,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MPi_AKS_74"};
+				inputweapons[] = {{"KPFS_MPi_AKS_74"}};
 			};
 		};
 	};
@@ -862,11 +862,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MPi_AKS_74K"};
+				inputweapons[] = {{"KPFS_MPi_AKS_74K"}};
 			};
 		};
 	};
@@ -875,11 +875,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MPi_KM_72"};
+				inputweapons[] = {{"KPFS_MPi_KM_72"}};
 			};
 		};
 	};
@@ -888,11 +888,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MPi_KMKIX"};
+				inputweapons[] = {{"KPFS_MPi_KMKIX"}};
 			};
 		};
 	};
@@ -901,11 +901,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_MPi_KMS_72"};
+				inputweapons[] = {{"KPFS_MPi_KMS_72"}};
 			};
 		};
 	};
@@ -914,11 +914,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P1"};
+				inputweapons[] = {{"KPFS_P1"}};
 			};
 		};
 	};
@@ -927,11 +927,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P12"};
+				inputweapons[] = {{"KPFS_P12"}};
 			};
 		};
 	};
@@ -940,11 +940,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P12SD"};
+				inputweapons[] = {{"KPFS_P12SD"}};
 			};
 		};
 	};
@@ -953,11 +953,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P2000"};
+				inputweapons[] = {{"KPFS_P2000"}};
 			};
 		};
 	};
@@ -966,11 +966,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P220"};
+				inputweapons[] = {{"KPFS_P220"}};
 			};
 		};
 	};
@@ -979,11 +979,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P225"};
+				inputweapons[] = {{"KPFS_P225"}};
 			};
 		};
 	};
@@ -992,11 +992,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P226"};
+				inputweapons[] = {{"KPFS_P226"}};
 			};
 		};
 	};
@@ -1005,11 +1005,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P38"};
+				inputweapons[] = {{"KPFS_P38"}};
 			};
 		};
 	};
@@ -1018,11 +1018,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P38k"};
+				inputweapons[] = {{"KPFS_P38k"}};
 			};
 		};
 	};
@@ -1031,11 +1031,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P5"};
+				inputweapons[] = {{"KPFS_P5"}};
 			};
 		};
 	};
@@ -1044,11 +1044,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P8"};
+				inputweapons[] = {{"KPFS_P8"}};
 			};
 		};
 	};
@@ -1057,11 +1057,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P88"};
+				inputweapons[] = {{"KPFS_P88"}};
 			};
 		};
 	};
@@ -1070,11 +1070,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_P99QA"};
+				inputweapons[] = {{"KPFS_P99QA"}};
 			};
 		};
 	};
@@ -1083,11 +1083,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_PM63"};
+				inputweapons[] = {{"KPFS_PM63"}};
 			};
 		};
 	};
@@ -1096,11 +1096,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_PSL"};
+				inputweapons[] = {{"KPFS_PSL"}};
 			};
 		};
 	};
@@ -1109,11 +1109,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_PZF60"};
+				inputweapons[] = {{"KPFS_PZF60"}};
 			};
 		};
 	};
@@ -1122,11 +1122,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_Sauer_38h"};
+				inputweapons[] = {{"KPFS_Sauer_38h"}};
 			};
 		};
 	};
@@ -1135,11 +1135,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_TT33"};
+				inputweapons[] = {{"KPFS_TT33"}};
 			};
 		};
 	};
@@ -1148,11 +1148,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_Walther_M9"};
+				inputweapons[] = {{"KPFS_Walther_M9"}};
 			};
 		};
 	};
@@ -1161,11 +1161,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"KPFS_Walther_PP"};
+				inputweapons[] = {{"KPFS_Walther_PP"}};
 			};
 		};
 	};
@@ -1174,11 +1174,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"ksvk"};
+				inputweapons[] = {{"ksvk"}};
 			};
 		};
 	};
@@ -1187,11 +1187,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"LeeEnfield"};
+				inputweapons[] = {{"LeeEnfield"}};
 			};
 		};
 	};
@@ -1200,11 +1200,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M1014"};
+				inputweapons[] = {{"M1014"}};
 			};
 		};
 	};
@@ -1213,11 +1213,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M14_EP1"};
+				inputweapons[] = {{"M14_EP1"}};
 			};
 		};
 	};
@@ -1226,11 +1226,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M16A2"};
+				inputweapons[] = {{"M16A2"}};
 			};
 		};
 	};
@@ -1239,11 +1239,11 @@ class ExtraRc {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M16A2GL"};
+				inputweapons[] = {{"M16A2GL"}};
 			};
 		};
 	};
@@ -1252,11 +1252,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"m16a4"};
+				inputweapons[] = {{"m16a4"}};
 			};
 		};
 	};
@@ -1265,11 +1265,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M16A4_ACG"};
+				inputweapons[] = {{"M16A4_ACG"}};
 			};
 		};
 	};
@@ -1278,11 +1278,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M16A4_ACG_GL"};
+				inputweapons[] = {{"M16A4_ACG_GL"}};
 			};
 		};
 	};
@@ -1291,11 +1291,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M16A4_GL"};
+				inputweapons[] = {{"M16A4_GL"}};
 			};
 		};
 	};
@@ -1304,11 +1304,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M24"};
+				inputweapons[] = {{"M24"}};
 			};
 		};
 	};
@@ -1317,11 +1317,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M24_des_EP1"};
+				inputweapons[] = {{"M24_des_EP1"}};
 			};
 		};
 	};
@@ -1330,11 +1330,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M240"};
+				inputweapons[] = {{"M240"}};
 			};
 		};
 	};
@@ -1343,11 +1343,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M240_DZ"};
+				inputweapons[] = {{"M240_DZ"}};
 			};
 		};
 	};
@@ -1356,11 +1356,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"m240_scoped_EP1"};
+				inputweapons[] = {{"m240_scoped_EP1"}};
 			};
 		};
 	};
@@ -1369,11 +1369,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M249"};
+				inputweapons[] = {{"M249"}};
 			};
 		};
 	};
@@ -1382,11 +1382,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M249_DZ"};
+				inputweapons[] = {{"M249_DZ"}};
 			};
 		};
 	};
@@ -1395,11 +1395,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M249_EP1"};
+				inputweapons[] = {{"M249_EP1"}};
 			};
 		};
 	};
@@ -1408,11 +1408,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M249_m145_EP1"};
+				inputweapons[] = {{"M249_m145_EP1"}};
 			};
 		};
 	};
@@ -1421,11 +1421,11 @@ class m16a4 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M40A3"};
+				inputweapons[] = {{"M40A3"}};
 			};
 		};
 	};
@@ -1434,11 +1434,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A1"};
+				inputweapons[] = {{"M4A1"}};
 			};
 		};
 	};
@@ -1447,11 +1447,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A1_Aim"};
+				inputweapons[] = {{"M4A1_Aim"}};
 			};
 		};
 	};
@@ -1460,11 +1460,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A1_Aim_camo"};
+				inputweapons[] = {{"M4A1_Aim_camo"}};
 			};
 		};
 	};
@@ -1473,11 +1473,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A1_AIM_SD_camo"};
+				inputweapons[] = {{"M4A1_AIM_SD_camo"}};
 			};
 		};
 	};
@@ -1486,11 +1486,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A1_HWS_GL"};
+				inputweapons[] = {{"M4A1_HWS_GL"}};
 			};
 		};
 	};
@@ -1499,11 +1499,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A1_HWS_GL_camo"};
+				inputweapons[] = {{"M4A1_HWS_GL_camo"}};
 			};
 		};
 	};
@@ -1512,11 +1512,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A1_HWS_GL_SD_Camo"};
+				inputweapons[] = {{"M4A1_HWS_GL_SD_Camo"}};
 			};
 		};
 	};
@@ -1525,11 +1525,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A1_RCO_GL"};
+				inputweapons[] = {{"M4A1_RCO_GL"}};
 			};
 		};
 	};
@@ -1538,11 +1538,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A3_CCO_EP1"};
+				inputweapons[] = {{"M4A3_CCO_EP1"}};
 			};
 		};
 	};
@@ -1551,11 +1551,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4A3_RCO_GL_EP1"};
+				inputweapons[] = {{"M4A3_RCO_GL_EP1"}};
 			};
 		};
 	};
@@ -1564,11 +1564,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M4SPR"};
+				inputweapons[] = {{"M4SPR"}};
 			};
 		};
 	};
@@ -1577,11 +1577,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M60A4_EP1"};
+				inputweapons[] = {{"M60A4_EP1"}};
 			};
 		};
 	};
@@ -1590,11 +1590,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M9"};
+				inputweapons[] = {{"M9"}};
 			};
 		};
 	};
@@ -1603,11 +1603,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"M9SD"};
+				inputweapons[] = {{"M9SD"}};
 			};
 		};
 	};
@@ -1616,11 +1616,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Makarov"};
+				inputweapons[] = {{"Makarov"}};
 			};
 		};
 	};
@@ -1629,11 +1629,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"MakarovSD"};
+				inputweapons[] = {{"MakarovSD"}};
 			};
 		};
 	};
@@ -1642,11 +1642,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"MG36"};
+				inputweapons[] = {{"MG36"}};
 			};
 		};
 	};
@@ -1655,11 +1655,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Mk_48_DES_EP1"};
+				inputweapons[] = {{"Mk_48_DES_EP1"}};
 			};
 		};
 	};
@@ -1668,11 +1668,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Mk_48_DZ"};
+				inputweapons[] = {{"Mk_48_DZ"}};
 			};
 		};
 	};
@@ -1681,11 +1681,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"MP5A5"};
+				inputweapons[] = {{"MP5A5"}};
 			};
 		};
 	};
@@ -1694,11 +1694,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"mp5a5_acog"};
+				inputweapons[] = {{"mp5a5_acog"}};
 			};
 		};
 	};
@@ -1707,11 +1707,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"mp5a5_aimpoint"};
+				inputweapons[] = {{"mp5a5_aimpoint"}};
 			};
 		};
 	};
@@ -1720,11 +1720,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"mp5a5_reflex"};
+				inputweapons[] = {{"mp5a5_reflex"}};
 			};
 		};
 	};
@@ -1733,11 +1733,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"mp5a5n"};
+				inputweapons[] = {{"mp5a5n"}};
 			};
 		};
 	};
@@ -1746,11 +1746,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"mp5k"};
+				inputweapons[] = {{"mp5k"}};
 			};
 		};
 	};
@@ -1759,11 +1759,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"MP5SD"};
+				inputweapons[] = {{"MP5SD"}};
 			};
 		};
 	};
@@ -1772,11 +1772,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"mp5sd6"};
+				inputweapons[] = {{"mp5sd6"}};
 			};
 		};
 	};
@@ -1785,11 +1785,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"mp5sd6_acog"};
+				inputweapons[] = {{"mp5sd6_acog"}};
 			};
 		};
 	};
@@ -1798,11 +1798,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"mp5sd6_aimpoint"};
+				inputweapons[] = {{"mp5sd6_aimpoint"}};
 			};
 		};
 	};
@@ -1811,11 +1811,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"mp5sd6_reflex"};
+				inputweapons[] = {{"mp5sd6_reflex"}};
 			};
 		};
 	};
@@ -1824,11 +1824,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"MR43"};
+				inputweapons[] = {{"MR43"}};
 			};
 		};
 	};
@@ -1837,11 +1837,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"p220"};
+				inputweapons[] = {{"p220"}};
 			};
 		};
 	};
@@ -1850,11 +1850,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"p226"};
+				inputweapons[] = {{"p226"}};
 			};
 		};
 	};
@@ -1863,11 +1863,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"p226_sd"};
+				inputweapons[] = {{"p226_sd"}};
 			};
 		};
 	};
@@ -1876,11 +1876,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"p226sf"};
+				inputweapons[] = {{"p226sf"}};
 			};
 		};
 	};
@@ -1889,11 +1889,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"p226sf_sd"};
+				inputweapons[] = {{"p226sf_sd"}};
 			};
 		};
 	};
@@ -1902,11 +1902,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Pecheneg"};
+				inputweapons[] = {{"Pecheneg"}};
 			};
 		};
 	};
@@ -1915,11 +1915,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"PK"};
+				inputweapons[] = {{"PK"}};
 			};
 		};
 	};
@@ -1928,11 +1928,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Remington870_lamp"};
+				inputweapons[] = {{"Remington870_lamp"}};
 			};
 		};
 	};
@@ -1941,11 +1941,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"revolver_EP1"};
+				inputweapons[] = {{"revolver_EP1"}};
 			};
 		};
 	};
@@ -1954,11 +1954,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"revolver_gold_EP1"};
+				inputweapons[] = {{"revolver_gold_EP1"}};
 			};
 		};
 	};
@@ -1967,11 +1967,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"RPK_74"};
+				inputweapons[] = {{"RPK_74"}};
 			};
 		};
 	};
@@ -1980,11 +1980,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Sa58P_EP1"};
+				inputweapons[] = {{"Sa58P_EP1"}};
 			};
 		};
 	};
@@ -1993,11 +1993,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Sa58V_CCO_EP1"};
+				inputweapons[] = {{"Sa58V_CCO_EP1"}};
 			};
 		};
 	};
@@ -2006,11 +2006,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Sa58V_EP1"};
+				inputweapons[] = {{"Sa58V_EP1"}};
 			};
 		};
 	};
@@ -2019,11 +2019,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Sa58V_RCO_EP1"};
+				inputweapons[] = {{"Sa58V_RCO_EP1"}};
 			};
 		};
 	};
@@ -2032,11 +2032,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Sa61_EP1"};
+				inputweapons[] = {{"Sa61_EP1"}};
 			};
 		};
 	};
@@ -2045,11 +2045,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Saiga12K"};
+				inputweapons[] = {{"Saiga12K"}};
 			};
 		};
 	};
@@ -2058,11 +2058,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sapr_aimpoint"};
+				inputweapons[] = {{"sapr_aimpoint"}};
 			};
 		};
 	};
@@ -2071,11 +2071,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sapr_aimpoint_sd"};
+				inputweapons[] = {{"sapr_aimpoint_sd"}};
 			};
 		};
 	};
@@ -2084,11 +2084,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sapr_hensoldt"};
+				inputweapons[] = {{"sapr_hensoldt"}};
 			};
 		};
 	};
@@ -2097,11 +2097,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sapr_hensoldt_sd"};
+				inputweapons[] = {{"sapr_hensoldt_sd"}};
 			};
 		};
 	};
@@ -2110,11 +2110,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg550"};
+				inputweapons[] = {{"sg550"}};
 			};
 		};
 	};
@@ -2123,11 +2123,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg550_commando_hensoldt"};
+				inputweapons[] = {{"sg550_commando_hensoldt"}};
 			};
 		};
 	};
@@ -2136,11 +2136,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg550_kern"};
+				inputweapons[] = {{"sg550_kern"}};
 			};
 		};
 	};
@@ -2149,11 +2149,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg550_lg97"};
+				inputweapons[] = {{"sg550_lg97"}};
 			};
 		};
 	};
@@ -2162,11 +2162,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg550_lg97_aimpoint"};
+				inputweapons[] = {{"sg550_lg97_aimpoint"}};
 			};
 		};
 	};
@@ -2175,11 +2175,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg550_lg97_aimpoint_camo"};
+				inputweapons[] = {{"sg550_lg97_aimpoint_camo"}};
 			};
 		};
 	};
@@ -2188,11 +2188,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg550_sniper"};
+				inputweapons[] = {{"sg550_sniper"}};
 			};
 		};
 	};
@@ -2201,11 +2201,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg551"};
+				inputweapons[] = {{"sg551"}};
 			};
 		};
 	};
@@ -2214,11 +2214,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg551_acog"};
+				inputweapons[] = {{"sg551_acog"}};
 			};
 		};
 	};
@@ -2227,11 +2227,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg551_acog_lg97"};
+				inputweapons[] = {{"sg551_acog_lg97"}};
 			};
 		};
 	};
@@ -2240,11 +2240,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg551_commando_acog"};
+				inputweapons[] = {{"sg551_commando_acog"}};
 			};
 		};
 	};
@@ -2253,11 +2253,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg551_commando_aim"};
+				inputweapons[] = {{"sg551_commando_aim"}};
 			};
 		};
 	};
@@ -2266,11 +2266,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg551_commando_lg97_acog"};
+				inputweapons[] = {{"sg551_commando_lg97_acog"}};
 			};
 		};
 	};
@@ -2279,11 +2279,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg551_commando_lg97_aim"};
+				inputweapons[] = {{"sg551_commando_lg97_aim"}};
 			};
 		};
 	};
@@ -2292,11 +2292,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg551_commando_lg97_aim_camo"};
+				inputweapons[] = {{"sg551_commando_lg97_aim_camo"}};
 			};
 		};
 	};
@@ -2305,11 +2305,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg551_lg97"};
+				inputweapons[] = {{"sg551_lg97"}};
 			};
 		};
 	};
@@ -2318,11 +2318,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552"};
+				inputweapons[] = {{"sg552"}};
 			};
 		};
 	};
@@ -2331,11 +2331,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552_commando"};
+				inputweapons[] = {{"sg552_commando"}};
 			};
 		};
 	};
@@ -2344,11 +2344,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552_commando_mg"};
+				inputweapons[] = {{"sg552_commando_mg"}};
 			};
 		};
 	};
@@ -2357,11 +2357,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552_commando_mg_eotech"};
+				inputweapons[] = {{"sg552_commando_mg_eotech"}};
 			};
 		};
 	};
@@ -2370,11 +2370,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552_commando_sd"};
+				inputweapons[] = {{"sg552_commando_sd"}};
 			};
 		};
 	};
@@ -2383,11 +2383,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552_mp_aimpoint"};
+				inputweapons[] = {{"sg552_mp_aimpoint"}};
 			};
 		};
 	};
@@ -2396,11 +2396,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552_mp_aimpoint_sd"};
+				inputweapons[] = {{"sg552_mp_aimpoint_sd"}};
 			};
 		};
 	};
@@ -2409,11 +2409,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552_reflex"};
+				inputweapons[] = {{"sg552_reflex"}};
 			};
 		};
 	};
@@ -2422,11 +2422,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552lb"};
+				inputweapons[] = {{"sg552lb"}};
 			};
 		};
 	};
@@ -2435,11 +2435,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552lb_acog"};
+				inputweapons[] = {{"sg552lb_acog"}};
 			};
 		};
 	};
@@ -2448,11 +2448,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552lb_aimpoint"};
+				inputweapons[] = {{"sg552lb_aimpoint"}};
 			};
 		};
 	};
@@ -2461,11 +2461,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552lb_commando_acog"};
+				inputweapons[] = {{"sg552lb_commando_acog"}};
 			};
 		};
 	};
@@ -2474,11 +2474,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552lb_commando_reflex"};
+				inputweapons[] = {{"sg552lb_commando_reflex"}};
 			};
 		};
 	};
@@ -2487,11 +2487,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"sg552sd_reflex"};
+				inputweapons[] = {{"sg552sd_reflex"}};
 			};
 		};
 	};
@@ -2500,11 +2500,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"SVD"};
+				inputweapons[] = {{"SVD"}};
 			};
 		};
 	};
@@ -2513,11 +2513,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"SVD_CAMO"};
+				inputweapons[] = {{"SVD_CAMO"}};
 			};
 		};
 	};
@@ -2526,11 +2526,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"SVD_des_EP1"};
+				inputweapons[] = {{"SVD_des_EP1"}};
 			};
 		};
 	};
@@ -2539,11 +2539,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"SVD_NSPU_EP1"};
+				inputweapons[] = {{"SVD_NSPU_EP1"}};
 			};
 		};
 	};
@@ -2552,11 +2552,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"trg42"};
+				inputweapons[] = {{"trg42"}};
 			};
 		};
 	};
@@ -2565,11 +2565,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"trg42_camo"};
+				inputweapons[] = {{"trg42_camo"}};
 			};
 		};
 	};
@@ -2578,11 +2578,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"trg42_t8m"};
+				inputweapons[] = {{"trg42_t8m"}};
 			};
 		};
 	};
@@ -2591,11 +2591,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"trg42_t8m_camo"};
+				inputweapons[] = {{"trg42_t8m_camo"}};
 			};
 		};
 	};
@@ -2604,11 +2604,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"UZI_EP1"};
+				inputweapons[] = {{"UZI_EP1"}};
 			};
 		};
 	};
@@ -2617,11 +2617,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"UZI_SD_EP1"};
+				inputweapons[] = {{"UZI_SD_EP1"}};
 			};
 		};
 	};
@@ -2630,11 +2630,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"Winchester1866"};
+				inputweapons[] = {{"Winchester1866"}};
 			};
 		};
 	};
@@ -2643,11 +2643,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};				input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"AA12_PMC"}};
 			};
 		};
 	};
@@ -2656,11 +2656,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"AKS_GOLD"}};
 			};
 		};
 	};
@@ -2669,11 +2669,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"BAF_AS50_scoped_Large"}};
 			};
 		};
 	};
@@ -2682,11 +2682,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"BAF_AS50_TWS"}};
 			};
 		};
 	};
@@ -2695,11 +2695,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"BAF_AS50_TWS_Large"}};
 			};
 		};
 	};
@@ -2708,11 +2708,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"Javelin"}};
 			};
 		};
 	};
@@ -2721,11 +2721,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_CG84"}};
 			};
 		};
 	};
@@ -2734,11 +2734,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_Fliegerfaust_2"}};
 			};
 		};
 	};
@@ -2747,11 +2747,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_G22"}};
 			};
 		};
 	};
@@ -2760,11 +2760,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_G22_desert"}};
 			};
 		};
 	};
@@ -2773,11 +2773,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_G27_scoped"}};
 			};
 		};
 	};
@@ -2786,11 +2786,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_G3DMR2"}};
 			};
 		};
 	};
@@ -2799,11 +2799,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_G3SG1"}};
 			};
 		};
 	};
@@ -2812,11 +2812,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"kpfs_G82"}};
 			};
 		};
 	};
@@ -2825,11 +2825,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"kpfs_glock17SD"}};
 			};
 		};
 	};
@@ -2838,11 +2838,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_MBB_Armbrust"}};
 			};
 		};
 	};
@@ -2851,11 +2851,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_MG2"}};
 			};
 		};
 	};
@@ -2864,11 +2864,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_MG4"}};
 			};
 		};
 	};
@@ -2877,11 +2877,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_MP5A1"}};
 			};
 		};
 	};
@@ -2890,11 +2890,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"kpfs_p2104"}};
 			};
 		};
 	};
@@ -2903,11 +2903,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"KPFS_Pzf3"}};
 			};
 		};
 	};
@@ -2916,11 +2916,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"m107_TWS_EP1_DZ"}};
 			};
 		};
 	};
@@ -2929,11 +2929,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"M134"}};
 			};
 		};
 	};
@@ -2942,11 +2942,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"M134_2"}};
 			};
 		};
 	};
@@ -2955,11 +2955,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"m8_carbine_pmc"}};
 			};
 		};
 	};
@@ -2968,11 +2968,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"m8_compact_pmc"}};
 			};
 		};
 	};
@@ -2981,11 +2981,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"m8_holo_sd"}};
 			};
 		};
 	};
@@ -2994,11 +2994,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"m8_SAW_Large"}};
 			};
 		};
 	};
@@ -3007,11 +3007,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"m8_tws"}};
 			};
 		};
 	};
@@ -3020,11 +3020,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"m8_tws_sd"}};
 			};
 		};
 	};
@@ -3033,11 +3033,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"MG36_camo_Large"}};
 			};
 		};
 	};
@@ -3046,11 +3046,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"MG36_Large"}};
 			};
 		};
 	};
@@ -3059,11 +3059,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"mg51"}};
 			};
 		};
 	};
@@ -3072,11 +3072,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"mg51_eotech"}};
 			};
 		};
 	};
@@ -3085,11 +3085,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"panzerfaust3"}};
 			};
 		};
 	};
@@ -3098,11 +3098,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"PMC_AS50_scoped"}};
 			};
 		};
 	};
@@ -3111,11 +3111,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"PMC_AS50_scoped_Large"}};
 			};
 		};
 	};
@@ -3124,11 +3124,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"PMC_AS50_TWS"}};
 			};
 		};
 	};
@@ -3137,11 +3137,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"PMC_AS50_TWS_Large"}};
 			};
 		};
 	};
@@ -3150,11 +3150,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"Remington870"}};
 			};
 		};
 	};
@@ -3163,11 +3163,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"RPG18"}};
 			};
 		};
 	};
@@ -3176,11 +3176,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"RPG7V"}};
 			};
 		};
 	};
@@ -3189,11 +3189,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"RPK_74_Large"}};
 			};
 		};
 	};
@@ -3202,11 +3202,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"Stinger"}};
 			};
 		};
 	};
@@ -3215,11 +3215,11 @@ class M4A1 {
 			class Crafting
 			{
 				text = $STR_UNLEASHED_CRAFT_PART_GENERIC;
-				script = ";['Crafting','CfgWeapons', _id] spawn DZE_player_craftItem;";
+				script = ";['Crafting','ExtraRc', _id] spawn DZE_player_craftItem;";
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox"};
 				output[] = {{"PartGeneric",1}};input[] = {};
-				inputweapons[] = {"AK_107_GL_Kobra"};
+				inputweapons[] = {{"Strela"}};
 			};
 		};
 	};

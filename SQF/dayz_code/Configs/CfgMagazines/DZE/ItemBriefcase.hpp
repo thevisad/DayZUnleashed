@@ -5,7 +5,7 @@ class ItemBriefcase_Base: CA_Magazine
 	type = 256;
 	displayName = "Briefcase";
 	model = "\z\addons\dayz_epoch\models\briefcase.p3d";
-	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_CA.paa";
+	picture = "\z\addons\dayz_epoch\pictures\equip_briefcase_E_CA.paa";
 };
 class ItemBriefcaseEmpty: ItemBriefcase_Base
 {
