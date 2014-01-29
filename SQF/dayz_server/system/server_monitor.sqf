@@ -294,8 +294,7 @@ if (isServer and isNil "sm_done") then {
 				_entity call fnc_veh_ResetEH;
 			};
 #ifdef OBJECT_DEBUG
-			diag_log (format["VEHICLE %1 %2 at %3, original damage=%4, effective damage=%6, fuel=%5",
-				 _action, _entity call fa_veh2str, (getPosASL _entity) call fa_coor2str, _damage, _fuel, damage _entity]); // , hitpoints:%6, inventory=%7"  , _hitpoints, _inventory 
+			//diag_log (format["VEHICLE %1 %2 at %3, original damage=%4, effective damage=%6, fuel=%5", _action, _entity call fa_veh2str, (getPosASL _entity) call fa_coor2str, _damage, _fuel, damage _entity]); // , hitpoints:%6, inventory=%7"  , _hitpoints, _inventory 
 #endif
 		}
 		else { // else for object or non legit vehicle
@@ -313,7 +312,7 @@ if (isServer and isNil "sm_done") then {
 						_action = "FAILED";
 						_damage = 5;
 #ifdef OBJECT_DEBUG
-						diag_log(format["Won't spawn object #%1(%4) in/close to a building, _point:%3, inventory: %5 booleans:%2",_ObjectID, _booleans, _point, _class, _inventory]);
+						//diag_log(format["Won't spawn object #%1(%4) in/close to a building, _point:%3, inventory: %5 booleans:%2",_ObjectID, _booleans, _point, _class, _inventory]);
 #endif
 					};
 				};
@@ -353,14 +352,14 @@ if (isServer and isNil "sm_done") then {
 					_entity addMPEventHandler ["MPKilled",{_this call vehicle_handleServerKilled;}]; 
 				};
 				//diag_log ("DW_DEBUG " + _class + " #" + str(_ObjectID) + " pos=" +  	(_point call fa_coor2str) + ", damage=" + str(_damage)  );
-				diag_log("SM: Spawned " + str(_x));
+				//diag_log("SM: Spawned " + str(_x));
 			}
 			else { // delete object -- this has been comented out: object are never really deleted from hive
 			/*	_key = format["CHILD:306:%1:%2:%3:", _ObjectID, [], 1];
 				_rawData = "HiveEXT" callExtension _key;
 				_key = format["CHILD:304:%1:",_ObjectID]; // delete by ID (not UID which is handler 310)
 				_rawData = "HiveEXT" callExtension _key;*/
-				diag_log (format["SM: IGNORED %1 ObjectUID: %2 Character:%3 dmg: %4",_class, _ObjectID, _CharacterID, _damage ]);
+				//diag_log (format["SM: IGNORED %1 ObjectUID: %2 Character:%3 dmg: %4",_class, _ObjectID, _CharacterID, _damage ]);
 			};
 		};
 //diag_log(format["VEH MAINTENANCE DEBUG %1 %2", __FILE__, __LINE__]);
@@ -373,7 +372,7 @@ if (isServer and isNil "sm_done") then {
 			[_entity, _inventory] call fa_populateCargo;
 			
 			dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _entity];
-			diag_log ("_entity that was placed was " + str(_entity) + " was used");
+			//diag_log ("_entity that was placed was " + str(_entity) + " was used");
 			_squad = 0;
 			_combination = 0;
 			// UPDATE MODIFIED OBJECTS TO THE HIVE 
@@ -452,6 +451,15 @@ if (isServer and isNil "sm_done") then {
 	Server_InfectedCamps = [3, "center", 4500, 2000] call fn_bases;
 	dayzInfectedCamps = Server_InfectedCamps;
 	publicVariable "dayzInfectedCamps";
+	
+	_tempMaxSpawns = dayz_zombiehordeMaxSpawns - dayz_zombiehordeMinSpawns;
+	_hordespawns = (floor(random (_tempMaxSpawns)) + dayz_zombiehordeMinSpawns);
+	
+	
+	for "_x" from 0 to _hordespawns do {
+		[] execVM "\z\addons\dayz_server\compile\fn_hoard.sqf";
+	}; //Spawn hordes!!!
+	
 
 	// antiwallhack
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_antiwallhack.sqf";	

@@ -33,7 +33,7 @@ if ((_target_characterID != "0")&&(!isNull _target_character)&&(alive _target_ch
         _target_variable=(_variables select _i);
         _target_value   =(_values select _i);
         _key = format["CHILD:152:%1:%2:%3:",_target_characterID,_target_variable,_target_value];
-        diag_log ("HIVE: WRITE: "+ str(_key) + " / " + str(_target_character));
+        //diag_log ("HIVE: WRITE: "+ str(_key) + " / " + str(_target_character));
         _key call server_hiveWrite;
         sleep 0.01;
     };
