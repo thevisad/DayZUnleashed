@@ -400,11 +400,6 @@ _LoadPlease = compile ("
 				};
 			};
 			[] spawn {
-				waitUntil {((ctrlText ((findDisplay 24) displayCtrl 101)) == '.ban '+name player+' true')};
-				disableSerialization;((findDisplay 24) displayCtrl 101) ctrlSetText '';(findDisplay 24) closeDisplay 0;
-				if (true) exitWith {[] spawn "+_randx12+";};
-			};
-			[] spawn {
 				while {true} do 
 				{
 					if (!(isNull player) && (alive player) && (player == vehicle player)) then 

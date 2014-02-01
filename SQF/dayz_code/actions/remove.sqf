@@ -70,7 +70,7 @@ cutText [format[(localize "str_epoch_player_162"),_nameVehicle], "PLAIN DOWN"];
 
 if (_isModular) then {
      //allow previous cutText to show, then show this if modular.
-     cutText [(localize "STR_EPOCH_ACTIONS_21"), "PLAIN DOWN"];
+     cutText ["Deconstructing modular buildables will not refund any components.", "PLAIN"];
 };
 
 // Alert zombies once.
@@ -126,11 +126,14 @@ while {_isOk} do {
 	if(_finished) then {
 		_counter = _counter + 1;
 		// 10% chance to break a required tool each pass
-		if((_isDestructable or _isRemovable) and !_isOwnerOfObj) then {
-			if((random 10) <= 1) then {
-				_brokenTool = true;
+		if(_isDestructable or _isRemovable) then {
+            _engineering_skill =  [player,"Engineer"] call DZU_fnc_getVariable;
+			if( (_engineering_skill < 70)&&((random 10) <= 1) ) then {
+					_brokenTool = true;
 			};
 		};
+		//[player,25,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
+        [player,"Generic_Engineering"] call DZU_fnc_giveEXP;
 	};
 	if(_brokenTool) exitWith {
 		_isOk = false;

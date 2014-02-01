@@ -670,7 +670,7 @@ if(!isDedicated) then {
 	s_player_combi = [];
 	dayz_combination = "";
 	CraftingInprogress = false;
-	CodeInProgress = false;
+	DZE_ActionInProgress = false;
 	DZE_ActionInProgress = false;
 	DZE_Q = false;
 	DZE_Z = false;
