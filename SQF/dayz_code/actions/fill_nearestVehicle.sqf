@@ -1,7 +1,7 @@
 private ["_vehicle","_curFuel","_newFuel","_started","_finished","_animState","_isMedic","_abort","_canSize","_configVeh","_capacity","_nameText","_isOk","_findNearestVehicles","_findNearestVehicle","_IsNearVehicle"];
 
-if(CodeInProgress) exitWith { cutText ["Refuel already in progress." , "PLAIN DOWN"] };
-CodeInProgress = true;
+if(DZE_ActionInProgress) exitWith { cutText ["Refuel already in progress." , "PLAIN DOWN"] };
+DZE_ActionInProgress = true;
 
 // Get all nearby vehicles within 10m
 _findNearestVehicles = nearestObjects [player, ["AllVehicles"], 10];
@@ -103,4 +103,4 @@ if(_IsNearVehicle >= 1) then {
 } else {
 	cutText ["No Vehicles Nearby.", "PLAIN DOWN"];
 };
-CodeInProgress = false;
+DZE_ActionInProgress = false;

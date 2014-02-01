@@ -1,7 +1,7 @@
 private ["_vehicle","_started","_finished","_animState","_isMedic","_soundSource"];
 
-if(CodeInProgress) exitWith { cutText ["Refuel already in progress." , "PLAIN DOWN"] };
-CodeInProgress = true;
+if(DZE_ActionInProgress) exitWith { cutText ["Refuel already in progress." , "PLAIN DOWN"] };
+DZE_ActionInProgress = true;
 
 player removeAction s_player_fillgen;
 s_player_fillgen = 1;
@@ -88,5 +88,5 @@ if (_finished) then {
 	};
 };
 
-CodeInProgress = false;
+DZE_ActionInProgress = false;
 s_player_fillgen = -1;

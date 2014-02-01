@@ -4,8 +4,18 @@ private["_timesincedrink"];
 
 //http://community.bistudio.com/wiki/ArmA2:_Moves
 
-player playActionNow "PutDown";
-sleep 1;
+player playMove "amovpsitmstpsraswrfldnon_smoking"; //	-	Sitting smoking
+
+waitUntil { animationState player != "amovpsitmstpsraswrfldnon_smoking"};
+
+sleep 5;
+
+player playMove "amovpsitmstpsraswrfldnon_weaponcheck1"; //	-	Sitting checking weapon
+
+waitUntil { animationState player != "amovpsitmstpsraswrfldnon_weaponcheck1"};
+
+sleep 5;
+
 player playMove "AidlPpneMstpSnonWnonDnon_SleepC_layDown";
 waitUntil { animationState player != "AidlPpneMstpSnonWnonDnon_SleepC_layDown"};
 sleep 5;
@@ -58,3 +68,6 @@ publicVariableServer "PVDZ_plr_Save";
 
 player playMove "AidlPpneMstpSnonWnonDnon_SleepC_standUp";
 waitUntil { animationState player != "AidlPpneMstpSnonWnonDnon_SleepC_standUp"};
+
+R3F_TIRED_Accumulator = 0;
+

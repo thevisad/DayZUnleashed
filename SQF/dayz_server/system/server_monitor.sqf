@@ -455,11 +455,11 @@ if (isServer and isNil "sm_done") then {
 	_tempMaxSpawns = dayz_zombiehordeMaxSpawns - dayz_zombiehordeMinSpawns;
 	_hordespawns = (floor(random (_tempMaxSpawns)) + dayz_zombiehordeMinSpawns);
 	
-	
+	/*
 	for "_x" from 0 to _hordespawns do {
 		[] execVM "\z\addons\dayz_server\compile\fn_hoard.sqf";
 	}; //Spawn hordes!!!
-	
+	*/
 
 	// antiwallhack
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_antiwallhack.sqf";	
