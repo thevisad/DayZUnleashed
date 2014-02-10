@@ -14,12 +14,9 @@ while {true} do
     if (!isNull player) then {
         private ["_currentVehicle", "_isNearFeed", "_countFuel"];
                 _currentVehicle = vehicle player;
-                _countFuel = (count ((position _currentVehicle) nearObjects ["land_nav_pier_c_big", _distance]));
-                _countFuel = _countFuel + (count ((position _currentVehicle) nearObjects ["land_nav_pier_c_big", _distance]));
-                _countFuel = _countFuel + (count ((position _currentVehicle) nearObjects ["land_nav_pier_c_big", _distance]));
-                _countFuel = _countFuel + (count ((position _currentVehicle) nearObjects ["land_nav_pier_c_big", _distance]));
-                _countFuel = _countFuel + (count ((position _currentVehicle) nearObjects ["land_nav_pier_c_big", _distance]));
-                _countFuel = _countFuel + (count ((position _currentVehicle) nearObjects ["land_nav_pier_c_big", _distance]));
+                _countFuel = (count ((position _currentVehicle) nearObjects ["Land_A_FuelStation_Build", _distance]));
+                _countFuel = _countFuel + (count ((position _currentVehicle) nearObjects ["Land_fuelstation", _distance]));
+                _countFuel = _countFuel + (count ((position _currentVehicle) nearObjects ["Land_fuelstation_army", _distance]));
                 _isNearFeed = _countFuel > 0;
  
         if (_vehicle != _currentVehicle) then {

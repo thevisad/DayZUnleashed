@@ -26,6 +26,8 @@ spawnComposition =              compile preprocessFileLineNumbers "ca\modules\dy
 fn_bases =                      compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fn_bases.sqf";
 server_playerVariableChange =   compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerVariableChange.sqf";
 server_playerVariablesChange =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerVariablesChange.sqf";
+server_spawnLoot =			    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\spawn_loot.sqf"; 	//Removes the object from the DB
+
 // vehicle_handleInteract = {
 // 	private["_object"];
 // 	_object = _this select 0;
