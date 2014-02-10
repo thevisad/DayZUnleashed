@@ -1,0 +1,1400 @@
+version=1;
+class GraphItems
+{
+	class Item0
+	{
+		Flags=250;
+		BasicText="";
+		Left=274.58536;
+		Top=277.05234;
+		Right=364.58536;
+		Bottom=327.05234;
+		BgColor=255;
+		class ItemInfo
+		{
+			Text="Init" \n "";
+			lStyle=-842150451;
+			Shape=6;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=700;
+			FontUnderline=1;
+			FontCharSet=0;
+			ItemType=0;
+			class ItemInfo
+			{
+				Id=1;
+			};
+		};
+	};
+	class Item1
+	{
+		Flags=218;
+		BasicText="";
+		Left=274.58536;
+		Top=392.2092;
+		Right=364.58536;
+		Bottom=442.2092;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="initialized";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=2;
+				Condition="!isnil ""bis_fnc_init""";
+			};
+		};
+	};
+	class Item2
+	{
+		Flags=250;
+		BasicText="";
+		Left=274.58542;
+		Top=488.83517;
+		Right=364.58542;
+		Bottom=538.83514;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="prepare";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=3;
+			};
+		};
+	};
+	class Item3
+	{
+		Flags=218;
+		BasicText="";
+		Left=274.58536;
+		Top=596.05011;
+		Right=364.58539;
+		Bottom=646.05011;
+		BgColor=8421440;
+		class ItemInfo
+		{
+			Text="true";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=8;
+			class ItemInfo
+			{
+				Id=4;
+			};
+		};
+	};
+	class Item4
+	{
+		Flags=250;
+		BasicText="";
+		Left=275.44916;
+		Top=726.11517;
+		Right=365.44916;
+		Bottom=776.11517;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Begin";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=5;
+			};
+		};
+	};
+	class Item5
+	{
+		Flags=218;
+		BasicText="";
+		Left=101.15292;
+		Top=678.43768;
+		Right=191.15292;
+		Bottom=728.43768;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="timecheck";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=6;
+				Condition="((diag_tickTime - _lastUpdate) > 300)";
+				Action="_lastUpdate = diag_tickTime;";
+			};
+		};
+	};
+	class Item6
+	{
+		Flags=218;
+		BasicText="";
+		Left=94.118546;
+		Top=805.83807;
+		Right=184.11855;
+		Bottom=855.83807;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="count less then";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=7;
+			};
+		};
+	};
+	class Item7
+	{
+		Flags=218;
+		BasicText="";
+		Left=427.0791;
+		Top=799.58533;
+		Right=517.0791;
+		Bottom=849.58533;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="count more then";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=8;
+			};
+		};
+	};
+	class Item8
+	{
+		Flags=218;
+		BasicText="";
+		Left=433.33188;
+		Top=645.6106;
+		Right=523.33191;
+		Bottom=695.6106;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="horde zombies";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=9;
+			};
+		};
+	};
+	class Item9
+	{
+		Flags=250;
+		BasicText="";
+		Left=438.80304;
+		Top=529.15259;
+		Right=528.80304;
+		Bottom=579.15259;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="horde logic";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=10;
+			};
+		};
+	};
+	class Item10
+	{
+		Flags=218;
+		BasicText="";
+		Left=271.17651;
+		Top=943.04382;
+		Right=361.17651;
+		Bottom=993.04382;
+		BgColor=8421440;
+		class ItemInfo
+		{
+			Text="true";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=8;
+			class ItemInfo
+			{
+				Id=11;
+				Condition="true";
+			};
+		};
+	};
+	class Item11
+	{
+		Flags=250;
+		BasicText="";
+		Left=526.34003;
+		Top=858.98535;
+		Right=616.34003;
+		Bottom=908.98535;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="clean up logic";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=12;
+			};
+		};
+	};
+	class Item12
+	{
+		Flags=250;
+		BasicText="";
+		Left=-25.466955;
+		Top=862.89331;
+		Right=64.533058;
+		Bottom=912.89331;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="spawn logic";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=13;
+			};
+		};
+	};
+	class Item13
+	{
+		Flags=218;
+		BasicText="";
+		Left=501.32898;
+		Top=421.59518;
+		Right=647.72662;
+		Bottom=479.88895;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="count horde more than";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=14;
+			};
+		};
+	};
+	class Item14
+	{
+		Flags=218;
+		BasicText="";
+		Left=569.32788;
+		Top=521.33569;
+		Right=715.72552;
+		Bottom=574.6532;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="count horde less than";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=15;
+			};
+		};
+	};
+	class Item15
+	{
+		Flags=250;
+		BasicText="";
+		Left=780.33112;
+		Top=529.97662;
+		Right=870.33112;
+		Bottom=579.97662;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="spawn hordes";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=16;
+			};
+		};
+	};
+	class Item16
+	{
+		Flags=218;
+		BasicText="";
+		Left=555.2019;
+		Top=587.97296;
+		Right=704.08771;
+		Bottom=639.63171;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="horde timecheck";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=17;
+				Condition="((diag_tickTime - _lastUpdate) > 300)" \n "";
+				Action="_lastUpdate = diag_tickTime;";
+			};
+		};
+	};
+	class Item17
+	{
+		Flags=250;
+		BasicText="";
+		Left=677.14172;
+		Top=427.60175;
+		Right=767.14172;
+		Bottom=477.60175;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="cleanup hordes";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=18;
+			};
+		};
+	};
+	class Item18
+	{
+		Flags=210;
+		BasicText="";
+		Left=732.47089;
+		Top=960.44788;
+		Right=740.47089;
+		Bottom=968.44788;
+		BgColor=0;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=7;
+			class ItemInfo
+			{
+				Id=19;
+			};
+		};
+	};
+	class Item19
+	{
+		Flags=218;
+		BasicText="";
+		Left=421.35791;
+		Top=349.53098;
+		Right=511.35791;
+		Bottom=399.53098;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="hordes update";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=21;
+				Priority=1;
+			};
+		};
+	};
+	class Item20
+	{
+		Flags=250;
+		BasicText="";
+		Left=581.78192;
+		Top=292.30969;
+		Right=740.62024;
+		Bottom=347.28595;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="process horde movement";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=22;
+			};
+		};
+	};
+	class Item21
+	{
+		Flags=218;
+		BasicText="";
+		Left=617.15753;
+		Top=219.38718;
+		Right=769.74518;
+		Bottom=268.70691;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="movement timecheck";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=23;
+			};
+		};
+	};
+	class Item22
+	{
+		Flags=218;
+		BasicText="";
+		Left=-73.197495;
+		Top=720.44751;
+		Right=16.802505;
+		Bottom=770.44751;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="wild zombie logic";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=24;
+			};
+		};
+	};
+	class Item23
+	{
+		Flags=218;
+		BasicText="";
+		Left=771.74231;
+		Top=292.82394;
+		Right=861.74231;
+		Bottom=342.82394;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="xcvx";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=25;
+			};
+		};
+	};
+	class Item24
+	{
+		Flags=250;
+		BasicText="";
+		Left=-190.93291;
+		Top=653.96008;
+		Right=-100.93289;
+		Bottom=703.96008;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="Wild Zombie ";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=26;
+			};
+		};
+	};
+	class Item25
+	{
+		Flags=218;
+		BasicText="";
+		Left=-195.01431;
+		Top=540.70154;
+		Right=-105.01431;
+		Bottom=590.70154;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="wild time check";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=27;
+			};
+		};
+	};
+	class Item26
+	{
+		Flags=218;
+		BasicText="";
+		Left=-336.84253;
+		Top=661.10248;
+		Right=-246.84253;
+		Bottom=711.10248;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="too many";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=28;
+			};
+		};
+	};
+	class Item27
+	{
+		Flags=218;
+		BasicText="";
+		Left=-296.02866;
+		Top=723.34363;
+		Right=-206.02866;
+		Bottom=773.34363;
+		BgColor=65535;
+		class ItemInfo
+		{
+			Text="less than";
+			lStyle=-842150451;
+			Shape=2;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=4;
+			class ItemInfo
+			{
+				Id=29;
+			};
+		};
+	};
+	class Item28
+	{
+		Flags=250;
+		BasicText="";
+		Left=-297.04901;
+		Top=945.7793;
+		Right=-207.049;
+		Bottom=995.7793;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="spawn wild zombies";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=30;
+			};
+		};
+	};
+	class Item29
+	{
+		Flags=250;
+		BasicText="";
+		Left=-423.57202;
+		Top=744.77094;
+		Right=-333.57202;
+		Bottom=794.77094;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="clean up wild zeds";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=32;
+			};
+		};
+	};
+	class Item30
+	{
+		Flags=250;
+		BasicText="";
+		Left=264.57477;
+		Top=1221.0148;
+		Right=354.57477;
+		Bottom=1271.0148;
+		BgColor=16777215;
+		class ItemInfo
+		{
+			Text="general cleanup" \n "";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=2;
+			class ItemInfo
+			{
+				Id=33;
+			};
+		};
+	};
+	class Item31
+	{
+		Flags=210;
+		BasicText="";
+		Left=-688.8869;
+		Top=1267.7216;
+		Right=-680.8869;
+		Bottom=1275.7216;
+		BgColor=0;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=7;
+			class ItemInfo
+			{
+				Id=34;
+			};
+		};
+	};
+	class Item32
+	{
+		Flags=210;
+		BasicText="";
+		Left=-663.99261;
+		Top=467.32715;
+		Right=-655.99261;
+		Bottom=475.32715;
+		BgColor=0;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=7;
+			class ItemInfo
+			{
+				Id=35;
+			};
+		};
+	};
+	class Item33
+	{
+		Flags=210;
+		BasicText="";
+		Left=-52.382271;
+		Top=976.16534;
+		Right=-44.382294;
+		Bottom=984.16534;
+		BgColor=0;
+		class ItemInfo
+		{
+			Text="";
+			lStyle=-842150451;
+			Group=-842150451;
+			FontFace="Arial";
+			FontHeight=10;
+			FontWeight=0;
+			FontCharSet=0;
+			ItemType=7;
+			class ItemInfo
+			{
+				Id=36;
+			};
+		};
+	};
+};
+class GraphLinks
+{
+	class Link0
+	{
+		From=0;
+		To=1;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link1
+	{
+		From=1;
+		To=2;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link2
+	{
+		From=2;
+		To=3;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link3
+	{
+		From=3;
+		To=4;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link4
+	{
+		From=4;
+		To=5;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link5
+	{
+		From=4;
+		To=6;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link6
+	{
+		From=4;
+		To=7;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link7
+	{
+		From=4;
+		To=8;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link8
+	{
+		From=4;
+		To=10;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link9
+	{
+		From=4;
+		To=22;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link10
+	{
+		From=5;
+		To=4;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link11
+	{
+		From=6;
+		To=12;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link12
+	{
+		From=7;
+		To=11;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link13
+	{
+		From=8;
+		To=9;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link14
+	{
+		From=9;
+		To=13;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link15
+	{
+		From=9;
+		To=14;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link16
+	{
+		From=9;
+		To=16;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link17
+	{
+		From=9;
+		To=19;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link18
+	{
+		From=10;
+		To=30;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link19
+	{
+		From=11;
+		To=10;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link20
+	{
+		From=12;
+		To=10;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link21
+	{
+		From=13;
+		To=17;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link22
+	{
+		From=14;
+		To=15;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link23
+	{
+		From=15;
+		To=18;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link24
+	{
+		From=16;
+		To=9;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link25
+	{
+		From=17;
+		To=18;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link26
+	{
+		From=18;
+		To=10;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link27
+	{
+		From=19;
+		To=20;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link28
+	{
+		From=20;
+		To=21;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link29
+	{
+		From=20;
+		To=23;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link30
+	{
+		From=21;
+		To=20;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link31
+	{
+		From=22;
+		To=24;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link32
+	{
+		From=24;
+		To=25;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link33
+	{
+		From=24;
+		To=26;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link34
+	{
+		From=24;
+		To=27;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link35
+	{
+		From=25;
+		To=24;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link36
+	{
+		From=26;
+		To=29;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link37
+	{
+		From=27;
+		To=28;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link38
+	{
+		From=28;
+		To=33;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link39
+	{
+		From=29;
+		To=33;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link40
+	{
+		From=30;
+		To=31;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link41
+	{
+		From=31;
+		To=32;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link42
+	{
+		From=32;
+		To=3;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+	class Link43
+	{
+		From=33;
+		To=10;
+		Color=6316128;
+		Flags=2;
+		class Extra
+		{
+			ArrowSize=0;
+		};
+	};
+};
+class Globals
+{
+	NextGroupID=1;
+	NextID=37;
+	FSMName="zedsystem";
+	class DefaultLink
+	{
+		ArrowSize=0;
+	};
+	DefaultLinkColor=6316128;
+	DefaultLinkUseCustom=1;
+	PZoomLeft=-1162.387;
+	PZoomRight=1301.7264;
+	PZoomBottom=1535.5105;
+	PZoomTop=-367.37613;
+	Clxs=1585;
+	Clys=1224;
+	Aspect=1;
+};
+class Window
+{
+	Flags=0;
+	MaxPosX=-1;
+	MaxPosY=-1;
+	MinPosX=-32000;
+	MinPosY=-32000;
+	Left=133;
+	Top=107;
+	Right=2112;
+	Bottom=1476;
+	ShowCmd=1;
+	SplitPos=1603;
+};

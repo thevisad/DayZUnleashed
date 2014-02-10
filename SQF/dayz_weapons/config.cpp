@@ -17,6 +17,14 @@ class CfgPatches
 		requiredAddons[] = {"CAWeapons","dayz_equip"};
 	};
 };
+
+class CfgMods
+{
+	class DayZ
+	{
+		version = "0.97-Devbuild-023082014";
+	};
+};
 class ItemActions
 {
 	class Use

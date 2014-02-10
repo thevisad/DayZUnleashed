@@ -24,7 +24,7 @@ if (!isDedicated) then {
 	player_weaponFiredNear = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_weaponFiredNear.sqf";
 	player_animalCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_animalCheck.sqf";
 	player_spawnCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_spawnCheck.sqf";
-	player_spawnLootCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_spawnlootCheck.sqf";
+	//player_spawnLootCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_spawnlootCheck.sqf";
 	player_spawnZedCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_spawnzedCheck.sqf";
 	building_spawnLoot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\building_spawnLoot.sqf";
 	player_taskHint = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_taskHint.sqf";
@@ -634,6 +634,39 @@ if (!isDedicated) then {
 				player addMagazine _magType;
 			};
 		};
+	};
+	
+	fnc_pwrotate = {
+		private ["_turntable","_holder","_time","_dir"];
+		_turntable = createVehicle [
+			"Land_Can_V3_F",
+			_this select 0,
+			[],
+			0, 
+			"CAN_COLLIDE"
+		];
+		_turntable hideObject true;
+		_holder = createVehicle [
+			"WeaponHolderSimulated",
+			_this select 0,
+			[],
+			0, 
+			"CAN_COLLIDE"
+		];
+		_holder addWeaponCargoGlobal [_this select 1, 1];
+		_holder attachTo [_turntable, [0,-0.63,0.7]];
+		_holder setVectorDirAndUp [[0,0,1],[0,-1,0]];
+		_time = time + 10;
+		_dir = getDir _turntable;
+		waitUntil {
+			_dir = _dir + (
+				if (_dir > 360) then [{-360},{3}]
+			);
+			_turntable setDir _dir;
+			time > _time
+		};
+		deleteVehicle _holder;
+		deleteVehicle _turntable;
 	};
 
 	dayz_futurePos = {

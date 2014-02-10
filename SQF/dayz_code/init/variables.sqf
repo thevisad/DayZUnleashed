@@ -532,11 +532,11 @@ dayz_zSpawnDistance = 1000;
 
 dayz_maxLocalZombies = 100; // max quantity of Z controlled by local gameclient, used by player_spawnCheck. Below this limit we can spawn Z
 dayz_maxMaxModels = 300; // max quantity of Man models (player or Z, dead or alive) around players. Below this limit we can spawn Z
-dayz_maxMaxWeaponHolders = 200; // max quantity of loot piles around players. Below this limit we can spawn some loot
+dayz_maxMaxWeaponHolders = 400; // max quantity of loot piles around players. Below this limit we can spawn some loot
 dayz_tagDelayWeaponHolders = 2; // prevent any new loot spawn on this building during this delay (minutes)
 dayz_tagDelayZombies = 10; // prevent any new zombie spawn into or near this building during this delay (minutes)
 dayz_spawnArea = 300; // radius around player where we can spawn loot & Z
-dayz_safeDistPlr = 50; // Any loot & Z won't be spawned closer than this distance from any player
+dayz_safeDistPlr = 35; // Any loot & Z won't be spawned closer than this distance from any player
 dayz_cantseeDist = 150; // distance from which we can spawn a Z in front of any player without ray-tracing and angle checks
 dayz_cantseefov = 70; // half player field-of-view. Visible Z won't be spawned in front of any near players
 dayz_canDelete = 800; // Z, further than this distance from its "owner", will be deleted

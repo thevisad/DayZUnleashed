@@ -24,7 +24,7 @@ item19[] = {"ERROR__Wrong_HIVE",2,250,175.000000,500.000000,275.000000,550.00000
 item20[] = {"Hive_Ok",4,218,-175.000000,550.000000,-75.000000,600.000000,0.000000,"Hive" \n "Ok"};
 item21[] = {"Phase_One",2,250,-75.000000,600.000000,25.000000,650.000000,0.000000,"Phase One"};
 item22[] = {"Response",4,218,-175.000000,650.000000,-75.000000,700.000000,0.000000,"Response"};
-item23[] = {"Phase_Two",2,4346,-75.000000,700.000000,25.000000,750.000000,0.000000,"Phase Two"};
+item23[] = {"Phase_Two",2,250,-75.000000,700.000000,25.000000,750.000000,0.000000,"Phase Two"};
 item24[] = {"Dead_Player",4,218,50.000000,700.000000,150.000000,750.000000,0.000000,"Dead" \n "Player"};
 item25[] = {"ERROR__Player_Already",2,250,175.000000,700.000000,275.000000,750.000000,0.000000,"ERROR:" \n "Player Already" \n "Dead"};
 item26[] = {"Alive",4,218,-175.000000,750.000000,-75.000000,800.000000,0.000000,"Alive"};
@@ -36,7 +36,7 @@ item31[] = {"ERROR__Bad_Versi",2,250,175.000000,800.000000,275.000000,850.000000
 item32[] = {"Display_Ready",4,218,-175.000000,1050.000000,-75.000000,1100.000000,0.000000,"Display" \n "Ready"};
 item33[] = {"Preload_Display",2,250,-75.000000,1100.000000,25.000000,1150.000000,0.000000,"Preload" \n "Display"};
 item34[] = {"Preload_Done",4,218,-175.000000,1150.000000,-75.000000,1200.000000,0.000000,"Preload" \n "Done"};
-item35[] = {"Initialize",2,250,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Initialize"};
+item35[] = {"Initialize",2,4346,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Initialize"};
 item36[] = {"Finish",1,250,-75.000000,1300.000000,25.000000,1350.000000,0.000000,"Finish"};
 item37[] = {"True",8,218,25.000000,1250.000000,125.000000,1300.000000,0.000000,"True"};
 item38[] = {"Too_Long",4,218,300.000000,150.000000,400.000000,200.000000,0.000000,"Too" \n "Long"};
@@ -155,8 +155,8 @@ link78[] = {68,69};
 link79[] = {69,70};
 link80[] = {70,20};
 link81[] = {71,68};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-483.982788,234.142700,1092.734009,464.272247,873,771,1};
-window[] = {2,-1,-1,-1,-1,904,25,1979,25,3,891};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-769.154602,957.364624,1481.979126,-183.706360,1200,1150,1};
+window[] = {0,-1,-1,-32000,-32000,1295,86,2584,0,1,1218};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -1235,7 +1235,9 @@ class FSM
        "	//	fps_safty_check = diag_fpsmin;" \n
        "	//	if (fps_safty_check > 20) then {" \n
        "			if ((isNil ""dayz_spawnCheck_round"") OR {(scriptDone dayz_spawnCheck_round)}) then { dayz_spawnCheck_round = [""both""] spawn player_spawnCheck;};" \n
-       "			sleep 8;" \n
+       "			sleep 0.1;" \n
+       "			{player reveal _x} forEach (nearestObjects [getPosATL player, [""WeaponHolder""], 150]);" \n
+       "" \n
        "	//	};" \n
        "	};" \n
        "};" \n
@@ -1245,7 +1247,7 @@ class FSM
        "	//	fps_safty_check = diag_fpsmin;" \n
        "	//	if (fps_safty_check > 20) then {" \n
        "			if ((isNil ""dayz_locationCheck_round"") OR {(scriptDone dayz_locationCheck_round)}) then {dayz_locationCheck_round = [true] spawn stream_locationCheck;};" \n
-       "			sleep 2;" \n
+       "			sleep 1;" \n
        "	//	};" \n
        "	};" \n
        "};" \n
