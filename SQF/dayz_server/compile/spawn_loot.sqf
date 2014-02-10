@@ -115,6 +115,11 @@ if(isServer) then {
 				//diag_log format ["SSL: Added Object Item: %1 :", _iItem];
 			};
 		};
+		_nearby = _iPos nearObjects ["ReammoBox", 5];
+		{
+			_x setVariable ["permaLoot",true];
+		} forEach _nearBy;
+		
 	} forEach _lootArray1;
 	/*
 	_detectRange =	200;
