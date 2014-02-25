@@ -34,6 +34,10 @@ class cfgFunctions
           {
                 description = "Search a loot pile for items of use based on skills";
           };
+          class addToLootBox
+          {
+              description = "Add an item or array of items to a container.";
+          };
         };
     };
 };  
@@ -61,7 +65,7 @@ class CfgVehicles
         searchSkill     = "Survival";   //%3
         searchSkillCurve= 50;
         requiredSkill   = 1;
-        maxTick         = 1;
+        maxTick         = 1;            //Max Additional Ticks
         searchSound     = "searchCrate_1";
         searchMessage   = "Searching %1%2";
         searchedClass   = "staticLoot";        
@@ -81,7 +85,8 @@ class CfgVehicles
                     position = "";
                     radius = 2;
                     onlyForplayer = 1;
-                    condition = "!(this getVariable[""SearchInProgress"",false])";
+                    //condition = "!(this getVariable[""SearchInProgress"",false])";
+                    condition = "(time - (this getVariable [""SearchInProgress"", time]) <= 0)";
                     statement = "[this,player] spawn DZU_fnc_searchLoot";
                 };
             };
@@ -108,7 +113,7 @@ class supplyCrate_locked_AL:supplyCrate_AL
                     position = "";
                     radius = 2;
                     onlyForplayer = 1;
-                    condition = "!(this getVariable[""SearchInProgress"",false])";
+                    condition = "(time - (this getVariable [""SearchInProgress"", time]) <= 0)";
                     statement = "[this,player] spawn DZU_fnc_searchLoot";
                 };
             };
