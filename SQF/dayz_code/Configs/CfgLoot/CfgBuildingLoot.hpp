@@ -1,6 +1,3 @@
-#include "CfgLoot.hpp"
-
-
 class CfgBuildingLoot {
 	class Default {
 		zombieChance = 0.2;

@@ -20,7 +20,7 @@ if (_iItem == "building") then {
 } else {        
         diag_log ("CSL: Exiting out due to failed loading process");
 };
-
+diag_log format["Item: %1, Type: %2",_iItem,(typeOf _iItem)];
 //Check what type the item is. Would be better to store this info within the loot configs as it is static info.
 _iClass = switch (true) do
 {

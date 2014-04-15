@@ -34,6 +34,7 @@
 #include "Configs\CfgWeapons.hpp"
 #include "Configs\CfgMagazines.hpp"
 #include "Configs\CfgLoot\CfgBuildingLoot.hpp"
+#include "Configs\CfgLoot\CfgLoot.hpp"
 #include "Configs\CfgMarkers.hpp"
 #include "Configs\CfgAmmo.hpp"
 #include "Configs\CfgObjectCompositions.hpp"
