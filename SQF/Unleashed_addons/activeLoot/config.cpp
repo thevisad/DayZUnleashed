@@ -34,6 +34,10 @@ class cfgFunctions
           {
                 description = "Search a loot pile for items of use based on skills";
           };
+          class addToLootBox
+          {
+              description = "Add an item or array of items to a container.";
+          };
         };
     };
 };  
@@ -61,7 +65,7 @@ class CfgVehicles
         searchSkill     = "Survival";   //%3
         searchSkillCurve= 50;
         requiredSkill   = 1;
-        maxTick         = 1;
+        minTick         = 1;            //Max Additional Ticks
         searchSound     = "searchCrate_1";
         searchMessage   = "Searching %1%2";
         searchedClass   = "staticLoot";        
@@ -80,8 +84,8 @@ class CfgVehicles
                     displayName = "Search";
                     position = "";
                     radius = 2;
-                    onlyForplayer = 1;
-                    condition = "!(this getVariable[""SearchInProgress"",false])";
+                    onlyForplayer = 1;                   
+                    condition = "(({alive _x} count ((getPosATL this) nearEntities [""Man"", 3])) <= 1) && (isNull (player getVariable[""SearchInProgress"",objNull]))";
                     statement = "[this,player] spawn DZU_fnc_searchLoot";
                 };
             };
@@ -99,16 +103,16 @@ class supplyCrate_locked_AL:supplyCrate_AL
         searchTime       = 20;
         searchSkillCurve = 100;
         searchMessage    = "Picking Lock %1%2";
-        requiredItems[]  = {"lockPick"};
+        requiredItems[]  = {"ItemToolbox"};
             class UserActions
             {
-                class pickLock
+                class SearchLoot
                 {
                     displayName = "Pick Lock";
                     position = "";
                     radius = 2;
                     onlyForplayer = 1;
-                    condition = "!(this getVariable[""SearchInProgress"",false])";
+                    condition = "(({alive _x} count ((getPosATL this) nearEntities [""Man"", 3])) <= 1) && (isNull (player getVariable[""SearchInProgress"",objNull]))";
                     statement = "[this,player] spawn DZU_fnc_searchLoot";
                 };
             };
@@ -122,6 +126,8 @@ class deadBody_AL : activeLoot
         searchedClass = "deadBody_SL";
         model = "\dayz\objects\dead_soldier_0";  
     };
+
+
  //staticLoot Looted
     class staticLoot: ReammoBox
     {

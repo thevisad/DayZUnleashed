@@ -125,7 +125,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.597677;
 			w = 0.0620061;
 			h = 0.0620061;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.09,1};
 		};
 		class RscButton_1601: RscButtonPhone
 		{
@@ -135,7 +135,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.597677;
 			w = 0.0620061;
 			h = 0.0620061;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_0.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_0.ogg",0.09,1};
 		};
 		class RscButton_1602: RscButtonPhone
 		{
@@ -145,7 +145,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.669873;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_1.ogg",0.09,1};
 		};
 		class RscButton_1603: RscButtonPhone
 		{
@@ -155,7 +155,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.671996;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_2.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_2.ogg",0.09,1};
 		};
 		class RscButton_1604: RscButtonPhone
 		{
@@ -165,7 +165,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.671996;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_3.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_3.ogg",0.09,1};
 		};
 		class RscButton_1605: RscButtonPhone
 		{
@@ -175,7 +175,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.714465;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_4.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_4.ogg",0.09,1};
 		};
 		class RscButton_1606: RscButtonPhone
 		{
@@ -185,7 +185,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.716588;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_5.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_5.ogg",0.09,1};
 		};
 		class RscButton_1607: RscButtonPhone
 		{
@@ -195,7 +195,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.716588;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_6.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_6.ogg",0.09,1};
 		};
 		class RscButton_1608: RscButtonPhone
 		{
@@ -205,7 +205,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.759056;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_7.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_7.ogg",0.09,1};
 		};
 		class RscButton_1609: RscButtonPhone
 		{
@@ -215,7 +215,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.76118;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_8.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_8.ogg",0.09,1};
 		};
 		class RscButton_1610: RscButtonPhone
 		{
@@ -225,7 +225,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.76118;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_9.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_9.ogg",0.09,1};
 		};
 		class RscButton_1611: RscButtonPhone
 		{
@@ -235,7 +235,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.801525;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_star.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_star.ogg",0.09,1};
 		};
 		class RscButton_1612: RscButtonPhone
 		{
@@ -245,7 +245,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.805771;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_0.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_0.ogg",0.09,1};
 		};
 		class RscButton_1613: RscButtonPhone
 		{
@@ -255,7 +255,7 @@ class RscPhonePicture: RscStandardDisplay
 			y = 0.803648;
 			w = 0.0528875;
 			h = 0.0386486;
-			soundClick[] = {"\dayz_sfx\action\cell\dtmf_hash.wav",0.09,1};
+			soundClick[] = {"\dayz_sfx\action\cell\dtmf_hash.ogg",0.09,1};
 		};
 		class RscButton_1614: RscButtonPhone
 		{
