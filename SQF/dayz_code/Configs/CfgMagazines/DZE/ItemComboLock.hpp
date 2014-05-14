@@ -9,4 +9,4 @@ class ItemComboLock: CA_Magazine
                 picture = "\z\addons\dayz_epoch\pictures\equip_combolock_ca.paa";
                 descriptionShort = "Used to secure structures from unauthorized entry.";
 
-        };
+        }; 

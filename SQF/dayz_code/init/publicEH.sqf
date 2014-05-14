@@ -47,7 +47,7 @@ if (isServer) then {
 	//"dayzUpdate"		addPublicVariableEventHandler {_id = (_this select 1) spawn dayz_processUpdate};
 	"PVDZ_plr_LoginRecord"	addPublicVariableEventHandler {_id = (_this select 1) spawn dayz_recordLogin};
 	"PVDZ_obj_Delete"		addPublicVariableEventHandler {(_this select 1) spawn server_deleteObj};
-	"PVDZ_spawn_loot"		addPublicVariableEventHandler {(_this select 1) spawn server_spawnLoot};
+	//"PVDZ_spawn_loot"		addPublicVariableEventHandler {(_this select 1) spawn server_spawnLoot};
 };
 
 //Client only

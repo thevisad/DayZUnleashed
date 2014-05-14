@@ -43,6 +43,7 @@ for "_i" from 1 to DZAI_bpedibles do {
 	if ((random 1) < DZAI_chanceEdibles) then {
 		private["_bpedible"];
 		_bpedible = DZAI_Edibles call BIS_fnc_selectRandom2;
+		diag_log ("DZAI: Spawn Backpack item : " + str(_bpedible));
 		(unitBackpack _unit) addMagazineCargoGlobal [_bpedible, 1];
 		if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Generated Backpack Edible Item: %1 for AI.",_bpedible];};
 	};
@@ -53,6 +54,7 @@ for "_i" from 1 to DZAI_numMiscItemS do {
 	if ((random 1) < DZAI_chanceMiscItemS) then {
 		private ["_miscItemS"];
 		_miscItemS = DZAI_MiscItemS call BIS_fnc_selectRandom2;
+		diag_log ("DZAI: Spawn Backpack item : " + str(_miscItemS));
 		(unitBackpack _unit) addMagazineCargoGlobal [_miscItemS,1];
 		if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Generated Misc Item (Small): %1 for AI.",_miscItemS];};
 	};
@@ -66,6 +68,7 @@ if (_weapongrade > 0) then {
 			if ((random 1) < DZAI_chanceMiscItemL) then {
 				private["_miscItemL"];
 				_miscItemL = DZAI_MiscItemL call BIS_fnc_selectRandom2;
+				diag_log ("DZAI: Spawn Backpack item : " + str(_miscItemL));
 				(unitBackpack _unit) addMagazineCargoGlobal [_miscItemL,1];
 				if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Generated Misc Item (Large): %1 for AI.",_miscItemL];};
 			};
@@ -77,6 +80,7 @@ if (_weapongrade > 0) then {
 		if ((random 1) < DZAI_chanceMedicals) then {
 			private["_bpmedical"];
 			_bpmedical = DZAI_Medicals2 call BIS_fnc_selectRandom2;
+			diag_log ("DZAI: Spawn Backpack item : " + str(_bpmedical));
 			(unitBackpack _unit) addMagazineCargoGlobal [_bpmedical, 1];
 			if (DZAI_debugLevel > 1) then {diag_log format["DZAI Extended Debug: Generated Backpack Medical Item: %1 for AI.",_bpmedical];};
 		};

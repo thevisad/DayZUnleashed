@@ -312,6 +312,7 @@ if (!isDedicated) then {
 						_removed = ([player,_iItem,1] call BIS_fnc_invRemove);
 						if (_removed == 1) then {
 							_item addWeaponCargoGlobal [_iItem,1];
+							diag_log( "SL: _dropPrimary: " + str(_iItem));
 						};
 					};
 					if (_dropSecondary) then {
@@ -319,6 +320,7 @@ if (!isDedicated) then {
 						_removed = ([player,_iItem,1] call BIS_fnc_invRemove);
 						if (_removed == 1) then {
 							_item addWeaponCargoGlobal [_iItem,1];
+							diag_log( "SL: _dropSecondary: " + str(_iItem));
 						};
 					};
 					player reveal _item;
@@ -653,6 +655,7 @@ if (!isDedicated) then {
 			0, 
 			"CAN_COLLIDE"
 		];
+		diag_log( "SL: fnc_pwrotate: " + str(_this select 1));
 		_holder addWeaponCargoGlobal [_this select 1, 1];
 		_holder attachTo [_turntable, [0,-0.63,0.7]];
 		_holder setVectorDirAndUp [[0,0,1],[0,-1,0]];

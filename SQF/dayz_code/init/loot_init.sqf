@@ -15,7 +15,7 @@ for "_i" from 0 to ((count _config) - 1) do {
 			_weighted = [];
 			_j = 0;
 			for "_l" from 0 to ((count _itemChances) - 1) do {
-			_weight = round (((_itemChances select _l) select 2) * 100);
+			_weight = round (((_itemChances select _l) select 1) * 100);
 				for "_k" from 0 to (_weight - 1) do
 				{
 					_weighted set [_j + _k, _l];
@@ -38,7 +38,7 @@ _config = configFile >> "cfgLoot";
 	for "_i" from 0 to ((count (_config)) - 1) do {
 		_classname = configName (_config select _i);
 		_itemChances = getArray (_config select _i);
-//diag_log format["CFGLoot: %1, Array: %2", _classname, _itemChances];
+		//diag_log format["CFGLoot: %1, Array: %2", _classname, _itemChances];
 		_weighted = [];
 		_j = 0;
 		for "_l" from 0 to ((count _itemChances) - 1) do {

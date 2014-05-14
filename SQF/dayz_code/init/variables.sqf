@@ -217,6 +217,8 @@ drink_with_output = [
     "ItemSodaMzly",
     "ItemSodaRabbit"
 ];
+
+
 drink_output = [
     "ItemSodaEmpty",
     "ItemSodaCokeEmpty",
@@ -396,6 +398,10 @@ unleashed_tameGoats = true;
 unleashed_tameRabbits = true;
 unleashed_tameDogs = true;
 
+currentLootAmount = 0;
+currentLootBuilding = [];
+
+
 //Initialize Medical Variables
 force_dropBody = false;
 r_interrupt = false;
@@ -541,6 +547,7 @@ dayz_cantseeDist = 150; // distance from which we can spawn a Z in front of any 
 dayz_cantseefov = 70; // half player field-of-view. Visible Z won't be spawned in front of any near players
 dayz_canDelete = 800; // Z, further than this distance from its "owner", will be deleted
 dayz_lootSpawnBias = 100; // between 50 and 100. The lower it is, the lower chance some of the lootpiles will spawn
+dayz_lootSpawnDebug = 1;
 dayz_localswarmSpawned = 40;  // how many zeds will spawn around you during a combat scenario.
 dayz_infectionTreshold = 1.25; // used to trigger infection, see fn_damageHandler.sqf
 dayz_localagroSpawned = 60;  // how many zeds will spawn around you during a combat scenario. 

@@ -168,9 +168,9 @@ fa_populateCargo = {
 					getNumber(configFile >> (_config select _i) >> _x >> "stopThis") != 1) then {
 					if (_forEachIndex < count _magItemQtys) then {
 						switch (_i) do {
-							case 0: { _entity addWeaponCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
-							case 1: { _entity addMagazineCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
-							case 2: { _entity addBackpackCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
+							case 0: { _entity addWeaponCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; diag_log format ["SSL: hive maint addWeaponCargoGlobal: %1",_x]; }; 
+							case 1: { _entity addMagazineCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; diag_log format ["SSL: hive maint addMagazineCargoGlobal: %1",_x]; }; 
+							case 2: { _entity addBackpackCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; diag_log format ["SSL: hive maint addBackpackCargoGlobal: %1",_x]; }; 
 						};
 					};
 				};

@@ -97,7 +97,8 @@ while {true} do {
 				};
 				if ((count _lootpos) >= 2) then {
 					_lootpos set [2,0];
-					_item = [_itemType select 0, _itemType select 1, _lootpos, 1] call spawn_loot;
+					//_item = [_itemType select 0, _itemType select 1, _lootpos, 1] call spawn_loot;
+					_item = ["building", _itemType select 0, _lootpos, 1] call spawn_loot;
 					_item setVariable ["permaLoot",true];
 					
 					if (dayz_spawnCrashSite_clutterCutter == 1) then { // shift loot upward to 5cm

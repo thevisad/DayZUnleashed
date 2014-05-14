@@ -137,6 +137,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_isDestructable = cursorTarget isKindOf "BuiltItems";
 	_isRemovable = _typeOfCursorTarget in DZE_isRemovable;
 	_isModular = _cursorTarget isKindOf "ModularItems";
+	_isModularDoor = _typeOfCursorTarget in ["Land_DZE_WoodDoor","Land_DZE_LargeWoodDoor","Land_DZE_GarageWoodDoor","CinderWallDoor_DZ","CinderWallDoorSmall_DZ"];
 	_isTent = cursorTarget isKindOf "TentStorage";
 	_isStash = cursorTarget isKindOf "StashSmall";
 	_isMediumStash = cursorTarget isKindOf "StashMedium";
@@ -155,7 +156,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_cursorTarget = cursorTarget;
 	
 	// Get typeOf only once
-	_typeOfCursorTarget = typeOf cursorTarget;
+	_typeOfCursorTarget = typeOf _cursorTarget;
 
 	// get magazines array only once
 	_magazinesPlayer = magazines player;
