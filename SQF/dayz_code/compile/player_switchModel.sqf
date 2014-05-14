@@ -61,10 +61,10 @@ _currentAnim = animationState player;
 
 //Debug Message
 	diag_log "Attempting to switch model";
-	diag_log str(_weapons);
-	diag_log str(_magazines);
-	diag_log (str(_backpackWpn));
-	diag_log (str(_backpackMag));
+	//diag_log str(_weapons);
+	//diag_log str(_magazines);
+	//diag_log (str(_backpackWpn));
+	//diag_log (str(_backpackMag));
 
 //Secure Player for Transformation
 	//player setPosATL dayz_spawnPos;
@@ -161,10 +161,10 @@ _currentAnim = animationState player;
 	};
 //Debug Message
 	diag_log "Swichtable Unit Created. Equipment:";
-	diag_log str(weapons _newUnit);
-	diag_log str(magazines _newUnit);
-	diag_log str(getWeaponCargo unitBackpack _newUnit);
-	diag_log str(getMagazineCargo unitBackpack _newUnit);
+	//diag_log str(weapons _newUnit);
+	//diag_log str(magazines _newUnit);
+	//diag_log str(getWeaponCargo unitBackpack _newUnit);
+	//diag_log str(getMagazineCargo unitBackpack _newUnit);
 
 //Make New Unit Playable (1 of these 3 commands causes crashes with gear dialog open)
 	//_oldUnit setPosATL [_position select 0 + cos(_dir) * 2, _position select 1 + sin(_dir) * 2, _position select 2];

@@ -159,13 +159,13 @@ if(!_cancel) then {
 			_tent setVariable ["characterID",_combination,true];
 			_tent setVariable ["OEMPos",_location,true];
 			
-			diag_log ("Safe Combination:" + str(_combination));
-			diag_log ("Safe Tent:" + str(_tent));
-			diag_log ("Safe Dir:" + str(_dir));
-			diag_log ("Safe Location:" + str(_location));
+			//diag_log ("Safe Combination:" + str(_combination));
+			//diag_log ("Safe Tent:" + str(_tent));
+			//diag_log ("Safe Dir:" + str(_dir));
+			//diag_log ("Safe Location:" + str(_location));
 
 			PVDZ_obj_Publish = [_combination,_tent,[_dir,_location],"VaultStorageLocked"];
-			diag_log ("DEBUG: SAFE // obj_Publish" + str(PVDZ_obj_Publish));
+			//diag_log ("DEBUG: SAFE // obj_Publish" + str(PVDZ_obj_Publish));
 			publicVariableServer  "PVDZ_obj_Publish";
 	
 			cutText [format[(localize "str_epoch_player_179"),_combination], "PLAIN DOWN", 5];

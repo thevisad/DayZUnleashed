@@ -49,11 +49,11 @@ if( _SomesOnesClothing != "") then
 		_muzzles = getArray(configFile >> "cfgWeapons" >> _currentWpn >> "muzzles");
 		if (count _muzzles > 1) then { _currentWpn = currentMuzzle _body; };
 		
-		diag_log ("CTC: Position: " + str(_position));
-		diag_log ("CTC: Weapons: " + str(_weapons));
-		diag_log ("CTC: Magazines: " + str(_magazines));
-		diag_log ("CTC: Backpack Weapons: " + str(_backpackWpn));
-		diag_log ("CTC: BackPack Magazines: " + str(_backpackMag));
+		//diag_log ("CTC: Position: " + str(_position));
+		//diag_log ("CTC: Weapons: " + str(_weapons));
+		//diag_log ("CTC: Magazines: " + str(_magazines));
+		//diag_log ("CTC: Backpack Weapons: " + str(_backpackWpn));
+		//diag_log ("CTC: BackPack Magazines: " + str(_backpackMag));
 		_body setPosATL dayz_spawnPos;
 		_oldUnit = _body;
 		ClearWeaponCargo _oldUnit; 
@@ -83,10 +83,10 @@ if( _SomesOnesClothing != "") then
 		ClearWeaponCargo _ammobox; 
 		ClearMagazineCargo _ammobox; 
 		_ammobox addWeaponCargo _weapons;
-		diag_log("CTC: Count Weapons: " + str(count _weapons));
-		diag_log("CTC: Count BackPack Weapons: " + str(count _backpackWpn));
-		diag_log("CTC: Count Magazines: " + str(count _magazines));
-		diag_log("CTC: Count Backpack Magazines: " + str(count _backpackMag));
+		//diag_log("CTC: Count Weapons: " + str(count _weapons));
+		//diag_log("CTC: Count BackPack Weapons: " + str(count _backpackWpn));
+		//diag_log("CTC: Count Magazines: " + str(count _magazines));
+		//diag_log("CTC: Count Backpack Magazines: " + str(count _backpackMag));
 		{
 		} foreach _weapons;
 		

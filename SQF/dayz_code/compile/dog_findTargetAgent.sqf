@@ -6,9 +6,10 @@ _man = objNull;
 _manDis = 600;
 
 _targets = _dog getVariable ["targets",[]];
-diag_log "DEBUG: FIND TARGET AGENT";
+//diag_log "DEBUG: FIND TARGET AGENT";
 
-if (isNil "_targets") exitWith { diag_log "DEBUG: DOG WAS NIL";};
+if (isNil "_targets") exitWith { //diag_log "DEBUG: DOG WAS NIL";
+};
 
 if (count _targets > 0) then {
 	{

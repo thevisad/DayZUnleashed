@@ -93,7 +93,7 @@
 
 class SafeKeyPad
 {
-	idd = -1;
+	idd = 563457;
 	movingenable = 0;
 
 	class Controls
@@ -459,7 +459,7 @@ class ComboLockUI
 
 class KeypadUI
 {
-	idd = -1;
+	idd = 8722134;
 	movingenable = 0;
 
 	class Controls

@@ -10,7 +10,7 @@ _counter = 0;
 
 _campZeds = {local (_x getVariable ["agentObjectCamps",objNull])} count agents;
 
-diag_log format["CampPos: %1, Amount: %2, TotalAgents: %3",_campPos,_amount,_campZeds];
+//diag_log format["CampPos: %1, Amount: %2, TotalAgents: %3",_campPos,_amount,_campZeds];
 
 //if (_campZeds >= _amount) exitwith { };
 

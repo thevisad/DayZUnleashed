@@ -1,6 +1,6 @@
 class EpochDeathBoardDialog
 {
-	idd = -1;
+	idd = 234234;
 	movingenable = 0;
 	class Controls {
 		class RscText_1000: RscText

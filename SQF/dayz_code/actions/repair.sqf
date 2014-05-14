@@ -11,7 +11,7 @@ _type = typeOf _vehicle;
 {dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;s_player_repairActions = [];
 dayz_myCursorTarget = objNull;
 
-diag_log(format["%1 %2", __FILE__, _this]);
+//diag_log(format["%1 %2", __FILE__, _this]);
 
 _hasToolbox = "ItemToolbox" in items player;
 _section = _part in magazines player;

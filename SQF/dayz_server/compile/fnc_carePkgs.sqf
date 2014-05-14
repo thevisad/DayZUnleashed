@@ -18,7 +18,7 @@ if (isDedicated) then {
 	if (_randomvehicle == "Misc_cargo_cont_net2") then { _num = round(random 6) + 4; };
 	if (_randomvehicle == "Misc_cargo_cont_net3") then { _num = round(random 12) + 5; };
 
-	diag_log("DEBUG: Spawning a " + str (_randomvehicle) + " at " + str(_position) + " With total loot drops = " + str(_num));
+	//diag_log("DEBUG: Spawning a " + str (_randomvehicle) + " at " + str(_position) + " With total loot drops = " + str(_num));
 
 	for "_x" from 1 to _num do {
 		["building", "weapon", _position, 10] call spawn_loot;

@@ -168,9 +168,9 @@ fa_populateCargo = {
 					getNumber(configFile >> (_config select _i) >> _x >> "stopThis") != 1) then {
 					if (_forEachIndex < count _magItemQtys) then {
 						switch (_i) do {
-							case 0: { _entity addWeaponCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; diag_log format ["SSL: hive maint addWeaponCargoGlobal: %1",_x]; }; 
-							case 1: { _entity addMagazineCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; diag_log format ["SSL: hive maint addMagazineCargoGlobal: %1",_x]; }; 
-							case 2: { _entity addBackpackCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; diag_log format ["SSL: hive maint addBackpackCargoGlobal: %1",_x]; }; 
+							case 0: { _entity addWeaponCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
+							case 1: { _entity addMagazineCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
+							case 2: { _entity addBackpackCargoGlobal [_x,(_magItemQtys select _forEachIndex)]; }; 
 						};
 					};
 				};
@@ -248,7 +248,7 @@ fa_removeExtraTents = {
 			};
 		};
 	} forEach _myArray;
-	diag_log (format [ "fa_removeExtraTents: Empty tents: %1, would like less than %2.",
+	//diag_log (format [ "fa_removeExtraTents: Empty tents: %1, would like less than %2.",
 		_emptytenttotal,
 		_maxEmptyTents
 	]);
@@ -548,7 +548,7 @@ private ["_type","_class","_dir","_oldpos","_action","_distance","_minAltitude",
 			_counter = _counter + 1;
 			_locations = _locations - [_pickedLocation];
 		}; // while suitable location 
-		diag_log(format["fa_smartlocation: %2   _veh:%1 _size:%6   _old:%8 |--> _point:%3    _pickedLocation:%4 _counter=%5  badly near:%7", 
+		//diag_log(format["fa_smartlocation: %2   _veh:%1 _size:%6   _old:%8 |--> _point:%3    _pickedLocation:%4 _counter=%5  badly near:%7", 
 			_type, 
 			if (_found) then {"ok"} else {"** FAILED **"}, 
 			_point, 

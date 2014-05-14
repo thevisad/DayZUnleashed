@@ -16,11 +16,11 @@ if (_iItem == "building") then {
         _iItemTypes = [] + getArray (configFile >> "cfgLoot" >> _iClass);
         _iItemRandom = _iItemTypes call BIS_fnc_selectRandom;
         _iItem = _iItemRandom select 0;
-        diag_log ("CSL: _iItem replaced as " + str(_iItem));           
+        //diag_log ("CSL: _iItem replaced as " + str(_iItem));           
 } else {        
-        diag_log ("CSL: Exiting out due to failed loading process");
+        //diag_log ("CSL: Exiting out due to failed loading process");
 };
-diag_log format["Item: %1, Type: %2",_iItem,(typeOf _iItem)];
+
 //Check what type the item is. Would be better to store this info within the loot configs as it is static info.
 _iClass = switch (true) do
 {
@@ -30,18 +30,15 @@ _iClass = switch (true) do
 	default { "" };
 };
 
-
-//REMOVED Default class isnt being used here ????????????
-//if !((_iClass == "weapon") or (_iClass == "magazine") or (_iClass == "object")) exitWith {diag_log ("Spawn Loot Exited")};
- 
- //Ground adjestment.
+ //Ground adjustment.
 _iPosZ = _iPos select 2;
 if((isNil "_iPosZ") OR {( _iPosZ < 0)}) then { _iPos = [_iPos select 0,_iPos select 1,0]; };
-diag_log ("CSL: _iPosZ " + str(_iPosZ));
+//diag_log ("CSL: _iPosZ " + str(_iPosZ));
  
  //Run loot system, Starting with default
 if (_iItem != "" ) then {
 	switch (_iClass) do {
+		//_nearBy = nearestObjects [_iPos, ["WeaponHolder"], 2];
 		default {
 			_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 
@@ -69,7 +66,7 @@ if (_iItem != "" ) then {
 					if (_tQty > 0) then {
 				   
 							_item addMagazineCargoGlobal [_canType,_tQty];
-							diag_log ("CSL: spawntest item : " + str(_canType));
+							//diag_log ("CSL: spawntest item : " + str(_canType));
 							_qty = _qty + _tQty;
 					};
 			};
@@ -81,7 +78,7 @@ if (_iItem != "" ) then {
 		case "weapon": {
 				//Item is a weapon, add it and a random quantity of magazines
 				_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
-				diag_log ("CSL: weapon item : " + str(_iItem));
+				//diag_log ("CSL: weapon item : " + str(_iItem));
 				_item addWeaponCargoGlobal [_iItem,1];
 				_mags = [] + getArray (configFile >> "cfgWeapons" >> _iItem >> "magazines");
 				if ((count _mags) > 0) then {
@@ -89,9 +86,8 @@ if (_iItem != "" ) then {
 						if (!(_iItem in MeleeWeapons)) then {
 								_magQty = round(random 10);
 								if (_magQty > 3) then {
-							   
-										_item addMagazineCargoGlobal [(_mags select 0), (round(random 1) + 1)];
-										diag_log ("CSL: weapon mag item : " + str(_mags select 0));
+									_item addMagazineCargoGlobal [(_mags select 0), (round(random 1) + 1)];
+									//diag_log ("CSL: weapon mag item : " + str(_mags select 0));
 								};
 						};
 				};
@@ -99,12 +95,12 @@ if (_iItem != "" ) then {
 		case "magazine": {
 				//Item is one magazine
 				_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
-				diag_log ("CSL: magazine item : " + str(_iItem));
+				//diag_log ("CSL: magazine item : " + str(_iItem));
 				_item addMagazineCargoGlobal [_iItem,1];
 		};
 		case "object": {
 				//Item is one magazine
-				diag_log ("CSL: object item : " + str(_iItem));
+				//diag_log ("CSL: object item : " + str(_iItem));
 				_item = createVehicle [_iItem, _iPos, [], _radius, "CAN_COLLIDE"];
 		};
 	};

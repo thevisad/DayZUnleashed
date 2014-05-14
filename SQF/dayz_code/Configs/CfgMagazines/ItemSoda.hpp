@@ -1,14 +1,3 @@
-class ItemWaterbottle : FoodDrink {
-	scope = public;
-	refillable = 1;
-	sfx = "drink";
-	sfxdis = 1;
-	displayName = $STR_EQUIP_NAME_12;
-	model = "\dayz_equip\models\waterbottle_gear.p3d";
-	picture = "\dayz_equip\textures\equip_waterbottle_ca.paa";
-	descriptionShort = $STR_EQUIP_DESC_12;
-};
-
 class ItemSodaCoke : ItemSoda {
 	displayName = "$STR_EQUIP_NAME_36a";
 	model = "\dayz_equip\models\soda_coke.p3d";
@@ -103,13 +92,14 @@ class ItemSodaSacrite : ItemSoda {
 	model = "z\addons\dayz_communityassets\models\soda_sacrite_clean_full.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_sacrite_clean_full_ca.paa";
 };
-*/
+
 class ItemSodaRocketFuel : ItemSoda {
 	displayName = $STR_ITEMSODA_FULL_CLEAN_CODE_NAME_13;
 	descriptionShort = $STR_ITEMSODA_FULL_CLEAN_CODE_DESC_13;
 	model = "z\addons\dayz_communityassets\models\soda_rocket_clean_full.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_rocket_clean_full_ca.paa";
 };
+*/
 class ItemSodaGrapeDrink : ItemSoda {
 	displayName = $STR_ITEMSODA_FULL_CLEAN_CODE_NAME_14;
 	descriptionShort = $STR_ITEMSODA_FULL_CLEAN_CODE_DESC_14;

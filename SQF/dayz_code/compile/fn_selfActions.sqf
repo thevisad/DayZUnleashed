@@ -7,6 +7,8 @@ scriptName "Functions\misc\fn_selfActions.sqf";
 ************************************************************/
 private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_newCuTyp","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem","_combi","_hasBarrelE","_hasBarrel","_hasFuel210","_unconscious","_isPZombie","_player_SurrenderedGear"];
 
+if (DZE_ActionInProgress) exitWith {}; // Do not allow if any script is running.
+
 _vehicle = vehicle player;
 _isPZombie = player isKindOf "PZombie_VB";
 _inVehicle = (_vehicle != player);
@@ -127,17 +129,26 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_isVehicle = cursorTarget isKindOf "AllVehicles";
 	_isStorage = typeOf cursorTarget in ["Bunker_PMC"];
 	_isVehicletype = typeOf cursorTarget in ["ATV_US_EP1","ATV_CZ_EP1"];
+	
+	_isnewstorage = _typeOfCursorTarget in DZE_isNewStorage;
+	
 	_isMan = cursorTarget isKindOf "Man";
 	_ownerID = cursorTarget getVariable ["characterID","0"];
 	_isAnimal = cursorTarget isKindOf "Animal";
 	_isDog = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
 	_isBoar = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
 	_isRabbit = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
-	_isZombie = cursorTarget isKindOf "zZombie_base";
-	_isDestructable = cursorTarget isKindOf "BuiltItems";
-	_isRemovable = _typeOfCursorTarget in DZE_isRemovable;
+
+	_isZombie = _cursorTarget isKindOf "zZombie_base";
+	_isDestructable = _cursorTarget isKindOf "BuiltItems";
+	_isWreck = _typeOfCursorTarget in DZE_isWreck;
+	_isWreckBuilding = _typeOfCursorTarget in DZE_isWreckBuilding;
 	_isModular = _cursorTarget isKindOf "ModularItems";
 	_isModularDoor = _typeOfCursorTarget in ["Land_DZE_WoodDoor","Land_DZE_LargeWoodDoor","Land_DZE_GarageWoodDoor","CinderWallDoor_DZ","CinderWallDoorSmall_DZ"];
+
+	_isRemovable = _typeOfCursorTarget in DZE_isRemovable;
+	_isDisallowRepair = _typeOfCursorTarget in ["M240Nest_DZ"];
+	
 	_isTent = cursorTarget isKindOf "TentStorage";
 	_isStash = cursorTarget isKindOf "StashSmall";
 	_isMediumStash = cursorTarget isKindOf "StashMedium";
@@ -175,6 +186,12 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	};
 	//diag_log ("OWNERID = " + _ownerID + " CHARID = " + dayz_characterID + " " + str(_ownerID == dayz_characterID));
 
+	
+		// logic vars
+	_player_flipveh = false;
+	_player_deleteBuild = false;
+	_player_lockUnlock_crtl = false;
+	
 	_player_SurrenderedGear = false;
 	if (_isAlive) then {
 		// unit alive
@@ -198,6 +215,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 				_player_SurrenderedGear = true;
 			};
 		};
+		
+		
 	};
 	
 	//Allow player to delete objects DZE
@@ -819,7 +838,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	};
 
 	// inplace maintenance tool
-	if((_cursorTarget isKindOf "ModularItems" or _cursorTarget isKindOf "DZE_Housebase" or _typeOfCursorTarget in DZE_ExtraMaintain) and (damage _cursorTarget >= 0.1)) then {
+	if((_cursorTarget isKindOf "ModularItems" or _cursorTarget isKindOf "DZE_Housebase" or _typeOfCursorTarget == "LightPole_DZ") and (damage _cursorTarget >= DZE_DamageBeforeMaint)) then {
 		if ((s_player_lastTarget select 2) != _cursorTarget) then {
 			if (s_player_maint_build > 0) then {	
 				player removeAction s_player_maint_build;

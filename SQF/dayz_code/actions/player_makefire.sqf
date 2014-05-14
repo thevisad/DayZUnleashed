@@ -14,7 +14,7 @@ if (!(_item IN magazines player)) exitWith {
 
 _booleans = []; //testonLadder, testSea, testPond, testBuilding, testSlope, testDistance
 _worldspace = ["Land_Fire_DZ", player, _booleans] call fn_niceSpot;
-diag_log(format["make_fire: booleans: %1 worldspace:%2", _booleans, _worldspace]);
+//diag_log(format["make_fire: booleans: %1 worldspace:%2", _booleans, _worldspace]);
 
 // player on ladder or in a vehicle
 if (_booleans select 0) exitWith { cutText [localize "str_player_21", "PLAIN DOWN"]; };

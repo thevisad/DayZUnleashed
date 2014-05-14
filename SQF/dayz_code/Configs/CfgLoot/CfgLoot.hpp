@@ -13,7 +13,6 @@ class CfgLoot {
 		{"DZ_CivilBackpack_EP1",0.01},
 		{"DZ_Backpack_EP1",0.01},
 		{"DZ_British_ACU",0.03},
-		{"BAF_AssaultPack",0.03},
 		{"USBasicBag",0.03},
 		{"Tripod_Bag",0.03},
 		{"M2StaticMG_US_Bag_EP1",0.03},
@@ -84,7 +83,6 @@ class CfgLoot {
 		{"FoodCanFraggleosEmpty",0.02},
 		{"FoodCanGriffEmpty",0.02},
 		{"FoodCanHerpyEmpty",0.02},
-		{"FoodCanLongSpratsEmpty",0.02},
 		{"FoodCanOrlokEmpty",0.02},
 		{"FoodCanPotatoesEmpty",0.02},
 		{"FoodCanPowellEmpty",0.02},
@@ -112,12 +110,10 @@ class CfgLoot {
 		{"ItemSodaPepsiEmpty",0.02},
 		{"ItemSodaR4z0rEmpty",0.02},
 		{"ItemSodaRabbitEmpty",0.02},
-		{"ItemSodaRocketFuelEmpty",0.02},
 		{"ItemSodaSmashtEmpty",0.02},
 		{"ItemZombieParts",0.02},
 		{"TrashJackDaniels",0.02},
 		{"TrashTinCan",0.02},
-		
 		{"ItemBriefcase_Base",0.03},
 		{"ItemBriefcaseEmpty",0.03},
 		{"ItemBriefcase10oz",0.03},
@@ -157,8 +153,6 @@ class CfgLoot {
 		{"EvMoney",0.03},
 		{"EvDogTags",0.03},
 		{"PMC_documents",0.03}
-
-
 	};
 	civskins[] = {
 		{"Skin_TKCivil1_DZ",0.01},
@@ -238,7 +232,6 @@ class CfgLoot {
 		{"HandGrenade_east",0.01},
 		{"HandGrenade_west",0.01},
 		{"hecate2",0.01},
-		{"KPFS_10Rnd_PSL",0.01},
 		{"KPFS_12Rnd_45ACP_P12",0.01},
 		{"KPFS_12Rnd_45ACP_P12SD",0.01},
 		{"KPFS_16Rnd_9x19_para",0.01},
@@ -260,14 +253,10 @@ class CfgLoot {
 		{"KPFS_HK416_Aim",0.01},
 		{"KPFS_HKP30",0.01},
 		{"KPFS_HKP7",0.01},
-
-
 		{"KPFS_MG3",0.01},
 		{"KPFS_MG3_eot",0.01},
-
 		{"KPFS_MP2",0.01},
 		{"KPFS_MP2A1",0.01},
-
 		{"KPFS_MP5A3",0.01},
 		{"KPFS_MP5A3SD",0.01},
 		{"KPFS_MPi_AK_74",0.01},
@@ -283,15 +272,11 @@ class CfgLoot {
 		{"KPFS_P220",0.01},
 		{"KPFS_P225",0.01},
 		{"KPFS_P226",0.01},
-
-
 		{"KPFS_P5",0.01},
 		{"KPFS_P8",0.01},
 		{"KPFS_P88",0.01},
 		{"KPFS_P99QA",0.01},
 		{"KPFS_PM63",0.01},
-		{"KPFS_PSL",0.01},
-
 		{"M1014",0.01},
 		{"M16A2",0.01},
 		{"M16A2GL",0.01},
@@ -378,7 +363,6 @@ class CfgLoot {
 		{"8Rnd_B_Saiga12_74Slug",0.03},
 		{"5Rnd_127x108_KSVK",0.03},
 		{"8Rnd_B_Saiga12_Pellets",0.03},
-
 		{"KPFS_13Rnd_9x19_P2000",0.03},
 		{"kpfs_9Rnd_9x19_p210",0.03},
 		{"kpfs_9Rnd_9x19",0.03},
@@ -521,8 +505,6 @@ class CfgLoot {
 		{"BAF_AS50_TWS_Large",0.03},
 		{"PMC_AS50_scoped_Large",0.03},
 		{"PMC_AS50_TWS_Large",0.03}
-
-		
 	};
 
 	militaryspecial[] = {
@@ -566,7 +548,6 @@ class CfgLoot {
 		{"1Rnd_SmokeRed_GP25",0.03},
 		{"1Rnd_SmokeGreen_GP25",0.03},
 		{"1Rnd_SmokeYellow_GP25",0.03},
-
 		{"Mine",0.03},
 		{"MineE",0.03},
 		{"HandGrenade",0.03},
@@ -576,9 +557,6 @@ class CfgLoot {
 		{"SmokeShellBlue",0.03},
 		{"SmokeShellOrange",0.03},
 		{"Laserbatteries",0.03}
-
-
-
 	};
 	
 	civgeneric[] = {
@@ -597,7 +575,6 @@ class CfgLoot {
 		{"ItemFlashlight",0.02},
 		{"ItemFuelcan",0.02},
 		{"ItemGoldBar",0.02},
-		{"ItemGoldBar10oz",0.02},
 		{"ItemHatchet",0.02},
 		{"ItemKnife",0.02},
 		{"ItemLockbox",0.02},
@@ -605,10 +582,6 @@ class CfgLoot {
 		{"ItemMatchbox",0.02},
 		{"ItemNails",0.02},
 		{"ItemSilverBar",0.02},
-		{"ItemSilverBar10oz",0.02},
-		{"ItemTent",0.02},
-		{"ItemTentDomed2",0.02},
-		{"ItemTentDomed",0.02},
 		{"ItemTinBar",0.02},
 		{"ItemToolbox",0.02},
 		{"ItemTrashRazor",0.02},
@@ -618,22 +591,18 @@ class CfgLoot {
 		{"ItemWaterbottleBoiled",0.02},
 		{"ItemWire",0.02},
 		{"PartWoodPile",0.02},
-
 		{"ModifiedBandage",0.03},
 		{"9Rnd_9x19SD_LUGER",0.03},
 		{"ItemSandbagExLarge",0.03},
 		{"ItemSledgeHead",0.03},
 		{"ItemSledgeHandle",0.03},
-
-		{"ItemTentOld",0.03},
+		{"WeaponHolder_ItemTentOld",0.3},
+		{"WeaponHolder_ItemTentDomed",0.3},
+		{"WeaponHolder_ItemTentDomed2",0.3},
 		{"Crossbow",0.03},
-
 		{"ItemMachete",0.03},
 		{"ItemShovel",0.03},
 		{"ItemFishingPole",0.03}
-
-
-
 	};
 	
 	fuelitems[] = {
@@ -647,7 +616,6 @@ class CfgLoot {
 		{"ItemJerryMixed2",0.03},
 		{"ItemJerryMixed1",0.03},
 		{"ItemMixOil",0.03}
-
 	};
 	
 	food[] = {
@@ -664,7 +632,6 @@ class CfgLoot {
 		{"FoodCanFraggleos",0.03},
 		{"FoodCanGriff",0.03},
 		{"FoodCanHerpy",0.03},
-		{"FoodCanLongSprats",0.03},
 		{"FoodCanOrlok",0.03},
 		{"FoodCanPotatoes",0.03},
 		{"FoodCanPowell",0.03},
@@ -690,8 +657,6 @@ class CfgLoot {
 		{"FoodBox0",0.03},
 		{"FoodBox1",0.03},
 		{"FoodBox2",0.03}
-
-
 	};
 	
 	drink[] = {
@@ -728,7 +693,6 @@ class CfgLoot {
 		{"glock17_EP1",0.01},
 		{"15Rnd_9x19_LUGER",0.01},
 		{"15Rnd_9x19_M9",0.01},
-
 		{"15Rnd_9x19_M9SD",0.01},
 		{"15Rnd_9x19sd_LUGER",0.01},
 		{"17Rnd_9x19_glock17",0.01},
@@ -749,8 +713,6 @@ class CfgLoot {
 		{"BoltSteel",0.03},
 		{"UZI_SD_EP1",0.03},
 		{"revolver_gold_EP1",0.03}
-
-
 	};
 	
 	hunt[] = {
@@ -839,12 +801,9 @@ class CfgLoot {
 		{"PartWoodLumber",0.01},
 		{"PartWoodPlywood",0.01},
 		{"PartPlywoodPack",0.01}
-
-
 	};
 	
 	bulkitems[] = {
-	
 		{"bulk_ItemSodaCokeFull",0.03},
 		{"bulk_ItemSodaPepsiFull",0.03},
 		{"bulk_FoodbaconCooked",0.03},
@@ -855,13 +814,9 @@ class CfgLoot {
 		{"bulk_ItemWireHalf",0.03},
 		{"bulk_PartGeneric",0.03},
 		{"bulk_PartGenericHalf",0.03}
-
-
 	};
 	
-	
 	craftingitems[] = {
-	
 		{"ItemAppleFruit",0.03},
 		{"ItemCherry",0.03},
 		{"ItemElderberry",0.03},
@@ -870,8 +825,6 @@ class CfgLoot {
 		{"ItemPear",0.03},
 		{"ItemRosehips",0.03},
 		{"ItemThistle",0.03}
-
-
 	};
 	
 	attachments[] = {
@@ -883,8 +836,6 @@ class CfgLoot {
 		{"Attachment_Pso",0.03},
 		{"Attachment_Silencer",0.03},
 		{"Attachment_Sniper_Scope",0.03}
-
-	
 	};
 	
 	equipment[] = {
@@ -914,7 +865,6 @@ class CfgLoot {
 		{"equip_rail_screws",0.03},
 		{"equip_weapon_rails",0.03},
 		{"equip_scrap_metal",0.03}
-
 	};
 	
 	rarebuildingitems[]={

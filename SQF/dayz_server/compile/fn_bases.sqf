@@ -43,7 +43,7 @@ _addLoot = {
 		["building", _itemType select 0, _position, _lootMaxRadius] call spawn_loot;
 		//[_itemType select 0, _itemType select 1, _position, _lootMaxRadius] call spawn_loot;
 	
-		diag_log(format["Infected Camps: Loot spawn at '%1:%3' with loot table '%2'", _baseClass, str(_itemType),_position]); 
+		//diag_log(format["Infected Camps: Loot spawn at '%1:%3' with loot table '%2'", _baseClass, str(_itemType),_position]); 
 	
 		// ReammoBox is preferred parent class here, as WeaponHolder wouldn't match MedBox0 and other such items.
 		_nearby = _basePos nearObjects ["ReammoBox", _lootMaxRadius + 5];
@@ -145,6 +145,6 @@ for [ {_b = _qty * 20}, {_b > 0 AND _qty > 0 }, {_b = _b - 1} ] do {
 };
 deleteVehicle _tmpobject;
 
-diag_log(format["%1: found %2 camps spots in %3 sec.", __FILE__, count _campList, round(time - _time)]);
+//diag_log(format["%1: found %2 camps spots in %3 sec.", __FILE__, count _campList, round(time - _time)]);
 
 _campList

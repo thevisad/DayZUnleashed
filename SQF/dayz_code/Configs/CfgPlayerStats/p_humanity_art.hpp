@@ -11,7 +11,7 @@ class horde_journal_pages_humanity_art
 {
 	idd = -1;
 	movingEnable = false;
-	onLoad = "uiNamespace setVariable ['horde_myDisplay', (_this select 0)]; [] spawn horde_epeen_setText_humanity_fnc;";
+	onLoad = "uiNamespace setVariable ['horde_myDisplay', (_this select 0)]; [] call horde_epeen_setText_humanity_fnc;";
 	enableSimulation = true;
 	controlsBackground[] = {};
 	objects[] = {};

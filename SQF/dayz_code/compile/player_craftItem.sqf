@@ -46,8 +46,8 @@ _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder);
 _needNear = getArray (configFile >> _baseClass >> _item >> "ItemActions" >> _crafting >> "neednearby");
 //diag_log("PCI: _needNear " + str(_needNear));
 if("fire" in _needNear) then {
-	_isNear = {inflamed _x} count (position player nearObjects _distance);
-	if(_isNear == 0) then {  
+	_isNear = {inflamed _x} count (getPosATL player nearObjects _distance);
+	if(_isNear == 0) then {
 		_abort = true;
 		_reason = "fire";
 	};
@@ -212,32 +212,23 @@ if (_canDo) then {
 									player addMagazine _itemOut;
 								};
 
-								_tradeComplete = _tradeComplete+1;
-
 								_textCreate = getText(configFile >> "CfgMagazines" >> _itemOut >> "displayName");
-	
+
 								// Add crafted item
 								cutText [format[(localize "str_epoch_player_150"),_textCreate,_countOut], "PLAIN DOWN"];
-								// sleep here 
+								// sleep here
 								sleep 1;
-								//diag_log("PCI: _itemOut " + str(_itemOut));
-								//diag_log("PCI: _countOut " + str(_countOut));
-								//diag_log("PCI: _tradeComplete " + str(_tradeComplete));
-								//diag_log("PCI: _x " + str(_x));
-								//diag_log("PCI: _textCreate " + str(_textCreate));
+
 							} forEach _selectedRecipeOutput;
 						};
-						_craft_doLoop = false;
+
 					} else {
-						// Refund parts since we failed 
-						{
-							player addMagazine _x;
-							//diag_log("PCI: Failed, Refunding " + str(_x));
-						} forEach _temp_removed_array;
-						_craft_doLoop = false;
+						// Refund parts since we failed
+						{player addMagazine _x;} forEach _temp_removed_array;
+
 						cutText [format[(localize "str_epoch_player_151"),_removed_total,_tobe_removed_total], "PLAIN DOWN"];
 					};
-	
+
 				} else {
 					r_interrupt = false;
 					if (vehicle player == player) then {
@@ -247,16 +238,14 @@ if (_canDo) then {
 					cutText [(localize "str_epoch_player_64"), "PLAIN DOWN"];
 					_craft_doLoop = false;
 				};
-	
+
 			} else {
 				_textMissing = getText(configFile >> "CfgMagazines" >> _missing >> "displayName");
-				//diag_log("PCI: _textMissing " + str(_textMissing) + " Quantity: " + str(_missingQty));
 				cutText [format[(localize "str_epoch_player_152"),_missingQty, _textMissing,_tradeComplete], "PLAIN DOWN"];
 				_craft_doLoop = false;
 			};
 		} else {
 			_textMissing = getText(configFile >> "CfgWeapons" >> _missing >> "displayName");
-			//diag_log("PCI: Missing Tools " + str(_textMissing));
 			cutText [format[(localize "STR_EPOCH_PLAYER_137"),_textMissing], "PLAIN DOWN"];
 			_craft_doLoop = false;
 		};

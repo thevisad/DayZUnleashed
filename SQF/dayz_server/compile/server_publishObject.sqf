@@ -15,7 +15,7 @@ if (!(_object isKindOf "Building")) exitWith {
 _allowed = [_object, "Server"] call check_publishobject;
 if (!_allowed) exitWith { };
 
-diag_log ("DSPO: Attempt " + str(_object));
+//diag_log ("SPO: Attempt " + str(_object));
 
 //get UID
 _uid = _worldspace call dayz_objectUID2;
@@ -23,7 +23,7 @@ _uid = _worldspace call dayz_objectUID2;
 _key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance, _class, 0 , _charID, _worldspace, [], [], 0,_uid];
 
 
-diag_log ("SPO: 308 WRITE: "+ str(_key));
+//diag_log ("SPO: 308 WRITE: "+ str(_key));
 _key call server_hiveWrite;
 
 _object setVariable ["ObjectUID", _uid,true];
@@ -35,5 +35,5 @@ if (_object isKindOf "TentStorage") then {
 dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];
 
 #ifdef OBJECT_DEBUG
-diag_log ("DSPO: Created " + (_class) + " with ID " + _uid + " and a combination of " + str(_combination) );
+diag_log ("SPO: Created " + (_class) + " with ID " + _uid + " and a combination of " + str(_combination) );
 #endif

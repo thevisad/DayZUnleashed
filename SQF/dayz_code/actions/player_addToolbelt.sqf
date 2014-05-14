@@ -18,17 +18,23 @@ _config2 = configFile >> "cfgWeapons" >> _create;
 
 //removing current melee weapon if new melee selected
 _melee2tb = "";
-if (_item in ["ItemHatchet","ItemCrowbar","ItemMachete"]) then {
+if (_item in ["ItemHatchet","ItemCrowbar","ItemMachete","ItemFishingPole","ItemSledge","ItemBaseBallBat","ItemBaseBallBatBarbed","ItemBaseBallBatNails"]) then {
 	//free primary slot for new melee (remember item to add after)
 	switch (primaryWeapon player) do {
 		case "MeleeHatchet": {player removeWeapon "MeleeHatchet"; _melee2tb = "ItemHatchet";};
 		case "MeleeCrowbar": {player removeWeapon "MeleeCrowbar"; _melee2tb = "ItemCrowbar";};
 		case "MeleeMachete": {player removeWeapon "MeleeMachete"; _melee2tb = "ItemMachete";};
+		case "MeleeFishingPole": {player removeWeapon "MeleeFishingPole"; _melee2tb = "ItemFishingPole";};
+		case "MeleeSledge": {player removeWeapon "MeleeSledge"; _melee2tb = "ItemSledge";};
+		case "MeleeBaseBallBat": {player removeWeapon "MeleeBaseBallBat"; _melee2tb = "ItemBaseBallBat";};
+		case "MeleeBaseBallBatBarbed": {player removeWeapon "MeleeBaseBallBatBarbed"; _melee2tb = "ItemBaseBallBatBarbed";};
+		case "MeleeBaseBallBatNails": {player removeWeapon "MeleeBaseBallBatNails"; _melee2tb = "ItemBaseBallBatNails";};
+		
 	};
 };
 
 //Remove melee magazines (BIS_fnc_invAdd fix) (add new melee ammo to array if needed)
-{player removeMagazines _x} forEach ["hatchet_swing","crowbar_swing","Machete_swing"];
+{player removeMagazines _x} forEach ["hatchet_swing","crowbar_swing","Machete_swing","Bat_Swing","BatBarbed_Swing","BatNails_Swing","Fishing_Swing","sledge_swing"];
 
 _isOk = [player,_config2] call BIS_fnc_invAdd;
 if (_isOk) then {
@@ -47,5 +53,10 @@ if (_isOk) then {
 switch (primaryWeapon player) do {
 	case "MeleeHatchet": {player addMagazine 'hatchet_swing';};
 	case "MeleeCrowbar": {player addMagazine 'crowbar_swing';};
-	case "MeleeMachete": {player addMagazine 'Machete_swing';};
+	case "MeleeMachete": {player addMagazine 'Machete_swing';};	
+	case "MeleeFishingPole": {player addMagazine 'Fishing_Swing';};
+	case "MeleeSledge": {player addMagazine 'sledge_swing';};
+	case "MeleeBaseBallBat": {player addMagazine 'Bat_Swing';};
+	case "MeleeBaseBallBatBarbed": {player addMagazine 'BatBarbed_Swing';};
+	case "MeleeBaseBallBatNails": {player addMagazine 'BatNails_Swing';};
 };

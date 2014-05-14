@@ -1,4 +1,3 @@
-class Land_A_tent;
 class StashSmall : Land_A_tent {
 	armor = 5;
 	displayname = "Stash";

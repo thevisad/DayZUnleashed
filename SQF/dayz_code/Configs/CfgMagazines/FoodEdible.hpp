@@ -1,9 +1,9 @@
 class AngelCookies : FoodEdible {
 	scope = public;
 	count = 1;
-	displayName = $STR_FOODCOOKED_EQUIP_CODE_NAME_5;
+	displayName = $STR_FOODCOOKED_EQIP_CODE_NAME_5;
 	model = "z\addons\dayz_communityassets\models\buiscits_box.p3d";
-    picture = "z\addons\dayz_communityassets\pictures\i_buiscit_ca.paa";
+	picture = "z\addons\dayz_communityassets\pictures\i_buiscit_ca.paa";
 	descriptionShort = $STR_FOODCOOKED_EQUIP_CODE_DESC_5;
 	bloodRegen = 100;
 };
@@ -433,4 +433,13 @@ class ItemThistle : CA_Magazine {
 				
 		};
 	};
+};
+
+class FoodCanFrankBeans: FoodEdible {
+	scope = 2;
+	// displayName = $STR_EQUIP_NAME_28;
+	displayName = "Can (Frank n Beans)"; // addactions cannot have &amp;
+	model = "\dayz_equip\models\food_fbtin.p3d";
+	picture = "\dayz_equip\textures\equip_fbtin_ca.paa";
+	descriptionShort = $STR_EQUIP_DESC_28;
 };

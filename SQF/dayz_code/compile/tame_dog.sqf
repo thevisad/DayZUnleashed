@@ -24,10 +24,10 @@ _removed = 0;
 _itemIn = "FoodmeatRaw";
 _countIn = 1;
 _selected = "";
-diag_log("TD: _target " + str(_target));
-diag_log("TD: _caller " + str(_caller));
-diag_log("TD: _id " + str(_id));
-diag_log("TD: _dog " + str(_dog));
+//diag_log("TD: _target " + str(_target));
+//diag_log("TD: _caller " + str(_caller));
+//diag_log("TD: _id " + str(_id));
+//diag_log("TD: _dog " + str(_dog));
 
 {					
 	if( (_removed < _countIn) && ((_x == _itemIn) || configName(inheritsFrom(configFile >> "cfgMagazines" >> _x)) == _itemIn)) then {

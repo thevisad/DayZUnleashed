@@ -47,7 +47,6 @@ class CfgBuildingLoot {
 			{"drink",0.25},
 			{"buildingitems",0.05},
 			{"craftingitems",0.05},
-			
 			{"normalbackpacks",0.05},
 			{"buildingkits",0.05}
 			

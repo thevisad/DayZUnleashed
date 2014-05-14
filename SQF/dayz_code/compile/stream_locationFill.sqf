@@ -10,7 +10,7 @@ for "_i" from ((count _list) - 1) to 0 step -1 do
 		_dir = getNumber (_config >> "direction");
 		_onFire = getNumber (_config >> "onFire");
 		
-		diag_log ("CSL: location type : " + str(_type));
+		//diag_log ("CSL: location type : " + str(_type));
 		
 		_object = _type createVehicleLocal [_position select 0,_position select 1,-100];
 		_object setDir _dir;

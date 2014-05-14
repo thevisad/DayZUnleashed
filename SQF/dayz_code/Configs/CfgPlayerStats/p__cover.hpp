@@ -18,6 +18,7 @@ class horde_journal_front_cover
 	controls[] =
 	{
 		"book_page_image",
+		"open_craft",
 		"open_book",
 		"click_here_to_close_book_1",
 		"click_here_to_close_book_2",
@@ -39,6 +40,14 @@ class horde_journal_front_cover
 	};
 	
 	// buttons
+	
+	class open_craft: RscIGUIShortcutButton {
+		idc = -1;
+		x = 0.48 * safezoneW + safezoneX;
+		y = 0.8 * safezoneH + safezoneY;
+		text = $STR_UI_CRAFT_OPEN;
+		action = "closeDialog 0; createDialog 'RscDisplayCraftingMenu';";
+	};
 	
 	class open_book: horde_RscButton
 	{

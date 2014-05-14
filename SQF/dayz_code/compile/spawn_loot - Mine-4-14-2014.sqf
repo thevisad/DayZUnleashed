@@ -15,26 +15,26 @@ if (_iItem == "building") then {
 	_iItemTypes = [] + getArray (configFile >> "cfgLoot" >> _iClass);
 	_iItemRandom = _iItemTypes call BIS_fnc_selectRandom;
 	_iItem = _iItemRandom select 0;
-	diag_log ("CSL: _iItem replaced as " + str(_iItem));		
+	diag_log  ("CSL: _iItem replaced as " + str(_iItem));		
 } else { 	
-	diag_log ("CSL: Exiting out due to failed loading process");
+	diag_log  ("CSL: Exiting out due to failed loading process");
 };
 
 if(isClass(configFile >> "cfgWeapons" >> _iItem)) then {
 	_iClass = "weapon";
-	//diag_log ("CSL: _iClass Replaced for weapon: " + str(_iItem));
+	diag_log  ("CSL: _iClass Replaced for weapon: " + str(_iItem));
 } else {
 	_iClass="nothing";
-	//diag_log ("CSL: _iClass Passed as Magazine/Object for " + str(_iClass));
+	diag_log  ("CSL: _iClass Passed as Magazine/Object for " + str(_iClass));
 	if(isClass (configFile >> "CfgMagazines" >> _iItem)) then {
 		_iClass = "magazine";
-		//diag_log ("CSL: _iClass Replaced for magazine: " + str(_iItem));
+		diag_log  ("CSL: _iClass Replaced for magazine: " + str(_iItem));
 	} else {
 		_iClass="nothing";
-		//diag_log ("CSL: _iClass Passed as Object for " + str(_iClass));
+		diag_log  ("CSL: _iClass Passed as Object for " + str(_iClass));
 		if (isClass (configFile >> "CfgVehicles" >> _iItem)) then {
 			_iClass = "object";
-			//diag_log ("CSL: _iClass Replaced for object: " + str(_iItem));
+			diag_log  ("CSL: _iClass Replaced for object: " + str(_iItem));
 		};
 	};
 };
@@ -44,7 +44,7 @@ if !((_iClass == "weapon") or (_iClass == "magazine") or (_iClass == "object")) 
 
 _iPosZ = _iPos select 2;
 if((isNil "_iPosZ") OR {( _iPosZ < 0)}) then { _iPos = [_iPos select 0,_iPos select 1,0]; };
-diag_log ("CSL: _iPosZ " + str(_iPosZ));
+diag_log  ("CSL: _iPosZ " + str(_iPosZ));
 
 if (_iItem != "" ) then {
 	switch (_iClass) do {
@@ -52,7 +52,7 @@ if (_iItem != "" ) then {
 		case "weapon": {
 			//Item is a weapon, add it and a random quantity of magazines
 			_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
-			diag_log ("CSL: weapon item : " + str(_iItem));
+			diag_log  ("CSL: weapon item : " + str(_iItem));
 			_item addWeaponCargoGlobal [_iItem,1];
 			_mags = [] + getArray (configFile >> "cfgWeapons" >> _iItem >> "magazines");
 			if ((count _mags) > 0) then {
@@ -100,7 +100,7 @@ if (_iItem != "" ) then {
 				if (_canType in _uniq) then {
 					_tQty = if (({_x in _uniq} count magazines _item) == 0) then {1} else {0};
 					if (_tQty == 0) then {diag_log(format["%1 Prevent any duplicate member %2 from family %3",__FILE__, _canType, _uniq]);};
-					//diag_log(format["%1 %2 DUP? type:%3 mag:%4 _this:%5",__FILE__, __LINE__, _canType, magazines _item, _this]);
+					diag_log (format["%1 %2 DUP? type:%3 mag:%4 _this:%5",__FILE__, __LINE__, _canType, magazines _item, _this]);
 				};
 				
 				if (_tQty > 0) then {
