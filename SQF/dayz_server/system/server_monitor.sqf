@@ -41,8 +41,8 @@ diag_log "HIVE: Starting";
 	};
 
 	
-waituntil{isNil "sm_done"}; // prevent server_monitor be called twice (bug during login of the first player)
-call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_initserver.sqf";
+waituntil{isNil "sm_done"}; 
+ call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_initserver.sqf"; 
 #include "\z\addons\dayz_server\compile\fa_hiveMaintenance.hpp"
 
 if (isServer and isNil "sm_done") then {
@@ -111,6 +111,7 @@ if (isServer and isNil "sm_done") then {
 					if (_isOK) then {
 						_block = 	getNumber(configFile >> "CfgWeapons" >> _x >> "stopThis") == 1;
 						if (!_block) then {
+						//diag_log ("SM: Spawn Backpack item : " + str(_x));
 							_object addWeaponCargoGlobal [_x,(_objWpnQty select _countr)];
 						};
 					};
@@ -126,6 +127,7 @@ if (isServer and isNil "sm_done") then {
 					if (_isOK) then {
 						_block = 	getNumber(configFile >> "CfgMagazines" >> _x >> "stopThis") == 1;
 						if (!_block) then {
+						//diag_log ("SM: Spawn Backpack item : " + str(_x));
 							_object addMagazineCargoGlobal [_x,(_objWpnQty select _countr)];
 						};
 					};
@@ -154,7 +156,7 @@ if (isServer and isNil "sm_done") then {
 	
 	
 	for "_i" from 1 to 5 do {
-		diag_log "SM: Streaming Vehicles";
+		//diag_log "SM: Streaming Vehicles";
 		_key = format["CHILD:302:%1:", dayZ_instance];
 		_hiveResponse = _key call server_hiveReadWrite;  
 		if ((((isnil "_hiveResponse") || {(typeName _hiveResponse != "ARRAY")}) || {((typeName (_hiveResponse select 1)) != "SCALAR")}) || {(_hiveResponse select 1 > 2000)}) then {
@@ -162,7 +164,7 @@ if (isServer and isNil "sm_done") then {
 			_hiveResponse = ["",0];
 		} 
 		else {
-			diag_log ("SM: found "+str(_hiveResponse select 1)+" vehicles" );
+			//diag_log ("SM: found "+str(_hiveResponse select 1)+" vehicles" );
 			_i = 99; // break
 		};
 	};
@@ -177,12 +179,10 @@ if (isServer and isNil "sm_done") then {
 			//diag_log (format["HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]);
 		};
 		diag_log ("HIVE: got " + str(count _objectArray) + " objects");
-		/*
 #ifdef EMPTY_TENTS_CHECK
 		// check empty tents, remove some of them
 		[_objectArray, EMPTY_TENTS_GLOBAL_LIMIT, EMPTY_TENTS_USER_LIMIT] call fa_removeExtraTents;
 #endif
-*/
 		// check vehicles count
 		[_objectArray] call fa_checkVehicles;
 	};
@@ -233,7 +233,7 @@ if (isServer and isNil "sm_done") then {
 			//_damage=0.86;//_action="CREATED";
 			_point set [2, 0]; // here _point is in ATL format	
 #ifdef VEH_MAINTENANCE_ROTTEN_AT_STARTUP
-			// rotten randomly the vehicle. Successive damages will lead to a respawn.
+			// randomly damage the vehicle. Successive damages will lead to a respawn.
 			if ((random(VEH_MAINTENANCE_ROTTEN_AT_STARTUP) < 1) AND {(_action == "OBJ")}) then {
 				 _damage = VEH_MAINTENANCE_ROTTEN_LOGIC; _action = "DAMAGED"; 
 			};
@@ -359,7 +359,9 @@ if (isServer and isNil "sm_done") then {
 				_rawData = "HiveEXT" callExtension _key;
 				_key = format["CHILD:304:%1:",_ObjectID]; // delete by ID (not UID which is handler 310)
 				_rawData = "HiveEXT" callExtension _key;*/
+#ifdef OBJECT_DEBUG
 				//diag_log (format["SM: IGNORED %1 ObjectUID: %2 Character:%3 dmg: %4",_class, _ObjectID, _CharacterID, _damage ]);
+#endif
 			};
 		};
 //diag_log(format["VEH MAINTENANCE DEBUG %1 %2", __FILE__, __LINE__]);
@@ -451,19 +453,19 @@ if (isServer and isNil "sm_done") then {
 	Server_InfectedCamps = [3, "center", 4500, 2000] call fn_bases;
 	dayzInfectedCamps = Server_InfectedCamps;
 	publicVariable "dayzInfectedCamps";
-	
+	/*
 	_tempMaxSpawns = dayz_zombiehordeMaxSpawns - dayz_zombiehordeMinSpawns;
 	_hordespawns = (floor(random (_tempMaxSpawns)) + dayz_zombiehordeMinSpawns);
 	
-	/*
+	
 	for "_x" from 0 to _hordespawns do {
-		[] execVM "\z\addons\dayz_server\compile\fn_hoard.sqf";
+		[] execVM "\z\addons\dayz_server\horde\fn_horde.sqf";
 	}; //Spawn hordes!!!
 	*/
 
 	// antiwallhack
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_antiwallhack.sqf";	
-/*
+	/*
 	_randomNumber=floor(random 2000);
 	[[8874.6816, 16211.182],1000,_randomNumber,[]] call bis_fnc_destroyCity;
 	_randomNumber=floor(random 2000);

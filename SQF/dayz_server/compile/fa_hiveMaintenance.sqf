@@ -248,7 +248,7 @@ fa_removeExtraTents = {
 			};
 		};
 	} forEach _myArray;
-	diag_log (format [ "fa_removeExtraTents: Empty tents: %1, would like less than %2.",
+	//diag_log (format [ "fa_removeExtraTents: Empty tents: %1, would like less than %2.",
 		_emptytenttotal,
 		_maxEmptyTents
 	]);
@@ -548,7 +548,7 @@ private ["_type","_class","_dir","_oldpos","_action","_distance","_minAltitude",
 			_counter = _counter + 1;
 			_locations = _locations - [_pickedLocation];
 		}; // while suitable location 
-		diag_log(format["fa_smartlocation: %2   _veh:%1 _size:%6   _old:%8 |--> _point:%3    _pickedLocation:%4 _counter=%5  badly near:%7", 
+		//diag_log(format["fa_smartlocation: %2   _veh:%1 _size:%6   _old:%8 |--> _point:%3    _pickedLocation:%4 _counter=%5  badly near:%7", 
 			_type, 
 			if (_found) then {"ok"} else {"** FAILED **"}, 
 			_point, 

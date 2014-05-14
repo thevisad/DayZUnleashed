@@ -7,7 +7,6 @@ if (!isDedicated) then {
 	"filmic" setToneMappingParams [0.07, 0.31, 0.23, 0.37, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
 	
 	_void = [] execVM "\z\addons\dayz_code\R3F_Realism\R3F_Realism_Init.sqf";
-	//DZE_player_build = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_build.sqf";
 	DZE_player_build			= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_build.sqf";
 	player_buildControls	= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_buildControls.sqf";
 	snap_object				= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\snap_object.sqf";
@@ -312,6 +311,7 @@ if (!isDedicated) then {
 						_removed = ([player,_iItem,1] call BIS_fnc_invRemove);
 						if (_removed == 1) then {
 							_item addWeaponCargoGlobal [_iItem,1];
+							//diag_log( "SL: _dropPrimary: " + str(_iItem));
 						};
 					};
 					if (_dropSecondary) then {
@@ -319,6 +319,7 @@ if (!isDedicated) then {
 						_removed = ([player,_iItem,1] call BIS_fnc_invRemove);
 						if (_removed == 1) then {
 							_item addWeaponCargoGlobal [_iItem,1];
+							//diag_log( "SL: _dropSecondary: " + str(_iItem));
 						};
 					};
 					player reveal _item;
@@ -653,6 +654,7 @@ if (!isDedicated) then {
 			0, 
 			"CAN_COLLIDE"
 		];
+		//diag_log( "SL: fnc_pwrotate: " + str(_this select 1));
 		_holder addWeaponCargoGlobal [_this select 1, 1];
 		_holder attachTo [_turntable, [0,-0.63,0.7]];
 		_holder setVectorDirAndUp [[0,0,1],[0,-1,0]];

@@ -1,4 +1,4 @@
-diag_log("UPVC: Decreasing player variables.");
+//diag_log("UPVC: Decreasing player variables.");
 /*
 _result1 = [player,-20,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 _result2 = [player,-20,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
@@ -13,11 +13,11 @@ _change5= [player,"Survival",-10] call DZU_fnc_setVariable;
 _change6= [player,"Experience",-10] call DZU_fnc_setVariable;
 _change7= [player,"Dogtags",-10] call DZU_fnc_setVariable;
 
-diag_log("UPVC: Engineer change: " + str(_change1));
-diag_log("UPVC: Hunting change: " + str(_change2));
-diag_log("UPVC: Medical change: " + str(_change3));
-diag_log("UPVC: Combat change: " + str(_change4));
-diag_log("UPVC: Survival change: " + str(_change5));
-diag_log("UPVC: Experience change: " + str(_change6));
-diag_log("UPVC: Dogtags change: " + str(_change7));
+//diag_log("UPVC: Engineer change: " + str(_change1));
+//diag_log("UPVC: Hunting change: " + str(_change2));
+//diag_log("UPVC: Medical change: " + str(_change3));
+//diag_log("UPVC: Combat change: " + str(_change4));
+//diag_log("UPVC: Survival change: " + str(_change5));
+//diag_log("UPVC: Experience change: " + str(_change6));
+//diag_log("UPVC: Dogtags change: " + str(_change7));
 

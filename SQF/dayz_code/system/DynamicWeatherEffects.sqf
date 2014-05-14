@@ -121,7 +121,7 @@ drn_fnc_DynamicWeather_ShowDebugTextLocal = {
 
     _minutes = floor (time / 60);
     _seconds = floor (time - (_minutes * 60));
-    diag_log ((str _minutes + ":" + str _seconds) + " Debug: " + (_this select 0));
+    diag_log ("Dynamic Weather:" + (str _minutes + ":" + str _seconds) + " Debug: " + (_this select 0));
 };
 
 /*

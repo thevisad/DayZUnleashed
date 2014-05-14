@@ -19,7 +19,7 @@ _cantSee = {
 	_isok = true;
 	_zPos = +(_this select 0);
 	if (count _zPos < 3) exitWith {
-		diag_log format["%1::_cantSee illegal pos %2", __FILE__, _zPos];
+		//diag_log format["%1::_cantSee illegal pos %2", __FILE__, _zPos];
 		false
 	};
 	_zPos = ATLtoASL _zPos;
@@ -79,7 +79,7 @@ _num0 = _min + floor(random(_max - _min + 1));
 _num0 = _num0 min (0 max (ceil(dayz_maxMaxModels / _spawnAreaRatio / _spawnAreaRatio * 2) - (count(((getPosATL _obj) nearEntities ["CAManBase", dayz_spawnArea / 4 * (_spawnAreaRatio / 4)]) - [player]))));
 _num = _num0;
 /*
-diag_log (format["%1 _unitTypes/_min/_max/_zombieChance %2 %3 %4 %5  config:%6   density: %7/%8^2  qty2spawn:%9", __FILE__,
+//diag_log (format["%1 _unitTypes/_min/_max/_zombieChance %2 %3 %4 %5  config:%6   density: %7/%8^2  qty2spawn:%9", __FILE__,
  _unitTypes,_min,_max,_zombieChance, configName _config,
  ceil (dayz_maxMaxModels / _spawnAreaRatio / _spawnAreaRatio * 2),
  dayz_spawnArea / 4 * (_spawnAreaRatio / 4),
@@ -144,11 +144,11 @@ if ((_rnd < _zombieChance) AND {(_num0 > 0)}) then {
 				_maxtoCreate = _tmp select 4;
 			}/*
 			else {
-				diag_log("??");
+				//diag_log("??");
 			}*/;
 		}/*
 		else {
-		diag_log(format["%1 %2 %3",
+		//diag_log(format["%1 %2 %3",
 			_bsz_pos,
 		//	(!([_bsz_pos, true] call fnc_isInsideBuilding)),
 			([_bsz_pos, dayz_cantseefov, dayz_safeDistPlr, dayz_cantseeDist] call _cantSee)
@@ -157,14 +157,14 @@ if ((_rnd < _zombieChance) AND {(_num0 > 0)}) then {
 	};
 }/*
 else {
-	diag_log(format["%1 %2 %3",_rnd,  _zombieChance, _num0]);
+	//diag_log(format["%1 %2 %3",_rnd,  _zombieChance, _num0]);
 }*/;
 if (_num < _num0) then {
 	dayz_buildingMonitor set [count dayz_buildingMonitor,_obj];
 };
 /*
 if (_num > 0) then {
-	diag_log(format["%1 Failed to find a nice spot for %2 Zombies at %3 %4",__FILE__,
+	//diag_log(format["%1 Failed to find a nice spot for %2 Zombies at %3 %4",__FILE__,
 					_num, typeOf _obj, getPosATL _obj]);
 };
 */

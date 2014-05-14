@@ -21,7 +21,7 @@ _lootConfigFile = if !((DZAI_useCustomLoot) && {(isClass (missionConfigFile >> "
 	missionConfigFile
 };
 
-_bldgClasses = [["Residential","Farm"],["Military"],["MilitarySpecial"],["HeliCrash"]];
+_bldgClasses = [["Residential","Farm"],["Military"],["MilitarySpecial"],["HeliCrash"],["Hunting"]];
 _unwantedWeapons = _this select 0;		//User-specified weapon banlist.
 
 _aiWeaponBanList = ["Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails","Chainsaw"];
@@ -77,10 +77,16 @@ DZAI_Rifles3 = [];
 for "_i" from 0 to (count _bldgClasses - 1) do {					//_i = weapongrade
 	for "_j" from 0 to (count (_bldgClasses select _i) - 1) do {	//If each weapongrade has more than 1 building class, investigate them all
 		private["_bldgLoot"];
-		_bldgLoot = [] + getArray (_lootConfigFile >> _cfgBuildingLoot >> ((_bldgClasses select _i) select _j) >> _lootList);
+		_iItemTypes = [] + getArray (_lootConfigFile >> _cfgBuildingLoot >> ((_bldgClasses select _i) select _j) >> _lootList);
+		_bldgLoot = [];
+		for "_k" from 0 to (count _iItemTypes - 1) do {	
+			_bldgLootItem = _iItemTypes select _k;	
+			if (((_bldgLootItem select 0) == "basicweapon") || ((_bldgLootItem select 0) == "militaryweapon") || ((_bldgLootItem select 0) == "specialweapon") || ((_bldgLootItem select 0) == "military") || ((_bldgLootItem select 0) == "civilian")) then {
+				_bldgLoot = [] + getArray (configFile >> "cfgLoot" >> (_bldgLootItem select 0));
+		};
 		for "_k" from 0 to (count _bldgLoot - 1) do {				
 			_lootItem = _bldgLoot select _k;
-			if ((_lootItem select 1) == "weapon") then {			//Build an array of "weapons", then categorize them as rifles or pistols, then sort them into the correct weapon grade.
+			if (((_lootItem select 0) != "cfglootweapon")) then {			//Build an array of "weapons", then categorize them as rifles or pistols, then sort them into the correct weapon grade.
 				private ["_weaponItem","_weaponMags"];
 				_weaponItem = _lootItem select 0;
 				_weaponMags = count (getArray (configFile >> "cfgWeapons" >> _weaponItem >> "magazines"));
@@ -112,6 +118,7 @@ for "_i" from 0 to (count _bldgClasses - 1) do {					//_i = weapongrade
 			};
 		};
 	};
+};
 };
 
 //Because heli-crash sites don't usually have pistol loot, it may be necessary to populate it with pistol classnames from the MilitarySpecial table.

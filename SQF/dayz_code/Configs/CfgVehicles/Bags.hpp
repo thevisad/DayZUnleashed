@@ -21,13 +21,13 @@ class Bag_Base_EP1 : ReammoBox_EP1 {
 class DZ_Patrol_Pack_EP1: Bag_Base_EP1
 {
 	scope = 2;
-	displayName = "Patrol Pack (coyote)";
+	displayName = $STR_EPOCH_PACK_PATROL;
 	picture = "\ca\weapons_e\data\icons\backpack_US_ASSAULT_COYOTE_CA.paa";
 	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa";
 	mapsize = 2;
 	model = "\ca\weapons_e\AmmoBoxes\backpack_us_assault_Coyote.p3d";
 	transportMaxWeapons = 1;
-	transportMaxMagazines = 8;
+	transportMaxMagazines = 10;
 	class eventHandlers
 	{
 		init="[(_this select 0),'CfgVehicles','DZ_Patrol_Pack_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
@@ -37,7 +37,7 @@ class DZ_Patrol_Pack_EP1: Bag_Base_EP1
 class DZ_Assault_Pack_EP1: Bag_Base_EP1
 {
 	scope = 2;
-	displayName = "Assault Pack (ACU)";
+	displayName = $STR_EPOCH_PACK_ASSAULT;
 	picture = "\ca\weapons_e\data\icons\backpack_US_ASSAULT_CA.paa";
 	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa";
 	mapSize = 2;
@@ -47,12 +47,12 @@ class DZ_Assault_Pack_EP1: Bag_Base_EP1
 	class eventHandlers
 	{
 		init="[(_this select 0),'CfgVehicles','DZ_Assault_Pack_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
-	};	
+	};
 };
 
 class DZ_Czech_Vest_Puch: Bag_Base_EP1
 {
-	displayname = "Czech Vest Pouch";
+	displayname = $STR_EPOCH_PACK_POUCH;
 	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa";
 	mapsize = 2;
 	model = "\ca\weapons_e\AmmoBoxes\backpack_acr_small.p3d";
@@ -63,120 +63,119 @@ class DZ_Czech_Vest_Puch: Bag_Base_EP1
 	class eventHandlers
 	{
 		init="[(_this select 0),'CfgVehicles','DZ_Czech_Vest_Puch'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
-	};	
+	};
 };
 
 class DZ_ALICE_Pack_EP1: Bag_Base_EP1
 {
 	scope = 2;
-	displayName = "ALICE Pack";
+	displayName = $STR_EPOCH_PACK_ALICE;
 	picture = "\ca\weapons_e\data\icons\backpack_TK_ALICE_CA.paa";
 	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa";
 	mapsize = 2;
 	model = "\ca\weapons_e\AmmoBoxes\backpack_tk_alice.p3d";
 	transportMaxWeapons = 2;
-	transportMaxMagazines = 16;
+	transportMaxMagazines = 20;
 	class eventHandlers
 	{
 		init="[(_this select 0),'CfgVehicles','DZ_ALICE_Pack_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
-	};	
+	};
 };
 
 class DZ_TK_Assault_Pack_EP1 : Bag_Base_EP1
 {
 	scope = 2;
-	displayName = "Survival ACU";
+	displayName = $STR_EPOCH_PACK_ACU;
 	mapSize = 2;
 	picture = "\ca\weapons_e\data\icons\backpack_CIVIL_ASSAULT_CA.paa";
 	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa";
 	model = "\ca\weapons_e\AmmoBoxes\backpack_civil_assault.p3d";
 	transportMaxWeapons = 2;
-	transportMaxMagazines = 16;
+	transportMaxMagazines = 22;
 	class eventHandlers
 	{
 		init="[(_this select 0),'CfgVehicles','DZ_TK_Assault_Pack_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
-	};	
+	};
 };
 
 class DZ_British_ACU : Bag_Base_EP1
 {
 	scope = 2;
-	displayName = "British Assault Pack";
+	displayName = $STR_EPOCH_PACK_BAP;
 	mapSize = 2;
-	model = "\ca\weapons_baf\Backpack_Small_BAF";
+	model = "\ca\weapons_baf\Backpack_Small_BAF";\
 	picture = "\ca\weapons_baf\data\UI\backpack_BAF_CA.paa";
 	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa";
 	transportMaxWeapons = 3;
-	transportMaxMagazines = 18;
+	transportMaxMagazines = 30;
 	class eventHandlers
 	{
 		init="[(_this select 0),'CfgVehicles','DZ_British_ACU'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
-	};	
+	};
 };
 
 class DZ_CivilBackpack_EP1: Bag_Base_EP1    
 {
 	scope = 2;
-	displayName = "Czech Backpack";
+	displayName = $STR_EPOCH_PACK_CZECH;
 	picture = "\ca\weapons_e\data\icons\backpack_ACR_CA.paa";
 	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa";
 	mapsize = 2;
 	model = "\ca\weapons_e\AmmoBoxes\backpack_acr.p3d";
 	transportMaxWeapons = 4;
-	transportMaxMagazines = 24;
-	class eventHandlers
-	{
-		init="[(_this select 0),'CfgVehicles','DZ_CivilBackpack_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
-	};	
-};
-
-class DZ_LargeGunBag_EP1: Bag_Base_EP1
-{
-	scope = 2;
-	displayName = "Large Gunbag";
-	model = "\ca\weapons_e\AmmoBoxes\StaticX.p3d"; 
-	picture = "\ca\weapons_e\data\icons\staticX_CA.paa"; 
-	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa"; 
-	mapsize = 2;
-	transportMaxWeapons = 3;
 	transportMaxMagazines = 40;
 	class eventHandlers
 	{
-		init="[(_this select 0),'CfgVehicles','DZ_LargeGunBag_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
-	};
-};
-
-class DZ_GunBag_EP1: Bag_Base_EP1 {
-		scope = 2;
-		displayName = "Gunbag";
-		model = "\ca\weapons_e\AmmoBoxes\StaticY.p3d"; 
-		picture = "\ca\weapons_e\data\icons\staticY_CA.paa"; 
-		icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa"; 
-		mapsize = 2;
-		transportMaxWeapons = 2;
-		transportMaxMagazines = 28;
-	class eventHandlers
-	{
-		init="[(_this select 0),'CfgVehicles','DZ_GunBag_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
+		init="[(_this select 0),'CfgVehicles','DZ_CivilBackpack_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
 	};
 };
 
 class DZ_Backpack_EP1: Bag_Base_EP1
 {
 	scope = 2;
-	displayName = "Backpack (coyote)";
+	displayName = $STR_EPOCH_PACK_COYOTE;
 	picture = "\ca\weapons_e\data\icons\backpack_US_CA.paa";
 	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa";
 	mapsize = 2;
 	model = "\ca\weapons_e\AmmoBoxes\backpack_us.p3d";
-	transportMaxWeapons = 6;
-	transportMaxMagazines = 24;
+	transportMaxWeapons = 5;
+	transportMaxMagazines = 50;
 	class eventHandlers
 	{
 		init="[(_this select 0),'CfgVehicles','DZ_Backpack_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
 	};
 };
 
+class DZ_LargeGunBag_EP1: Bag_Base_EP1
+{
+	scope = 2;
+	displayName = $STR_EPOCH_PACK_LGB;
+	model = "\ca\weapons_e\AmmoBoxes\StaticX.p3d"; 
+	picture = "\ca\weapons_e\data\icons\staticX_CA.paa"; 
+	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa"; 
+	mapsize = 2;
+	transportMaxWeapons = 6;
+	transportMaxMagazines = 60;
+	class eventHandlers
+	{
+		init="[(_this select 0),'CfgVehicles','DZ_LargeGunBag_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
+	};
+};
+class DZ_GunBag_EP1: Bag_Base_EP1
+{
+	scope = 2;
+	displayName = $STR_EPOCH_PACK_GB;
+	model = "\ca\weapons_e\AmmoBoxes\StaticY.p3d"; 
+	picture = "\ca\weapons_e\data\icons\staticY_CA.paa"; 
+	icon = "\ca\weapons_e\data\icons\mapIcon_backpack_CA.paa"; 
+	mapsize = 2;
+	transportMaxWeapons = 3;
+	transportMaxMagazines = 35;
+	class eventHandlers
+	{
+		init="[(_this select 0),'CfgVehicles','DZ_GunBag_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
+	};
+};
 class DZ_CompactPack_EP1: Bag_Base_EP1
 {
 	scope = 2;

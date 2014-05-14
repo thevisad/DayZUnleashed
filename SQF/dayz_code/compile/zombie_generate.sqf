@@ -80,7 +80,7 @@ else {
 					_weights = dayz_CLChances select _index;
 					_loot = _array select (_weights select (floor(random (count _weights))));
 					if(!isNil "_array") then {
-						_agent addMagazine _loot;
+						//_agent addMagazine _loot;
 					};
 				};
 			};

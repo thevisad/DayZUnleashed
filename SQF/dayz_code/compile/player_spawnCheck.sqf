@@ -62,8 +62,6 @@ _controlledZombies = {local (_x getVariable ["agentObject",objNull])} count agen
 _currentManModels = count (_position nearEntities ["CAManBase",dayz_spawnArea]);
 _currentWeaponHolders = count (_position nearObjects ["ReammoBox",dayz_spawnArea]); // ReammoBox = parent of all kinds of item holders
 
-//dayz_spawnArea = 300; 
-
 diag_log (format["%1 Loc.Agents: %2/%3. Models: %5/%6 W.holders: %9/%10 (radius:%7m %8fps).","SpawnCheck",
 	_controlledZombies, _maxControlledZombies, time - dayz_spawnWait, _currentManModels, _maxManModels,
 	dayz_spawnArea, round diag_fpsmin, _currentWeaponHolders, _maxWeaponHolders]);

@@ -11,7 +11,7 @@ _playerObj = nil;
 } forEach 	playableUnits;
 
 if (isNil "_playerObj") exitWith {
-	diag_log format["%1: nil player object, _this:%2", __FILE__, _this];
+	diag_log format["SOPD: %1: nil player object, _this:%2", __FILE__, _this];
 };
 
 if (!isNull _playerObj) then {
@@ -21,7 +21,7 @@ if (!isNull _playerObj) then {
 	_timeout = _playerObj getVariable["combattimeout",0];
 //	diag_log format ["%1 %2 %3", isNil "_timeout", typeName _timeout == 'SCALAR', _timeout];
 	_timeout = _timeout - time;
-	diag_log format["Player UID#%1 CID#%2 %3 as %4, logged off at %5%6", 
+	diag_log format["SOPD: Player UID#%1 CID#%2 %3 as %4, logged off at %5%6", 
 		getPlayerUID _playerObj, _characterID, _playerObj call fa_plr2str, typeOf _playerObj, 
 		(getPosATL _playerObj) call fa_coor2str,
 		if ((!isNil "_timeout") AND {(_timeout > 0)}) then {" while in combat"} else {""}

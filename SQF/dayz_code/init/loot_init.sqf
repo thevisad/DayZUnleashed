@@ -15,7 +15,7 @@ for "_i" from 0 to ((count _config) - 1) do {
 			_weighted = [];
 			_j = 0;
 			for "_l" from 0 to ((count _itemChances) - 1) do {
-			_weight = round (((_itemChances select _l) select 2) * 100);
+			_weight = round (((_itemChances select _l) select 1) * 100);
 				for "_k" from 0 to (_weight - 1) do
 				{
 					_weighted set [_j + _k, _l];
@@ -31,6 +31,10 @@ for "_i" from 0 to ((count _config) - 1) do {
 	};
 };
 
+//diag_log format["LootInit dayz_CBLChances: %1", dayz_CBLChances];
+//diag_log format["LootInit dayz_CBLBase: %1", dayz_CBLBase];
+
+
 dayz_CLChances = [];
 dayz_CLBase = [];
 
@@ -38,7 +42,7 @@ _config = configFile >> "cfgLoot";
 	for "_i" from 0 to ((count (_config)) - 1) do {
 		_classname = configName (_config select _i);
 		_itemChances = getArray (_config select _i);
-//diag_log format["CFGLoot: %1, Array: %2", _classname, _itemChances];
+		//diag_log format["CFGLoot: %1, Array: %2", _classname, _itemChances];
 		_weighted = [];
 		_j = 0;
 		for "_l" from 0 to ((count _itemChances) - 1) do {
@@ -53,6 +57,8 @@ _config = configFile >> "cfgLoot";
 	};
 //diag_log ("BaseLoot: " +str(dayz_CLBase));
 
+//diag_log format["LootInit dayz_CLBase: %1", dayz_CLBase];
+//diag_log format["LootInit dayz_CLChances: %1", dayz_CLChances];
 
 private["_i","_type","_config","_canZombie","_canLoot"];
 dayz_ZombieBuildings = [];

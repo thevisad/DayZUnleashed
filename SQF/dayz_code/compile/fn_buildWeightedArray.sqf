@@ -39,10 +39,12 @@ for "_i" from 0 to ((count _weights) - 1) do
 
 	//Ensure the weight is a Number.
 	//If it's not, set weight to 0 to exclude it.
-	if ((typeName _weight) != (typeName 0)) then {diag_log "Log: [selectRandomWeighted] Weights should be Numbers; weight set to 0!"; _weight = 0};
+	if ((typeName _weight) != (typeName 0)) then {//diag_log "Log: [selectRandomWeighted] Weights should be Numbers; weight set to 0!"; _weight = 0
+	};
 
 	//The weight should be a Number between 0 and 1.
-	if (_weight < 0) then {diag_log "Log: [selectRandomWeighted] Weights should be more than or equal to 0; weight set to 0!"; _weight = 0};
+	if (_weight < 0) then {//diag_log "Log: [selectRandomWeighted] Weights should be more than or equal to 0; weight set to 0!"; _weight = 0
+	};
 	//if (_weight > 1) then {debugLog "Log: [selectRandomWeighted] Weights should be less than or equal to 1; weight set to 1!"; _weight = 1};
 
 	//Normalize the weight for a precision of hundreds.

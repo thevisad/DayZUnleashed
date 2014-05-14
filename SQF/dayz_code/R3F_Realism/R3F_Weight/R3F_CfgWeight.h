@@ -1229,7 +1229,7 @@ class CfgWeight {
 	};
 	class Magazines
 	{
-				class 1000Rnd_23mm_2A14_AP {
+		class 1000Rnd_23mm_2A14_AP {
 			weight=50.0;
 		};
 		class 1000Rnd_23mm_2A14_HE {

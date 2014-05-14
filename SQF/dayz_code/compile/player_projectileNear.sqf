@@ -6,8 +6,8 @@ diag_log ("0");
 
 _isInComat = _unit getVariable["startcombattimer",0];
 
-diag_log ("Bullit Speed: " +str(Speed _projectile));
-diag_log ("Bullit Velocity: " +str(velocity _projectile));
+diag_log ("Bullet Speed: " +str(Speed _projectile));
+diag_log ("Bullet Velocity: " +str(velocity _projectile));
 
 _listNear = [];
 _callCount = 0;

@@ -12,7 +12,7 @@ diag_log "[DZAI] Reading DZAI configuration file.";
 --------------------------------------------------------------------------------------------------------------------*/	
 
 //Enable or disable event logging to arma2oaserver.rpt. Debug level setting. 0: Off, 1: Basic Debug, 2: Extended Debug. (Default: 0)
-DZAI_debugLevel = 0;
+DZAI_debugLevel = 1;
 
 //Enable or disable debug markers. 0: Off, 1: Basic markers (Track AI position, locate patrol waypoints, locate dynamically-spawned triggers), 2: Extended markers (Basic markers + Static trigger markers and refreshing dynamic trigger markers) (Default: 0)										
 DZAI_debugMarkers = 0;	

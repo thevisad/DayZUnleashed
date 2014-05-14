@@ -5,10 +5,10 @@ _building = 		_this select 1;
 _worldspace = 	_this select 2;
 _class = 		_this select 3;
 //_squad = 		_this select 4;
-diag_log("USPB: CharID " + str(_charID));
-diag_log("USPB: Building " + str(_building));
-diag_log("USPB: Worldspace " + str(_worldspace));
-diag_log("USPB: Class " + str(_class));
+//diag_log("USPB: CharID " + str(_charID));
+//diag_log("USPB: Building " + str(_building));
+//diag_log("USPB: Worldspace " + str(_worldspace));
+//diag_log("USPB: Class " + str(_class));
 
 _squad = 0;
 _playerUID = 0;

@@ -17,11 +17,11 @@ if (isServer) then {
 			_key = format["CHILD:304:%1:",_id];
 		};
 		_key call server_hiveWrite;
-		diag_log format["SDO: Deleted by ID: %1",_id];
+		//diag_log format["SDO: Deleted by ID: %1",_id];
 	} else  {
 		//Send request
 		_key = format["CHILD:310:%1:",_uid];
 		_key call server_hiveWrite;
-		diag_log format["SDO: Deleted by UID: %1",_uid];
+		//diag_log format["SDO: Deleted by UID: %1",_uid];
 	};
 };

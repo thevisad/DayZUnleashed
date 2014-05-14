@@ -29,10 +29,10 @@ if( (typeName _updateVariable == "STRING") && (typeName _updateValue == "SCALAR"
 
 _stackSize = (count(DZU_stack_saveVariable select 1));
 
-//diag_log format["DZU_fnc_saveVariables:Last save(%1) Time(%2)",_lastSave,_timeNow];
-//diag_log format["DZU_fnc_saveVariables:Change(%1) Value(%2)",_updateVariable,_updateValue];
-//diag_log format["DZU_fnc_saveVariables:Save Request (%1)",_saveRequest];
-//diag_log format["DZU_fnc_saveVariables:Stack Contents==> %1",DZU_stack_saveVariable];
+diag_log format["DZU_fnc_saveVariables:Last save(%1) Time(%2)",_lastSave,_timeNow];
+diag_log format["DZU_fnc_saveVariables:Change(%1) Value(%2)",_updateVariable,_updateValue];
+diag_log format["DZU_fnc_saveVariables:Save Request (%1)",_saveRequest];
+diag_log format["DZU_fnc_saveVariables:Stack Contents==> %1",DZU_stack_saveVariable];
 if( ((_stackSize > _stackLimit)||(_lastSave>_updateInterval)||(_saveRequest)) && (_stackSize > 0) )then{
     PVDZ_plr_VarSave2 = [player,DZU_stack_saveVariable];
     DZU_time_saveVariable=_timeNow;
@@ -41,5 +41,5 @@ if( ((_stackSize > _stackLimit)||(_lastSave>_updateInterval)||(_saveRequest)) &&
     if (isServer) then {
         PVDZ_plr_VarSave2 call server_playerVariableChange;
     };
-//diag_log "DZU_fnc_saveVariables:Save Request Sent";
+diag_log "DZU_fnc_saveVariables:Save Request Sent";
 };

@@ -28,5 +28,5 @@ if (local _animalbody) then {
 } else {
 	_ehLoc = "client";
 	if (isServer) then { _ehLoc = "server"; };
-	diag_log format["gutObject EH on %1 item not local ! Type: %2",_ehLoc,str(_animalbody)];
+	//diag_log format["gutObject EH on %1 item not local ! Type: %2",_ehLoc,str(_animalbody)];
 };

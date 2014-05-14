@@ -19,17 +19,19 @@ class MeleeMachete: MeleeWeapon
 		};
 		class ItemActions
 		{
-		/*
-			class Drop
+			class Toolbelt
 			{
-				text=$STR_ACTIONS_DROP;
-				script="spawn player_dropWeapon;";
+				text=$STR_EPOCH_PLAYER_296;
+				script="spawn player_addToolbelt;";
 				use[]=
 				{
-					"Machete_Swing"
+					"MeleeMachete"
+				};
+				output[]=
+				{
+					"ItemMachete"
 				};
 			};
-		*/
 		};
 		class Library
 		{

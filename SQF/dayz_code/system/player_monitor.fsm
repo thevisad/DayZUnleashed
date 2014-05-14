@@ -1095,6 +1095,21 @@ class FSM
        "if (player hasWeapon ""MeleeMachete"") then {" \n
        "	player addMagazine 'machete_swing';" \n
        "};" \n
+	   "if (player hasWeapon ""MeleeFishingPole"") then {" \n
+       "	player addMagazine 'Fishing_Swing';" \n
+       "};" \n
+	   "if (player hasWeapon ""MeleeSledge"") then {" \n
+       "	player addMagazine 'sledge_swing';" \n
+       "};" \n
+	   "if (player hasWeapon ""MeleeBaseBallBat"") then {" \n
+       "	player addMagazine 'Bat_Swing';" \n
+       "};" \n
+	   "if (player hasWeapon ""MeleeBaseBallBatBarbed"") then {" \n
+       "	player addMagazine 'BatBarbed_Swing';" \n
+       "};" \n
+	   "if (player hasWeapon ""MeleeBaseBallBatNails"") then {" \n
+       "	player addMagazine 'BatNails_Swing';" \n
+       "};" \n
        "*/" \n
        "" \n
        "reload player;" \n
