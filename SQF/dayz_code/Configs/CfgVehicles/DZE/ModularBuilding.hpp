@@ -1,4 +1,4 @@
-class ModularItems: NonStrategic {
+class ModularItems: NonStrategic{
 	placement = "vertical";
 	class DestructionEffects {
 		class Sound {

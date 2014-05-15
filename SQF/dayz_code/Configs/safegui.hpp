@@ -297,7 +297,7 @@ class SafeKeyPad
 			colorText[] = {0,1,0,1};
 			colorBackground[] = {0,0,0,0};
 			colorBackgroundActive[] = {0,0,0,0};
-			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 3000); if(!isNull dayz_selectedVault and (typeOf dayz_selectedVault) == ""VaultStorageLocked"") then {dayz_selectedVault spawn player_unlockVault;};";
+			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 3000); if(!isNull dayz_selectedVault and (typeOf dayz_selectedVault) in DZE_LockedStorage) then {dayz_selectedVault spawn player_unlockVault;};";
 			soundClick[] = {"\dayz_sfx\action\cell\dtmf_hash.ogg",0.6,1};
 		};
 	};
