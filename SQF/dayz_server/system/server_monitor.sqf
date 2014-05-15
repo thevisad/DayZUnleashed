@@ -179,10 +179,12 @@ if (isServer and isNil "sm_done") then {
 			//diag_log (format["HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]);
 		};
 		diag_log ("HIVE: got " + str(count _objectArray) + " objects");
+				/*
 #ifdef EMPTY_TENTS_CHECK
 		// check empty tents, remove some of them
 		[_objectArray, EMPTY_TENTS_GLOBAL_LIMIT, EMPTY_TENTS_USER_LIMIT] call fa_removeExtraTents;
 #endif
+*/
 		// check vehicles count
 		[_objectArray] call fa_checkVehicles;
 	};
@@ -359,9 +361,7 @@ if (isServer and isNil "sm_done") then {
 				_rawData = "HiveEXT" callExtension _key;
 				_key = format["CHILD:304:%1:",_ObjectID]; // delete by ID (not UID which is handler 310)
 				_rawData = "HiveEXT" callExtension _key;*/
-#ifdef OBJECT_DEBUG
 				//diag_log (format["SM: IGNORED %1 ObjectUID: %2 Character:%3 dmg: %4",_class, _ObjectID, _CharacterID, _damage ]);
-#endif
 			};
 		};
 //diag_log(format["VEH MAINTENANCE DEBUG %1 %2", __FILE__, __LINE__]);
@@ -453,11 +453,11 @@ if (isServer and isNil "sm_done") then {
 	Server_InfectedCamps = [3, "center", 4500, 2000] call fn_bases;
 	dayzInfectedCamps = Server_InfectedCamps;
 	publicVariable "dayzInfectedCamps";
-	/*
+
 	_tempMaxSpawns = dayz_zombiehordeMaxSpawns - dayz_zombiehordeMinSpawns;
 	_hordespawns = (floor(random (_tempMaxSpawns)) + dayz_zombiehordeMinSpawns);
 	
-	
+	/*	
 	for "_x" from 0 to _hordespawns do {
 		[] execVM "\z\addons\dayz_server\horde\fn_horde.sqf";
 	}; //Spawn hordes!!!

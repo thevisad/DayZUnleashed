@@ -85,10 +85,10 @@ _object_inventory = {
 		if (_objectID == "0") then {
 			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
 		} else {
-			_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+			_key = format["CHILD:641:%1:%2:",_objectID,_inventory];
 		};
 		#ifdef OBJECT_DEBUG
-		//diag_log ("SUO: Object Inventory WRITE: "+ str(_key));
+		diag_log ("SUO: Object Inventory WRITE: "+ str(_key));
 		#endif
 		_key call server_hiveWrite;
 	};
