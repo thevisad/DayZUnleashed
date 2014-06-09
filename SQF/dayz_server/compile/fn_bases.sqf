@@ -28,6 +28,8 @@ _addLoot = {
 	_weights =		dayz_CBLChances select _index;
 	_cntWeights = count _weights;
 	
+	if (isNil "_index" ) exitWith { diag_log("FB: _index was blank, exiting."); };
+	
 	for "_x" from 1 to (round(random _randomLoot) + _guaranteedLoot) do {
 		//create loot
 		_index = floor(random _cntWeights);
@@ -131,7 +133,7 @@ for [ {_b = _qty * 20}, {_b > 0 AND _qty > 0 }, {_b = _b - 1} ] do {
 				if ((0 == count (nearestObjects [_basePos, [], _lootMaxRadius])) 
 					AND {(0 == { ((_x select 0) distance _basePos) < _placeMinDistance } count _campList)}) then {
 					_campList set [count _campList, [_basePos,_amount,_radius]];
-					diag_log(format["%1 found a nice spot at %2 (%3)", __FILE__, _basePos call fa_coor2str,_x select 1]);
+					//diag_log(format["%1 found a nice spot at %2 (%3)", __FILE__, _basePos call fa_coor2str,_x select 1]);
 					[_basePos, random 360, _baseClass] call spawnComposition;
 					[_basePos, _baseClass, _lootMinRadius, _lootMaxRadius, _randomLoot, _guaranteedLoot] call _addLoot;
 					[_basePos, _lootMinRadius, _lootMaxRadius, _randomObjects, _guaranteedObjects] call _addWrecks;

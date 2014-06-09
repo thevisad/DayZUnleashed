@@ -9,13 +9,13 @@ if (isServer) then {
 	//remove from database
 	if (parseNumber _id > 0) then {
 		//Send request
-		if (typeOf(_entity) in allbuildables_class) then {
-			_key = format["CHILD:642:%1:",_id];
-		}
-		else
-		{
+		//if (typeOf(_entity) in allbuildables_class) then {
+		//	_key = format["CHILD:643:%1:",_uid];
+		//}
+		//else
+		//{
 			_key = format["CHILD:304:%1:",_id];
-		};
+		//};
 		_key call server_hiveWrite;
 		//diag_log format["SDO: Deleted by ID: %1",_id];
 	} else  {

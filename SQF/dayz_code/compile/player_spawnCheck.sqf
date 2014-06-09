@@ -62,9 +62,9 @@ _controlledZombies = {local (_x getVariable ["agentObject",objNull])} count agen
 _currentManModels = count (_position nearEntities ["CAManBase",dayz_spawnArea]);
 _currentWeaponHolders = count (_position nearObjects ["ReammoBox",dayz_spawnArea]); // ReammoBox = parent of all kinds of item holders
 
-diag_log (format["%1 Loc.Agents: %2/%3. Models: %5/%6 W.holders: %9/%10 (radius:%7m %8fps).","SpawnCheck",
+/*diag_log (format["%1 Loc.Agents: %2/%3. Models: %5/%6 W.holders: %9/%10 (radius:%7m %8fps).","SpawnCheck",
 	_controlledZombies, _maxControlledZombies, time - dayz_spawnWait, _currentManModels, _maxManModels,
-	dayz_spawnArea, round diag_fpsmin, _currentWeaponHolders, _maxWeaponHolders]);
+	dayz_spawnArea, round diag_fpsmin, _currentWeaponHolders, _maxWeaponHolders]); */
 // little hack so that only 1/5 of the max local spawnable zombies will be spawned in this round
 // make the spawn smoother along player's journey. Same for loot
 _controlledZombies = _controlledZombies max floor(_maxControlledZombies*.8);

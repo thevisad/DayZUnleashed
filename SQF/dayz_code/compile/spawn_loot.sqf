@@ -7,6 +7,8 @@ _iClass = _this select 1;
 _iPos = _this select 2;
 _radius = _this select 3;
 
+if (isNil "_iPos" || isNil "_iClass" ) exitWith { diag_log("SL: _iPos or _iClass was blank, exiting."); };
+
 //Unique items
 _uniq = ["ItemWaterbottle", "ItemWaterbottleUnfilled"];
  
@@ -20,6 +22,8 @@ if (_iItem == "building") then {
 } else {        
         //diag_log ("CSL: Exiting out due to failed loading process");
 };
+
+if (isNil "_iitem" ) exitWith { diag_log("SL: _iItem was blank, exiting."); };
 
 //Check what type the item is. Would be better to store this info within the loot configs as it is static info.
 _iClass = switch (true) do
@@ -66,7 +70,7 @@ if (_iItem != "" ) then {
 					if (_tQty > 0) then {
 				   
 							_item addMagazineCargoGlobal [_canType,_tQty];
-							//diag_log ("CSL: spawntest item : " + str(_canType));
+							diag_log ("CSL: spawntest item : " + str(_canType));
 							_qty = _qty + _tQty;
 					};
 			};
@@ -78,7 +82,7 @@ if (_iItem != "" ) then {
 		case "weapon": {
 				//Item is a weapon, add it and a random quantity of magazines
 				_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
-				//diag_log ("CSL: weapon item : " + str(_iItem));
+				diag_log ("CSL: weapon item : " + str(_iItem));
 				_item addWeaponCargoGlobal [_iItem,1];
 				_mags = [] + getArray (configFile >> "cfgWeapons" >> _iItem >> "magazines");
 				if ((count _mags) > 0) then {
@@ -95,12 +99,12 @@ if (_iItem != "" ) then {
 		case "magazine": {
 				//Item is one magazine
 				_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
-				//diag_log ("CSL: magazine item : " + str(_iItem));
+				diag_log ("CSL: magazine item : " + str(_iItem));
 				_item addMagazineCargoGlobal [_iItem,1];
 		};
 		case "object": {
 				//Item is one magazine
-				//diag_log ("CSL: object item : " + str(_iItem));
+				diag_log ("CSL: object item : " + str(_iItem));
 				_item = createVehicle [_iItem, _iPos, [], _radius, "CAN_COLLIDE"];
 		};
 	};

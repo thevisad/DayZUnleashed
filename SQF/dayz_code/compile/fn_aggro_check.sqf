@@ -48,4 +48,6 @@ if (_playerOldAggroRank != _playerNewAggroRank) then {
     //player setVariable ["aggroUpdateEventNeeded",1,false];
 };
 
-hintsilent format["Current Agro: %1\nMinimum Gained: %2\nOld Agro Rank: %3\nNew Agro Rank: %4\n",dayz_aggro_value,dayz_aggro_value_min,_playerOldAggroRank,_playerNewAggroRank];
+if (unleashed_agroMeterEnabled == 1) then {
+	hintsilent format["Current Agro: %1\nMinimum Gained: %2\nOld Agro Rank: %3\nNew Agro Rank: %4\n",dayz_aggro_value,dayz_aggro_value_min,_playerOldAggroRank,_playerNewAggroRank];
+};

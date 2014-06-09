@@ -77,6 +77,7 @@ terminate dayz_gui;
 terminate dayz_locationCheck;
 //terminate dayz_combatCheck;
 terminate dayz_spawnCheck;
+terminate dayz_dumpVariable;
 
 //Reset (just in case)
 //deleteVehicle dayz_playerTrigger;

@@ -18,7 +18,7 @@ if (!isDedicated) then {
 	fnc_inAngleSector = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_inAngleSector.sqf";		//Checks which actions for nearby casualty
 	fnc_usec_selfActions = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_selfActions.sqf";		//Checks which actions for self
 	fnc_usec_unconscious = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_unconscious.sqf";      //moves a pilot to the passenger area of a helicopter/plane.
-    fnc_dzuSwapPilot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_dzuSwapPilot.sqf";  
+	fnc_dzuSwapPilot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_dzuSwapPilot.sqf";  
 	player_temp_calculation = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_temperatur.sqf";		//Temperatur System //TeeChange
 	player_weaponFiredNear = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_weaponFiredNear.sqf";
 	player_animalCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_animalCheck.sqf";
@@ -36,10 +36,10 @@ if (!isDedicated) then {
 	player_packVault = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_packVault.sqf";
 	player_unlockVault = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_unlockVault.sqf";
 	player_lockVault = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_lockVault.sqf";
-    player_vaultPitch = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vault_pitch.sqf";
+	player_vaultPitch = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vault_pitch.sqf";
 	//Player Aggravation
-    player_aggro_check = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_check.sqf";
-    player_aggro_lieve = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_decrease.sqf";     //Lowers dayz_aggro_value when above 0
+	player_aggro_check = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_check.sqf";
+	player_aggro_lieve = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_decrease.sqf";     //Lowers dayz_aggro_value when above 0
 	player_aggro_vate = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_increase.sqf";     //Increased dayz_aggro_value, up to limit
 	player_deathBoard =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\list_playerDeathsAlt.sqf";
 	player_harvestPlant =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_harvestPlant.sqf";
@@ -111,7 +111,7 @@ if (!isDedicated) then {
 	DZE_player_goFishing =	compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_goFishing.sqf";
 	
 	player_breaklegs =	compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\publicEH\medBreakLegs.sqf";
-    player_giveEXP = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_giveEXP.sqf";
+	player_giveEXP = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_giveEXP.sqf";
 	
 	//ui
 	player_selectSlot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_selectSlot.sqf";
@@ -270,6 +270,7 @@ if (!isDedicated) then {
 		_handled = false;
 		if (_dikCode in[0x02,0x03,0x04,0x58,0x57,0x44,0x43,0x42,0x41,0x40,0x3F,0x3E,0x3D,0x3C,0x3B,0x0B,0x0A,0x09,0x08,0x07,0x06,0x05]) then {
 			_handled = true;
+			call dayz_forceSave;
 		};
 
 		// esc

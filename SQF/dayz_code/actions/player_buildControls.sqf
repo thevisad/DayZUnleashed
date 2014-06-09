@@ -80,6 +80,10 @@ while {true} do {
 		if(_zheightdirection == "down_ctrl") then {
 			SnappingOffset set [2, ((SnappingOffset select 2) - 0.01)];
 		};
+
+		if((_isAllowedUnderGround == 0) and ((SnappingOffset select 2) < 0)) then {
+			SnappingOffset set [2,0];
+		};
 	};
 
 	if (_zheightchanged or _rotate) then {

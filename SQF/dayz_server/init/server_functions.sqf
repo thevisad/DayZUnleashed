@@ -18,7 +18,7 @@ server_publishBld = 	        compile preprocessFileLineNumbers "\z\addons\dayz_s
 server_deleteObj =			    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_deleteObj.sqf"; 	//Removes the object from the DB
 server_playerSync =		    	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSync.sqf";
 zombie_findOwner =			    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\zombie_findOwner.sqf";
-server_updateNearbyObjects =	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_updateNearbyObjects.sqf";
+//server_updateNearbyObjects =	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_updateNearbyObjects.sqf";
 server_spawnCrashSite  =        compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnCrashSite.sqf";
 fnc_plyrHit   =                 compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
 spawn_carePackages =            compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_carePkgs.sqf";
@@ -26,8 +26,6 @@ spawnComposition =              compile preprocessFileLineNumbers "ca\modules\dy
 fn_bases =                      compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fn_bases.sqf";
 server_playerVariableChange =   compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerVariableChange.sqf";
 server_playerVariablesChange =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerVariablesChange.sqf";
-//server_spawnLoot =			    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\spawn_loot.sqf"; 	//Removes the object from the DB
-
 // vehicle_handleInteract = {
 // 	private["_object"];
 // 	_object = _this select 0;
@@ -36,6 +34,15 @@ server_playerVariablesChange =  compile preprocessFileLineNumbers "\z\addons\day
 // 	};
 // 	[_object, "all",true] call server_updateObject;
 // };
+
+server_updateNearbyObjects = {
+	private["_pos"];
+	_pos = _this select 0;
+	{
+		[_x, "gear"] call server_updateObject;
+		diag_log(format["SF-SUNO: Updating %2 object at %1",_pos,_x]);
+	} forEach nearestObjects [_pos, dayz_updateObjects, 10];
+};
 
 vehicle_handleServerKilled = {
 	private["_unit","_killer"];
