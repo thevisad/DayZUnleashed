@@ -44,8 +44,8 @@ _pos	= _obj getVariable["OEMPos",(getposATL _obj)];
 if(!isNull _obj) then {
 
 	// force vault save just before locking
-	PVDZ_veh_Save = [_obj,"gear"];
-	publicVariableServer "PVDZ_veh_Save";
+	PVDZ_veh_Update = [_obj,"gear"];
+	publicVariableServer "PVDZ_veh_Update";
 
 	//place tent (local)
 	_holder = createVehicle [_lockedClass,_pos,[], 0, "CAN_COLLIDE"];

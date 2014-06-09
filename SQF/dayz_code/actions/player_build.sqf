@@ -87,6 +87,7 @@ _needNear = 	getArray (configFile >> "CfgMagazines" >> _item >> "ItemActions" >>
 			if(_isNear == 0) then {  
 				_abort = true;
 				_reason = "fuel tank";
+				_distance = 30;
 			};
 		};
 	};
@@ -291,9 +292,10 @@ if (_hasrequireditem) then {
 	player removeAction s_building_snapping;
 	player allowDamage true;
 	
-	// No building on roads
-	if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
-
+	//No building on roads unless toggled
+	if (!unleashed_BuildOnRoads) then {
+		if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
+	};
 	// No building in trader zones
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
 	if(!placevault) then { _cancel = true; _reason = "Cannot build in a city."; };
@@ -308,6 +310,7 @@ if (_hasrequireditem) then {
 			_location set [2,0];
 		};
 	
+		_object setPosATL _location;
 		cutText [format[(localize "str_epoch_player_138"),_text], "PLAIN DOWN"];
 		
 		_limit = 3;
@@ -431,7 +434,7 @@ if (_hasrequireditem) then {
 					_object setVariable ["CharacterID",_combination,true];
 					
 
-					PVDZ_bld_Publish = [_combination,_object,[_dir,_location],_classname];
+					PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname, _combination];
 					publicVariableServer "PVDZ_bld_Publish";
 
 					cutText [format[(localize "str_epoch_player_140"),_combinationDisplay,_text], "PLAIN DOWN", 5];
@@ -444,7 +447,7 @@ if (_hasrequireditem) then {
 					if(_object isKindOf "Land_Fire_DZ") then {
 						_object spawn player_fireMonitor;
 					} else {
-						PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname];
+						PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname,dayz_characterID];
 						publicVariableServer "PVDZ_bld_Publish";
 					};
 				};

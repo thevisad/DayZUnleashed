@@ -7,8 +7,8 @@ if (local _unit) then {
 	if (isServer) then {
 		[_unit, "killed"] call server_updateObject;
 	} else {
-		PVDZ_veh_Save = [_unit, "killed"];
-		publicVariableServer "PVDZ_veh_Save";
+		PVDZ_veh_Update = [_unit, "killed"];
+		publicVariableServer "PVDZ_veh_Update";
 	};
 };
 

@@ -46,8 +46,8 @@ if (local _unit) then {
 		_unit setHit [_selection, _ret];
 		_log = format["%1. setH!t[%2,%3]%4", _log, _selection, _ret, if (_isbicycle) then {" bike special"} else {""}];
 		if (!isServer) then {
-			PVDZ_veh_Save = [_unit,"damage"];
-			publicVariableServer "PVDZ_veh_Save";
+			PVDZ_veh_Update = [_unit,"damage"];
+			publicVariableServer "PVDZ_veh_Update";
 			_log = _log + ". Requesting server hive write";
 		}
 		else {

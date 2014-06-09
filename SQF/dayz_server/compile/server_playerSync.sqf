@@ -128,10 +128,10 @@ if (_characterID != "0") then {
 		_timeSince = 	floor(_timeGross / 60);
 		_timeLeft =		(_timeGross - (_timeSince * 60));
 		
-		//diag_log("USPSYNC: Time Last:" + str(_lastTime));
-		//diag_log("USPSYNC: Time Gross:" + str(_timeGross));
-		//diag_log("USPSYNC: Time Since:" + str(_timeSince));
-		//diag_log("USPSYNC: Time Left:" + str(_timeLeft));
+		diag_log("USPSYNC: Time Last:" + str(_lastTime));
+		diag_log("USPSYNC: Time Gross:" + str(_timeGross));
+		diag_log("USPSYNC: Time Since:" + str(_timeSince));
+		diag_log("USPSYNC: Time Left:" + str(_timeLeft));
 		/*
 			Get character state details
 		*/
@@ -192,7 +192,7 @@ if (_characterID != "0") then {
 				//Wait for HIVE to be free
 				//Send request
 				_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity];
-				//diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _characterID);
+				diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _characterID);
 				_key call server_hiveWrite;
 			};
 		};
@@ -206,7 +206,8 @@ if (_characterID != "0") then {
 		_pos = _this select 0;
 		{
 			[_x, "gear"] call server_updateObject;
-		} forEach nearestObjects [_pos, ["Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "StashSmall","StashMedium"], 10];
+			diag_log(format["SUNO: Updating %2 object at %1",_pos,_x]);
+		} forEach nearestObjects [_pos, dayz_updateObjects, 10];
 
 		//Reset timer
 		if (_timeSince > 0) then {

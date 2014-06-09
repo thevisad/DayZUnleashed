@@ -69,12 +69,12 @@ _allFixed = true;
 //update if repaired
 if (_allFixed) then {
 	_vehicle setDamage 0;
-	PVDZ_veh_Save = [_vehicle,"repair"];
+	PVDZ_veh_Update = [_vehicle,"repair"];
 	//[player,1,1] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
 	[player,"Generic_Engineering"] call DZU_fnc_giveEXP;
     if (isServer) then {
-		PVDZ_veh_Save call server_updateObject;
+		PVDZ_veh_Update call server_updateObject;
 	} else {
-		publicVariableServer "PVDZ_veh_Save";
+		publicVariableServer "PVDZ_veh_Update";
 	};
 };

@@ -1,7 +1,8 @@
 /*
 [_object,_type] spawn server_updateObject;
 */
-private ["_object","_type","_objectID","_uid","_lastUpdate","_needUpdate","_object_position","_object_inventory","_object_damage","_isNotOk"];
+//diag_log("SUO: Beginning Object Update Code");
+private ["_object","_type","_forced","_parachuteWest","_isbuildable","_isNotOk","_objectID","_object_position","_lastUpdate","_needUpdate","_position","_worldspace","_fuel","_key","_object_inventory","_inventory","_previous","_object_damage","_hitpoints","_damage","_array","_hit","_selection","_object_killed"];
 
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 
@@ -12,7 +13,10 @@ if (count _this > 2) then {
 	_forced = _this select 2;
 };
 _parachuteWest = typeOf _object == "ParachuteWest";
+_isbuildable = (typeOf _object) in dayz_updateObjects;
 _isNotOk = false;
+
+//diag_log(format["SUO: Object %1", _isbuildable]);
 
 _objectID = "0";
 _uid = "0";
@@ -47,7 +51,10 @@ if (!_parachuteWest) then {
 	};
 };
 
-if (_isNotOk) exitWith { deleteVehicle _object; };
+if (_isNotOk) exitWith { 
+//diag_log format ["SUO: Delete Object: %1",_object];
+deleteVehicle _object; 
+};
 
 _lastUpdate = _object getVariable ["lastUpdate",time];
 _needUpdate = _object in needUpdate_objects;
@@ -80,18 +87,29 @@ _object_inventory = {
 		getBackpackCargo _object
 	];
 	_previous = str(_object getVariable["lastInventory",[]]);
+	//diag_log(format["SUO: Object: %1",_object]);
+	//diag_log(format["SUO: Object Current Inventory: %1",_inventory]);
+	//diag_log(format["SUO: Object Previous Inventory: %1",_previous]);
 	if (str(_inventory) != _previous) then {
 		_object setVariable["lastInventory",_inventory];
-		if (_objectID == "0") then {
-			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
-		} else {
+		//diag_log(format["SUO: Inventory different for Object: %1",_object]);
+		if (_isbuildable) then {
 			_key = format["CHILD:641:%1:%2:",_objectID,_inventory];
+			//diag_log ("SUO: 641 Inventory");
+		} else {
+			if (_objectID == "0") then {
+				_key = format["CHILD:309:%1:%2:",_uid,_inventory];
+				//diag_log ("SUO: 309 Inventory");
+			} else {
+				_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+				//diag_log ("SUO: 303 Inventory");
+			};
+			//diag_log ("SUO: Else Inventory");
 		};
-		#ifdef OBJECT_DEBUG
-		diag_log ("SUO: Object Inventory WRITE: "+ str(_key));
-		#endif
+		//diag_log(format["SUO: Object Inventory WRITE: %1",_key]);
 		_key call server_hiveWrite;
 	};
+	//diag_log(format["SUO: Finished Updating Object: %1",_object]);
 };
 
 _object_damage = {
@@ -124,7 +142,7 @@ _object_damage = {
 			//diag_log ("SUO: Object Damage OID: "+ str(_objectID) + " Damage " + str(_damage));
 		};
 		#ifdef OBJECT_DEBUG
-		//diag_log ("SUO: Object Damage WRITE: "+ str(_key));
+		diag_log ("SUO: Object Damage WRITE: "+ str(_key));
 		#endif
 		_key call server_hiveWrite;	
 
@@ -133,7 +151,7 @@ _object_damage = {
 			needUpdate_objects = needUpdate_objects - [_object];
 		};
 		#ifdef OBJECT_DEBUG
-		//diag_log format["SUO: Monitoring: %1",_object];
+		diag_log format["SUO: Monitoring: %1",_object];
 		#endif
 		needUpdate_objects set [count needUpdate_objects, _object];
 	};

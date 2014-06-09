@@ -41,15 +41,15 @@ diag_log "HIVE: Starting";
 	};
 
 	
-waituntil{isNil "sm_done"}; 
- call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_initserver.sqf"; 
+waituntil{isNil "sm_done"}; // prevent server_monitor be called twice (bug during login of the first player)
+call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_initserver.sqf";
 #include "\z\addons\dayz_server\compile\fa_hiveMaintenance.hpp"
 
 if (isServer and isNil "sm_done") then {
 		private ["_key","_data","_result","_status","_buildingArray","_bldCount","_val","_countr","_idKey","_type","_ownerID","_worldspace","_dir","_wsDone","_inventory","_hitPoints","_squadID","_combination","_damage","_object","_classname","_i","_requirements","_isDestructable","_objWpnTypes","_objWpnQty","_isOK","_block","_hiveResponse","_objectArray","_objectCount"];
 		_key = format["CHILD:600:%1:", dayZ_instance];
 		_data = "HiveEXT" callExtension _key;
-		//diag_log("BASEBUILDING: Fetching Base Buildings...");
+		diag_log("BASEBUILDING: Fetching Base Buildings...");
 		//Process result
 		_result = call compile format ["%1", _data];
 		_status = _result select 0;
@@ -66,10 +66,10 @@ if (isServer and isNil "sm_done") then {
 				_buildingArray set [count _buildingArray, _result];
 				_bldCount = _bldCount + 1;
 			};
-			//diag_log ("BASEBUILDING: Found " + str(_bldCount) + " Base Buildings!");
+			diag_log ("BASEBUILDING: Found " + str(_bldCount) + " Base Buildings!");
 		};
 		{ //3:50:45 "BASEBUILDING: Info ["WoodGate_DZ","13039915736716","146",[5.799,[13039.9,15736.7,0.091]],[],[],0,942]"
-			//diag_log ("BASEBUILDING: Info " + str(_x));
+			diag_log ("BASEBUILDING: Info " + str(_x));
 			_countr = _countr + 1;
 			_type =		_x select 0;
 			_idKey = 	_x select 1;
@@ -96,8 +96,43 @@ if (isServer and isNil "sm_done") then {
 			_object setVariable ["lastUpdate",time];
 			_object setVariable ["ObjectID", _idKey, true];
 			//_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
-			_object setVariable ["CharacterID", _ownerID, true];
-			_object setVariable ["CombinationID", _combination, true];
+			_object setVariable ["OwnerID", _ownerID, true];
+			
+			
+			_lockable = 0;
+			if(isNumber (configFile >> "CfgVehicles" >> _type >> "lockable")) then {
+				_lockable = getNumber(configFile >> "CfgVehicles" >> _type >> "lockable");
+			};
+			_testarray = toArray str(_combination);
+			_countArray = count (_testarray);
+			// fix for leading zero issues on safe codes after restart
+			diag_log (format["SM: Combination %1 : Object %2 : Array: %3 : Count: %4 ", _combination, _type, _testarray, _countArray]);
+
+			if (_lockable == 4) then {
+				if(_countArray == 3) then {
+					_combination = format["0%1", _combination];
+				};
+				if(_countArray == 2) then {
+					_combination = format["00%1", _combination];
+				};
+				if(_countArray == 1) then {
+					_combination = format["000%1", _combination];
+				};
+			};
+
+			if (_lockable == 3) then {
+				if(_countArray == 2) then {
+					_combination = format["0%1", _combination];
+				};
+				if(_countArray == 1) then {
+					_combination = format["00%1", _combination];
+				};
+			};
+			
+			_object setVariable ["CharacterID", _combination, true];
+			
+			clearWeaponCargoGlobal  _object;
+			clearMagazineCargoGlobal  _object;
 			
 			_object setdir _dir;
 
@@ -111,7 +146,6 @@ if (isServer and isNil "sm_done") then {
 					if (_isOK) then {
 						_block = 	getNumber(configFile >> "CfgWeapons" >> _x >> "stopThis") == 1;
 						if (!_block) then {
-						//diag_log ("SM: Spawn Backpack item : " + str(_x));
 							_object addWeaponCargoGlobal [_x,(_objWpnQty select _countr)];
 						};
 					};
@@ -127,7 +161,6 @@ if (isServer and isNil "sm_done") then {
 					if (_isOK) then {
 						_block = 	getNumber(configFile >> "CfgMagazines" >> _x >> "stopThis") == 1;
 						if (!_block) then {
-						//diag_log ("SM: Spawn Backpack item : " + str(_x));
 							_object addMagazineCargoGlobal [_x,(_objWpnQty select _countr)];
 						};
 					};
@@ -156,7 +189,7 @@ if (isServer and isNil "sm_done") then {
 	
 	
 	for "_i" from 1 to 5 do {
-		//diag_log "SM: Streaming Vehicles";
+		diag_log "SM: Streaming Vehicles";
 		_key = format["CHILD:302:%1:", dayZ_instance];
 		_hiveResponse = _key call server_hiveReadWrite;  
 		if ((((isnil "_hiveResponse") || {(typeName _hiveResponse != "ARRAY")}) || {((typeName (_hiveResponse select 1)) != "SCALAR")}) || {(_hiveResponse select 1 > 2000)}) then {
@@ -164,7 +197,7 @@ if (isServer and isNil "sm_done") then {
 			_hiveResponse = ["",0];
 		} 
 		else {
-			//diag_log ("SM: found "+str(_hiveResponse select 1)+" vehicles" );
+			diag_log ("SM: found "+str(_hiveResponse select 1)+" vehicles" );
 			_i = 99; // break
 		};
 	};
@@ -179,12 +212,10 @@ if (isServer and isNil "sm_done") then {
 			//diag_log (format["HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]);
 		};
 		diag_log ("HIVE: got " + str(count _objectArray) + " objects");
-				/*
 #ifdef EMPTY_TENTS_CHECK
 		// check empty tents, remove some of them
 		[_objectArray, EMPTY_TENTS_GLOBAL_LIMIT, EMPTY_TENTS_USER_LIMIT] call fa_removeExtraTents;
 #endif
-*/
 		// check vehicles count
 		[_objectArray] call fa_checkVehicles;
 	};
@@ -203,18 +234,7 @@ if (isServer and isNil "sm_done") then {
 		_damage = if ((typeName (_x select 8)) == "SCALAR") then { _x select 8 } else { 0.9 };  
 		_combination =	_x select 3;
 		_entity = nil;
-		//diag_log("SM: _x " + str(_x));
-		//diag_log("SM: _action " + str(_action));
-		//diag_log("SM: _ObjectID " + str(_ObjectID));
-		//diag_log("SM: _class " + str(_class));
-		//diag_log("SM: _CharacterID " + str(_CharacterID));
-		//diag_log("SM: _worldspace " + str(_worldspace));
-		//diag_log("SM: _inventory " + str(_inventory));
-		//diag_log("SM: _hitpoints " + str(_hitpoints));
-		//diag_log("SM: _fuel " + str(_fuel));
-		//diag_log("SM: _damage " + str(_damage));
-		//diag_log("SM: _combination " + str(_combination));
-
+	
 		_dir = floor(random(360));
 		_point = getMarkerpos "respawn_west";	
 		if (count _worldspace >= 1 && {(typeName (_worldspace select 0)) == "SCALAR"}) then { 
@@ -296,7 +316,8 @@ if (isServer and isNil "sm_done") then {
 				_entity call fnc_veh_ResetEH;
 			};
 #ifdef OBJECT_DEBUG
-			//diag_log (format["VEHICLE %1 %2 at %3, original damage=%4, effective damage=%6, fuel=%5", _action, _entity call fa_veh2str, (getPosASL _entity) call fa_coor2str, _damage, _fuel, damage _entity]); // , hitpoints:%6, inventory=%7"  , _hitpoints, _inventory 
+			//diag_log (format["VEHICLE %1 %2 at %3, original damage=%4, effective damage=%6, fuel=%5",
+				 //_action, _entity call fa_veh2str, (getPosASL _entity) call fa_coor2str, _damage, _fuel, damage _entity]); // , hitpoints:%6, inventory=%7"  , _hitpoints, _inventory 
 #endif
 		}
 		else { // else for object or non legit vehicle
@@ -314,7 +335,7 @@ if (isServer and isNil "sm_done") then {
 						_action = "FAILED";
 						_damage = 5;
 #ifdef OBJECT_DEBUG
-						//diag_log(format["Won't spawn object #%1(%4) in/close to a building, _point:%3, inventory: %5 booleans:%2",_ObjectID, _booleans, _point, _class, _inventory]);
+						diag_log(format["Won't spawn object #%1(%4) in/close to a building, _point:%3, inventory: %5 booleans:%2",_ObjectID, _booleans, _point, _class, _inventory]);
 #endif
 					};
 				};
@@ -330,7 +351,7 @@ if (isServer and isNil "sm_done") then {
 					if (_class=="TentStorage") then {"NONE"} else {"CAN_COLLIDE"}
 				];	
 				_entity setVariable ["ObjectID", _ObjectID, true];
-				//diag_log("SM: _entity " + str(_entity));
+				
 				// fix for leading zero issues on safe codes after restart
 				if (_class == "VaultStorageLocked") then {
 					_entity setVariable ["OEMPos", _point, true];
@@ -354,14 +375,15 @@ if (isServer and isNil "sm_done") then {
 					_entity addMPEventHandler ["MPKilled",{_this call vehicle_handleServerKilled;}]; 
 				};
 				//diag_log ("DW_DEBUG " + _class + " #" + str(_ObjectID) + " pos=" +  	(_point call fa_coor2str) + ", damage=" + str(_damage)  );
-				//diag_log("SM: Spawned " + str(_x));
 			}
 			else { // delete object -- this has been comented out: object are never really deleted from hive
 			/*	_key = format["CHILD:306:%1:%2:%3:", _ObjectID, [], 1];
 				_rawData = "HiveEXT" callExtension _key;
 				_key = format["CHILD:304:%1:",_ObjectID]; // delete by ID (not UID which is handler 310)
 				_rawData = "HiveEXT" callExtension _key;*/
-				//diag_log (format["SM: IGNORED %1 ObjectUID: %2 Character:%3 dmg: %4",_class, _ObjectID, _CharacterID, _damage ]);
+#ifdef OBJECT_DEBUG
+				//diag_log (format["IGNORED %1 oid#%2 cid:%3 ",_class, _ObjectID, _CharacterID ]);
+#endif
 			};
 		};
 //diag_log(format["VEH MAINTENANCE DEBUG %1 %2", __FILE__, __LINE__]);
@@ -454,51 +476,8 @@ if (isServer and isNil "sm_done") then {
 	dayzInfectedCamps = Server_InfectedCamps;
 	publicVariable "dayzInfectedCamps";
 
-	_tempMaxSpawns = dayz_zombiehordeMaxSpawns - dayz_zombiehordeMinSpawns;
-	_hordespawns = (floor(random (_tempMaxSpawns)) + dayz_zombiehordeMinSpawns);
-	
-	/*	
-	for "_x" from 0 to _hordespawns do {
-		[] execVM "\z\addons\dayz_server\horde\fn_horde.sqf";
-	}; //Spawn hordes!!!
-	*/
-
 	// antiwallhack
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_antiwallhack.sqf";	
-	/*
-	_randomNumber=floor(random 2000);
-	[[8874.6816, 16211.182],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[5774.1006, 15338.052],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[6227.7485, 10607.113],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[14515.929, 14088.871],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[9084.0244, 5414.1055],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[12732.915, 9606.4668],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[2049.9753, 9823.7285],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[13503.379, 5314.5892],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[12128.687, 15343.262],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[10731.167, 15866.504,1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[17234.045, 13922.325],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[6593.8179, 9664.7422],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[7839.4561, 9301.1377],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[7540.3667, 14205.227],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[5926.4014, 13604.709],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	_randomNumber=floor(random 2000);
-	[[10046.984, 16577.133],1000,_randomNumber,[]] call bis_fnc_destroyCity;
-	*/
 	sm_done = true;
 	publicVariable "sm_done";
 };

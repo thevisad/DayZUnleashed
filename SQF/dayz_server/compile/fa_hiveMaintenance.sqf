@@ -248,10 +248,7 @@ fa_removeExtraTents = {
 			};
 		};
 	} forEach _myArray;
-	//diag_log (format [ "fa_removeExtraTents: Empty tents: %1, would like less than %2.",
-		_emptytenttotal,
-		_maxEmptyTents
-	]);
+	//diag_log (format [ "fa_removeExtraTents: Empty tents: %1, would like less than %2.", 		_emptytenttotal, 		_maxEmptyTents 	]);
 	if (_emptytenttotal > _maxEmptyTents) then {
 		for [{_k = _emptytenttotal / 2}, {_k >= 2}, {_k = _k / 2}] do {
 			_stall = 0;
@@ -316,8 +313,7 @@ fa_checkVehicles = {
 #ifdef VEH_MAINTENANCE_IGNORE_UNKNOWN
 				else {
 					(_myArray select _forEachIndex) set [8,2]; // damage=2, so this veh will be deleted
-					diag_log (format["fa_checkVehicles: skipping vehicle class=%1, oid=%2", 
-										_x select 2, _x select 1]);
+					//diag_log (format["fa_checkVehicles: skipping vehicle class=%1, oid=%2", 										_x select 2, _x select 1]);
 				}
 #endif
 				;_j = 999999; // break;
@@ -334,7 +330,7 @@ fa_checkVehicles = {
 			_idKey = format["%1%2",floor(random 100000),floor(random 100000)];
 			// "1" as Character ID since if I put "0" the vehicle is not stored in hive (since january 2013)
 			_myArray set [count _myArray, ["CREATED",_idKey,_type,"1",[0,[0,0,0]],[[[],[]],[[],[]],[[],[]]],[],0,0.9]];
-			diag_log (format["fa_checkVehicles: adding vehicle class=%1, chosen oid=%2", _type, _idKey]);
+			//diag_log (format["fa_checkVehicles: adding vehicle class=%1, chosen oid=%2", _type, _idKey]);
 		};
 	} foreach _vehcat;
 #endif
