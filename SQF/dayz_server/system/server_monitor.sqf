@@ -106,7 +106,7 @@ if (isServer and isNil "sm_done") then {
 			_testarray = toArray str(_combination);
 			_countArray = count (_testarray);
 			// fix for leading zero issues on safe codes after restart
-			diag_log (format["SM: Combination %1 : Object %2 : Array: %3 : Count: %4 ", _combination, _type, _testarray, _countArray]);
+			
 
 			if (_lockable == 4) then {
 				if(_countArray == 3) then {
@@ -128,8 +128,15 @@ if (isServer and isNil "sm_done") then {
 					_combination = format["00%1", _combination];
 				};
 			};
-			
+
 			_object setVariable ["CharacterID", _combination, true];
+			_combinationTest = _object getVariable ["CharacterID", 0];
+			diag_log (format["SM: Combination %1", _combination]);
+			diag_log (format["SM: Object %2",_object]);
+			diag_log (format["SM: Array: %3", _testarray]);
+			diag_log (format["SM: Count: %4", _countArray]);
+			diag_log (format["SM: Test: %5", _combinationTest]);
+			
 			
 			clearWeaponCargoGlobal  _object;
 			clearMagazineCargoGlobal  _object;
