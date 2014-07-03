@@ -48,8 +48,8 @@ class CfgBuildingLoot {
 			{"buildingitems",0.05},
 			{"craftingitems",0.05},
 			{"normalbackpacks",0.05},
-			{"buildingkits",0.05}
-			
+			{"buildingkits",0.05},
+            {"activeloot",0.01}
 		};
 	};
 
@@ -71,7 +71,8 @@ class CfgBuildingLoot {
 			{"craftingitems",0.05},
 			{"normalbackpacks",0.05},
 			{"buildingkits",0.05},
-			{"drink",0.25}
+			{"drink",0.25},
+            {"activeloot",0.01}
 		};			
 	};
 	class Office: Residential {
@@ -103,7 +104,8 @@ class CfgBuildingLoot {
 			{"buildingitems",0.15},
 			{"equipment",0.15},
 			{"rarebackpacks",0.01},
-			{"vehicleparts",0.10}
+			{"vehicleparts",0.10},
+            {"activeloot",0.01}
 		};
 	};
 	class InfectedCamps: Default { //5
@@ -127,7 +129,8 @@ class CfgBuildingLoot {
 			{"rarebuildingitems",0.01},
 			{"rarebackpacks",0.02},
 			{"vehicleparts",0.10},
-			{"milskins",0.30}
+			{"milskins",0.30},
+            {"activeloot",0.01}
 		};
 	};
 	class Farm: Default {
@@ -149,7 +152,8 @@ class CfgBuildingLoot {
 			{"civilian",0.15},
 			{"buildingkits",0.15},
 			{"drink",0.25},
-			{"vehicleparts",0.10}
+			{"vehicleparts",0.10},
+            {"activeloot",0.01}
 		};
 	};
 	class Supermarket: Default {
@@ -171,7 +175,8 @@ class CfgBuildingLoot {
 			{"civilian",0.05},
 			{"drink",0.25},
 			{"equipment",0.15},
-			{"normalbackpacks",0.15}
+			{"normalbackpacks",0.15},
+            {"activeloot",0.01}
 		};
 	};
 	class HeliCrash: Default {
@@ -256,7 +261,8 @@ class CfgBuildingLoot {
 			{"medical",0.50},
 			{"hospital",0.30},
 			{"trash",0.10},
-			{"drink",0.05}
+			{"drink",0.05},
+            {"activeloot",0.01}
 		};
 	};
 	class Military: Default {
@@ -281,7 +287,8 @@ class CfgBuildingLoot {
 			{"hospital",0.05},
 			{"vehicleparts",0.10},
 			{"attachments",0.40},
-			{"military",0.30}
+			{"military",0.30},
+            {"activeloot",0.01}
 		};
 	};
 	class MilitarySpecial: Default {
@@ -307,7 +314,8 @@ class CfgBuildingLoot {
 			{"hospital",0.05},
 			{"military",0.40},
 			{"attachments",0.40},
-			{"militaryspecial",0.15}
+			{"militaryspecial",0.15},
+            {"activeloot",0.01}
 		};
 	};
 	class Hunting: Default {
@@ -327,7 +335,8 @@ class CfgBuildingLoot {
 			{"civilian",0.15},
 			{"hunt",0.15},
 			{"equipment",0.15},
-			{"drink",0.25}
+			{"drink",0.25},
+            {"activeloot",0.01}
 		};
 	};
 #include "CfgBuildingPos.hpp"
