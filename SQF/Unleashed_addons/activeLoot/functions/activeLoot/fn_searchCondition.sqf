@@ -1,0 +1,1 @@
+((({alive _x} count ((getPosATL _this) nearEntities ["Man", 3])) <= 1) && (isNull (player getVariable["SearchInProgress",objNull])))

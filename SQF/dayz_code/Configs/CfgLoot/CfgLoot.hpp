@@ -869,5 +869,22 @@ class CfgLoot {
 	
 	rarebuildingitems[]={
 		{"ItemComboLock",0.01}
-	};
+	};    
+    
+    activeloot[] = {
+        {"deadBody_AL",0.10},
+        {"supplyCrate_AL",0.01},
+        {"supplyCrate_AL_2",0.01},
+        {"supplyCrate_AL_3",0.01},
+        {"supplyCrate_AL_4",0.01},
+        {"supplyCrate_AL_5",0.01},
+        {"supplyCrate_AL_6",0.01},
+        {"supplyCrate_locked_AL",0.01},
+        {"supplyCrate_locked_AL_2",0.01},
+        {"supplyCrate_locked_AL_3",0.01},
+        {"supplyCrate_locked_AL_4",0.01},
+        {"supplyCrate_locked_AL_5",0.01},
+        {"supplyCrate_locked_AL_6",0.01}
+    };
+    
 };
