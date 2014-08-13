@@ -1,6 +1,5 @@
 dayZ_instance =	1;
 dayZ_serverName="Unleashed"; 
-
 unleashed_agroMeterEnabled = 0;
 unleashed_ZedNewAgroEnabled = 1;
 unleashed_ZedShortAgroRange = 3;

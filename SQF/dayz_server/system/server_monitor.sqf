@@ -90,20 +90,51 @@ if (isServer and isNil "sm_done") then {
 			_inventory=	if ((typeName (_x select 4)) == "ARRAY") then { _x select 4 } else { [] };
 			_hitpoints=	if ((typeName (_x select 5)) == "ARRAY") then { _x select 5 } else { [] };
 			_squadID =	if ((typeName (_x select 6)) == "SCALAR") then { _x select 6 } else { 0 };
-			_combination = if ((typeName (_x select 7)) == "SCALAR") then { _x select 7 } else { 0.9 };  
-	
+			_combination = _x select 7;  
+			
+			diag_log (format["SM: _type %1",_type]);
+			diag_log (format["SM: _idKey %1",_idKey]);
+			diag_log (format["SM: _ownerID %1",_ownerID]);
+			diag_log (format["SM: _worldspace %1",_worldspace]);
+			
 			_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
 			_object setVariable ["lastUpdate",time];
 			_object setVariable ["ObjectID", _idKey, true];
 			//_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
 			_object setVariable ["OwnerID", _ownerID, true];
-			
-			
+
 			_lockable = 0;
 			if(isNumber (configFile >> "CfgVehicles" >> _type >> "lockable")) then {
 				_lockable = getNumber(configFile >> "CfgVehicles" >> _type >> "lockable");
 			};
-			_testarray = toArray str(_combination);
+			// fix for leading zero issues on safe codes after restart
+			
+			_countArray = (count (toArray _combination));
+			
+			if (_lockable == 4) then {
+				
+				if(_countArray == 3) then {
+					_combination = format["0%1", _combination];
+				};
+				if(_countArray == 2) then {
+					_combination = format["00%1", _combination];
+				};
+				if(_countArray == 1) then {
+					_combination = format["000%1", _combination];
+				};
+			};
+
+			if (_lockable == 3) then {
+				if(_countArray == 2) then {
+					_combination = format["0%1", _combination];
+				};
+				if(_countArray == 1) then {
+					_combination = format["00%1", _combination];
+				};
+			};
+			
+			/*
+			testarray = toArray str(_combination);
 			_countArray = count (_testarray);
 			// fix for leading zero issues on safe codes after restart
 			
@@ -128,14 +159,24 @@ if (isServer and isNil "sm_done") then {
 					_combination = format["00%1", _combination];
 				};
 			};
+			*/
 
 			_object setVariable ["CharacterID", _combination, true];
 			_combinationTest = _object getVariable ["CharacterID", 0];
+			
+			/*
+			18:52:14 "SM: Combination 882"
+			18:52:14 "SM: Object "
+			18:52:14 "SM: Array: "
+			18:52:14 "SM: Count: "
+			18:52:14 "SM: Test: "
+			18:52:14 "SM: Streaming Vehicles"
+			18:52:14 "SM: found 150 vehicles"
+			*/
+			
 			diag_log (format["SM: Combination %1", _combination]);
-			diag_log (format["SM: Object %2",_object]);
-			diag_log (format["SM: Array: %3", _testarray]);
-			diag_log (format["SM: Count: %4", _countArray]);
-			diag_log (format["SM: Test: %5", _combinationTest]);
+			diag_log (format["SM: Object %1",_object]);
+			diag_log (format["SM: Test: %1", _combinationTest]);
 			
 			
 			clearWeaponCargoGlobal  _object;

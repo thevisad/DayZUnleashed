@@ -3,13 +3,13 @@ class Mission
 {
 	addOns[]=
 	{
+		"ca_modules_functions",
 		"ca_modules_animals",
 		"dayz_anim",
 		"dayz_code",
 		"dayz_communityassets",
 		"dayz_weapons",
-		"dayz_equip",
-		"ca_modules_functions",
+		"dayz_equip",		
 		"cacharacters_pmc",
 		"SWM_SwissArms",
 		"SWM_Misc",
@@ -49,13 +49,13 @@ class Mission
 	};
 	addOnsAuto[]=
 	{
+		"ca_modules_functions",
 		"ca_modules_animals",
 		"dayz_anim",
 		"dayz_code",
 		"dayz_communityassets",
 		"dayz_weapons",
 		"dayz_equip",
-		"ca_modules_functions",
 		"cacharacters_pmc",
 		"SWM_SwissArms",
 		"SWM_Misc",

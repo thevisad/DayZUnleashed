@@ -694,9 +694,16 @@ if (!isDedicated) then {
 };
 
 	progressLoadingScreen 0.8;
+	
+	//BIS_fnc_selectRandom =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\BIS_fnc\fn_selectRandom.sqf";
+	BIS_fnc_selectRandom =  	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_selectRandom.sqf";
+	BIS_fnc_vectorAdd =         compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\BIS_fnc\fn_vectorAdd.sqf";
+	BIS_fnc_halo =              compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\BIS_fnc\fn_halo.sqf";
+	BIS_fnc_findNestedElement =	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\BIS_fnc\fn_findNestedElement.sqf";
+	BIS_fnc_param = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\BIS_fnc\fn_param.sqf";
 
 	//Both
-	BIS_fnc_selectRandom = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_selectRandom.sqf";		//Checks which actions for nearby casualty
+	
 	fnc_buildWeightedArray = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_buildWeightedArray.sqf";		//Checks which actions for nearby casualty
 	zombie_initialize = compile preprocessFileLineNumbers "\z\addons\dayz_code\init\zombie_init.sqf";
 	object_vehicleKilled = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\object_vehicleKilled.sqf";		//Event handler run on damage
@@ -735,8 +742,8 @@ if (!isDedicated) then {
 	
 
 	//Unleashed
-	[] execVM "\z\addons\dayz_code\compile\houseLighting.sqf";
-	[] execVM "\z\addons\dayz_code\actions\player_repairActions.sqf";
+	//[] execVM "\z\addons\dayz_code\compile\houseLighting.sqf";
+	//[] execVM "\z\addons\dayz_code\actions\player_repairActions.sqf";
 
 	player_sumMedical = {
 		private["_character","_wounds","_legs","_arms","_medical", "_status"];

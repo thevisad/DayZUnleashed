@@ -6,6 +6,7 @@ private ["_playerObj","_myGroup","_id","_playerUID","_playerName","_characterID"
 _playerUID = _this select 0;
 _playerName = _this select 1;
 _playerObj = nil;
+_dayz_updateObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ"];
 {
 	if (getPlayerUID _x == _playerUID) exitWith { _playerObj = _x; };
 } forEach 	playableUnits;
@@ -33,7 +34,7 @@ if (!isNull _playerObj) then {
 	};
 	{ 
 			[_x,"gear"] call server_updateObject;
-	} foreach (nearestObjects [_playerPos, dayz_updateObjects, 10]);
+	} foreach (nearestObjects [getPosATL _playerObj, _dayz_updateObjects, 10]);
 		
 	if (alive _playerObj) then {
 		//[_playerObj,(magazines _playerObj),true,(unitBackpack _playerObj)] call server_playerSync;

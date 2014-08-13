@@ -6,12 +6,13 @@ class CfgBuildingLoot {
 		zombieClass[] = {"zZombie_Base","z_hunter","z_teacher","z_suit1","z_suit2","z_worker1","z_worker2","z_worker3","z_villager1","z_villager2","z_villager3"};
 		lootChance = 0;
 		lootPos[] = {};
-		lootType[] = {};
+		lootType[] = {{"civgeneric",0.25}};
 		hangPos[] = {};
 		vehPos[] = {};
 	};
 	class Master {
 		weapons[] = {"SMAW","Javelin","G36C","Stinger"};
+		lootType[] = {{"civgeneric",0.25}};
 	};
 	class Church: Default {
 		zombieChance = 0.3;
@@ -59,21 +60,7 @@ class CfgBuildingLoot {
 		zombieClass[] = {"zZombie_Base","z_hunter","z_teacher","z_villager1","z_villager2","z_villager3"};
 		lootChance = 0.6;
 		lootPos[] = {};		
-		itemType[] =	{
-			{"civgeneric",0.25},
-			{"food",0.05},
-			{"trash",0.20},
-			{"medical",0.05},
-			{"civskins",0.05},
-			{"buildingitems",0.05},
-			{"fuelitems",0.05},
-			{"civilian",0.15},
-			{"craftingitems",0.05},
-			{"normalbackpacks",0.05},
-			{"buildingkits",0.05},
-			{"drink",0.25},
-            {"activeloot",0.01}
-		};			
+		lootType[] =	{{"activeloot",0.01}};			
 	};
 	class Office: Residential {
 		maxRoaming = 3;

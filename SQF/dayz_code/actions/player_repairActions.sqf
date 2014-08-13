@@ -12,13 +12,17 @@ _amount2= 0.01; // Repair Rate
 while {true} do
 {
     if (!isNull player) then {
+		
+
         private ["_currentVehicle", "_isNearFeed", "_countFuel"];
                 _currentVehicle = vehicle player;
                 _countFuel = (count ((position _currentVehicle) nearObjects ["Land_A_FuelStation_Build", _distance]));
                 _countFuel = _countFuel + (count ((position _currentVehicle) nearObjects ["Land_fuelstation", _distance]));
                 _countFuel = _countFuel + (count ((position _currentVehicle) nearObjects ["Land_fuelstation_army", _distance]));
                 _isNearFeed = _countFuel > 0;
- 
+		
+		_vehicle_refuel_id = _vehicle addAction ["Refuel and Repair", "\z\addons\dayz_code\compile\object_repair.sqf", [_amount,_amount2], -1, false, true, "", "vehicle _this == _target && local _target"];
+		
         if (_vehicle != _currentVehicle) then {
             if (!isNull _vehicle) then {
                 _vehicle removeAction _vehicle_refuel_id;
@@ -28,7 +32,7 @@ while {true} do
             if (_currentVehicle != player && _isNearFeed && !(_currentVehicle isKindof "Bicycle")) then {  //change "Bicycle" to "Land" to allow only air vehicles to aut-refuel
                 _vehicle = _currentVehicle;
  
-                _vehicle_refuel_id = _vehicle addAction ["Refuel and Repair", "\z\addons\dayz_code\compile\object_repair.sqf", [_amount,_amount2], -1, false, true, "", "vehicle _this == _target && local _target"];
+               
             };
         };
    
