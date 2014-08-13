@@ -1,8 +1,10 @@
+private ["_dr","_pos","_xv","_yv","_dir","_Crater","_speed","_velz","_tv","_zv","_i","_smoke","_fire","_dirt","_v","_int","_t"];
+_v = _this select 0;
 _int = _this select 1;
 _t=_this select 2;
-_pos=getpos _v;
+_pos=getPosATL _v;
 // Particle effects
-if !(isDedicated) then { //dw, particle stuff don't need run on dedicated
+if (!isDedicated) then { //dw, particle stuff don't need run on dedicated
 _smoke = "#particlesource" createVehicleLocal _pos;
 _smoke attachto [_v,[0,0,0],"destructionEffect1"];
 _smoke setParticleParams [["\ca\Data\ParticleEffects\Universal\Universal",16,7,48],
@@ -41,9 +43,10 @@ _dirt setDropInterval 0.05;
 	_i=0;
 	while {(speed _v) > 0.1} do
 	{
-		_pos=getpos _v;
+		_pos=getPosATL _v;
 		_xv=velocity _v select 0;
 		_yv=velocity _v select 1;
+		_zv=velocity _v select 2;
 		_dir = abs(_xv atan2 _yv);
 
 		_Crater= "CraterLong" createvehiclelocal [_pos select 0, _pos select 1, 0];
@@ -61,14 +64,14 @@ _dirt setDropInterval 0.05;
 		_smoke setDropInterval _dr*1.5;
 		_fire setDropInterval _dr*1.5;
 		_dirt setDropInterval _dr;
-		_shards setDropInterval _dr;
+		//_shards setDropInterval _dr;
 
 		sleep (0.25 - (_speed / 1000));
 		_i = _i + 1;
 	};
 deleteVehicle _smoke;
 deleteVehicle _fire;
-deleteVehicle _shards;
+//deleteVehicle _shards;
 deleteVehicle _dirt;
 
 }; // end of dedicated check

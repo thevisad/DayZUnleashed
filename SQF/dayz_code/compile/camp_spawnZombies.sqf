@@ -70,7 +70,8 @@ while {_counter < _amount} do {
 	_newDest = getPosATL _agent;
 	_agent setVariable ["myDest",_myDest];
 	_agent setVariable ["newDest",_newDest];
-
+	
+	/*
 	//Add some loot
 	_rnd = random 1;
 	if (_rnd > 0.3) then {
@@ -90,7 +91,8 @@ while {_counter < _amount} do {
 			};
 		};
 	};
-
+	*/
+	
 	//add to counter
 	_counter = _counter + 1;
 	//Start behavior

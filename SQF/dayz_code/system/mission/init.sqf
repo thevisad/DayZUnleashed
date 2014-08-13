@@ -1,6 +1,7 @@
 /*	
 	INITILIZATION
 */
+waitUntil{!isnil "bis_fnc_init"};
 startLoadingScreen ["","RscDisplayLoadCustom"];
 cutText ["","BLACK OUT"];
 enableSaving [false, false];
@@ -24,6 +25,12 @@ call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functi
 progressLoadingScreen 0.4;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\compiles.sqf";					//Compile regular functions
 progressLoadingScreen 1.0;
+
+if (isServer) then {
+	hiveInUse	=	true;
+	_serverMonitor = [] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
+	// "PVDZ_sec_atp" addPublicVariableEventHandler { diag_log format["%1", _this select 1];};
+};
 
 /* BIS_Effects_* fixes from Dwarden */
 BIS_Effects_EH_Killed = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\BIS_Effects\killed.sqf";
@@ -66,11 +73,7 @@ if ((!isServer) && (player != player)) then
 	waitUntil {time > 3};
 };
 
-if (isServer) then {
-	hiveInUse	=	true;
-	_serverMonitor = [] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
-	// "PVDZ_sec_atp" addPublicVariableEventHandler { diag_log format["%1", _this select 1];};
-};
+
 
 if (!isDedicated) then {
     "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4];
@@ -104,7 +107,7 @@ if (!isNil "dayZ_serverName") then {
 	};
 };
 
-waitUntil{!(isNil "BIS_fnc_init")};
-[str ("Unleashed") ,  str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("Napf")] spawn BIS_fnc_infoText;
+
+//[str ("Unleashed") ,  str(date select 1) + "." + str(date select 2) + "." + str(date select 0), str("Napf")] spawn BIS_fnc_infoText;
 execVM "\z\addons\dayz_code\R3F_ARTY_AND_LOG\init.sqf";
 _nul = [] execVM "\z\addons\dayz_code\system\mission\DZAI_Client\dzai_initclient.sqf";

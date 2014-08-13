@@ -1,28 +1,43 @@
 private ["_iItem","_iClass","_iPos","_radius","_iPosZ","_item","_itemTypes","_qty","_max","_index","_weights",
 "_cntWeights","_tQty","_canType","_mags","_magQty","_uniq","_iItemRandom"];
 
+_iItem = nil;
+_iClass = nil;
+_iPos = nil;
+
 //Input
 _iItem = _this select 0;
 _iClass = _this select 1;
 _iPos = _this select 2;
 _radius = _this select 3;
+diag_log (format["SL: _iItem %1",_iItem]);
+diag_log (format["SL: _iClass %1",_iClass]);
+diag_log (format["SL: _iPos %1",_iPos]);
+diag_log (format["SL: _radius %1",_radius]);
+if ( isNil "_iClass" ) exitWith { diag_log("SL:  _iClass was blank, exiting."); };
+if ( isNil "_iItem" ) exitWith { diag_log("SL: _iItem was blank, exiting."); };
+if ( isNil "_iPos"  ) exitWith { diag_log("SL: _iPos was blank, exiting."); };
 
-if (isNil "_iPos" || isNil "_iClass" ) exitWith { diag_log("SL: _iPos or _iClass was blank, exiting."); };
 
 //Unique items
 _uniq = ["ItemWaterbottle", "ItemWaterbottleUnfilled"];
  
-//not 100% sure why this is needed all configs default from a base class.
 if (_iItem == "building") then {
+
         _iItemRandom=[];
         _iItemTypes = [] + getArray (configFile >> "cfgLoot" >> _iClass);
+		if (count _iItemTypes == 0) then { diag_log("SL: _iItemTypes was blank, exiting.") };
         _iItemRandom = _iItemTypes call BIS_fnc_selectRandom;
+		if ( isNil _iItemRandom ) exitWith { diag_log("SL: _iItemTypes was blank, exiting."); };
         _iItem = _iItemRandom select 0;
-        //diag_log ("CSL: _iItem replaced as " + str(_iItem));           
+        diag_log ("SL: _iItem replaced as " + str(_iItem));           
 } else {        
-        //diag_log ("CSL: Exiting out due to failed loading process");
+        diag_log (format["SL: _iItem was not spawned through us: %1",_iItem]);
+		diag_log (format["SL: _iClass was not spawned through us: %1",_iClass]);
+		diag_log (format["SL: _iPos was not spawned through us: %1",_iPos]);
+		diag_log (format["SL: _radius was not spawned through us: %1",_radius]);
 };
-
+/*
 if (isNil "_iitem" ) exitWith { diag_log("SL: _iItem was blank, exiting."); };
 
 //Check what type the item is. Would be better to store this info within the loot configs as it is static info.
@@ -112,5 +127,6 @@ if (_iItem != "" ) then {
 if ((count _iPos) > 2) then {
         _item setPosATL _iPos;
 };
- 
+ */
+_item = "test";
 _item

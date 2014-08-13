@@ -142,7 +142,7 @@ _object_damage = {
 			//diag_log ("SUO: Object Damage OID: "+ str(_objectID) + " Damage " + str(_damage));
 		};
 		#ifdef OBJECT_DEBUG
-		diag_log ("SUO: Object Damage WRITE: "+ str(_key));
+		//diag_log ("SUO: Object Damage WRITE: "+ str(_key));
 		#endif
 		_key call server_hiveWrite;	
 
@@ -151,7 +151,7 @@ _object_damage = {
 			needUpdate_objects = needUpdate_objects - [_object];
 		};
 		#ifdef OBJECT_DEBUG
-		diag_log format["SUO: Monitoring: %1",_object];
+		//diag_log format["SUO: Monitoring: %1",_object];
 		#endif
 		needUpdate_objects set [count needUpdate_objects, _object];
 	};

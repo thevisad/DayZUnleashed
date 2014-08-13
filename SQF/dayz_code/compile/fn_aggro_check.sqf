@@ -27,6 +27,8 @@ if(_inVehicle  and !(_veh isKindOf "ParachuteBase")) then {
     };
 };
 //
+if(isNil "unleashed_agroMeterEnabled") then { unleashed_agroMeterEnabled = 0;};
+
 
 //sum up total values
 _total_increase      = ( _total_increase + _dayz_aggro_vehicle_rate + dayz_aggro_move_rate) max 0;    //Total aggro generated per second

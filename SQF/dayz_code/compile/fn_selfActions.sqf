@@ -74,7 +74,7 @@ if (_canPickLight and !dayz_hasLight and !_isPZombie) then {
 	s_player_grabflare = -1;
 	s_player_removeflare = -1;
 };
-
+/*
 if(_isPZombie) then {
 	if (s_player_callzombies < 0) then {
 		s_player_callzombies = player addAction ["Raise Horde", "\z\addons\dayz_code\actions\pz_call_zombies.sqf",player, 5, true, false, "",""];
@@ -108,7 +108,7 @@ if(_isPZombie) then {
 		s_player_callzombies = player addAction ["Call Zombies", "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
 	};
 };
-
+*/
 //Take Control Air action
 //
 if ( _inVehicle and _vehicle isKindOf "Air" and !(_vehicle isKindOf "ParachuteBase")) then {
@@ -133,7 +133,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_isnewstorage = _typeOfCursorTarget in DZE_isNewStorage;
 	
 	_isMan = cursorTarget isKindOf "Man";
-	_ownerID = cursorTarget getVariable ["characterID","0"];
+	_ownerID = cursorTarget getVariable ["CharacterID","0"];
 	_isAnimal = cursorTarget isKindOf "Animal";
 	_isDog = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
 	_isBoar = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
@@ -201,6 +201,10 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 				_player_deleteBuild = true;
 			};
 		};
+		diag_log (format["FSA: _ownerID %1", _ownerID]);
+		diag_log (format["FSA: dayz_characterID %1", dayz_characterID]);
+		diag_log (format["FSA: _ownerID typeName %1", typeName _ownerID]);
+		diag_log (format["FSA: dayz_characterID typeName %1", typeName dayz_characterID]);
 		
 		//Allow owners to delete modulars
 		if(_isModular and (dayz_characterID == _ownerID)) then {
@@ -906,8 +910,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	player removeAction s_player_burybody;
 	s_player_burybody = -1;
 	player removeAction s_clothes;
-    	s_clothes = -1;
-		
+	s_clothes = -1;
 	player removeAction s_player_meleeattack;
 	s_player_meleeattack = -1;
 	/*
@@ -920,9 +923,10 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	s_player_fillfuel20 = -1;
 	player removeAction s_player_fillfuel5;
 	s_player_fillfuel5 = -1;
-	
 	//Remove Parts
-	{silver_myCursorTarget removeAction _x} forEach s_player_removeActions;s_player_removeActions = [];
+	{silver_myCursorTarget removeAction _x} forEach s_player_removeActions;
+	s_player_removeActions = [];
+	
 	silver_myCursorTarget = objNull;
 	
 	player removeAction s_player_information;

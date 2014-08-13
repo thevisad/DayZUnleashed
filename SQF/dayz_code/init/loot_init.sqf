@@ -8,7 +8,7 @@ for "_i" from 0 to ((count _config) - 1) do {
 	_itemChances = getArray (_config >> _classname >> "lootType");
 	_itemCount = count _itemChances;
 
-//diag_log format["Classname: %1, Array: %2, Amount: %3", _classname, _itemChances, _itemCount];
+diag_log format["ULI: Classname: %1, Array: %2, Amount: %3", _classname, _itemChances, _itemCount];
 
 	if (_itemCount > 0) then {
 		if (dayz_CBLBase find _classname < 0) then {
@@ -31,8 +31,8 @@ for "_i" from 0 to ((count _config) - 1) do {
 	};
 };
 
-//diag_log format["LootInit dayz_CBLChances: %1", dayz_CBLChances];
-//diag_log format["LootInit dayz_CBLBase: %1", dayz_CBLBase];
+diag_log format["ULI: dayz_CBLChances: %1", dayz_CBLChances];
+diag_log format["ULI: dayz_CBLBase: %1", dayz_CBLBase];
 
 
 dayz_CLChances = [];
@@ -42,7 +42,7 @@ _config = configFile >> "cfgLoot";
 	for "_i" from 0 to ((count (_config)) - 1) do {
 		_classname = configName (_config select _i);
 		_itemChances = getArray (_config select _i);
-		//diag_log format["CFGLoot: %1, Array: %2", _classname, _itemChances];
+		//diag_log format["ULI: CFGLoot: %1, Array: %2", _classname, _itemChances];
 		_weighted = [];
 		_j = 0;
 		for "_l" from 0 to ((count _itemChances) - 1) do {
@@ -55,10 +55,9 @@ _config = configFile >> "cfgLoot";
 		dayz_CLBase set [count dayz_CLBase, _classname];
 		dayz_CLChances set [count dayz_CLChances, _weighted];
 	};
-//diag_log ("BaseLoot: " +str(dayz_CLBase));
 
-//diag_log format["LootInit dayz_CLBase: %1", dayz_CLBase];
-//diag_log format["LootInit dayz_CLChances: %1", dayz_CLChances];
+diag_log format["ULI: dayz_CLBase: %1", dayz_CLBase];
+diag_log format["ULI: dayz_CLChances: %1", dayz_CLChances];
 
 private["_i","_type","_config","_canZombie","_canLoot"];
 dayz_ZombieBuildings = [];
@@ -78,5 +77,5 @@ for "_i" from 0 to (count (configFile >> "CfgBuildingLoot") - 1) do {
 		};
 	};
 };
-//diag_log format["ZombieBuildings: %1", dayz_ZombieBuildings];
-//diag_log format["LootBuildings: %1", dayz_LootBuildings];
+diag_log format["ULI: ZombieBuildings: %1", dayz_ZombieBuildings];
+diag_log format["ULI: LootBuildings: %1", dayz_LootBuildings];
