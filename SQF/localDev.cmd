@@ -9,6 +9,18 @@ copy dayz_equip.pbo "D:\Program Files (x86)\Steam\SteamApps\common\ARMA 2 Operat
 copy dayz_vehicles.pbo "D:\Program Files (x86)\Steam\SteamApps\common\ARMA 2 Operation Arrowhead\@DayZUnleashed\Addons"
 copy dayz_weapons.pbo "D:\Program Files (x86)\Steam\SteamApps\common\ARMA 2 Operation Arrowhead\@DayZUnleashed\Addons"
 
+copy dayz_anim.pbo E:\dev_unleashedclient\addons\client
+copy dayz_code.pbo E:\dev_unleashedclient\addons\client
+copy dayz_communityassets.pbo E:\dev_unleashedclient\addons\client
+copy dayz_epoch.pbo E:\dev_unleashedclient\addons\client
+copy dayz_sfx.pbo E:\dev_unleashedclient\addons\client
+copy unleashed_pack.pbo E:\dev_unleashedclient\addons\client
+copy dayz.pbo E:\dev_unleashedclient\addons\client
+copy dayz_equip.pbo E:\dev_unleashedclient\addons\client
+copy dayz_vehicles.pbo E:\dev_unleashedclient\addons\client
+copy dayz_weapons.pbo E:\dev_unleashedclient\addons\client
+copy dayz_server.pbo E:\dev_unleashedclient\addons\server
+
 move dayz_anim.pbo "F:\arma 2 operation arrowhead\@DayZUnleashed\Addons"
 move dayz_code.pbo "F:\arma 2 operation arrowhead\@DayZUnleashed\Addons"
 move dayz_communityassets.pbo "F:\arma 2 operation arrowhead\@DayZUnleashed\Addons"

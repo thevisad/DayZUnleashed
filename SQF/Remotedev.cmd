@@ -9,8 +9,8 @@ move dayz_equip.pbo "E:\dev_unleashedclient\addons\client"
 move dayz_vehicles.pbo "E:\dev_unleashedclient\addons\client"
 move dayz_weapons.pbo "E:\dev_unleashedclient\addons\client"
 move dayz_server.pbo "E:\dev_unleashedclient\addons\server"
-
+DayZUnleashedFileHash generatehash
 
 ftp -i -s:u.ftp
-del /q E:\dev_unleashedclient\addons\client\*.pbo
-del /q E:\dev_unleashedclient\addons\server\*.pbo
+rem del /q E:\dev_unleashedclient\addons\client\*.pbo
+rem del /q E:\dev_unleashedclient\addons\server\*.pbo
