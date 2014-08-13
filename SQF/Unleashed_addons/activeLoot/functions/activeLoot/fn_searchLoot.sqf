@@ -1,4 +1,4 @@
-if ((isNil "_this")||(isNull _object)) exitWith {diag_log format["%1:ERROR> _this is not specifyed!","DZU_fnc_searchLoot"]; };
+if ((isNil "_this")||(isNull _this)) exitWith {diag_log format["%1:ERROR> _this is not specifyed!","DZU_fnc_searchLoot"]; };
 if (!(_this isKindOf "activeLoot")) exitWith {diag_log format["%1:ERROR> object is not type activeLoot: %2","DZU_fnc_searchLoot",(typeOf _this)]; };
 //args
 _object             = _this;
