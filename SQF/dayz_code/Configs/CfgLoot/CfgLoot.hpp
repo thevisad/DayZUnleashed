@@ -69,7 +69,7 @@ class CfgLoot {
 
 	};
 	airparts[]={
-		{"PartVRotor",0.03},
+		{"PartVRotor",0.03}
 		//{"WeaponHolder_PartVRotor",0.02}
 	};
 	trash[] = {
@@ -508,7 +508,7 @@ class CfgLoot {
 	};
 
 	militaryspecial[] = {
-		{"PipeBomb",0.01},
+		{"PipeBomb",0.01}
 	};	
 	
 	medical[] = {

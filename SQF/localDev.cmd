@@ -32,6 +32,7 @@ move dayz_equip.pbo "F:\arma 2 operation arrowhead\@DayZUnleashed\Addons"
 move dayz_vehicles.pbo "F:\arma 2 operation arrowhead\@DayZUnleashed\Addons"
 move dayz_weapons.pbo "F:\arma 2 operation arrowhead\@DayZUnleashed\Addons"
 move dayz_server.pbo "F:\arma 2 operation arrowhead\@DayZUnleashedServer\addons"
+move dayz_1.napf.pbo "F:\arma 2 operation arrowhead\MPMissions"
 
 copy ..\..\DayZUnleashed_Hive_working\Hive\Binaries\HiveExt.dll "F:\arma 2 operation arrowhead\@DayZUnleashedServer"
 copy ..\..\DayZUnleashed_Hive_working\Hive\Binaries\DatabaseMySql.dll "F:\arma 2 operation arrowhead"

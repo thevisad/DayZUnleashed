@@ -8,7 +8,7 @@ for "_i" from 0 to ((count _config) - 1) do {
 	_itemChances = getArray (_config >> _classname >> "lootType");
 	_itemCount = count _itemChances;
 
-diag_log format["ULI: Classname: %1, Array: %2, Amount: %3", _classname, _itemChances, _itemCount];
+//diag_log format["ULI: Classname: %1, Array: %2, Amount: %3", _classname, _itemChances, _itemCount];
 
 	if (_itemCount > 0) then {
 		if (dayz_CBLBase find _classname < 0) then {
@@ -31,8 +31,8 @@ diag_log format["ULI: Classname: %1, Array: %2, Amount: %3", _classname, _itemCh
 	};
 };
 
-diag_log format["ULI: dayz_CBLChances: %1", dayz_CBLChances];
-diag_log format["ULI: dayz_CBLBase: %1", dayz_CBLBase];
+//diag_log format["ULI: dayz_CBLChances: %1", dayz_CBLChances];
+//diag_log format["ULI: dayz_CBLBase: %1", dayz_CBLBase];
 
 
 dayz_CLChances = [];
@@ -56,8 +56,8 @@ _config = configFile >> "cfgLoot";
 		dayz_CLChances set [count dayz_CLChances, _weighted];
 	};
 
-diag_log format["ULI: dayz_CLBase: %1", dayz_CLBase];
-diag_log format["ULI: dayz_CLChances: %1", dayz_CLChances];
+//diag_log format["ULI: dayz_CLBase: %1", dayz_CLBase];
+//diag_log format["ULI: dayz_CLChances: %1", dayz_CLChances];
 
 private["_i","_type","_config","_canZombie","_canLoot"];
 dayz_ZombieBuildings = [];
@@ -77,5 +77,5 @@ for "_i" from 0 to (count (configFile >> "CfgBuildingLoot") - 1) do {
 		};
 	};
 };
-diag_log format["ULI: ZombieBuildings: %1", dayz_ZombieBuildings];
-diag_log format["ULI: LootBuildings: %1", dayz_LootBuildings];
+//diag_log format["ULI: ZombieBuildings: %1", dayz_ZombieBuildings];
+//diag_log format["ULI: LootBuildings: %1", dayz_LootBuildings];

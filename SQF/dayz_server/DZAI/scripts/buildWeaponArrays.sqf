@@ -21,7 +21,7 @@ _lootConfigFile = if !((DZAI_useCustomLoot) && {(isClass (missionConfigFile >> "
 	missionConfigFile
 };
 
-_bldgClasses = [["Residential","Farm"],["Military"],["MilitarySpecial"],["HeliCrash"],["Hunting"]];
+_bldgClasses = [["civilian"],["Military"],["MilitarySpecial"],["hunt"]];
 _unwantedWeapons = _this select 0;		//User-specified weapon banlist.
 
 _aiWeaponBanList = ["Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails","Chainsaw"];
@@ -41,7 +41,7 @@ if (isNil "dayzNam_buildingLoot") then {
 	};
 } else {
 	_cfgBuildingLoot = dayzNam_buildingLoot;
-	(_bldgClasses select 3) set [((_bldgClasses select 3) find "HeliCrash"),"HeliCrashNamalsk"];
+	(_bldgClasses select 3) set [((_bldgClasses select 3) find "Military"),"HeliCrashNamalsk"];
 };
 //diag_log format ["DEBUG :: _cfgBuildingLoot: %1",_cfgBuildingLoot];
 
@@ -81,7 +81,7 @@ for "_i" from 0 to (count _bldgClasses - 1) do {					//_i = weapongrade
 		_bldgLoot = [];
 		for "_k" from 0 to (count _iItemTypes - 1) do {	
 			_bldgLootItem = _iItemTypes select _k;	
-			if (((_bldgLootItem select 0) == "basicweapon") || ((_bldgLootItem select 0) == "militaryweapon") || ((_bldgLootItem select 0) == "specialweapon") || ((_bldgLootItem select 0) == "military") || ((_bldgLootItem select 0) == "civilian")) then {
+			if (((_bldgLootItem select 0) == "hunt") || ((_bldgLootItem select 0) == "military") || ((_bldgLootItem select 0) == "militaryspecial")  || ((_bldgLootItem select 0) == "civilian")|| ((_bldgLootItem select 0) == "rarebuildingitems")) then {
 				_bldgLoot = [] + getArray (configFile >> "cfgLoot" >> (_bldgLootItem select 0));
 		};
 		for "_k" from 0 to (count _bldgLoot - 1) do {				

@@ -43,7 +43,7 @@ _bias = (_bias + random(100-_bias)) / 100;
 				_itemType = _itemTypes select _index;
 
 				//diag_log format["SL: Building: %1 - Group: %2",_type, _itemType select 0];
-				["building",_itemType select 0, _iPos, 0.0] call spawn_loot;
+				["building",_itemType select 0, _iPos, 0, "server_building_spawnloot" ] call spawn_loot;
 				_qty = _qty +1;
 			};
 		} else {

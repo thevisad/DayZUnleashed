@@ -10,14 +10,15 @@ _iItem = _this select 0;
 _iClass = _this select 1;
 _iPos = _this select 2;
 _radius = _this select 3;
-diag_log (format["SL: _iItem %1",_iItem]);
-diag_log (format["SL: _iClass %1",_iClass]);
-diag_log (format["SL: _iPos %1",_iPos]);
-diag_log (format["SL: _radius %1",_radius]);
-if ( isNil "_iClass" ) exitWith { diag_log("SL:  _iClass was blank, exiting."); };
+_function = _this select 4;
+//diag_log (format["SL: _iItem %1",_iItem]);
+//diag_log (format["SL: _iClass %1",_iClass]);
+//diag_log (format["SL: _iPos %1",_iPos]);
+//diag_log (format["SL: _radius %1",_radius]);
+//diag_log (format["SL: _function %1",_function]);
+if ( isNil "_iClass" ) exitWith { diag_log("SL: _iClass was blank, exiting."); };
 if ( isNil "_iItem" ) exitWith { diag_log("SL: _iItem was blank, exiting."); };
 if ( isNil "_iPos"  ) exitWith { diag_log("SL: _iPos was blank, exiting."); };
-
 
 //Unique items
 _uniq = ["ItemWaterbottle", "ItemWaterbottleUnfilled"];
@@ -26,18 +27,20 @@ if (_iItem == "building") then {
 
         _iItemRandom=[];
         _iItemTypes = [] + getArray (configFile >> "cfgLoot" >> _iClass);
-		if (count _iItemTypes == 0) then { diag_log("SL: _iItemTypes was blank, exiting.") };
+		if (count _iItemTypes == 0) exitWith { diag_log("SL: _iItemTypes was blank, exiting.") };
         _iItemRandom = _iItemTypes call BIS_fnc_selectRandom;
-		if ( isNil _iItemRandom ) exitWith { diag_log("SL: _iItemTypes was blank, exiting."); };
-        _iItem = _iItemRandom select 0;
-        diag_log ("SL: _iItem replaced as " + str(_iItem));           
+		//diag_log (format["SL: _iItemRandom %1",_iItemRandom]);
+		//diag_log (format["SL: _iItemTypes %1",_iItemTypes]);
+		_iItem = _iItemRandom select 0;
+		//diag_log ("SL: _iItem replaced as " + str(_iItem));  
+        
 } else {        
-        diag_log (format["SL: _iItem was not spawned through us: %1",_iItem]);
-		diag_log (format["SL: _iClass was not spawned through us: %1",_iClass]);
-		diag_log (format["SL: _iPos was not spawned through us: %1",_iPos]);
-		diag_log (format["SL: _radius was not spawned through us: %1",_radius]);
+        //diag_log (format["SL: _iItem was not spawned through us: %1",_iItem]);
+		//diag_log (format["SL: _iClass was not spawned through us: %1",_iClass]);
+		//diag_log (format["SL: _iPos was not spawned through us: %1",_iPos]);
+		//diag_log (format["SL: _radius was not spawned through us: %1",_radius]);
 };
-/*
+
 if (isNil "_iitem" ) exitWith { diag_log("SL: _iItem was blank, exiting."); };
 
 //Check what type the item is. Would be better to store this info within the loot configs as it is static info.
@@ -85,7 +88,7 @@ if (_iItem != "" ) then {
 					if (_tQty > 0) then {
 				   
 							_item addMagazineCargoGlobal [_canType,_tQty];
-							diag_log ("CSL: spawntest item : " + str(_canType));
+							//diag_log ("CSL: spawntest item : " + str(_canType));
 							_qty = _qty + _tQty;
 					};
 			};
@@ -97,7 +100,7 @@ if (_iItem != "" ) then {
 		case "weapon": {
 				//Item is a weapon, add it and a random quantity of magazines
 				_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
-				diag_log ("CSL: weapon item : " + str(_iItem));
+				//diag_log ("CSL: weapon item : " + str(_iItem));
 				_item addWeaponCargoGlobal [_iItem,1];
 				_mags = [] + getArray (configFile >> "cfgWeapons" >> _iItem >> "magazines");
 				if ((count _mags) > 0) then {
@@ -114,12 +117,12 @@ if (_iItem != "" ) then {
 		case "magazine": {
 				//Item is one magazine
 				_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
-				diag_log ("CSL: magazine item : " + str(_iItem));
+				//diag_log ("CSL: magazine item : " + str(_iItem));
 				_item addMagazineCargoGlobal [_iItem,1];
 		};
 		case "object": {
 				//Item is one magazine
-				diag_log ("CSL: object item : " + str(_iItem));
+				//diag_log ("CSL: object item : " + str(_iItem));
 				_item = createVehicle [_iItem, _iPos, [], _radius, "CAN_COLLIDE"];
 		};
 	};
@@ -127,6 +130,5 @@ if (_iItem != "" ) then {
 if ((count _iPos) > 2) then {
         _item setPosATL _iPos;
 };
- */
-_item = "test";
+
 _item
