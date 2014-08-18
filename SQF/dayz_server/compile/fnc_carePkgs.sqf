@@ -6,8 +6,7 @@ if (isDedicated) then {
 
 	_randomvehicle = ["Misc_cargo_cont_net1","Misc_cargo_cont_net2","Misc_cargo_cont_net3"] call BIS_fnc_selectRandom;
 	//_vehicleloottype = ["Residential","Industrial","Military","Farm","Supermarket","Hospital"] call BIS_fnc_selectRandom;
-	
-	_vehicleloottypeTemp = [] + getArray (configFile >> "cfgWeapons");
+	_vehicleloottypeTemp = [] + getArray (configFile >> "cfgLoot");
 	_vehicleloottype =  _vehicleloottypeTemp call BIS_fnc_selectRandom;
 	
 	_veh = createVehicle [_randomvehicle,_position, [], 0, "CAN_COLLIDE"];
@@ -21,7 +20,7 @@ if (isDedicated) then {
 	//diag_log("DEBUG: Spawning a " + str (_randomvehicle) + " at " + str(_position) + " With total loot drops = " + str(_num));
 
 	for "_x" from 1 to _num do {
-		["building", "weapon", _position, 10] call spawn_loot;
+		["building", _vehicleloottype , _position, 0 , "server_bfnc_carepkgs" ] call spawn_loot;
 		_nearby = _position nearObjects ["WeaponHolder",20];
 		{
 			_x setVariable ["permaLoot",true];

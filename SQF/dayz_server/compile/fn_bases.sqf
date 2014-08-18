@@ -42,7 +42,7 @@ _addLoot = {
 		_clutter = createVehicle ["ClutterCutter_small_2_EP1", _position, [], 0, "CAN_COLLIDE"];
 		_clutter setPos _position;
 		//["building",_itemType select 0, _iPos, 0.0] call spawn_loot;
-		["building", _itemType select 0, _position, _lootMaxRadius] call spawn_loot;
+		["building", _itemType select 0, _position, _lootMaxRadius, "server_fn_bases"] call spawn_loot;
 		//[_itemType select 0, _itemType select 1, _position, _lootMaxRadius] call spawn_loot;
 	
 		//diag_log(format["Infected Camps: Loot spawn at '%1:%3' with loot table '%2'", _baseClass, str(_itemType),_position]); 

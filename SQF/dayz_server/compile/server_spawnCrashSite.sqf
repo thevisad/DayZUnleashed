@@ -365,7 +365,7 @@ while {true} do {
 			_lootPos = [_pos, ((random 2) + (sizeOf(_crashModel) * _lootRadius)), random 360] call BIS_fnc_relPos;
 			//_lootPos = [_lootPos select 0,_lootPos select 1,0];
 			//[_itemType select 0, _itemType select 1, _lootPos, 0] call spawn_loot;
-			["building", _itemType select 0, _lootPos, 0] call spawn_loot;
+			["building", _itemType select 0, _lootPos, 0, "server_spawncrashsite"] call spawn_loot;
 
 			diag_log(format["CRASHSPAWNER: Loot spawn at '%1' with loot table '%2'", _lootPos, sizeOf(_crashModel)]); 
 

@@ -5,7 +5,7 @@ scriptName "Functions\misc\fn_selfActions.sqf";
 	- Function
 	- [] call fnc_usec_selfActions;
 ************************************************************/
-private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_newCuTyp","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem","_combi","_hasBarrelE","_hasBarrel","_hasFuel210","_unconscious","_isPZombie","_player_SurrenderedGear"];
+private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasfuelbarrele","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_newCuTyp","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem","_combi","_hasBarrelE","_hasBarrel","_hasFuel210","_unconscious","_isPZombie","_player_SurrenderedGear"];
 
 if (DZE_ActionInProgress) exitWith {}; // Do not allow if any script is running.
 
@@ -19,7 +19,7 @@ _hasAntiB = "ItemAntibiotic" in magazines player;
 _hasETool = "ItemEtool" in weapons player;
 _hasFuelE20 = "ItemJerrycanEmpty" in magazines player;
 _hasFuelE5 = "ItemFuelcanEmpty" in magazines player;
-_hasFuelBarrelE = 	"ItemFuelBarrelEmpty" in _magazinesPlayer;
+_hasFuelBarrelE = "ItemFuelBarrelEmpty" in magazines player;
 //boiled Water
 _hasbottleitem = "ItemWaterbottle" in magazines player;
 _hastinitem = false;
@@ -129,7 +129,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_isVehicle = cursorTarget isKindOf "AllVehicles";
 	_isStorage = typeOf cursorTarget in ["Bunker_PMC"];
 	_isVehicletype = typeOf cursorTarget in ["ATV_US_EP1","ATV_CZ_EP1"];
-	
+	_cursorTarget = cursorTarget;
+	_typeOfCursorTarget = typeOf _cursorTarget;
 	_isnewstorage = _typeOfCursorTarget in DZE_isNewStorage;
 	
 	_isMan = cursorTarget isKindOf "Man";
@@ -164,10 +165,10 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_text = getText (configFile >> "CfgVehicles" >> typeOf cursorTarget >> "displayName");
 	
 	// set cursortarget to variable
-	_cursorTarget = cursorTarget;
+	
 	
 	// Get typeOf only once
-	_typeOfCursorTarget = typeOf _cursorTarget;
+	
 
 	// get magazines array only once
 	_magazinesPlayer = magazines player;

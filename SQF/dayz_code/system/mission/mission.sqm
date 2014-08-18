@@ -45,6 +45,8 @@ class Mission
 		"KPFS_HKP30",
 		"KPFS_P88",
 		"KPFS_P99",
+		"kpfs_g22",
+		"kpfs_g27",
 		"napf"
 	};
 	addOnsAuto[]=
@@ -91,6 +93,8 @@ class Mission
 		"KPFS_HKP30",
 		"KPFS_P88",
 		"KPFS_P99",
+		"kpfs_g22",		
+		"kpfs_g27",
 		"napf"
 	};
 	randomSeed=11171215;

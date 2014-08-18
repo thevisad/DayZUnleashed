@@ -559,6 +559,11 @@ dayz_zombieTargetList = [
 	["LandVehicle",200],
 	["Boat",200]
 ];
+
+if(isNil "DZE_DamageBeforeMaint") then {
+	DZE_DamageBeforeMaint = 0.09;
+};
+
 dayzHit = [];
 PVDZ_obj_Publish = [];		//used for eventhandler to spawn a mirror of players tent
 PVDZ_obj_HideBody = objNull;
