@@ -276,9 +276,9 @@ class FSM
        "_dog = _this select 1;" \n
        "_type = _this select 2;" \n
        "" \n
-       "diag_log(""Dog Agent:  "" + str(_dog));" \n
-       "diag_log(""Dog Agent: Type "" + str(_type));" \n
-       "diag_log(""Dog Agent:  Position "" + str(_pos));" \n
+       "//diag_log(""Dog Agent:  "" + str(_dog));" \n
+       "//diag_log(""Dog Agent: Type "" + str(_type));" \n
+       "//diag_log(""Dog Agent:  Position "" + str(_pos));" \n
        "" \n
        "_standing = true;" \n
        "_command = ""none"";" \n
@@ -768,8 +768,8 @@ class FSM
     {
       name = "action_init";
       init = /*%FSM<STATEINIT""">*/"_heartbeat = [_dog,_handle] spawn {" \n
-       "diag_log(""Dog Agent Action Init:  "" + str(_dog));" \n
-       "diag_log(""Dog Agent: Action Init _handle:  "" + str(_handle));" \n
+       "//diag_log(""Dog Agent Action Init:  "" + str(_dog));" \n
+       "//diag_log(""Dog Agent: Action Init _handle:  "" + str(_handle));" \n
        "" \n
        "	disableSerialization;" \n
        "" \n

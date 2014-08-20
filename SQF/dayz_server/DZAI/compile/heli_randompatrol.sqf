@@ -7,10 +7,10 @@ while {_tooClose} do {
 	if (((waypointPosition [_unitGroup,0]) distance _wpSelect) > 300) then {
 		_tooClose = false;
 	} else {
-		sleep 0.1;
+		uiSleep 0.1;
 	};
 };
-_wpSelect = [_wpSelect,50+(random 300),(random 360),true] call SHK_pos;
+_wpSelect = [_wpSelect,50+(random 900),(random 360),true] call SHK_pos;
 [_unitGroup,0] setWPPos _wpSelect; 
 [_unitGroup,1] setWPPos _wpSelect;
 if ((waypointType [_unitGroup,1]) == "MOVE") then {
@@ -24,5 +24,8 @@ if ((waypointType [_unitGroup,1]) == "MOVE") then {
 	[_unitGroup,1] setWaypointTimeout [3,6,9];
 };
 //[_unitGroup,0] setWaypointCompletionRadius 150;
+//_unitGroup setCurrentWaypoint [_unitGroup,0];
+//(vehicle (leader _unitGroup)) flyInHeight (100 + (random 40));
+
 _unitGroup setCurrentWaypoint [_unitGroup,0];
 (vehicle (leader _unitGroup)) flyInHeight (100 + (random 40));

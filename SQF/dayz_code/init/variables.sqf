@@ -290,6 +290,7 @@ canRoll = true;
 canPickup = false;
 pickupInit = false;
 canbuild = true;
+placevault = true;
 
 //Hunting Variables
 dayZ_partClasses = [
@@ -409,12 +410,18 @@ dayz_resetSelfActions = {
 	unleashed_change_variable1 = -1;
 	unleashed_change_variable2 = -1;
 	s_player_removeActions = [];
+	s_player_fillfuel210 = -1;
+	s_player_burntent = -1;
+	s_player_suicide = -1;
+	s_building_snapping = -1;
+	s_player_callzombies = 1;
 };
 call dayz_resetSelfActions;
 
 //Air Take Control function varibles
 s_pilot_swapObj = objNull; 
 s_pilot_lockObj = objNull;
+
 
 //Engineering variables
 s_player_lastTarget =	[objNull,objNull,objNull,objNull,objNull];
@@ -483,6 +490,7 @@ r_action_targets = [];
 r_pitchWhine = false;
 r_isBandit = false;
 counttotaldeldead = 0;
+dayz_weight = 0;
 //count actions
 r_action_count = 0;
 accountPassword = 0;
@@ -564,6 +572,14 @@ if(isNil "DZE_DamageBeforeMaint") then {
 	DZE_DamageBeforeMaint = 0.09;
 };
 
+if(isNil "DZE_BuildingLimit") then {
+	DZE_BuildingLimit = 150;
+};
+
+if(isNil "DZE_BuildOnRoads") then {
+	DZE_BuildOnRoads = false;
+};
+
 dayzHit = [];
 PVDZ_obj_Publish = [];		//used for eventhandler to spawn a mirror of players tent
 PVDZ_obj_HideBody = objNull;
@@ -579,7 +595,7 @@ DAYZ_agentnumber = 0;
 dayz_animalDistance = 150;
 dayz_zSpawnDistance = 1000;
 
-dayz_maxLocalZombies = 100; // max quantity of Z controlled by local gameclient, used by player_spawnCheck. Below this limit we can spawn Z
+dayz_maxLocalZombies = 60; // max quantity of Z controlled by local gameclient, used by player_spawnCheck. Below this limit we can spawn Z
 dayz_maxMaxModels = 300; // max quantity of Man models (player or Z, dead or alive) around players. Below this limit we can spawn Z
 dayz_maxMaxWeaponHolders = 400; // max quantity of loot piles around players. Below this limit we can spawn some loot
 dayz_tagDelayWeaponHolders = 2; // prevent any new loot spawn on this building during this delay (minutes)
@@ -588,17 +604,17 @@ dayz_spawnArea = 225; // radius around player where we can spawn loot & Z
 dayz_safeDistPlr = 50; // Any loot & Z won't be spawned closer than this distance from any player
 dayz_cantseeDist = 150; // distance from which we can spawn a Z in front of any player without ray-tracing and angle checks
 dayz_cantseefov = 70; // half player field-of-view. Visible Z won't be spawned in front of any near players
-dayz_canDelete = 800; // Z, further than this distance from its "owner", will be deleted
+dayz_canDelete = 600; // Z, further than this distance from its "owner", will be deleted
 dayz_lootSpawnBias = 100; // between 50 and 100. The lower it is, the lower chance some of the lootpiles will spawn
 dayz_lootSpawnDebug = 1;
 dayz_localswarmSpawned = 40;  // how many zeds will spawn around you during a combat scenario.
 dayz_infectionTreshold = 1.25; // used to trigger infection, see fn_damageHandler.sqf
-dayz_localagroSpawned = 60;  // how many zeds will spawn around you during a combat scenario. 
+dayz_localagroSpawned = 40;  // how many zeds will spawn around you during a combat scenario. 
 dayz_zombiehordeMinSpawns = 2; //Lower limit of Zombie hordes that are allowed to spawn
 dayz_zombiehordeMaxSpawns = 5; //Upper limit of Zombie hordes that are allowed to spawn
 dayz_zombiehordeSpawned = 0; // zombie horde spawn variable
-dayz_zombiehordeMinimum = 20; //minimum amount of zombie spawns per horde 
-dayz_zombiehordeMaximum = 50; // minimum amount of zombie spawns per horde
+dayz_zombiehordeMinimum = 6; //minimum amount of zombie spawns per horde 
+dayz_zombiehordeMaximum = 20; // minimum amount of zombie spawns per horde
 dayz_zombiehorde = 0; //current hordes
 dayz_zombiehordeData = []; //current hordes
 dayz_zombiehordes = []; 

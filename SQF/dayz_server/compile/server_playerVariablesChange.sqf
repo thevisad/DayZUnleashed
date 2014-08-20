@@ -27,11 +27,11 @@ if((count _variables != _checksum)||(count _values != _checksum))  exitWith {
 
 diag_log("Character : " + str(_target_character));
 diag_log("Variables : " + str(_variables));
-diag_log("Values    : " + str(_target_value));
 if ((_target_characterID != "0")&&(!isNull _target_character)&&(alive _target_character)) then {
     for "_i" from 0 to ((count _variables) - 1) do {
         _target_variable=(_variables select _i);
         _target_value   =(_values select _i);
+		diag_log("Values    : " + str(_target_value));
         _key = format["CHILD:152:%1:%2:%3:",_target_characterID,_target_variable,_target_value];
         //diag_log ("HIVE: WRITE: "+ str(_key) + " / " + str(_target_character));
         _key call server_hiveWrite;

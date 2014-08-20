@@ -92,10 +92,10 @@ if (isServer and isNil "sm_done") then {
 			_squadID =	if ((typeName (_x select 6)) == "SCALAR") then { _x select 6 } else { 0 };
 			_combination = _x select 7;  
 			
-			diag_log (format["SM: _type %1",_type]);
-			diag_log (format["SM: _idKey %1",_idKey]);
-			diag_log (format["SM: _ownerID %1",_ownerID]);
-			diag_log (format["SM: _worldspace %1",_worldspace]);
+			//diag_log (format["SM: _type %1",_type]);
+			//diag_log (format["SM: _idKey %1",_idKey]);
+			//diag_log (format["SM: _ownerID %1",_ownerID]);
+			//diag_log (format["SM: _worldspace %1",_worldspace]);
 			
 			_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
 			_object setVariable ["lastUpdate",time];
@@ -164,19 +164,10 @@ if (isServer and isNil "sm_done") then {
 			_object setVariable ["CharacterID", _combination, true];
 			_combinationTest = _object getVariable ["CharacterID", 0];
 			
-			/*
-			18:52:14 "SM: Combination 882"
-			18:52:14 "SM: Object "
-			18:52:14 "SM: Array: "
-			18:52:14 "SM: Count: "
-			18:52:14 "SM: Test: "
-			18:52:14 "SM: Streaming Vehicles"
-			18:52:14 "SM: found 150 vehicles"
-			*/
-			
-			diag_log (format["SM: Combination %1", _combination]);
-			diag_log (format["SM: Object %1",_object]);
-			diag_log (format["SM: Test: %1", _combinationTest]);
+		
+			//diag_log (format["SM: Combination %1", _combination]);
+			//diag_log (format["SM: Object %1",_object]);
+			//diag_log (format["SM: Test: %1", _combinationTest]);
 			
 			
 			clearWeaponCargoGlobal  _object;
@@ -245,7 +236,7 @@ if (isServer and isNil "sm_done") then {
 			_hiveResponse = ["",0];
 		} 
 		else {
-			diag_log ("SM: found "+str(_hiveResponse select 1)+" vehicles" );
+			//diag_log ("SM: found "+str(_hiveResponse select 1)+" vehicles" );
 			_i = 99; // break
 		};
 	};
@@ -450,7 +441,7 @@ if (isServer and isNil "sm_done") then {
 			// UPDATE MODIFIED OBJECTS TO THE HIVE 
 			if (_action == "CREATED") then {
 				_combination = floor(random 899) + 100;
-				diag_log ("combination of " + str(_combination) + " was used");
+				//diag_log ("combination of " + str(_combination) + " was used");
 				// insert className damage characterId  worldSpace inventory  hitPoints  fuel uniqueId  
 					_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:", dayZ_instance, 
 						_class, _damage , 1, 

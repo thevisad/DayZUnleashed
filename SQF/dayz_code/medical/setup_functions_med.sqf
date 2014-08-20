@@ -36,7 +36,7 @@ fnc_usec_damageUnconscious = {
 	_inVehicle = (vehicle _unit != _unit);
 	if (_unit == player) then {
 		r_player_timeout = round((((random 2) max 0.1) * _damage) * 20);
-        _skillCombat     = 1 - (0.005 * [player,"Combat"] call DZU_fnc_getVariable);
+        _skillCombat     = 1 - (0.005 * ([player,"Combat"] call DZU_fnc_getVariable));
         r_player_timeout = r_player_timeout * _skillCombat ;
 		r_player_unconscious = true;
 		player setVariable["medForceUpdate",true,true];

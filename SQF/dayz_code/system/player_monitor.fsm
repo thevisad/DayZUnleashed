@@ -1286,7 +1286,7 @@ class FSM
        "};" \n
        "" \n
        "/*" \n
-       "dayz_HintMontior = [] spawn {" \n
+       "dayz_HintMonitor = [] spawn {" \n
        "	// GUI update" \n
        "" \n
        "	while {true} do {" \n

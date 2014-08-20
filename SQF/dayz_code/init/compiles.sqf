@@ -142,6 +142,11 @@ if (!isDedicated) then {
 	
 	fnc_dzuSwapPilot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fnc_dzuSwapPilot.sqf";                    //Server side script to swap player. 
 	
+	dayz_HungerThirst = {
+		dayz_hunger = dayz_hunger + (_this select 0);
+		dayz_thirst = dayz_thirst + (_this select 1);
+	};
+	
 	// TODO: need move it in player_monitor.fsm
 	// allow player disconnect from server, if loading hang, kicked by BE etc.
 
