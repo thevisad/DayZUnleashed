@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <Project name="DayZ">
 	<Package name="actions">
+		<Key ID="STR_MOD_LAUNCHER_ACTION">
+			<English>Launcher Action</English>
+		</Key>
 		<Key ID="STR_ACTIONS_2TB">
 			<English>Add to Toolbelt</English>
 			<Russian>Повесить на пояс</Russian>
@@ -2044,7 +2047,42 @@
 			<Russian>A British Army Soldiers uniform. Can be unpacked and worn.</Russian>
 			<French>Un uniforme de la BAF. Peut être porté.</French>
 		</Key>
--->
+-->	
+
+		<Key ID="STR_EQUIP_NAME_BASEBALLBATNAILS">
+			<English>Baseball Bat Nailed</English>
+			<Russian>Бита с гвоздями</Russian>
+			<Spanish>Bate de Béisbol con Clavos</Spanish>
+			<Czech>Baseballová pálka s hřebíky</Czech>
+			<French>Une batte de baseball cloutée</French>
+		</Key>
+		<Key ID="STR_EQUIP_DESC_BASEBALLBATNAILS">
+			<English>Designed for the popular American game, this smooth wooden club also has a lot of nails attached.</English>
+			<Russian>Созданная для популярной американской игры, эта гладкая деревянная дубинка утыкана гвоздями.</Russian>
+			<Spanish>Diseñado para el popular juego estadounidense, este palo de madera lisa también tiene un monton de clavos en la punta.</Spanish>
+			<Czech>Původně pro populární americký sport, nyní tato dřevěná pálka slouží i jako zbraň. Tato má navíc ještě hřebíky.</Czech>
+			<French>Object destiné à un fameux sport US, ce club de bois est bardé de clous</French>
+		</Key>
+		<Key ID="STR_EQUIP_NAME_BASEBALLBATBARBED">
+			<English>Baseball Bat Barbed</English>
+			<Russian>Бита с колючкой</Russian>
+			<Spanish>Bate de Béisbol con Púas</Spanish>
+			<Czech>Baseballová pálka s drátem</Czech>
+		</Key>
+		<Key ID="STR_EQUIP_DESC_BASEBALLBATBARBED">
+			<English>Designed for the popular American game, this smooth wooden club also has a barbed wire attached.</English>
+			<Russian>Созданная для популярной американской игры, эта гладкая деревянная дубинка обмотана колючкой.</Russian>
+			<Spanish>Diseñado para el popular juego estadounidense, este palo de madera lisa también tiene un alambre de púas enredado.</Spanish>
+			<Czech>Původně pro populární americký sport, nyní tato dřevěná pálka slouží i jako zbraň. Tato má navíc ještě ostnatý drát.</Czech>
+			<French>Objet destiné à un fameux sport US, ce club de bois est bardé de barbelés</French>
+		</Key>
+		<Key ID="STR_FOOD_NAME_RBULL">
+			<English>"RedBull"</English>
+			<Russian>"RedBull"</Russian>
+			<Spanish>"RedBull"</Spanish>
+			<French>"RedBull"</French>
+			<Czech>"RedBull"</Czech>
+		</Key>
 		<Key ID="STR_WPN_HOLDR_1">	
 			<Original>Colt 1911</Original>
 			<English>Colt 1911</English>
@@ -2980,6 +3018,13 @@
 			<Dutch>Een schoon, ongeopend blik Mountain Green. De langeafstandsrennerssimulator enthousiasts favoriete frisdrank.</Dutch>
 			<French>Une canette intacte de "Mountain Green". Le soda préféré des amateurs de simulateur de course longue distance.</French>
 			<Czech>Čistá a ještě neotevřená plechovka Mountain Green. Dobrá volba na dlouhou cestu.</Czech>
+		</Key>
+		<Key ID="STR_UI_SLOTS_LEFT">
+			<English>Slots Left:</English>
+			<Russian>Свободно:</Russian>
+			<Spanish>Slots Rest.:</Spanish>
+			<Czech>Volné místo:</Czech>
+			<French>Emplacements restants:</French>
 		</Key>
 		<Key ID="STR_ITEMSODA_FULL_CLEAN_CODE_NAME_1">
 			<English>Soda</English>

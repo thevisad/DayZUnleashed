@@ -5,7 +5,7 @@ scriptName "Functions\misc\fn_selfActions.sqf";
 	- Function
 	- [] call fnc_usec_selfActions;
 ************************************************************/
-private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasfuelbarrele","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_newCuTyp","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem","_combi","_hasBarrelE","_hasBarrel","_hasFuel210","_unconscious","_isPZombie","_player_SurrenderedGear"];
+private ["_vehicle","_inVehicle","_color","_part","_bag","_classbag","_isWater","_hasfuelbarrele","_hasAntiB","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_nextVehicle","_typeCursorTarget","_canDo","_text","_ownerID","_isHarvested","_isVehicle","_isMan","_isAnimal","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_totpa","_allFixed","_hitpoints","_damage","_cmpt","_damagePercent","_string","_handle","_hasMatches","_hastinitem","_lever","_gates","_validObject","_authorizedUID","_authorizedGateCodes","_findNearestGens","_findNearestGen","_IsNearRunningGen","_magazinesPlayer","_lieDown","_warn","_dogHandle","_nearPipe","_neonMenu","_isStorage","_isVehicletype","_isDog","_isStash","_isMediumStash","_hasFuel20","_hasFuel5","_canmove","_typeOfCursorTarget","_cursorTarget","_rawmeat","_currentSkin","_mags","_typeOfVeh","_vehDriver","_isPilot","_isPilotAvalible","_isSwapableAirVehicle","_canTakeControls","_hasFuelE20","_hasFuelE5","_hasbottleitem","_combi","_hasBarrelE","_hasBarrel","_hasFuel210","_unconscious","_isPZombie","_player_SurrenderedGear"];
 
 if (DZE_ActionInProgress) exitWith {}; // Do not allow if any script is running.
 
@@ -149,7 +149,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 
 	_isRemovable = _typeOfCursorTarget in DZE_isRemovable;
 	_isDisallowRepair = _typeOfCursorTarget in ["M240Nest_DZ"];
-	
+	_itemsPlayer = items player;
 	_isTent = cursorTarget isKindOf "TentStorage";
 	_isStash = cursorTarget isKindOf "StashSmall";
 	_isMediumStash = cursorTarget isKindOf "StashMedium";
@@ -162,6 +162,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	
 	_isAlive = alive cursorTarget;
 	_canmove = canmove cursorTarget;
+	_typeCursorTarget = typeOf cursorTarget;
 	_text = getText (configFile >> "CfgVehicles" >> typeOf cursorTarget >> "displayName");
 	
 	// set cursortarget to variable
@@ -202,10 +203,10 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 				_player_deleteBuild = true;
 			};
 		};
-		diag_log (format["FSA: _ownerID %1", _ownerID]);
-		diag_log (format["FSA: dayz_characterID %1", dayz_characterID]);
-		diag_log (format["FSA: _ownerID typeName %1", typeName _ownerID]);
-		diag_log (format["FSA: dayz_characterID typeName %1", typeName dayz_characterID]);
+		//diag_log (format["FSA: _ownerID %1", _ownerID]);
+		//diag_log (format["FSA: dayz_characterID %1", dayz_characterID]);
+		//diag_log (format["FSA: _ownerID typeName %1", typeName _ownerID]);
+		//diag_log (format["FSA: dayz_characterID typeName %1", typeName dayz_characterID]);
 		
 		//Allow owners to delete modulars
 		if(_isModular and (dayz_characterID == _ownerID)) then {
@@ -397,7 +398,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	if ((dayz_myCursorTarget != cursorTarget) and !_isMan and _hasToolbox and (damage cursorTarget < 1)) then {
 		_vehicle = cursorTarget;
 		_totpa = ["HitFuel","HitEngine","HitLFWheel","HitRFWheel","HitLBWheel","HitRBWheel","HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGlass6","HitHRotor"];
-		if ((_vehicle isKindOf "Truck") or (_newCuTyp == "rth_amphicar") or (_newCuTyp == "rth_ScrapApc")) then { _totpa set [count _totpa,"HitLMWheel"]; _totpa set [count _totpa,"HitRMWheel"]; };
+		if ((_vehicle isKindOf "Truck") or (_typeCursorTarget == "rth_amphicar") or (_typeCursorTarget == "rth_ScrapApc")) then { _totpa set [count _totpa,"HitLMWheel"]; _totpa set [count _totpa,"HitRMWheel"]; };
 		{dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;s_player_repairActions = [];
 		dayz_myCursorTarget = _vehicle;
 		//diag_log format ["SizeOfCAR = %1", sizeOf (typeOf cursorTarget)];
@@ -823,7 +824,6 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		player removeAction s_player_upgrade_build;
 		s_player_upgrade_build = -1;
 	};
-	
 	// downgrade system
 	if((_isDestructable or _cursorTarget isKindOf "Land_DZE_WoodDoorLocked_Base" or _cursorTarget isKindOf "CinderWallDoorLocked_DZ_Base") and (DZE_Lock_Door == _ownerID)) then {
 		if ((s_player_lastTarget select 1) != _cursorTarget) then {
@@ -914,6 +914,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	s_clothes = -1;
 	player removeAction s_player_meleeattack;
 	s_player_meleeattack = -1;
+	player removeAction s_player_callzombies;
+	s_player_callzombies = 1;
 	/*
 	//Drag Body
 	player removeAction s_player_dragbody;

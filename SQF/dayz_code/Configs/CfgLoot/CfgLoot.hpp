@@ -677,8 +677,7 @@ class CfgLoot {
 		{"bulk_ItemSodaCoke",0.04},
 		{"bulk_ItemSodaPepsi",0.04},
 		{"ItemSodaRbull",0.04},
-		{"ItemSodaGrapeDrink",0.03},
-		{"ItemOrangeSherbert",0.03}
+		{"ItemSodaGrapeDrink",0.03}
 	};
 	
 	civilian[] = {

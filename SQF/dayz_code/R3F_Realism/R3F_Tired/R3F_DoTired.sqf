@@ -85,7 +85,7 @@ while {true} do {
 		_knackered = 50000;
 			if (alive player && R3F_TIRED_Accumulator > _knackered) then {
 			dayz_weight = 1;
-			playSound "weight_1";
+			playSound "breath_1";
 			playSound "heartbeat_1";
 			} else {
 			dayz_weight = 0;

@@ -3,41 +3,46 @@
 	
 	Description: Do not edit anything in this file unless instructed by the developer.
 	
-	Last updated: 3:29 AM 1/11/2014
+	Last updated: 11:53 AM 6/25/2014
 */
 
-private ["_bldgClasses","_weapons","_lootItem","_aiWeaponBanList","_unwantedWeapons","_lootList","_cfgBuildingLoot","_lootListCheck","_startTime","_lootConfigFile"];
+private ["_bldgClasses","_lootItem","_aiWeaponBanList","_lootList","_cfgBuildingLoot","_startTime","_lootConfigFile"];
 
 if (!isNil "DZAI_weaponsInitialized") exitWith {};
 
 _startTime = diag_tickTime;
 
-DZAI_useCustomLoot = false;	//to be moved to dzai_config.sqf
-_lootConfigFile = if !((DZAI_useCustomLoot) && {(isClass (missionConfigFile >> "CfgBuildingLoot"))}) then {
-	diag_log "[DZAI] Building DZAI weapon arrays using CfgBuildingLoot data.";
+_lootConfigFile = if !((DZAI_customLootTables) && {(isClass (missionConfigFile >> "CfgBuildingLoot"))}) then {
+	if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Building DZAI weapon arrays using CfgBuildingLoot data."};
 	configFile
 } else {
-	diag_log "[DZAI] Building DZAI weapon arrays using custom CfgBuildingLoot data.";
+	if (DZAI_debugLevel > 0) then {diag_log "DZAI Debug: Building DZAI weapon arrays using custom CfgBuildingLoot data."};
 	missionConfigFile
 };
 
 _bldgClasses = [["civilian"],["Military"],["MilitarySpecial"],["hunt"]];
-_unwantedWeapons = _this select 0;		//User-specified weapon banlist.
-
-_aiWeaponBanList = ["Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails","Chainsaw"];
+//Built-in weapon ban list for melee weapons and nonweapon items
+_aiWeaponBanList = 
+	[
+		"Crossbow_DZ","Crossbow","MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails","Chainsaw", //Melee weapons
+		"ItemMap","Binocular","ItemWatch","ItemCompass","ItemFlashlight","ItemKnife","NVGoggles","ItemGPS","ItemEtool","Binocular_Vector","ItemMatchbox","ItemToolbox", //Non-weapon items
+		"ItemKeyKit","ItemMatchbox_DZE" //Epoch items
+	];
 
 //Add user-specified banned weapons to DZAI weapon banlist.
-for "_i" from 0 to ((count _unwantedWeapons) - 1) do {
-	_aiWeaponBanList set [(count _aiWeaponBanList),(_unwantedWeapons select _i)];
-};
+{
+	if !(_x in _aiWeaponBanList) then {
+		_aiWeaponBanList set [count _aiWeaponBanList,_x];
+	};
+} count DZAI_banAIWeapons;
+DZAI_banAIWeapons = nil;
 //diag_log format ["DEBUG :: List of weapons to be removed from DZAI classname tables: %1",_aiWeaponBanList];
 
 //Compatibility with Namalsk's selectable loot table feature.
 if (isNil "dayzNam_buildingLoot") then {
 	_cfgBuildingLoot = "cfgBuildingLoot";
-	if (((toLower worldName) == "trinity")&&{(DZAI_modName != "epoch")}) then {
-		//Fix for Trinity Island's Barracks loot table.
-		_bldgClasses set [2,["Barracks"]];
+	if (isClass (_lootConfigFile >> _cfgBuildingLoot >> "Barracks")) then {
+		(_bldgClasses select 2) set [((_bldgClasses select 2) find "MilitarySpecial"),"Barracks"];
 	};
 } else {
 	_cfgBuildingLoot = dayzNam_buildingLoot;
@@ -62,16 +67,16 @@ if (_lootListCheck) then {
 };
 //diag_log format ["DEBUG :: _lootList: %1",_lootList];
 
-//Declare all DZAI weapon arrays. DO NOT EDIT.
-DZAI_Pistols0 = [];
-DZAI_Pistols1 = [];
-DZAI_Pistols2 = [];
-DZAI_Pistols3 = [];
+//Declare all temporary DZAI weapon arrays. DO NOT EDIT.
+_DZAI_Pistols0_temp = [];
+_DZAI_Pistols1_temp = [];
+_DZAI_Pistols2_temp = [];
+_DZAI_Pistols3_temp = [];
 
-DZAI_Rifles0 = [];
-DZAI_Rifles1 = [];
-DZAI_Rifles2 = [];
-DZAI_Rifles3 = [];
+_DZAI_Rifles0_temp = [];
+_DZAI_Rifles1_temp = [];
+_DZAI_Rifles2_temp = [];
+_DZAI_Rifles3_temp = [];
 
 //Build the weapon arrays.
 for "_i" from 0 to (count _bldgClasses - 1) do {					//_i = weapongrade
@@ -92,10 +97,10 @@ for "_i" from 0 to (count _bldgClasses - 1) do {					//_i = weapongrade
 				_weaponMags = count (getArray (configFile >> "cfgWeapons" >> _weaponItem >> "magazines"));
 				if ((_weaponMags > 0) && {!(_weaponItem in _aiWeaponBanList)}) then {							//Consider an item as a "weapon" if it has at least one magazine type.
 					if ((getNumber (configFile >> "CfgWeapons" >> _weaponItem >> "type")) == 1) then {
-						call compile format ["DZAI_Rifles%1 set [(count DZAI_Rifles%1),'%2'];",_i,_weaponItem];
+						call compile format ["_DZAI_Rifles%1_temp set [(count _DZAI_Rifles%1_temp),'%2'];",_i,_weaponItem];
 					} else {
 						if ((getNumber (configFile >> "CfgWeapons" >> _weaponItem >> "type")) == 2) then {
-							call compile format ["DZAI_Pistols%1 set [(count DZAI_Pistols%1),'%2'];",_i,_weaponItem];
+							call compile format ["_DZAI_Pistols%1_temp set [(count _DZAI_Pistols%1_temp),'%2'];",_i,_weaponItem];
 						};
 					};
 				};
@@ -106,10 +111,10 @@ for "_i" from 0 to (count _bldgClasses - 1) do {					//_i = weapongrade
 					{
 						if (!(_x in _aiWeaponBanList)) then {
 							if ((getNumber (configFile >> "CfgWeapons" >> _x >> "type")) == 1) then {
-								call compile format ["DZAI_Rifles%1 set [(count DZAI_Rifles%1),'%2'];",_i,_x];
+								call compile format ["_DZAI_Rifles%1_temp set [(count _DZAI_Rifles%1_temp),'%2'];",_i,_x];
 							} else {
 								if ((getNumber (configFile >> "CfgWeapons" >> _x >> "type")) == 2) then {
-									call compile format ["DZAI_Pistols%1 set [(count DZAI_Pistols%1),'%2'];",_i,_x];
+									call compile format ["_DZAI_Pistols%1_temp set [(count _DZAI_Pistols%1_temp),'%2'];",_i,_x];
 								};
 							};
 						};
@@ -121,31 +126,29 @@ for "_i" from 0 to (count _bldgClasses - 1) do {					//_i = weapongrade
 };
 };
 
-//Because heli-crash sites don't usually have pistol loot, it may be necessary to populate it with pistol classnames from the MilitarySpecial table.
-if ((count DZAI_Pistols3) == 0) then {
-	diag_log "DZAI_Pistols3 is empty. Populating with entries from DZAI_Pistols2.";
-	DZAI_Pistols3 = [] + DZAI_Pistols2;
-};
-
-//In case the mod has no HeliCrash loot tables...
-if ((count DZAI_Rifles3) == 0) then {
-	diag_log "DZAI_Rifles3 is empty. Populating with entries from DZAI_Rifles2.";
-	DZAI_Rifles3 = [] + DZAI_Rifles2;
-};
+//Redefine each prebuilt weapon array if new table is not empty
+if ((count _DZAI_Pistols0_temp) > 0) then {DZAI_Pistols0 = _DZAI_Pistols0_temp};
+if ((count _DZAI_Pistols1_temp) > 0) then {DZAI_Pistols1 = _DZAI_Pistols1_temp}; //else {DZAI_Pistols1 = [] + DZAI_Pistols0};
+if ((count _DZAI_Pistols2_temp) > 0) then {DZAI_Pistols2 = _DZAI_Pistols2_temp}; //else {DZAI_Pistols2 = [] + DZAI_Pistols1};
+if ((count _DZAI_Pistols3_temp) > 0) then {DZAI_Pistols3 = _DZAI_Pistols3_temp} else {DZAI_Pistols3 = [] + DZAI_Pistols2};
+if ((count _DZAI_Rifles0_temp) > 0) then {DZAI_Rifles0 = _DZAI_Rifles0_temp};
+if ((count _DZAI_Rifles1_temp) > 0) then {DZAI_Rifles1 = _DZAI_Rifles1_temp}; //else {DZAI_Rifles1 = [] + DZAI_Rifles0};
+if ((count _DZAI_Rifles2_temp) > 0) then {DZAI_Rifles2 = _DZAI_Rifles2_temp}; //else {DZAI_Rifles2 = [] + DZAI_Rifles1};
+if ((count _DZAI_Rifles3_temp) > 0) then {DZAI_Rifles3 = _DZAI_Rifles3_temp} else {DZAI_Rifles3 = [] + DZAI_Rifles2};
 
 if (DZAI_debugLevel > 0) then {
-	//Display finished weapon arrays
-	diag_log format ["Contents of DZAI_Pistols0: %1",DZAI_Pistols0];
-	diag_log format ["Contents of DZAI_Pistols1: %1",DZAI_Pistols1];
-	diag_log format ["Contents of DZAI_Pistols2: %1",DZAI_Pistols2];
-	diag_log format ["Contents of DZAI_Pistols3: %1",DZAI_Pistols3];
-
-	diag_log format ["Contents of DZAI_Rifles0: %1",DZAI_Rifles0];
-	diag_log format ["Contents of DZAI_Rifles1: %1",DZAI_Rifles1];
-	diag_log format ["Contents of DZAI_Rifles2: %1",DZAI_Rifles2];
-	diag_log format ["Contents of DZAI_Rifles3: %1",DZAI_Rifles3];
+	if (DZAI_debugLevel > 1) then {
+		//Display finished weapon arrays
+		diag_log format ["Contents of DZAI_Pistols0: %1",DZAI_Pistols0];
+		diag_log format ["Contents of DZAI_Pistols1: %1",DZAI_Pistols1];
+		diag_log format ["Contents of DZAI_Pistols2: %1",DZAI_Pistols2];
+		diag_log format ["Contents of DZAI_Pistols3: %1",DZAI_Pistols3];
+		diag_log format ["Contents of DZAI_Rifles0: %1",DZAI_Rifles0];
+		diag_log format ["Contents of DZAI_Rifles1: %1",DZAI_Rifles1];
+		diag_log format ["Contents of DZAI_Rifles2: %1",DZAI_Rifles2];
+		diag_log format ["Contents of DZAI_Rifles3: %1",DZAI_Rifles3];
+	};
+	diag_log format ["DZAI Debug: Weapon classname tables created in %1 seconds.",(diag_tickTime - _startTime)];
 };
-
-diag_log format ["[DZAI] DZAI weapon classname tables created in %1 seconds.",(diag_tickTime - _startTime)];
 
 DZAI_weaponsInitialized = true;

@@ -245,8 +245,6 @@ if (_hasrequireditem) then {
 			detach _object;
 			_dir = getDir _object;
 			_position = getPosATL _object;
-			//diag_log format["DEBUG BUILDING POS: %1", _position];
-			deleteVehicle _object;
 		};
 
 		if(_location1 distance _location2 > 5) exitWith {
@@ -254,7 +252,6 @@ if (_hasrequireditem) then {
 			_cancel = true;
 			_reason = "You've moved to far away from where you started building (within 5 meters)"; 
 			detach _object;
-			deleteVehicle _object;
 		};
 		
 		[format["<t size='0.6'>Time left to build: %1</t>",(ceil(_previewCounter))],0,0.8,0.5,0,0,8] spawn BIS_fnc_dynamicText;
@@ -264,7 +261,6 @@ if (_hasrequireditem) then {
 			_cancel = true;
 			_reason = "Ran out of time to find position"; 
 			detach _object;
-			deleteVehicle _object;
 		};
 
 		_previewCounter = _previewCounter - 1;
@@ -274,7 +270,6 @@ if (_hasrequireditem) then {
 			_cancel = true;
 			_reason = "Cannot move up or down more than 5 meters"; 
 			detach _object;
-			deleteVehicle _object;
 		};
 
 		if (player getVariable["combattimeout", 0] >= time) exitWith {
@@ -282,7 +277,6 @@ if (_hasrequireditem) then {
 			_cancel = true;
 			_reason = (localize "str_epoch_player_43");
 			detach _object;
-			deleteVehicle _object;
 		};
 
 		if (DZE_cancelBuilding) exitWith {
@@ -290,13 +284,13 @@ if (_hasrequireditem) then {
 			_cancel = true;
 			_reason = "Cancelled building.";
 			detach _object;
-			deleteVehicle _object;
 		};
 	};
 
 	terminate _snapper;
 	terminate _key_monitor;
 	player removeAction s_building_snapping;
+	s_building_snapping = -1;
 	player allowDamage true;
 	
 	//No building on roads unless toggled
@@ -378,12 +372,12 @@ if (_hasrequireditem) then {
 
 			cutText [format[(localize "str_epoch_player_139"),_text, _counter,_limit], "PLAIN DOWN"];
 
-			diag_log (format["SM: Test: text: %1, counter: %2, limit: %3, finished: %4",_text, _counter,_limit, _finished]);
+			//diag_log (format["SM: Test: text: %1, counter: %2, limit: %3, finished: %4",_text, _counter,_limit, _finished]);
 			
 			if(_counter == _limit) exitWith {
 				_isOk = false;
 				_proceed = true;
-				diag_log (format["SM: Test: _proceed = true"]);
+				//diag_log (format["SM: Test: _proceed = true"]);
 			};
 	
 		};
@@ -463,7 +457,7 @@ if (_hasrequireditem) then {
 				};
 			} else {
 				deleteVehicle _object;
-				diag_log (format["SM: Test: failed _num_removed"]);
+				//diag_log (format["SM: Test: failed _num_removed"]);
 				cutText [(localize "str_epoch_player_46") , "PLAIN DOWN"];
 			};
 
@@ -475,7 +469,7 @@ if (_hasrequireditem) then {
 			};
 
 			deleteVehicle _object;
-			diag_log (format["SM: Test: failed proceed"]);
+			//diag_log (format["SM: Test: failed proceed"]);
 			cutText [(localize "str_epoch_player_46") , "PLAIN DOWN"];
 		};
 

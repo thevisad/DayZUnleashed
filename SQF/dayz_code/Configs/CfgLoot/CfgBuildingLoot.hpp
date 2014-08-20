@@ -6,13 +6,15 @@ class CfgBuildingLoot {
 		zombieClass[] = {"zZombie_Base","z_hunter","z_teacher","z_suit1","z_suit2","z_worker1","z_worker2","z_worker3","z_villager1","z_villager2","z_villager3"};
 		lootChance = 0;
 		lootPos[] = {};
-		lootType[] = {{"civgeneric",0.25}};
+		lootType[] = {{"civgeneric",0.25},
+            {"activeloot",0.01}};
 		hangPos[] = {};
 		vehPos[] = {};
 	};
 	class Master {
 		weapons[] = {"SMAW","Javelin","G36C","Stinger"};
-		lootType[] = {{"civgeneric",0.25}};
+		lootType[] = {{"civgeneric",0.25},
+            {"activeloot",0.01}};
 	};
 	class Church: Default {
 		zombieChance = 0.3;
@@ -28,7 +30,8 @@ class CfgBuildingLoot {
 			{"medical",0.05},
 			{"civskins",0.05},
 			{"civilian",0.15},
-			{"drink",0.25}
+			{"drink",0.25},
+            {"activeloot",0.01}
 		};
 	};
 	class Residential: Default {
@@ -66,6 +69,21 @@ class CfgBuildingLoot {
 		maxRoaming = 3;
 		lootChance = 0.2;
 		zombieClass[] = {"z_suit1","z_suit2"};
+		lootType[] = {			
+			{"civgeneric",0.25},
+			{"food",0.05},
+			{"trash",0.15},
+			{"medical",0.05},
+			{"civskins",0.05},
+			{"civilian",0.15},
+			{"fuelitems",0.05},
+			{"drink",0.25},
+			{"buildingitems",0.05},
+			{"craftingitems",0.05},
+			{"normalbackpacks",0.05},
+			{"buildingkits",0.05},
+            {"activeloot",0.01}
+		};
 	};
 
 	class Industrial: Default { //254
@@ -186,7 +204,8 @@ class CfgBuildingLoot {
 			{"normalbackpacks",0.10},
 			{"rarebackpacks",0.10},
 			{"airparts",0.10},
-			{"military",0.35}
+			{"military",0.35},
+            {"activeloot",0.01}
 		};
 	};	
 	class HeliCrashWEST: Default {
@@ -210,7 +229,8 @@ class CfgBuildingLoot {
 			{"attachments",0.40},
 			{"fuelitems",0.05},
 			{"rarebackpacks",0.10},
-			{"military",0.35}
+			{"military",0.35},
+            {"activeloot",0.01}
 		};
 	};
 	class HeliCrashEAST: Default {
@@ -234,7 +254,8 @@ class CfgBuildingLoot {
 			{"normalbackpacks",0.10},
 			{"craftingitems",0.05},
 			{"rarebackpacks",0.10},
-			{"military",0.35}
+			{"military",0.35},
+            {"activeloot",0.01}
 		};
 	};
 	class Hospital: Default {

@@ -11,11 +11,11 @@ _iClass = _this select 1;
 _iPos = _this select 2;
 _radius = _this select 3;
 _function = _this select 4;
+_activeloot = _iClass;
 //diag_log (format["SL: _iItem %1",_iItem]);
-//diag_log (format["SL: _iClass %1",_iClass]);
+diag_log (format["SL: _iClass %1: _function: %2",_iClass, _function]);
 //diag_log (format["SL: _iPos %1",_iPos]);
 //diag_log (format["SL: _radius %1",_radius]);
-//diag_log (format["SL: _function %1",_function]);
 if ( isNil "_iClass" ) exitWith { diag_log("SL: _iClass was blank, exiting."); };
 if ( isNil "_iItem" ) exitWith { diag_log("SL: _iItem was blank, exiting."); };
 if ( isNil "_iPos"  ) exitWith { diag_log("SL: _iPos was blank, exiting."); };
@@ -32,8 +32,7 @@ if (_iItem == "building") then {
 		//diag_log (format["SL: _iItemRandom %1",_iItemRandom]);
 		//diag_log (format["SL: _iItemTypes %1",_iItemTypes]);
 		_iItem = _iItemRandom select 0;
-		//diag_log ("SL: _iItem replaced as " + str(_iItem));  
-        
+		diag_log (format["SL: _iItem %1 _function: %2",_iItem, _function]);        
 } else {        
         //diag_log (format["SL: _iItem was not spawned through us: %1",_iItem]);
 		//diag_log (format["SL: _iClass was not spawned through us: %1",_iClass]);
@@ -52,6 +51,7 @@ _iClass = switch (true) do
 	default { "" };
 };
 
+diag_log (format["SL: _iClass switch %1: _activeloot: %2: _function: %3",_iClass, _activeloot, _function]);
  //Ground adjustment.
 _iPosZ = _iPos select 2;
 if((isNil "_iPosZ") OR {( _iPosZ < 0)}) then { _iPos = [_iPos select 0,_iPos select 1,0]; };
@@ -73,7 +73,10 @@ if (_iItem != "" ) then {
 			
 			while {_qty < _max} do {
 					_index = dayz_CLBase find _iClass;
+					diag_log (format["SL: _index %1",_index]);
+					if (_index < 0)  exitWith { diag_log("SL: _index was negative, exiting."); };
 					_weights = dayz_CLChances select _index;
+					diag_log (format["SL: _weights %1",_weights]);
 					_cntWeights = count _weights;
 					_index = floor(random _cntWeights);
 					_index = _weights select _index;
@@ -121,6 +124,12 @@ if (_iItem != "" ) then {
 				_item addMagazineCargoGlobal [_iItem,1];
 		};
 		case "object": {
+				//Item is one magazine
+				//diag_log ("CSL: object item : " + str(_iItem));
+				_item = createVehicle [_iItem, _iPos, [], _radius, "CAN_COLLIDE"];
+		};
+		
+		case "activeloot": {
 				//Item is one magazine
 				//diag_log ("CSL: object item : " + str(_iItem));
 				_item = createVehicle [_iItem, _iPos, [], _radius, "CAN_COLLIDE"];
