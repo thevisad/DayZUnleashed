@@ -18,9 +18,9 @@ for "_x" from 1 to (_lootMin + _lootRand) do {
     _CfgLootTable = getArray(_config >> _lootType);
     _iItem = (( _CfgLootTable call BIS_fnc_selectRandom) select 0);    
     
-    _text = Format["y%1 i%2 t%3 c%4",_lootType,_iItem,_CfgLootTable,isClass (configFile >> "CfgVehicles" >> _iItem)];
-    hintSilent _text;
-    diag_log _text;
+    //_text = Format["y%1 i%2 t%3 c%4",_lootType,_iItem,_CfgLootTable,isClass (configFile >> "CfgVehicles" >> _iItem)];
+    //hintSilent _text;
+    //diag_log _text;
     
     switch (true) do
 	{
@@ -46,6 +46,3 @@ for "_x" from 1 to (_lootMin + _lootRand) do {
     
 };    
 
-//_testLoot = ["m107_DZ","M16A4","LeeEnfield","MeleeBaseBallBat"] call BIS_fnc_selectRandom;
-//_object addWeaponCargo [_testLoot,floor(random(5))];
-//cutText [format["%2>%1",_object,_person], "PLAIN DOWN"];

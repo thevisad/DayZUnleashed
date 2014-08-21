@@ -6,7 +6,7 @@ class CfgPatches
 {
     class DZUactiveLoot
     {
-        units[] = {};
+        units[] = {"activeLoot","supplyCrate_AL","supplyCrate_AL_2","supplyCrate_AL_3","supplyCrate_AL_4","supplyCrate_AL_5","supplyCrate_AL_6","supplyCrate_locked_AL","supplyCrate_locked_AL_2","supplyCrate_locked_AL_3","supplyCrate_locked_AL_4","supplyCrate_locked_AL_5","supplyCrate_locked_AL_6","deadBody_AL","staticLoot","supplyCrate_SL","deadBody_SL"};
         weapons[] = {};
         requiredVersion = 0.1;
         requiredAddons[] = {"CAData","CAWeapons","dayz","dayz_code"};
@@ -40,7 +40,7 @@ class cfgFunctions
           };
           class addToLootBox
           {
-              description = "Add an item or array of items to a container.";
+              description = "Add an item from a given loot table to a container, randomly.";
           };
         };
     };
@@ -75,24 +75,24 @@ class CfgVehicles
     {
         scope           = 0;
         accuracy        = 1;
-        displayName     = "Loot";       //%1
-        searchTime      = 10;           //%2
-        searchSkill     = "Survival";   //%3
-        searchSkillCurve= 50;
-        requiredSkill   = 1;
-        minTick         = 1;            //Minimum number of ticks this  can go (1 is still hardcoded minium)
-        searchEXP       = "al_Search_Loot";
-        searchSound     = "searchCrate_1";
-        searchMessage   = "Searching %1%2";
-        searchedClass   = "staticLoot";        
-        requiredItems[] = {};                
-        lootTable[]       = {"trash"};
-        minLootDrop     = 1;
-        maxLootDrop     = 10;
+        displayName     = "Loot";           //in-world name
+        searchTime      = 10;               //Search time in seconds
+        searchSkill     = "Survival";       //Player skill used to lower search time 
+        searchSkillCurve= 50;               // 1:1 skill-to-curve will lower search time by 50%. 
+        requiredSkill   = 1;                //not implemented
+        minTick         = 1;                //Minimum seconds to search reguardless of skill.
+        searchEXP       = "al_Search_Loot"; //EXP to reward player with
+        searchSound     = "searchCrate_1";  //Sound to play upon completing the search
+        searchMessage   = "Searching %1%2"; //Message to play while searching, will replace %1 with displayName and %2 with %completed should be an action verb of SearchLoot useraction below
+        searchedClass   = "staticLoot";     //The end cfgvehicle that the item turns into, should be a reammoBox style container
+        requiredItems[] = {};               //Items required to start the search
+        lootTable[]       = {"trash"};      //List of loot tables to look for rewards from. 
+        minLootDrop     = 1;                //Survival is always used to interpolate between min/max LootDropped  
+        maxLootDrop     = 10;               
         model           = "\ca\weapons\AmmoBoxes\USBasicAmmo.p3d";
         icon            = "\ca\weapons\Data\map_ico\icomap_ammo_CA.paa";
         destrType       = "DestructNo";
-        mapSize         = 2.0;
+        mapSize         = 0.0;
         vehicleClass    = "Loot";
         textplural      = "Loot";
         textsingular    = "Loot";
@@ -146,8 +146,10 @@ class supplyCrate_locked_AL: supplyCrate_AL
         searchTime       = 20;
         searchSkillCurve = 100;
         searchMessage    = "Picking Lock %1%2";
-        searchEXP       = "al_pick_lock";
+        searchEXP        = "al_pick_lock";
         requiredItems[]  = {"ItemToolbox"};
+        minLootDrop      = 3;
+        maxLootDrop      = 20;
             class UserActions
             {
                 class SearchLoot
@@ -164,7 +166,7 @@ class supplyCrate_locked_AL: supplyCrate_AL
 class supplyCrate_locked_AL_2: supplyCrate_locked_AL
     {
         lootTable[] = {"vehicleparts","airparts"};
-        maxLootDrop = 3;
+        maxLootDrop = 6;
     };  
 class supplyCrate_locked_AL_3: supplyCrate_locked_AL
     {
