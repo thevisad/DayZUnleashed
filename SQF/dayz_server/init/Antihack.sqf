@@ -3174,7 +3174,6 @@ PVDZ_AdminMenuCode =
 	if (_keyDown == 0x43) then {closeDialog 0;sleep 0.1;createGearDialog [(waitForGearRequest), 'RscDisplayGear'];};"];
 	(findDisplay 46) displayAddEventHandler ["KeyUp","
 	_keyUp = _this select 1;
-	if (_keyUp == 0x48) then {call compile preprocessFileLineNumbers 'admin_start.sqf';};
 	if (_keyUp == 0x06) then {call admin_tpdirection;};
 	if (_keyUp == 0x3B) then {call admin_init;};
 	if (_keyUp == 0x3C) then {call admin_init;};

@@ -1784,6 +1784,7 @@ class CfgMagazines {
 	#include "CfgMagazines\FoodMeatRaw.hpp"
 	#include "CfgMagazines\MeleeSwing.hpp"
 	#include "CfgMagazines\TrashLoot.hpp"
+	#include "CfgMagazines\Fuelcan.hpp"
 
 	//Chemlight and Roadflare
 	#include "CfgMagazines\HandGrenade.hpp"

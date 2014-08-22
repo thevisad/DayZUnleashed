@@ -20,7 +20,7 @@ DZAI_monitorRate = 300;
 
 //Enable or disable verification of classname tables used by DZAI. If invalid entries are found, they are removed and logged into the RPT log.
 //If disabled, any invalid classnames will not be removed and clients may crash if AI bodies with invalid items are looted. Disable ONLY if a previous scan shows no invalid classnames (Default: true).										
-DZAI_verifyTables = false;
+DZAI_verifyTables = true;
 
 //Enable to have server spawn in objects/buildings normally spawned clientside by DayZ's CfgTownGenerator. Prevents AI from walking/shooting through clutter and other objects. (Default: true)	
 //If running DayZ Mod ("vanilla DayZ") or DayZ Overwatch, it is highly recommended to enable this option, as many added buildings are handled by the CfgTownGenerator. Not used with Epoch.							

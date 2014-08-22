@@ -44,6 +44,7 @@ class Mission
 		"KPFS_HKP30",
 		"KPFS_P88",
 		"KPFS_P99",
+
 		"utes"
 	};
 	addOnsAuto[]=
@@ -89,6 +90,7 @@ class Mission
 		"KPFS_HKP30",
 		"KPFS_P88",
 		"KPFS_P99",
+
 		"utes"
 	};
 	randomSeed=11171215;

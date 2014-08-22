@@ -64,12 +64,7 @@ class ItemSodaLemonadeEmpty : ItemSodaEmpty{
 	model = "z\addons\dayz_communityassets\models\soda_lemonade_clean_empty.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_lemonade_clean_empty_ca.paa";
 };
-/*
-class ItemSodaLirikEmpty : ItemSodaEmpty{
-	model = "z\addons\dayz_communityassets\models\soda_lirik_clean_empty.p3d";
-	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_lirik_clean_empty_ca.paa";
-};
-*/
+
 class ItemSodaLvgEmpty : ItemSodaEmpty{
 	model = "z\addons\dayz_communityassets\models\soda_lvg_clean_empty.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_lvg_clean_empty_ca.paa";
@@ -78,26 +73,10 @@ class ItemSodaMzlyEmpty : ItemSodaEmpty{
 	model = "z\addons\dayz_communityassets\models\soda_mzly_clean_empty.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_mzly_clean_empty_ca.paa";
 };
-/*
-class ItemSodaPeppsyEmpty : ItemSodaEmpty{
-	model = "z\addons\dayz_communityassets\models\soda_peppsy_clean_empty.p3d";
-	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_peppsy_clean_empty_ca.paa";
-};
-*/
 class ItemSodaRabbitEmpty : ItemSodaEmpty{
 	model = "z\addons\dayz_communityassets\models\soda_rabbit_clean_empty.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_rabbit_clean_empty_ca.paa";
 
-};
-/*
-class ItemSodaSacriteEmpty : ItemSodaEmpty{
-	model = "z\addons\dayz_communityassets\models\soda_sacrite_clean_empty.p3d";
-	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_sacrite_clean_empty_ca.paa";
-};
-*/
-class ItemSodaRocketFuelEmpty : ItemSodaEmpty{
-	model = "z\addons\dayz_communityassets\models\soda_rocket_clean_empty.p3d";
-	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_rocket_clean_empty_ca.paa";
 };
 class ItemSodaGrapeDrinkEmpty : ItemSodaEmpty{
 	model = "z\addons\dayz_communityassets\models\soda_grape_clean_empty.p3d";

@@ -145,34 +145,7 @@ if (_hasPatient and !r_drag_sqf and !r_action and !_inVehicle and !r_player_unco
 		};
 		*/
 
-		//CAN WE ISSUE ANOTHER KIND OF AMMUNITION?
-		if (count weapons _unit > 0) then {
-			//Get mag array
-			_weapon = weapons _unit select 0;
-			_magTypes = getArray(configFile >> "cfgWeapons" >> _weapon >> "magazines");
-			{
-				_ammoSerial = (USEC_LogisticsItems find _x);
-				if (_ammoSerial > -1) then {
-					//Have the item type
-					_ammoQty = ((USEC_LogisticsDetail select _ammoSerial) select 1);
-					if (_ammoQty > 0) then {
-						//Have at least one
-						r_action = true;
-						_displayName = getText(configFile >> "cfgMagazines" >> _x >> "displayName");
-						_action = _unit addAction [format[localize "str_actions_medical_11",_displayName], "\z\addons\dayz_code\actions\logistics_loadmag.sqf",[_unit,_x], 0, false, true];
-						r_player_actions set [count r_player_actions,_action];
-					};
-				};
-			} forEach _magTypes;
-		};
-		/* USEC_PackableObjects is defined anywhere!
-		//CAN CARRY BACKPACK
-		if ((_type in USEC_PackableObjects) and (_classbag == "")) then {
-			r_action = true;
-			_action = _unit addAction [format[localize "str_actions_medical_12",_typeVeh], "\z\addons\dayz_code\actions\pack.sqf",[_unit], 0, true, true];
-			r_player_actions set [count r_player_actions,_action];
-		};
-		*/
+
 	};
 	if ((_unit isKindOf "Building")) then {
 		_type = TypeOf(_unit);
