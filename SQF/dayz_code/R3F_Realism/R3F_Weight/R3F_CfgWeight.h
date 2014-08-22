@@ -2852,12 +2852,6 @@ class CfgWeight {
 		class ItemSodaRbull {
 			weight=0.9;
 		};
-		class ItemSodaRocketFuel {
-			weight=0.9;
-		};
-		class ItemSodaRocketFuelEmpty {
-			weight=0.1;
-		};
 		class ItemSodaSmasht {
 			weight=0.9;
 		};

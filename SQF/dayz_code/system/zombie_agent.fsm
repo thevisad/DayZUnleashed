@@ -528,27 +528,27 @@ class FSM
        "};" \n
        "} foreach _localplayer;" \n
        "" \n
-       "if ( _targetdistance < 2.2 ) then " \n
+       "if ( _targetdistance < unleashed_ZedShortAgroRange ) then " \n
        "{" \n
        "//diag_log (""ZFSM: Attack Range"");" \n
        "_r = 1;" \n
        "_agent forceSpeed 1;" \n
        "};" \n
        "" \n
-       "if (_targetdistance > 2.2 AND _targetdistance < 10) then " \n
+       "if (_targetdistance > unleashed_ZedShortAgroRange AND _targetdistance < unleashed_ZedMediumAgroRange) then " \n
        "{" \n
        "//diag_log (""ZFSM: Zero In Range"");" \n
        "_r = 6;" \n
        "_agent forceSpeed 6;" \n
        "};" \n
-       "if ( _targetdistance > 10 AND _targetdistance < 25 ) then " \n
+       "if ( _targetdistance > unleashed_ZedMediumAgroRange AND _targetdistance < unleashed_ZedLongAgroRange ) then " \n
        "{" \n
        "//diag_log (""ZFSM: Center Range"");" \n
        "_r = 8;" \n
        "_agent forceSpeed 6;" \n
        "};" \n
        "" \n
-       "if ( _targetdistance > 25 ) then " \n
+       "if ( _targetdistance > unleashed_ZedLongAgroRange ) then " \n
        "{" \n
        "//diag_log (""ZFSM: Faraway Range"");" \n
        "_r = 10;" \n

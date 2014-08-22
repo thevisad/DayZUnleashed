@@ -234,7 +234,7 @@ if (_hasrequireditem) then {
 	};
 	
 	_snapper = [_object, _classname] spawn snap_object;
-	_key_monitor = [] spawn player_buildControls ;
+	_key_monitor = [_isAllowedUnderGround] spawn player_buildControls ;
 
 	while {_isOk} do {
 		sleep 1;

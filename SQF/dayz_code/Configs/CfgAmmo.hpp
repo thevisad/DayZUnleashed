@@ -67,7 +67,21 @@ class B_127x99_Ball_noTracer_BAF: B_127x99_Ball_noTracer {
 		typicalspeed = 260;
 		visiblefire = 16;
 	};
-
+//VSS_Vintorez
+	class B_9x39_SP5 : BulletBase {
+		hit = 13;
+		indirectHit = 0;
+		indirectHitRange = 0;
+		cartridge = "FxCartridge_9mm";
+		cost = 5;
+		typicalSpeed = 300;
+		visibleFire = 0.07;
+		audibleFire = 0.07;
+		visibleFireTime = 2;
+		airFriction = -0.001;
+		caliber = 0.33;
+	};
+	
 	class Bolt;
 	class WoodenArrow : Bolt {
 		model = "\dayz_weapons\models\bolt";
@@ -147,6 +161,66 @@ class B_127x99_Ball_noTracer_BAF: B_127x99_Ball_noTracer {
 		explosive = "true";
 		simulationStep = 0.001;
 		timeToLive = 0.05;
+		soundHit[] = {"", db-90, 1};
+		soundEngine[] = {"", db-80, 4};
+	};
+	class Chainsaw_Swing_Ammo : Melee {
+		hit = 9;
+		simulation = "shotBullet";
+		minRange = 1;
+		minRangeProbab = 0.8;
+		midRange = 2;
+		midRangeProbab = 1.5;
+		maxRange = 2.5;
+		maxRangeProbab = 2;
+		explosive = 0;
+		simulationStep = 0.001;
+		timeToLive = 0.03;
+		soundHit[] = {"", db-90, 1};
+		soundEngine[] = {"", db-80, 4};
+	};
+	class Crowbar_Swing_Ammo : Melee {
+		hit = 2;
+		simulation = "shotSpread";
+		minRange = 0.5;
+		minRangeProbab = 0.8;
+		midRange = 2;
+		midRangeProbab = 3.5;
+		maxRange = 5;
+		maxRangeProbab = 5;
+		explosive = 0;
+		simulationStep = 0.001;
+		timeToLive = 0.03;
+		soundHit[] = {"", db-90, 1};
+		soundEngine[] = {"", db-80, 4};
+	};
+	class Fishing_Swing_Ammo : Melee {
+		hit = 1;
+		simulation = "shotSpread";
+		minRange = 0.5;
+		minRangeProbab = 0.8;
+		midRange = 2;
+		midRangeProbab = 3.5;
+		maxRange = 5;
+		maxRangeProbab = 5;
+		explosive = 0;
+		simulationStep = 0.001;
+		timeToLive = 0.03;
+		soundHit[] = {"", db-90, 1};
+		soundEngine[] = {"", db-80, 4};
+	};
+	class Sledge_Swing_Ammo : Melee {
+		hit = 12;
+		simulation = "shotBullet";
+		minRange = 1;
+		minRangeProbab = 0.8;
+		midRange = 2;
+		midRangeProbab = 1.5;
+		maxRange = 3;
+		maxRangeProbab = 2.5;
+		explosive = 0;
+		simulationStep = 0.001;
+		timeToLive = 0.03;
 		soundHit[] = {"", db-90, 1};
 		soundEngine[] = {"", db-80, 4};
 	};

@@ -5152,6 +5152,42 @@
 			<French>Chien: Suivre</French>
 			<Czech>Psí příkaz: Sleduj</Czech>
 		</Key>
+		<Key ID="STR_FOODCOOKED_EQIP_CODE_NAME_5">
+			<Original>Angel Cookies</Original>
+			<English>Angel Cookies</English>
+			<German>Engelskekse</German>
+			<Russian>Печеньки!</Russian>
+			<Spanish>Galletitas de Ángel</Spanish>
+			<Dutch>Angel Koekjes</Dutch>
+			<French>Cookies d'Ange</French>
+			<Czech>Sušenky Angel</Czech>
+		</Key>
+		<Key ID="STR_EQUIP_SLEDGE">
+			<Original>Sledgehammer</Original>
+			<English>Sledgehammer</English>
+			<German>Vorschlaghammer</German>
+			<Russian>Кувалда</Russian>
+			<Spanish>Almádena</Spanish>
+			<Dutch>Voorhamer</Dutch>
+			<French>Masse</French>
+			<Czech>Palice</Czech>
+		</Key>
+		<Key ID="STR_EQUIP_SLEDGE_DESC">
+			<Original>A tool with a large, flat head attached to a handle. The head is typically made of metal. The sledgehammer can apply more force than other hammers.</Original>
+			<English>A tool with a large, flat head attached to a handle. The head is typically made of metal. The sledgehammer can apply more force than other hammers.</English>
+			<German>Ein Vorschlaghammer ist ein aus einem Hammerkopf (typischerweise aus geschmiedetem Stahl) und einem Stiel bestehendes Handwerkzeug. Der Vorschlaghammer kann mit höheren Schlagkräften als andere Hämmer genutzt werden.</German>
+			<Russian>Инструмент, с большой плоской головкой, прикреплённой к ручке. Головка, как правило, сделана из металла. Кувалдой можно приложить больше силы, чем другими молотками.</Russian>
+			<Spanish>A tool with a large, flat head attached to a handle. The head is typically made of metal. The sledgehammer can apply more force than other hammers.</Spanish>
+			<Dutch>Een grote voorhamer met stalen kop. Handig voor sloop en bouw werkzaamheden.</Dutch>
+			<French>Un outil composé d'une large tête aux faces latérales plates attachée à un manche. Sa tête est habituellement faite en acier. La masse se manipule à deux mains et permet d'exercer plus de force qu'un marteau.</French>
+			<Czech>Nástroj s velkou plochou hlavou připevněnou k rukojeti. Hlava je tvořena především z kovu. Palice je silnější než ostatní kladiva.</Czech>
+		</Key>
+		
+		
+		
+		
+		
+		
 	</Package>
 	<Package name="dayz_epoch">
 		<Key ID="STR_EPOCH_PLAYER_1">
