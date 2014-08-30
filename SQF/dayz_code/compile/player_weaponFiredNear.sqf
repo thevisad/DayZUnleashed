@@ -31,10 +31,10 @@ private["_unit","_magazine","_used","_quantity","_magsNet","_magsWhole","_key","
 	if (_firer == player) exitWith{};
     //Aggro from people near you.
     if (_distance <= 50) then {
-	    _audible = getNumber (configFile >> "CfgAmmo" >> _ammo >> "audibleFire");
-	    _caliber = getNumber (configFile >> "CfgAmmo" >> _ammo >> "caliber");
-	    _aggro = round(_audible * 10 * _caliber);
-	    if(_aggro > 0) then {
+        _audible = getNumber (configFile >> "CfgAmmo" >> _ammo >> "audibleFire");
+        _caliber = getNumber (configFile >> "CfgAmmo" >> _ammo >> "caliber");
+        _aggro = round(_audible * 10 * _caliber);
+        if(_aggro > 0) then {
 	        _aggro_range_mod = ( (1+(1/_aggro)) - (_distance/_aggro) ) max 0; //Give us a normalized number between 1.0 - 0.0
 	        if(_aggro_range_mod > 0) then {
                 if (_distance <= 8) then {
