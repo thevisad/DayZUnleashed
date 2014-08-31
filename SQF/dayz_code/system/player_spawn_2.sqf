@@ -26,6 +26,7 @@ while {true} do {
     
 	//reset position
 	_randomSpot = true;
+	_mylastPos = getPosATL _refObj;
 	_tempPos = getPosATL player;
 	_distance = _debug distance _tempPos;
 	if (_distance < 2000) then {
@@ -36,7 +37,7 @@ while {true} do {
 		_randomSpot = false;
 	};
 	if (!isNil "_mylastPos") then {
-		_distance = _mylastPos distance _tempPos;
+		_distance = (getPosATL _refObj) distance _tempPos;
 		if (_distance > 400) then {
 			_randomSpot = false;
 		};
@@ -46,7 +47,7 @@ while {true} do {
 	};
 
 	if (!isNil "_mylastPos") then {
-		dayz_mylastPos = _mylastPos;
+		dayz_mylastPos = getPosATL _refObj;
 	};
 	dayz_areaAffect = _size;
 

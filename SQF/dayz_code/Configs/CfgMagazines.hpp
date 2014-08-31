@@ -344,6 +344,7 @@ class CfgMagazines {
 		count = 1;
 		fuelQuantity = 210;
 		type = 256;
+		emptycan = "ItemFuelBarrelEmpty";
 		displayName = "Fuel Barrel";
 		model = "\z\addons\dayz_epoch\models\oil_drum_model.p3d";
 		picture = "\z\addons\dayz_epoch\pictures\equip_oil_drum_model_ca.paa";
@@ -397,6 +398,7 @@ class CfgMagazines {
 		count = 1;
 		fuelQuantity = 20;
 		type = 256;
+		emptycan = "ItemJerrycanEmpty";
 		displayName = $STR_EQUIP_NAME_19;
 		model = "\dayz_equip\models\jerrycan.p3d";
 		picture = "\dayz_equip\textures\equip_jerrycan_ca.paa";
@@ -1732,29 +1734,6 @@ class CfgMagazines {
 		picture = "\z\addons\dayz_communityassets\pictures\equip_razor_CA.paa";
 		type = 256;
 	};
-
-	class ItemKiloHemp : CA_Magazine {
-		scope = public;
-		count = 1;
-		displayName = "Kilo of Hemp";
-		descriptionShort = "Kilo of Hemp";
-		weight = 1;
-		model = "z\addons\dayz_epoch\models\kilohemp.p3d";
-		picture = "\z\addons\dayz_epoch\pictures\equip_kilohemp_CA.paa";
-		type = 256;
-		class ItemActions
-		{
-			class Crafting
-			{
-				text = $STR_EPOCH_PLAYER_269;
-				script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
-				neednearby[] = {"workshop"};
-				requiretools[] = {"ItemToolbox","ItemKnife"};
-				output[] = {{"ItemCanvas",1}};
-				input[] = {{"ItemKiloHemp",1}};
-			};
-		};
-	};
 	
 	class TrashTinCan: HandGrenade
 	{
@@ -1801,6 +1780,7 @@ class CfgMagazines {
 	#include "CfgMagazines\TrashTinCan.hpp"
 	#include "CfgMagazines\ItemSodaEmpty.hpp"
 	#include "CfgMagazines\Parts.hpp"
+	#include "CfgMagazines\ItemDrugs.hpp"
 	
 	// New Epoch
 	#include "CfgMagazines\DZE\bulk.hpp"

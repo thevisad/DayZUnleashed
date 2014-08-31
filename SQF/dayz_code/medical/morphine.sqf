@@ -1,7 +1,8 @@
 // bleed.sqf
 _unit = (_this select 3) select 0;
+_used = _this select 4;
 
-player removeMagazine "ItemMorphine";
+player removeMagazine _used;
 
 _unit setVariable ["hit_legs",0];
 _unit setVariable ["hit_hands",0];
@@ -117,7 +118,7 @@ if (_finished) then {
 		//[player,1,3] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
         [player,"Generic_Medical"] call DZU_fnc_giveEXP;        
 } else {
-	player addMagazine "ItemMorphine";
+	player addMagazine _used;
 	r_interrupt = false;
 	[objNull, player, rSwitchMove,""] call RE;
 	player playActionNow "stop";

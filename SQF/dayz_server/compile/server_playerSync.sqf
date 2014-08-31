@@ -9,7 +9,7 @@ _character = 	_this select 0;
 _magazines =	_this select 1;
 _force =	_this select 2;
 _force =	true;
-diag_log("_character " + str(_character));
+
 _characterID =	_character getVariable ["characterID","0"];
 _charPos = 		getPosATL _character;
 _isInVehicle = 	vehicle _character != _character;
@@ -117,7 +117,6 @@ if (_characterID != "0") then {
 		_killsH = 		["humanKills",_character] call server_getDiff;
 		_headShots = 	["headShots",_character] call server_getDiff;
 		_humanity = 	["humanity",_character] call server_getDiff2;
-
 		//_humanity = 	_character getVariable ["humanity",0];
 		_character addScore _kills;		
 		/*

@@ -66,7 +66,7 @@ if (parseNumber _nb_tirs <= 0) then
 // Calcul de la solution de tir
 if (_entrees_valides) then
 {
-	startLoadingScreen [STR_R3F_ARTY_calcul_en_cours];
+	//startLoadingScreen [STR_R3F_ARTY_calcul_en_cours];
 	
 	_long_batterie = parseNumber _long_batterie;
 	_lat_batterie = parseNumber _lat_batterie;

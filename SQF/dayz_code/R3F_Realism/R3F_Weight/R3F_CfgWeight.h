@@ -2729,6 +2729,15 @@ class CfgWeight {
 		class ItemPear {
 			weight=0.1;
 		};
+		class ItemPapers {
+			weight=0.1;
+		};
+		class ItemPoppy {
+			weight=0.1;
+		};
+		class ItemOpium {
+			weight=0.1;
+		};
 		class ItemPole {
 			weight=1.0;
 		};

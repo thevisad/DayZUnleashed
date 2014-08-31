@@ -8,7 +8,7 @@ Reworked:
 OtterNas3
 01/11/2014
 */
-_isAllowedUnderGround = select 0;
+_isAllowedUnderGround = _this select 0;
 
 private ["_zheightchanged", "_zheightdirection", "_rotate"];
 diag_log "build controls";
