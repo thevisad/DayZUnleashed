@@ -131,8 +131,8 @@ if (!isDedicated) then {
 	player_monitor = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\player_monitor.sqf";
 	player_spawn_1 = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\player_spawn_1.sqf";
 	player_spawn_2 = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\player_spawn_2.sqf";
-	onPreloadStarted "dayz_preloadFinished = false;";
-	onPreloadFinished "dayz_preloadFinished = true;";
+	//onPreloadStarted "diag_log (""preload started"");dayz_preloadFinished = false;";
+	//onPreloadFinished "diag_log (""preload finished"");dayz_preloadFinished = true;";
 	infectedcamps = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\object_infectedcamps.sqf";
 	camp_spawnZombies = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\camp_spawnZombies.sqf";			//Server compile, used for loiter behaviour
 	
@@ -811,3 +811,4 @@ if (!isDedicated) then {
 	//Start Dynamic Weather
 	execVM "\z\addons\dayz_code\system\DynamicWeatherEffects.sqf";
 	initialized = true;
+    dayz_preloadFinished = false;
