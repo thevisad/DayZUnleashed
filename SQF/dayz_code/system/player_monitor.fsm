@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Player Monitor">*/
+/*%FSM<COMPILE "E:\ArmATools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Player Monitor">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"init",0,250,-75.000000,-350.000000,25.000000,-300.000000,0.000000,"init"};
@@ -155,8 +155,8 @@ link78[] = {68,69};
 link79[] = {69,70};
 link80[] = {70,20};
 link81[] = {71,68};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-690.412842,878.620789,1395.411865,-108.245430,1199,1150,1};
-window[] = {0,-1,-1,-1,-1,1342,50,2548,47,1,1217};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-642.430847,529.905151,1842.717041,877.042725,936,771,1};
+window[] = {2,-1,-1,-1,-1,937,25,2523,25,3,954};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -749,7 +749,7 @@ class FSM
     {
       name = "Phase_Two";
       init = /*%FSM<STATEINIT""">*/"dayz_loadScreenMsg =  ""Character Data received from server""; " \n
-       "diag_log ""Finished..."";" \n
+       "diag_log ""PLOGIN: Phase two: started"";" \n
        "" \n
        "_worldspace = 	dayzPlayerLogin2 select 0;" \n
        "_state =			dayzPlayerLogin2 select 1;" \n
@@ -879,7 +879,8 @@ class FSM
        "dayz_hunger = 	_messing select 0;" \n
        "dayz_thirst = 		_messing select 1;" \n
        "" \n
-       "//player setVariable [""humanity"",-3000, true];"/*%FSM</STATEINIT""">*/;
+       "//player setVariable [""humanity"",-3000, true];" \n
+       "diag_log ""PLOGIN: Phase two: finished"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -934,7 +935,8 @@ class FSM
     class Position
     {
       name = "Position";
-      init = /*%FSM<STATEINIT""">*/"endLoadingScreen;" \n
+      init = /*%FSM<STATEINIT""">*/"diag_log ""PLOGIN: Position: started"";" \n
+       "//endLoadingScreen;" \n
        "//startLoadingScreen ["""",""DayZ_loadingScreen""];" \n
        "" \n
        "//Location" \n
@@ -963,7 +965,8 @@ class FSM
        "	};" \n
        "};" \n
        "" \n
-       "call ui_changeDisplay;"/*%FSM</STATEINIT""">*/;
+       "call ui_changeDisplay;" \n
+       "diag_log ""PLOGIN: Position: finished"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -994,7 +997,8 @@ class FSM
     class Load_In
     {
       name = "Load_In";
-      init = /*%FSM<STATEINIT""">*/"//Reveal action types" \n
+      init = /*%FSM<STATEINIT""">*/"diag_log ""PLOGIN: loadin  started"";" \n
+       "//Reveal action types" \n
        "" \n
        "{player reveal _x} forEach (nearestObjects [getPosATL player, [""AllVehicles"",""WeaponHolder"",""StashSmall"",""StashMedium"",""TentStorage"",""BuiltItems""], 50]);" \n
        "" \n
@@ -1005,7 +1009,8 @@ class FSM
        "" \n
        "//Check mission objects" \n
        "{ _id = [_x,0] spawn object_roadFlare } forEach (allMissionObjects ""RoadFlare"");" \n
-       "{ _id = [_x,1] spawn object_roadFlare } forEach (allMissionObjects ""ChemLight"");"/*%FSM</STATEINIT""">*/;
+       "{ _id = [_x,1] spawn object_roadFlare } forEach (allMissionObjects ""ChemLight"");" \n
+       "diag_log ""PLOGIN: loadin  finished"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1055,7 +1060,8 @@ class FSM
     class Preload_Display
     {
       name = "Preload_Display";
-      init = /*%FSM<STATEINIT""">*/"dayz_lastCheckBit = 0;" \n
+      init = /*%FSM<STATEINIT""">*/"diag_log ""PLOGIN: preload display started"";" \n
+       "dayz_lastCheckBit = 0;" \n
        "" \n
        "(findDisplay 46) displayAddEventHandler [""KeyDown"",""_this call dayz_spaceInterrupt""];" \n
        "player disableConversation true;" \n
@@ -1147,13 +1153,17 @@ class FSM
        "};" \n
        "" \n
        "//Player control loop" \n
+       "if(!isNil ""dayz_monitor1"")then {" \n
+       "    terminate dayz_monitor1;" \n
+       "};" \n
        "dayz_monitor1 = [] spawn {" \n
        "	while {true} do { " \n
        "		sleep (if (call player_zombieCheck) then {dayz_monitorPeriod/3} else {dayz_monitorPeriod});" \n
        "	};" \n
        "};" \n
-       "" \n
-       ""/*%FSM</STATEINIT""">*/;
+       "dayz_preloadFinished=true;" \n
+       "diag_log format[""dayz_preloadFinished:%1"",dayz_preloadFinished];" \n
+       "diag_log ""PLOGIN: preload display finished"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1163,7 +1173,7 @@ class FSM
           priority = 0.000000;
           to="Initialize";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"dayz_preloadFinished"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"true"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -1174,7 +1184,8 @@ class FSM
     class Initialize
     {
       name = "Initialize";
-      init = /*%FSM<STATEINIT""">*/"#define ods(arg1) ""armaperflib"" callextension arg1" \n
+      init = /*%FSM<STATEINIT""">*/"diag_log ""PLOGIN: initilized started"";" \n
+       "#define ods(arg1) ""armaperflib"" callextension arg1" \n
        "" \n
        "if (!isNil ""dayzSetDate"") then {" \n
        "	setDate dayzSetDate;" \n
@@ -1216,6 +1227,9 @@ class FSM
        """colorCorrections"" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 1 min (4*r_player_blood/3/r_player_bloodTotal)],  [1, 1, 1, 0.0]];" \n
        """colorCorrections"" ppEffectCommit 0;" \n
        "" \n
+       "if(!isNil ""dayz_gui"")then {" \n
+       "    terminate dayz_gui;" \n
+       "};" \n
        "dayz_gui = [] spawn {" \n
        "	private[""_distance""];" \n
        "	dayz_musicH = [] spawn player_music;" \n
@@ -1254,6 +1268,9 @@ class FSM
        "" \n
        "diag_log (""FPS: "" +str(fps_safty_check));" \n
        "" \n
+       "if(!isNil ""dayz_spawnCheck"")then {" \n
+       "    terminate dayz_spawnCheck;" \n
+       "};" \n
        "dayz_spawnCheck = [] spawn {" \n
        "	while {true} do {" \n
        "	//	fps_safty_check = diag_fpsmin;" \n
@@ -1266,7 +1283,9 @@ class FSM
        "	};" \n
        "};" \n
        "" \n
-       "" \n
+       "if(!isNil ""dayz_locationCheck"")then {" \n
+       "    terminate dayz_locationCheck;" \n
+       "};" \n
        "dayz_locationCheck = [] spawn {" \n
        "	while {true} do {" \n
        "	//	fps_safty_check = diag_fpsmin;" \n
@@ -1277,6 +1296,9 @@ class FSM
        "	};" \n
        "};" \n
        "" \n
+       "if(!isNil ""dayz_fpsmonitor"")then {" \n
+       "    terminate dayz_fpsmonitor;" \n
+       "};" \n
        "dayz_fpsmonitor = [] spawn {" \n
        "	while {true} do {" \n
        "		_survivors = playersNumber west;" \n
@@ -1308,7 +1330,8 @@ class FSM
        "	if (!_fadeFire) then {" \n
        "		nul = [_x,2,0,false,false] spawn BIS_Effects_Burn;" \n
        "	};" \n
-       "} forEach allMissionObjects ""SpawnableWreck"";"/*%FSM</STATEINIT""">*/;
+       "} forEach allMissionObjects ""SpawnableWreck"";" \n
+       "diag_log ""PLOGIN: initilized finished"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1339,13 +1362,15 @@ class FSM
     class Finish
     {
       name = "Finish";
-      init = /*%FSM<STATEINIT""">*/"dayzGearSave = true;" \n
+      init = /*%FSM<STATEINIT""">*/"diag_log ""PLOGIN: finished"";" \n
+       "dayzGearSave = true;" \n
        "dayz_myPosition = getPosATL player;" \n
        "" \n
        "//[""PVDZ_plr_LoginRecord"",[_playerUID,_charID,0]] call callRpcProcedure;" \n
        "" \n
        "PVDZ_plr_LoginRecord = [_playerUID,_charID,0];" \n
-       "publicVariableServer ""PVDZ_plr_LoginRecord"";"/*%FSM</STATEINIT""">*/;
+       "publicVariableServer ""PVDZ_plr_LoginRecord"";" \n
+       "diag_log ""PLOGIN: Really finished"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1460,13 +1485,15 @@ class FSM
     class Stream
     {
       name = "Stream";
-      init = /*%FSM<STATEINIT""">*/"//stream in location" \n
+      init = /*%FSM<STATEINIT""">*/"diag_log ""PLOGIN: stream started"";" \n
+       "//stream in location" \n
        "[false] call stream_locationCheck;" \n
        "" \n
        "_zombies = (getPosATL player) nearEntities [""zZombie_Base"",30];" \n
        "{deleteVehicle _x} forEach _zombies;" \n
        "" \n
-       "endLoadingScreen;"/*%FSM</STATEINIT""">*/;
+       "endLoadingScreen;" \n
+       "diag_log ""PLOGIN: stream finished"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1571,7 +1598,8 @@ class FSM
     class ERROR__No_Date_or
     {
       name = "ERROR__No_Date_or";
-      init = /*%FSM<STATEINIT""">*/"endLoadingScreen;" \n
+      init = /*%FSM<STATEINIT""">*/"diag_log ""PLOGIN: Error no date"";" \n
+       "endLoadingScreen;" \n
        "selectNoPlayer;" \n
        "_myTime = diag_tickTime;" \n
        "1 cutText [""Could not retive date and time from server disconect and retry."", ""PLAIN"",5];"/*%FSM</STATEINIT""">*/;
