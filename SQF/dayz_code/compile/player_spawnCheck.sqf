@@ -142,35 +142,3 @@ _maxtoCreate = _maxControlledZombies - _controlledZombies;
 		};
 	};
 } forEach _nearby;
-
-/*
-// spawn some a wild zombie if we can afford
-if ((_currentManModels < _maxManModels) AND {_maxtoCreate > 0}) then {
-	// we limit the surface because finding a typeless object is a CPU hog.
-	_radius = (0 max (dayz_canDelete - dayz_spawnArea))/2;
-	// search area is somewhere quite far, quite in the same direction as the player is facing
-	// Z will be spawned quite far, beyond the radius used for buildings
-	_tmp = (random 180) - 90;
-	_dis = dayz_spawnArea + _radius;
-	_point = player modelToWorld[sin(_tmp) * _dis, cos(_tmp) * _dis, 0];
-	_nearby = nil;
-	{
-		_tmp = str(_x);
-		// How not being seen? hide behind a bush! Great value = t_picea1s, t_picea2s, t_betula2w, b_craet2
-		if ((typeOf _x == "") AND {(
-			(((["t_picea1s", _tmp, false] call fnc_inString) OR
-			{(["t_picea2s", _tmp, false] call fnc_inString)})) OR
-			{((["t_betula2w", _tmp, false] call fnc_inString) OR
-			{(["b_craet2", _tmp, false] call fnc_inString)})})
-		}) then {
-			_suitableBld = _suitableBld +1;
-			_tmp = [_x, _recyAgt, _maxtoCreate, 10];
-			_qty = _tmp call building_spawnZombies;
-			_recyAgt = _tmp select 1;
-			_maxtoCreate = _tmp select 2;
-		};
-		sleep 0.001;
-	} forEach (nearestObjects [_point, [], _radius]);
-};
-*/
-//diag_log (format["%1 End. Buildings checked:%2, newly zombied:%3, already zombied:%4, negative timestamp:%5.", __FILE__,_suitableBld, _spwndoneBld, _zombieSpawnCtr, _negstampBld ]);

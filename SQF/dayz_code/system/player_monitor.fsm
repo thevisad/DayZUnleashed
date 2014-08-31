@@ -155,8 +155,8 @@ link78[] = {68,69};
 link79[] = {69,70};
 link80[] = {70,20};
 link81[] = {71,68};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-966.127014,1154.336182,1659.638916,-372.471588,1200,1150,1};
-window[] = {0,-1,-1,-1,-1,1320,25,2523,25,1,1218};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-690.412842,878.620789,1395.411865,-108.245430,1199,1150,1};
+window[] = {0,-1,-1,-1,-1,1342,50,2548,47,1,1217};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -176,7 +176,7 @@ class FSM
        "//player setPosATL [-2148,6655,0];" \n
        "" \n
        "progressLoadingScreen 0.1;" \n
-       "0 cutText ["""",""BLACK""];" \n
+       "0 cutText ["""",""BLACK"",0];" \n
        "" \n
        "_timeStart = diag_tickTime;" \n
        "_readytoAuth = false;" \n
@@ -935,7 +935,7 @@ class FSM
     {
       name = "Position";
       init = /*%FSM<STATEINIT""">*/"endLoadingScreen;" \n
-       "startLoadingScreen ["""",""DayZ_loadingScreen""];" \n
+       "//startLoadingScreen ["""",""DayZ_loadingScreen""];" \n
        "" \n
        "//Location" \n
        "_myLoc = getPosATL player;" \n
@@ -1266,6 +1266,7 @@ class FSM
        "	};" \n
        "};" \n
        "" \n
+       "" \n
        "dayz_locationCheck = [] spawn {" \n
        "	while {true} do {" \n
        "	//	fps_safty_check = diag_fpsmin;" \n
@@ -1344,10 +1345,7 @@ class FSM
        "//[""PVDZ_plr_LoginRecord"",[_playerUID,_charID,0]] call callRpcProcedure;" \n
        "" \n
        "PVDZ_plr_LoginRecord = [_playerUID,_charID,0];" \n
-       "publicVariableServer ""PVDZ_plr_LoginRecord"";" \n
-       "" \n
-       "endLoadingScreen;" \n
-       ""/*%FSM</STATEINIT""">*/;
+       "publicVariableServer ""PVDZ_plr_LoginRecord"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {

@@ -397,7 +397,7 @@ class ItemRosehips : CA_Magazine {
 	displayName = "Rosehips";
 	descriptionShort = "Good for use in a antibiotic";
 	model = "";
-	picture = "\z\addons\unleashed_pack\pictures\rosehips";
+	picture = "\z\addons\unleashed_pack\pictures\rosehips.paa";
 	type = 256;
 	class ItemActions
 	{
@@ -413,13 +413,14 @@ class ItemRosehips : CA_Magazine {
 	};
 };
 
+
 class ItemThistle : CA_Magazine {
 	scope = public;
 	count = 1;
 	displayName = "Thistle";
 	descriptionShort = "Good for use in an antibiotic";
 	model = "";
-	picture = "\z\addons\unleashed_pack\pictures\thistle";
+	picture = "\z\addons\unleashed_pack\pictures\thistle.paa";
 	type = 256;
 	class ItemActions
 	{

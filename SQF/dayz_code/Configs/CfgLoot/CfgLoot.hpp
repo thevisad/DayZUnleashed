@@ -49,9 +49,6 @@ class CfgLoot {
 		{"TK_Assault_Pack_EP1",0.03}
 
 	};
-	
-
-
 
 	vehicleparts[]={
 		/*{"WeaponHolder_PartGeneric",0.07},
@@ -237,7 +234,7 @@ class CfgLoot {
 		{"KPFS_16Rnd_9x19_para",0.01},
 		{"KPFS_25Rnd_pm",0.01},
 		{"KPFS_32Rnd_MP2",0.01},
-		{"KPFS_G1",0.01},
+		{"KPFS_G1_FN",0.01},
 		{"KPfs_g36a1",0.01},
 		{"KPfs_g36a2",0.01},
 		{"KPfs_g36a4",0.01},
@@ -249,13 +246,13 @@ class CfgLoot {
 		{"KPfs_g3a4",0.01},
 		{"KPfs_g3dmr",0.01},
 		{"KPfs_hk32",0.01},
-		{"KPFS_HK4",0.01},
+		{"KPFS_HK4_M",0.01},
 		{"KPFS_HK416_Aim",0.01},
-		{"KPFS_HKP30",0.01},
-		{"KPFS_HKP7",0.01},
+		{"KPFS_HKP30_G17",0.01},
+		{"KPFS_HKP7_G17",0.01},
 		{"KPFS_MG3",0.01},
 		{"KPFS_MG3_eot",0.01},
-		{"KPFS_MP2",0.01},
+		{"KPFS_MP2_MP5",0.01},
 		{"KPFS_MP2A1",0.01},
 		{"KPFS_MP5A3",0.01},
 		{"KPFS_MP5A3SD",0.01},
@@ -265,18 +262,19 @@ class CfgLoot {
 		{"KPFS_MPi_KM_72",0.01},
 		{"KPFS_MPi_KMKIX",0.01},
 		{"KPFS_MPi_KMS_72",0.01},
-		{"KPFS_P1",0.01},
+		{"KPFS_P1_M9",0.01},
 		{"KPFS_P12",0.01},
 		{"KPFS_P12SD",0.01},
+		{"KPFS_PSL_SVD",0.01},
 		{"KPFS_P2000",0.01},
-		{"KPFS_P220",0.01},
+		{"KPFS_P220_P",0.01},
 		{"KPFS_P225",0.01},
-		{"KPFS_P226",0.01},
+		{"KPFS_P226_P",0.01},
 		{"KPFS_P5",0.01},
 		{"KPFS_P8",0.01},
-		{"KPFS_P88",0.01},
+		{"KPFS_P88_M9",0.01},
 		{"KPFS_P99QA",0.01},
-		{"KPFS_PM63",0.01},
+		{"KPFS_PM63_MP5",0.01},
 		{"M1014",0.01},
 		{"M16A2",0.01},
 		{"M16A2GL",0.01},
@@ -485,18 +483,17 @@ class CfgLoot {
 		{"m8_holo_sd",0.03},
 		{"m8_tws_sd",0.03},
 		{"m8_tws",0.03},
-		{"KPFS_G22",0.03},
+		{"KPFS_G22_R",0.03},
 		{"KPFS_G22_desert",0.03},
 		{"KPFS_G27_scoped",0.03},
 		{"KPFS_G3SG1",0.03},
 		{"KPFS_G3DMR2",0.03},
 		{"KPFS_MBB_Armbrust",0.03},
 		{"KPFS_MG2",0.03},
-		{"KPFS_MG4",0.03},
-		{"KPFS_Pzf3",0.03},
+		{"KPFS_MG4_M",0.03},
+		{"KPFS_Pzf3_M",0.03},
 		{"GSh23L_L39",0.03},
 		{"2A72_AI",0.03},
-		{"SPG9_AI",0.03},
 		{"MG36_Large",0.03},
 		{"MG36_camo_Large",0.03},
 		{"RPK_74_Large",0.03},
@@ -602,6 +599,10 @@ class CfgLoot {
 		{"Crossbow",0.03},
 		{"ItemMachete",0.03},
 		{"ItemShovel",0.03},
+		{"ItemPapers",0.03},
+		{"ItemKiloHemp",0.03},
+		{"ItemOpium",0.03},
+		{"ItemPoppy",0.03},		
 		{"ItemFishingPole",0.03}
 	};
 	
@@ -706,11 +707,12 @@ class CfgLoot {
 		{"30Rnd_9x19sd_LUGER",0.01},
 		{"8Rnd_9x18_MakarovSD",0.01},
 		{"KPFS_8Rnd_9x19_P1",0.01},
-		{"KPFS_Makarov",0.01},
+		{"KPFS_Makarov_M",0.01},
 		{"9Rnd_9x19_LUGER",0.01},
 		{"15Rnd_W1866_Pellet",0.03},
 		{"BoltSteel",0.03},
 		{"UZI_SD_EP1",0.03},
+		
 		{"revolver_gold_EP1",0.03}
 	};
 	
@@ -823,6 +825,8 @@ class CfgLoot {
 		{"ItemNettle",0.03},
 		{"ItemPear",0.03},
 		{"ItemRosehips",0.03},
+		{"ItemPoppy",0.03},
+		{"ItemPoppy",0.03},
 		{"ItemThistle",0.03}
 	};
 	

@@ -9,8 +9,8 @@ if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_72") , 
 DZE_ActionInProgress = true;
 
 // allowed trees list move this later
-_trees = ["pumpkin.p3d","p_helianthus.p3d","p_fiberplant_ep1.p3d","t_purus2s.p3d","t_malus1s.p3d","b_corylus.p3d","b_corylus2s.p3d","b_sambucus.p3d","b_prunus.p3d","p_urtica.p3d","p_carduus.p3d","b_salix2s.p3d","b_canina2s.p3d"];
-_treesOutput = ["FoodPumpkin","FoodSunFlowerSeed","ItemKiloHemp","ItemPear","ItemApple","ItemHazelnut","ItemHazelnut","ItemElderberry","ItemCherry","ItemNettle","ItemThistle","ItemWillow","ItemRose"];
+_trees = ["pumpkin.p3d","p_helianthus.p3d","p_fiberplant_ep1.p3d","t_purus2s.p3d","t_malus1s.p3d","b_corylus.p3d","b_corylus2s.p3d","b_sambucus.p3d","b_prunus.p3d","p_urtica.p3d","p_carduus.p3d","b_salix2s.p3d","b_canina2s.p3d","p_papaver_EP1.p3d"];
+_treesOutput = ["FoodPumpkin","FoodSunFlowerSeed","ItemKiloHemp","ItemPear","ItemApple","ItemHazelnut","ItemHazelnut","ItemElderberry","ItemCherry","ItemNettle","ItemThistle","ItemWillow","ItemRose","ItemPoppy"];
 
 //_item = _this;
 call gear_ui_init;
@@ -19,12 +19,13 @@ _countOut = 0;
 
 _findNearestTree = [];
 {
+diag_log format["PHP: Nearest: %1", _X];
 	if("" == typeOf _x) then {
 			
 		if (alive _x) then {
 				
 			_objName = _x call DZE_getModelName;
-
+		
 			// Exit since we found a tree
 			if (_objName in _trees) exitWith { 
 				_findNearestTree set [(count _findNearestTree),_x];

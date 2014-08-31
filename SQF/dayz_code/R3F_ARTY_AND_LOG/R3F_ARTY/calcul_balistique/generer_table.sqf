@@ -68,7 +68,7 @@ _coef_frottement = _table select 0 select 1;
 _liste_altitudes_impact = _table select 0 select 2;
 _liste_elevations = _table select 0 select 3;
 
-startLoadingScreen ["Calcul de la table..."];
+//startLoadingScreen ["Calcul de la table..."];
 
 // Impression de l'entête de la table dans le RPT
 diag_log text "/****** DEBUT DE LA TABLE ******/";

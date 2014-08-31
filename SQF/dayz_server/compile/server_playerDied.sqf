@@ -1,7 +1,7 @@
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 private["_characterID","_minutes","_newObject","_playerID","_key","_playerName","_playerID","_myGroup","_group","_victim", "_killer", "_weapon", "_message", "_distance","_loc_message","_victimName","_killerName","_killerPlayerID"];
 //[unit, weapon, muzzle, mode, ammo, magazine, projectile]
-
+//PVDZ_plr_Death = [dayz_characterID,0,_body,_playerID];
 _characterID = 	_this select 0;
 _minutes =	_this select 1;
 _newObject = 	_this select 2;

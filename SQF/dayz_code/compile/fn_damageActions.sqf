@@ -53,6 +53,7 @@ if (_hasPatient and !r_drag_sqf and !r_action and !_inVehicle and !r_player_unco
 	_hasBandage = "ItemBandage" in magazines player;
 	_hasEpi = "ItemEpinephrine" in magazines player;
 	_hasMorphine = "ItemMorphine" in magazines player;
+	_hasOpium = "ItemOpium" in magazines player;
 	_hasBlood = "ItemBloodbag" in magazines player;
 	_hasToolbox = "ItemToolbox" in items player;
 	/*
@@ -104,6 +105,12 @@ if (_hasPatient and !r_drag_sqf and !r_action and !_inVehicle and !r_player_unco
 	if((_legsBroke or _armsBroke) and _hasMorphine) then {
 		r_action = true;
 		_action = _unit addAction [localize "str_actions_medical_06", "\z\addons\dayz_code\medical\morphine.sqf",[_unit], 0, true, true, "", "'ItemMorphine' in magazines player"];
+		r_player_actions set [count r_player_actions,_action];
+	};
+	//Allow player to give Morphine
+	if((_legsBroke or _armsBroke) and  _hasOpium) then {
+		r_action = true;
+		_action = _unit addAction [localize "str_actions_medical_06", "\z\addons\dayz_code\medical\morphine.sqf",[_unit], 0, true, true, "", "'ItemOpium' in magazines player"];
 		r_player_actions set [count r_player_actions,_action];
 	};
 	//Allow player to give Painkillers

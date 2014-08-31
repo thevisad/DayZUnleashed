@@ -179,24 +179,9 @@ class B_127x99_Ball_noTracer_BAF: B_127x99_Ball_noTracer {
 		soundHit[] = {"", db-90, 1};
 		soundEngine[] = {"", db-80, 4};
 	};
-	class Crowbar_Swing_Ammo : Melee {
-		hit = 2;
-		simulation = "shotSpread";
-		minRange = 0.5;
-		minRangeProbab = 0.8;
-		midRange = 2;
-		midRangeProbab = 3.5;
-		maxRange = 5;
-		maxRangeProbab = 5;
-		explosive = 0;
-		simulationStep = 0.001;
-		timeToLive = 0.03;
-		soundHit[] = {"", db-90, 1};
-		soundEngine[] = {"", db-80, 4};
-	};
 	class Fishing_Swing_Ammo : Melee {
 		hit = 1;
-		simulation = "shotSpread";
+		simulation = "shotBullet";
 		minRange = 0.5;
 		minRangeProbab = 0.8;
 		midRange = 2;

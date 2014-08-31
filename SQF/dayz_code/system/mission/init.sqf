@@ -3,7 +3,7 @@
 */
 waitUntil{!isnil "bis_fnc_init"};
 startLoadingScreen ["","RscDisplayLoadCustom"];
-cutText ["","BLACK OUT"];
+cutText ["","BLACK OUT",0];
 enableSaving [false, false];
 
 //REALLY IMPORTANT VALUES

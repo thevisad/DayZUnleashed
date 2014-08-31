@@ -4,9 +4,15 @@ if (deathHandled) exitWith {};
 
 deathHandled = true;
 //Death
+//Prevent client freezes
+_display = findDisplay 49;
+if(!isNull _display) then {_display closeDisplay 0;};
+if (dialog) then {closeDialog 0;};
+if (visibleMap) then {openMap false;};
 
 _body = player;
 _playerID = getPlayerUID player;
+
 disableUserInput true;
 
 
@@ -67,14 +73,16 @@ if (count _array > 0) then {
 };
 
 terminate dayz_musicH;
+//terminate dayz_lootCheck;
 terminate dayz_slowCheck;
 terminate dayz_animalCheck;
 terminate dayz_monitor1;
 terminate dayz_medicalH;
 terminate dayz_gui;
+//terminate dayz_zedCheck;
 terminate dayz_locationCheck;
-terminate dayz_spawnCheck;
-terminate dayz_fpsmonitor;
+//terminate dayz_combatCheck;
+//terminate dayz_spawnCheck;
 
 //Reset (just in case)
 //deleteVehicle dayz_playerTrigger;
@@ -89,11 +97,7 @@ r_player_dead = true;
 
 //Player is Dead!
 3 fadeSound 0;
-0 cutText ["", "BLACK",10];
-dayz_DeathActioned = true;
 sleep 1;
-
-TitleText[localize "str_player_12","PLAIN DOWN",5];
 
 dayz_originalPlayer enableSimulation true;
 
@@ -110,7 +114,11 @@ deleteGroup _myGroup;
 
 _body setVariable["combattimeout", 0, true];
 
-//["dayzFlies",player] call broadcastRpcCallAll;
+
+//due to a cleanup issue with effects this has been disabled remember to look at the cleanup before adding it back.
+//[_body] call spawn_flies;
+//dayzFlies = player;
+//publicVariable "dayzFlies";
 sleep 2;
 
 1 cutRsc ["DeathScreen","BLACK OUT",3];
@@ -120,4 +128,9 @@ playMusic "dayz_track_death_1";
 "dynamicBlur" ppEffectAdjust [0]; "dynamicBlur" ppEffectCommit 5;
 "colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 1],  [1, 1, 1, 1]];"colorCorrections" ppEffectCommit 5;
 sleep 2;
+for  "_x" from 5 to 1 step -1 do {
+	titleText [format[localize "str_return_lobby", _x], "PLAIN DOWN", 1];
+	sleep 1;
+};
 disableUserInput false;
+endMission "END1";

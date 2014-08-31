@@ -15,6 +15,7 @@ _fueling = player getVariable "fueling";
 _exp_type = switch (_cantype) do {
     case "ItemFuelcan":{"Refuel_Object_5l"};
     case "ItemJerrycan":{"Refuel_Object_20l"};
+	case "ItemFuelBarrel":{"Refuel_Object_210l"};
     default {"Generic_limited"};
 };
 
