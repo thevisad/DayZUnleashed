@@ -232,3 +232,4 @@ dayz_recordLogin = {
 
 call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_hiveMaintenance.sqf";
 #include "Antihack.sqf"
+[] ExecVM "\z\addons\dayz_server\DZMS\DZMSInit.sqf";

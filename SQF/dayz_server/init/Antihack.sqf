@@ -318,7 +318,7 @@ _LoadPlease = compile ("
 						_oldpos = getPos _object;
 						sleep 1;
 						_dist = _oldpos distance _object;
-						if (_dist > 1111) then {_object setPos _oldpos;};
+						if (_dist > 20000) then {_object setPos _oldpos;};
 					};
 				};
 			};
