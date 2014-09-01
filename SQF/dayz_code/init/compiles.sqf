@@ -5,13 +5,14 @@
 
 if (!isDedicated) then {
 	"filmic" setToneMappingParams [0.07, 0.31, 0.23, 0.37, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
-	
+	_nul = [] execVM "\z\addons\dayz_code\init\dzai_initclient.sqf";
 	_void = [] execVM "\z\addons\dayz_code\R3F_Realism\R3F_Realism_Init.sqf";
 	DZE_player_build			= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_build.sqf";
 	player_buildControls	= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_buildControls.sqf";
 	snap_object				= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\snap_object.sqf";
 	
-	BIS_Effects_Burn = compile preprocessFile "\ca\Data\ParticleEffects\SCRIPTS\destruction\burn.sqf";
+	
+
 	player_zombieCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";	//Run on a players computer, checks if the player is near a zombie
 	player_zombieAttack = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieAttack.sqf";	//Run on a players computer, causes a nearby zombie to attack them
 	fnc_usec_damageActions = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_damageActions.sqf";		//Checks which actions for nearby casualty
@@ -726,6 +727,47 @@ if (!isDedicated) then {
 	BIS_fnc_param = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\BIS_fnc\fn_param.sqf";
 
 	//Both
+	BIS_Effects_Init = true; //A2 won't overwrite this if var is not nil
+	/* BIS_Effects_* fixes from Dwarden */
+	diag_log "Res3tting B!S effects...";
+	BIS_Effects_EH_Fired = {false};
+	BIS_Effects_EH_Killed = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\BIS_Effects\killed.sqf";
+	BIS_Effects_Rifle = {false};
+	BIS_Effects_Cannon=compile preprocessFileLineNumbers "\ca\Data\ParticleEffects\SCRIPTS\muzzle\cannon.sqf";
+	BIS_Effects_HeavyCaliber=compile preprocessFileLineNumbers "\ca\Data\ParticleEffects\SCRIPTS\muzzle\heavycaliber.sqf";
+	BIS_Effects_HeavySniper=compile preprocessFileLineNumbers "\ca\Data\ParticleEffects\SCRIPTS\muzzle\heavysniper.sqf";
+	BIS_Effects_Rocket=compile preprocessFileLineNumbers "\ca\Data\ParticleEffects\SCRIPTS\muzzle\rocket.sqf";
+	BIS_Effects_SmokeShell=compile preprocessFileLineNumbers "\ca\Data\ParticleEffects\SCRIPTS\muzzle\smokeshell.sqf";
+	BIS_Effects_SmokeLauncher=compile preprocessFileLineNumbers "\ca\Data\ParticleEffects\SCRIPTS\muzzle\smokelauncher.sqf";
+	BIS_Effects_Flares=compile preprocessFileLineNumbers "\ca\Data\ParticleEffects\SCRIPTS\muzzle\flares.sqf";
+	BIS_Effects_Burn=compile preprocessFileLineNumbers "\ca\Data\ParticleEffects\SCRIPTS\destruction\burn.sqf";
+	BIS_Effects_AircraftVapour=compile preprocessFileLineNumbers "\ca\Data\ParticleEffects\SCRIPTS\misc\aircraftvapour.sqf";
+	BIS_Effects_AirDestruction = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\BIS_Effects\AirDestruction.sqf";
+	BIS_Effects_AirDestructionStage2 = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\BIS_Effects\AirDestructionStage2.sqf";
+	BIS_Effects_Secondaries = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\BIS_Effects\secondaries.sqf";
+	BIS_Effects_globalEvent = {
+		BIS_effects_gepv = _this;
+		publicVariable "BIS_effects_gepv";
+		_this call BIS_Effects_startEvent;
+	};
+	BIS_Effects_startEvent = {
+		switch (_this select 0) do {
+			case "AirDestruction": {
+					[_this select 1] spawn BIS_Effects_AirDestruction;
+			};
+			case "AirDestructionStage2": {
+					[_this select 1, _this select 2, _this select 3] spawn BIS_Effects_AirDestructionStage2;
+			};
+			case "Burn": {
+					[_this select 1, _this select 2, _this select 3, false, true] spawn BIS_Effects_Burn;
+			};
+		};
+	};
+	"BIS_effects_gepv" addPublicVariableEventHandler {
+		(_this select 1) call BIS_Effects_startEvent;
+	};
+	
+	
 	
 	fnc_buildWeightedArray = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_buildWeightedArray.sqf";		//Checks which actions for nearby casualty
 	zombie_initialize = compile preprocessFileLineNumbers "\z\addons\dayz_code\init\zombie_init.sqf";

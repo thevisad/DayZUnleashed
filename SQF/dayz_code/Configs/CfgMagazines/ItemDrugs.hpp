@@ -84,3 +84,13 @@ class ItemKiloHemp : CA_Magazine {
 		};
 	};
 };
+
+class ItemPapers: CA_Magazine {
+	scope = 2;
+	count = 1;
+	type = 256;
+	displayName = "Snarky Lions";
+	model = = "\z\addons\unleashed_pack\models\papers\snarkyLion.paa";
+	picture = "\z\addons\unleashed_pack\pictures\snarkyLions.paa";
+	descriptionShort = "Some papers for rolling joints";
+};
