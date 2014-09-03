@@ -463,7 +463,7 @@ class SUV_TK_CIV_EP1_DZE2: SUV_TK_CIV_EP1_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_Camo_DZE2: SUV_Camo_DZE1 {
@@ -510,7 +510,7 @@ class SUV_Camo_DZE2: SUV_Camo_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_Camo_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_Camo_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_Blue_DZE2: SUV_Blue_DZE1 {
@@ -557,7 +557,7 @@ class SUV_Blue_DZE2: SUV_Blue_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_Blue_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_Blue_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_Green_DZE2: SUV_Green_DZE1 {
@@ -604,7 +604,7 @@ class SUV_Green_DZE2: SUV_Green_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_Green_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_Green_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_Yellow_DZE2: SUV_Yellow_DZE1 {
@@ -651,7 +651,7 @@ class SUV_Yellow_DZE2: SUV_Yellow_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_Yellow_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_Yellow_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_Red_DZE2: SUV_Red_DZE1 {
@@ -698,7 +698,7 @@ class SUV_Red_DZE2: SUV_Red_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_Red_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_Red_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_White_DZE2: SUV_White_DZE1 {
@@ -745,7 +745,7 @@ class SUV_White_DZE2: SUV_White_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_White_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_White_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_Pink_DZE2: SUV_Pink_DZE1 {
@@ -792,7 +792,7 @@ class SUV_Pink_DZE2: SUV_Pink_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_Pink_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_Pink_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_Charcoal_DZE2: SUV_Charcoal_DZE1 {
@@ -839,7 +839,7 @@ class SUV_Charcoal_DZE2: SUV_Charcoal_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_Charcoal_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_Charcoal_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_Orange_DZE2: SUV_Orange_DZE1 {
@@ -886,7 +886,7 @@ class SUV_Orange_DZE2: SUV_Orange_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_Orange_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_Orange_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SUV_Silver_DZE2: SUV_Silver_DZE1 {
@@ -933,7 +933,7 @@ class SUV_Silver_DZE2: SUV_Silver_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SUV_Silver_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SUV_Silver_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 

@@ -323,7 +323,7 @@ class VolhaLimo_TK_CIV_EP1_DZE2: VolhaLimo_TK_CIV_EP1_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"VolhaLimo_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"VolhaLimo_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class Volha_1_TK_CIV_EP1_DZE2: Volha_1_TK_CIV_EP1_DZE1 {
@@ -370,7 +370,7 @@ class Volha_1_TK_CIV_EP1_DZE2: Volha_1_TK_CIV_EP1_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"Volha_1_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"Volha_1_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class Volha_2_TK_CIV_EP1_DZE2: Volha_2_TK_CIV_EP1_DZE1 {
@@ -417,7 +417,7 @@ class Volha_2_TK_CIV_EP1_DZE2: Volha_2_TK_CIV_EP1_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"Volha_2_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"Volha_2_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 

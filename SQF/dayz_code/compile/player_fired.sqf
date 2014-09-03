@@ -73,31 +73,33 @@ if ((_ammo isKindOf "SmokeShell") or (_ammo isKindOf "GrenadeHandTimedWest") or 
     if (_combattimeout > 0) then {
         _timeleft = _combattimeout - time;
         if (_timeleft > 0) then {
-			if (_distance > 5) then {
-				if (_playerOldAggroRank == 1) then 
-				{
-					[getPosATL player,1] call agro_spawnZombies;
-				};
-				if (_playerOldAggroRank == 2) then 
-				{
-					[getPosATL player,2] call agro_spawnZombies;
-				};
-				if (_playerOldAggroRank == 4) then 
-				{
-					[getPosATL player,4] call agro_spawnZombies;
-				};
-				if (_playerOldAggroRank == 6) then 
-				{
-					[getPosATL player,6] call agro_spawnZombies;
-				};
-				if (_playerOldAggroRank == 8) then 
-				{
-					[getPosATL player,8] call agro_spawnZombies;
-				};
-				if (_playerOldAggroRank == 10) then 
-				{
-					[getPosATL player,10] call agro_spawnZombies;
-				};
+		if (unleashed_SpawnCombatZeds == 1) then {
+				if (_distance > 5) then {
+					if (_playerOldAggroRank == 1) then 
+					{
+						[getPosATL player,1] call agro_spawnZombies;
+					};
+					if (_playerOldAggroRank == 2) then 
+					{
+						[getPosATL player,2] call agro_spawnZombies;
+					};
+					if (_playerOldAggroRank == 4) then 
+					{
+						[getPosATL player,4] call agro_spawnZombies;
+					};
+					if (_playerOldAggroRank == 6) then 
+					{
+						[getPosATL player,6] call agro_spawnZombies;
+					};
+					if (_playerOldAggroRank == 8) then 
+					{
+						[getPosATL player,8] call agro_spawnZombies;
+					};
+					if (_playerOldAggroRank == 10) then 
+					{
+						[getPosATL player,10] call agro_spawnZombies;
+					};
+			   };
 		   };
         };
     };

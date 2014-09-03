@@ -547,7 +547,7 @@ class VWGolf_DZE2: VWGolf_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"VWGolf_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"VWGolf_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 

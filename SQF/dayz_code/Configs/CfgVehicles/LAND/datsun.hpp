@@ -139,7 +139,7 @@ class datsun1_civil_1_open_DZE2: datsun1_civil_1_open_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"datsun1_civil_1_open_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTent",1}}};
+		ItemLRK[] = {"datsun1_civil_1_open_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTentOld",1}}};
 		ItemARM[] = {"Pickup_PK_GUE_DZE2",{{"PK_DZ",1}},{{"ItemARM",1},{"PartGeneric",2}}};
 	};
 };
@@ -187,7 +187,7 @@ class datsun1_civil_2_covered_DZE2: datsun1_civil_2_covered_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"datsun1_civil_2_covered_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTent",1}}};
+		ItemLRK[] = {"datsun1_civil_2_covered_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTentOld",1}}};
 		ItemARM[] = {"Pickup_PK_TK_GUE_EP1_DZE2",{{"PK_DZ",1}},{{"ItemARM",1},{"PartGeneric",2}}};
 	};
 };
@@ -235,7 +235,7 @@ class datsun1_civil_3_open_DZE2: datsun1_civil_3_open_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"datsun1_civil_3_open_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTent",1}}};
+		ItemLRK[] = {"datsun1_civil_3_open_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTentOld",1}}};
 		ItemARM[] = {"Pickup_PK_INS_DZE2",{{"PK_DZ",1}},{{"ItemARM",1},{"PartGeneric",2}}};
 	};
 };
