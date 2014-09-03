@@ -294,7 +294,7 @@ if (_hasrequireditem) then {
 	player allowDamage true;
 	
 	//No building on roads unless toggled
-	if (!unleashed_BuildOnRoads) then {
+	if (unleashed_BuildOnRoads==1) then {
 		if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
 	};
 	// No building in trader zones
