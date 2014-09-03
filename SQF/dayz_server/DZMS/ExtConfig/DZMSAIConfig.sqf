@@ -7,60 +7,60 @@
 
 ///////////////////////////////////////////////
 // Array of skin classnames for the AI to use
-DZMSBanditSkins = ["Bandit1_DZ","BanditW1_DZ"];
+DZMSBanditSkins = ["BRT_Commander_DZ", "BRT_Officer_DZ", "BRT_Pilot_DZ", "BRT_Scout_DZ", "BRT_Looter_DZ", "BRT_Grunt_DZ"];
 
 ////////////////////////
 // Array of AI Skills
 DZMSSkills0 = [
 	["aimingAccuracy",0.10,0.125],
-	["aimingShake",0.45,0.55],
-	["aimingSpeed",0.45,0.55],
-	["endurance",0.40,0.50],
-	["spotDistance",0.30,0.45],
-	["spotTime",0.30,0.45],
-	["courage",0.40,0.60],
-	["reloadSpeed",0.50,0.60],
-	["commanding",0.40,0.50],
-	["general",0.40,0.60]
+	["aimingShake",0.50,0.59],
+	["aimingSpeed",0.50,0.59],
+	["endurance",0.50,0.59],
+	["spotDistance",0.50,0.59],
+	["spotTime",0.50,0.59],
+	["courage",0.50,0.59],
+	["reloadSpeed",0.50,0.59],
+	["commanding",0.60,0.69],
+	["general",0.60,0.69]
 ];
 
 DZMSSkills1 = [
 	["aimingAccuracy",0.125,0.15],
-	["aimingShake",0.60,0.70],
-	["aimingSpeed",0.60,0.70],
-	["endurance",0.55,0.65],
-	["spotDistance",0.45,0.60],
-	["spotTime",0.45,0.60],
-	["courage",0.55,0.75],
-	["reloadSpeed",0.60,0.70],
-	["commanding",0.55,0.65],
-	["general",0.55,0.75]
+	["aimingShake",0.60,0.69],
+	["aimingSpeed",0.60,0.69],
+	["endurance",0.60,0.69],
+	["spotDistance",0.60,0.69],
+	["spotTime",0.60,0.69],
+	["courage",0.60,0.69],
+	["reloadSpeed",0.60,0.69],
+	["commanding",0.70,0.79],
+	["general",0.70,0.79]
 ];
 
 DZMSSkills2 = [
-	["aimingAccuracy",0.15,0.20],
-	["aimingShake",0.75,0.85],
-	["aimingSpeed",0.70,0.80],
-	["endurance",0.70,0.80],
-	["spotDistance",0.60,0.75],
-	["spotTime",0.60,0.75],
-	["courage",0.70,0.90],
-	["reloadSpeed",0.70,0.80],
-	["commanding",0.70,0.90],
-	["general",0.70,0.90]
+	["aimingAccuracy",0.175,0.225],
+	["aimingShake",0.70,0.79],
+	["aimingSpeed",0.70,0.79],
+	["endurance",0.70,0.79],
+	["spotDistance",0.70,0.79],
+	["spotTime",0.70,0.79],
+	["courage",0.70,0.79],
+	["reloadSpeed",0.70,0.79],
+	["commanding",0.80,0.89],
+	["general",0.80,0.89]
 ];
 
 DZMSSkills3 = [	
-	["aimingAccuracy",0.20,0.25],
-	["aimingShake",0.85,0.95],
-	["aimingSpeed",0.80,0.90],
-	["endurance",0.80,0.90],
-	["spotDistance",0.70,0.85],
-	["spotTime",0.70,0.85],
-	["courage",0.80,1.00],
-	["reloadSpeed",0.80,0.90],
-	["commanding",0.80,0.90],
-	["general",0.80,1.00]
+	["aimingAccuracy",0.225,0.250],
+	["aimingShake",0.80,0.89],
+	["aimingSpeed",0.80,0.89],
+	["endurance",0.80,0.89],
+	["spotDistance",0.80,0.89],
+	["spotTime",0.80,0.89],
+	["courage",0.80,0.89],
+	["reloadSpeed",0.80,0.89],
+	["commanding",0.90,0.99],
+	["general",0.90,0.99]
 ];
 
 //////////////////////////////////////////////////////////////

@@ -95,7 +95,7 @@ check_publishbuilding = {
 	diag_log format ["DEBUG: Checking if Object: %1 is allowed published by %2", _object, _playername];
 #endif
 
-	if ((typeOf _object) in DZE_allowedObjects) then {
+	if ((typeOf _object) in dayz_allowedObjects) then {
 #ifdef OBJECT_DEBUG
 		diag_log format ["DEBUG: Object: %1 published by %2 is Safe",_object, _playername];
 #endif

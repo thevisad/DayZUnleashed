@@ -12,13 +12,13 @@ _playerUID = 0;
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 
 
-if !((_building isKindOf "TentStorage") ||  (_building isKindOf "DZE_allowedObjects") || (_building isKindOf "BuiltItems") || (_building isKindOf "ModularItems") || (_building isKindOf "DZE_Housebase") || (_building isKindOf "DZE_Base_Object") || (_building isKindOf "Building") || (_building isKindOf "WeaponHolder")) exitWith {
+if !((_building isKindOf "TentStorage") ||  (_building isKindOf "dayz_allowedObjects") || (_building isKindOf "BuiltItems") || (_building isKindOf "ModularItems") || (_building isKindOf "DZE_Housebase") || (_building isKindOf "DZE_Base_Object") || (_building isKindOf "Building") || (_building isKindOf "WeaponHolder")) exitWith {
 	deleteVehicle _building;
 	diag_log("USPB: Deleting Building " + str(_building));
 };
 
 //Commenting this out for the time being to identify potential issues.
-// Uncomment if every buildable has been added to DZE_allowedObjects array.
+// Uncomment if every buildable has been added to dayz_allowedObjects array.
 //_allowed = [_building, "Server"] call check_publishbuilding;
 //if (!_allowed) exitWith { };
 

@@ -347,7 +347,7 @@ class Skoda_DZE2: Skoda_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"Skoda_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"Skoda_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SkodaBlue_DZE2: SkodaBlue_DZE1 {
@@ -394,7 +394,7 @@ class SkodaBlue_DZE2: SkodaBlue_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SkodaBlue_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SkodaBlue_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SkodaRed_DZE2: SkodaRed_DZE1 {
@@ -441,7 +441,7 @@ class SkodaRed_DZE2: SkodaRed_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SkodaRed_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SkodaRed_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class SkodaGreen_DZE2: SkodaGreen_DZE1 {
@@ -488,7 +488,7 @@ class SkodaGreen_DZE2: SkodaGreen_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"SkodaGreen_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"SkodaGreen_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 
@@ -774,7 +774,7 @@ class car_hatchback_DZE2: car_hatchback_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"car_hatchback_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"car_hatchback_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 
@@ -1272,7 +1272,7 @@ class car_sedan_DZE2: car_sedan_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"car_sedan_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"car_sedan_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 

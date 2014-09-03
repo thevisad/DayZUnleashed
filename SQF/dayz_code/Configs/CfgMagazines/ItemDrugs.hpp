@@ -3,7 +3,7 @@ class ItemPoppy : CA_Magazine {
 	scope = public;
 	count = 1;
 	displayName = "Poppy Plants";
-	descriptionShort = "Good for use in a antibiotic";
+	descriptionShort = "Good for crafting a pain killer";
 	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\poppy.paa";
 	type = 256;
@@ -11,7 +11,7 @@ class ItemPoppy : CA_Magazine {
 	{
 		class Crafting
 		{
-			text = "Craft antibiotics";
+			text = "Craft painpills";
 			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			output[] = {{"ItemOpium",1}};
@@ -27,13 +27,13 @@ class ItemOpium : CA_Magazine {
 	displayName = "Opium";
 	descriptionShort = "Good for a pain killer";
 	model = "";
-	picture = "\z\addons\unleashed_pack\pictures\poppy.paa";
+	picture = "\z\addons\unleashed_pack\pictures\opium.paa";
 	type = 256;
 	class ItemActions
 	{
 		class Crafting
 		{
-			text = "Craft antibiotics";
+			text = "Craft painpills";
 			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			output[] = {{"ItemPainkiller",1}};
@@ -88,9 +88,10 @@ class ItemKiloHemp : CA_Magazine {
 class ItemPapers: CA_Magazine {
 	scope = 2;
 	count = 1;
+	weight = 1;
 	type = 256;
 	displayName = "Snarky Lions";
 	model = = "\z\addons\unleashed_pack\models\papers\snarkyLion.paa";
-	picture = "\z\addons\unleashed_pack\pictures\snarkyLions.paa";
+	picture = "\z\addons\unleashed_pack\pictures\snarkylion.paa";
 	descriptionShort = "Some papers for rolling joints";
 };

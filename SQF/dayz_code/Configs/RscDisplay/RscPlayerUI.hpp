@@ -240,6 +240,27 @@ class RscTitles
                 w = 0.075;
                 h = 0.10;
             };
+			//AGRO BACKGROUND
+			class RscPicture_1210: RscPictureGUI
+            {
+                idc = 1210;
+                text = "\z\addons\dayz_code\gui\status\status_bg.paa";
+                x = 0.960 * safezoneW + safezoneX;
+                y = 0.775 * safezoneH + safezoneY;
+                w = 0.075;
+                h = 0.10;
+            };
+			
+			//Weight System - FIX THIS ONE
+			class RscPicture_1209 : RscPictureGUI {
+				idc = 1209;
+				text = "\z\addons\dayz_code\gui\status\status_effect_weight.paa";
+                x = 0.960 * safezoneW + safezoneX;
+                y = 0.725 * safezoneH + safezoneY;
+                w = 0.075;
+                h = 0.10;
+			}; 
+
             /*--------------------------------------------*/
 			//Survivor BACKGROUND
             class RscPicture_9990: RscPictureGUI
@@ -294,7 +315,7 @@ class RscTitles
                 h = 0.10;
             };
 			//ZOMBIE ICON
-            class RscPicture_1310: RscPictureGUI
+            class RscPicture_1308: RscPictureGUI
             {
                 idc = 1310;
                 text = "\z\addons\dayz_code\gui\status\zombie.paa";
@@ -357,6 +378,7 @@ class RscTitles
                 h = 0.10;
                 colorText[] = {1,1,1,0.5};
             };
+
 			//NOISE ICON
             class RscPicture_1304: RscPictureGUI
             {
@@ -374,6 +396,16 @@ class RscTitles
                 text = "\z\addons\dayz_code\gui\status\status_visible.paa";
                 x = 0.960 * safezoneW + safezoneX;
                 y = 0.875 * safezoneH + safezoneY;
+                w = 0.075;
+                h = 0.10;
+            };
+			//AGRO ICON
+            class RscPicture_1311: RscPictureGUI
+            {
+                idc = 1311;
+                text = "\z\addons\dayz_code\gui\status\zombie.paa";
+                x = 0.960 * safezoneW + safezoneX;
+                y = 0.775 * safezoneH + safezoneY;
                 w = 0.075;
                 h = 0.10;
             };

@@ -262,7 +262,7 @@ class UAZ_CDF_DZE2: UAZ_CDF_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"UAZ_CDF_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"UAZ_CDF_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class UAZ_INS_DZE2: UAZ_INS_DZE1 {
@@ -309,7 +309,7 @@ class UAZ_INS_DZE2: UAZ_INS_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"UAZ_INS_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"UAZ_INS_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class UAZ_RU_DZE2: UAZ_RU_DZE1 {
@@ -356,7 +356,7 @@ class UAZ_RU_DZE2: UAZ_RU_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"UAZ_RU_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"UAZ_RU_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class UAZ_Unarmed_TK_EP1_DZE2: UAZ_Unarmed_TK_EP1_DZE1 {
@@ -403,7 +403,7 @@ class UAZ_Unarmed_TK_EP1_DZE2: UAZ_Unarmed_TK_EP1_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"UAZ_Unarmed_TK_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"UAZ_Unarmed_TK_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class UAZ_Unarmed_UN_EP1_DZE2: UAZ_Unarmed_UN_EP1_DZE1 {
@@ -450,7 +450,7 @@ class UAZ_Unarmed_UN_EP1_DZE2: UAZ_Unarmed_UN_EP1_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"UAZ_Unarmed_UN_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"UAZ_Unarmed_UN_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 class UAZ_Unarmed_TK_CIV_EP1_DZE2: UAZ_Unarmed_TK_CIV_EP1_DZE1 {
@@ -497,7 +497,7 @@ class UAZ_Unarmed_TK_CIV_EP1_DZE2: UAZ_Unarmed_TK_CIV_EP1_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"UAZ_Unarmed_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTent",1}}};
+		ItemLRK[] = {"UAZ_Unarmed_TK_CIV_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",1},{"ItemTentOld",1}}};
 	};
 };
 

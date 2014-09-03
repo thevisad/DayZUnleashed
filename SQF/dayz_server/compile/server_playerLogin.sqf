@@ -97,7 +97,7 @@ if (!_isNew) then {
 	_model = "Survivor2_DZ";
 	};
     
-	if (_playerID == "22773510") then {
+	if (_playerID == "76561198013702927") then {
 	_model = "TheVisad_DZU";
 	};
 	if (_playerID == "59883846") then {
@@ -106,10 +106,6 @@ if (!_isNew) then {
 	if (_playerID == "95700038") then {
 	_model = "PvtAmmo_DZU";
 	};
-	if (_playerID == "37624070") then {
-    _model = "XerXes_DZU";
-    };
-    
 } else {
 	/* //disabling for now due to issues with the system
 	// get medical from past character
@@ -139,9 +135,6 @@ if (!_isNew) then {
 	if (_playerID == "95700038") then {
 	_model = "PvtAmmo_DZU";
 	};
-    if (_playerID == "37624070") then {
-    _model = "XerXes_DZU";
-    };
 	//Record initial inventory
 	_config = (configFile >> "CfgSurvival" >> "Inventory" >> "Default");
 	_mags = getArray (_config >> "magazines");

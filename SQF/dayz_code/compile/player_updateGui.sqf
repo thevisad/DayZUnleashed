@@ -1,4 +1,4 @@
-private ["_display","_ctrlBlood","_ctrlBleed","_bloodVal","_humanityName","_ctrlFood","_ctrlThirst","_thirstVal","_foodVal","_ctrlTemp","_tempVal","_combatVal","_array","_ctrlEar","_ctrlEye","_ctrlCombat","_ctrlFracture","_visualText","_visual","_audibleText","_audible","_blood","_thirstLvl","_foodLvl","_tempImg","_thirst","_food","_temp","_bloodLvl","_tempLvl","_color","_string","_humanity","_size","_friendlies","_charID","_rcharID","_rfriendlies","_rfriendlyTo","_distance","_targetControl","_humanityTarget","_ctrlBloodOuter","_ctrlFoodBorder","_ctrlThirstBorder","_ctrlTempBorder"];
+private ["_display","_ctrlBlood","_ctrlBleed","_ctrlAgro","_bloodVal","_humanityName","_ctrlFood","_ctrlThirst","_thirstVal","_foodVal","_ctrlTemp","_tempVal","_combatVal","_array","_ctrlEar","_ctrlEye","_ctrlCombat","_ctrlFracture","_visualText","_visual","_audibleText","_audible","_blood","_thirstLvl","_foodLvl","_tempImg","_thirst","_food","_temp","_bloodLvl","_tempLvl","_color","_string","_humanity","_size","_friendlies","_charID","_rcharID","_rfriendlies","_rfriendlyTo","_distance","_targetControl","_humanityTarget","_ctrlBloodOuter","_ctrlFoodBorder","_ctrlThirstBorder","_ctrlTempBorder"];
 disableSerialization;
 
 _foodVal = 		1 - (dayz_hunger / SleepFood);
@@ -29,7 +29,11 @@ _ctrlTempBorder ctrlSetTextColor [1,1,1,1];
 
 _ctrlBlood = 	_display displayCtrl 1300;
 _ctrlBleed = 	_display displayCtrl 1303;
+_ctrlAgro = 	_display displayCtrl 1311;
 _bloodVal =		r_player_blood / r_player_bloodTotal;
+ _tempAgro = player getVariable ["aggroRank",0];
+_AgroVal = (((dayz_aggro_value)*(3))/(1000));
+
 _ctrlFood = 	_display displayCtrl 1301;
 _ctrlThirst = 	_display displayCtrl 1302;
 _ctrlTemp 	= 	_display displayCtrl 1306;					//TeeChange
@@ -72,6 +76,7 @@ _ctrlWeight =   _display displayCtrl 1209;
 
 //Food/Water/Blood
 _ctrlBlood ctrlSetTextColor 	[(Dayz_GUI_R + (0.3 * (1-_bloodVal))),(Dayz_GUI_G * _bloodVal),(Dayz_GUI_B * _bloodVal), 0.5];
+_ctrlAgro ctrlSetTextColor 	[(Dayz_GUI_R + (0.3 * (1-_AgroVal))),(Dayz_GUI_G * _AgroVal),(Dayz_GUI_B * _AgroVal), 0.5];
 _ctrlFood ctrlSetTextColor 		[(Dayz_GUI_R + (0.3 * (1-_foodVal))),(Dayz_GUI_G * _foodVal),(Dayz_GUI_B * _foodVal), 0.5];
 _ctrlThirst ctrlSetTextColor 	[(Dayz_GUI_R + (0.3 * (1-_thirstVal))),(Dayz_GUI_G * _thirstVal),(Dayz_GUI_B * _thirstVal), 0.5];
 _ctrlTemp ctrlSetTextColor 		[(Dayz_GUI_R + (0.3 * (1-_tempVal))), (Dayz_GUI_G * _tempVal), _tempVal, 0.5];	// Color ranges from iceblue (cold) to red (hot)
@@ -86,6 +91,7 @@ _thirst = "";
 _food = "";
 _temp = "";
 _tempImg = 0;
+_agroLvl = round(_AgroVal);
 _bloodLvl = round((r_player_blood / 2) / 1000);
 _thirstLvl = round(_thirstVal / 0.25);
 _foodLvl = round(_foodVal / 0.25);
@@ -96,9 +102,12 @@ if (_bloodLvl <= 0) then {
 	} else {
 	_blood = "\z\addons\dayz_code\gui\status\status_blood_inside_" + str(_bloodLvl) + "_ca.paa";
 	};
-
+	
 if (_thirstLvl < 0) then { _thirstLvl = 0 };
 _thirst = "\z\addons\dayz_code\gui\status\status_thirst_inside_" + str(_thirstLvl) + "_ca.paa";
+
+if (_agroLvl < 0) then { _agroLvl = 0 };
+_agro = "\z\addons\dayz_code\gui\status\status_agro" + str(_agroLvl) + ".paa";
 
 if (_foodLvl < 0) then { _foodLvl = 0 };
 _food = "\z\addons\dayz_code\gui\status\status_food_inside_" + str(_foodLvl) + "_ca.paa";
@@ -111,6 +120,8 @@ if ( _tempLvl <= 28 )							then { _tempImg = 0 };
 
 _temp = "\z\addons\dayz_code\gui\status\status_temp_" + str(_tempImg) + "_ca.paa";
 
+
+_ctrlAgro ctrlSetText _agro;
 _ctrlBlood ctrlSetText _blood;
 _ctrlThirst ctrlSetText _thirst;
 _ctrlFood ctrlSetText _food;
@@ -145,6 +156,10 @@ if (!canStand player) then {
 */
 if (_combatVal == 0) then {
 	_ctrlCombat call player_guiControlFlash;
+};
+
+if (_agroVal > 0.5) then {
+	_ctrlAgro call player_guiControlFlash;
 };
 
 if (_bloodVal < 0.2) then {
