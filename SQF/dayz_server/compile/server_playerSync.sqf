@@ -205,7 +205,7 @@ if (_characterID != "0") then {
 		_pos = _this select 0;
 		{
 			[_x, "gear"] call server_updateObject;
-			diag_log(format["SUNO: Updating %2 object at %1",_pos,_x]);
+			//diag_log(format["SUNO: Updating %2 object at %1",_pos,_x]);
 		} forEach nearestObjects [_pos, dayz_updateObjects, 10];
 
 		//Reset timer

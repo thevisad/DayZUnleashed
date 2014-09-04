@@ -32,7 +32,8 @@ _ctrlBleed = 	_display displayCtrl 1303;
 _ctrlAgro = 	_display displayCtrl 1311;
 _bloodVal =		r_player_blood / r_player_bloodTotal;
  _tempAgro = player getVariable ["aggroRank",0];
-_AgroVal = (((dayz_aggro_value)*(3))/(1000));
+_AgroVal01 = (((dayz_aggro_value)*(3))/(1000));
+_AgroVal = ((dayz_aggro_value)/(1000));
 
 _ctrlFood = 	_display displayCtrl 1301;
 _ctrlThirst = 	_display displayCtrl 1302;
@@ -76,7 +77,7 @@ _ctrlWeight =   _display displayCtrl 1209;
 
 //Food/Water/Blood
 _ctrlBlood ctrlSetTextColor 	[(Dayz_GUI_R + (0.3 * (1-_bloodVal))),(Dayz_GUI_G * _bloodVal),(Dayz_GUI_B * _bloodVal), 0.5];
-_ctrlAgro ctrlSetTextColor 	[(Dayz_GUI_R + (0.3 * (1-_AgroVal))),(Dayz_GUI_G * _AgroVal),(Dayz_GUI_B * _AgroVal), 0.5];
+_ctrlAgro ctrlSetTextColor 	[_AgroVal,(1 * (1 - _AgroVal)),(0.3 * (1 - _AgroVal)), 0.5];
 _ctrlFood ctrlSetTextColor 		[(Dayz_GUI_R + (0.3 * (1-_foodVal))),(Dayz_GUI_G * _foodVal),(Dayz_GUI_B * _foodVal), 0.5];
 _ctrlThirst ctrlSetTextColor 	[(Dayz_GUI_R + (0.3 * (1-_thirstVal))),(Dayz_GUI_G * _thirstVal),(Dayz_GUI_B * _thirstVal), 0.5];
 _ctrlTemp ctrlSetTextColor 		[(Dayz_GUI_R + (0.3 * (1-_tempVal))), (Dayz_GUI_G * _tempVal), _tempVal, 0.5];	// Color ranges from iceblue (cold) to red (hot)
@@ -107,7 +108,7 @@ if (_thirstLvl < 0) then { _thirstLvl = 0 };
 _thirst = "\z\addons\dayz_code\gui\status\status_thirst_inside_" + str(_thirstLvl) + "_ca.paa";
 
 if (_agroLvl < 0) then { _agroLvl = 0 };
-_agro = "\z\addons\dayz_code\gui\status\status_agro" + str(_agroLvl) + ".paa";
+_agro = "\z\addons\dayz_code\gui\status\status_agro" + str(_AgroVal01) + ".paa";
 
 if (_foodLvl < 0) then { _foodLvl = 0 };
 _food = "\z\addons\dayz_code\gui\status\status_food_inside_" + str(_foodLvl) + "_ca.paa";
@@ -158,7 +159,7 @@ if (_combatVal == 0) then {
 	_ctrlCombat call player_guiControlFlash;
 };
 
-if (_agroVal > 0.5) then {
+if (_agroVal > 0.1) then {
 	_ctrlAgro call player_guiControlFlash;
 };
 
