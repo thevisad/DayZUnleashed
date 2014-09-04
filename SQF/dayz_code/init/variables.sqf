@@ -1,5 +1,7 @@
 disableSerialization;
-
+if (isNil "DayZ_UseSteamID") then {
+	DayZ_UseSteamID = true;
+};
 // Enable
 // 0=False/off, 1=True/on
 dayz_Trash = 1;

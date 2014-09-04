@@ -6,6 +6,6 @@ _objects = nearestObjects [getPosATL player, dayz_updateObjects, 10];
 {
 	[_x, "gear"] call server_updateObject;
 #ifdef OBJECT_DEBUG
-	diag_log(format["SUNO: Updating nearby object at %1",_pos]);
+	//diag_log(format["SUNO: Updating nearby object at %1",_pos]);
 #endif
 } foreach _objects;

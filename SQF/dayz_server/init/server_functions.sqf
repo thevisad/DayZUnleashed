@@ -40,7 +40,7 @@ server_updateNearbyObjects = {
 	_pos = _this select 0;
 	{
 		[_x, "gear"] call server_updateObject;
-		diag_log(format["SF-SUNO: Updating %2 object at %1",_pos,_x]);
+		//diag_log(format["SF-SUNO: Updating %2 object at %1",_pos,_x]);
 	} forEach nearestObjects [_pos, dayz_updateObjects, 10];
 };
 
@@ -154,6 +154,43 @@ server_hiveReadWrite = {
 	_resultArray
 };
 
+server_checkPlayer = {
+	private["_data"];
+	//"check_player" callExtension _uid;
+	/*
+	[["CommunityBanned","0"],
+    ["VACBanned","1"],
+    ["NumberOfVACBans","8"],
+    ["DaysSinceLastBan","76"],
+    ["EconomyBan","none"]]
+	*/
+	_data = "check_player" callExtension _this;
+	//diag_log ("WRITE: " +str(_data));
+};
+
+server_getFriends = {
+	private["_data"];
+	_result = "get_friends" callExtension getPlayerUID (playableUnits select 0);
+	//_result = "get_friends" callExtension "ERROR"; //DOWNLOAD FAILED
+	//_result = "get_friends" callExtension "CLEAR"; //123
+	/*
+	["76561197965565385","76561197977088328","76561197979284389",
+    "76561197983917529","76561197990835078","76561198007489546",
+    "76561198009320375","76561198013020910","76561198018221755",
+    "76561198023999280","76561198025492474","76561198034167818",
+    "76561198035333552","76561198063488310","76561198065555502",
+    "76561198071941786","76561198072809368"]
+	*/
+	_data = "get_friends" callExtension _this;
+};
+
+server_urlFetch = {
+	private["_data"];
+	//url_fetch = compile preprocessFileLineNumbers "url_fetch.sqf";
+	//"http://killzonekid.com/hello.php?name=KK" spawn url_fetch;
+	_data = "url_fetch" callExtension _this;
+	//diag_log ("WRITE: " +str(_data));
+};
 // server_characterSync = {
 // 	private ["_characterID","_playerPos","_playerGear","_playerBackp","_medical","_currentState","_currentModel","_key"];
 // 	_characterID = 	_this select 0;	

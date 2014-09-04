@@ -3,7 +3,7 @@ class RscDisplayGear {
 	enableDisplay = 1;
 	movingEnable = 0;
 	onLoad = "[] spawn object_monitorGear; {player removeMagazines _x} forEach MeleeMagazines; call gear_ui_init; call ui_gear_sound; if (isNil('IGUI_GEAR_activeFilter')) then { IGUI_GEAR_activeFilter = 0;}; private ['_dummy']; _dummy = [_this,'initDialog'] call compile preprocessFile	'\z\addons\dayz_code\system\handleGear.sqf'; _dummy = [_this,'onLoad'] execVM	'\z\addons\dayz_code\system\handleGear.sqf'; _dummy;";
-	onUnload = "{player removeMagazines _x} forEach MeleeMagazines; call player_forceSave; call dayz_meleeMagazineCheck;";
+	onUnload = "{player removeMagazines _x} forEach MeleeMagazines; call player_forceSave; call dayz_meleeMagazineCheck; call player_gearSync;";
 	onMouseMoving = "[] call gear_ui_hide;";
 	onMouseHolding = "[] call gear_ui_hide;";
 	
@@ -17,7 +17,7 @@ class RscDisplayGear {
 
 
 	class Controls {
-		// Cannot be removed due to crash or something is dependend on it
+		// Cannot be removed due to crash or something is depended on it
 		class CA_Filter_Icon: RscPicture {
 			idc = 148;
 			style = "0x30 + 0x800";
@@ -28,7 +28,7 @@ class RscDisplayGear {
 			text = "\ca\ui\data\igui_gear_filter_1_ca.paa";
 		};
 
-		// Cannot be removed due to crash or something is dependend on it
+		// Cannot be removed due to crash or something is depended on it
 		class CA_Filter_Left_Icon: RscPicture {
 			idc = 1301;
 			style = "0x30 + 0x800";
@@ -39,7 +39,7 @@ class RscDisplayGear {
 			text = "\ca\ui\data\arrow_left_ca.paa";
 		};
 
-		// Cannot be removed due to crash or something is dependend on it
+		// Cannot be removed due to crash or something is depended on it
 		class CA_Filter_Right_Icon: RscPicture {
 			idc = 1302;
 			style = "0x30 + 0x800";
@@ -50,7 +50,7 @@ class RscDisplayGear {
 			text = "\ca\ui\data\arrow_right_ca.paa";
 		};
 
-		// Cannot be removed due to crash or something is dependend on it
+		// Cannot be removed due to crash or something is depended on it
 		class CA_Filter_Arrow_Left: RscButton {
 			idc = 150;
 			colorText[] = {1,1,1,0};
@@ -67,7 +67,7 @@ class RscDisplayGear {
 			text = "";
 		};
 
-		// Cannot be removed due to crash or something is dependend on it
+		// Cannot be removed due to crash or something is depended on it
 		class CA_Filter_Arrow_Right: RscButton {
 			idc = 151;
 			colorText[] = {1,1,1,0};
@@ -908,7 +908,7 @@ class RscDisplayGear {
 			};
 		};
 
-		// Cannot be removed due to crash or something is dependend on it
+		// Cannot be removed due to crash or something is depended on it
 		class ButtonFilters: RscIGUIShortcutButton {
 			idc = 148;
 			shortcuts[] = {"0x00050000 + 3"};
@@ -919,7 +919,7 @@ class RscDisplayGear {
 			h = 0;
 		};
 
-		// Cannot be removed due to crash or something is dependend on it
+		// Cannot be removed due to crash or something is depended on it
 		class ButtonContinue: RscIGUIShortcutButton {
 			idc = 1;
 			shortcuts[] = {"0x00050000 + 0",28,57,156};
@@ -942,7 +942,7 @@ class RscDisplayGear {
 			colorActive[] = {1,1,1,0.8};
 		};
 
-		// Cannot be removed due to crash or something is dependend on it
+		// Cannot be removed due to crash or something is depended on it
 		class Break_7: RscLineBreak {};
 	};
 
