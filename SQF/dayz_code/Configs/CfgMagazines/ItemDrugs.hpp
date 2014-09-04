@@ -4,7 +4,6 @@ class ItemPoppy : CA_Magazine {
 	count = 1;
 	displayName = "Poppy Plants";
 	descriptionShort = "Good for crafting a pain killer";
-	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\poppy.paa";
 	type = 256;
 	class ItemActions
@@ -26,7 +25,6 @@ class ItemOpium : CA_Magazine {
 	count = 1;
 	displayName = "Opium";
 	descriptionShort = "Good for a pain killer";
-	model = "";
 	picture = "\z\addons\unleashed_pack\pictures\opium.paa";
 	type = 256;
 	class ItemActions
