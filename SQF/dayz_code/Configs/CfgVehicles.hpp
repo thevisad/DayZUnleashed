@@ -1161,6 +1161,7 @@ class CfgVehicles {
 		};
 	};
 	
+    #include "CfgVehicles\Buildings\playerGarages.hpp"
 		//Includes all Building Stuff
 	// This parent class is made to make referring to these objects easier later with allMissionObjects	
 	#include "CfgVehicles\Buildings\HouseDZ.hpp"
