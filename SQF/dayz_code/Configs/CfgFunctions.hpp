@@ -12,22 +12,22 @@ class cfgFunctions
             };
             class getVariable
             {
-                description = "Verifies DZU functions work.";
+                description = "Returns the value of the variable";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
             class getVariableName
             {
-                description = "Verifies DZU functions work.";
+                description = "returns the name of the variable used in setvariable";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariableName.sqf";
             };
             class setVariable
             {
-                description = "Verifies DZU functions work.";
+                description = "increments the value of a variable by x";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
             class exportVariables
             {
-                description = "Export the variables as an array for resetting.";
+                description = "Exports a loadable variable array that can be passed to loadVariables.";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
         };
@@ -54,19 +54,19 @@ class cfgFunctions
           };
           class getLevel
           {
-                description = "Return objects current level.";
+                description = "Return current level.";
           };
           class getSkillPoints
           {
-                description = "Return objects current skill points";
+                description = "Return current skill points";
           };
           class getExperience
           {
-                description = "Return objects current experience points";
+                description = "Return current experience points";
           };
           class giveEXP
           {
-              description = "Return the amount of experience the player should receive for the given activity.";
+              description = "Trigger an experience event";
           };
           class levelUp
           {
