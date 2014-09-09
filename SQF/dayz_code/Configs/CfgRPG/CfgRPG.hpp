@@ -44,5 +44,5 @@ class CfgRPG {
        };
        
    };
-   #include "CfgRPG\CfgEXP.hpp"   //Experience Values        
+   #include "CfgEXP.hpp"   //Experience Values        
 };

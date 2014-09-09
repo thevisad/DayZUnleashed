@@ -39,9 +39,9 @@
 #include "Configs\CfgAmmo.hpp"
 #include "Configs\CfgObjectCompositions.hpp"
 #include "Configs\CfgTownGenerator\CfgTownGeneratorUnleashed.hpp"
-#include "Configs\CfgRPG.hpp"
+#include "Configs\CfgRPG\CfgRPG.hpp"
 //HNGSpeedBoost
-#include "Configs\CfgPlayerVariables.hpp"
+#include "Configs\CfgRPG\CfgPlayerVariables.hpp"
 #include "Configs\CfgFunctions.hpp"
 #include "Configs\CfgUnleashed\Unleashed_weapons.hpp"
 #include "Configs\snappoints.hpp"
