@@ -19,6 +19,7 @@ class CfgVehicles {
 	class Land_Fire;
 	class Animal;
 	class Pastor;
+	class WildBoar;
 	class Fin;
 	class Land_A_tent;	// External class reference
 	class WeaponHolder;	// External class reference
@@ -320,6 +321,33 @@ class CfgVehicles {
 		class VariablesScalar {};
 		class VariablesString {};
 	};
+	
+	class DZ_PastorZombie : Pastor {
+		scope = 2;
+		side = 1;
+		model = "\ca\animals2\Dogs\Pastor\Pastor";
+		
+		displayName = "Zombified Alsatian";
+		moves = "CfgMovesDogDZ";
+		gestures = "CfgGesturesDogDZ";
+		fsmDanger = "";
+		fsmFormation = "";
+		agentTasks[] = {};
+		hiddenselections[] = {"camo"};
+		hiddenselectionstextures[] = {"ca\animals2\dogs\pastor\data\pastor_co.paa"};
+		woman = 0;
+		class Eventhandlers {
+			init = "_this call perro_initialize;(_this select 0) setObjectTexture [0,""z\addons\unleashed_pack\animals\Dogs\zdog_pastor\data\pastor_co.paa""];";
+			local = "if(_this select 1) then {[(position (_this select 0)),(_this select 0),true] execFSM '\z\AddOns\dayz_code\system\zombie_dog_agent.fsm'};";
+		};
+		class Wounds
+		{
+			tex[] = {};
+			mat[] = {};
+		};
+		class VariablesScalar {};
+		class VariablesString {};
+	};
 
 	class DZ_Fin : Fin {
 		scope = 2;
@@ -327,9 +355,43 @@ class CfgVehicles {
 		displayName = "Fin";
 		moves = "CfgMovesDogDZ";
 		gestures = "CfgGesturesDogDZ";
+		class EventHandlers{};
+		fsmDanger = "";
+		fsmFormation = "";
+		
+	};
+	/*
+	class DZ_Boar : WildBoar {
+		scope = 2;
+		model = "\ca\animals2\WildBoar\WildBoar";
+		displayName = "Fin";
+		moves = "CfgMovesDogDZ";
+		gestures = "CfgGesturesDogDZ";
+		class Eventhandlers {
+			init = "_this call zombie_initialize;";
+			local = "if(_this select 1) then {[(position (_this select 0)),(_this select 0),true] execFSM '\z\AddOns\dayz_code\system\zombie_dog_agent.fsm'};";
+		};
+		fsmDanger = "";
+		fsmFormation = "";
+		
+	};
+	*/
+	class DZ_FinZombie : Fin {
+		scope = 2;
+		model = "\ca\animals2\Dogs\Fin\Fin";
+		displayName = "Zombified Fin";
+		moves = "CfgMovesDogDZ";
+		gestures = "CfgGesturesDogDZ";
+		hiddenselections[] = {"camo"};
+		hiddenselectionstextures[] = {"ca\animals2\dogs\fin\data\dog_yellow_co.paa"};
+		class Eventhandlers {
+			init = "_this call perro_initialize;(_this select 0) setObjectTexture [0,""z\addons\unleashed_pack\animals\Dogs\zdog_fin\data\dog_yellow_co.paa""];";
+			local = "if(_this select 1) then {[(position (_this select 0)),(_this select 0),true] execFSM '\z\AddOns\dayz_code\system\zombie_dog_agent.fsm'};";
+		};
 		fsmDanger = "";
 		fsmFormation = "";
 	};
+	
 	#include "CfgVehicles\RepairParts.hpp"    //names for all reapir parts. Needs moving to hitpoints
 	//ZEDS
     #include "CfgVehicles\Zeds\DUZedBase.hpp" //Santized Root Man Class

@@ -53,6 +53,7 @@ if (typeName(_data select 0) == "CONTROL") then {
 
 /*-------------------------------------------*/
 _lbSelectedItem = {
+	disableSerialization;
 	private ["_index","_selectedItem","_n"];
 	_lbcontrol = _display displayctrl _lbIDC;
 	_index = lbCurSel _lbcontrol;
@@ -69,6 +70,7 @@ _lbSelectedItem = {
 };
 
 _arrowsEnable = {
+	disableSerialization;
 	private ["_index","_selectedItem"];
 
 	_lbcontrol = _display displayctrl _lbIDC;
@@ -121,6 +123,7 @@ _IDCsArray = [
 ];
 
 _showAllIDCs = {
+	disableSerialization;
 	private ["_slotArray","_j","_i"];
 	for [{_i=0},{_i<count(_IDCsArray)}, {_i = _i + 1} ] do {
 		_slotArray = _IDCsArray select _i;
@@ -134,6 +137,7 @@ _showAllIDCs = {
 };
 
 _higlightIDCs = {
+	disableSerialization;
 	private ["_slotArray","_j","_i"];
 	for [{_i=0},{_i<count(_IDCsArray)}, {_i = _i + 1} ] do {
 		_slotArray = _IDCsArray select _i;
@@ -253,17 +257,20 @@ _highlightGearSlots ={
 };
 
 _weaponsLBSetFocus = {
+	disableSerialization;
 	_lbcontrol = _display displayctrl _lbIDC;
 	/** Temporary disabled to prevent bug news:hov5k4$f6f$1@new-server.localdomain **/
 	//ctrlSetFocus _lbcontrol;
 };
 
 _setFilterIcon = {
+	disableSerialization;
 	_ctrlIcon = _display displayctrl 148;
 	_ctrlIcon ctrlSetText (_icons select IGUI_GEAR_activeFilter);
 };
 
 _keyActions = {
+	disableSerialization;
 	_keyLeft = [203,327700,327686];
 	_keyRight = [205,327696,327687];
 	_keyTop = [200,327697,327684];
@@ -317,6 +324,7 @@ _setFilterGlobals = {
 
 //1201
 _highlightFilterIcons = {
+	disableSerialization;
 	for [{_i=0},{_i<6}, {_i = _i + 1} ] do {
 		_control = _display displayctrl (1200 + _i);
 		_control ctrlSetTextColor 	[0.6000,0.8392,0.4706,1.0];
@@ -373,6 +381,7 @@ _matchesFilter = {
 };
 
 _filterItems = {
+	disableSerialization;
 	private ["_n","_itemType"];
 	_deleteIndexes = [];
 	_lbcontrol = _display displayctrl _lbIDC;
@@ -449,6 +458,7 @@ _itemName = {
 };
 
 _displayItemIcon = {
+	disableSerialization;
 	private ["_selectedItem","_itemPicturePath"];
 	_selectedItem = [] call _lbSelectedItem;
 	_itemPicturePath = [_selectedItem] call _itemPicture;
@@ -457,6 +467,7 @@ _displayItemIcon = {
 };
 
 _displayItemDescription = {
+	disableSerialization;
 	private ["_descriptionControl","_selectedItemDescription","_selectedItemN"];
 	_selectedItemN = [] call _lbSelectedItem;
 	_selectedItemDescription = [_selectedItemN] call _itemDescription;
@@ -465,6 +476,7 @@ _displayItemDescription = {
 };
 
 _displayItemName = {
+	disableSerialization;
 	private ["_nameControl","_itemDescription"];
 	_selectedItem = [] call _lbSelectedItem;
 	_itemName = [_selectedItem] call _itemName;

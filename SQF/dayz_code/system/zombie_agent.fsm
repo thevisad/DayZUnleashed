@@ -145,7 +145,7 @@ link78[] = {60,30};
 link79[] = {60,59};
 link80[] = {61,10};
 globals[] = {25.000000,1,0,0,0,640,480,1,141,6316128,1,-768.124207,575.407593,904.889099,-521.870300,1130,1200,1};
-window[] = {0,-1,-1,-1,-1,1450,866,2345,105,1,1148};
+window[] = {0,-1,-1,-1,-1,1420,191,1670,75,1,1148};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -323,7 +323,6 @@ class FSM
        "//hintSilent (""loitering..."" + str(_agent distance (_agent getVariable [""myDest"",getposATL _agent])));" \n
        "" \n
        "if (_secondHand) then {" \n
-       "	diag_log (""Zombie "" + str(_agent) + "" Loiter "" + "" distance: "" + str(_newDest distance _myDest));" \n
        "	_agent doMove (getPosATL player);" \n
        "	_agent moveTo (getPosATL player);" \n
        "};"/*%FSM</STATEINIT""">*/;
@@ -530,29 +529,26 @@ class FSM
        "" \n
        "if ( _targetdistance < unleashed_ZedShortAgroRange ) then " \n
        "{" \n
-       "//diag_log (""ZFSM: Attack Range"");" \n
-       "_r = 1;" \n
-       "_agent forceSpeed 1;" \n
+       "_r = unleashed_zedShortRangeMove;" \n
+       "_agent forceSpeed unleashed_zedShortRangeSpeed;" \n
        "};" \n
        "" \n
        "if (_targetdistance > unleashed_ZedShortAgroRange AND _targetdistance < unleashed_ZedMediumAgroRange) then " \n
        "{" \n
-       "//diag_log (""ZFSM: Zero In Range"");" \n
-       "_r = 6;" \n
-       "_agent forceSpeed 6;" \n
+       "_r = unleashed_zedMediumRangeMove;" \n
+       "_agent forceSpeed unleashed_zedMediumRangeSpeed;" \n
        "};" \n
+       "" \n
        "if ( _targetdistance > unleashed_ZedMediumAgroRange AND _targetdistance < unleashed_ZedLongAgroRange ) then " \n
        "{" \n
-       "//diag_log (""ZFSM: Center Range"");" \n
-       "_r = 8;" \n
-       "_agent forceSpeed 6;" \n
+       "_r = unleashed_zedLongRangeMove;" \n
+       "_agent forceSpeed unleashed_zedLongRangeSpeed;" \n
        "};" \n
        "" \n
        "if ( _targetdistance > unleashed_ZedLongAgroRange ) then " \n
        "{" \n
-       "//diag_log (""ZFSM: Faraway Range"");" \n
-       "_r = 10;" \n
-       "_agent forceSpeed 12;" \n
+       "_r = unleashed_zedDistanceRangeMove;" \n
+       "_agent forceSpeed unleashed_zedDistanceRangeSpeed;" \n
        "};" \n
        "" \n
        "_xt = _targetPosition select 0;" \n

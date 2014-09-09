@@ -2,7 +2,7 @@
 // Function file for [DayZ]
 // Created by: [Horde]
 //********************************************************************************************************************/
-
+disableSerialization;
 private ["_pge","_tally_idc_arr","_need_to_blank_idc_arr","_kills","_5","_4","_3","_2","_1","_b"];
 
 if (isDedicated) exitWith {};

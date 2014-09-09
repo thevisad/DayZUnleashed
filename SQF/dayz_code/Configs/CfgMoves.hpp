@@ -31,8 +31,8 @@ class CfgMovesDogBase
 		predictSpeedCoef = 1;
 		visibleSize = 1;
 		aimPrecision = 1;
-		relSpeedMin = 1;
-		relSpeedMax = 1;
+		relSpeedMin = 1.0;
+		relSpeedMax = 1.0;
 		soundEnabled = 0;
 		controlHead = 0;
 		headBobMode = 0;
@@ -72,7 +72,7 @@ class CfgMovesDogBase
 		enableAutoActions = 0;
 		leftHandIKBeg = 0;
 		leftHandIKEnd = 0;
-		rightHandIKBeg = 0;
+		rightHandIKBeg = 0.0;
 		rightHandIKEnd = 0;
 		weaponIK = 0;
 		preload = 0;
@@ -229,9 +229,9 @@ class CfgMovesDogDZ: CfgMovesDogBase
 			relSpeedMin = 0.7;
 			relSpeedMax = 1.1;
 			looped = 1;
-			//collisionShape = "Ca\animals2\Dogs\Dog_CollShape.p3d";
-			ConnectTo[] = {"Dog_TurnR",0.1,"Dog_StopV2",0.1,"Dog_StopV1",0.1,"Dog_TurnL",0.1,"Dog_Sprint",0.02,"Dog_Run",0.02,"Dog_Walk",0.2};
-			InterpolateTo[] = {"Dog_TurnR",0.1,"Dog_Die",0.02,"Dog_TurnL",0.1,"Dog_Sprint",0.02,"Dog_Run",0.02,"Dog_Walk",0.2};
+			collisionShape = "Ca\animals2\Dogs\Dog_CollShape.p3d";
+			ConnectTo[] = {"Dog_TurnR",0.1,"Dog_StopV2",0.1,"Dog_StopV1",0.1,"Dog_TurnL",0.1,"Dog_Sprint",0.02,"Dog_Run",0.02,"Dog_Walk",0.2,"Dog_Attack",0.2,"Dog_Sniff",0.02,"Dog_SitDown",0.02,"Dog_LieDown",0.02,"Dog_GetUp",0.02,"Dog_Siting",0.02,"Dog_SitUp",0.02};
+			InterpolateTo[] = {"Dog_TurnR",0.1,"Dog_Die",0.02,"Dog_TurnL",0.1,"Dog_Sprint",0.02,"Dog_Run",0.02,"Dog_Walk",0.2,"Dog_Attack",0.2};
 		};
 		class Dog_TurnL: Dog_Stop
 		{
@@ -248,7 +248,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		};
 		class Dog_StopV1: Dog_Stop
 		{
-			file = "\CA\animals2\dogs\data\Anim\dogIDLE";
+			file = "\CA\animals2\dogs\data\Anim\dogIdle.rtm";
 			speed = 2.14;
 			variantAfter[] = {5,7,10};
 			looped = 0;
@@ -257,7 +257,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		};
 		class Dog_StopV2: Dog_Stop
 		{
-			file = "\CA\animals2\dogs\data\Anim\dogBark";
+			file = "\CA\animals2\dogs\data\Anim\dogBark.rtm";
 			speed = 1;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -266,7 +266,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		};
 		class Dog_Attack: Dog_Stop
 		{
-			file = "\CA\animals2\dogs\data\Anim\dogAttack";
+			file = "\CA\animals2\dogs\data\Anim\dogAttack.rtm";
 			speed = 1;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -275,7 +275,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		};
 		class Dog_Sniff: Dog_Stop
 		{
-			file = "\dayz_anim\dog\dogGestureSniff";
+			file = "\dayz_anim\dog\dogGestureSniff.rtm";
 			speed = 0.3;
 			mask = "frontBody";	
 			variantAfter[] = {1,1,1};
@@ -286,7 +286,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_SitDown: Dog_Stop
 		{
 			actions = "DogSit";
-			file = "\CA\animals2\dogs\data\Anim\dogSit1In";
+			file = "\CA\animals2\dogs\data\Anim\dogSit1In.rtm";
 			speed = 1.43;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -298,7 +298,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_LieDown: Dog_Stop
 		{
 			actions = "DogSit";
-			file = "\dayz_anim\dog\dogStandDown";
+			file = "\dayz_anim\dog\dogStandDown.rtm";
 			speed = 1.428571;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -310,7 +310,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_GetUp: Dog_Stop
 		{
 			actions = "DogSit";
-			file = "\dayz_anim\dog\dogDownStand";
+			file = "\dayz_anim\dog\dogDownStand.rtm";
 			speed = 1.428571;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -322,17 +322,17 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_Siting: Dog_Stop
 		{
 			actions = "DogSit";
-			file = "\CA\animals2\dogs\data\Anim\dogSit2Idle";
+			file = "\CA\animals2\dogs\data\Anim\dogSit2Idle.rtm";
 			speed = 1.58;
 			variantAfter[] = {1,1,1};
 			looped = 1;
-			ConnectTo[] = {};
-			InterpolateTo[] = {"Dog_Die",0.02};
+			ConnectTo[] = {"Dog_SitUp",0.1};
+			InterpolateTo[] = {"Dog_Die",0.02,"Dog_SitUp",0.1};
 		};
 		class Dog_SitUp: Dog_Stop
 		{
 			actions = "DogSit";
-			file = "\CA\animals2\dogs\data\Anim\dogSit3Out";
+			file = "\CA\animals2\dogs\data\Anim\dogSit3Out.rtm";
 			speed = 1.08;
 			variantAfter[] = {1,1,1};
 			looped = 0;
@@ -344,25 +344,25 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		class Dog_Sprint: Dog_Stop
 		{
 			actions = "DogSprint";
-			file = "\CA\animals2\dogs\data\Anim\dogSprint";
+			file = "\CA\animals2\dogs\data\Anim\dogSprint.rtm";
 			duty = 0.5;
 			speed = 4.5;
-			ConnectTo[] = {"Dog_Stop",0.02,"Dog_Run",0.02,"Dog_Walk",0.02};
-			InterpolateTo[] = {"Dog_Die",0.02,"Dog_Stop",0.02,"Dog_Run",0.02,"Dog_Walk",0.02};
+			ConnectTo[] = {"Dog_Stop",0.02,"Dog_Run",0.02,"Dog_Walk",0.2};
+			InterpolateTo[] = {"Dog_Die",0.02,"Dog_Stop",0.02,"Dog_Run",0.02,"Dog_Walk",0.2};
 		};
 		class Dog_Run: Dog_Stop
 		{
-			file = "\CA\animals2\dogs\data\Anim\dogRun";
+			file = "\CA\animals2\dogs\data\Anim\dogRun.rtm";
 			duty = -0.5;
 			speed = 1.8;
-			ConnectTo[] = {"Dog_Stop",0.02,"Dog_Sprint",0.02,"Dog_Walk",0.02};
-			InterpolateTo[] = {"Dog_Die",0.02,"Dog_Stop",0.02,"Dog_Sprint",0.02,"Dog_Walk",0.02};
+			ConnectTo[] = {"Dog_Stop",0.02,"Dog_Sprint",0.02,"Dog_Walk",0.2};
+			InterpolateTo[] = {"Dog_Die",0.02,"Dog_Stop",0.02,"Dog_Sprint",0.02,"Dog_Walk",0.2};
 		};
 		
 		class Dog_Walk: Dog_Stop
 		{
 			duty = -0.7;
-			file = "\CA\animals2\dogs\data\Anim\dogWalk";
+			file = "\CA\animals2\dogs\data\Anim\dogWalk.rtm";
 			speed = 1.3;
 			variantAfter[] = {3,10,20};
 			ConnectTo[] = {"Dog_Stop",0.2,"Dog_Sprint",0.2,"Dog_Run",0.2};
@@ -373,7 +373,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 		{
 			enableDirectControl = 0;
 			actions = "NoActions";
-			file = "\CA\animals2\dogs\data\Anim\dogDeath";
+			file = "\CA\animals2\dogs\data\Anim\dogDeath.rtm";
 			speed = 1.2;
 			looped = 0;
 			variantsPlayer[] = {};
@@ -381,7 +381,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 			variantAfter[] = {0,0,0};
 			terminal = 1;
 			soundEnabled = 0;
-			//collisionShape = "";
+			collisionShape = "Ca\animals2\Dogs\Dog_CollShape.p3d";
 			ConnectTo[] = {};
 			InterpolateTo[] = {};
 		};
@@ -424,7 +424,6 @@ class CfgMovesDogDZ: CfgMovesDogBase
 			Default = "Dog_Stop";
 			JumpOff = "Dog_Stop";
 			WalkF = "Dog_Walk";
-			//WalkF = "Dog_Run";
 			SlowF = "Dog_Run";
 			FastF = "Dog_Sprint";
 			EvasiveForward = "Dog_Sprint";
@@ -432,8 +431,8 @@ class CfgMovesDogDZ: CfgMovesDogBase
 			Up = "Dog_Stop";
 			PlayerStand = "Dog_Stop";
 			PlayerProne = "Dog_Stop";
-			PlayerCrouch = "";
-			Crouch = "";
+			PlayerCrouch = "Dog_Siting";
+			Crouch = "Dog_Siting";
 			Lying = "Dog_Stop";
 			Stand = "Dog_Stop";
 			Combat = "Dog_Stop";
@@ -461,7 +460,6 @@ class CfgMovesDogDZ: CfgMovesDogBase
 			PlayerStand = "Dog_Stop";
 			Stand = "Dog_Stop";
 			WalkF = "Dog_Walk";
-			//WalkF = "Dog_Run";
 			SlowF = "Dog_Run";
 			FastF = "Dog_Sprint";
 			EvasiveForward = "Dog_Sprint";
@@ -472,9 +470,7 @@ class CfgMovesDogDZ: CfgMovesDogBase
 			StartSwim = "Dog_Die";		
 		};
 	};
-	class Interpolations
-	{
-	};
+	class Interpolations{};
 	transitionsInterpolated[] = {};
 	transitionsSimple[] = {};
 	transitionsDisabled[] = {};

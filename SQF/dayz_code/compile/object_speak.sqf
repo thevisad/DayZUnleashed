@@ -32,9 +32,12 @@ _num = switch (_type) do {
 	case "eat": 		{3};
 	case "cook": 		{2};
 	case "panic": 		{1};
-	case "dog_bark":	{4};
+	case "zombie_hurt": {9};
+	case "dog_bark":	{10};
 	case "dog_growl":	{4};
-	case "dog_qq":		{2};
+	case "dog_qq":		{3};
+	case "dog_yelp":	{2};
+	case "dog_maul":	{1};
 };
 
 _isWoman = getText(configFile >> "cfgVehicles" >> (typeOf _unit) >> "TextPlural") == "Women";

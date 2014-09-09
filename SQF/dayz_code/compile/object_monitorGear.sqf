@@ -1,5 +1,5 @@
 private["_countMagazines","_countWeapons","_countBackpacks","_countFreeSlots","_getControlText","_setControlText","_object","_objectName","_controlText","_magazinesMax","_weaponsMax","_backpacksMax","_distance","_isVehicle","_isMan","_isStorage","_isOK","_magazines","_weapons","_backpacks","_freeSlots","_timeout"];
-
+disableSerialization;
 _countWeapons = {
 	private["_weapons","_return"];
 	_weapons = [];

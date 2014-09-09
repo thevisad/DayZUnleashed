@@ -164,7 +164,7 @@ class RscDisplayGameOptions
 		};	
 	};
 };
-class RscShortcutButton;
+
 class RscShortcutButtonMain;
 class RscDisplayMain : RscStandardDisplay
 {
