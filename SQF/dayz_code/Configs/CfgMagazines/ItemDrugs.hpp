@@ -89,7 +89,7 @@ class ItemPapers: CA_Magazine {
 	weight = 1;
 	type = 256;
 	displayName = "Snarky Lions";
-	model = = "\z\addons\unleashed_pack\models\papers\snarkyLion.paa";
+	model = "\z\addons\unleashed_pack\models\papers\snarkyLion.p3d";
 	picture = "\z\addons\unleashed_pack\pictures\snarkylion.paa";
 	descriptionShort = "Some papers for rolling joints";
 };

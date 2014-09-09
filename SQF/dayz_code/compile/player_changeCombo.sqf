@@ -3,7 +3,7 @@
 		Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
 */
 private ["_result","_control","_directon","_name","_PubVar","_display"];
-
+disableSerialization;
 _control = _this select 0;
 _directon = _this select 1;
 _name = _this select 2;

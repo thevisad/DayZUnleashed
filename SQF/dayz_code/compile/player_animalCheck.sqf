@@ -1,10 +1,10 @@
-
+diag_log("PAC: Spawn Animals");
 private ["_list","_animalssupported","_type","_root","_favouritezones","_randrefpoint","_PosList","_PosSelect","_Pos","_agent","_id"];
 _list = getposATL player nearEntities [["CAAnimalBase"],dayz_animalDistance];
 
 if (count _list < dayz_maxAnimals) then {
 	//Find where animal likes
-	_animalssupported = ["Chicken","Cow","Sheep","WildBoar","WildBoar","WildBoar","Goat","Rabbit","Rabbit","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog"];
+	_animalssupported = ["Chicken","Cow","Sheep","WildBoar","WildBoar","WildBoar","Goat","Rabbit","Rabbit","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog","Dog"];
 	
 	_type =  (_animalssupported select floor(random(count _animalssupported)));
 	if (_type == "Cow") then {
@@ -24,9 +24,15 @@ if (count _list < dayz_maxAnimals) then {
 		_type =  (_animalssupported select floor(random(count _animalssupported)));
 	};
 	if (_type == "Dog") then {
-		_animalssupported = ["DZ_Fin","DZ_Pastor"];
+		_animalssupported = ["DZ_Fin","DZ_Pastor","DZ_FinZombie","DZ_PastorZombie"];
+		//_animalssupported = ["DZ_FinZombie","DZ_PastorZombie"];
 		_type =  (_animalssupported select floor(random(count _animalssupported)));
 	};
+	/*
+	if (_type == "WildBoar") then {
+		_type =  "DZ_Boar";
+	};
+	*/
 
 	_root = configFile >> "CfgVehicles" >> _type;
 	_favouritezones = getText ( _root >> "favouritezones");
@@ -40,10 +46,11 @@ if (count _list < dayz_maxAnimals) then {
 	
 	
 	if (player distance _Pos < dayz_animalDistance and NOT surfaceIsWater _Pos and (count _list <= 1)) then {
-		if (_type == "DZ_Pastor" || _type == "DZ_Fin") then { 
+		if (_type == "DZ_PastorZombie" || _type == "DZ_FinZombie") then {
+			diag_log(format["PAC: Spawn Attack Animal: %1", _type]);
 			_agent = createAgent [_type, _Pos, [], 0, "NONE"]; 
 			_agent setpos _Pos;
-			_id = [_pos,_agent,_type] execFSM "\z\addons\dayz_code\system\dog_agent.fsm";
+			_id = [_pos,_agent,_type] execFSM "\z\addons\dayz_code\system\zombie_dog_agent.fsm";
 		}
 		else 
 		{ 

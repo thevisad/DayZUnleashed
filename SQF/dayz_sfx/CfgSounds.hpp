@@ -70,6 +70,78 @@ class CfgSounds {
 	class z_dog_bark_4: z_dog_bark_0 {
 		sound[] = {"\dayz_sfx\action\dog\dog_bark4",0.5,1,100};
 	};
+	class z_dog_bark_5: z_dog_bark_0 {
+		sound[] = {"\dayz_sfx\action\dog\dog_bark5",0.5,1,100};
+	};
+	class z_dog_bark_6: z_dog_bark_0 {
+		sound[] = {"\dayz_sfx\action\dog\dog_bark6",0.5,1,100};
+	};
+	class z_dog_bark_7: z_dog_bark_0 {
+		sound[] = {"\dayz_sfx\action\dog\dog_bark7",0.5,1,100};
+	};
+	class z_dog_bark_8: z_dog_bark_0 {
+		sound[] = {"\dayz_sfx\action\dog\dog_bark8",0.5,1,100};
+	};
+	class z_dog_bark_9: z_dog_bark_0 {
+		sound[] = {"\dayz_sfx\action\dog\dog_bark9",0.5,1,100};
+	};
+	class z_dog_bark_10: z_dog_bark_0 {
+		sound[] = {"\dayz_sfx\action\dog\dog_bark10",0.5,1,100};
+	};
+	
+	
+	class z_zombie_hurt_0 {
+		name = "";
+		sound[] = {"\dayz_sfx\zombie\zombie-hit-01",0.5,1,100};
+		titles[] = {};
+	};
+	
+	class z_zombie_hurt_1 : z_zombie_hurt_0 {
+		sound[] = {"\dayz_sfx\zombie\zombie-hit-02",0.5,1,100};
+	};
+	class z_zombie_hurt_2 : z_zombie_hurt_0 {
+		sound[] = {"\dayz_sfx\zombie\zombie-hit-03",0.5,1,100};
+	};
+	class z_zombie_hurt_3 : z_zombie_hurt_0 {
+		sound[] = {"\dayz_sfx\zombie\zombie-hit-04",0.5,1,100};
+	};
+	class z_zombie_hurt_4 : z_zombie_hurt_0 {
+		sound[] = {"\dayz_sfx\zombie\zombie-hit-05",0.5,1,100};
+	};
+	class z_zombie_hurt_5 : z_zombie_hurt_0 {
+		sound[] = {"\dayz_sfx\zombie\zombie-hit-06",0.5,1,100};
+	};
+	class z_zombie_hurt_6 : z_zombie_hurt_0 {
+		sound[] = {"\dayz_sfx\zombie\zombie-hit-07",0.5,1,100};
+	};
+	class z_zombie_hurt_7 : z_zombie_hurt_0 {
+		sound[] = {"\dayz_sfx\zombie\zombie-hit-08",0.5,1,100};
+	};
+	class z_zombie_hurt_8 : z_zombie_hurt_0 {
+		sound[] = {"\dayz_sfx\zombie\zombie-hit-09",0.5,1,100};
+	};
+	
+	class z_dog_maul_0 {
+		name = "";
+		sound[] = {"\dayz_sfx\action\dog\dog_maul01",0.5,1,100};
+		titles[] = {};
+	};	
+	
+	class z_dog_yelp_0 {
+		name = "";
+		sound[] = {"\dayz_sfx\action\dog\dog_yelp01",0.5,1,100};
+		titles[] = {};
+	};	
+		class z_dog_yelp_1 : z_dog_yelp_0 {
+		sound[] = {"\dayz_sfx\action\dog\dog_yelp02",0.5,1,100};
+		titles[] = {};
+	};	
+		class z_dog_yelp_2 : z_dog_yelp_0 {
+		sound[] = {"\dayz_sfx\action\dog\dog_yelp03",0.5,1,100};
+		titles[] = {};
+	};	
+	
+	
 	class z_dog_growl_0 {
 		name = "";
 		sound[] = {"\dayz_sfx\action\dog\dog_growl_0",0.5,1,12};

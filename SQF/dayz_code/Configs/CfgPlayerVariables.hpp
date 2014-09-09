@@ -55,7 +55,7 @@ class CfgPlayerVariables{
     class Experience : default {
          load=1;
       vardefault=0;
-         desc="Experience  Points";
+         desc="Experience Points";
       varname="vXP";
       varmin=0;   
       varmax=1000;

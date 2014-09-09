@@ -2,7 +2,7 @@
 // Function file for [DayZ]
 // Created by: [Horde]
 //********************************************************************************************************************/
-
+disableSerialization;
 private ["_hum","_humanity","_pl_pic","_humanity_readout","_top_joker","_bot_joker","_top_value","_bot_value","_top_suit","_bot_suit","_pl_name"];
 
 //check humanity

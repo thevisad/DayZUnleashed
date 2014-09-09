@@ -66,7 +66,8 @@ if (!isDedicated) then {
 };
 
 // Logo watermark: adding a logo in the bottom left corner of the screen with the server name in it
-if (!isNil "dayZ_serverName") then {
+if (!isNil "dayZ_serverName") then {	
+	disableSerialization;
 	[] spawn {
 		waitUntil {(!isNull Player) and (alive Player) and (player == player)};
 		waituntil {!(isNull (findDisplay 46))};

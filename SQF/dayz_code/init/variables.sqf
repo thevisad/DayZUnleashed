@@ -472,6 +472,7 @@ dayz_weight = 0;
 //count actions
 r_action_count = 0;
 accountPassword = 0;
+dayz_spawnperros = 0;
 //ammo routine
 r_player_actions2 = [];
 r_action2 = false;
@@ -570,7 +571,7 @@ dayz_dawn = 4; //6
 dayz_dusk = 22; //18
 dayz_maxAnimals = 20;
 DAYZ_agentnumber = 0;
-dayz_animalDistance = 150;
+dayz_animalDistance = 800;
 dayz_zSpawnDistance = 1000;
 
 dayz_maxLocalZombies = 60; // max quantity of Z controlled by local gameclient, used by player_spawnCheck. Below this limit we can spawn Z
@@ -602,6 +603,7 @@ unleashed_SpawnCombatZeds = 0;
 unleashed_ZedShortAgroRange = 2.2; //Attack Range
 unleashed_ZedMediumAgroRange = 10; //Close Chase Range
 unleashed_ZedLongAgroRange = 25; //Far Chase Range
+unleashed_leveling_queue = [];
 // update objects
 dayz_updateObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ"];
 dayz_disallowedVault = ["TentStorage", "BuiltItems","ModularItems","DZE_Base_Object"];

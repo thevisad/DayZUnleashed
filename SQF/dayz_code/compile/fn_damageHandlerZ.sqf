@@ -8,7 +8,7 @@ _selection = _this select 1;
 _damage = _this select 2;
 _hitter = _this select 3;
 _projectile = _this select 4;
-
+[_dog,"zombie_hurt",2,false] call dayz_zombieSpeak;
 if (local _zed) then {
 	if (_damage > 1 and _projectile != "") then {
 		//Record deliberate critical damages

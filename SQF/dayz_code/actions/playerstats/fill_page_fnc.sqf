@@ -2,7 +2,7 @@
 // Function file for [DayZ]
 // Created by: [Horde]
 //********************************************************************************************************************/
-
+disableSerialization;
 private ["_count","_kills","_5","_4","_3","_2","_1","_b","_idc_arr","_extra_kills","_tally_kills","_full_box_count","_partial_box_tally","_add_kills"];
 
 _kills = _this select 0;

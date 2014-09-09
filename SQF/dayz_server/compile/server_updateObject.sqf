@@ -8,7 +8,7 @@ private ["_object","_type","_objectID","_uid","_lastUpdate","_needUpdate","_obje
 _object = 	_this select 0;
 
 if(isNull(_object)) exitWith {
-	diag_log format["Skipping Null Object: %1", _object];
+	diag_log format["SUO: Skipping Null Object: %1", _object];
 };
 
 _type = 	_this select 1;
@@ -22,7 +22,7 @@ _uid = 		_object getVariable ["ObjectUID","0"];
 
 if ((typeName _objectID != "string") || (typeName _uid != "string")) then
 { 
-    diag_log(format["Non-string Object: ID %1 UID %2", _objectID, _uid]);
+    diag_log(format["SUO: Non-string Object: ID %1 UID %2", _objectID, _uid]);
     //force fail
     _objectID = "0";
     _uid = "0";
@@ -36,10 +36,10 @@ if (!_parachuteWest && !(locked _object)) then {
 };
 
 // do not update if buildable && not ok
-if (_isNotOk && _isbuildable) exitWith { diag_log(format["SUO: _isbuildable and not ok."]);  };
+if (_isNotOk && _isbuildable) exitWith { diag_log(format["SUO: %1 _isbuildable and not ok.", _object]);  };
 
 // delete if still not ok
-if (_isNotOk) exitWith { deleteVehicle _object; diag_log(format["Deleting object %1 with invalid ID at pos [%2,%3,%4]",typeOf _object,_object_position select 0,_object_position select 1, _object_position select 2]); };
+if (_isNotOk) exitWith { deleteVehicle _object; diag_log(format["SUO: Deleting object %1 with invalid ID at pos [%2,%3,%4]",typeOf _object,_object_position select 0,_object_position select 1, _object_position select 2]); };
 
 
 _lastUpdate = _object getVariable ["lastUpdate",time];
@@ -74,11 +74,14 @@ _object_inventory = {
 			_object setVariable["lastInventory",_inventory];
 		if (_isbuildable) then {
 			_key = format["CHILD:641:%1:%2:",_objectID,_inventory];
+			diag_log(format["SUO: Updating %1 with %2",_object,_objectID,_inventory]);
 		} else {
 			if (_objectID == "0") then {
 				_key = format["CHILD:309:%1:%2:",_uid,_inventory];
+				diag_log(format["SUO: Updating %1 with %2",_object,_uid,_inventory]);
 			} else {
 				_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+				diag_log(format["SUO: Updating %1 with %2",_object,_objectID,_inventory]);
 			};
 		};
 			_key call server_hiveWrite;
@@ -138,9 +141,9 @@ _object_killed = {
 		_PUID = [_killer] call FNC_GetPlayerUID;
 		if (_PUID != "") then {
 			_name = if (alive _killer) then { name _killer; } else { format["OBJECT %1", _killer]; };
-			diag_log format["Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6, Killer: %7 (UID: %8)", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace, _name, _PUID];
+			diag_log format["SUO: Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6, Killer: %7 (UID: %8)", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace, _name, _PUID];
 		} else {
-			diag_log format["Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace];
+			diag_log format["SUO: Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace];
 		};
 	};
 };

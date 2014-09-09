@@ -107,8 +107,9 @@ if (_bloodLvl <= 0) then {
 if (_thirstLvl < 0) then { _thirstLvl = 0 };
 _thirst = "\z\addons\dayz_code\gui\status\status_thirst_inside_" + str(_thirstLvl) + "_ca.paa";
 
+_AgroVal1 = round(_AgroVal01);
 if (_agroLvl < 0) then { _agroLvl = 0 };
-_agro = "\z\addons\dayz_code\gui\status\status_agro" + str(_AgroVal01) + ".paa";
+_agro = "\z\addons\dayz_code\gui\status\status_agro" + str(_AgroVal1) + ".paa";
 
 if (_foodLvl < 0) then { _foodLvl = 0 };
 _food = "\z\addons\dayz_code\gui\status\status_food_inside_" + str(_foodLvl) + "_ca.paa";

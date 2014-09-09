@@ -675,7 +675,7 @@ class FSM
           condition=/*%FSM<CONDITION""">*/"_dog distance _target < 10"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"if (_watchDog) then {" \n
            "	_dog playActionNow ""GestureBark"";" \n
-           "	[_dog,""dog_bark"",0,false] call dayz_zombieSpeak;" \n
+           "	[_dog,""dog_growl"",0,false] call dayz_zombieSpeak;" \n
            "};"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
