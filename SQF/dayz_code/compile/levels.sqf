@@ -9,7 +9,7 @@ _sel = lbCurSel _listbox; if(_sel < 0) exitWith{};
 
 _leveltype = DZU_rpg_skillsList select _sel;
 _skillname = lbtext [20004,_sel];
-_skill_name  = [player,_leveltype] call DZU_fnc_getVariableName;
+//_skill_name  = [player,_leveltype] call DZU_fnc_getVariableName;
 
 
 
@@ -35,7 +35,7 @@ hint parseText format["Processing your <t size='1.0' font='Zeppelin33' color='#f
 
 sleep 0.5;
 
-[player,_skill_name,1] call DZU_fnc_levelUp;
+[player,_leveltype,1] call DZU_fnc_levelUp;
 
 hint parseText format["Your <t size='1.0' font='Zeppelin33' color='#008aff'>%1</t> points have been added.",_skillname];
 unleashed_leveling_queue = unleashed_leveling_queue - [_queuepos];
