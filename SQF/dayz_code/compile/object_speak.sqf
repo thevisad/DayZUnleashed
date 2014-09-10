@@ -33,7 +33,7 @@ _num = switch (_type) do {
 	case "cook": 		{2};
 	case "panic": 		{1};
 	case "zombie_hurt": {9};
-	case "dog_bark":	{10};
+	case "dog_bark":	{9};
 	case "dog_growl":	{4};
 	case "dog_qq":		{3};
 	case "dog_yelp":	{2};

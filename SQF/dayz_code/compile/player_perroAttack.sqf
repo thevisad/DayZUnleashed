@@ -1,5 +1,5 @@
 private ["_unit", "_type", "_vehicle", "_speed", "_nextPlayerPos", "_distance", "_isVehicle", "_isSameFloor", "_isStairway", "_isClear", "_epu", "_epv", "_gpu_asl", "_gpv_asl", "_areaAffect", "_hu", "_hv", "_ob_arr", "_cob", "_deg", "_sign", "_a", "_rnd", "_move", "__FILE__", "_vel", "_hpList", "_hp", "_wound", "_damage", "_strH", "_dam", "_total", "_cnt", "_index", "_woundDamage","_classTackleTime"];
-diag_log("PPA: starting");
+//diag_log("PPA: starting");
 _start = diag_tickTime;
 
 _unit = _this select 0;
@@ -48,37 +48,37 @@ if (unitPos _unit != "UP") exitWith {
 
 switch true do {
 	case ((toArray(animationState player) select 5) == 112) : {
-	diag_log("PPA: animationState");
+	//diag_log("PPA: animationState");
 		if (_distance < 3) then {
 			_move = "Dog_Attack";
 		};
 	};
 	case (r_player_unconscious) : {
-	diag_log("PPA: r_player_unconscious");
+	//diag_log("PPA: r_player_unconscious");
 		if (random 3 < 1) then {
 			_move = "Dog_Attack";
 		};
 	};
 	case (_isStairway) : {
-	diag_log("PPA: _isStairway");
+	//diag_log("PPA: _isStairway");
 		if (_distance < 1.7) then {
 			_move = "Dog_GetUp";
 		};
 	};
 	case (_isVehicle AND {(_distance > 2.2)}) : { // enable attack if Z is between 2.2 and 3.5. Other cases are handled in "default"
-	diag_log("PPA: _isVehicle");
+	//diag_log("PPA: _isVehicle");
 		if (_distance < 3.5) then {
 			_move = "Dog_GetUp";
 		};
 	};
 	case (_speed >= 5) : {
-	diag_log("PPA: _speed");
+	//diag_log("PPA: _speed");
 		if (_distance < 2.3) then {
 			_move = "Dog_GetUp";
 		};
 	};
 	default {
-	diag_log("PPA: default");
+	//diag_log("PPA: default");
 		_move = "Dog_Attack";
 	};
 };
@@ -111,7 +111,7 @@ if (_isVehicle) then {
 		if (random 3 < 1) then {
 			player action ["eject",  _vehicle];
 		};
-		diag_log(format["PPA: %1: Player ejected from %2", __FILE__, _vehicle]);
+		//diag_log(format["PPA: %1: Player ejected from %2", __FILE__, _vehicle]);
 	}; // fi veh with compartment
 } else { // player by foot
 //Make sure sure evrything is processed as we attack.
@@ -293,11 +293,11 @@ if (_isVehicle) then {
 			};
 		};
 	};
-	diag_log("PPA: exit");
+	//diag_log("PPA: exit");
 }; // fi player by foot
 
 _stop = diag_tickTime;
-diag_log format ["PPA: %2 Execution Time: %1",_stop - _start, __FILE__];
+//diag_log format ["PPA: %2 Execution Time: %1",_stop - _start, __FILE__];
 
 // please do not remove this last line! It's the return code
 ""

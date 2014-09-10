@@ -1,5 +1,5 @@
 private ["_array","_source","_kills","_killsV","_humanity","_wait","_myKills","_method","_body","_id","_canHitFree","_isBandit","_myGroup"];
-
+disableSerialization;
 if (deathHandled) exitWith {};
 
 deathHandled = true;

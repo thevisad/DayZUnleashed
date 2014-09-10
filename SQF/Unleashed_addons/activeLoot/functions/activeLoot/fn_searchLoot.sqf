@@ -70,10 +70,10 @@ if({_x in items player||_x in magazines player||_x in weapons player} count _req
 			_newObject setposATL _position;
 	   
 			[_newObject,_survivalSkill,_lootMin,_lootMax,_lootTable] call DZU_fnc_addToLootBox;
-	  
+			call player_gearSync;
 	        player action ["Gear", _newObject];
-            
-                _searchEXP = getText(_config >> "searchEXP");
+			
+			_searchEXP = getText(_config >> "searchEXP");
             if (_searchEXP != "") then {sleep 1;[player,_searchEXP] call DZU_fnc_giveEXP;};                  
 	};
 } else {

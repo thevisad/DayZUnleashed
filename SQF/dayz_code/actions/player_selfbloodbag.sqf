@@ -60,8 +60,6 @@ if (dayz_combat == 1) then { // Check if in combat
     cutText [format["You are in Combat and cannot give yourself a Bloodbag"], "PLAIN DOWN"]; //display text at bottom center of screen when in combat
 } else {
 
-	player removeAction s_player_selfBloodbag; //remove the action from users scroll menu
-	
 	player playActionNow "Medic"; //play bloodbag animation
 	
 	////////////////////////////////////////////////

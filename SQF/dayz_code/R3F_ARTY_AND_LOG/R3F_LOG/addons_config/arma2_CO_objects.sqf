@@ -272,7 +272,8 @@ R3F_LOG_CFG_transporteurs = R3F_LOG_CFG_transporteurs +
  */
 R3F_LOG_CFG_objets_transportables = R3F_LOG_CFG_objets_transportables +
 [
-	["SatPhone", 1], // Needed for the R3F_ARTY module (arty HQ) (nécessaire pour le module R3F_ARTY (PC d'arti))
+	["SatPhone", 1]
+	/*, // Needed for the R3F_ARTY module (arty HQ) (nécessaire pour le module R3F_ARTY (PC d'arti))
 	["Pchela1T", 15],
 	["ATV_Base_EP1", 20],
 	["FoldChair_with_Cargo", 1],
@@ -392,6 +393,7 @@ R3F_LOG_CFG_objets_transportables = R3F_LOG_CFG_objets_transportables +
 	["Land_Chair_EP1", 1],
 	["Suitcase", 1],
 	["WeaponBagBase_EP1", 3]
+	*/
 ];
 
 
@@ -403,7 +405,9 @@ R3F_LOG_CFG_objets_transportables = R3F_LOG_CFG_objets_transportables +
  */
 R3F_LOG_CFG_objets_deplacables = R3F_LOG_CFG_objets_deplacables +
 [
-	"SatPhone", // Needed for the R3F_ARTY module (arty HQ) (nécessaire pour le module R3F_ARTY (PC d'arti))
+	
+	"SatPhone" // Needed for the R3F_ARTY module (arty HQ) (nécessaire pour le module R3F_ARTY (PC d'arti))
+	/*
 	"FoldChair_with_Cargo",
 	"StaticWeapon",
 	"FlagCarrierSmall",
@@ -464,5 +468,5 @@ R3F_LOG_CFG_objets_deplacables = R3F_LOG_CFG_objets_deplacables +
 	"SmallTV",
 	"Land_Chair_EP1",
 	"Suitcase",
-	"WeaponBagBase_EP1"
+	"WeaponBagBase_EP1"*/
 ];

@@ -158,7 +158,7 @@ if (_damage > 0.4) then { //0.25
 				//_rndInfection = random (_damage - _bloodPercentage);
 				//_hitInfection = ((exp _rndInfection * dayz_infectionTreshold*1.1) > dayz_infectionTreshold);
 			//};
-			_zClose = count ((getposATL player) nearEntities ["zZombie_Base",5]);
+			_zClose = count ((getposATL player) nearEntities [["zZombie_Base","DZ_FinZombie","DZ_PastorZombie"],5]);
 			_rndInfection = random (_damage - _bloodPercentage);
 			_hitInfection = ((exp _rndInfection) > (dayz_infectionTreshold / (_zClose * 0.25)));
 			if (_newtypezed) then {

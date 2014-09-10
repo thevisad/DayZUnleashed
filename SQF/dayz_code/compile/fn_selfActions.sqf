@@ -23,6 +23,7 @@ _hasFuelBarrelE = "ItemFuelBarrelEmpty" in magazines player;
 //boiled Water
 _hasbottleitem = "ItemWaterbottle" in magazines player;
 _hastinitem = false;
+_unconscious = false;
 
 {
     if (_x in magazines player) then {
@@ -738,10 +739,11 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		//diag_log ("rig churchie_check removed: " +str(churchie_check));
 		stow_vehicle = -1; 
 	};
-	
+
+
     _unconscious = cursorTarget getVariable ["NORRN_unconscious", false];
 
-	if (_isMan and _isAlive and !_isZombie and _canDo and !_unconscious) then {
+	if (_isMan and _isAlive and !_isZombie and _canDo and !_unconscious and !_isAnimal) then {
         if (s_player_meleeattack < 0) then {
             s_player_meleeattack = player addAction [("<t color=""#FF9800"">" + ("Melee Target!") + "</t>"), "\z\addons\dayz_code\actions\player_weaponButtAttack.sqf",cursorTarget, 0, false, true, "",""];
         };

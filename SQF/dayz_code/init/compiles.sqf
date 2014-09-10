@@ -482,7 +482,8 @@ if (!isDedicated) then {
 			_handled = true;
 		};
 		
-		if (_dikCode == 0xB8 or _dikCode == 0x38 or _dikCode == 0x3E or _dikCode == 0x2A or _dikCode == 0x36 or _dikCode == 0x01) then {
+		
+		if (_dikCode == 0xB8 or _dikCode == 0x38 or _dikCode == 0x3E or _dikCode == 0x2A or _dikCode == 0x36 or _dikCode == 0x01  or _dikCode == 0x22) then {
 			_displayg = findDisplay 106;
 			if (!isNull _displayg) then {
 			call player_gearSync;
@@ -636,6 +637,25 @@ if (!isDedicated) then {
 			};
 			_handled = true;
 		};
+	};
+	
+	dze_isnearest_player = {
+		private ["_notClosest","_playerDistance","_nearPlayers","_obj","_playerNear"];
+		if(!isNull _this) then {
+			_nearPlayers = _this nearEntities ["CAManBase", 12];
+			_playerNear = ({isPlayer _x} count _nearPlayers) > 1;
+			_notClosest = false;
+			if (_playerNear) then {
+				// check if another player is closer
+				_playerDistance = player distance _this;
+				{
+					if (_playerDistance > (_x distance _this)) exitWith { _notClosest = true; };
+				} count _nearPlayers;
+			};
+		} else {
+			_notClosest = false;
+		};
+		_notClosest
 	};
 
 // 	player_serverModelChange = {
@@ -866,14 +886,13 @@ if (!isDedicated) then {
 	player_medPainkiller = compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\publicEH\medPainkiller.sqf";
 	world_isDay = {if ((daytime < (24 - dayz_sunRise)) and (daytime > dayz_sunRise)) then {true} else {false}};
 	player_humanityChange = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_humanityChange.sqf";
-	//player_variableChange = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_variablesChange.sqf";
 	spawn_loot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\spawn_loot.sqf";
 	player_projectileNear = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_projectileNear.sqf";
 	
 
 	//Unleashed
 	//[] execVM "\z\addons\dayz_code\compile\houseLighting.sqf";
-	//[] execVM "\z\addons\dayz_code\actions\player_repairActions.sqf";
+	[] execVM "\z\addons\dayz_code\actions\player_repairActions.sqf";
 
 	player_sumMedical = {
 		private["_character","_wounds","_legs","_arms","_medical", "_status"];

