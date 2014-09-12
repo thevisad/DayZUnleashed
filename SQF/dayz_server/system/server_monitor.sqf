@@ -133,93 +133,78 @@ if (isServer and isNil "sm_done") then {
 				};
 			};
 			
-			/*
-			testarray = toArray str(_combination);
-			_countArray = count (_testarray);
-			// fix for leading zero issues on safe codes after restart
-			
-
-			if (_lockable == 4) then {
-				if(_countArray == 3) then {
-					_combination = format["0%1", _combination];
-				};
-				if(_countArray == 2) then {
-					_combination = format["00%1", _combination];
-				};
-				if(_countArray == 1) then {
-					_combination = format["000%1", _combination];
-				};
-			};
-
-			if (_lockable == 3) then {
-				if(_countArray == 2) then {
-					_combination = format["0%1", _combination];
-				};
-				if(_countArray == 1) then {
-					_combination = format["00%1", _combination];
-				};
-			};
-			*/
-
 			_object setVariable ["CharacterID", _combination, true];
-			_combinationTest = _object getVariable ["CharacterID", 0];
 			
-		
-			//diag_log (format["SM: Combination %1", _combination]);
-			//diag_log (format["SM: Object %1",_object]);
+			//_combinationTest = _object getVariable ["CharacterID", 0];
 			//diag_log (format["SM: Test: %1", _combinationTest]);
-			
-			
+			//diag_log (format["SM: Combination %1", _combination]);
+
+			//diag_log (format["SM: Building Type: %1, UID: %2, OwnerID: %3, WorldSpace: %4, Inventory: %5, HitPoints: %6, SquadID: %7, Combination: %8",_type,_idKey,_ownerID,_worldspace,_inventory,_hitpoints,_squadID,_combination]);
+						
 			clearWeaponCargoGlobal  _object;
 			clearMagazineCargoGlobal  _object;
 			
 			_object setdir _dir;
 
 			if (count _inventory > 0) then {
-				//Add weapons
-				_objWpnTypes = (_inventory select 0) select 0;
-				_objWpnQty = (_inventory select 0) select 1;
-				_countr = 0;					
-				{
-					_isOK = 	isClass(configFile >> "CfgWeapons" >> _x);
-					if (_isOK) then {
-						_block = 	getNumber(configFile >> "CfgWeapons" >> _x >> "stopThis") == 1;
-						if (!_block) then {
-							_object addWeaponCargoGlobal [_x,(_objWpnQty select _countr)];
+				if (_type in DZE_LockedStorage) then {
+						// Fill variables with loot
+						_object setVariable ["WeaponCargo", (_inventory select 0),true];
+						_object setVariable ["MagazineCargo", (_inventory select 1),true];
+						_object setVariable ["BackpackCargo", (_inventory select 2),true];
+					} else {
+					//Add weapons
+					_objWpnTypes = (_inventory select 0) select 0;
+					_objWpnQty = (_inventory select 0) select 1;
+					_countr = 0;					
+					{
+						diag_log (format["SM: Building Type: %1, UID: %2, InventoryObject: %3",_object,_idKey,_x]);
+						_isOK = 	isClass(configFile >> "CfgWeapons" >> _x);
+						if (_isOK) then {
+							_block = 	getNumber(configFile >> "CfgWeapons" >> _x >> "stopThis") == 1;
+							if (!_block) then {
+								_object addWeaponCargoGlobal [_x,(_objWpnQty select _countr)];
+							};
 						};
-					};
-					_countr = _countr + 1;
-				} forEach _objWpnTypes; 
-				
-				//Add Magazines
-				_objWpnTypes = (_inventory select 1) select 0;
-				_objWpnQty = (_inventory select 1) select 1;
-				_countr = 0;
-				{
-					_isOK = 	isClass(configFile >> "CfgMagazines" >> _x);
-					if (_isOK) then {
-						_block = 	getNumber(configFile >> "CfgMagazines" >> _x >> "stopThis") == 1;
-						if (!_block) then {
-							_object addMagazineCargoGlobal [_x,(_objWpnQty select _countr)];
+						_countr = _countr + 1;
+					} forEach _objWpnTypes; 
+					
+					//Add Magazines
+					_objWpnTypes = (_inventory select 1) select 0;
+					_objWpnQty = (_inventory select 1) select 1;
+					_countr = 0;
+					{
+							if (_x == "BoltSteel") then { _x = "WoodenArrow" }; // Convert BoltSteel to WoodenArrow
+							if (_x == "ItemTent") then { _x = "ItemTentOld" };
+					diag_log (format["SM: Building Type: %1, UID: %2, InventoryObject: %3",_object,_idKey,_x]);
+						_isOK = 	isClass(configFile >> "CfgMagazines" >> _x);
+						if (_isOK) then {
+							_block = 	getNumber(configFile >> "CfgMagazines" >> _x >> "stopThis") == 1;
+							if (!_block) then {
+								_object addMagazineCargoGlobal [_x,(_objWpnQty select _countr)];
+							};
 						};
-					};
-					_countr = _countr + 1;
-				} forEach _objWpnTypes;
-				//Add Backpacks
-				_objWpnTypes = (_inventory select 2) select 0;
-				_objWpnQty = (_inventory select 2) select 1;
-				_countr = 0;
-				{
-					_isOK = 	isClass(configFile >> "CfgVehicles" >> _x);
-					if (_isOK) then {
-						_block = 	getNumber(configFile >> "CfgVehicles" >> _x >> "stopThis") == 1;
-						if (!_block) then {
-							_object addBackpackCargoGlobal [_x,(_objWpnQty select _countr)];
+						_countr = _countr + 1;
+					} forEach _objWpnTypes;
+					
+					//Add Backpacks
+					_objWpnTypes = (_inventory select 2) select 0;
+					_objWpnQty = (_inventory select 2) select 1;
+					_countr = 0;
+					{
+					diag_log (format["SM: Building Type: %1, UID: %2, InventoryObject: %3",_object,_idKey,_x]);
+						_isOK = 	isClass(configFile >> "CfgVehicles" >> _x);
+						if (_isOK) then {
+							_block = 	getNumber(configFile >> "CfgVehicles" >> _x >> "stopThis") == 1;
+							if (!_block) then {
+								_object addBackpackCargoGlobal [_x,(_objWpnQty select _countr)];
+							};
 						};
-					};
-					_countr = _countr + 1;
-				} forEach _objWpnTypes;
+						_countr = _countr + 1;
+					} forEach _objWpnTypes;
+				};	
 			};	
+
 			
 
 			dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];

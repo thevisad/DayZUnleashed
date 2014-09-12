@@ -37,7 +37,7 @@ if (!isDedicated) then {
 	player_packVault = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_packVault.sqf";
 	player_unlockVault = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_unlockVault.sqf";
 	player_lockVault = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_lockVault.sqf";
-	player_vaultPitch = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vault_pitch.sqf";
+	//player_vaultPitch = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vault_pitch.sqf";
 	//Player Aggravation
 	player_aggro_check = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_check.sqf";
 	player_aggro_lieve = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_aggro_decrease.sqf";     //Lowers dayz_aggro_value when above 0
