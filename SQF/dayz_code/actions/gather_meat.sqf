@@ -8,7 +8,7 @@ _config = configFile >> "CfgSurvival" >> "Meat" >> _type;
 
 player removeAction s_player_butcher;
 s_player_butcher = -1;
-_skill_value = [player,Hunting] call DZU_fnc_getVariable;
+_skill_value = [player,"Hunting"] call DZU_fnc_getVariable;
 
 if ((_hasKnife or _hasKnifeBlunt) and !_hasHarvested) then {
 	//Get Animal Type

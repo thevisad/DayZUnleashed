@@ -1,12 +1,13 @@
 private ["_class","_uid","_charID","_building","_worldspace","_key","_playerUID"];
 //[dayz_characterID,_tent,[_dir,_location],"TentStorage"]
-_charID =		_this select 0;
-_building = 		_this select 1;
-_worldspace = 	_this select 2;
-_class = 		_this select 3;
-_combination = 		_this select 4;
-//_squad = 		_this select 5;
+_charID = _this select 0;
+_building = _this select 1;
+_worldspace = _this select 2;
+_class = _this select 3;
+_combination = _this select 4;
+_callingScript = _this select 5;
 
+diag_log(format["SPB: Calling script: %1 ", _callingScript]);
 _squad = 0;
 _playerUID = 0;
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"

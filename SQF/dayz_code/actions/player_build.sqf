@@ -233,6 +233,7 @@ if (_hasrequireditem) then {
 			detach _object;
 			_dir = getDir _object;
 			_position = getPosATL _object;
+			deleteVehicle _object;
 		};
 
 		if(_location1 distance _location2 > 5) exitWith {
@@ -241,6 +242,7 @@ if (_hasrequireditem) then {
 			_cancel = true;
 			_reason = "You've moved to far away from where you started building (within 5 meters)"; 
 			detach _object;
+			deleteVehicle _object;
 		};
 		
 		[format["<t size='0.6'>Time left to build: %1</t>",(ceil(_previewCounter))],0,0.8,0.5,0,0,8] spawn BIS_fnc_dynamicText;
@@ -251,6 +253,7 @@ if (_hasrequireditem) then {
 			_cancel = true;
 			_reason = "Ran out of time to find position"; 
 			detach _object;
+			deleteVehicle _object;
 		};
 
 		_previewCounter = _previewCounter - 1;
@@ -447,7 +450,7 @@ if (_hasrequireditem) then {
 					_object setVariable ["CharacterID",_combination,true];
 					
 
-					PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname, _combination];
+					PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname, _combination, "player_build1"];
 					publicVariableServer "PVDZ_bld_Publish";
 
 					cutText [format[(localize "str_epoch_player_140"),_combinationDisplay,_text], "PLAIN DOWN", 5];
@@ -461,7 +464,7 @@ if (_hasrequireditem) then {
 					if(_object isKindOf "Land_Fire_DZ") then {
 						_object spawn player_fireMonitor;
 					} else {
-						PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname,dayz_characterID];
+						PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname,dayz_characterID, "player_build2"];
 						publicVariableServer "PVDZ_bld_Publish";
 					};
 				};
@@ -486,7 +489,7 @@ if (_hasrequireditem) then {
 	//diag_log (format["PB: _cancel end"]);
 	} else {
 	//diag_log (format["PB: _cancel else"]);
-			deleteVehicle _object;
+		deleteVehicle _object;
 		cutText [format[(localize "str_epoch_player_47"),_text,_reason], "PLAIN DOWN"];
 	};
 	//diag_log (format["PB: _hasrequireditem ended"]);

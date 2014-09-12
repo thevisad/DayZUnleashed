@@ -653,10 +653,19 @@ class CfgSurvival {
 			rawfoodtype = "FoodchickenRaw";
 		};
 		class Cock: Hen{};
+		class DZ_FinZombie: Default {
+			yield = 2;
+			rawfoodtype = "FooddogRaw";
+		};
+		class DZ_PastorZombie: Default {
+			yield = 2;
+			rawfoodtype = "FooddogRaw";
+		};
 		class DZ_Fin: Default {
 			yield = 2;
 			rawfoodtype = "FooddogRaw";
 		};
+		
 		class DZ_Pastor: DZ_Fin{};
 		class Rabbit: Default {
 			yield = 1;

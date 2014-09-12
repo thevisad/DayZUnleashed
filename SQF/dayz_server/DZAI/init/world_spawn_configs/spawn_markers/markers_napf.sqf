@@ -6,3 +6,4 @@
 	Last updated: 11:05 PM 7/5/2013
 	
 */
+diag_log ("[DZAI] Napf markers configuration loading.");
