@@ -13,7 +13,9 @@ if(isNull(_object)) exitWith {
 
 _type = 	_this select 1;
 _parachuteWest = ((typeOf _object == "ParachuteWest") || (typeOf _object == "ParachuteC"));
-_isbuildable = (typeOf _object) in dayz_allowedObjects;
+_dayz_Objects = dayz_updateObjects + dayz_allowedObjects;
+_isbuildable = (typeOf _object) in _dayz_Objects; //dayz_allowedObjects
+
 _isNotOk = false;
 _firstTime = false;
 
@@ -74,14 +76,14 @@ _object_inventory = {
 			_object setVariable["lastInventory",_inventory];
 		if (_isbuildable) then {
 			_key = format["CHILD:641:%1:%2:",_objectID,_inventory];
-			diag_log(format["SUO: Updating %1 with %2",_object,_objectID,_inventory]);
+			diag_log(format["SUO: 641 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);
 		} else {
 			if (_objectID == "0") then {
 				_key = format["CHILD:309:%1:%2:",_uid,_inventory];
-				diag_log(format["SUO: Updating %1 with %2",_object,_uid,_inventory]);
+				diag_log(format["SUO: 309 Updating %1 uid %2 with inventory %3",_object,_uid,_inventory]);
 			} else {
 				_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
-				diag_log(format["SUO: Updating %1 with %2",_object,_objectID,_inventory]);
+				diag_log(format["SUO: 303 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);
 			};
 		};
 			_key call server_hiveWrite;

@@ -8,7 +8,7 @@ _config = configFile >> "CfgSurvival" >> "Meat" >> _type;
 
 player removeAction s_player_butcher;
 s_player_butcher = -1;
-
+_skill_value = [player,Hunting] call DZU_fnc_getVariable;
 
 if ((_hasKnife or _hasKnifeBlunt) and !_hasHarvested) then {
 	//Get Animal Type
@@ -29,15 +29,15 @@ if ((_hasKnife or _hasKnifeBlunt) and !_hasHarvested) then {
 		_qty = getNumber (_config >> "yield");
 	};
 	
-	if (hunter_skill_server > 900 ) then {
+	if (_skill_value > 75 ) then {
 		_qty = _qty + 4;
 	};
 
-	if (hunter_skill_server > 700 and hunter_skill_server < 899 ) then {
+	if (_skill_value > 50 and _skill_value < 75 ) then {
 		_qty = _qty + 2;
 	};
 
-	if (hunter_skill_server > 500 and hunter_skill_server < 699 ) then {
+	if (_skill_value > 25 and _skill_value < 50 ) then {
 		_qty = _qty + 1;
 	};
 

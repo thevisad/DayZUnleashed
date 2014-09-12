@@ -20,6 +20,7 @@ if !((_building isKindOf "TentStorage") ||  (_building isKindOf "dayz_allowedObj
 //get UID
 _uid = _worldspace call dayz_objectUID2;
 _building setVariable ["ObjectUID", _uid,true];
+_building setVariable ["ObjectID", _uid,true];
 //Send request
 
 _key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],_charID,_squad ,_combination];

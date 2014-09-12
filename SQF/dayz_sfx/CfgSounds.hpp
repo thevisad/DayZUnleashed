@@ -85,9 +85,6 @@ class CfgSounds {
 	class z_dog_bark_9: z_dog_bark_0 {
 		sound[] = {"\dayz_sfx\action\dog\dog_bark9",0.5,1,100};
 	};
-	class z_dog_bark_10: z_dog_bark_0 {
-		sound[] = {"\dayz_sfx\action\dog\dog_bark10",0.5,1,100};
-	};
 	
 	
 	class z_zombie_hurt_0 {

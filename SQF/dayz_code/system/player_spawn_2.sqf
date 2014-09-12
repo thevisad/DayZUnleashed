@@ -318,19 +318,22 @@ while {true} do {
 		player setVariable["lastPos",_mylastPos, true];
 		player setVariable["lastPos",[]];
 	};
-
+	
+	_adminTeleport = player getVariable["adminTeleport",0];
 	_lastPos = getPosATL player;
 	if (!isNil "_mylastPos") then {
-		if (player == vehicle player) then {
-			if (_mylastPos distance _lastPos > 200) then {
-				if (alive player) then {
-					player setPosATL _mylastPos;
+		if (_adminTeleport != 1) then {
+			if (player == vehicle player) then {
+				if (_mylastPos distance _lastPos > 200) then {
+					if (alive player) then {
+						player setPosATL _mylastPos;
+					};
 				};
-			};
-		} else {
-			if (_mylastPos distance _lastPos > 800) then {
-				if (alive player) then {
-					player setPosATL _mylastPos;
+			} else {
+				if (_mylastPos distance _lastPos > 800) then {
+					if (alive player) then {
+						player setPosATL _mylastPos;
+					};
 				};
 			};
 		};
