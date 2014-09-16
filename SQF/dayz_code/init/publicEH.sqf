@@ -48,6 +48,8 @@ if (isServer) then {
 	"PVDZ_plr_LoginRecord"	addPublicVariableEventHandler {_id = (_this select 1) spawn dayz_recordLogin};
 	"PVDZ_obj_Delete"		addPublicVariableEventHandler {(_this select 1) spawn server_deleteObj};
 	//"PVDZ_spawn_loot"		addPublicVariableEventHandler {(_this select 1) spawn server_spawnLoot};
+	// upgrade && maintain
+	"PVDZ_obj_Swap"		addPublicVariableEventHandler {(_this select 1) spawn server_swapObject};
 };
 
 //Client only

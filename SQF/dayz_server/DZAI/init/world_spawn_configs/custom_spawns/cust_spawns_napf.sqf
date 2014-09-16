@@ -38,7 +38,7 @@
 	
 	
 */
-diag_log ("[DZAI] Napf spawn custom configuration loading.");
+
 //----------------------------Add your custom spawn definitions below this line ----------------------------
 
 

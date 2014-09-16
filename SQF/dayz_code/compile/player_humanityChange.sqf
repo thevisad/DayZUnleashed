@@ -3,6 +3,7 @@ private["_object","_change","_humanity","_timeStart"];
 _object = _this select 0;
 _change = _this select 1;
 _humanity = 0;
+_wait = 1;
 
 if (_object == player) then {
 	_humanity = player getVariable["humanity",0];

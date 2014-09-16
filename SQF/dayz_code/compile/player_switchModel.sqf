@@ -67,7 +67,7 @@ _currentAnim = animationState player;
 	//diag_log (str(_backpackMag));
 
 //Secure Player for Transformation
-	//player setPosATL dayz_spawnPos;
+	player setPosATL dayz_spawnPos;
 
 //Prevent client crash...
 	_display = findDisplay 106;
@@ -84,6 +84,7 @@ _currentAnim = animationState player;
 	//[player] joinSilent grpNull;
 	_group = createGroup west;
 	_newUnit = _group createUnit [_class,getMarkerPos "respawn_west",[],0,"NONE"];
+	//_newUnit 	= _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
 
 	_newUnit setDir _dir;
 

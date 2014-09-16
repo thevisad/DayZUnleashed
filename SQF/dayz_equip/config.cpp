@@ -1171,6 +1171,7 @@ class CfgMagazines
 			};
 		};
 	};
+	
 	class ItemWaterbottle: FoodDrink
 	{
 		scope = 2;
@@ -1208,6 +1209,7 @@ class CfgMagazines
 		picture = "\dayz_equip\textures\equip_soda_coke_ca.paa";
 		descriptionShort = "$STR_EQUIP_DESC_36";
 	};
+	
 	class ItemSodaPepsi: ItemSodaCoke
 	{
 		displayName = "$STR_EQUIP_NAME_36b";

@@ -189,7 +189,7 @@ class Pickup_PK_GUE_DZE2: Pickup_PK_GUE_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"Pickup_PK_GUE_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTent",1}}};
+		ItemLRK[] = {"Pickup_PK_GUE_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTentOld",1}}};
 	};
 };
 class Pickup_PK_TK_GUE_EP1_DZE2: Pickup_PK_TK_GUE_EP1_DZE1 {
@@ -236,7 +236,7 @@ class Pickup_PK_TK_GUE_EP1_DZE2: Pickup_PK_TK_GUE_EP1_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"Pickup_PK_TK_GUE_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTent",1}}};
+		ItemLRK[] = {"Pickup_PK_TK_GUE_EP1_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTentOld",1}}};
 	};
 };
 class Pickup_PK_INS_DZE2: Pickup_PK_INS_DZE1 {
@@ -283,7 +283,7 @@ class Pickup_PK_INS_DZE2: Pickup_PK_INS_DZE1 {
 	};
 
 	class Upgrades {
-		ItemLRK[] = {"Pickup_PK_INS_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTent",1}}};
+		ItemLRK[] = {"Pickup_PK_INS_DZE3",{},{{"ItemLRK",1},{"PartGeneric",2},{"ItemTentOld",1}}};
 	};
 };
 

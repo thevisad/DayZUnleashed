@@ -71,7 +71,6 @@ if( _SomesOnesClothing != "") then
 		_oldUnit removeAllEventHandlers "Local";
 	
 		deleteVehicle _oldUnit;
-		[_position] spawn PVDZ_del_Flies;
 		_xt = _position select 0;
 		_yt = _position select 1;
 		_dx = _xt - 1;
