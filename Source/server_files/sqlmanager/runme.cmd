@@ -1,2 +1,0 @@
-UnleashedSQLManager processvehicles
-UnleashedSQLManager processcharacters
