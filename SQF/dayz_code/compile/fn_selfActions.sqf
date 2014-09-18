@@ -862,7 +862,56 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_maint_build = -1;
 	};
 
-	
+	//Dynamic Taking
+    if(_canDo and (dayz_myCursorTarget2 != cursorTarget) and (cursorTarget isKindOf "ReammoBox") and (player distance cursorTarget < 3)) then {
+		_entity = cursorTarget;
+		{dayz_myCursorTarget2 removeAction _x} forEach s_player_cursorLoot;
+		s_player_cursorLoot = [];
+		dayz_myCursorTarget2 = _entity;
+		_weaponLoot = (getWeaponCargo _entity select 0);
+		_magazineLoot = (getMagazineCargo _entity select 0);
+		_backpackLoot = (getBackpackCargo _entity select 0);
+		
+		if(getNumber (configFile >> "CfgVehicles" >> (typeOf _entity) >> "isbackpack")==1) then {
+		        _class_name = (typeOf _entity);
+		        _display_name = getText (configFile >> "CfgVehicles" >> _class_name >> "displayname");
+		        _action_text = format["Take %1",_display_name];
+		        _handle = _entity addAction [_action_text, "\z\addons\dayz_code\actions\player_take.sqf",[_entity,_class_name,"ISBACKPACK"], 0, false, true, "",""];
+		        s_player_cursorLoot set [count s_player_cursorLoot,_handle];
+		};
+		
+		
+		if(count _weaponLoot > 0 ) then {
+		    for "_x" from 0 to ((count _weaponLoot - 1) min 10) do {
+		        _class_name = (_weaponLoot select _x);
+		        _display_name = getText (configFile >> "CfgWeapons" >> _class_name >> "displayname");
+		        _action_text = format["Take %1",_display_name];
+		        _handle = _entity addAction [_action_text, "\z\addons\dayz_code\actions\player_take.sqf",[_entity,_class_name,"WEAPON"], 0, false, true, "",""];
+		        s_player_cursorLoot set [count s_player_cursorLoot,_handle];
+		    };
+		};
+		
+		if(count _magazineLoot > 0 ) then {
+		    for "_x" from 0 to ((count _magazineLoot - 1) min 10) do {
+		        _class_name = (_magazineLoot select _x);
+		        _display_name = getText (configFile >> "CfgMagazines" >> _class_name >> "displayname");
+		        _action_text = format["Take %1",_display_name];
+		        _handle = _entity addAction [_action_text, "\z\addons\dayz_code\actions\player_take.sqf",[_entity,_class_name,"MAGAZINE"], 0, false, true, "",""];
+		        s_player_cursorLoot set [count s_player_cursorLoot,_handle];
+		    };
+		};
+		
+		if(count _backpackLoot > 0 ) then {
+		    for "_x" from 0 to ((count _backpackLoot - 1) min 10) do {
+		        _class_name = (_backpackLoot select _x);
+		        _display_name = getText (configFile >> "CfgVehicles" >> _class_name >> "displayname");
+		        _action_text = format["Take %1",_display_name];
+		        _handle = _entity addAction [_action_text, "\z\addons\dayz_code\actions\player_take.sqf",[_entity,_class_name,"BACKPACK"], 0, false, true, "",""];
+		        s_player_cursorLoot set [count s_player_cursorLoot,_handle];
+		    };
+		};		
+	};
+    //Dynamic Taking end
 	
 } else {
 	//Engineering
@@ -871,6 +920,11 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;
 	s_player_repairActions = [];
 	dayz_myCursorTarget = objNull;
+
+	//Dynamic Taking
+    {dayz_myCursorTarget2 removeAction _x} forEach s_player_cursorLoot;
+	s_player_cursorLoot = [];
+	dayz_myCursorTarget2 = objNull;
 
 	//Others
 	player removeAction s_player_flipveh;

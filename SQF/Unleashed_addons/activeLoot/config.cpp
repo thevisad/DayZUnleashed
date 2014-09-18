@@ -144,6 +144,7 @@ class supplyCrate_locked_AL: supplyCrate_AL
 	{
         displayName      = "Supply Crate (Locked)";
         searchTime       = 20;
+		searchSkill     = "Engineer";
         searchSkillCurve = 100;
         searchMessage    = "Picking Lock %1%2";
         searchEXP        = "al_pick_lock";

@@ -565,7 +565,7 @@ if (!isDedicated) then {
 		
 		{
 			_skill_value = [player,_x] call DZU_fnc_getVariable;
-			_skill_name  = [player,_x] call DZU_fnc_getVariableName;
+			_skill_name  = _x;
 			_control = _display displayCtrl (8010 + _i);
 			_control2 = _display displayCtrl (8000 + _i);
 			_control2 ctrlSetText str(_skill_value);
@@ -612,7 +612,7 @@ if (!isDedicated) then {
 
 		{
 			_skill_value = [player,_x] call DZU_fnc_getVariable;
-			_skill_name  = [player,_x] call DZU_fnc_getVariableName;
+			_skill_name  = _x;
 			_levelstring = format["%1",_skill_name,_skill_value];
 			//diag_log(format["_skill_name: %1\n_skill_value: %2\n_levelstring: %3\n_display: %4\n",_skill_name,_skill_value,_levelstring,_display]);
 			_Levellist lbAdd _skill_name;
