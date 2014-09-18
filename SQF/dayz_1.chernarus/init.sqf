@@ -4,6 +4,13 @@ unleashed_agroMeterEnabled = 0;
 //unleashed_ZedNewAgroEnabled = 1; //New Agro System designed to identify players who are "noisy"
 //unleashed_ZedNewMovementEnabled = 1; //New Zed Movements based on the ranges below
 
+//dayz_aggro_decay = 3; //Base decay rate for new aggro system, uncomment to override, default value is 3
+
+// These variables affect the new save system, they dont affect the old dayz variables. 
+unleashed_pvSaveInterval = 10; //Send a signal to the server to when this many seconds have elapsed, when a player variable has changed. default 10
+//The higher this value the less often player variable data is saved, lowering this value increases lag
+unleashed_pvSaveStackSize = 2; //Send a signal to the server when the variable stack is larger than this value, when a player variable has changed. default 2
+//Larger stacks are better for performance but may result in desync between multiple variables, 2 is the minimum recommended size. 
 
 // These variables work with the Unleashed movement system and is a way for you to adjust the Zeds/dogs. 
 //Range = the distance between the player and the zeds/dogs and is used in the calculation of the speed and movement distance of the zeds/dogs. 
