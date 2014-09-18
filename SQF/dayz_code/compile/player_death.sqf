@@ -37,7 +37,7 @@ player setVariable ["startcombattimer", 0];
 r_player_unconscious = false;
 r_player_cardiac = false;
 
-//_id = player spawn spawn_flies;
+
 
 _array = _this;
 if (count _array > 0) then {
@@ -114,11 +114,6 @@ deleteGroup _myGroup;
 
 _body setVariable["combattimeout", 0, true];
 
-
-//due to a cleanup issue with effects this has been disabled remember to look at the cleanup before adding it back.
-//[_body] call spawn_flies;
-//dayzFlies = player;
-//publicVariable "dayzFlies";
 sleep 2;
 
 1 cutRsc ["DeathScreen","BLACK OUT",3];

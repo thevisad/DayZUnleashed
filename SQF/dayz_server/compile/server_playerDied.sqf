@@ -69,10 +69,6 @@ if (_characterID != "0") then
 	_key = format["CHILD:202:%1:%2:",_characterID,_minutes];
 	//diag_log ("HIVE: WRITE: "+ str(_key));
 	_key call server_hiveWrite;
-	// spawn flies
-	_sound = createSoundSource["Sound_Flies",getPosATL _newObject,[],0];
-	dayz_flyMonitor set[count dayz_flyMonitor, [_sound,_newObject]];
- 
 } 
 else 
 {

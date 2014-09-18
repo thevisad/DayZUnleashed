@@ -121,7 +121,7 @@ class CfgMagazines {
 	};
 
 	
-		class ItemBurlap: CA_Magazine
+	class ItemBurlap: CA_Magazine
 	{
 		scope = 2;
 		count = 1;
@@ -1364,7 +1364,7 @@ class CfgMagazines {
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox","ItemKnife"};
 				output[] = {{"desert_net_kit",1}};
-				input[] = {{"ItemTent",2},{"ItemPole",2}};
+				input[] = {{"ItemTentOld",2},{"ItemPole",2}};
 			};
 			class Crafting1
 			{
@@ -1373,7 +1373,7 @@ class CfgMagazines {
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox","ItemKnife"};
 				output[] = {{"forest_net_kit",1}};
-				input[] = {{"ItemTent",2},{"ItemPole",2}};
+				input[] = {{"ItemTentOld",2},{"ItemPole",2}};
 			};
 		};
 	};
@@ -1400,7 +1400,7 @@ class CfgMagazines {
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox","ItemKnife"};
 				output[] = {{"desert_net_kit",1}};
-				input[] = {{"ItemTent",2},{"ItemPole",2}};
+				input[] = {{"ItemTentDomed",2},{"ItemPole",2}};
 			};
 			class Crafting1
 			{
@@ -1409,7 +1409,7 @@ class CfgMagazines {
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox","ItemKnife"};
 				output[] = {{"forest_net_kit",1}};
-				input[] = {{"ItemTent",2},{"ItemPole",2}};
+				input[] = {{"ItemTentDomed",2},{"ItemPole",2}};
 			};
 		};
 	};
@@ -1435,7 +1435,7 @@ class CfgMagazines {
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox","ItemKnife"};
 				output[] = {{"desert_net_kit",1}};
-				input[] = {{"ItemTent",2},{"ItemPole",2}};
+				input[] = {{"ItemTentDomed2",2},{"ItemPole",2}};
 			};
 			class Crafting1
 			{
@@ -1444,7 +1444,7 @@ class CfgMagazines {
 				neednearby[] = {"workshop"};
 				requiretools[] = {"ItemToolbox","ItemKnife"};
 				output[] = {{"forest_net_kit",1}};
-				input[] = {{"ItemTent",2},{"ItemPole",2}};
+				input[] = {{"ItemTentDomed2",2},{"ItemPole",2}};
 			};
 		};
 	};

@@ -26,4 +26,3 @@
 
 //----------------------------Add your custom markers below this line ----------------------------
 
-diag_log ("[DZAI] Napf custom markers configuration loading.");

@@ -1,10 +1,9 @@
 /*
 	Napf Spawn Area Definitions	
-	Last updated: 9:07 PM 2/14/2014
+
 	
 */
-diag_log ("[DZAI] Napf Areas configuration loading.");
-if (DZAI_modName == "unleashed") exitWith {};
+
 
 _this = createMarker ["DZAI_Lenzburg", [8876.1641, 16260.472]];
 _this setMarkerShape "ELLIPSE";
@@ -518,4 +517,4 @@ _this setMarkerAlpha 0;
 _this setMarkerSize [100, 100];
 _marker_233 = _this;
 
-diag_log ("[DZAI] Napf areas configuration finished loading");
+diag_log "Napf spawn areas loaded.";

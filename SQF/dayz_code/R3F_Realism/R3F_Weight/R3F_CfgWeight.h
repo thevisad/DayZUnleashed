@@ -2870,9 +2870,6 @@ class CfgWeight {
 		class ItemTankTrap {
 			weight=30.0;
 		};
-		class ItemTent {
-			weight=3.0;
-		};
 		class ItemTentDomed {
 			weight=3.0;
 		};

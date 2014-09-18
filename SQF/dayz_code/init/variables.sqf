@@ -559,6 +559,10 @@ if(isNil "DZE_BuildOnRoads") then {
 	DZE_BuildOnRoads = false;
 };
 
+if (isNil "DZE_GodModeBase") then {
+	DZE_GodModeBase = false;
+};
+
 dayzHit = [];
 PVDZ_obj_Publish = [];		//used for eventhandler to spawn a mirror of players tent
 PVDZ_obj_HideBody = objNull;
@@ -636,8 +640,6 @@ DZE_Lock_Door = "";
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\loot_init.sqf";
 
 if(isServer) then {
-	dayz_flyMonitor = [];
-	DZE_FlyWorkingSet = [];
 	dayz_players = [];
 	dead_bodyCleanup = [];
 	needUpdate_objects = [];
@@ -663,11 +665,10 @@ if(!isDedicated) then {
 	};
 	_cfgLocation = configFile >> "CfgTownGeneratorUnleashed";
 	_cfgLocation call _funcGetLocation;
-
+	
+	dayz_spawnPos = getPosATL player;
 	dayz_buildingMonitor = [];	//Buildings to check
 	dayz_bodyMonitor = [];
-	dayz_flyMonitor = [];		//used for monitor flies
-
 	dayz_baseTypes = getArray (configFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
 
 	//temperature variables

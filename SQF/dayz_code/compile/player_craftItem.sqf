@@ -12,7 +12,7 @@ class ItemActions
 		script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;"; // [Class of itemaction,CfgMagazines or CfgWeapons, item]
 		neednearby[] = {"workshop","fire"};
 		requiretools[] = {"ItemToolbox","ItemKnife"}; // (cfgweapons only)
-		output[] = {{"ItemTent",1}}; // (CfgMagazines, qty)
+		output[] = {{"ItemTentOld",1}}; // (CfgMagazines, qty)
 		input[] = {{"ItemCanvas",2},{"ItemPole",2}}; // (CfgMagazines, qty)
 		inputweapons[] = {"ItemToolbox"}; // consume toolbox (cfgweapons only)
 		outputweapons[] = {"ItemToolbox"}; // return toolbox (cfgweapons only)

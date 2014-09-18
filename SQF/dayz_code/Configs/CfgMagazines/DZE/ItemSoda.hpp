@@ -1,9 +1,4 @@
-class ItemSodaCoke : ItemSoda {
-	displayName = "$STR_EQUIP_NAME_36a";
-	model = "\dayz_equip\models\soda_coke.p3d";
-	picture = "\dayz_equip\textures\equip_soda_coke_ca.paa";
-	descriptionShort = $STR_EQUIP_DESC_36;
-};
+class ItemSodaCoke;
 
 class ItemSodaRbull : ItemSodaCoke {
 	displayName = $STR_FOOD_NAME_RBULL;

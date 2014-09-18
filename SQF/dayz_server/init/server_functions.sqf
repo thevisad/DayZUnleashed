@@ -15,6 +15,7 @@ server_updateObject =           compile preprocessFileLineNumbers "\z\addons\day
 server_playerDied =             compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDied.sqf";
 server_publishObj =             compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishObject.sqf";	//Creates the object in DB
 server_publishBld = 	        compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishBuilding.sqf";	//Creates the building in DB
+server_swapObject =				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_swapObject.sqf"; 
 server_deleteObj =			    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_deleteObj.sqf"; 	//Removes the object from the DB
 server_playerSync =		    	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSync.sqf";
 zombie_findOwner =			    compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\zombie_findOwner.sqf";
@@ -73,8 +74,8 @@ check_publishobject = {
 #ifdef OBJECT_DEBUG
 	diag_log format ["DEBUG: Checking if Object: %1 is allowed published by %2", _object, _playername];
 #endif
-
-	if ((typeOf _object) in SafeObjects) then {
+	_allowedObjects = dayz_updateObjects + dayz_allowedObjects;
+	if ((typeOf _object) in _allowedObjects) then {
 #ifdef OBJECT_DEBUG
 		diag_log format ["DEBUG: Object: %1 published by %2 is Safe",_object, _playername];
 #endif
@@ -125,7 +126,6 @@ eh_localCleanup = {
 			_unit removeAllEventHandlers "GetOut";
 			_unit removeAllEventHandlers "GetIn";
 			_unit removeAllEventHandlers "Local";
-			[_position] spawn PVDZ_del_Flies;
 			clearVehicleInit _unit;
 			deleteVehicle _unit;
 			deleteGroup _myGroupUnit;
