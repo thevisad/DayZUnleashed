@@ -1,7 +1,13 @@
 //  Function: DZU_fnc_saveVariable
+if(isNil "unleashed_pvSaveInterval")then{
+	unleashed_pvSaveInterval = 10;
+};
+if(isNil "unleashed_pvSaveStackSize")then{
+	unleashed_pvSaveStackSize = 2;
+};
 
-_updateInterval=10;   //How often to save this to the server
-    _stackLimit=1;      //How large to all this list to grow before sending to server.
+_updateInterval=unleashed_pvSaveInterval; 		//How often to save this to the server
+    _stackLimit=unleashed_pvSaveStackSize;      //How large to all this list to grow before sending to server.
        _timeNow=diag_tickTime;
 if((count _this)<2) exitWith{
     diag_log "error: DZU_fnc_saveVariable requires at least'Variable' & 'Value'.";

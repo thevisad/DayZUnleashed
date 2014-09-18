@@ -393,6 +393,7 @@ dayz_resetSelfActions = {
 	s_player_suicide = -1;
 	s_building_snapping = -1;
 	s_player_callzombies = 1;
+    s_player_pickup_backpack = -1;
 };
 call dayz_resetSelfActions;
 
@@ -404,7 +405,12 @@ s_pilot_lockObj = objNull;
 //Engineering variables
 s_player_lastTarget =	[objNull,objNull,objNull,objNull,objNull];
 s_player_repairActions = [];
+dayz_myCursorTarget = objNull;
 s_player_lockunlock = [];
+
+//Dynamic Take loot
+s_player_cursorLoot = [];
+dayz_myCursorTarget2 = objNull;
 
 //tameanimals
 unleashed_tameChickens = true;
@@ -738,7 +744,9 @@ if(!isDedicated) then {
     dayz_aggro_move_rate = 0;       //rate of which movement affects aggro ratings, this is a varible and it changes on its own
     dayz_aggro_move_decay = 0;      //rate if which movement affects aggro ratings, varible
     dayz_aggro_move_min = 0;        //rate if which movement affects aggro ratings, varible
-    dayz_aggro_decay = 3;           //Rate of decay that we subtract from our rating, hard settings to help with decay. 
+	if(isNil "dayz_aggro_decay")then{
+		dayz_aggro_decay = 3;           //Rate of decay that we subtract from our rating, hard settings to help with decay.
+	}; 
     dayz_aggro_rank_formula = 100;  // rank = floor(aggro/dayz_aggro_rank_formula), changing this will affect aggro ranks
     dayz_aggro_value = 0;           //varible
     dayz_aggro_value_min = 0;       //varible
