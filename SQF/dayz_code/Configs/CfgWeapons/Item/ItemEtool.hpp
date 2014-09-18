@@ -1,6 +1,8 @@
 //NotWorking _DZ Remove
 class ItemEtool: ItemCore {
 	scope = 2;
+	model = "\dayz_equip\models\etool.p3d";
+	picture = "\dayz_equip\textures\equip_etool_ca.paa";
 	displayName = "Etool";
 	descriptionShort = $STR_EQUIP_DESC_1;
 	stashsmall = "StashSmall";
@@ -14,4 +16,12 @@ class ItemEtool: ItemCore {
 			script="spawn player_createstash; r_action_count = r_action_count + 1;";
 		};
 	};
+		class Build
+		{
+			text= "Build Sandbag Fence";
+			script= "; ['ItemEtool','Build'] spawn player_build; r_action_count = r_action_count + 1;";
+			require[] = {"ItemEtool"};
+			consume[] = {"ItemSandbag"};
+			create = "Sandbag1_DZ";
+		};
 };

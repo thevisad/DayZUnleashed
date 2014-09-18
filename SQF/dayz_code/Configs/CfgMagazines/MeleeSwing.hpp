@@ -82,7 +82,7 @@ class BatNails_Swing : Melee_Swing {
 	displayName = BaseBallBatNails;
 	displayNameMagazine = BaseBallBatNails;
 	shortNameMagazine = BaseBallBatNails;
-	ammo = BatBarbed_Swing_Ammo;
+	ammo = BatNailed_Swing_Ammo;
 };
 class Fishing_Swing : Melee_Swing {
 	displayName = Fishing;

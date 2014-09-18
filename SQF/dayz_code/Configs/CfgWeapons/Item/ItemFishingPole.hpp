@@ -1,15 +1,15 @@
 class ItemFishingPole: ItemCore
 {
 	scope=2;
-	displayName=$STR_EQUIP_FISHPOLE;
+	displayName="Fishing Pole";
 	model="\z\addons\dayz_epoch\models\fishing_rod_loot_item.p3d";
 	picture="\z\addons\dayz_epoch\pictures\equip_fishingpole_CA.paa";
-	descriptionShort=$STR_EQUIP_FISHPOLE_DESC;
+	descriptionShort="Fishing Pole: This carbon fiber rod may be old but, she still works like a charm.";
 	class ItemActions
 	{
 		class Toolbelt
 		{
-			text=$STR_EPOCH_PLAYER_295;
+			text="Remove from Toolbelt";
 			script="spawn player_addToolbelt;";
 			use[]=
 			{
@@ -20,5 +20,19 @@ class ItemFishingPole: ItemCore
 				"MeleeFishingPole"
 			};
 		};
+		class ToBack
+		{
+			text=$STR_ACTIONS_2BACK;
+			script="spawn player_addtoBack;";
+			use[]=
+			{
+				"ItemFishingPole"
+			};
+			output[]=
+			{
+				"MeleeFishingPole"
+			};
+		};
 	};
+
 };

@@ -8,6 +8,7 @@ class MeleeBaseBallBat: MeleeWeapon
 		picture="\z\addons\dayz_communityassets\pictures\equip_baseball_bat_ca.paa";
 		displayName="$STR_EQUIP_NAME_BASEBALLBAT";
 		droppeditem= "MeleeBaseBallBat";
+		soundBullet[] = {"bullet1", 1};
 		magazines[]=
 		{
 			"Bat_Swing"

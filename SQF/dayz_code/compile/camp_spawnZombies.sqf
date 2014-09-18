@@ -96,5 +96,5 @@ while {_counter < _amount} do {
 	//add to counter
 	_counter = _counter + 1;
 	//Start behavior
-	_id = [_position,_agent] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";
+	_id = [_position,_agent,"camp"] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";
 };

@@ -237,63 +237,7 @@ class cfgWeapons
 		cursoraim = "Vehicle_Grenade_W";
 		cursorSize = 1;
 	};
-	class MeleeHatchet: MeleeWeapon
-	{
-		scope = 2;
-		model = "\dayz_weapons\models\Hatchet_weaponized";
-		picture = "\dayz_equip\textures\equip_hatchet_CA.paa";
-		displayName = "$STR_EQUIP_NAME_41";
-		magazines[] = {"Hatchet_Swing"};
-		handAnim[] = {"OFP2_ManSkeleton","\dayz_weapons\anim\melee_hatchet_holding.rtm"};
-		class ItemActions
-		{
-			class Use
-			{
-				text = "$STR_ACTIONS_CHOPWOOD";
-				script = "spawn player_chopWood;";
-			};
-			class Toolbelt
-			{
-				text = "Add to Toolbelt";
-				script = "spawn player_addToolbelt;";
-				use[] = {"MeleeHatchet"};
-				output[] = {"ItemHatchet"};
-			};
-			class Drop
-			{
-				text = "Drop Hatchet";
-				script = "spawn player_dropWeapon;";
-				use[] = {"Hatchet_Swing"};
-			};
-		};
-		class Library
-		{
-			libTextDesc = "$STR_EQUIP_DESC_41";
-		};
-		descriptionShort = "$STR_EQUIP_DESC_41";
-	};
-	class MeleeCrowbar: MeleeHatchet
-	{
-		scope = 2;
-		model = "\dayz_weapons\models\crowbar_weaponized";
-		picture = "\dayz_weapons\textures\equip_crowbar_CA.paa";
-		displayName = "Crowbar";
-		magazines[] = {"Crowbar_Swing"};
-		class ItemActions
-		{
-			class Drop
-			{
-				text = "Drop Crowbar";
-				script = "spawn player_dropWeapon;";
-				use[] = {"Crowbar_Swing"};
-			};
-		};
-		class Library
-		{
-			libTextDesc = "A tool consisting of a metal bar with a single curved end and flattened points, often with a small fissure on one or both ends for removing nails.";
-		};
-		descriptionShort = "A tool consisting of a metal bar with a single curved end and flattened points, often with a small fissure on one or both ends for removing nails.";
-	};
+
 	class Winchester1866: Rifle
 	{
 		scope = 2;
@@ -515,38 +459,6 @@ class cfgWeapons
 class cfgMagazines
 {
 	class CA_Magazine;
-	class Hatchet_Swing: CA_Magazine
-	{
-		scope = 2;
-		type = 0;
-		autoReload = 0;
-		flash = "";
-		flashSize = 0;
-		initSpeed = 100;
-		maxLeadSpeed = 20;
-		dexterity = 20;
-		picture = "\dayz_weapons\textures\equip_shells_ca.paa";
-		displayName = "Hatchet";
-		displayNameMagazine = "Hatchet";
-		shortNameMagazine = "Hatchet";
-		optics = 0;
-		distanceZoomMin = 0;
-		distanceZoomMax = 0;
-		count = 100000;
-		reloadTime = 0.1;
-		magazineReloadTime = 0.1;
-		drySound[] = {"",0,1};
-		reloadMagazineSound[] = {"",0,1};
-		modes[] = {"Single"};
-		ammo = "Hatchet_Swing_Ammo";
-	};
-	class crowbar_swing: Hatchet_Swing
-	{
-		displayName = "Crowbar";
-		displayNameMagazine = "Crowbar";
-		shortNameMagazine = "Crowbar";
-		ammo = "Crowbar_Swing_Ammo";
-	};
 	class 15Rnd_W1866_Slug: CA_Magazine
 	{
 		scope = 2;

@@ -1,6 +1,0 @@
-teleport=true
-titletext ["Click on the map to teleport yourself","plain down"]
-onMapSingleClick "player setpos _pos;teleport=false"
-@!teleport
-onMapSingleClick ""
-titletext ["","plain down"]

@@ -9,7 +9,7 @@
 		
 		class Eventhandlers {
 			init = "_this call zombie_initialize;";
-			local = "if(_this select 1) then {[(position (_this select 0)),(_this select 0),true] execFSM '\z\AddOns\dayz_code\system\zombie_agent.fsm'};";
+			local = "if(_this select 1) then {[(position (_this select 0)),(_this select 0),""zbase""] execFSM '\z\AddOns\dayz_code\system\zombie_agent.fsm'};";
 		};
 		
 		class HitPoints {

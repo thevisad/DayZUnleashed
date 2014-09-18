@@ -1,20 +1,25 @@
-private ["_control","_button","_parent","_group","_pos","_item","_conf","_name","_cfgActions","_numActions","_height","_menu","_config","_type","_script","_outputOriented","_compile","_array","_outputClass","_outputType","_erc_cfgActions", "_erc_numActions"];
+//private ["_control","_button","_parent","_group","_pos","_item","_conf","_name","_cfgActions","_numActions","_height","_menu","_config","_type","_script","_outputOriented","_compile","_array","_outputClass","_outputType"];
 disableSerialization;
 _control = _this select 0;
 _button = _this select 1;
 _parent = findDisplay 106;
 
-//if ((time - dayzClickTime) < 1) exitWith {};
+if (carryClick) then {carryClick = false;};
 
 if (_button == 1) then {
-	//dayzClickTime = time;
+	private ["_conf","_name","_compile","_height","_item"];
 	_group = _parent displayCtrl 6902;
 
 	_pos = ctrlPosition _group;
-	_pos set [0,((_this select 2) + 0.48)];
-	_pos set [1,((_this select 3) + 0.07)];
 
 	_item = gearSlotData _control;
+	if (mouseOverCarry) then {
+		_item = DayZ_onBack;
+		carryClick = true;
+	};
+
+	_pos set [0,((_this select 2) + 0.46)];
+	_pos set [1,((_this select 3) + 0.07)];
 
 	_conf = configFile >> "cfgMagazines" >> _item;
 	if (!isClass _conf) then {

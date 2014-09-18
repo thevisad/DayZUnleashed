@@ -8,6 +8,7 @@ class MeleeHatchet: MeleeWeapon
 		picture="\dayz_equip\textures\equip_hatchet_CA.paa";
 		displayName=$STR_EQUIP_NAME_HATCHET;
 		droppeditem= "ItemHatchet";
+		soundBullet[] = {"bullet1", 1};
 		magazines[]=
 		{
 			"Hatchet_Swing"
@@ -41,7 +42,7 @@ class MeleeHatchet: MeleeWeapon
 			class Drop
 			{
 				text=$STR_ACTIONS_DROP;
-				script="spawn player_dropWeapon;";
+				script="spawn player_dropWeapon; r_action_count = r_action_count + 1;";
 				use[]=
 				{
 					"Hatchet_Swing"

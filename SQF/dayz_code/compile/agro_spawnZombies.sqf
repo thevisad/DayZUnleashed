@@ -51,5 +51,5 @@ _agent setVariable ["myDest",_myDest];
 _agent setVariable ["newDest",_player];
 */
 //Start behavior
-_id = [_position,_agent] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";
+_id = [_position,_agent,"agro"] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";
 //diag_log ("ZASZ: " + str(_agent) + " Spawned At: " + str(_position));

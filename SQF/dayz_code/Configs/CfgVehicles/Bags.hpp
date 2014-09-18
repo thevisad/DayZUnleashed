@@ -161,6 +161,7 @@ class DZ_LargeGunBag_EP1: Bag_Base_EP1
 		init="[(_this select 0),'CfgVehicles','DZ_LargeGunBag_EP1'] execVM '\z\addons\dayz_code\init\object_BackpackAction.sqf';";
 	};
 };
+
 class DZ_GunBag_EP1: Bag_Base_EP1
 {
 	scope = 2;

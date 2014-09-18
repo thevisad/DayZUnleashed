@@ -8,6 +8,7 @@ class MeleeMachete: MeleeWeapon
 		picture="\z\addons\dayz_communityassets\pictures\equip_machete_CA.paa";
 		displayName="$STR_EQUIP_NAME_MACHETE";
 		droppeditem= "MeleeMachete";
+		soundBullet[] = {"bullet1", 1};
 		magazines[]=
 		{
 			"Machete_Swing"
@@ -30,6 +31,15 @@ class MeleeMachete: MeleeWeapon
 				output[]=
 				{
 					"ItemMachete"
+				};
+			};
+			class Drop
+			{
+				text=$STR_ACTIONS_DROP;
+				script="spawn player_dropWeapon; r_action_count = r_action_count + 1;";
+				use[]=
+				{
+					"Machete_Swing"
 				};
 			};
 		};

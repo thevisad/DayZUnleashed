@@ -24,7 +24,16 @@ if (count _list < dayz_maxAnimals) then {
 		_type =  (_animalssupported select floor(random(count _animalssupported)));
 	};
 	if (_type == "Dog") then {
-		_animalssupported = ["DZ_Fin","DZ_Pastor","DZ_FinZombie","DZ_PastorZombie"];
+		
+		
+		if (dayz_SpawnZDogs < unleashed_maxDogs) then {
+			_animalssupported = ["DZ_FinZombie","DZ_PastorZombie"];
+			dayz_SpawnZDogs = dayz_SpawnZDogs + 1;
+		} else {
+			_animalssupported = ["DZ_Fin","DZ_Pastor"];
+		};  
+		
+		
 		//_animalssupported = ["DZ_FinZombie","DZ_PastorZombie"];
 		_type =  (_animalssupported select floor(random(count _animalssupported)));
 	};

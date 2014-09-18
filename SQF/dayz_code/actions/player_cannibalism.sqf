@@ -27,8 +27,7 @@ if (_hasKnife and !_hasHarvested) then {
  
     _id = [player,50,true,(getPosATL player)] spawn player_alertZombies;
  
-    dayzHumanity = [player,-500];
-    _id = dayzHumanity spawn player_humanityChange;
+	[player,-500] call player_humanityChange;
  
     _array = [_item,_qty];
     _meat = "FoodSteakRaw";

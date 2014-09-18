@@ -94,10 +94,11 @@ class ItemSodaRabbit : ItemSoda {
 	model = "z\addons\dayz_communityassets\models\soda_rabbit_clean_full.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_rabbit_clean_full_ca.paa";
 };
-
+/* borked
 class ItemSodaGrapeDrink : ItemSoda {
 	displayName = $STR_ITEMSODA_FULL_CLEAN_CODE_NAME_14;
 	descriptionShort = $STR_ITEMSODA_FULL_CLEAN_CODE_DESC_14;
 	model = "z\addons\dayz_communityassets\models\soda_grape_clean_full.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_grape_clean_full_ca.paa";
 };
+*/

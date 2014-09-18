@@ -65,7 +65,8 @@ if (!isDedicated) then {
 	player_throwObject = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_throwObject.sqf";
 	player_alertZombies = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_alertZombies.sqf";
 	player_fireMonitor = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\fire_monitor.sqf";
-
+	player_addtoBack = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_addtoBack.sqf";
+	
 	//Objects
 	object_roadFlare = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\object_roadFlare.sqf";
 	object_setpitchbank = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_setpitchbank.sqf";
@@ -110,6 +111,8 @@ if (!isDedicated) then {
 	player_takearrow = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_takeArrow.sqf";
 	player_vehicleExplosives = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf";
 	player_changeCombo =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_changeCombo.sqf";
+	ui_gear_sound = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_gear_sound.sqf";
+	player_switchWeapon = compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_switchWeapon.sqf";
 	
 	// DZE specific
 	DZE_player_goFishing =	compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_goFishing.sqf";
@@ -526,6 +529,51 @@ if (!isDedicated) then {
 		_PID;
 	};
 	
+	gear_ui_hide = {
+		//private["_display","_BP"];
+		disableSerialization;
+		_display = findDisplay 106;
+		_BP = unitBackpack player;
+		if (ctrlShown (_display displayCtrl 159)) then {//prevent background images in backpack view
+			for "_i" from 1006 to 1011 do {
+				(_display displayCtrl _i) ctrlShow false;
+			};
+		} else {
+			for "_i" from 1006 to 1011 do {
+				if (!(ctrlShown (_display displayCtrl _i))) then {
+					(_display displayCtrl _i) ctrlShow true;
+				};
+			};
+		};
+		//hide buttons if unnecessary
+		if (isNull _BP || ((typeOf _BP) == "")) then {
+			(_display displayCtrl 132) ctrlShow false;
+			(_display displayCtrl 157) ctrlShow false;
+			(_display displayCtrl 158) ctrlShow false;
+		};
+
+		// Prevent carrying 2 rifles 'exploit'
+		if (primaryWeapon player == "" && dayz_onBack != "" && !(dayz_onBack in MeleeWeapons)) then {
+			["gear"] call player_switchWeapon;
+		};
+
+		if (primaryWeapon player != "" && (primaryWeapon player in MeleeWeapons || dayz_onBack in MeleeWeapons)) then {
+			(_display displayCtrl 1204) ctrlShow true;
+		} else {
+			(_display displayCtrl 1204) ctrlShow false;
+		};
+
+		if (DayZ_onBack != "") then {
+			(_display displayCtrl 1208) ctrlShow true;
+		} else {
+			(_display displayCtrl 1208) ctrlShow false;
+		};
+
+		for "_i" from 0 to (lbSize (_display displayCtrl 105)) - 1 do {
+			(_display displayCtrl 105) lbSetColor [_i, [0.06, 0.05, 0.03, 1]];
+		};
+	};
+	
 	updateUI = {
 		private["_keys", "_values", "_display", "_i"];
 		_skillpoints = [player] call DZU_fnc_getSkillPoints;
@@ -700,7 +748,7 @@ if (!isDedicated) then {
 	};
 
 	gear_ui_init = {
-		private["_control","_parent","_menu","_dspl","_grpPos"];
+		//private["_control","_parent","_menu","_grpPos"];
 		disableSerialization;
 		_parent = findDisplay 106;
 		_control = _parent displayCtrl 6902;
@@ -714,7 +762,6 @@ if (!isDedicated) then {
 		_control ctrlShow false;
 		_control ctrlCommit 0;
 	};
-
 
 	dayz_lowHumanity = {
 		private["_unit","_humanity","_delay"];

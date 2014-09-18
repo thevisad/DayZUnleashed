@@ -33,16 +33,16 @@ class CfgWeapons {
 	};
 		
 	#include "CfgWeapons\Melee\MeleeMachete.hpp"
-	#include "CfgWeapons\Melee\ItemMachete.hpp"
+	#include "CfgWeapons\Item\ItemMachete.hpp"
 	#include "CfgWeapons\Melee\MeleeHatchet.hpp"
-	#include "CfgWeapons\Melee\ItemHatchet.hpp"
+	#include "CfgWeapons\Item\ItemHatchet.hpp"
 	#include "CfgWeapons\Melee\MeleeCrowbar.hpp"
-	#include "CfgWeapons\Melee\ItemCrowbar.hpp"
+	#include "CfgWeapons\Item\ItemCrowbar.hpp"
 	#include "CfgWeapons\Melee\Crossbow.hpp"
 	#include "CfgWeapons\Melee\MeleeBaseBallBat.hpp"
 	#include "CfgWeapons\Melee\MeleeBaseBallBatBarbed.hpp"
 	#include "CfgWeapons\Melee\MeleeBaseBallBatNails.hpp"
-	#include "CfgWeapons\DZE\MeleeSledgehammer.hpp"
+	#include "CfgWeapons\Melee\MeleeSledgehammer.hpp"
 	#include "CfgWeapons\Item\ItemWatch.hpp"
 	#include "CfgWeapons\Item\ItemMap.hpp"
 	#include "CfgWeapons\Item\ItemMap_Debug.hpp"
@@ -64,8 +64,8 @@ class CfgWeapons {
 	//#include "CfgCrafting\CfgCrafting.hpp"
 	
 	// Fishing pole melee
-	#include "CfgWeapons\DZE\MeleeFishingPole.hpp"
+	#include "CfgWeapons\Melee\MeleeFishingPole.hpp"
 	// Fishing pole toolbelt and loot item
-	#include "CfgWeapons\DZE\ItemFishingPole.hpp"
+	#include "CfgWeapons\Item\ItemFishingPole.hpp"
 
 };
