@@ -876,7 +876,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		        _class_name = (typeOf _entity);
 		        _display_name = getText (configFile >> "CfgVehicles" >> _class_name >> "displayname");
 		        _action_text = format["Take %1",_display_name];
-		        _handle = _entity addAction [_action_text, "player_take.sqf",[_entity,_class_name,"ISBACKPACK"], 0, false, true, "",""]; //\z\addons\dayz_code\actions\player_take.sqf
+		        _handle = _entity addAction [_action_text, "\z\addons\dayz_code\actions\player_take.sqf",[_entity,_class_name,"ISBACKPACK"], 0, false, true, "",""];
 		        s_player_cursorLoot set [count s_player_cursorLoot,_handle];
 		};
 		
@@ -886,7 +886,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		        _class_name = (_weaponLoot select _x);
 		        _display_name = getText (configFile >> "CfgWeapons" >> _class_name >> "displayname");
 		        _action_text = format["Take %1",_display_name];
-		        _handle = _entity addAction [_action_text, "player_take.sqf",[_entity,_class_name,"WEAPON"], 0, false, true, "",""]; //\z\addons\dayz_code\actions\player_take.sqf
+		        _handle = _entity addAction [_action_text, "\z\addons\dayz_code\actions\player_take.sqf",[_entity,_class_name,"WEAPON"], 0, false, true, "",""];
 		        s_player_cursorLoot set [count s_player_cursorLoot,_handle];
 		    };
 		};
@@ -896,7 +896,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		        _class_name = (_magazineLoot select _x);
 		        _display_name = getText (configFile >> "CfgMagazines" >> _class_name >> "displayname");
 		        _action_text = format["Take %1",_display_name];
-		        _handle = _entity addAction [_action_text, "player_take.sqf",[_entity,_class_name,"MAGAZINE"], 0, false, true, "",""]; //\z\addons\dayz_code\actions\player_take.sqf
+		        _handle = _entity addAction [_action_text, "\z\addons\dayz_code\actions\player_take.sqf",[_entity,_class_name,"MAGAZINE"], 0, false, true, "",""];
 		        s_player_cursorLoot set [count s_player_cursorLoot,_handle];
 		    };
 		};
@@ -906,7 +906,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		        _class_name = (_backpackLoot select _x);
 		        _display_name = getText (configFile >> "CfgVehicles" >> _class_name >> "displayname");
 		        _action_text = format["Take %1",_display_name];
-		        _handle = _entity addAction [_action_text, "player_take.sqf",[_entity,_class_name,"BACKPACK"], 0, false, true, "",""]; //\z\addons\dayz_code\actions\player_take.sqf
+		        _handle = _entity addAction [_action_text, "\z\addons\dayz_code\actions\player_take.sqf",[_entity,_class_name,"BACKPACK"], 0, false, true, "",""];
 		        s_player_cursorLoot set [count s_player_cursorLoot,_handle];
 		    };
 		};		
