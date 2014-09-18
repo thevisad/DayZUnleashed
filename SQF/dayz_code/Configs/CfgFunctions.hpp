@@ -7,27 +7,27 @@ class cfgFunctions
             file = "\z\addons\dayz_code\functions\core";
             class loadVariables
             {
-                description = "Loads all varible classes with load=true";
+                description = "[_object,_variableArray] call DZU_fnc_loadVariables.\n Loads _object with all varible classes with load=1.\n Optionally: Override default values with _variableArray.";
                 //file = "\z\addons\dayz_code\functions\core\fn_loadVariables.sqf";
             };
             class getVariable
             {
-                description = "Returns the value of the variable";
+                description = "[_object,_variable] call DZU_fnc_getVariable.\n Returns the value of the _variable on _object.\n Respects class _variable limits, initializes default on _object if not loaded and returns that value.";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
-            class getVariableName
+            class getVariableProperty
             {
-                description = "returns the name of the variable used in setvariable";
+                description = "[_variable,_property] call DZU_fnc_getVariableProperty.\n return _property from class _variable.\n _property can be: variable, isGlobal, default, max, minium, isLimited, limit, forceSave and description.\n invalid property will return default value.";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariableName.sqf";
             };
             class setVariable
             {
-                description = "increments the value of a variable by x";
+                description = "[_object,_value,_variable(,_set)] call DZU_fnc_setVariable.\n if _set is true: sets _variable to _value on _object.\n if _set is false or not included: add _value to _variable on _object.\n _value can be negative.";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
             class exportVariables
             {
-                description = "Exports a loadable variable array that can be passed to loadVariables.";
+                description = "_variableArray = [_object] call DZU_fnc_loadVariables. Exports a loadable variable array that can be passed to DZU_fnc_loadVariables.";
                 //file = "\z\addons\dayz_code\functions\core\fn_getVariable.sqf";
             };
         };
