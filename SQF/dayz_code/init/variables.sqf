@@ -83,8 +83,8 @@ AllPlayers =
 AllPlayersVehicles = 
 ["XerXes_DZU","PvtAmmo_DZU","XyberViri_DZU","TheVisad_DZU","GER_Soldier_EP1","Soldier_Crew_PMC","Sniper1_DZ","Camo1_DZ","Soldier1_DZ","Rocket_DZ","AllVehicles","Civilian1_DZ","Civilian2_DZ","Civilian1_DZ","Civilian3_DZ","Civilian4_DZ","Civilian5_DZ","Civilian6_DZ","Civilian7_DZ","Civilian8_DZ","Civilian9_DZ","Civilian10_DZ","Civilian11_DZ","CivilianW1_DZ","CivilianW2_DZ","CivilianW1_DZ","CivilianW3_DZ","CivilianW4_DZ","CivilianW5_DZ","Bandit1_DZ","Banditl11_DZ","Banditl21_DZ","Banditl31_DZ","Banditl32_DZ","Banditl41_DZ","Banditl42_DZ","Banditl51_DZ","Banditl52_DZ","BanditW1_DZ","Banditwl11_DZ","Banditwl21_DZ","Banditwl31_DZ","Banditwl32_DZ","Banditwl41_DZ","Banditwl42_DZ","Banditwl51_DZ","Banditwl52_DZ","Herol11_DZ","Herol21_DZ","Herol31_DZ","Herol32_DZ","Herol41_DZ","Herol42_DZ","Herol51_DZ","Herol52_DZ","Herowl11_DZ","Herowl21_DZ","Herowl31_DZ","Herowl32_DZ","Herowl41_DZ","Herowl42_DZ","Herowl51_DZ","Herowl52_DZ"];
 
-MeleeWeapons = ["MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails"];
-MeleeMagazines = ["hatchet_swing","crowbar_swing","Machete_swing","Bat_Swing","BatBarbed_Swing","BatNails_Swing"];
+MeleeWeapons = ["MeleeHatchet","MeleeCrowbar","MeleeMachete","MeleeBaseball","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails","MeleeFishingPole"];
+MeleeMagazines = ["Machete_Swing","crowbar_swing","Hatchet_Swing","Bat_Swing","BatBarbed_Swing","BatNails_Swing","Fishing_Swing","sledge_swing"];
 
 //New Zeds
 DayZ_NewZeds = ["z_new_villager2","z_new_villager3","z_new_villager4","z_new_worker2","z_new_worker3","z_new_worker4"];
@@ -339,8 +339,8 @@ dayz_resetSelfActions = {
 	s_build_Wire_cat1 = -1;
 	s_player_deleteBuild = -1;
 	s_player_deleteBuild_DZE = -1;
-
-
+	s_player_equip_carry = -1;
+	
 	s_player_forceSave = -1;
 	s_player_checkGear = 	-1;
 	s_player_flipveh = -1;
@@ -420,7 +420,9 @@ unleashed_tameBoars = true;
 unleashed_tameGoats = true;
 unleashed_tameRabbits = true;
 unleashed_tameDogs = true;
-
+unleashed_maxDogs = 5;
+mouseOverCarry = false;
+carryClick = false;
 currentLootAmount = 0;
 currentLootBuilding = [];
 // Custom
@@ -569,6 +571,10 @@ if (isNil "DZE_GodModeBase") then {
 	DZE_GodModeBase = false;
 };
 
+if(isNil "dayz_quickSwitch") then {
+	dayz_quickSwitch = false; //Enable quick weapon switch,
+};
+
 dayzHit = [];
 PVDZ_obj_Publish = [];		//used for eventhandler to spawn a mirror of players tent
 PVDZ_obj_HideBody = objNull;
@@ -614,6 +620,9 @@ unleashed_ZedShortAgroRange = 2.2; //Attack Range
 unleashed_ZedMediumAgroRange = 10; //Close Chase Range
 unleashed_ZedLongAgroRange = 25; //Far Chase Range
 unleashed_leveling_queue = [];
+dayz_onBackActive = false;
+dayz_onBack = "";
+
 // update objects
 dayz_updateObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ"];
 dayz_disallowedVault = ["TentStorage", "BuiltItems","ModularItems","DZE_Base_Object"];
@@ -726,6 +735,7 @@ if(!isDedicated) then {
 	dayz_lootWait =			-300;
 	dayz_spawnZombies = 0;
 	dayz_agroSpawnZombies = 0;
+	dayz_SpawnZDogs = 0;
 	dayz_swarmSpawnZombies = 0;
 	//used to count global zeds around players
 	dayz_CurrentZombies = 0;

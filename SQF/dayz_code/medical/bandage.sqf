@@ -44,7 +44,7 @@ if (_finished) then {
 		dayz_sourceBleeding = objNull;
 		call fnc_usec_resetWoundPoints;
 	} else {
-		//PVDZ_plr_Humanity = [player,20];
+
 		[player,20] call player_humanityChange;
 	};
 } else {

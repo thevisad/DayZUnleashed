@@ -5,7 +5,7 @@ class MeleeFishingPole: MeleeWeapon
 	magazineReloadTime=0;
 	model="\z\addons\dayz_epoch\models\fishing_rod_weaponized.p3d";
 	picture="\z\addons\dayz_epoch\pictures\equip_fishingpole_CA.paa";
-	displayName=$STR_EQUIP_FISHPOLE;
+	displayName="Fishing Pole";
 	magazines[]=
 	{
 		"Fishing_Swing"
@@ -19,12 +19,12 @@ class MeleeFishingPole: MeleeWeapon
 	{
 		class Use
 		{
-			text=$STR_EPOCH_PLAYER_297;
-			script="spawn player_goFishing;";
+			text="Cast Fishing Pole";
+			script="spawn DZE_player_goFishing;";
 		};
 		class Toolbelt
 		{
-			text=$STR_EPOCH_PLAYER_296;
+			text="Add to Toolbelt";
 			script="spawn player_addToolbelt;";
 			use[]=
 			{
@@ -40,5 +40,5 @@ class MeleeFishingPole: MeleeWeapon
 	{
 		libTextDesc="";
 	};
-	descriptionShort=$STR_EQUIP_FISHPOLE_DESC;
+	descriptionShort="Fishing Pole: This carbon fiber rod may be old but she still works like a charm.";
 };	

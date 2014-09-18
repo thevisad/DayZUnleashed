@@ -836,4 +836,23 @@ class CfgSounds {
 		sound[] = {"\dayz_sfx\effects\geiger_level_3.ogg",1,1,10};
 		titles[] = {};
 	};
+	class z_trap_trigger_0 {
+		name = "";
+		sound[] = {"\dayz_sfx\effects\trap_trigger_0.ogg",0.1,1,30};
+		titles[] = {};
+	};
+
+	class z_trap_cans_0 {
+		name = "";
+		sound[] = {"\dayz_sfx\effects\trap_tripwire_cans_0.ogg",0.1,1,30};
+		titles[] = {};
+	};
+
+	class z_trap_cans_1 : z_trap_cans_0 {
+		sound[] = {"\dayz_sfx\effects\trap_tripwire_cans_1.ogg",0.1,1,30};
+	};
+
+	class z_trap_cans_2 : z_trap_cans_0 {
+		sound[] = {"\dayz_sfx\effects\trap_tripwire_cans_2.ogg",0.1,1,30};
+	};
 };

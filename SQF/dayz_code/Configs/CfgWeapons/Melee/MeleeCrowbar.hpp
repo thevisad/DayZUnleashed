@@ -8,6 +8,7 @@ class MeleeCrowbar: MeleeWeapon
 		picture="\dayz_weapons\textures\equip_crowbar_CA.paa";
 		displayName=$STR_EQUIP_NAME_CROWBAR;
 		droppeditem= "ItemCrowbar";
+		soundBullet[] = {"bullet1", 1};
 		magazines[]=
 		{
 			"Crowbar_Swing"
@@ -36,7 +37,7 @@ class MeleeCrowbar: MeleeWeapon
 			class Drop
 			{
 				text=$STR_ACTIONS_DROP;
-				script="spawn player_dropWeapon;";
+				script="spawn player_dropWeapon; r_action_count = r_action_count + 1;";
 				use[]=
 				{
 					"Crowbar_Swing"

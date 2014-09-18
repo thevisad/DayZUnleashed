@@ -4,7 +4,7 @@ private ["_body","_model","_SomesOnesClothing","_rnd","_result","_position","_di
 player removeAction s_clothes;
 s_clothes = -1;
 _body = _this select 3;
-_model = typeOf _body;
+_skinmodel = typeOf _body;
 _SomesOnesClothing = getText ( configFile >> "CfgVehicles" >> (typeOf _body) >> "clothingDZ");
 	
 if( _SomesOnesClothing != "") then 
@@ -14,9 +14,10 @@ if( _SomesOnesClothing != "") then
 	_nameKillerP = _body getVariable ["nameKillerP","unknown"];
 	_typedeP = _body getVariable ["typedeP","unknown"];
 	
-	_model = "Skin_" + _model;
+	_model = "Skin_" + _skinmodel;
+	diag_log(format["PSC:_skinmodel: %1 _model: %2",_skinmodel,_model]);
 	_rnd = random 1;
-	if (_rnd > 0.4) then {
+	if (_rnd > 0.2) then {
 		_result = [player,_model] call BIS_fnc_invAdd;
 	}
 	else {
@@ -49,11 +50,6 @@ if( _SomesOnesClothing != "") then
 		_muzzles = getArray(configFile >> "cfgWeapons" >> _currentWpn >> "muzzles");
 		if (count _muzzles > 1) then { _currentWpn = currentMuzzle _body; };
 		
-		//diag_log ("CTC: Position: " + str(_position));
-		//diag_log ("CTC: Weapons: " + str(_weapons));
-		//diag_log ("CTC: Magazines: " + str(_magazines));
-		//diag_log ("CTC: Backpack Weapons: " + str(_backpackWpn));
-		//diag_log ("CTC: BackPack Magazines: " + str(_backpackMag));
 		_body setPosATL dayz_spawnPos;
 		_oldUnit = _body;
 		ClearWeaponCargo _oldUnit; 
@@ -79,40 +75,16 @@ if( _SomesOnesClothing != "") then
 		_wpn = createVehicle ["WeaponHolder", _ammoboxPos, [], 1, "CAN_COLLIDE"];
 		_grave modelToWorld _position;
 		
-		ClearWeaponCargo _ammobox; 
-		ClearMagazineCargo _ammobox; 
-		_ammobox addWeaponCargo _weapons;
-		//diag_log("CTC: Count Weapons: " + str(count _weapons));
-		//diag_log("CTC: Count BackPack Weapons: " + str(count _backpackWpn));
-		//diag_log("CTC: Count Magazines: " + str(count _magazines));
-		//diag_log("CTC: Count Backpack Magazines: " + str(count _backpackMag));
-		{
-		} foreach _weapons;
-		
+		//ClearWeaponCargo _wpn; 
+		//ClearMagazineCargo _wpn; 
+		_wpn addWeaponCargo _weapons;
+
 		if (count _weapons > 0) then { 
 			//_countr = 0;
 			{
 				_wpn addweaponcargoGlobal [_x,1];
 				//_countr = _countr + 1;
 			} forEach _weapons;
-		};
-		
-		/*
-		if (count _backpackWpn > 0) then { 
-			//_wpn addWeaponCargoGlobal _backpackWpn;
-			//_countr = 0;
-			{
-				_wpn addWeaponCargoGlobal [_x,1];
-				//_countr = _countr + 1;
-			} forEach _backpackWpn;
-			
-		};
-		*/
-		
-		for "_i" from 0 to ((count (_backpackWpn select 0)) - 1) do
-		{
-			_wpn addWeaponCargoGlobal
-				[((_backpackWpn select 0) select _i), ((_backpackWpn select 1) select _i)];
 		};
 		
 		if (count _magazines > 0) then { 
@@ -122,16 +94,15 @@ if( _SomesOnesClothing != "") then
 				//_countr = _countr + 1;
 			} forEach _magazines;
 		};
-		/*
-		if (count _backpackmag > 0) then 
-		{ 
-			//_wpn addMagazineCargoGlobal _backpackMag;
-			{
-				_wpn addMagazineCargoGlobal [_x,1];
-				//_countr = _countr + 1;
-			} forEach _backpackMag;
+
+		
+		for "_i" from 0 to ((count (_backpackWpn select 0)) - 1) do
+		{
+			_wpn addWeaponCargoGlobal
+				[((_backpackWpn select 0) select _i), ((_backpackWpn select 1) select _i)];
 		};
-		*/
+		
+		
 		for "_i" from 0 to ((count (_backpackMag select 0)) - 1) do
 		{
 			_wpn addMagazineCargoGlobal

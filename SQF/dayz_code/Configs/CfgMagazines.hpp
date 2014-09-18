@@ -3,7 +3,7 @@ class CfgMagazines {
 	class FoodDrink; //External class reference
 	class FoodEdible; //External class reference
 	class HandGrenade; //External class reference
-	
+	#include "CfgMagazines\MeleeSwing.hpp"
 	class Quiver : CA_Magazine {
 		scope = public;
 		ammo = "WoodenArrow";
@@ -1761,7 +1761,7 @@ class CfgMagazines {
 	#include "CfgMagazines\FoodEdible.hpp"
 	#include "CfgMagazines\FoodMeatCooked.hpp"
 	#include "CfgMagazines\FoodMeatRaw.hpp"
-	#include "CfgMagazines\MeleeSwing.hpp"
+	
 	#include "CfgMagazines\TrashLoot.hpp"
 	#include "CfgMagazines\Fuelcan.hpp"
 

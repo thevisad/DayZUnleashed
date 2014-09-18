@@ -12,7 +12,7 @@ class CfgLoot {
 		{"DZ_LargeGunBag_EP1",0.01},
 		{"DZ_CivilBackpack_EP1",0.01},
 		{"DZ_Backpack_EP1",0.01},
-		{"DZ_British_ACU",0.03},
+		{"DZ_British_ACU",0.03}/*,
 		{"USBasicBag",0.03},
 		{"Tripod_Bag",0.03},
 		{"M2StaticMG_US_Bag_EP1",0.03},
@@ -46,7 +46,7 @@ class CfgLoot {
 		{"CZ_VestPouch_EP1",0.03},
 		{"TK_RPG_Backpack_EP1",0.03},
 		{"TK_ALICE_Pack_EP1",0.03},
-		{"TK_Assault_Pack_EP1",0.03}
+		{"TK_Assault_Pack_EP1",0.03}*/
 
 	};
 
@@ -98,7 +98,6 @@ class CfgLoot {
 		{"ItemSodaCokeEmpty",0.02},
 		{"ItemSodaDrwasteEmpty",0.02},
 		{"ItemSodaEmpty",0.02},
-		{"ItemSodaGrapeDrinkEmpty",0.02},
 		{"ItemSodaLemonadeEmpty",0.02},
 		{"ItemSodaLvgEmpty",0.02},
 		{"ItemSodaMdewEmpty",0.02},
@@ -680,8 +679,7 @@ class CfgLoot {
 		{"ItemSodaMdew",0.04},
 		{"bulk_ItemSodaCoke",0.04},
 		{"bulk_ItemSodaPepsi",0.04},
-		{"ItemSodaRbull",0.04},
-		{"ItemSodaGrapeDrink",0.03}
+		{"ItemSodaRbull",0.04}
 	};
 	
 	civilian[] = {

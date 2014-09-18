@@ -2,8 +2,8 @@ class RscDisplayGear {
 	idd = 106;
 	enableDisplay = 1;
 	movingEnable = 0;
-	onLoad = "[] spawn object_monitorGear; {player removeMagazines _x} forEach MeleeMagazines; call gear_ui_init; call ui_gear_sound; if (isNil('IGUI_GEAR_activeFilter')) then { IGUI_GEAR_activeFilter = 0;}; private ['_dummy']; _dummy = [_this,'initDialog'] call compile preprocessFile '\z\addons\dayz_code\system\handleGear.sqf'; _dummy = [_this,'onLoad'] execVM '\z\addons\dayz_code\system\handleGear.sqf'; _dummy;";
-	onUnload = "{player removeMagazines _x} forEach MeleeMagazines; call player_forceSave; call dayz_meleeMagazineCheck;";
+	onLoad = "[] spawn object_monitorGear; {player removeMagazines _x} count MeleeMagazines; call gear_ui_init; call ui_gear_sound; if (isNil('IGUI_GEAR_activeFilter')) then { IGUI_GEAR_activeFilter = 0;}; private ['_dummy']; _dummy = [_this,'initDialog'] call compile preprocessFile	'\z\addons\dayz_code\system\handleGear.sqf'; _dummy = [_this,'onLoad'] execVM	'\z\addons\dayz_code\system\handleGear.sqf'; _dummy;";
+	onUnload = "{player removeMagazines _x} count MeleeMagazines; call player_forceSave; call dayz_meleeMagazineCheck;";
 	onMouseMoving = "[] call gear_ui_hide;";
 	onMouseHolding = "[] call gear_ui_hide;";
 	
@@ -286,7 +286,7 @@ class RscDisplayGear {
 					x = -2;
 					style = 2048;
 					onSetFocus = "private [""_dummy""]; _dummy = [_this,""onFocus""] execVM	""\z\addons\dayz_code\system\handleGear.sqf""; _dummy;";
-					onButtonClick = "private [""_dummy""]; {player removeMagazines _x} forEach MeleeMagazines; _dummy = [_this,""onLBListSelChanged""] execVM ""\z\addons\dayz_code\system\handleGear.sqf""; _dummy;";
+					onButtonClick = "private [""_dummy""]; {player removeMagazines _x} count MeleeMagazines; _dummy = [_this,""onLBListSelChanged""] execVM ""\z\addons\dayz_code\system\handleGear.sqf""; _dummy;";
 					text = "&lt;";
 				};
 
@@ -320,7 +320,7 @@ class RscDisplayGear {
 					idc = 147;
 					x = -2;
 					onSetFocus = "private [""_dummy""]; _dummy = [_this,""onFocus""] execVM ""\z\addons\dayz_code\system\handleGear.sqf""; _dummy;";
-					onButtonClick = "private [""_dummy""]; {player removeMagazines _x} forEach MeleeMagazines; _dummy = [_this,""onLBListSelChanged""] execVM ""\z\addons\dayz_code\system\handleGear.sqf""; _dummy;";
+					onButtonClick = "private [""_dummy""]; {player removeMagazines _x} count MeleeMagazines; _dummy = [_this,""onLBListSelChanged""] execVM ""\z\addons\dayz_code\system\handleGear.sqf""; _dummy;";
 					text = ">";
 				};
 			};
@@ -474,7 +474,7 @@ class RscDisplayGear {
 					y = 0.364;
 					w = 0.309;
 					h = 0.174;
-					//onMouseEnter = "if ((DayZ_onBack != """") && (dayz_onBack in MeleeWeapons)) then {mouseOverCarry = true;} else {mouseOverCarry = false;};";
+					onMouseEnter = "if ((DayZ_onBack != """") && (dayz_onBack in MeleeWeapons)) then {mouseOverCarry = true;} else {mouseOverCarry = false;};";
 					onMouseExit = "mouseOverCarry = false;";
 					colorActive[] = {1,1,1,1};
 					colorBackground[] = {0.74,0.74,0.74,0.2}; // has no effect

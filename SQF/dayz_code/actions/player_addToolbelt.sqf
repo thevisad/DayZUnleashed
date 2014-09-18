@@ -1,14 +1,15 @@
-private["_item","_config","_onLadder","_hastoolweapon","_text","_create","_config2","_melee2tb","_isOk"];
-
+private ["_item","_config","_onLadder","_hastoolweapon","_onBack","_text","_create","_config2","_melee2tb","_isOk"];
+disableSerialization;
 _item = _this;
 _config = configFile >> "cfgWeapons" >> _item;
+_onBack = dayz_onBack in MeleeWeapons;
 
 _onLadder = (getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 if (_onLadder) exitWith {cutText [(localize "str_player_21") , "PLAIN DOWN"]};
 
 _hastoolweapon = _item in weapons player;
 _text = getText (_config >> "displayName");
-if (!_hastoolweapon) exitWith {cutText [format[(localize "str_player_30"),_text] , "PLAIN DOWN"]};
+if (!_hastoolweapon and !_onBack) exitWith {cutText [format[(localize "str_player_30"),_text] , "PLAIN DOWN"]};
 
 call gear_ui_init;
 
@@ -18,18 +19,35 @@ _config2 = configFile >> "cfgWeapons" >> _create;
 
 //removing current melee weapon if new melee selected
 _melee2tb = "";
-if (_item in ["ItemHatchet","ItemCrowbar","ItemMachete","ItemFishingPole","ItemSledge","ItemBaseBallBat","ItemBaseBallBatBarbed","ItemBaseBallBatNails"]) then {
+if ((_item in ["ItemHatchet","ItemCrowbar","ItemMachete","ItemFishingPole","ItemSledge","ItemBaseBallBat","ItemBaseBallBatBarbed","ItemBaseBallBatNails"]) || _item == DayZ_onBack) then {
+	if (!carryClick) then {
 	//free primary slot for new melee (remember item to add after)
 	switch (primaryWeapon player) do {
-		case "MeleeHatchet": {player removeWeapon "MeleeHatchet"; _melee2tb = "ItemHatchet";};
-		case "MeleeCrowbar": {player removeWeapon "MeleeCrowbar"; _melee2tb = "ItemCrowbar";};
-		case "MeleeMachete": {player removeWeapon "MeleeMachete"; _melee2tb = "ItemMachete";};
-		case "MeleeFishingPole": {player removeWeapon "MeleeFishingPole"; _melee2tb = "ItemFishingPole";};
-		case "MeleeSledge": {player removeWeapon "MeleeSledge"; _melee2tb = "ItemSledge";};
-		case "MeleeBaseBallBat": {player removeWeapon "MeleeBaseBallBat"; _melee2tb = "ItemBaseBallBat";};
-		case "MeleeBaseBallBatBarbed": {player removeWeapon "MeleeBaseBallBatBarbed"; _melee2tb = "ItemBaseBallBatBarbed";};
-		case "MeleeBaseBallBatNails": {player removeWeapon "MeleeBaseBallBatNails"; _melee2tb = "ItemBaseBallBatNails";};
-		
+			case "MeleeHatchet": { if (!("ItemHatchet" in weapons player)) then { player removeWeapon "MeleeHatchet"; _melee2tb = "ItemHatchet"; }; };
+			case "MeleeCrowbar": { if (!("ItemCrowbar" in weapons player)) then { player removeWeapon "MeleeCrowbar"; _melee2tb = "ItemCrowbar"; }; };
+			case "MeleeMachete": { if (!("ItemMachete" in weapons player)) then { player removeWeapon "MeleeMachete"; _melee2tb = "ItemMachete"; }; };
+			case "MeleeFishingPole": { if (!("ItemFishingPole" in weapons player)) then { player removeWeapon "MeleeFishingPole"; _melee2tb = "ItemFishingPole"; }; };
+			case "MeleeSledge": { if (!("ItemSledge" in weapons player)) then { player removeWeapon "MeleeSledge"; _melee2tb = "ItemSledge"; }; };
+			case "MeleeBaseBallBat": { if (!("ItemBaseBallBat" in weapons player)) then { player removeWeapon "MeleeBaseBallBat"; _melee2tb = "ItemBaseBallBat"; }; };
+			case "MeleeBaseBallBatBarbed": { if (!("ItemBaseBallBatBarbed" in weapons player)) then { player removeWeapon "MeleeBaseBallBatBarbed"; _melee2tb = "ItemBaseBallBatBarbed"; }; };
+			case "MeleeBaseBallBatBarbed": { if (!("ItemBaseBallBatNails" in weapons player)) then { player removeWeapon "MeleeBaseBallBatNails"; _melee2tb = "ItemBaseBallBatNails"; }; };
+	};
+	 } else {
+		if (DayZ_onBack != "" || _item == DayZ_onBack) then {
+			switch DayZ_onBack do {
+				case "MeleeHatchet": { if (!("ItemHatchet" in weapons player)) then { dayz_onBack = ""; _melee2tb = "ItemHatchet"; }; };
+				case "MeleeCrowbar": { if (!("ItemCrowbar" in weapons player)) then { dayz_onBack = ""; _melee2tb = "ItemCrowbar"; }; };
+				case "MeleeMachete": { if (!("ItemMachete" in weapons player)) then { dayz_onBack = ""; _melee2tb = "ItemMachete"; }; };
+				case "MeleeFishingPole": { if (!("ItemFishingPole" in weapons player)) then { dayz_onBack = ""; _melee2tb = "ItemFishingPole"; }; };
+				case "MeleeSledge": { if (!("ItemSledge" in weapons player)) then { dayz_onBack = ""; _melee2tb = "ItemSledge"; }; };
+				case "MeleeBaseBallBat": { if (!("ItemBaseBallBat" in weapons player)) then { dayz_onBack = ""; _melee2tb = "ItemBaseBallBat"; }; };
+				case "MeleeBaseBallBatBarbed": { if (!("ItemBaseBallBatBarbed" in weapons player)) then { dayz_onBack = ""; _melee2tb = "ItemBaseBallBatBarbed"; }; };
+				case "MeleeBaseBallBatBarbed": { if (!("ItemBaseBallBatNails" in weapons player)) then { dayz_onBack = ""; _melee2tb = "ItemBaseBallBatNails"; }; };
+
+			};
+			carryClick = false;
+			((findDisplay 106) displayCtrl 1209) ctrlSetText "";
+		};
 	};
 };
 
@@ -46,6 +64,7 @@ if (_isOk) then {
 		_isOk = [player,_config2] call BIS_fnc_invAdd;
 		};
 } else {
+	closeDialog 0;
 	cutText [localize "str_player_24", "PLAIN DOWN"];
 };
 

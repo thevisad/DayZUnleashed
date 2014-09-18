@@ -78,7 +78,9 @@ class ItemSodaRabbitEmpty : ItemSodaEmpty{
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_rabbit_clean_empty_ca.paa";
 
 };
+/* borked
 class ItemSodaGrapeDrinkEmpty : ItemSodaEmpty{
 	model = "z\addons\dayz_communityassets\models\soda_grape_clean_empty.p3d";
 	picture = "\z\addons\dayz_communityassets\pictures\equip_soda_grape_clean_empty_ca.paa";
 };
+*/

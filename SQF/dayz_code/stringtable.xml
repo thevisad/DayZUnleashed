@@ -10,8 +10,24 @@
 			<Spanish>Agregar al Cinturón</Spanish>
 			<Czech>Přidat do nástrojů</Czech>
 			<French>Placer à la ceinture</French>
-			<German>Zur Toolbar hinzufügen</German>
-			<Dutch>Aan gereedschapsriem toevoegen</Dutch>
+			<German>Zum Werkzeugguertel hinzufuegen</German>
+		</Key>
+		<Key ID="STR_UNLEASHED_CRAFT_PART_GENERIC">
+			<English>Make Scrap Metal</English>
+			<Russian>Сделать металлолома</Russian>
+			<Spanish>Hacer Chatarra</Spanish>
+			<Czech>Ujistěte se kovového šrotu</Czech>
+			<French>Assurez- Scrap Metal</French>
+			<German>Machen Altmetall</German>
+		</Key>
+		
+		<Key ID="STR_ACTIONS_2BACK">
+			<English>Add to back</English>
+			<Russian>Повесить на спину</Russian>
+			<Spanish>Añadir a la Espalda</Spanish>
+			<Czech>Přidat k sobě</Czech>
+			<French>Placer sur le dos</French>
+			<German>Auf den Ruecken nehmen</German>
 		</Key>
 		<Key ID="STR_ACTIONS_DROP">
 			<English>Drop</English>

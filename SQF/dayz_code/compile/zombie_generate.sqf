@@ -121,7 +121,7 @@ if (!isNull _agent) then {
 
 	if (!_recycled) then {
 		//Start behavior only for freshly created agents
-		_id = [_position,_agent] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";
+		_id = [_position,_agent,"generate"] execFSM "\z\AddOns\dayz_code\system\zombie_agent.fsm";
 		_agent setVariable [ "fsmid", _id ];
 	}
 	else {

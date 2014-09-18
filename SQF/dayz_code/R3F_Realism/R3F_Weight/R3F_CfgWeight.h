@@ -2804,12 +2804,6 @@ class CfgWeight {
 		class ItemSodaEmpty {
 			weight=0.1;
 		};
-		class ItemSodaGrapeDrink {
-			weight=0.1;
-		};
-		class ItemSodaGrapeDrinkEmpty {
-			weight=0.1;
-		};
 		class ItemSodaLemonade {
 			weight=0.9;
 		};
