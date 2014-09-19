@@ -47,4 +47,6 @@ unleashed_DogDistanceRangeMove=15; // Default : 15 : How far the dog should move
 unleashed_SpawnCombatZeds = 1;
 dayz_lootSpawnBias = 100; // between 50 and 100. The lower it is, the lower chance some of the lootpiles will spawn
 unleashed_BuildOnRoads = 1;
+
+unleashed_spawnAiAtCrashSites = 1;
 #include "\z\addons\dayz_code\system\mission\init.sqf"
