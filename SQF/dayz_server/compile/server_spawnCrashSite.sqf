@@ -383,24 +383,18 @@ while {true} do {
 			_deadBody setDir (random 360);
 		};
 		
-		_trigPos = [_lootPos,random(DZAI_centerSize),random(360),false,[1,500]] call SHK_pos;
-		_trigger = createTrigger ["EmptyDetector",_trigPos];
-		_trigger setTriggerArea [DZAI_dynTriggerRadius, DZAI_dynTriggerRadius, 0, false];
-		_trigger setTriggerActivation ["ANY", "PRESENT", true];
-		_trigger setTriggerTimeout [5, 7, 20, true];
-		_trigger setTriggerStatements ["{(isPlayer _x) && !(_x isKindOf 'Air')} count thisList > 0;","[300,thisTrigger,thisList] call fnc_spawnBandits_dynamic;", "[thisTrigger] spawn fnc_despawnBandits_dynamic;"];
-		if (DZAI_debugMarkers == 1) then {
-			private ["_markername","_marker"];
+		if (unleashed_spawnAiAtCrashSites == 1) then {
+		private ["_markername","_marker"];
+			_trigPos = [_lootPos,200,random(360),[1,500]] call SHK_pos;
+			_this = createTrigger ["EmptyDetector", _trigPos];
+			_this setTriggerArea [150, 150, 0, false];
+			_this setTriggerActivation ["ANY", "PRESENT", false];
+			_this setTriggerTimeout [20, 25, 30, false];
 			_markername = format["trigger_%1",_trigger];
-			_marker = createMarker[_markername,_trigPos];
-			_marker setMarkerShape "ELLIPSE";
-			_marker setMarkerType "Flag";
-			_marker setMarkerBrush "SOLID";
-			_marker setMarkerSize [DZAI_dynTriggerRadius, DZAI_dynTriggerRadius];
-			_marker setMarkerColor "ColorYellow";
-			_marker setMarkerAlpha 0.8;		//Dark yellow = Trigger in ready state.
+			_this setTriggerText "suhrenfeld_internal";
+			_this setTriggerStatements ["{isPlayer _x} count thisList > 0;", "nul = [8,24,850,thisTrigger,[],3,2] call DZAI_spawnBandits_init;", "nul = [thisTrigger] spawn fnc_despawnBandits;"];
+			_markername = _this;
 		};
-		
 		
 		_endTime = time - _startTime;
 		diag_log(format["CRASHSPAWNER: Crash completed! Wreck at: %2 - Runtime: %1 Seconds || Distance from calculated POC: %3 meters", round(_endTime), str(getPos _crash), round(_position distance _crash)]); 
