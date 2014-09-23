@@ -1234,10 +1234,6 @@ class CfgVehicles
 		scope = 2;
 		displayName = "$STR_MAG_NAME_3";
 		model = "\dayz_weapons\models\bolt";
-		class eventHandlers
-		{
-			init = "[(_this select 0),'cfgMagazines','BoltSteel'] execVM '\z\addons\dayz_code\init\object_pickupAction.sqf';";
-		};
 	};
 	class Soldier_Crew_PMC;
 	class Survivor1_DZ: Soldier_Crew_PMC

@@ -49,4 +49,7 @@ dayz_lootSpawnBias = 100; // between 50 and 100. The lower it is, the lower chan
 unleashed_BuildOnRoads = 1;
 
 unleashed_spawnAiAtCrashSites = 1;
+unleashed_startingInventory = "[[""M9""],[""15Rnd_9x19_M9"",""15Rnd_9x19_M9"",""15Rnd_9x19_M9"",""ItemBandage""]]";
+unleashed_startingBackpack = "[""CZ_VestPouch_EP1"",[[],[]],[[],[]]]";
+
 #include "\z\addons\dayz_code\system\mission\init.sqf"

@@ -50,6 +50,13 @@ if (isServer) then {
 	//"PVDZ_spawn_loot"		addPublicVariableEventHandler {(_this select 1) spawn server_spawnLoot};
 	// upgrade && maintain
 	"PVDZ_obj_Swap"		addPublicVariableEventHandler {(_this select 1) spawn server_swapObject};
+	//Garage
+	"PVDZ_gar_Add"		addPublicVariableEventHandler {(_this select 1) call server_GarageAdd};
+	"PVDZ_gar_Build"		addPublicVariableEventHandler {(_this select 1) call server_GarageBuild};
+	"PVDZ_gar_Delete"		addPublicVariableEventHandler {(_this select 1) call server_GarageDelete};
+	"PVDZ_gar_Remove"		addPublicVariableEventHandler {(_this select 1) call server_GarageRemove};
+	"PVDZ_gar_Update"		addPublicVariableEventHandler {(_this select 1) call server_GarageUpdate};
+	
 };
 
 //Client only

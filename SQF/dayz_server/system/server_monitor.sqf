@@ -211,7 +211,66 @@ if (isServer and isNil "sm_done") then {
 		} forEach _buildingArray;
 		
 	
-	
+		_key = format["CHILD:605:%1:", dayZ_instance];
+		_data = "HiveEXT" callExtension _key;
+		diag_log("GARAGEINFO: Fetching Garages...");
+		//Process result
+		_result = call compile format ["%1", _data];
+		_status = _result select 0;
+		_garageArray = [];
+		_grgCount = 0;
+		_countr = 0;
+		_idKey = 0;
+		if (_status == "GarageStreamStart") then {
+			_val = _result select 1;
+			for "_i" from 1 to _val do {
+				_data = "HiveEXT" callExtension _key;
+				_result = call compile format ["%1",_data];
+				_status = _result select 0;
+				_garageArray set [count _garageArray, _result];
+				_grgCount = _grgCount + 1;
+			};
+			diag_log ("GARAGEINFO: Found " + str(_grgCount) + " Garages!");
+		};
+		{ //3:50:45 "BASEBUILDING: Info ["WoodGate_DZ","13039915736716","146",[5.799,[13039.9,15736.7,0.091]],[],[],0,942]"
+			diag_log ("GARAGEINFO: Info " + str(_x));
+			_countr = _countr + 1;
+			_objectUID=	if ((typeName (_x select 0)) == "STRING") then { _x select 0 } else { "" };
+			_garageID=	if ((typeName (_x select 1)) == "STRING") then { _x select 1 } else { "" };
+			_garageClassName = if ((typeName (_x select 2)) == "STRING") then { _x select 2 } else { "" };
+			_worldspace = if ((typeName (_x select 3)) == "ARRAY") then { _x select 3 } else { [] };
+			_dir = 0;
+			_pos = [0,0,0];
+			_wsDone = false;
+			
+			if (count _worldspace >= 2) then
+			{
+					_dir = _worldspace select 0;
+					if (count (_worldspace select 1) == 3) then {
+						_pos = _worldspace select 1;
+						_wsDone = true;
+					};
+			};			
+			_inventory=	if ((typeName (_x select 4)) == "ARRAY") then { _x select 4 } else { [] };
+			_playerID =	if ((typeName (_x select 5)) == "STRING") then { _x select 5 } else { "" };
+			
+
+			if (_objectUID != "") then {
+				_object = createVehicle [_garageClassName, _pos, [], 0, "CAN_COLLIDE"];
+				_object setVariable ["lastUpdate",time];
+				_object setVariable ["ObjectUID", _objectUID, true];
+				_object setVariable ["GarageID", _garageID, true];
+				_object setVariable ["OwnerID", _playerID, true];
+				if (count _inventory > 0) then {
+					_object setVariable ["Inventory", _inventory, true];
+				};	
+				_object setdir _dir;	
+			};	
+
+			dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];
+		} forEach _garageArray;
+		
+		
 	for "_i" from 1 to 5 do {
 		diag_log "SM: Streaming Vehicles";
 		_key = format["CHILD:302:%1:", dayZ_instance];

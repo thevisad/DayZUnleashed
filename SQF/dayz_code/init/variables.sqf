@@ -376,7 +376,6 @@ dayz_resetSelfActions = {
 	silver_myCursorTarget =  -1;
 	s_pilot_swap = -1;
 	s_pilot_lock = -1;
-	stow_vehicle = -1;
 	s_player_unlockvault = -1;
 	s_player_packvault = -1;
 	s_player_lockvault = -1;
@@ -394,6 +393,8 @@ dayz_resetSelfActions = {
 	s_building_snapping = -1;
 	s_player_callzombies = 1;
     s_player_pickup_backpack = -1;
+	insert_vehicle = -1; 
+	remove_vehicle = -1; 
 };
 call dayz_resetSelfActions;
 

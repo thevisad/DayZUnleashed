@@ -75,21 +75,28 @@ if ((_primary select 0) == "ERROR") exitWith {
 
 //Process request
 _newPlayer = 	_primary select 1;
-_isNew = 		count _primary < 6; //_result select 1;
+
+_isNew = 		count _primary < 7; //_result select 1;
 _charID = 		_primary select 2;
 _randomSpot = false;
 _isInfected = false;
+//diag_log(format["SPL: _newPlayer: %1", _newPlayer]);
 
+//diag_log(format["SPL: _isNew: %1", _isNew]);
 //diag_log ("LOGIN RESULT: " + str(_primary));
 
 /* PROCESS */
 _hiveVer = 0;
+//RETURNING CHARACTER		
+diag_log(format["SPL: count primary: %1", _isNew ]);
+diag_log(format["SPL: charID: %1", _charID ]);
+diag_log(format["SPL: newPlayer: %1", _newPlayer ]);
 
-if (!_isNew) then {
+if (!_newPlayer) then {
 	//RETURNING CHARACTER		
-	_inventory = 	_primary select 4;
-	_backpack = 	_primary select 5;
-	_survival =		_primary select 6;
+	_survival =		_primary select 4;
+	_inventory = 	_primary select 5;
+	_backpack = 	_primary select 6;
 	_model =		_primary select 7;
 	_hiveVer =		_primary select 8;
 	
@@ -106,6 +113,13 @@ if (!_isNew) then {
 	if (_playerID == "95700038") then {
 	_model = "PvtAmmo_DZU";
 	};
+	
+	diag_log(format["SPL: _survival: %1", _survival ]);
+	diag_log(format["SPL: _inventory: %1", _inventory ]);
+	diag_log(format["SPL: _backpack: %1", _backpack ]);
+	diag_log(format["SPL: _model: %1", _model ]);
+	diag_log(format["SPL: _hiveVer: %1", _hiveVer ]);
+	
 } else {
 	/* //disabling for now due to issues with the system
 	// get medical from past character
@@ -117,8 +131,11 @@ if (!_isNew) then {
 		_isInfected = _medical select 2;
 	};
 	*/
-	_model =		_primary select 3;
-	_hiveVer =		_primary select 4;
+	_inventory = 	_primary select 3;
+	_backpack = 	_primary select 4;
+	_model =		_primary select 5;
+	_hiveVer =		_primary select 6;
+	
 	if (isNil "_model") then {
 		_model = "Survivor2_DZ";
 	} else {
@@ -126,7 +143,7 @@ if (!_isNew) then {
 			_model = "Survivor2_DZ";
 		};
 	};
-	if (_playerID == "22773510") then {
+	if (_playerID == "76561198013702927") then {
 	_model = "TheVisad_DZU";
 	};
 	if (_playerID == "59883846") then {
@@ -137,14 +154,23 @@ if (!_isNew) then {
 	};
 	//Record initial inventory
 	_config = (configFile >> "CfgSurvival" >> "Inventory" >> "Default");
+
 	_mags = getArray (_config >> "magazines");
 	_wpns = getArray (_config >> "weapons");
 	_bcpk = getText (_config >> "backpack");
 	_randomSpot = true;
-	
-	//Wait for HIVE to be free
-	_key = format["CHILD:203:%1:%2:%3:",_charID,[_wpns,_mags],[_bcpk,[],[]]];
-	_key call server_hiveWrite;
+
+	diag_log(format["SPL: new _inventory: %1", _inventory ]);
+	diag_log(format["SPL: new _backpack: %1", _backpack ]);
+	diag_log(format["SPL: new _model: %1", _model ]);
+	diag_log(format["SPL: new _hiveVer: %1", _hiveVer ]);
+	/*
+	if (_inventory == "[]") then {
+		//Wait for HIVE to be free
+		_key = format["CHILD:203:%1:%2:%3:",_charID,[_wpns,_mags],[_bcpk,[],[]]];
+		_key call server_hiveWrite;
+	};
+	*/
 	
 };
 #ifdef LOGIN_DEBUG
@@ -160,5 +186,5 @@ if (_hiveVer >= dayz_hiveVersionNo) then {
 //Server publishes variable to clients and WAITS
 //_playerObj setVariable ["publish",[_charID,_inventory,_backpack,_survival,_isNew,dayz_versionNo,_model,_isHiveOk,_newPlayer],true];
 
-dayzPlayerLogin = [_charID,_inventory,_backpack,_survival,_isNew,dayz_versionNo,_model,_isHiveOk,_newPlayer,_isInfected];
+dayzPlayerLogin = [_charID,_inventory,_backpack,_survival,_newPlayer,dayz_versionNo,_model,_isHiveOk,_newPlayer,_isInfected];
 (owner _playerObj) publicVariableClient "dayzPlayerLogin";

@@ -27,6 +27,11 @@ spawnComposition =              compile preprocessFileLineNumbers "ca\modules\dy
 fn_bases =                      compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fn_bases.sqf";
 server_playerVariableChange =   compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerVariableChange.sqf";
 server_playerVariablesChange =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerVariablesChange.sqf";
+server_GarageAdd =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_GarageAdd.sqf";
+server_GarageBuild =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_GarageBuild.sqf";
+server_GarageDelete =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_GarageDelete.sqf";
+server_GarageRemove =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_GarageRemove.sqf";
+server_GarageUpdate =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_GarageUpdate.sqf";
 // vehicle_handleInteract = {
 // 	private["_object"];
 // 	_object = _this select 0;

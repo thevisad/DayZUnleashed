@@ -13,7 +13,7 @@ diag_log "[DZAI] Reading DZAI configuration file.";
 
 //Enable or disable event logging to arma2oaserver.rpt. Debug level setting. 0: No debug output, 1: Basic Debug output, 2: Extended Debug output. (Default: 0)
 //Debug output may help finding additional information about DZAI's background behavior. This output is helpful when asking for help regarding bugs or unexpected behaviors.
-DZAI_debugLevel = 1;
+DZAI_debugLevel = 0;
 
 //Frequency of server monitor update to RPT log in seconds. The monitor periodically reports number of max/current AI units and dynamically spawned triggers into RPT log. (Default: 300, 0 = Disable reporting)										
 DZAI_monitorRate = 300;

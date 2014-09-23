@@ -133,16 +133,19 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_isVehicle = cursorTarget isKindOf "AllVehicles";
 	_isStorage = typeOf cursorTarget in ["Bunker_PMC"];
 	_isVehicletype = typeOf cursorTarget in ["ATV_US_EP1","ATV_CZ_EP1"];
+	
 	_cursorTarget = cursorTarget;
 	_typeOfCursorTarget = typeOf _cursorTarget;
 	_isnewstorage = _typeOfCursorTarget in DZE_isNewStorage;
 	
-	_isMan = cursorTarget isKindOf "Man";
-	_ownerID = cursorTarget getVariable ["CharacterID","0"];
-	_isAnimal = cursorTarget isKindOf "Animal";
-	_isDog = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
-	_isBoar = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
-	_isRabbit = (cursorTarget isKindOf "DZ_Pastor" || cursorTarget isKindOf "DZ_Fin");
+	_isMan = _cursorTarget isKindOf "Man";
+	_ownerID = _cursorTarget getVariable ["CharacterID","0"];
+	_isAnimal = _cursorTarget isKindOf "Animal";
+	//_isGarage = (_cursorTarget isKindOf "dzu_playerGarage_sm" || _cursorTarget isKindOf "dzu_playerGarage_lg");
+	_isGarage = _typeOfCursorTarget in ["dzu_playerGarage_sm","dzu_playerGarage_lg"];
+	_isDog = (_cursorTarget isKindOf "DZ_Pastor" || _cursorTarget isKindOf "DZ_Fin");
+	_isBoar = (_cursorTarget isKindOf "DZ_Pastor" || _cursorTarget isKindOf "DZ_Fin");
+	_isRabbit = (_cursorTarget isKindOf "DZ_Pastor" || _cursorTarget isKindOf "DZ_Fin");
 
 	_isZombie = _cursorTarget isKindOf "zZombie_base";
 	_isDestructable = _cursorTarget isKindOf "BuiltItems";
@@ -154,9 +157,9 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_isRemovable = _typeOfCursorTarget in DZE_isRemovable;
 	_isDisallowRepair = _typeOfCursorTarget in ["M240Nest_DZ"];
 	_itemsPlayer = items player;
-	_isTent = cursorTarget isKindOf "TentStorage";
-	_isStash = cursorTarget isKindOf "StashSmall";
-	_isMediumStash = cursorTarget isKindOf "StashMedium";
+	_isTent = _cursorTarget isKindOf "TentStorage";
+	_isStash = _cursorTarget isKindOf "StashSmall";
+	_isMediumStash = _cursorTarget isKindOf "StashMedium";
 	_isFuel = false;
 	_hasBarrelE = 	"ItemFuelBarrelEmpty" in magazines player;
 	_hasBarrel = 	"ItemFuelBarrel" in magazines player;
@@ -164,18 +167,11 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_hasFuel20 = "ItemJerrycan" in magazines player;
 	_hasFuel5 = "ItemFuelcan" in magazines player;
 	
-	_isAlive = alive cursorTarget;
-	_canmove = canmove cursorTarget;
-	_typeCursorTarget = typeOf cursorTarget;
-	_text = getText (configFile >> "CfgVehicles" >> typeOf cursorTarget >> "displayName");
+	_isAlive = alive _cursorTarget;
+	_canmove = canmove _cursorTarget;
+	_typeCursorTarget = typeOf _cursorTarget;
+	_text = getText (configFile >> "CfgVehicles" >> typeOf _cursorTarget >> "displayName");
 	
-	// set cursortarget to variable
-	
-	
-	// Get typeOf only once
-	
-
-	// get magazines array only once
 	_magazinesPlayer = magazines player;
 	
 	_rawmeat = meatraw;
@@ -732,16 +728,35 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_followdog = -1;
 	};
 	*/
-	
-	if( _canDo and _isStorage ) then {
-		if( churchie_check < 0 ) then {
-			stow_vehicle = player addAction [("<t color=""#FF0000"">" + ("Pull Vehicle From Garage") + "</t>"), "\z\addons\dayz_code\actions\player_rigVehicleExplosives.sqf", [_nearPipe, 3], 6, false, true, "","getDammage _target < 0.95"]; 
-			};
-	} else { 
-		player removeAction stow_vehicle; 
-		//diag_log ("rig churchie_check removed: " +str(churchie_check));
-		stow_vehicle = -1; 
+					/*_object setVariable ["lastUpdate",time];
+				_object setVariable ["ObjectUID", _objectUID, true];
+				_object setVariable ["GarageID", _garageID, true];
+				_object setVariable ["OwnerID", _playerID, true];
+				if (count _inventory > 0) then {
+					_object setVariable ["Inventory", _inventory, true];*/
+
+	_nearVehicle = nearestObjects [player, ["LandVehicle"], 5];
+	_countNearVehicles = count _nearVehicle;
+	if (_canDo and _isGarage) then {
+		
+		_ObjectUID = cursorTarget getVariable ["ObjectUID", 0];
+		_GarageID = cursorTarget getVariable ["GarageID", 0];
+		_OwnerID = cursorTarget getVariable ["OwnerID", 0];
+		_Inventory = cursorTarget getVariable ["Inventory", 0];
+		if( _countNearVehicles > 0 ) then {
+			_nearVehicle = _nearVehicle select 0;
+			insert_vehicle = player addAction [("<t color=""#FF0000"">" + ("Insert Vehicle into Garage") + "</t>"), "\z\addons\dayz_code\actions\player_VehicleAdd.sqf", _nearVehicle,_ObjectUID,_GarageID,_OwnerID,_Inventory]; 
+		};
+		
+		remove_vehicle = player addAction [("<t color=""#FF0000"">" + ("Remove Vehicle from Garage") + "</t>"), "\z\addons\dayz_code\actions\player_VehicleRemove.sqf", _ObjectUID,_GarageID,_OwnerID,_Inventory]; 
+		
+	} else {
+		player removeAction insert_vehicle; 
+		insert_vehicle = -1; 
+		player removeAction remove_vehicle; 
+		remove_vehicle = -1; 
 	};
+	
 
 
     _unconscious = cursorTarget getVariable ["NORRN_unconscious", false];
@@ -1028,14 +1043,16 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	churchie_check = -1;
 	player removeAction churchie_defuse; 
 	churchie_defuse = -1; 
-	player removeAction stow_vehicle; 
-	stow_vehicle = -1; 	
 	// power assisted refuel
 	player removeAction s_player_fuelauto;
 	s_player_fuelauto = -1;
 	// fill and start generator
 	player removeAction s_player_fillgen;
 	s_player_fillgen = -1;
+	player removeAction insert_vehicle; 
+	insert_vehicle = -1; 
+	player removeAction remove_vehicle; 
+	remove_vehicle = -1; 
 };
 
 
