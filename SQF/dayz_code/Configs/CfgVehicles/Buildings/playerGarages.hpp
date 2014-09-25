@@ -1,11 +1,16 @@
-	class dzu_playerGarage_sm: House
-	{
-		scope = 2;
+	class dzu_playerGarage : house
+    {
+        scope = 0;
 		displayName = "Garage";
 		//icon = "";
 		vehicleClass = "Survival";
-		accuracy = 1000;
-		armor = 500;
+		accuracy = 0.2;
+		armor = 500;   
+	};        
+    
+    class dzu_playerGarage_lg: dzu_playerGarage
+	{
+		scope = 2;
 		model = "\ca\buildings\garaz.p3d";
 		class DestructionEffects: DestructionEffects
 		{
@@ -21,14 +26,9 @@
 		};
 	};
     
-	class dzu_playerGarage_lg: House
+	class dzu_playerGarage_sm: dzu_playerGarage
 	{
 		scope = 2;
-		displayName = "Garage";
-		//icon = "";
-		vehicleClass = "Survival";
-		accuracy = 1000;
-		armor = 500;
 		model = "\ca\buildings\garaz_mala.p3d";
 		class DestructionEffects: DestructionEffects
 		{
