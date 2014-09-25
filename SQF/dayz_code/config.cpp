@@ -276,7 +276,7 @@ class CfgVoice {
 		protocol = "RadioProtocolBase";
 		variants[] = {1};
 		directories[] = {"", ""};
-		identityTypes[] = {"Default", "Zombie1", "Zombie2", "Zombie3"};
+		identityTypes[] = {"Default", "Zombie1", "Zombie2", "Zombie3", "Zombie4", "Zombie5", "Zombie6", "Zombie7", "Zombie8", "Zombie9", "Zombie10", "Zombie11", "Zombie12", "Zombie13", "Zombie14", "Zombie15", "ZombieElite"};
 	};
 };
 
@@ -300,6 +300,13 @@ class CfgIdentities {
 	class Zombie3 {
 		name = "Zombie";
 		face = "Zombie3";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class ZombieElite {
+		name = "ZombieElite";
+		face = "ZombieElite";
 		glasses = "None";
 		speaker = "NoVoice";
 		pitch = 1;
@@ -548,6 +555,14 @@ class CfgFaces {
 			texture = "z\addons\dayz_communityassets\faces\zombie_03_co.paa";
 			material = "z\addons\dayz_communityassets\faces\zombie_03.rvmat";
 			identityTypes[] = {"Zombie3"};
+			disabled = 0;
+		};
+		
+		class ZombieElite : Default {
+			name = "Zombie 3";
+			texture = "\z\addons\unleashed_pack\faces\zombie_elite_co.paa";
+			material = "\z\addons\unleashed_pack\faces\zombie_elite.rvmat";
+			identityTypes[] = {"ZombieElite"};
 			disabled = 0;
 		};
 		
