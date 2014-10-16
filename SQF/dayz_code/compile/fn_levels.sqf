@@ -2,7 +2,6 @@ if(not local player) exitWith{};
 
 disableSerialization;
 
-
 _display = findDisplay 20001;
 _listbox = _display displayCtrl 20004;
 _sel = lbCurSel _listbox; if(_sel < 0) exitWith{};

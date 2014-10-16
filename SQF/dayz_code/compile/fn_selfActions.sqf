@@ -128,7 +128,7 @@ if ( _inVehicle and _vehicle isKindOf "Air" and !(_vehicle isKindOf "ParachuteBa
         };
     };
 
-if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cursorTarget < 4)) then { //Has some kind of target
+if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cursorTarget < 8)) then { //Has some kind of target
 	_isHarvested = cursorTarget getVariable["meatHarvested",false];
 	_isVehicle = cursorTarget isKindOf "AllVehicles";
 	_isStorage = typeOf cursorTarget in ["Bunker_PMC"];
@@ -141,8 +141,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	_isMan = _cursorTarget isKindOf "Man";
 	_ownerID = _cursorTarget getVariable ["CharacterID","0"];
 	_isAnimal = _cursorTarget isKindOf "Animal";
-	//_isGarage = (_cursorTarget isKindOf "dzu_playerGarage_sm" || _cursorTarget isKindOf "dzu_playerGarage_lg");
-	_isGarage = _typeOfCursorTarget in ["dzu_playerGarage_sm","dzu_playerGarage_lg"];
+	_isGarage = _cursorTarget isKindOf "dzu_playerGarage";
 	_isDog = (_cursorTarget isKindOf "DZ_Pastor" || _cursorTarget isKindOf "DZ_Fin");
 	_isBoar = (_cursorTarget isKindOf "DZ_Pastor" || _cursorTarget isKindOf "DZ_Fin");
 	_isRabbit = (_cursorTarget isKindOf "DZ_Pastor" || _cursorTarget isKindOf "DZ_Fin");
@@ -728,33 +727,58 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 		s_player_followdog = -1;
 	};
 	*/
-					/*_object setVariable ["lastUpdate",time];
-				_object setVariable ["ObjectUID", _objectUID, true];
-				_object setVariable ["GarageID", _garageID, true];
-				_object setVariable ["OwnerID", _playerID, true];
-				if (count _inventory > 0) then {
-					_object setVariable ["Inventory", _inventory, true];*/
 
-	_nearVehicle = nearestObjects [player, ["LandVehicle"], 5];
-	_countNearVehicles = count _nearVehicle;
-	if (_canDo and _isGarage) then {
-		
+
+	if (_isGarage and (player distance _cursorTarget < 15)) then {
 		_ObjectUID = cursorTarget getVariable ["ObjectUID", 0];
-		_GarageID = cursorTarget getVariable ["GarageID", 0];
 		_OwnerID = cursorTarget getVariable ["OwnerID", 0];
-		_Inventory = cursorTarget getVariable ["Inventory", 0];
-		if( _countNearVehicles > 0 ) then {
-			_nearVehicle = _nearVehicle select 0;
-			insert_vehicle = player addAction [("<t color=""#FF0000"">" + ("Insert Vehicle into Garage") + "</t>"), "\z\addons\dayz_code\actions\player_VehicleAdd.sqf", _nearVehicle,_ObjectUID,_GarageID,_OwnerID,_Inventory]; 
+		_garageID = cursorTarget getVariable ["GarageID", 0];
+		_vehicleClassArray = cursorTarget getVariable ["VehicleClassArray",[]];
+		_vehicleIDArray = cursorTarget getVariable ["VehicleIDArray",[]];
+		_vehicleNameArray = cursorTarget getVariable ["VehicleNameArray",[]];
+		if (unleashed_bug == 1) then {
+			diag_log(format["FSA: _vehicleClassArray: %1, _vehicleIDArray: %2, _vehicleNameArray: %3",_vehicleClassArray,_vehicleIDArray,_vehicleNameArray]);
 		};
-		
-		remove_vehicle = player addAction [("<t color=""#FF0000"">" + ("Remove Vehicle from Garage") + "</t>"), "\z\addons\dayz_code\actions\player_VehicleRemove.sqf", _ObjectUID,_GarageID,_OwnerID,_Inventory]; 
-		
+		unleashed_GarageVehicleClassArray =_vehicleClassArray;
+		unleashed_GarageVehicleIDArray =_vehicleIDArray;
+		unleashed_GarageVehicleNameArray =_vehicleNameArray;
+		unleashed_CurrentGarage = cursorTarget;
+		unleashed_CurrentGarageID = _garageID;
+		unleashed_GarageOwner = _OwnerID;
+		unleashed_GarageUID =_ObjectUID;
+		if (dayz_playerUID == unleashed_GarageOwner) then {
+			_nearVehicle = nearestObjects [player, ["LandVehicle"], 15];
+			_countNearVehicles = count _nearVehicle;
+			if (remove_vehicle < 0) then {
+				remove_vehicle = player addAction [("<t color=""#FF0000"">" + ("Remove Vehicle from Garage") + "</t>"), "\z\addons\dayz_code\actions\player_VehicleRemove.sqf",[], 0, false, true, "",""];
+			};
+			if (insert_vehicle < 0) then {
+				if( _countNearVehicles > 0 ) then {
+					_nearVehicle = _nearVehicle select 0;
+					_nearVehicleClass = typeOf _nearVehicle;
+					_nearVehicleID = _nearVehicle getVariable ["ObjectUID", 0]; 
+					_vehicleName = getText (configFile >> "CfgVehicles" >> _nearVehicleClass >> "displayName");
+					if (unleashed_bug == 1) then {
+						diag_log(format["FSA: GARAGE _nearVehicle: %1",_nearVehicle]);
+						diag_log(format["FSA: GARAGE _nearVehicleID: %1",_nearVehicleID]);
+					};
+					insert_vehicle = player addAction [("<t color=""#FF0000"">" + ("Insert " + str(_vehicleName) + " into Garage") + "</t>"), "\z\addons\dayz_code\actions\player_VehicleAdd.sqf",[_nearVehicle,_nearVehicleID,_ObjectUID,getPosATL player], 0, false, true, "",""]; 
+				};
+			};
+		} else {
+			_engineering_skill =  [player,"Engineer"] call DZU_fnc_getVariable;
+			if (_engineering_skill > 100) then {
+				unleashed_hack_garage = player addAction ["pickLock","\z\addons\dayz_code\actions\pickLock.sqf",["{createDialog ""UnleashedGarageDialog"";}","",""],1,false,true,"",""];
+			};
+		};
+
 	} else {
-		player removeAction insert_vehicle; 
-		insert_vehicle = -1; 
+		player removeAction unleashed_hack_garage; 
+		unleashed_hack_garage = -1; 
 		player removeAction remove_vehicle; 
 		remove_vehicle = -1; 
+		player removeAction insert_vehicle; 
+		insert_vehicle = -1; 
 	};
 	
 
@@ -934,8 +958,7 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 } else {
 	//Engineering
 	
-	{
-	dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;
+	{dayz_myCursorTarget removeAction _x} forEach s_player_repairActions;
 	s_player_repairActions = [];
 	dayz_myCursorTarget = objNull;
 
@@ -1053,6 +1076,8 @@ if (!isNull cursorTarget and !_inVehicle and !_isPZombie and (player distance cu
 	insert_vehicle = -1; 
 	player removeAction remove_vehicle; 
 	remove_vehicle = -1; 
+	player removeAction unleashed_hack_garage; 
+	unleashed_hack_garage = -1; 
 };
 
 

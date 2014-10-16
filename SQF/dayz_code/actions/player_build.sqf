@@ -108,7 +108,7 @@ if(isNumber (configFile >> "CfgVehicles" >> _classname >> "nounderground")) then
 
 _offset = 	getArray (configFile >> "CfgVehicles" >> _classname >> "offset");
 if((count _offset) <= 0) then {
-	_offset = [0,1.5,0];
+	_offset = [0,5,0];
 };
 
 _isPole = (_classname == "Plastic_Pole_EP1_DZ");
@@ -464,7 +464,7 @@ if (_hasrequireditem) then {
 					if(_object isKindOf "Land_Fire_DZ") then {
 						_object spawn player_fireMonitor;
 					} else {
-						PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname,dayz_characterID, "player_build2"];
+						PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname,dayz_characterID, "player_build2",dayz_playerUID];
 						publicVariableServer "PVDZ_bld_Publish";
 					};
 				};

@@ -1,14 +1,14 @@
-ambient[]={0.54000002,0.57999998,0.51999998,3.5};
-diffuse[]={0.5,0.55000001,0.5,1};
-forcedDiffuse[]={0.12,0.30000001,0.31999999,0.69999999};
-emmisive[]={0.5,0.80000001,59999,0.12};
-specular[]={0.4,0.4,0.4,0}; 
-specularPower=2;
-PixelShaderID="Skin";
-VertexShaderID="Skin";
+ambient[] = {1.2,1.2,1.1,0.8};
+diffuse[] = {0.1,0.8,0.1,1.0};
+forcedDiffuse[] = {0.12,0.45,0.4,0.5};
+emmisive[] = {0.35,0.35,-200,1};
+specular[] = {1,1,1,1.5};
+specularPower = 2;
+PixelShaderID = "Skin";
+VertexShaderID = "Skin";
 class Stage1
 {
-	texture="\z\addons\unleashed_pack\faces\zombie_elite_nohq.paa";
+	texture="z\addons\unleashed_pack\faces\zombie_elite_co.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -20,7 +20,7 @@ class Stage1
 };
 class Stage2
 {
-	texture="\z\addons\unleashed_pack\faces\zombie_elite_co.paa";
+	texture="z\addons\unleashed_pack\faces\zombie_elite_co.paa";
 	uvSource="tex";
 	class uvTransform
 	{
@@ -56,7 +56,7 @@ class Stage4
 };
 class Stage5
 {
-	texture="\z\addons\unleashed_pack\faces\zombie_elite_smdi.paa";
+	texture="z\addons\unleashed_pack\faces\zombie_elite_smdi.paa";
 	uvSource="tex";
 	class uvTransform
 	{

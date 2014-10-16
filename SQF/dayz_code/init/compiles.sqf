@@ -645,7 +645,7 @@ if (!isDedicated) then {
 		_skillvalue ctrlSetText format["Current Points: %1",_skillpoints ];
 	};
 	
-	
+
 	buildLevelList = {
 		//if (isServer) exitWith {};
 		disableSerialization;
@@ -972,7 +972,105 @@ if (!isDedicated) then {
 	};
 
 	fn_niceSpot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_niceSpot.sqf";
+	
+	
+	// http://killzonekid.com/arma-scripting-tutorials-kk_fnc_assocarrayxxxx/
+	//_myAArray = call KK_fnc_assocArrayCreate;
+	KK_fnc_assocArrayCreate = {
+		//_ref = call KK_fnc_assocArrayCreate;
+		private "_ref";
+		_ref = str ("WeaponHolderSimulated" createVehicleLocal [0,0,0]);
+		missionNamespace setVariable [_ref + "_KEYS", []];
+		missionNamespace setVariable [_ref + "_VALS", []];
+		_ref
+	};
+	
+	//[_myAArray, "Name", "KK"] call KK_fnc_assocArrayAddKeyVal;
+	//_newAArray = [netId player, "Name", name player] call KK_fnc_assocArrayAddKeyVal;
+	KK_fnc_assocArrayAddKeyVal = {
+		//_ref = [_ref, _key, _val] call KK_fnc_assocArrayAddKeyVal;
+		private ["_ref","_keysRef","_valsRef","_keys","_vals","_key","_indx"];
+		_ref = _this select 0;
+		_keysRef = format ["%1_KEYS", _ref];
+		_valsRef = format ["%1_VALS", _ref];
+		if (isNil _keysRef || isNil _valsRef) then {
+			missionNamespace setVariable [_keysRef, []];
+			missionNamespace setVariable [_valsRef, []];
+		};
+		_keys = missionNamespace getVariable _keysRef;
+		_vals = missionNamespace getVariable _valsRef;
+		_key = _this select 1;
+		_indx = _keys find _key;
+		if (_indx < 0) then {
+			_indx = count _keys;
+			_keys set [_indx, _key];
+		};
+		_vals set [_indx, _this select 2];
+		_ref
+	};
 
+
+	/*
+	if ([_myAArray, "Name"] call KK_fnc_assocArrayKeyExists) then {
+		hint "Key 'Name' exists!";
+	};
+	*/
+	KK_fnc_assocArrayKeyExists = {
+		//_bool = [_ref, _key] call KK_fnc_assocArrayKeyExists
+		(_this select 1 in (missionNamespace getVariable [format [
+			"%1_KEYS", 
+			_this select 0
+		], []]))
+	};
+	
+	//_value = [_myAArray, "Name"] call KK_fnc_assocArrayGetVal;
+	/*
+	if (!isNil {_value}) then {
+		hint _value;
+	} else {
+		hint "'Name' is either empty or doesn't exist!";
+	};
+	*/
+	KK_fnc_assocArrayGetVal = {
+		//_val = [_ref, _key] call KK_fnc_assocArrayGetVal;
+		private ["_ref","_keys","_indx"];
+		_ref = _this select 0;
+		_keys = missionNamespace getVariable [format ["%1_KEYS", _ref], []];
+		_indx = _keys find (_this select 1);
+		if (_indx < 0) exitWith {};
+		(missionNamespace getVariable [format ["%1_VALS", _ref], []]) select _indx
+	};
+	/*
+	if ([_myAArray, "Name"] call KK_fnc_assocArrayDeleteKey) then {
+		hint "Existing key 'Name' is successfully deleted";
+	};
+	*/
+	KK_fnc_assocArrayDeleteKey = {
+		//_bool = [_ref, _key] call KK_fnc_assocArrayDeleteKey;
+		private ["_ref","_keys","_vals","_indx"];
+		_ref = _this select 0;
+		_keys = missionNamespace getVariable [format ["%1_KEYS", _ref], []];
+		_vals = missionNamespace getVariable [format ["%1_VALS", _ref], []];
+		_indx = _keys find (_this select 1);
+		if (_indx < 0) exitWith {false};
+		_keys set [_indx, nil];
+		_vals set [_indx, nil];
+		true
+	};
+
+	//_myAArray call KK_fnc_assocArrayDestroy;
+	KK_fnc_assocArrayDestroy = {
+		//_ref call KK_fnc_assocArrayDestroy;
+		missionNamespace setVariable [format ["%1_KEYS", _this], nil];
+		missionNamespace setVariable [format ["%1_VALS", _this], nil];
+	};
+		
+	//_size = count (_myAArray call KK_fnc_assocArrayAllKeys);
+	KK_fnc_assocArrayAllKeys = {
+		//_keys = _ref call KK_fnc_assocArrayAllKeys
+		missionNamespace getVariable [format ["%1_KEYS", _this], []]
+	};	
+			
 	//Server Only
 	if (isServer) then {
 		call compile preprocessFileLineNumbers "\z\addons\dayz_server\init\server_functions.sqf";

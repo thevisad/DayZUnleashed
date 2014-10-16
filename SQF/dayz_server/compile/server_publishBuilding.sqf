@@ -6,6 +6,7 @@ _worldspace = _this select 2;
 _class = _this select 3;
 _combination = _this select 4;
 _callingScript = _this select 5;
+_dayz_playerUID =	if ((typeName (_this select 6)) == "SCALAR") then { _this select 6 } else { 0 };
 
 diag_log(format["SPB: Calling script: %1 ", _callingScript]);
 _squad = 0;
@@ -22,10 +23,17 @@ if !((_building isKindOf "TentStorage") ||  (_building isKindOf "dayz_allowedObj
 _uid = _worldspace call dayz_objectUID2;
 _building setVariable ["ObjectUID", _uid,true];
 _building setVariable ["ObjectID", _uid,true];
+_building setVariable ["OwnerID", _dayz_playerUID,true];
+
 //Send request
 
-_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],_charID,_squad ,_combination];
-_key call server_hiveWrite;
+if (_building isKindOf "dzu_playerGarage") then {
+	_key = format["CHILD:610:%1:%2:%3:%4:%5:",dayZ_instance,_class,_uid,_worldspace, _charID, _dayz_playerUID];
+	_key call server_hiveWrite;
+} else {
+	_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],_charID,_squad ,_combination];
+	_key call server_hiveWrite;
+};
 
 if (_building isKindOf "TentStorage") then {
 	_building addMPEventHandler ["MPKilled",{_this call vehicle_handleServerKilled;}];

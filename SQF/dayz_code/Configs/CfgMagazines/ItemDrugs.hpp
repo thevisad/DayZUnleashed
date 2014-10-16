@@ -34,17 +34,26 @@ class ItemOpium : CA_Magazine {
 			text = "Craft painpills";
 			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
-			output[] = {{"ItemPainkiller",1}};
+			output[] = {{"ItemPainkiller",2}};
 			input[] = {{"ItemOpium",1}};
 				
 		};
 		class Crafting1
 		{
+			text = "Craft Morphine";
+			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+			neednearby[] = {"fire"};
+			output[] = {{"ItemMorphine",2}};
+			input[] = {{"ItemOpium",1}};
+				
+		};
+		class Crafting2
+		{
 			text = "Roll spiked joints";
 			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemKnife"};
-			output[] = {{"ItemPainkiller",2}};
+			output[] = {{"ItemPainkiller",2},{"ItemMorphine",2}};
 			input[] = {{"ItemKiloHemp",1},{"ItemPapers",1},{"ItemOpium",1}};
 		};
 	};

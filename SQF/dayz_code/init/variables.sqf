@@ -395,6 +395,7 @@ dayz_resetSelfActions = {
     s_player_pickup_backpack = -1;
 	insert_vehicle = -1; 
 	remove_vehicle = -1; 
+	unleashed_hack_garage = -1; 
 };
 call dayz_resetSelfActions;
 
@@ -421,7 +422,7 @@ unleashed_tameBoars = true;
 unleashed_tameGoats = true;
 unleashed_tameRabbits = true;
 unleashed_tameDogs = true;
-unleashed_maxDogs = 5;
+
 mouseOverCarry = false;
 carryClick = false;
 currentLootAmount = 0;
@@ -586,7 +587,7 @@ PVDZE_plr_DeathB = [];
 //DayZ settings
 dayz_dawn = 4; //6
 dayz_dusk = 22; //18
-dayz_maxAnimals = 20;
+dayz_maxAnimals = 10;
 DAYZ_agentnumber = 0;
 dayz_animalDistance = 200;
 dayz_zSpawnDistance = 1000;
@@ -623,7 +624,13 @@ unleashed_ZedLongAgroRange = 25; //Far Chase Range
 unleashed_leveling_queue = [];
 dayz_onBackActive = false;
 dayz_onBack = "";
-
+unleashed_GarageVehicleClassArray =[];
+unleashed_GarageVehicleIDArray =[];
+unleashed_GarageVehicleNameArray =[];
+unleashed_GarageOwner = "";
+unleashed_GarageUID = "";
+unleashed_CurrentGarage = objNull;
+unleashed_CurrentGarageID = 0;
 // update objects
 dayz_updateObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ"];
 dayz_disallowedVault = ["TentStorage", "BuiltItems","ModularItems","DZE_Base_Object"];

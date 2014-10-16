@@ -755,6 +755,8 @@ class CfgLoot {
 		{"metal_floor_kit",0.01},
 		{"cinder_wall_kit",0.01},
 		{"cinder_garage_kit",0.01},
+		{"dzu_playerGarage_sm_kit",0.01},
+		{"dzu_playerGarage_lg_kit",0.01},
 		{"cinder_door_kit",0.01},
 		{"wood_ramp_kit",0.01},
 		{"ItemWoodFloor",0.01},

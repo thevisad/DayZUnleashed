@@ -175,7 +175,7 @@ switch (_type) do {
 		call _object_position;
 		call _object_inventory;
 		call _object_damage;
-		};
+	};
 	case "position": {
 		if (!(_object in needUpdate_objects)) then {
 			//diag_log format["DEBUG Position: Added to NeedUpdate=%1",_object];
@@ -184,7 +184,7 @@ switch (_type) do {
 	};
 	case "gear": {
 		call _object_inventory;
-			};
+	};
 	case "damage": {
 		if ( (time - _lastUpdate) > 5) then {
 			call _object_damage;

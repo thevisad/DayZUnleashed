@@ -47,9 +47,10 @@ unleashed_DogDistanceRangeMove=15; // Default : 15 : How far the dog should move
 unleashed_SpawnCombatZeds = 1;
 dayz_lootSpawnBias = 100; // between 50 and 100. The lower it is, the lower chance some of the lootpiles will spawn
 unleashed_BuildOnRoads = 1;
-
+unleashed_maxDogs = 1; //Maz number of Z Dogs 
 unleashed_spawnAiAtCrashSites = 1;
-unleashed_startingInventory = "[[""M9""],[""15Rnd_9x19_M9"",""15Rnd_9x19_M9"",""15Rnd_9x19_M9"",""ItemBandage""]]";
-unleashed_startingBackpack = "[""CZ_VestPouch_EP1"",[[],[]],[[],[]]]";
-
+unleashed_startingInventory = [["M9"],["15Rnd_9x19_M9","15Rnd_9x19_M9","15Rnd_9x19_M9","ItemBandage"]];
+unleashed_startingBackpack = ["CZ_VestPouch_EP1",[[],[]],[[],[]]];
+unleashed_garageBuildings = ["dzu_playerGarage_sm","dzu_playerGarage_lg"];
+unleashed_bug = 1; //1 low debug, 2 all debug
 #include "\z\addons\dayz_code\system\mission\init.sqf"
