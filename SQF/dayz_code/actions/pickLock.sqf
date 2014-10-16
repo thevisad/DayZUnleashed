@@ -6,6 +6,8 @@ if (player getVariable["PickingInProgress",false])
         diag_log "DZU_PickLock ERROR: Picking Already In Progress!"; 
     };
 
+player removeAction unleashed_hack_garage;
+unleashed_hack_garage = -1; 
 
 _args                   = _this select 3;
 _onComplete             = _args select 1;
