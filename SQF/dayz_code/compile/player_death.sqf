@@ -15,6 +15,10 @@ _playerID = getPlayerUID player;
 
 disableUserInput true;
 
+//add weapon on back to player...
+if (dayz_onBack != "") then {
+		_body addWeapon dayz_onBack;
+};
 
 //Send Death Notice
 //["PVDZ_plr_Death",[dayz_characterID,0,_body,_playerID,dayz_playerName]] call callRpcProcedure;

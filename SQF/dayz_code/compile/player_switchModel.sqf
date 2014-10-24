@@ -25,9 +25,6 @@ _currentAnim = animationState player;
 
 	if ( (_playerUID == dayz_playerUID) && (count _magazines == 0) && (count (magazines player) > 0 )) exitWith {cutText ["can't count magazines!", "PLAIN DOWN"]};
 
-
-//	if ( count _magazines == 0 ) exitWith {cutText ["can't count magazines!", "PLAIN DOWN"]};
-
 	_primweapon = primaryWeapon player;
 	_secweapon = secondaryWeapon player;
 
@@ -39,10 +36,6 @@ _currentAnim = animationState player;
 	if(!(_secweapon in _weapons) && _secweapon != "") then {
 		_weapons = _weapons + [_secweapon];
 	};
-
-//	if(count _magazines == 0) then {
-//		_magazines = magazines player;
-//	};
 
 //BackUp Backpack
 	dayz_myBackpack = unitBackpack player;

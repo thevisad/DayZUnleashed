@@ -6,11 +6,11 @@ _worldspace = _this select 2;
 _class = _this select 3;
 _combination = _this select 4;
 _callingScript = _this select 5;
-_dayz_playerUID =	if ((typeName (_this select 6)) == "SCALAR") then { _this select 6 } else { 0 };
+_dayz_playerUID =	_this select 6;
+_uid1 = _this select 7;
 
 diag_log(format["SPB: Calling script: %1 ", _callingScript]);
 _squad = 0;
-_playerUID = 0;
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 
 
@@ -21,15 +21,13 @@ if !((_building isKindOf "TentStorage") ||  (_building isKindOf "dayz_allowedObj
 
 //get UID
 _uid = _worldspace call dayz_objectUID2;
-_building setVariable ["ObjectUID", _uid,true];
-_building setVariable ["ObjectID", _uid,true];
-_building setVariable ["OwnerID", _dayz_playerUID,true];
 
 //Send request
-
 if (_building isKindOf "dzu_playerGarage") then {
-	_key = format["CHILD:610:%1:%2:%3:%4:%5:",dayZ_instance,_class,_uid,_worldspace, _charID, _dayz_playerUID];
+	_key = format["CHILD:610:%1:%2:%3:%4:%5:",dayZ_instance,_class,_uid1,_worldspace,_dayz_playerUID];
 	_key call server_hiveWrite;
+	_object setVariable ["ObjectUID", _uid1, true];
+	_object setVariable ["OwnerID", _dayz_playerUID, true];
 } else {
 	_key = format["CHILD:400:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance,_class,_uid,_worldspace, [],[],_charID,_squad ,_combination];
 	_key call server_hiveWrite;

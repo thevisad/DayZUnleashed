@@ -47,6 +47,32 @@ call compile preprocessFileLineNumbers "\z\addons\dayz_server\DZAI\init\dzai_ini
 
 if (isServer and isNil "sm_done") then {
 		private ["_key","_data","_result","_status","_buildingArray","_bldCount","_val","_countr","_idKey","_type","_ownerID","_worldspace","_dir","_wsDone","_inventory","_hitPoints","_squadID","_combination","_damage","_object","_classname","_i","_requirements","_isDestructable","_objWpnTypes","_objWpnQty","_isOK","_block","_hiveResponse","_objectArray","_objectCount"];
+		
+		_key = format["CHILD:220:%1:", dayZ_instance];
+		_data = "HiveEXT" callExtension _key;
+
+		diag_log("SERVER: Fetching messages...");
+
+		//Process result
+		_result = call compile format ["%1", _data];
+		_status = _result select 0;
+
+		msgList = [];
+		_msgCount = 0;
+		if (_status == "CustomStreamStart") then {
+			_val = _result select 1;
+			for "_i" from 1 to _val do {
+				_data = "HiveEXT" callExtension _key;
+				_result = call compile format ["%1",_data];
+
+				_status = _result select 0;
+				msgList set [count msgList, _result];
+				_msgCount = _msgCount + 1;
+			};
+			diag_log ("SERVER: Added " + str(_msgCount) + " messages!");
+		};
+		
+		
 		_key = format["CHILD:600:%1:", dayZ_instance];
 		_data = "HiveEXT" callExtension _key;
 		diag_log("BASEBUILDING: Fetching Base Buildings...");
@@ -152,21 +178,26 @@ if (isServer and isNil "sm_done") then {
                 900,      //Random time (in seconds) added between each start of a new Chopper
                 1,        //Spawnchance of the Heli (1 will spawn all possible Choppers, 0.5 only 50% of them)
                 'center', //Center-Marker for the Random-Crashpoints, for Chernarus this is a point near Stary
-                4000,    //Radius in Meters from the Center-Marker in which the Choppers can crash and get waypoints
+                8000,    //Radius in Meters from the Center-Marker in which the Choppers can crash and get waypoints
                 true,    //Should the spawned crashsite burn (at night) & have smoke?
                 false,    //Should the flames & smoke fade after a while?
-                true,    //Use the Static-Crashpoint-Function? If true, you have to add Coordinates into server_spawnCrashSite.sqf
+                false,    //Use the Static-Crashpoint-Function? If true, you have to add Coordinates into server_spawnCrashSite.sqf
                 15,        //Amount of Random-Waypoints the Heli gets before he flys to his Point-Of-Crash (using Static-Crashpoint-Coordinates if its enabled)
-                0.0001        //Amount of Damage the Heli has to get while in-air to explode before the POC. (0.0001 = Insta-Explode when any damage//bullethit, 1 = Only Explode when completly damaged)
+                0.01        //Amount of Damage the Heli has to get while in-air to explode before the POC. (0.0001 = Insta-Explode when any damage//bullethit, 1 = Only Explode when completly damaged)
             ] spawn server_spawnCrashSite;
-			/*
+
+	/*
 	for "_x" from 1 to 6 do {
 		_id = [] spawn spawn_carePackages;
 	}; //Spawn care packages
+	
+	for "_x" from 1 to 50 do {
+		_id = [] spawn spawn_wrecks;
+	}; //Spawn wrecks
 	*/
 	//Spawn camps
 	// quantity, marker, radius, min distance between 2 camps
-	Server_InfectedCamps = [3, "center", 4500, 2000] call fn_bases;
+	Server_InfectedCamps = [5, "center", 4500, 2000] call fn_bases;
 	dayzInfectedCamps = Server_InfectedCamps;
 	publicVariable "dayzInfectedCamps";
 

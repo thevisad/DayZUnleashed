@@ -23,4 +23,5 @@ class Header
 aiKills = 1;
 diagRadio = 1;
 diagHit = 1;
+
 #include "\z\addons\dayz_code\system\mission\description.hpp"

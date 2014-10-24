@@ -9,7 +9,7 @@ _VehicleValue ctrlSetText format["Current Vehicles: %1",_vehicleCount ];
 
 {
 	_VehicleList lbAdd _x;
-	if (unleashed_bug == 1) then {
+	if (unleashed_GarageDebug == 1) then {
 		diag_log(format["GARAGEHANDLER: Build list: ListName: %1",_x]);
 	};
 	

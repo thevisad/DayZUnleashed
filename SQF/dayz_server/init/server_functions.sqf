@@ -22,12 +22,18 @@ zombie_findOwner =			    compile preprocessFileLineNumbers "\z\addons\dayz_serve
 server_spawnCrashSite  =        compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnCrashSite.sqf";
 fnc_plyrHit   =                 compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
 spawn_carePackages =            compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_carePkgs.sqf";
+spawn_wrecks = 					compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_wrecks.sqf";
+
+//Get instance name (e.g. dayz_1.chernarus)
+fnc_instanceName = {
+	"dayz_" + str(dayz_instance) + "." + worldName
+};
+
 spawnComposition =              compile preprocessFileLineNumbers "ca\modules\dyno\data\scripts\objectMapper.sqf"; //"\z\addons\dayz_code\compile\object_mapper.sqf";
 fn_bases =                      compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fn_bases.sqf";
 server_playerVariableChange =   compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerVariableChange.sqf";
 server_playerVariablesChange =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerVariablesChange.sqf";
 server_GarageHandler =  compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_GarageHandler.sqf";
-
 
 server_SpawnBuildings = {
 	private ["_buildingArray","_countr","_type","_idKey","_ownerID","_worldspace","_dir","_wsDone","_inventory","_hitpoints","_squadID","_combination","_object","_class","_lockable","_countArray","_combinationTest","_objWpnTypes","_objWpnQty","_isOK","_block"];
@@ -180,98 +186,95 @@ server_SpawnBuildings = {
 };
 
 server_SpawnGarages = {
-	private ["_garageVehicleArray","_vehicleIDArray","_vehicleClassArray","_vehicleNameArray","_garageArray","_countr","_objectUID","_garageClassName","_worldspace","_dir","_wsDone","_playerID","_garageID","_object","_key","_hiveResponse","_i","_garageVehicleCount","_vehicleID","_vehicleClass","_vehicleName"];
+	private ["_garageVehicleArray","_vehicleIDArray","_vehicleClassArray","_vehicleNameArray","_garageArray","_countr","_GarageUID","_garageClassName","_worldspace","_dir","_wsDone","_playerID","_garageID","_object","_key","_hiveResponse","_i","_garageVehicleCount","_vehicleID","_vehicleClass","_vehicleName"];
 	_garageVehicleArray = [];
 	_vehicleIDArray = [];
 	_vehicleClassArray = [];
 	_vehicleNameArray = [];
 	_garageArray = _this select 0;
 	{ 
-			//"GARAGEINFO: Info ["155874131660271","dzu_playerGarage_sm",[236,[16615,14572.1,0.001]],"76561198013702927","15"]"
-			if (unleashed_bug == 1) then {
-				diag_log ("GARAGEINFO: Info " + str(_x));
-			};
-			_objectUID=	if ((typeName (_x select 0)) == "STRING") then { _x select 0 } else { "" };
-			_garageClassName = if ((typeName (_x select 1)) == "STRING") then { _x select 1 } else { "" };
-			_worldspace = if ((typeName (_x select 2)) == "ARRAY") then { _x select 2 } else { [] };
-			_dir = 0;
-			_pos = [0,0,0];
-			_wsDone = false;
-			
-			if (count _worldspace >= 2) then
-			{
-					_dir = _worldspace select 0;
-					if (count (_worldspace select 1) == 3) then {
-						_pos = _worldspace select 1;
-						_wsDone = true;
-					};
-			};		
+		//"GARAGEINFO: Info ["155874131660271","dzu_playerGarage_sm",[236,[16615,14572.1,0.001]],"76561198013702927","15"]"
+		if (unleashed_bug == 1) then {
+			diag_log ("GARAGEINFO: Info " + str(_x));
+		};
+		_GarageUID =	_x select 0;
+		_garageClassName = _x select 1;
+		_worldspace = _x select 2;
+		_dir = 0;
+		_pos = [0,0,0];
+		_wsDone = false;
 
-			_playerID =	if ((typeName (_x select 3)) == "STRING") then { _x select 3 } else { "" };
-			_garageID=	if ((typeName (_x select 4)) == "STRING") then { _x select 4 } else { "" };
-			
-			if (unleashed_bug == 1) then {
-				diag_log(format["GARAGEINFO: _garageID: %1",_garageID]);
-			};
-			
-			
-			if (_objectUID != "") then {
-				_object = createVehicle [_garageClassName, _pos, [], 0, "CAN_COLLIDE"];
-				_object setVariable ["lastUpdate",time];
-				_object setVariable ["ObjectUID", _objectUID, true];
-				_object setVariable ["GarageID", _garageID, true];
-				_object setVariable ["OwnerID", _playerID, true];
-				_object setdir _dir;
-				
-				for "_i" from 1 to 5 do {
-					diag_log("GARAGEINFO: Fetching Vehicles in Garages...");
-					_key = format["CHILD:606:%1:%2:",dayZ_instance, _objectUID];
-					_hiveResponse = _key call server_hiveReadWrite;  
-					if ((((isnil "_hiveResponse") || {(typeName _hiveResponse != "ARRAY")}) || {((typeName (_hiveResponse select 1)) != "SCALAR")}) || {(_hiveResponse select 1 > 2000)}) then {
-						diag_log ("GARAGEINFO: Vehicles connection problem... HiveExt response:"+str(_hiveResponse));
-						_hiveResponse = ["",0];
-					} 
-					else {
-						_i = 99; // break
-					};
+		if (count _worldspace >= 2) then
+		{
+				_dir = _worldspace select 0;
+				if (count (_worldspace select 1) == 3) then {
+					_pos = _worldspace select 1;
+					_wsDone = true;
 				};
+		};		
 
-				if ((_hiveResponse select 0) == "VehicleStreamStart") then {
-					_vehicleIDArray = [];
-					_vehicleClassArray = [];
-					_vehicleNameArray = [];	
-					_garageVehicleArray = [];	
-					_garageVehicleCount = _hiveResponse select 1;
-					diag_log ("HIVE: Garage Inventory Streaming...");
-					for "_i" from 1 to _garageVehicleCount do { 
-						_hiveResponse = _key call server_hiveReadWrite;
-						_garageVehicleArray set [_i - 1, _hiveResponse];
-						//diag_log (format["HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]);
-					};
-				};
-				{
-					_vehicleID =	if ((typeName (_x select 0)) == "STRING") then { _x select 0 } else { "" };
-					_vehicleClass =	if ((typeName (_x select 1)) == "STRING") then { _x select 1 } else { "" };
-					_vehicleIDArray = _vehicleIDArray + [_vehicleID];
-					_vehicleClassArray = _vehicleClassArray + [_vehicleClass];
-					_vehicleName = getText (configFile >> "CfgVehicles" >> _vehicleClass >> "displayName");
-					_vehicleNameArray = _vehicleNameArray + [_vehicleName];
-					//
-				} forEach _garageVehicleArray;
-				
-				_object setVariable ["VehicleClassArray", _vehicleClassArray, true];
-				_object setVariable ["VehicleIDArray", _vehicleIDArray , true];
-				_object setVariable ["VehicleNameArray", _vehicleNameArray , true];
-				unleashed_GarageVehicleClassArray =_vehicleClassArray;
-				unleashed_GarageVehicleIDArray =_vehicleIDArray;
-				unleashed_GarageVehicleNameArray =_vehicleNameArray;
-				//diag_log(format["SM: Garage _vehicleClassArray: %1, _vehicleIDArray: %2, _vehicleNameArray: %3 ",_vehicleClassArray, _vehicleIDArray , _vehicleNameArray]);
-			} else 
-			{
-				//diag_log(format["SM: Failed spawning Garage _vehicleClassArray: %1, _vehicleIDArray: %2, _vehicleNameArray: %3 ",_vehicleClassArray, _vehicleIDArray , _vehicleNameArray]);
-			};	
-			dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];
-		} forEach _garageArray;
+		_playerID =	_x select 3;
+		_garageID =	_x select 4;
+
+		if (unleashed_bug == 1) then {
+			diag_log(format["GARAGEINFO: SpawnGarages GarageUID: %1",_GarageUID]);
+			diag_log(format["GARAGEINFO: SpawnGarages GarageClassName: %1",_garageClassName]);
+			diag_log(format["GARAGEINFO: SpawnGarages WorldSpace: %1",_worldspace]);
+			diag_log(format["GARAGEINFO: SpawnGarages PlayerID: %1",_playerID]);
+			diag_log(format["GARAGEINFO: SpawnGarages GarageID: %1",_garageID]);
+		};
+		_object = createVehicle [_garageClassName, _pos, [], 0, "CAN_COLLIDE"];
+		_object setVariable ["lastUpdate",time];
+		_object setVariable ["GarageUID", _GarageUID, true];
+		_object setVariable ["GarageID", _garageID, true];
+		_object setVariable ["OwnerID", _playerID, true];
+		_object setdir _dir;
+
+		for "_i" from 1 to 5 do {
+			diag_log("GARAGEINFO: Fetching Vehicles in Garages...");
+			_key = format["CHILD:606:%1:%2:",dayZ_instance, _GarageUID];
+			_hiveResponse = _key call server_hiveReadWrite;  
+			if ((((isnil "_hiveResponse") || {(typeName _hiveResponse != "ARRAY")}) || {((typeName (_hiveResponse select 1)) != "SCALAR")}) || {(_hiveResponse select 1 > 2000)}) then {
+				diag_log ("GARAGEINFO: Vehicles connection problem... HiveExt response:"+str(_hiveResponse));
+				_hiveResponse = ["",0];
+			} 
+			else {
+				_i = 99; // break
+			};
+		};
+
+		if ((_hiveResponse select 0) == "VehicleStreamStart") then {
+			_vehicleIDArray = [];
+			_vehicleClassArray = [];
+			_vehicleNameArray = [];	
+			_garageVehicleArray = [];	
+			_garageVehicleCount = _hiveResponse select 1;
+			diag_log ("HIVE: Garage Inventory Streaming...");
+			for "_i" from 1 to _garageVehicleCount do { 
+				_hiveResponse = _key call server_hiveReadWrite;
+				_garageVehicleArray set [_i - 1, _hiveResponse];
+				//diag_log (format["HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]);
+			};
+		};
+		{
+			_vehicleID =	_x select 0;
+			_vehicleClass =	_x select 1;
+			_vehicleIDArray = _vehicleIDArray + [_vehicleID];
+			_vehicleClassArray = _vehicleClassArray + [_vehicleClass];
+			_vehicleName = getText (configFile >> "CfgVehicles" >> _vehicleClass >> "displayName");
+			_vehicleNameArray = _vehicleNameArray + [_vehicleName];
+			//
+		} forEach _garageVehicleArray;
+
+		_object setVariable ["VehicleClassArray", _vehicleClassArray, true];
+		_object setVariable ["VehicleIDArray", _vehicleIDArray , true];
+		_object setVariable ["VehicleNameArray", _vehicleNameArray , true];
+		unleashed_GarageVehicleClassArray =_vehicleClassArray;
+		unleashed_GarageVehicleIDArray =_vehicleIDArray;
+		unleashed_GarageVehicleNameArray =_vehicleNameArray;
+		//diag_log(format["SM: Garage _vehicleClassArray: %1, _vehicleIDArray: %2, _vehicleNameArray: %3 ",_vehicleClassArray, _vehicleIDArray , _vehicleNameArray]);
+		dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];
+	} forEach _garageArray;
 };
 
 
@@ -700,23 +703,10 @@ server_urlFetch = {
 	_data = "url_fetch" callExtension _this;
 	//diag_log ("WRITE: " +str(_data));
 };
-// server_characterSync = {
-// 	private ["_characterID","_playerPos","_playerGear","_playerBackp","_medical","_currentState","_currentModel","_key"];
-// 	_characterID = 	_this select 0;	
-// 	_playerPos =	_this select 1;
-// 	_playerGear =	_this select 2;
-// 	_playerBackp =	_this select 3;
-// 	_medical = 		_this select 4;
-// 	_currentState =	_this select 5;
-// 	_currentModel = _this select 6;
-// 	
-// 	_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,0,0,0,0,_currentState,0,0,_currentModel,0];
-// 	//diag_log ("HIVE: WRITE: "+ str(_key) + " / " + _characterID);
-// 	_key call server_hiveWrite;
-// };
+
 
 //onPlayerConnected 		"[_uid,_name] spawn server_onPlayerConnect;";
-onPlayerDisconnected 		"[_uid,_name] call server_onPlayerDisconnect;";
+onPlayerDisconnected 		"call player_forceSave;[_uid,_name] call server_onPlayerDisconnect;";
 
 server_getDiff =	{
 	private["_variable","_object","_vNew","_vOld","_result"];

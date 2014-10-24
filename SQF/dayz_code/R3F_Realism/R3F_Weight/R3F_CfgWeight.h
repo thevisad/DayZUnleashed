@@ -1229,6 +1229,12 @@ class CfgWeight {
 	};
 	class Magazines
 	{
+		class dzu_playerGarage_lg_kit {
+			weight=50.0;
+		};
+		class dzu_playerGarage_sm_kit {
+			weight=35.0;
+		};
 		class 1000Rnd_23mm_2A14_AP {
 			weight=50.0;
 		};

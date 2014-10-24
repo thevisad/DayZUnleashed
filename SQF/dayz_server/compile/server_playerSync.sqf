@@ -5,6 +5,10 @@ private ["_characterID","_temp","_class","_currentWpn","_magazines","_force","_i
 //error
 //"UPDATE: B 1-1-B:1 (THE BEAST) REMOTE"
 
+if (unleashed_bug == 1) then {
+	diag_log(format["PS2: MAGAZINES: %1",_this]);
+};
+
 _character = 	_this select 0;
 _magazines =	_this select 1;
 _force =	_this select 2;
@@ -89,7 +93,7 @@ if (_characterID != "0") then {
 	if (_isNewGear) then {
 		//diag_log ("gear..."); sleep 0.05;
 		_playerGear = [weapons _character,_magazines];
-//diag_log ("playerGear: " +str(_playerGear));
+		//_playerGear = [weapons _character, _magazines select 0, _magazines select 1]; onback
 		_backpack = unitBackpack _character;
 		_playerBackp = [typeOf _backpack,getWeaponCargo _backpack,getMagazineCargo _backpack];
 	};
@@ -126,14 +130,15 @@ if (_characterID != "0") then {
 		_timeGross = 	(time - _lastTime);
 		_timeSince = 	floor(_timeGross / 60);
 		_timeLeft =		(_timeGross - (_timeSince * 60));
-		
-		//diag_log("USPSYNC: Time Last:" + str(_lastTime));
-		//diag_log("USPSYNC: Time Gross:" + str(_timeGross));
-		//diag_log("USPSYNC: Time Since:" + str(_timeSince));
-		//diag_log("USPSYNC: Time Left:" + str(_timeLeft));
-		/*
-			Get character state details
-		*/
+		if (unleashed_bug == 1) then {
+			diag_log("USPSYNC: Time Last:" + str(_lastTime));
+			diag_log("USPSYNC: Time Gross:" + str(_timeGross));
+			diag_log("USPSYNC: Time Since:" + str(_timeSince));
+			diag_log("USPSYNC: Time Left:" + str(_timeLeft));
+		};
+
+			//Get character state details
+
 		_currentWpn = 	currentMuzzle _character;
 		_currentAnim =	animationState _character;
 		_config = 		configFile >> "CfgMovesMaleSdr" >> "States" >> _currentAnim;

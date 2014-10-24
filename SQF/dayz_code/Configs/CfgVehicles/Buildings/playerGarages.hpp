@@ -5,6 +5,7 @@
 		//icon = "";
 		vehicleClass = "Survival";
 		accuracy = 0.2;
+		vehicleLimit = 3;
 		armor = 500;   
 	};        
     
@@ -12,6 +13,7 @@
 	{
 		scope = 2;
 		model = "\ca\buildings\garaz.p3d";
+		vehicleLimit = 9;
 		class DestructionEffects: DestructionEffects
 		{
 			class Ruin1
@@ -30,6 +32,7 @@
 	{
 		scope = 2;
 		model = "\ca\buildings\garaz_mala.p3d";
+		vehicleLimit = 3;
 		class DestructionEffects: DestructionEffects
 		{
 			class Ruin1

@@ -36,7 +36,7 @@ item31[] = {"ERROR__Bad_Versi",2,250,175.000000,800.000000,275.000000,850.000000
 item32[] = {"Display_Ready",4,218,-175.000000,1050.000000,-75.000000,1100.000000,0.000000,"Display" \n "Ready"};
 item33[] = {"Preload_Display",2,250,-75.000000,1100.000000,25.000000,1150.000000,0.000000,"Preload" \n "Display"};
 item34[] = {"Preload_Done",4,218,-175.000000,1150.000000,-75.000000,1200.000000,0.000000,"Preload" \n "Done"};
-item35[] = {"Initialize",2,4346,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Initialize"};
+item35[] = {"Initialize",2,250,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Initialize"};
 item36[] = {"Finish",1,250,-75.000000,1300.000000,25.000000,1350.000000,0.000000,"Finish"};
 item37[] = {"True",8,218,25.000000,1250.000000,125.000000,1300.000000,0.000000,"True"};
 item38[] = {"Too_Long",4,218,300.000000,150.000000,400.000000,200.000000,0.000000,"Too" \n "Long"};
@@ -44,7 +44,7 @@ item39[] = {"Too_Long",4,218,300.000000,500.000000,400.000000,550.000000,0.00000
 item40[] = {"Too_Long",4,218,300.000000,700.000000,400.000000,750.000000,0.000000,"Too" \n "Long"};
 item41[] = {"Too_Long",4,218,300.000000,800.000000,400.000000,850.000000,0.000000,"Too" \n "Long"};
 item42[] = {"Enable_Sim",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Enable Sim"};
-item43[] = {"Initialized",4,218,-175.000000,-150.000000,-75.000000,-100.000000,0.000000,"Initialized"};
+item43[] = {"Initialized",4,4314,-175.000000,-150.000000,-75.000000,-100.000000,0.000000,"Initialized"};
 item44[] = {"New_Character",4,218,-625.000000,425.000000,-525.000000,475.000000,5.000000,"New" \n "Character"};
 item45[] = {"Gender_Selection",2,250,-625.000000,550.000000,-525.000000,600.000000,0.000000,"Gender Selection" \n "Dialog"};
 item46[] = {"Selected",4,218,-625.000000,700.000000,-525.000000,750.000000,0.000000,"Selected"};
@@ -155,8 +155,8 @@ link78[] = {68,69};
 link79[] = {69,70};
 link80[] = {70,20};
 link81[] = {71,68};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-642.430847,529.905151,1842.717041,877.042725,906,767,1};
-window[] = {0,-1,-1,-32000,-32000,1135,5,2503,223,1,924};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-642.430847,529.905151,313.140503,-679.333801,906,767,1};
+window[] = {0,-1,-1,-1,-1,1062,150,2648,150,1,924};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -252,106 +252,7 @@ class FSM
           to="Enable_Sim";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"!isnil ""bis_fnc_init"""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"dayz_forceSave = {" \n
-           "_gearSave = false;" \n
-           "" \n
-           "if (!dialog) then {" \n
-           "	createGearDialog [player, ""RscDisplayGear""];" \n
-           "	_gearSave = true;" \n
-           "};" \n
-           "" \n
-           "_dialog = 			findDisplay 106;" \n
-           "_magazineArray = 	[];" \n
-           "" \n
-           "//Primary Mags" \n
-           "for ""_i"" from 109 to 120 do " \n
-           "{" \n
-		   "disableSerialization;" \n
-           "	_control = 	_dialog displayCtrl _i;" \n
-           "	_item = 	gearSlotData _control;" \n
-           "	_val =		gearSlotAmmoCount _control;" \n
-           "	_max = 		getNumber (configFile >> ""CfgMagazines"" >> _item >> ""count"");" \n
-           "	if (_item != """") then {" \n
-           "		if (_val != _max) then {" \n
-           "			_magazineArray set [count _magazineArray,[_item,_val]];" \n
-           "		} else {" \n
-           "			_magazineArray set [count _magazineArray,_item];" \n
-           "		};" \n
-           "	};" \n
-           "};" \n
-           "" \n
-           "//Secondary Mags" \n
-           "for ""_i"" from 122 to 129 do " \n
-           "{" \n
-		   "disableSerialization;" \n
-           "	_control = 	_dialog displayCtrl _i;" \n
-           "	_item = 	gearSlotData _control;" \n
-           "	_val =		gearSlotAmmoCount _control;" \n
-           "	_max = 		getNumber (configFile >> ""CfgMagazines"" >> _item >> ""count"");" \n
-           "	if (_item != """") then {" \n
-           "		if (_val != _max) then {" \n
-           "			_magazineArray set [count _magazineArray,[_item,_val]];" \n
-           "		} else {" \n
-           "			_magazineArray set [count _magazineArray,_item];" \n
-           "		};" \n
-           "	};" \n
-           "};" \n
-           "" \n
-           "if (_gearSave) then {" \n
-           "	closeDialog 0;" \n
-           "};" \n
-           "" \n
-           "	_medical = player call player_sumMedical;" \n
-           "		" \n
-           "	/*" \n
-           "		Get character state details" \n
-           "	*/" \n
-           "	_currentWpn = 	currentMuzzle player;" \n
-           "	_currentAnim =	animationState player;" \n
-           "	_config = 		configFile >> ""CfgMovesMaleSdr"" >> ""States"" >> _currentAnim;" \n
-           "	_onLadder =		(getNumber (_config >> ""onLadder"")) == 1;" \n
-           "	_isTerminal = 	(getNumber (_config >> ""terminal"")) == 1;" \n
-           "	_isInVehicle = vehicle player != player;" \n
-           "	//_wpnDisabled =	(getNumber (_config >> ""disableWeapons"")) == 1;" \n
-           "	_currentModel = typeOf player;" \n
-           "	_charPos = getPosATL player;" \n
-           "	_playerPos = 	[round(direction player),_charPos];" \n
-           "	" \n
-           "	if (_onLadder or _isInVehicle or _isTerminal) then {" \n
-           "		_currentAnim = """";" \n
-           "		//If position to be updated, make sure it is at ground level!" \n
-           "		if ((count _playerPos > 0) and !_isTerminal) then {" \n
-           "			_charPos set [2,0];" \n
-           "			_playerPos set[1,_charPos];" \n
-           "		};" \n
-           "	};" \n
-           "	if (_isInVehicle) then {" \n
-           "		_currentWpn = """";" \n
-           "	} else {" \n
-           "		if ( typeName(_currentWpn) == ""STRING"" ) then {" \n
-           "			_muzzles = getArray(configFile >> ""cfgWeapons"" >> _currentWpn >> ""muzzles"");" \n
-           "			if (count _muzzles > 1) then {" \n
-           "				_currentWpn = currentMuzzle player;" \n
-           "			};	" \n
-           "		} else {" \n
-           "			//diag_log (""DW_DEBUG: _currentWpn: "" + str(_currentWpn));" \n
-           "			_currentWpn = """";" \n
-           "		};" \n
-           "	};" \n
-           "	_temp = round(player getVariable [""temperature"",100]);" \n
-           "	_currentState = [_currentWpn,_currentAnim,_temp];" \n
-           "	" \n
-           "	dayz_Magazines = _magazineArray;" \n
-           "	PVDZ_plr_Save = [player,dayz_Magazines,false];" \n
-           "	publicVariableServer ""PVDZ_plr_Save"";" \n
-           "			" \n
-           "	if (isServer) then {" \n
-           "		PVDZ_plr_Save call server_playerSync;" \n
-           "	};" \n
-           "						" \n
-           "	dayz_lastSave = diag_tickTime;" \n
-           "	dayz_Magazines = [];" \n
-           "};"/*%FSM</ACTION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
       };
@@ -1163,7 +1064,7 @@ class FSM
        "		sleep (if (call player_zombieCheck) then {dayz_monitorPeriod/3} else {dayz_monitorPeriod});" \n
        "	};" \n
        "};" \n
-	   "if(!isNil ""dayz_monitor2"")then {" \n
+       "if(!isNil ""dayz_monitor2"")then {" \n
        "    terminate dayz_monitor1;" \n
        "};" \n
        "dayz_monitor2 = [] spawn {" \n

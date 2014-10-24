@@ -381,7 +381,7 @@ _LoadPlease = compile ("
 											_mags = getArray(configfile >> 'cfgWeapons' >> _wpn >> 'magazines');
 											{player removeMagazines _x;} forEach _mags;
 											sleep 0.5;
-											call dayz_forceSave;
+											call player_forceSave;
 										};							
 									};
 								};
@@ -582,12 +582,12 @@ call compile ("
 			(findDisplay 46) displayRemoveAllEventHandlers 'KeyUp';
 			(findDisplay 46) displayAddEventHandler ['KeyDown','
 			if ((_this select 4) and ((_this select 1) == 0x3E)) then {
-				if (isNil ''dayz_forceSave_0'') then {
+				if (isNil ''player_forceSave_0'') then {
 					[] spawn {
-						dayz_forceSave_0 = true;
-						[] spawn dayz_forceSave;
+						player_forceSave_0 = true;
+						[] spawn player_forceSave;
 						sleep 1;
-						dayz_forceSave_0 = nil;
+						player_forceSave_0 = nil;
 					};
 				};
 			}; _this call dayz_spaceInterrupt'];
@@ -612,12 +612,12 @@ call compile ("
 			if (!isNull (findDisplay 49)) then {
 				(findDisplay 49) displayRemoveAllEventHandlers 'KeyDown';
 				(findDisplay 49) displayRemoveAllEventHandlers 'KeyUp';
-				if (isNil 'dayz_forceSave_1') then {
+				if (isNil 'player_forceSave_1') then {
 					[] spawn {
-						dayz_forceSave_1 = true;
-						call dayz_forceSave;
+						player_forceSave_1 = true;
+						call player_forceSave;
 						sleep 1;
-						dayz_forceSave_1 = nil;
+						player_forceSave_1 = nil;
 					};
 				};
 			};

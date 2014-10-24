@@ -198,7 +198,8 @@ if (_hasrequireditem) then {
 
 
 	_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
-
+	_object setVariable ["OwnerID", dayz_playerUID,true];
+	_object setVariable ["lastUpdate",time];
 	_object attachTo [player,_offset];
 	
 	_position = getPosATL _object;
@@ -308,6 +309,8 @@ if (_hasrequireditem) then {
 
 		// Start Build
 		_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
+		_object setVariable ["OwnerID", dayz_playerUID,true];
+		_object setVariable ["lastUpdate",time];
 
 		_object setdir _dir;
 
@@ -320,6 +323,12 @@ if (_hasrequireditem) then {
 		};
 	
 		_object setPosATL _location;
+		_uid = [_dir,_location] call dayz_objectUID2;
+		
+		if (unleashed_Debug == 1) then {
+			diag_log (format["PB: UID: %1", _uid]);
+		};
+		
 		cutText [format[(localize "str_epoch_player_138"),_text], "PLAIN DOWN"];
 		
 		_limit = 3;
@@ -450,7 +459,7 @@ if (_hasrequireditem) then {
 					_object setVariable ["CharacterID",_combination,true];
 					
 
-					PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname, _combination, "player_build1"];
+					PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname, _combination, "player_build1",dayz_playerUID,_uid];
 					publicVariableServer "PVDZ_bld_Publish";
 
 					cutText [format[(localize "str_epoch_player_140"),_combinationDisplay,_text], "PLAIN DOWN", 5];
@@ -464,7 +473,7 @@ if (_hasrequireditem) then {
 					if(_object isKindOf "Land_Fire_DZ") then {
 						_object spawn player_fireMonitor;
 					} else {
-						PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname,dayz_characterID, "player_build2",dayz_playerUID];
+						PVDZ_bld_Publish = [dayz_characterID,_object,[_dir,_location],_classname,dayz_characterID, "player_build2",dayz_playerUID,_uid];
 						publicVariableServer "PVDZ_bld_Publish";
 					};
 				};
