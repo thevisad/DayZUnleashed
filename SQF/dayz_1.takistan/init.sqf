@@ -12,6 +12,9 @@ unleashed_pvSaveInterval = 10; //Send a signal to the server to when this many s
 unleashed_pvSaveStackSize = 2; //Send a signal to the server when the variable stack is larger than this value, when a player variable has changed. default 2
 //Larger stacks are better for performance but may result in desync between multiple variables, 2 is the minimum recommended size. 
 
+g_pickFailChance_dzu = 10;//PickLock Fail chance per second of picking.
+//Every second of picking adds 1% chance of failure. 
+
 // These variables work with the Unleashed movement system and is a way for you to adjust the Zeds/dogs. 
 //Range = the distance between the player and the zeds/dogs and is used in the calculation of the speed and movement distance of the zeds/dogs. 
 //Speed = how fast they should move in each of the agro ranges, variables with the work Distance indicate speeds above the range check. 

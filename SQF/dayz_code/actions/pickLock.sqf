@@ -21,8 +21,11 @@ _requiredItems          = ["ItemToolbox"];                                     /
 _searchEXP              = "Generic_Engineering";                               //exp reward
 _searchSkillCurve       = 11.8;                                                //Player skill divide by this skill to reduce total search time.  
 _searchMinTick          = 3;                                                   //Absolute minimum time required to search
-_failChance             = 10;                                                  //Chance to fail per second of searching.
-    _searchTime = ( 
+_failChance             = g_pickFailChance_dzu-1;                              //Chance to fail per second of searching.
+
+if((count _args)>4)then{_failChance=_args select 4;};						   //Allow failchance override via script call.
+
+        _searchTime = ( 
                     (round(_searchTime/(1+(_playerSkill/_searchSkillCurve))) max _searchMinTick)
                 ); 
     player setVariable["PickingInProgress", true, false];
@@ -38,7 +41,7 @@ if({_x in items player||_x in magazines player||_x in weapons player} count _req
         //null = [player,10,true,(getPosATL player)] spawn player_alertZombies;
         sleep 1;
         //roll failure
-        _fail = ((floor(random(100))) < _failChance);
+        _fail = ((floor(random(100))) < _failChance + _x);
         //check search
         if(
                ((_location distance (getPosATL player)) > 0.5 )
