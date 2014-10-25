@@ -5,7 +5,7 @@ class CfgPatches
 {
 	class endworld_wrecks
 	{
-		version = "0.98-Devbuild-2014-10-24_11";
+		version = "0.98-Devbuild-2014-10-25_1205 PM";
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;

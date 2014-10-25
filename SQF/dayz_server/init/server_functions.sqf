@@ -194,7 +194,7 @@ server_SpawnGarages = {
 	_garageArray = _this select 0;
 	{ 
 		//"GARAGEINFO: Info ["155874131660271","dzu_playerGarage_sm",[236,[16615,14572.1,0.001]],"76561198013702927","15"]"
-		if (unleashed_bug == 1) then {
+		if (unleashed_debug == 1) then {
 			diag_log ("GARAGEINFO: Info " + str(_x));
 		};
 		_GarageUID =	_x select 0;
@@ -216,7 +216,7 @@ server_SpawnGarages = {
 		_playerID =	_x select 3;
 		_garageID =	_x select 4;
 
-		if (unleashed_bug == 1) then {
+		if (unleashed_debug == 1) then {
 			diag_log(format["GARAGEINFO: SpawnGarages GarageUID: %1",_GarageUID]);
 			diag_log(format["GARAGEINFO: SpawnGarages GarageClassName: %1",_garageClassName]);
 			diag_log(format["GARAGEINFO: SpawnGarages WorldSpace: %1",_worldspace]);
@@ -284,7 +284,7 @@ server_spawnVehicle = {
 	_objectArray = _this select 0;
 	
 	{
-		if (unleashed_bug == 1) then {
+		if (unleashed_debug == 1) then {
 			diag_log(format["GARAGESPAWNER: Current Vehicle Spawn: %1",_x]);
 		};
 		_action = _x select 0; // values : "OBJ"=object got from hive  "CREATED"=vehicle just created ...
@@ -450,7 +450,7 @@ server_spawnGarageVehicle = {
 	_worldspace = [];
 	_position = [];
 
-	if (unleashed_bug == 1) then {
+	if (unleashed_debug == 1) then {
 		diag_log(format["GARAGESPAWNER: Current Vehicle Location: %1",_tempworldspace]);
 		diag_log(format["GARAGESPAWNER: Count of Vehicle Location: %1", (count _tempworldspace)]);
 	};
@@ -464,12 +464,12 @@ server_spawnGarageVehicle = {
 		_CharacterID = _x select 4;	
 		_dir = floor(random(360));
 		_position = [_tempworldspace,3,8,2,0,30,0] call BIS_fnc_findSafePos;
-		if (unleashed_bug == 1) then {
+		if (unleashed_debug == 1) then {
 			diag_log(format["GARAGESPAWNER: BIS Vehicle Location: %1",_position]);
 		};
 		_position set [2,0];
 		_worldspace = [_class, _dir, _position ,"OBJ"] call fa_smartlocation;
-		if (unleashed_bug == 1) then {
+		if (unleashed_debug == 1) then {
 			diag_log(format["GARAGESPAWNER: Smart Vehicle Location: %1",_worldspace]);
 		};
 		

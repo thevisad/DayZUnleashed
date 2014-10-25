@@ -4,7 +4,7 @@ _pos = _this select 0;
 
 {
 	[_x,"gear"] call server_updateObject;
-	if (unleashed_bug == 1) then {
+	if (unleashed_debug == 1) then {
 		diag_log(format["SGS: Updating nearby objects: %1",_x]);
 	};
 } forEach nearestObjects [_pos, dayz_updateObjects, 10];

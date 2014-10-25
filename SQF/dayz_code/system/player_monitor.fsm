@@ -24,7 +24,7 @@ item19[] = {"ERROR__Wrong_HIVE",2,250,175.000000,500.000000,275.000000,550.00000
 item20[] = {"Hive_Ok",4,218,-175.000000,550.000000,-75.000000,600.000000,0.000000,"Hive" \n "Ok"};
 item21[] = {"Phase_One",2,250,-75.000000,600.000000,25.000000,650.000000,0.000000,"Phase One"};
 item22[] = {"Response",4,218,-175.000000,650.000000,-75.000000,700.000000,0.000000,"Response"};
-item23[] = {"Phase_Two",2,4346,-75.000000,700.000000,25.000000,750.000000,0.000000,"Phase Two"};
+item23[] = {"Phase_Two",2,250,-75.000000,700.000000,25.000000,750.000000,0.000000,"Phase Two"};
 item24[] = {"Dead_Player",4,218,50.000000,700.000000,150.000000,750.000000,0.000000,"Dead" \n "Player"};
 item25[] = {"ERROR__Player_Already",2,250,175.000000,700.000000,275.000000,750.000000,0.000000,"ERROR:" \n "Player Already" \n "Dead"};
 item26[] = {"Alive",4,218,-175.000000,750.000000,-75.000000,800.000000,0.000000,"Alive"};
@@ -32,7 +32,7 @@ item27[] = {"Position",2,250,-75.000000,800.000000,25.000000,850.000000,0.000000
 item28[] = {"Version_Ok",4,218,-175.000000,850.000000,-75.000000,900.000000,0.000000,"Version" \n "Ok"};
 item29[] = {"Load_In",2,250,-75.000000,1000.000000,25.000000,1050.000000,0.000000,"Load In"};
 item30[] = {"DayZCode__Bad_Ve",4,218,525.000000,875.000000,625.000000,925.000000,0.000000,"DayZCode " \n "Bad" \n "Version"};
-item31[] = {"ERROR__Bad_Versi",2,250,725.000000,1250.000000,825.000000,1300.000000,0.000000,"ERROR:" \n "Bad Version"};
+item31[] = {"ERROR__Bad_Versi",2,4346,725.000000,1250.000000,825.000000,1300.000000,0.000000,"ERROR:" \n "Bad Version"};
 item32[] = {"Display_Ready",4,218,-175.000000,1050.000000,-75.000000,1100.000000,0.000000,"Display" \n "Ready"};
 item33[] = {"Preload_Display",2,250,-75.000000,1100.000000,25.000000,1150.000000,0.000000,"Preload" \n "Display"};
 item34[] = {"Preload_Done",4,218,-175.000000,1150.000000,-75.000000,1200.000000,0.000000,"Preload" \n "Done"};
@@ -182,8 +182,8 @@ link96[] = {77,31};
 link97[] = {78,31};
 link98[] = {79,31};
 link99[] = {80,31};
-globals[] = {25.000000,1,0,0,0,640,480,1,154,6316128,1,-521.481812,1648.175781,1946.807617,155.243820,1733,1431,1};
-window[] = {2,-1,-1,-32000,-32000,1430,236,2109,518,3,1751};
+globals[] = {25.000000,1,0,0,0,640,480,1,154,6316128,1,-723.174255,1849.867920,1610.213135,28.864256,1248,767,1};
+window[] = {0,-1,-1,-32000,-32000,920,119,1992,8,1,1266};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -205,7 +205,7 @@ class FSM
        "DZUactiveLoot_versionNo = getText(configFile >> ""CfgPatches"" >> ""DZUactiveLoot"" >> ""version"");" \n
        "unleashed_pack_versionNo = getText(configFile >> ""CfgPatches"" >> ""unleashed_pack"" >> ""version"");" \n
        "diag_log (""DAYZ: CLIENT IS RUNNING DAYZ_CODE "" + str(dayz_versionNo));" \n
-       "" \n
+       "_badversion = """";" \n
        "_AuthAttempt = 0;" \n
        "_badversion=[];" \n
        "0 fadeSound 0;" \n
@@ -1077,7 +1077,7 @@ class FSM
        "selectNoPlayer;" \n
        "_myTime = diag_tickTime;" \n
        "" \n
-       "dayz_loadScreenMsg = ""You are running an incorrect version of  "" str (_badversion)"" , please redownload this file."";" \n
+       "dayz_loadScreenMsg = ""You are running an incorrect version of  "" + str (_badversion) + "" , please redownload this file."";" \n
        "" \n
        "1 cutText [format[localize ""str_player_18"",dayz_versionNo,_version], ""PLAIN""];" \n
        "" \n

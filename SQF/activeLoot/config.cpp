@@ -9,7 +9,7 @@ class CfgPatches
         units[] = {"activeLoot","supplyCrate_AL","supplyCrate_AL_2","supplyCrate_AL_3","supplyCrate_AL_4","supplyCrate_AL_5","supplyCrate_AL_6","supplyCrate_locked_AL","supplyCrate_locked_AL_2","supplyCrate_locked_AL_3","supplyCrate_locked_AL_4","supplyCrate_locked_AL_5","supplyCrate_locked_AL_6","deadBody_AL","staticLoot","supplyCrate_SL","deadBody_SL"};
         weapons[] = {};
         requiredVersion = 0.1;
-		version = "0.98-Devbuild-2014-10-24_11";
+		version = "0.98-Devbuild-2014-10-25_1234 AM";
         requiredAddons[] = {"CAData","CAWeapons","dayz","dayz_code"};
         author[] = {"Xyberviri","HNGamers"};
     };

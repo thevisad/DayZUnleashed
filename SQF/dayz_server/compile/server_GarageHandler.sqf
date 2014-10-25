@@ -6,7 +6,7 @@ _vehicle_remove = {
 	_ObjectUID = _this select 1;
 	_position = _this select 2; 
 	_garageUID = _this select 3;
-	if (unleashed_bug == 1) then {
+	if (unleashed_debug == 1) then {
 		diag_log(format["GARAGEHANDLER: Object UID: %1",_ObjectUID]);
 		diag_log(format["GARAGEHANDLER: Garage UID: %1",_garageUID]);
 	};
@@ -50,7 +50,7 @@ _vehicle_add = {
 	_garageUID = _this select 1;
 	_nearVehicle = _this select 2;
 	_ObjectUID = _this select 3;
-		if (unleashed_bug == 1) then {
+		if (unleashed_debug == 1) then {
 		diag_log(format["GARAGEHANDLER: Object UID: %1",_ObjectUID]);
 		diag_log(format["GARAGEHANDLER: Near Vehicle: %1",_nearVehicle]);
 		diag_log(format["GARAGEHANDLER: Garage UID: %1",_garageUID]);

@@ -5,7 +5,7 @@ private ["_characterID","_temp","_class","_currentWpn","_magazines","_force","_i
 //error
 //"UPDATE: B 1-1-B:1 (THE BEAST) REMOTE"
 
-if (unleashed_bug == 1) then {
+if (unleashed_debug == 1) then {
 	diag_log(format["PS2: MAGAZINES: %1",_this]);
 };
 
@@ -130,7 +130,7 @@ if (_characterID != "0") then {
 		_timeGross = 	(time - _lastTime);
 		_timeSince = 	floor(_timeGross / 60);
 		_timeLeft =		(_timeGross - (_timeSince * 60));
-		if (unleashed_bug == 1) then {
+		if (unleashed_debug == 1) then {
 			diag_log("USPSYNC: Time Last:" + str(_lastTime));
 			diag_log("USPSYNC: Time Gross:" + str(_timeGross));
 			diag_log("USPSYNC: Time Since:" + str(_timeSince));
