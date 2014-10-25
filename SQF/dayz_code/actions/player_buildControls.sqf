@@ -11,7 +11,10 @@ OtterNas3
 _isAllowedUnderGround = _this select 0;
 
 private ["_zheightchanged", "_zheightdirection", "_rotate"];
-diag_log "build controls";
+if (unleashed_PlayerBuildDebug == 1) then {
+	diag_log "PBC: Started";
+};
+
 while {true} do {
 	_zheightchanged = false;
 	_zheightdirection = "";
@@ -90,7 +93,9 @@ while {true} do {
 
 	if (_zheightchanged or _rotate) then {
 		SnappingAttachedToPlayer = false;
-		diag_log "height or rotation changed";
+		if (unleashed_PlayerBuildDebug == 1) then {
+			diag_log "PBC: height or rotation changed";
+		};
 	};
 	sleep 1;
 };	

@@ -2,7 +2,7 @@ private ["_objects"];
 {
 	PVDZ_veh_Save = [_x,"gear"];
 	publicVariableServer "PVDZ_veh_Save";
-	if (unleashed_bug == 1) then {
+	if (unleashed_debug == 1) then {
 		diag_log(format["SGS: Updating nearby objects: %1",_x]);
 	};
 } forEach nearestObjects [getPosATL player, dayz_updateObjects, 10];

@@ -1,5 +1,5 @@
 _magazineArray = [] call player_countMagazines;
-if (unleashed_bug == 1) then {
+if (unleashed_debug == 1) then {
 	diag_log(format["PFS: MAG ARRAY: %1",_magazineArray]);
 };
 PVDZ_plr_Save = [player,_magazineArray,false];

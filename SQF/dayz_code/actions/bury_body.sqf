@@ -1,12 +1,18 @@
 private ["_modeldex","_nameKillerP","_typedeP","_nameBody","_cross","_backpackHolder","_method","_body"];
-diag_log("GRAVESTONES REPLACEMENT START");
+if (unleashed_debug == 1) then {
+	diag_log("GRAVESTONES REPLACEMENT START");
+};
+
 _modeldex = "";
 _nameKillerP = "unknown";
 _body = _this select 3;
 _typedeP = 0;
 _SomesOnesClothing = getText ( configFile >> "CfgVehicles" >> (typeOf _body) >> "clothingDZ");
 _modeldex = typeOf _body;
-diag_log("_modeldex = "+str(_modeldex));
+if (unleashed_debug == 1) then {
+diag_log(format["BB: _modeldex: %1",_modeldex]);
+};
+
 if( _SomesOnesClothing != "") then {
 	private ["_weapons", "_magazines", "_backpack", "_backpackWeapons", "_backpackMagazines", "_backpackType", "_position", "_holder", "_i", "_itemsCount", "_isZombie"];
 	
@@ -93,7 +99,9 @@ if( _SomesOnesClothing != "") then {
 		//_backpackHolder addBackpackCargoGlobal [_backpackType, 1];
 	};
 	//_flys = count ( allMissionObjects "#dynamicsound");
+	if (unleashed_debug == 1) then {
+		diag_log(format["BB: Replaced Body (%4)-(%1 items, at %2), _backpackType=%3", _itemsCount, _position, _backpackType,_nameBody]);
+	};
 
-   diag_log format ["Replaced Body (%4)-(%1 items, at %2), _backpackType=%3", _itemsCount, _position, _backpackType,_nameBody];
 };
 

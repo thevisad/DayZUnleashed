@@ -43,8 +43,10 @@ _findNearestTree = [];
 	};
 
 } foreach nearestObjects [getPos player, [], 20];
+if (unleashed_debug == 1) then {
+	diag_log format["PCW: TREES: %1", _findNearestTree];
+};
 
-//diag_log format["DEBUG TREES: %1", _findNearestTree];
 
 if (count(_findNearestTree) >= 1) then {
 		
@@ -57,8 +59,10 @@ if (count(_findNearestTree) >= 1) then {
 	if(_distance2d <= 5) then {
 
 		_countOut = ceil(_distance3d-_distance2d);
+if (unleashed_debug == 1) then {
+	diag_log format["PCW: TREE DISTANCE: %1 - %2 = %3", _distance3d,_distance2d,(_distance3d-_distance2d)];
+};
 
-		//diag_log format["DEBUG TREE DISTANCE: %1 - %2 = %3", _distance3d,_distance2d,(_distance3d-_distance2d)];
 	
 		// Start chop tree loop
 		_counter = 0;
@@ -126,7 +130,9 @@ if (count(_findNearestTree) >= 1) then {
 			if("" == typeOf _tree) then {
 				_tree setDamage 1;
 			};
-			//diag_log format["DEBUG TREE DAMAGE: %1", _tree];
+			if (unleashed_debug == 1) then {
+				diag_log format["PCW: TREE DAMAGE: %1", _tree];
+			};
 
 			cutText [format["%1 piles of wood has been successfully added in front of you.", _countOut], "PLAIN DOWN"];
 

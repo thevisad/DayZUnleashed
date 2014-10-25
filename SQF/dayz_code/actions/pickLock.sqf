@@ -3,7 +3,9 @@
 
 if (player getVariable["PickingInProgress",false]) 
     exitWith {
-        diag_log "DZU_PickLock ERROR: Picking Already In Progress!"; 
+		if (unleashed_debug == 1) then {
+			diag_log "DZU_PickLock ERROR: Picking Already In Progress!"; 
+		};
     };
 
 player removeAction unleashed_hack_garage;

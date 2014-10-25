@@ -36,10 +36,11 @@ if(_IsNearPlot == 0) then {
 
 	// Find owner
 	_ownerID = _nearestPole getVariable["CharacterID","0"];
+		if (unleashed_PlayerBuildDebug == 1) then {
+			diag_log format["PBD: Player: %1 OwnerID: %2", dayz_characterID, _ownerID];
 
-	// diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID];
-
-	// check if friendly to owner
+		};
+	// check if owner
 	if(dayz_characterID == _ownerID) then {
 		_canBuildOnPlot = true;
 	} else {

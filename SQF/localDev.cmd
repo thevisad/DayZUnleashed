@@ -6,6 +6,7 @@ move dayz_1.napf.pbo "F:\arma 2 operation arrowhead\MPMissions"
 move dayz_1.takistan.pbo "F:\arma 2 operation arrowhead\MPMissions"
 move dayz_1.utes.pbo "F:\arma 2 operation arrowhead\MPMissions"
 move dayz_1.zargabad.pbo "F:\arma 2 operation arrowhead\MPMissions"
+move dayz_1_spec.napf.pbo "F:\arma 2 operation arrowhead\MPMissions"
 
 copy *.pbo "C:\arma 2 operation arrowhead\@DayZUnleashed\Addons"
 

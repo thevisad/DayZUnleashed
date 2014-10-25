@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 4.57
-//Mon Oct 06 10:11:22 2014 : Source 'file' date Mon Oct 06 10:11:22 2014
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
 #define _ARMA_
 
 //Class ew_wrecks_unleashed : config.bin{
@@ -11,6 +5,7 @@ class CfgPatches
 {
 	class endworld_wrecks
 	{
+		version = "0.98-Devbuild-2014-10-24_11";
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;

@@ -38,7 +38,10 @@ _location set [2,0];
 //blocked
 	if (["concrete",dayz_surfaceType] call fnc_inString) exitwith {
 		r_action_count = 0;
-		diag_log ("surface concrete");
+		if (unleashed_debug == 1) then {
+				diag_log ("PCS: Surface is concrete");
+			};
+		
 	};
 
 _worldspace = [_stashtype, player] call fn_niceSpot;

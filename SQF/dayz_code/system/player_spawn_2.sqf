@@ -237,7 +237,7 @@ while {true} do {
 		if ((time - dayz_lastSave) > _saveTime) then {
 			PVDZ_plr_Save = [player,dayz_Magazines,false];
 			publicVariableServer "PVDZ_plr_Save";
-			if (unleashed_bug == 1) then {
+			if (unleashed_debug == 1) then {
 				diag_log(format["PS2: MAGAZINES: %1",dayz_Magazines]);
 			};
 

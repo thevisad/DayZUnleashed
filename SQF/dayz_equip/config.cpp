@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 4.23
-//Sat Jan 11 09:52:56 2014 : Source 'file' date Sat Jan 11 09:52:56 2014
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
 #define _ARMA_
 
 //Class dayz_equip : config.bin{
@@ -11,6 +5,7 @@ class CfgPatches
 {
 	class dayz_equip
 	{
+		version = "0.98-Devbuild-2014-10-24_11";
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;

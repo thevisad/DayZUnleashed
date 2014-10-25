@@ -60,7 +60,10 @@ if (_proceed) then {
 		_removed = 0;
 		_itemIn = _x select 0;
 		_countIn = _x select 1;
-		// diag_log format["Recipe Finish: %1 %2", _itemIn,_countIn];
+		if (unleashed_PlayerBuildDebug == 1) then {
+			diag_log format["PBM: Recipe Finish: %1 %2", _itemIn,_countIn];
+
+		};
 		_tobe_removed_total = _tobe_removed_total + _countIn;
 
 		{					
