@@ -9,6 +9,7 @@ _inVehicle = (_veh != player);
 _dayz_aggro_vehicle_rate=0;
 _dayz_aggro_vehicle_decay=0;
 _dayz_aggro_vehicle_min=0;
+_dayz_aggro_bleeding=0;
 
 if(_inVehicle  and !(_veh isKindOf "ParachuteBase")) then {
     if (isEngineOn _veh) then {
@@ -26,6 +27,9 @@ if(_inVehicle  and !(_veh isKindOf "ParachuteBase")) then {
         _dayz_aggro_vehicle_decay = _dayz_aggro_vehicle_decay + 1;
     };
 };
+if (!(isNull dayz_sourceBleeding)) then {
+    _dayz_aggro_bleeding=30;
+};
 //
 if(isNil "unleashed_agroMeterEnabled") then { unleashed_agroMeterEnabled = 0;};
 
@@ -33,7 +37,7 @@ if(isNil "unleashed_agroMeterEnabled") then { unleashed_agroMeterEnabled = 0;};
 //sum up total values
 _total_increase      = ( _total_increase + _dayz_aggro_vehicle_rate + dayz_aggro_move_rate) max 0;    //Total aggro generated per second
 _total_decay         = ( dayz_aggro_decay +_dayz_aggro_vehicle_decay + dayz_aggro_move_decay) max 0;  //Total decay per second
-dayz_aggro_value_min = floor(_dayz_aggro_vehicle_min + dayz_aggro_move_min) max 0;                    //Total minium amount aggro
+dayz_aggro_value_min = floor(_dayz_aggro_bleeding + _dayz_aggro_vehicle_min + dayz_aggro_move_min) max 0;                    //Total minium amount aggro
 //done
 
 //do math 
