@@ -23,6 +23,8 @@ server_spawnCrashSite  =        compile preprocessFileLineNumbers "\z\addons\day
 fnc_plyrHit   =                 compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
 spawn_carePackages =            compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_carePkgs.sqf";
 spawn_wrecks = 					compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_wrecks.sqf";
+server_deaths = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
+server_maintainArea = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_maintainArea.sqf";
 
 //Get instance name (e.g. dayz_1.chernarus)
 fnc_instanceName = {
@@ -736,15 +738,6 @@ server_getDiff2 =	{
 	_object setVariable[(_variable + "_CHK"),_vNew];
 	_result
 };
-
-// dayz_objectUID = {
-// 	private["_position","_dir","_key","_object"];
-// 	_object = _this;
-// 	_position = getPosATL _object;
-// 	_dir = direction _object;
-// 	_key = [_dir,_position] call dayz_objectUID2;
-//     _key
-// };
 
 dayz_objectUID2 = {
 	private["_position","_dir","_key"];

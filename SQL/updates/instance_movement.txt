@@ -1,2 +1,0 @@
-ALTER TABLE `instance_movement`
-MODIFY COLUMN `characterID`  varchar(55) NULL DEFAULT NULL AFTER `id`;

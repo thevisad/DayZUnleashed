@@ -5,7 +5,7 @@ class CfgPatches
 {
 	class dayz_equip
 	{
-		version = "0.98-Devbuild-2014-10-25_1205 PM";
+		version = "0.98-Devbuild-2014-10-27_0834 AM";
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;

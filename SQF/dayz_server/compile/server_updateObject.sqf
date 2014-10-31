@@ -1,6 +1,3 @@
-/*
-[_object,_type] spawn server_updateObject;
-*/
 private ["_object","_type","_objectID","_uid","_lastUpdate","_needUpdate","_object_position","_object_inventory","_object_damage","_isNotOk","_parachuteWest","_firstTime","_object_killed","_object_repair","_isbuildable"];
 
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
@@ -8,7 +5,8 @@ private ["_object","_type","_objectID","_uid","_lastUpdate","_needUpdate","_obje
 _object = 	_this select 0;
 
 if(isNull(_object)) exitWith {
-	diag_log format["SUO: Skipping Null Object: %1", _object];
+	if (unleashed_debug == 1) then { diag_log format["SUO: Skipping Null Object: %1", _object];};
+	
 };
 
 _type = 	_this select 1;
@@ -24,7 +22,8 @@ _uid = 		_object getVariable ["ObjectUID","0"];
 
 if ((typeName _objectID != "string") || (typeName _uid != "string")) then
 { 
-    diag_log(format["SUO: Non-string Object: ID %1 UID %2", _objectID, _uid]);
+if (unleashed_debug == 1) then { diag_log(format["SUO: Non-string Object: ID %1 UID %2", _objectID, _uid]);};
+    
     //force fail
     _objectID = "0";
     _uid = "0";
@@ -38,10 +37,10 @@ if (!_parachuteWest && !(locked _object)) then {
 };
 
 // do not update if buildable && not ok
-if (_isNotOk && _isbuildable) exitWith { diag_log(format["SUO: %1 _isbuildable and not ok.", _object]);  };
+if (_isNotOk && _isbuildable) exitWith { if (unleashed_debug == 1) then { diag_log(format["SUO: %1 _isbuildable and is ok.", _object]);};  };
 
 // delete if still not ok
-if (_isNotOk) exitWith { deleteVehicle _object; diag_log(format["SUO: Deleting object %1 with invalid ID at pos [%2,%3,%4]",typeOf _object,_object_position select 0,_object_position select 1, _object_position select 2]); };
+if (_isNotOk) exitWith { deleteVehicle _object; if (unleashed_debug == 1) then {diag_log(format["SUO: Deleting object %1 with invalid ID at pos [%2,%3,%4]",typeOf _object,_object_position select 0,_object_position select 1, _object_position select 2]); };};
 
 
 _lastUpdate = _object getVariable ["lastUpdate",time];
@@ -50,65 +49,68 @@ _needUpdate = _object in needUpdate_objects;
 // TODO ----------------------
 _object_position = {
 	private["_position","_worldspace","_fuel","_key"];
-		_position = getPosATL _object;
-		_worldspace = [
-			round(direction _object),
-			_position
-		];
-		_fuel = 0;
-		if (_object isKindOf "AllVehicles") then {
-			_fuel = fuel _object;
-		};
-		_key = format["CHILD:305:%1:%2:%3:",_objectID,_worldspace,_fuel];
-		//diag_log ("HIVE: WRITE: "+ str(_key));
-		_key call server_hiveWrite;
+	_position = getPosATL _object;
+	_worldspace = [
+		round(direction _object),
+		_position
+	];
+	_fuel = 0;
+	if (_object isKindOf "AllVehicles") then {
+		_fuel = fuel _object;
+	};
+	_key = format["CHILD:305:%1:%2:%3:",_objectID,_worldspace,_fuel];
+	if (unleashed_debug == 1) then { diag_log(format["SUO: HIVE: WRITE: "+ str(_key));};
+	_key call server_hiveWrite;
 };
 
 _object_inventory = {
 	private["_inventory","_previous","_key"];
-		_inventory = [
-			getWeaponCargo _object,
-			getMagazineCargo _object,
-			getBackpackCargo _object
-		];
-		_previous = str(_object getVariable["lastInventory",[]]);
-		if (str(_inventory) != _previous) then {
-			_object setVariable["lastInventory",_inventory];
-		if (_isbuildable) then {
-			_key = format["CHILD:641:%1:%2:",_objectID,_inventory];
-			diag_log(format["SUO: 641 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);
+	_inventory = [
+		getWeaponCargo _object,
+		getMagazineCargo _object,
+		getBackpackCargo _object
+	];
+	_previous = str(_object getVariable["lastInventory",[]]);
+	if (str(_inventory) != _previous) then {
+		_object setVariable["lastInventory",_inventory];
+	if (_isbuildable) then {
+		_key = format["CHILD:641:%1:%2:",_objectID,_inventory];
+		if (unleashed_debug == 1) then { diag_log(format["SUO: 641 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);};
+	} else {
+		if (_objectID == "0") then {
+			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
+			if (unleashed_debug == 1) then { diag_log(format["SUO: 641 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);};
+			diag_log(format["SUO: 309 Updating %1 uid %2 with inventory %3",_object,_uid,_inventory]);
 		} else {
-			if (_objectID == "0") then {
-				_key = format["CHILD:309:%1:%2:",_uid,_inventory];
-				diag_log(format["SUO: 309 Updating %1 uid %2 with inventory %3",_object,_uid,_inventory]);
-			} else {
-				_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
-				diag_log(format["SUO: 303 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);
-			};
+			_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+			if (unleashed_debug == 1) then { diag_log(format["SUO: 641 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);};
+			diag_log(format["SUO: 303 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);
 		};
-			_key call server_hiveWrite;
-		};
+	};
+		_key call server_hiveWrite;
+	};
 };
 
 _object_damage = {
 	private["_hitpoints","_array","_hit","_selection","_key","_damage"];
-		_hitpoints = _object call vehicle_getHitpoints;
-		_damage = damage _object;
-		_array = [];
-		{
-			_hit = [_object,_x] call object_getHit;
-			_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
-			if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
-			_object setHit ["_selection", _hit];
-		} count _hitpoints;
+	_hitpoints = _object call vehicle_getHitpoints;
+	_damage = damage _object;
+	_array = [];
+	{
+		_hit = [_object,_x] call object_getHit;
+		_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
+		if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
+		_object setHit ["_selection", _hit];
+	} count _hitpoints;
+
+	if (_objectID == "0") then {
+		_key = format["CHILD:306:%1:%2:%3:",_uid,_array,_damage];
+	} else {
+		_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
+	};
 	
-		if (_objectID == "0") then {
-			_key = format["CHILD:306:%1:%2:%3:",_uid,_array,_damage];
-		} else {
-			_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
-		};
-		//diag_log ("HIVE: WRITE: "+ str(_key));
-		_key call server_hiveWrite;
+	if (unleashed_debug == 1) then { diag_log ("HIVE: WRITE: "+ str(_key));};
+	_key call server_hiveWrite;
 	_object setVariable ["needUpdate",false,true];
 };
 
@@ -131,7 +133,7 @@ _object_killed = {
 	} else {
 		_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
 	};
-	//diag_log ("HIVE: WRITE: "+ str(_key));
+	if (unleashed_debug == 1) then { diag_log ("HIVE: WRITE: "+ str(_key)); };
 	_key call server_hiveWrite;
 	_object setVariable ["needUpdate",false,true];
 	if ((count _this) > 2) then {
@@ -143,9 +145,11 @@ _object_killed = {
 		_PUID = [_killer] call FNC_GetPlayerUID;
 		if (_PUID != "") then {
 			_name = if (alive _killer) then { name _killer; } else { format["OBJECT %1", _killer]; };
-			diag_log format["SUO: Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6, Killer: %7 (UID: %8)", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace, _name, _PUID];
+			if (unleashed_debug == 1) then { diag_log format["SUO: Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6, Killer: %7 (UID: %8)", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace, _name, _PUID]; };
+			
 		} else {
-			diag_log format["SUO: Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace];
+			if (unleashed_debug == 1) then {diag_log format["SUO: Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace];};
+			
 		};
 	};
 };
@@ -163,26 +167,28 @@ _object_repair = {
 	} count _hitpoints;
 	
 	_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
-	//diag_log ("HIVE: WRITE: "+ str(_key));
+	if (unleashed_debug == 1) then {diag_log ("HIVE: WRITE: "+ str(_key));};
 	_key call server_hiveWrite;
 	_object setVariable ["needUpdate",false,true];
 };
-// TODO ----------------------
 
 _object setVariable ["lastUpdate",time,true];
 switch (_type) do {
 	case "all": {
+		if (unleashed_debug == 1) then {diag_log(format["SUO: Switch all"]);};
 		call _object_position;
 		call _object_inventory;
 		call _object_damage;
 	};
 	case "position": {
+		if (unleashed_debug == 1) then { diag_log(format["SUO: Switch position"]);};
 		if (!(_object in needUpdate_objects)) then {
-			//diag_log format["DEBUG Position: Added to NeedUpdate=%1",_object];
+			if (unleashed_debug == 1) then {diag_log format["DEBUG Position: Added to NeedUpdate=%1",_object];};
 			needUpdate_objects set [count needUpdate_objects, _object];
 		};
 	};
 	case "gear": {
+		if (unleashed_debug == 1) then {diag_log(format["SUO: Switch gear"]);};
 		call _object_inventory;
 	};
 	case "damage": {
@@ -190,15 +196,21 @@ switch (_type) do {
 			call _object_damage;
 		} else {
 			if (!(_object in needUpdate_objects)) then {
-				//diag_log format["DEBUG Damage: Added to NeedUpdate=%1",_object];
+				if (unleashed_debug == 1) then {diag_log format["DEBUG Damage: Added to NeedUpdate=%1",_object];};
 				needUpdate_objects set [count needUpdate_objects, _object];
 			};
 		};
 	};
 	case "killed": {
+		if (unleashed_debug == 1) then {diag_log(format["SUO: Switch killed"]);};
 		call _object_killed;
 	};
 	case "repair": {
+		if (unleashed_debug == 1) then {diag_log(format["SUO: Switch repair"]);};
 		call _object_damage;
+	};
+	case "default": {
+		if (unleashed_debug == 1) then {diag_log(format["SUO: Switch default"]);};
+		call _object_inventory;
 	};
 };

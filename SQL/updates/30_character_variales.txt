@@ -1,3 +1,0 @@
-ALTER TABLE `character_variables` ADD COLUMN `variable_name`  varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `characterID`;
-ALTER TABLE `character_variables` ADD COLUMN `variable_value`  varchar(255) CHARACTER SET latin1 COLLATE latin1_swedish_ci NULL DEFAULT NULL AFTER `variable_name`;
-ALTER TABLE `character_variables` DROP COLUMN `char_var`;

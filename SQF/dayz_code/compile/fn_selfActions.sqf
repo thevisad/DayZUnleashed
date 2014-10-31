@@ -121,8 +121,6 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 8))
 	if (_hasFuelE20 or _hasFuelE5 or _hasFuelBarrelE) then {
 		_isFuel = (_cursorTarget isKindOf "Land_Ind_TankSmall") or (_cursorTarget isKindOf "Land_fuel_tank_big") or (_cursorTarget isKindOf "Land_fuel_tank_stairs") or (_cursorTarget isKindOf "Land_wagon_tanker");
 	};
-	//diag_log ("OWNERID = " + _ownerID + " CHARID = " + dayz_characterID + " " + str(_ownerID == dayz_characterID));
-
 	
 		// logic vars
 	_player_flipveh = false;
@@ -661,6 +659,11 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 8))
 	if (_isGarage and (player distance cursorTarget < 15)) then {
 		_OwnerID = cursorTarget getVariable ["OwnerID", "0"];
 		unleashed_GarageOwner = _OwnerID;
+		_GarageUID = cursorTarget getVariable ["GarageUID", "0"];
+		unleashed_GarageUID = _GarageUID;
+		if (unleashed_GarageDebug == 1) then {
+			diag_log(format["FSA: GARAGE _GarageUID: %1",_GarageUID]);
+		};
 		if (dayz_playerUID == unleashed_GarageOwner) then {
 			_vehicleClassArray = cursorTarget getVariable ["VehicleClassArray",[]];
 			_vehicleIDArray = cursorTarget getVariable ["VehicleIDArray",[]];
@@ -668,8 +671,6 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 8))
 			unleashed_GarageVehicleClassArray =_vehicleClassArray;
 			unleashed_GarageVehicleIDArray =_vehicleIDArray;
 			unleashed_GarageVehicleNameArray =_vehicleNameArray;
-			_GarageUID = cursorTarget getVariable ["GarageUID", "0"];
-			unleashed_GarageUID = _GarageUID;
 			if (unleashed_GarageDebug == 1) then {
 				diag_log(format["FSA: _vehicleClassArray: %1, _vehicleIDArray: %2, _vehicleNameArray: %3",_vehicleClassArray,_vehicleIDArray,_vehicleNameArray]);
 			};
@@ -680,6 +681,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 8))
 
 				remove_vehicle = player addAction [("<t color=""#FF0000"">" + ("Remove Vehicle from Garage") + "</t>"), "\z\addons\dayz_code\actions\player_VehicleRemove.sqf",[], 0, false, true, "",""];
 			};
+
 			if (insert_vehicle < 0) then {
 				if( _countNearVehicles > 0 ) then {
 					_nearVehicle = _nearVehicle select 0;

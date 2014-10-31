@@ -313,8 +313,8 @@ if (!isDedicated) then {
 		_shift = 	_this select 2;
 		_ctrl = 	_this select 3;
 		_alt =		_this select 4;
-		
 		_handled = false;
+		
 		if (_dikCode in[0x02,0x03,0x04,0x58,0x57,0x44,0x43,0x42,0x41,0x40,0x3F,0x3D,0x3C,0x3B,0x0B,0x0A,0x09,0x08,0x07,0x06,0x05]) then {
 			_handled = true;
 		};
@@ -322,13 +322,8 @@ if (!isDedicated) then {
 		if (_dikCode == 0x01 && r_player_dead) then {
 			_handled = true;
 		};
-		
-		if (_dikCode in[0x01]) then {
-			call player_forceSave;
-			DZE_cancelBuilding = true;
-		};
-		
-		if (_dikCode in[0x0F,0x38,0xB8,0x9D,0x1D,0x2A,0x36,0x3E,0x22,0x01]) then {
+
+		if (_dikCode in[0x0F,0x38,0xB8,0x9D,0x1D,0x2A,0x36,0x3E,0x01]  and (time - dayz_lastCheckBit > 2) ) then {
 			dayz_lastCheckBit = time;
 			call player_forceSave;
 		};
@@ -383,6 +378,13 @@ if (!isDedicated) then {
 			_keys = ["skill1", "skill2", "skill3", "etc"];
 			_values = ["val1", "val2", "val3", "etc"];
 			[_keys, _values] call updateUI;
+			_handled = true;
+		};
+	
+		if ((_dikCode in actionKeys "Gear") and (vehicle player != player) and !_shift and !_ctrl and !_alt && !dialog) then {
+			dayz_lastCheckBit = time;
+			call player_forceSave;
+			createGearDialog [player, "RscDisplayGear"];
 			_handled = true;
 		};
 		

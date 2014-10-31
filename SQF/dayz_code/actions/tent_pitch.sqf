@@ -24,10 +24,8 @@ if (_booleans select 0) exitWith { cutText [localize "str_player_21", "PLAIN DOW
 
 // object would be in the water (pool or sea)
 if ((_booleans select 1) OR (_booleans select 2)) exitWith { cutText [localize "str_player_26", "PLAIN DOWN"]; r_action_count = 0; };
-
-	//diag_log("CTP: Player " + str(player));
-	
-	//diag_log("CTP: Worldspace " + str(_worldspace));
+	if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["CTP: Player: %1",player]);};
+	if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["CTP: Worldspace: %1",_worldspace]);};
 
 if ((count _worldspace) == 2) then {
 	//remove tentbag
@@ -55,15 +53,15 @@ if ((count _worldspace) == 2) then {
 	player reveal _tent;
 	_location = getPosATL _tent;
 	
-
-	
 	_tent setVariable ["characterID",dayz_characterID,true];
-	PVDZ_obj_Publish = [dayz_characterID,_tent,[_dir,_location],"TentStorage"];
-	publicVariableServer "PVDZ_obj_Publish";
+	//PVDZ_obj_Publish = [dayz_characterID,_tent,[_dir,_location],"TentStorage"];
+	//publicVariableServer "PVDZ_obj_Publish";
+	PVDZ_bld_Publish = [dayz_characterID,_tent,[_dir,_location],"TentStorage",dayz_characterID, "tent_pitch",dayz_playerUID,"0"];
+	publicVariableServer "PVDZ_bld_Publish";
 
 	cutText [localize "str_success_tent_pitch", "PLAIN DOWN"];
+	if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["CTP: Worldspace: %1",_worldspace]);};
 	//diag_log("CTP: Tent Succeeded.");
-	//[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
     [player,"Generic_Hunting"] call DZU_fnc_giveEXP;
 	sleep 1;
 	r_action_count = 0;

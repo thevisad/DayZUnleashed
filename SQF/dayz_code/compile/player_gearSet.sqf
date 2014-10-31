@@ -4,7 +4,7 @@ _inventory = _this;
 if (count _inventory > 0) then {
 	_wpns = _inventory select 0;
 	_mags = _inventory select 1;
-	if (unleashed_debug == 1) then {
+	if (unleashed_SavingDebug == 1) then {
 		diag_log(format["PGS: THIS: %1",_this]);
 		diag_log(format["PGS: WEAPONS: %1",_wpns]);
 		diag_log(format["PGS: MAGS: %1",_mags]);

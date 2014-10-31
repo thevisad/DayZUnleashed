@@ -78,5 +78,7 @@ unleashed_lootDebug = 0;
 unleashed_ZombieDebug = 0;
 unleashed_PerroDebug = 0;
 unleashed_GarageDebug = 1;
-unleashed_PlayerBuildDebug = 0;
+unleashed_PlayerBuildDebug = 1;
+unleashed_SavingDebug = 0;
+unleashed_PlayerLoginDebug = 0;
 #include "\z\addons\dayz_code\system\mission\init.sqf"
