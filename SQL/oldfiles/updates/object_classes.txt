@@ -1,0 +1,8 @@
+ALTER TABLE `object_classes` ENGINE=MyISAM,
+DEFAULT CHARACTER SET=utf8 COLLATE=utf8_general_ci,
+ROW_FORMAT=Dynamic;
+ALTER TABLE `object_classes` MODIFY COLUMN `Classname`  varchar(32) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '' FIRST ;
+ALTER TABLE `object_classes` MODIFY COLUMN `Chance`  varchar(4) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' AFTER `Classname`;
+ALTER TABLE `object_classes` MODIFY COLUMN `MaxNum`  tinyint(1) UNSIGNED NOT NULL DEFAULT 0 AFTER `Chance`;
+ALTER TABLE `object_classes` MODIFY COLUMN `Damage`  varchar(20) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT '0' AFTER `MaxNum`;
+ALTER TABLE `object_classes` MODIFY COLUMN `Type`  text CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL AFTER `Damage`;
