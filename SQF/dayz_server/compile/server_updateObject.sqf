@@ -59,7 +59,7 @@ _object_position = {
 		_fuel = fuel _object;
 	};
 	_key = format["CHILD:305:%1:%2:%3:",_objectID,_worldspace,_fuel];
-	if (unleashed_debug == 1) then { diag_log(format["SUO: HIVE: WRITE: "+ str(_key));};
+	if (unleashed_debug == 1) then { diag_log(format["SUO: HIVE: WRITE: "+ str(_key)]); };
 	_key call server_hiveWrite;
 };
 

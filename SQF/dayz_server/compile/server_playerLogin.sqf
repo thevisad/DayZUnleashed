@@ -3,9 +3,9 @@ private["_botActive","_int","_newModel","_doLoop","_wait","_hiveVer","_isHiveOk"
 
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 
-#ifdef LOGIN_DEBUG
-diag_log ("STARTING LOGIN: " + str(_this));
-#endif
+if (unleashed_PlayerLoginDebug == 1) then {
+	diag_log (format["SPL: STARTING LOGIN: %1",_this]);
+};
 
 _playerID = _this select 0;
 _playerObj = _this select 1;
@@ -17,7 +17,7 @@ if (_playerName == '__SERVER__' || _playerID == '' || local player) exitWith {};
 // Cancel any login until server_monitor terminates. 
 // This is mandatory since all vehicles must be spawned before the first players spawn on the map.
 // Otherwise, all vehicle event handlers won't be created on players' client side.
-if (isNil "sm_done") exitWith { diag_log ("Login cancelled, server is not ready. " + str(_playerObj)); };
+if (isNil "sm_done") exitWith { diag_log ("SPL: Login cancelled, server is not ready. " + str(_playerObj)); };
 
 
 if (count _this > 2) then {
@@ -44,13 +44,35 @@ if (_playerID == "") then {
 };
 
 if ((_playerID == "") or (isNil "_playerID")) exitWith {
-	diag_log ("LOGIN FAILED: Player [" + _playerName + "] has no login ID");
+	if (unleashed_PlayerLoginDebug == 1) then {
+		diag_log ("SPL: LOGIN FAILED: Player [" + _playerName + "] has no login ID");
+	};
+	
 };
 
-//??? endLoadingScreen;
-#ifdef LOGIN_DEBUG
-diag_log ("LOGIN ATTEMPT: " + str(_playerID) + " " + _playerName);
-#endif
+
+if (unleashed_PlayerLoginDebug == 1) then {
+	diag_log ("SPL: LOGIN ATTEMPT: " + str(_playerID) + " " + _playerName);
+};
+/*
+_playerFriends = [_playerID] call server_getFriends;
+_playerCheckBans = [_playerID] call server_checkPlayer;
+
+if (unleashed_PlayerLoginDebug == 1) then {
+	diag_log(format["SPL: PLAYER GetFriends: %1",_playerFriends]);
+	diag_log(format["SPL: PLAYER GetBans: %1",_playerCheckBans]);
+};
+
+_playerObj setVariable ["steamfriends",_playerFriends,[]];
+_playerObj setVariable ["steamvacbans",_playerCheckBans,[]];
+
+if (unleashed_PlayerLoginDebug == 1) then {
+	_steamfriends =  player getVariable ["steamfriends","0"];
+	_steamvacbans =  player getVariable ["steamvacbans","0"];
+	diag_log(format["SPL: PLAYER Variable GetFriends: %1",_steamfriends]);
+	diag_log(format["SPL: PLAYER Variable GetBans: %1",_steamvacbans]);
+};
+*/
 
 //Do Connection Attempt
 _doLoop = 0;
@@ -66,11 +88,17 @@ while {_doLoop < 5} do {
 };
 
 if (isNull _playerObj or !isPlayer _playerObj) exitWith {
-	diag_log ("LOGIN RESULT: Exiting, player object null: " + str(_playerObj));
+	if (unleashed_PlayerLoginDebug == 1) then {
+		diag_log ("SPL: LOGIN RESULT: Exiting, player object null: " + str(_playerObj));
+	};
+	
 };
 
 if ((_primary select 0) == "ERROR") exitWith {	
-    diag_log format ["LOGIN RESULT: Exiting, failed to load _primary: %1 for player: %2 ",_primary,_playerID];
+	if (unleashed_PlayerLoginDebug == 1) then {
+		diag_log format ["SPL: LOGIN RESULT: Exiting, failed to load _primary: %1 for player: %2 ",_primary,_playerID];
+	};
+    
 };
 
 //Process request
@@ -88,9 +116,12 @@ _isInfected = false;
 /* PROCESS */
 _hiveVer = 0;
 //RETURNING CHARACTER		
-diag_log(format["SPL: count primary: %1", _isNew ]);
-diag_log(format["SPL: charID: %1", _charID ]);
-diag_log(format["SPL: newPlayer: %1", _newPlayer ]);
+if (unleashed_PlayerLoginDebug == 1) then {
+	diag_log(format["SPL: count primary: %1", _isNew ]);
+	diag_log(format["SPL: charID: %1", _charID ]);
+	diag_log(format["SPL: newPlayer: %1", _newPlayer ]);
+};
+
 
 if (!_newPlayer) then {
 	//RETURNING CHARACTER		
@@ -113,12 +144,14 @@ if (!_newPlayer) then {
 	if (_playerID == "95700038") then {
 	_model = "PvtAmmo_DZU";
 	};
-	
-	diag_log(format["SPL: _survival: %1", _survival ]);
-	diag_log(format["SPL: _inventory: %1", _inventory ]);
-	diag_log(format["SPL: _backpack: %1", _backpack ]);
-	diag_log(format["SPL: _model: %1", _model ]);
-	diag_log(format["SPL: _hiveVer: %1", _hiveVer ]);
+	if (unleashed_PlayerLoginDebug == 1) then {
+		diag_log(format["SPL: _survival: %1", _survival ]);
+		diag_log(format["SPL: _inventory: %1", _inventory ]);
+		diag_log(format["SPL: _backpack: %1", _backpack ]);
+		diag_log(format["SPL: _model: %1", _model ]);
+		diag_log(format["SPL: _hiveVer: %1", _hiveVer ]);
+	};
+
 	
 } else {
 	/* //disabling for now due to issues with the system
@@ -160,10 +193,8 @@ if (!_newPlayer) then {
 	_bcpk = getText (_config >> "backpack");
 	_randomSpot = true;
 
-	diag_log(format["SPL: new _inventory: %1", _inventory ]);
-	diag_log(format["SPL: new _backpack: %1", _backpack ]);
-	diag_log(format["SPL: new _model: %1", _model ]);
-	diag_log(format["SPL: new _hiveVer: %1", _hiveVer ]);
+
+
 	/*
 	if (_inventory == "[]") then {
 		//Wait for HIVE to be free
@@ -173,9 +204,10 @@ if (!_newPlayer) then {
 	*/
 	
 };
-#ifdef LOGIN_DEBUG
-diag_log ("LOGIN LOADED: " + str(_playerObj) + " Type: " + (typeOf _playerObj));
-#endif
+
+	if (unleashed_PlayerLoginDebug == 1) then {
+		diag_log ("SPL: LOGIN LOADED: " + str(_playerObj) + " Type: " + (typeOf _playerObj));
+	};
 
 _isHiveOk = false;	//EDITED
 if (_hiveVer >= dayz_hiveVersionNo) then {

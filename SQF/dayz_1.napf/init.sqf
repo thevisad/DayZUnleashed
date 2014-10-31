@@ -73,12 +73,14 @@ dayz_zombiehordeMinimum = 6; //minimum amount of zombie spawns per horde
 dayz_zombiehordeMaximum = 20; // minimum amount of zombie spawns per horde
 
 
-unleashed_debug = 1;
+unleashed_debug = 0;
 unleashed_lootDebug = 0;
 unleashed_ZombieDebug = 0;
 unleashed_PerroDebug = 0;
-unleashed_GarageDebug = 1;
-unleashed_PlayerBuildDebug = 1;
+unleashed_GarageDebug = 0;
+unleashed_PlayerBuildDebug = 0;
 unleashed_SavingDebug = 0;
-unleashed_PlayerLoginDebug = 0;
+unleashed_PlayerLoginDebug = 1;
+
+unleashed_PlayerData="http://www.dayzunleashed.com/dayz/gameuser.php";
 #include "\z\addons\dayz_code\system\mission\init.sqf"

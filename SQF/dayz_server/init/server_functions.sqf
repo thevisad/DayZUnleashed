@@ -678,13 +678,14 @@ server_checkPlayer = {
     ["DaysSinceLastBan","76"],
     ["EconomyBan","none"]]
 	*/
-	_data = "check_player" callExtension _this;
+	_data = "check_player" callExtension (_this select 0);
 	//diag_log ("WRITE: " +str(_data));
+	_data;
 };
 
 server_getFriends = {
 	private["_data"];
-	_result = "get_friends" callExtension getPlayerUID (playableUnits select 0);
+	_result = "get_friends" callExtension (_this select 0);
 	//_result = "get_friends" callExtension "ERROR"; //DOWNLOAD FAILED
 	//_result = "get_friends" callExtension "CLEAR"; //123
 	/*
@@ -695,13 +696,13 @@ server_getFriends = {
     "76561198035333552","76561198063488310","76561198065555502",
     "76561198071941786","76561198072809368"]
 	*/
-	_data = "get_friends" callExtension _this;
+	_result;
 };
 
 server_urlFetch = {
 	private["_data"];
 	//url_fetch = compile preprocessFileLineNumbers "url_fetch.sqf";
-	//"http://killzonekid.com/hello.php?name=KK" spawn url_fetch;
+	//format["http://127.0.0.1/dayz_web/gameuser.php?user=%1",_this] spawn server_urlFetch;
 	_data = "url_fetch" callExtension _this;
 	//diag_log ("WRITE: " +str(_data));
 };
