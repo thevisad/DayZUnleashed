@@ -8,7 +8,7 @@ deathHandled = true;
 _display = findDisplay 49;
 if(!isNull _display) then {_display closeDisplay 0;};
 if (dialog) then {closeDialog 0;};
-if (visibleMap) then {openMap false;};
+//if (visibleMap) then {openMap false;};
 
 _body = player;
 _playerID = getPlayerUID player;

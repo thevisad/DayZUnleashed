@@ -1,0 +1,16 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: Produced from mikero's Dos Tools Dll version 4.57
+//Sat Nov 01 22:18:02 2014 : Source 'file' date Sat Nov 01 22:18:02 2014
+//http://dev-heaven.net/projects/list_files/mikero-pbodll
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+//Class dayz_communityassets : textures\soda_printedtin.rvmat{
+ambient[] = {0.8,0.8,0.8,1.0};
+diffuse[] = {0.4,0.4,0.4,1.0};
+forcedDiffuse[] = {0.0,0.0,0.0,0.0};
+emmisive[] = {0.0,0.0,0.0,1.0};
+specular[] = {0.3,0.3,0.3,0.0};
+specularPower = 30;
+//};

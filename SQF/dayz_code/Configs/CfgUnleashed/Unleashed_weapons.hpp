@@ -1,5 +1,5 @@
 class ExtraRc {
-	class PistolCore {
+	class Pistol {
 			class ItemActions {
 				class Suicide
 				{

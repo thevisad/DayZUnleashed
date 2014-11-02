@@ -318,14 +318,21 @@ if (_hasrequireditem) then {
 		//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isAllowedUnderGround hit"]);};
 			_location set [2,0];
 		};
-	
+
 		_object setPosATL _location;
 		_uid = [_dir,_location] call dayz_objectUID2;
-		_object setVariable ["GarageUID", _uid,true];
-		_GarageUID = _object getVariable ["GarageUID", "0"];
-		if (unleashed_PlayerBuildDebug == 1) then {
-			diag_log (format["PB: UID: %1", _uid]);
-			diag_log (format["PB: GarageUID: %1", _GarageUID]);
+		_isGarage = _object isKindOf "dzu_playerGarage";
+		if (_isGarage) then {
+			_object setVariable ["GarageUID", _uid ,true];
+			_GarageUID = _object getVariable ["GarageUID", "0"];
+			_object setVariable ["VehicleClassArray", [], true];
+			_object setVariable ["VehicleIDArray", [] , true];
+			_object setVariable ["VehicleNameArray", [] , true];
+			if (unleashed_PlayerBuildDebug == 1) then {
+				diag_log (format["PB: UID: %1", _uid]);
+				diag_log (format["PB: GarageUID: %1", _GarageUID]);
+			};
+		
 		};
 		
 		cutText [format[(localize "str_epoch_player_138"),_text], "PLAIN DOWN"];

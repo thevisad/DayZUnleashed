@@ -71,7 +71,7 @@ dayz_zombiehordeMinSpawns = 2; //Lower limit of Zombie hordes that are allowed t
 dayz_zombiehordeMaxSpawns = 5; //Upper limit of Zombie hordes that are allowed to spawn
 dayz_zombiehordeMinimum = 6; //minimum amount of zombie spawns per horde 
 dayz_zombiehordeMaximum = 20; // minimum amount of zombie spawns per horde
-
+unleashed_searchSkillCurve = 11.8;//Lock Picking: Player Engineering skill divide by this skill to reduce total search time. 
 
 unleashed_debug = 0;
 unleashed_lootDebug = 0;

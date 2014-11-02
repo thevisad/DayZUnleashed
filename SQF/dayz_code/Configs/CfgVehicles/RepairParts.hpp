@@ -45,6 +45,12 @@ class RepairParts : AllVehicles
 	class HitBWheel {
 		part = "PartWheel";
 	};
+	class wheel_1_damper {
+		part = "PartWheel";
+	};
+	class wheel_2_damper {
+		part = "PartWheel";
+	};
 	class HitGlass1 {
 		part = "PartGlass";
 	};

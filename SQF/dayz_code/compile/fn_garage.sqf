@@ -1,5 +1,6 @@
 if(not local player) exitWith{};
 
+player setVariable["GarageRemoval", true, false];
 disableSerialization;
 
 _display = findDisplay 20011;
@@ -59,3 +60,4 @@ player removeAction insert_vehicle;
 insert_vehicle = -1; 
 player removeAction unleashed_hack_garage; 
 unleashed_hack_garage = -1;
+player setVariable["GarageRemoval", false, false];

@@ -1,5 +1,7 @@
 player removeAction remove_vehicle; 
 remove_vehicle = -1; 
+
+player setVariable["GarageInsertion", true, false];
 player removeAction insert_vehicle; 
 insert_vehicle = -1; 
 player removeAction unleashed_hack_garage; 
@@ -33,6 +35,10 @@ if (_arrayCount >= _garageLimit) then {
 		diag_log (format["GARAGEHANDLER: ADD GARAGECLASS:%1",_garageClass]);
 		diag_log (format["GARAGEHANDLER: ADD VEHICLENAME:%1",_vehicleName]);
 	};
+	
+	unleashed_CurrentGarage setVariable ["VehicleClassArray", unleashed_GarageVehicleClassArray, true];
+	unleashed_CurrentGarage setVariable ["VehicleIDArray", unleashed_GarageVehicleIDArray , true];
+	unleashed_CurrentGarage setVariable ["VehicleNameArray", unleashed_GarageVehicleNameArray , true];
 
 	unleashed_GarageVehicleClassArray set [count unleashed_GarageVehicleClassArray, _nearVehicleClass];
 	unleashed_GarageVehicleIDArray set [count unleashed_GarageVehicleIDArray, _nearVehicleID];
@@ -47,3 +53,4 @@ if (_arrayCount >= _garageLimit) then {
 	PVDZ_gar_Handler = ["add",_garageUID,_nearVehicle,_nearVehicleID];
 	publicVariableServer "PVDZ_gar_Handler";
 };
+player setVariable["GarageInsertion", false, false];

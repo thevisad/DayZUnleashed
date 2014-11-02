@@ -20,8 +20,8 @@ for [{ _loop = 0 },{ _loop < count _crewVcl },{ _loop = _loop + 1}] do
 		sleep 0.05;
 		_unit action ["EJECT", _vcl];
 		sleep 1;
-		_position = position _unit;
-		_isOnDeck = getPos _unit in LHA_Deck;
+		_position = getPosATL _unit;
+		_isOnDeck = getPosASL _unit in LHA_Deck;
 		if (_isOnDeck) then {
 			_unit setPosAsl [(_position select 0), (_position select 1), (LHA_height+1)];
 		};

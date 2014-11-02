@@ -32,7 +32,7 @@ _bag = createVehicle ["WeaponHolder_ItemTent",_pos,[], 0, "CAN_COLLIDE"];
 _bag setdir _dir;
 player reveal _bag;
 
-_holder = "WeaponHolder" createVehicle _pos;
+	_holder = createVehicle ["WeaponHolder", _pos, [], 0, "CAN_COLLIDE"];
 
 _weapons = getWeaponCargo _obj;
 _magazines = getMagazineCargo _obj;

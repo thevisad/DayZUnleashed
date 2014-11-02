@@ -678,11 +678,35 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 8))
 			_nearVehicle = nearestObjects [player, ["LandVehicle"], 15];
 			_countNearVehicles = count _nearVehicle;
 			if (remove_vehicle < 0) then {
-
+				if (player getVariable["GarageInsertion",false]) 
+					exitWith {
+						if (unleashed_GarageDebug == 1) then {
+							diag_log "PVA: ERROR: Currently removing from garage already!"; 
+						};
+					};
+				if (player getVariable["GarageRemoval",false]) 
+					exitWith {
+						if (unleashed_debug == 1) then {
+							diag_log "PVA: ERROR: Removing from garage already!"; 
+						};
+					};
 				remove_vehicle = player addAction [("<t color=""#FF0000"">" + ("Remove Vehicle from Garage") + "</t>"), "\z\addons\dayz_code\actions\player_VehicleRemove.sqf",[], 0, false, true, "",""];
 			};
 
 			if (insert_vehicle < 0) then {
+				if (player getVariable["GarageRemoval",false]) 
+					exitWith {
+						if (unleashed_debug == 1) then {
+							diag_log "PVA: ERROR: Currently inserting into garage!"; 
+						};
+					};
+				if (player getVariable["GarageInsertion",false]) 
+					exitWith {
+						if (unleashed_GarageDebug == 1) then {
+							diag_log "PVA: ERROR: Inserting into garage already!"; 
+						};
+					};
+					
 				if( _countNearVehicles > 0 ) then {
 					_nearVehicle = _nearVehicle select 0;
 					_nearVehicleClass = typeOf _nearVehicle;

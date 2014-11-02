@@ -28,7 +28,7 @@ _failChance             = g_pickFailChance_dzu-1;                              /
 if((count _args)>4)then{_failChance=_args select 4;};						   //Allow failchance override via script call.
 
         _searchTime = ( 
-                    (round(_searchTime/(1+(_playerSkill/_searchSkillCurve))) max _searchMinTick)
+                    (round(_searchTime/(1+(_playerSkill/unleashed_searchSkillCurve))) max _searchMinTick)
                 ); 
     player setVariable["PickingInProgress", true, false];
     _location = getPosATL player;
