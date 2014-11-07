@@ -43,9 +43,9 @@ unleashed_maxDogs = 1; //Maz number of Z Dogs
 unleashed_spawnAiAtCrashSites = 1;
 unleashed_startingInventory = [["M9"],["15Rnd_9x19_M9","15Rnd_9x19_M9","15Rnd_9x19_M9","ItemBandage"]];
 unleashed_startingBackpack = ["CZ_VestPouch_EP1",[[],[]],[[],[]]];
-unleashed_garageBuildings = ["dzu_playerGarage_sm","dzu_playerGarage_lg"];
-unleashed_hangerBuildings = ["",""];
-unleashed_boatBuildings = ["",""];
+unleashed_garageBuildings = ["dzu_playerGarage_sm","dzu_playerGarage_lg"]; // buildings which are part of the garage system.
+unleashed_hangerBuildings = ["",""]; // not yet implemented
+unleashed_boatBuildings = ["",""];	// not yet implemented
 dayz_dawn = 4; //6
 dayz_dusk = 22; //18
 dayz_maxAnimals = 10;
@@ -72,15 +72,19 @@ dayz_zombiehordeMaxSpawns = 5; //Upper limit of Zombie hordes that are allowed t
 dayz_zombiehordeMinimum = 6; //minimum amount of zombie spawns per horde 
 dayz_zombiehordeMaximum = 20; // minimum amount of zombie spawns per horde
 unleashed_searchSkillCurve = 11.8;//Lock Picking: Player Engineering skill divide by this skill to reduce total search time. 
+unleashed_DistanceFiredAttractZombies = 25; //the distance that will begin to attract zombies in a agro situation. 
 
-unleashed_debug = 0;
+
+unleashed_debug = 1;
 unleashed_lootDebug = 0;
-unleashed_ZombieDebug = 0;
+unleashed_ZombieDebug = 1;
 unleashed_PerroDebug = 0;
 unleashed_GarageDebug = 0;
 unleashed_PlayerBuildDebug = 0;
 unleashed_SavingDebug = 0;
 unleashed_PlayerLoginDebug = 1;
+unleashed_AnimateCorpseDebug = 1;
+unleashed_messagingDebug = 1;
 
 unleashed_PlayerData="http://www.dayzunleashed.com/dayz/gameuser.php";
 #include "\z\addons\dayz_code\system\mission\init.sqf"
