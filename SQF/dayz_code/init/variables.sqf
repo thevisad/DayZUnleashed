@@ -396,6 +396,7 @@ dayz_resetSelfActions = {
 	remove_vehicle = -1; 
 	unleashed_hack_garage = -1; 
 	s_pilot_swap = -1;
+	bringBackTheDead = -1; 
 };
 call dayz_resetSelfActions;
 
@@ -669,8 +670,9 @@ if(isNil "unleashed_ZedMediumAgroRange") then {
 if(isNil "unleashed_ZedLongAgroRange") then {
 	unleashed_ZedLongAgroRange = 25; //Far Chase Range
 };
-
-
+if(isNil "unleashed_CurrentDogAction") then {
+	unleashed_CurrentDogAction = nil; //Far Chase Range
+};
 
 dayzHit = [];
 PVDZ_obj_Publish = [];		//used for eventhandler to spawn a mirror of players tent
