@@ -115,6 +115,8 @@ if (!isNull _agent) then {
 	_agent setVariable ["doLoiter", _doLoiter]; // true: Z will be wandering, false: stay still
 	_agent setVariable ["myDest", _position];
 	_agent setVariable ["newDest", _position];
+	//_agent addMagazine "30Rnd_556x45_Stanag"; 
+	//_agent addWeapon "BAF_L85A2_RIS_SUSAT";
 	if (_doLoiter) then {
 		[_agent, _position] call zombie_loiter;
 	};

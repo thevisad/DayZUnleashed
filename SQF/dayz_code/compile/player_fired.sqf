@@ -40,7 +40,9 @@ if ((_ammo isKindOf "SmokeShell") or (_ammo isKindOf "GrenadeHandTimedWest") or 
 			};
 
 			_listTalk = _pos nearEntities ["zZombie_Base",50];
-
+			for "_x" from 1 to 5 do {
+				[getPosATL _projectile,6] call agro_spawnZombies;
+			};
 			{
 				private["_targets"];
 				_x reveal [_projectile,4];
@@ -54,12 +56,17 @@ if ((_ammo isKindOf "SmokeShell") or (_ammo isKindOf "GrenadeHandTimedWest") or 
 		} else {
 			while { alive _projectile } do {
 				_pos = getPosATL _projectile;
-				[getPosATL _projectile] call agro_spawnZombies;
+				
 				sleep 0.01;
 			};
-
 			_listTalk = _pos nearEntities ["zZombie_Base",50];
-
+			
+			for "_x" from 1 to 8 do {
+				[getPosATL _projectile,10] call agro_spawnZombies;
+			};
+			
+			
+			
 			{
 				_x setVariable ["myDest",_pos]; // removed networked var.  targets should be enough
 			} forEach _listTalk;
@@ -74,7 +81,7 @@ if ((_ammo isKindOf "SmokeShell") or (_ammo isKindOf "GrenadeHandTimedWest") or 
         _timeleft = _combattimeout - time;
         if (_timeleft > 0) then {
 		if (unleashed_SpawnCombatZeds == 1) then {
-				if (_distance > 5) then {
+				if (unleashed_DistanceFiredAttractZombies > 25) then {
 					if (_playerOldAggroRank == 1) then 
 					{
 						[getPosATL player,1] call agro_spawnZombies;
