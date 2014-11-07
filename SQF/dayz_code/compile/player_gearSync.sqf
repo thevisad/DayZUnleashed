@@ -1,12 +1,12 @@
 private ["_objects"];
-_objects = nearestObjects [getPosATL player, dayz_updateObjects, 10];
 {
-	//["PVDZ_veh_Update",[_x,"gear"]] call callRpcProcedure;
-	PVDZ_veh_Update = [_x,"gear"];
-	publicVariableServer "PVDZ_veh_Update";
-	
-	diag_log(format["SGS: Updating nearby objects: %1",_x]);
-} foreach _objects;
+	PVDZ_veh_Save = [_x,"gear"];
+	publicVariableServer "PVDZ_veh_Save";
+	if (unleashed_SavingDebug == 1) then {
+		diag_log(format["SGS: Updating nearby objects: %1",_x]);
+	};
+} forEach nearestObjects [getPosATL player, dayz_updateObjects, 10];
+
 
 
 private["_dialog","_magazineArray","_control","_item","_val","_max"];

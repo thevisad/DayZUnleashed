@@ -1,0 +1,18 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: Produced from mikero's Dos Tools Dll version 4.57
+//Sat Nov 01 22:18:02 2014 : Source 'file' date Sat Nov 01 22:18:02 2014
+//http://dev-heaven.net/projects/list_files/mikero-pbodll
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+//Class dayz_communityassets : textures\plastic_box_top.rvmat{
+ambient[] = {0.27450982,0.62352943,0.015686275,0.8};
+diffuse[] = {0.27450982,0.62352943,0.015686275,0.8};
+forcedDiffuse[] = {0,0,0,0};
+emmisive[] = {0,0,0,1};
+specular[] = {0.9999999,1,0.946,1};
+specularPower = 7.8;
+PixelShaderID = "Normal";
+VertexShaderID = "Basic";
+//};

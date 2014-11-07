@@ -9577,14 +9577,14 @@
 		  <Czech>1.04</Czech>
 		</Key>
 		<Key ID="STR_R3F_WEIGHT_InGearBox">
-		  <Original>%1 | Weight carried : %2 lb</Original>
-		  <English>%1 | Weight carried : %2 lb</English>
-		  <German>%1 | Getragenes Gewicht : %2 lb</German>
-		  <Russian>%1 | Переносимый вес : %2 Кг</Russian>
-		  <Spanish>%1 | Weight carried : %2 lb</Spanish>
-		  <Dutch>%1 | Weight carried : %2 lb</Dutch>
-		  <French>%1 | Poids transporté : %2 Kg</French>
-		  <Czech>%1 | Nesená váha : %2 lb</Czech>
+		  <Original>%1 lb</Original>
+		  <English>%1 lb</English>
+		  <German>%1 lb</German>
+		  <Russian>%1 Кг</Russian>
+		  <Spanish>%1 lb</Spanish>
+		  <Dutch>%1 lb</Dutch>
+		  <French>%1 Kg</French>
+		  <Czech>%1 lb</Czech>
 		</Key>
 		<Key ID="STR_R3F_WEIGHT_English">
 		  <Original>lb</Original>

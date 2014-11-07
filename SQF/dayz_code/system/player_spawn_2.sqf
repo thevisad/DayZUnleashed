@@ -235,10 +235,11 @@ while {true} do {
 	//Save Checker
 	if (dayz_unsaved) then {
 		if ((time - dayz_lastSave) > _saveTime) then {
-			//["PVDZ_plr_Save",[player,dayz_Magazines,false]] call callRpcProcedure;
-
-			PVDZ_plr_Save = [player,dayz_Magazines,false];
+			PVDZ_plr_Save = [player,[],false];
 			publicVariableServer "PVDZ_plr_Save";
+			if (unleashed_debug == 1) then {
+				diag_log(format["PS2: Last Save: %1",dayz_lastSave]);
+			};
 
 			if (isServer) then {
 				PVDZ_plr_Save call server_playerSync;

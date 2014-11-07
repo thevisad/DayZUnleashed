@@ -32,13 +32,22 @@
 
 //Server only
 if (isServer) then {
+	"PVDZE_maintainArea" addPublicVariableEventHandler {(_this select 1) spawn server_maintainArea};
+	
+	"PVDZE_atp" addPublicVariableEventHandler {
+		_x = _this select 1;
+		if (typeName _x == "STRING") then {
+			diag_log _x;
+		};
+	};
+	
 	"PVDZ_plr_Death"		addPublicVariableEventHandler {_id = (_this select 1) spawn server_playerDied};
 	//"dayzDiscoAdd"		addPublicVariableEventHandler {dayz_disco set [count dayz_disco,(_this select 1)];};
 	//"PVDZ_plr_Discorem"	addPublicVariableEventHandler {dayz_disco = dayz_disco - [(_this select 1)];};
 	"PVDZ_plr_Save"			addPublicVariableEventHandler {_id = (_this select 1) call server_playerSync;};
 	"PVDZ_obj_Publish"		addPublicVariableEventHandler {(_this select 1) call server_publishObj};
 	"PVDZ_bld_Publish"		addPublicVariableEventHandler {(_this select 1) call server_publishBld};
-	"PVDZ_veh_Update"		addPublicVariableEventHandler {(_this select 1) call server_updateObject};
+	"PVDZ_veh_Update"		addPublicVariableEventHandler {(_this select 1) call 1};
 	"PVDZ_plr_Login1"		addPublicVariableEventHandler {_id = (_this select 1) call server_playerLogin};
 	"PVDZ_plr_Login2"		addPublicVariableEventHandler {(_this select 1) call server_playerSetup};
 	"PVDZ_plr_VarSave1"     addPublicVariableEventHandler {(_this select 1) spawn server_playerVariableChange};
@@ -50,6 +59,10 @@ if (isServer) then {
 	//"PVDZ_spawn_loot"		addPublicVariableEventHandler {(_this select 1) spawn server_spawnLoot};
 	// upgrade && maintain
 	"PVDZ_obj_Swap"		addPublicVariableEventHandler {(_this select 1) spawn server_swapObject};
+	//Garage
+	"PVDZ_gar_Handler"		addPublicVariableEventHandler {(_this select 1) call server_GarageHandler};
+	
+	
 };
 
 //Client only

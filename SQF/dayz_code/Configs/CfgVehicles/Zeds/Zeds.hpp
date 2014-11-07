@@ -9,7 +9,7 @@ class zZombie_Distraction: Sign_circle_EP1
         hiddenSelections[] = {"camo"};
         hiddenSelectionsTextures[] = {"#(argb,8,8,3)color(0,0,0,0)"};
 };
-//class Citizen1;	// External class reference
+
 class zZombie_Base : DUZedBase {
 	scope = public;
     side = 2;
@@ -41,7 +41,7 @@ class Swarm_Base : DUZedBase {
 	magazines[] = {};
 	sensitivity = 1;	// sensor sensitivity
 	sensitivityEar = 1;
-	identityTypes[] = {"zombie1", "zombie2" , "zombie4", "zombie5", "zombie6", "zombie7", "zombie8", "zombie9", "zombie10", "zombie11", "zombie12", "zombie13", "zombie14", "zombie15"};
+	identityTypes[] = {"zombie1", "zombie2" , "zombie4", "zombie5", "zombie6", "zombie7", "zombie8", "zombie9", "zombie10", "zombie11", "zombie12", "zombie13", "zombie14", "zombie15", "zombieElite"};
 	class TalkTopics {};
 	languages[] = {};
 	armor = 10;

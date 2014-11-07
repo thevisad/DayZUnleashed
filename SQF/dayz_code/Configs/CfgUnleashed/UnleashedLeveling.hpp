@@ -137,7 +137,7 @@ class UnleashedLevelDialog {
 			colorSelectBackground[] = {1, 1, 1, 0.3};
 			colorSelectBackground2[] = {1, 1, 1, 0.9};
 			onLBSelChanged = "call updateUI2;";
-			onLBDblClick = "execVM '\z\addons\dayz_code\compile\levels.sqf'";
+			onLBDblClick = "execVM '\z\addons\dayz_code\compile\fn_levels.sqf'";
 			rowHeight = 0.025;
 			soundSelect[] = {"\ca\ui\data\sound\mouse2", 0.09, 1};
 			maxHistoryDelay = 10;
@@ -150,7 +150,7 @@ class UnleashedLevelDialog {
 			x = 0.325; y = 0.825;
 			w = 0.125; h = 0.05;
 			text = "Level up";
-			onButtonClick = "execVM '\z\addons\dayz_code\compile\levels.sqf'";
+			onButtonClick = "execVM '\z\addons\dayz_code\compile\fn_levels.sqf'";
 		};
 		class CloseButton: LevelButton {
 			x = 0.15;

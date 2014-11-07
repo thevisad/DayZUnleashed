@@ -39,7 +39,7 @@ if (DZAI_radioMsgs) then {
 					] call BIS_fnc_selectRandom2;
 					[_x,_radioSpeech] call DZAI_radioSend;
 				} else {
-					if ((random 1) < 0.10) then {
+					if (0.10 call DZAI_chance) then {
 						_radioSpeech = [
 							"You feel as if you are being watched...",
 							"You feel as if you are being followed...",
@@ -97,7 +97,7 @@ while {
 	_ableToChase = ((!isNull _unitGroup) && {(_unitGroup getVariable ["GroupSize",0]) > 0});
 	if (_ableToChase && {isNull _targetPlayer}) then {
 		if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Group %1 is attempting to search for a new target.",_unitGroup];};
-		_nearUnits = _targetPlayerPos nearEntities ["CAManBase",200];
+		_nearUnits = (leader _unitGroup) nearEntities ["CAManBase",200];
 		{
 			if (isPlayer _x) exitWith {
 				_targetPlayer = _x;

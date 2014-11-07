@@ -1,0 +1,23 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: Produced from mikero's Dos Tools Dll version 4.57
+//Sat Nov 01 22:18:02 2014 : Source 'file' date Sat Nov 01 22:18:02 2014
+//http://dev-heaven.net/projects/list_files/mikero-pbodll
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+//Class dayz_communityassets : textures\paper_note.rvmat{
+ambient[] = {1,1,1,1};
+diffuse[] = {1,1,1,0.99999994};
+forcedDiffuse[] = {0,0,0,1};
+emmisive[] = {0,0,0,1};
+specular[] = {1,1,1,0.9999999};
+specularPower = 75.3;
+PixelShaderID = "Normal";
+VertexShaderID = "Basic";
+class Stage0
+{
+	texture = "z\addons\dayz_communityassets\textures\paper_sheet_note_co.paa";
+	uvSource = "tex";
+};
+//};

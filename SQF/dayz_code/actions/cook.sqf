@@ -1,6 +1,8 @@
 private ["_rawmeat","_cookedmeat","_meat","_meatcooked","_text","_qty","_dis","_sfx"];
+if (unleashed_debug == 1) then {
+	diag_log ("COOK: Player Cooking");
+};
 
-//diag_log ("Cook Enabled");
 player removeAction s_player_cook;
 s_player_cook = -1;
 
@@ -28,7 +30,6 @@ a_player_cooking = true;
 			if !(_meat in magazines player) exitWith {cutText [format[(localize "str_player_31"),_text,(localize "str_player_31_cook")] , "PLAIN DOWN"]};
 		};
 		cutText [format[(localize "str_success_cooked"),_qty,_text], "PLAIN DOWN"];
-		//[player,2,2] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
         [player,"Generic_Hunting"] call DZU_fnc_giveEXP;
 
 	};

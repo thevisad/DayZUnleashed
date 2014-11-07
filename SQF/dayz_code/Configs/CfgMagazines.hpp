@@ -714,6 +714,50 @@ class CfgMagazines {
 			};
 		};
 	};
+	
+	class dzu_playerGarage_sm_kit: CA_Magazine
+	{
+		scope = 2;
+		count = 1;
+		type = 256;
+		displayName = "A Small Garage";
+		descriptionShort = "A small garage that holds 3 cars.";
+		model = "\z\addons\dayz_epoch\models\supply_crate.p3d";
+		picture = "\z\addons\dayz_epoch\pictures\equip_wooden_crate_ca.paa";
+		weight = 100;
+		class ItemActions
+		{
+			class Build
+			{
+				text = $STR_ACTIONS_BUILD;
+				script = "spawn DZE_player_build;";
+				require[] = {"ItemEtool","ItemToolbox"};
+				create = "dzu_playerGarage_sm";
+			};
+		};
+	};
+	class dzu_playerGarage_lg_kit: CA_Magazine
+	{
+		scope = 2;
+		count = 1;
+		type = 256;
+		displayName = "A Large Garage";
+		descriptionShort = "A larger garage that holds 10 cars.";
+		model = "\z\addons\dayz_epoch\models\supply_crate.p3d";
+		picture = "\z\addons\dayz_epoch\pictures\equip_wooden_crate_ca.paa";
+		weight = 100;
+		class ItemActions
+		{
+			class Build
+			{
+				text = $STR_ACTIONS_BUILD;
+				script = "spawn DZE_player_build;";
+				require[] = {"ItemEtool","ItemToolbox"};
+				create = "dzu_playerGarage_lg";
+			};
+		};
+	};
+	
 	class wood_shack_kit: CA_Magazine
 	{
 		scope = 2;
@@ -1276,6 +1320,7 @@ class CfgMagazines {
 				output[] = {{"wood_shack_kit",1}};
 				input[] = {{"PartWoodPlywood",4},{"PartWoodLumber",4}};
 			};
+
 			class Crafting2
 			{
 				text = $STR_EPOCH_PLAYER_262;
@@ -1295,14 +1340,32 @@ class CfgMagazines {
 				input[] = {{"PartWoodPlywood",3},{"PartWoodLumber",3}};
 			};
 			class Crafting4
-		        {
-		                text = $STR_EPOCH_PLAYER_264;
-		                Script = ";['Crafting4','CfgMagazines', _id] spawn DZE_player_craftItem;";
-		                neednearby[] = {"workshop"};
-		                requiretools[] = {"ItemToolbox"};
-		                output[] = {{"PartPlywoodPack",1}};
-		                input[] = {{"PartWoodPlywood",3}};
-		        };
+			{
+				text = $STR_EPOCH_PLAYER_264;
+				Script = ";['Crafting4','CfgMagazines', _id] spawn DZE_player_craftItem;";
+				neednearby[] = {"workshop"};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"PartPlywoodPack",1}};
+				input[] = {{"PartWoodPlywood",3}};
+			};
+			class Crafting5
+			{
+				text = "Craft Small Garage";
+				script = ";['Crafting5','CfgMagazines', _id] spawn DZE_player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"dzu_playerGarage_sm_kit",1}};
+				input[] = {{"PartWoodPlywood",2},{"PartWoodLumber",2},{"CinderBlocks", 1},{"PartGeneric",1}};
+			};
+			class Crafting6
+			{
+				text = "Craft Large Garage";
+				script = ";['Crafting6','CfgMagazines', _id] spawn DZE_player_craftItem;";
+				neednearby[] = {};
+				requiretools[] = {"ItemToolbox"};
+				output[] = {{"dzu_playerGarage_lg_kit",1}};
+				input[] = {{"PartWoodPlywood",3},{"PartWoodLumber",3},{"CinderBlocks", 2},{"PartGeneric",2}};
+			};
 
 		};
 	};

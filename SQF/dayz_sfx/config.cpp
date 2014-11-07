@@ -15,6 +15,7 @@
 
 class CfgPatches {
 	class dayz_sfx {
+		version = "0.98-Devbuild-09042014";
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;

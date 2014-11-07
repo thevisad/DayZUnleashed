@@ -38,7 +38,10 @@ _location set [2,0];
 //blocked
 	if (["concrete",dayz_surfaceType] call fnc_inString) exitwith {
 		r_action_count = 0;
-		diag_log ("surface concrete");
+		if (unleashed_debug == 1) then {
+				diag_log ("PCS: Surface is concrete");
+			};
+		
 	};
 
 _worldspace = [_stashtype, player] call fn_niceSpot;
@@ -69,13 +72,13 @@ if ((count _worldspace) == 2) then {
 	_location = getPosATL _stash;
 
 	_stash setVariable ["characterID",dayz_characterID,true];
-	PVDZ_obj_Publish = [dayz_characterID,_stash,[_dir,_location],_stashtype];
-
-	publicVariableServer "PVDZ_obj_Publish";
-
+	//PVDZ_obj_Publish = [dayz_characterID,_stash,[_dir,_location],_stashtype];
+	//publicVariableServer "PVDZ_obj_Publish";
+	
+	PVDZ_bld_Publish = [dayz_characterID,_stash,[_dir,_location],_stashtype,dayz_characterID, "player_createstash",dayz_playerUID,"0"];
+	publicVariableServer "PVDZ_bld_Publish";
 	r_action_count = 0;
 	cutText [format[(localize "str_success_stash_pitch"),_stashtype], "PLAIN DOWN"];
-	//[player,1,4] call player_variableChange; //1,engineer:2,hunter:3,medic:4,soldier
     [player,"Generic_Combat"] call DZU_fnc_giveEXP;
 	//cutText [format[(localize "str_player_31_missingtools"),_config,_consume,(localize "str_player_31_build")] , "PLAIN DOWN"];
 } else {

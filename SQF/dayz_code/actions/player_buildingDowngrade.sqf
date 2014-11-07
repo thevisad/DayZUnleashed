@@ -36,10 +36,11 @@ if(_IsNearPlot == 0) then {
 
 	// Find owner
 	_ownerID = _nearestPole getVariable["CharacterID","0"];
+		if (unleashed_PlayerBuildDebug == 1) then {
+			diag_log format["PBD: Player: %1 OwnerID: %2", dayz_characterID, _ownerID];
 
-	// diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID];
-
-	// check if friendly to owner
+		};
+	// check if owner
 	if(dayz_characterID == _ownerID) then {
 		_canBuildOnPlot = true;
 	} else {
@@ -140,9 +141,8 @@ if ((count _upgrade) > 0) then {
 
 
 		cutText [format[(localize "str_epoch_player_142"),_text], "PLAIN DOWN", 5];
-
-		PVDZE_obj_Swap = [_objectCharacterID,_object,[_dir,_location],_classname,_obj,player];
-		publicVariableServer "PVDZE_obj_Swap";
+		PVDZ_obj_Swap = [_objectCharacterID,_object,[_dir,_location],_classname,_obj,player];
+		publicVariableServer "PVDZ_obj_Swap";
 
 		player reveal _object;
 

@@ -569,4 +569,51 @@ class RHIB_DZ : Boat
 		"ca\water\data\rhib_dash_destruct.rvmat"
 	  };
 	};
+	class RHIB2Turret: RHIB
+	{
+		displayName = "$STR_DN_RHIB2";
+		vehicleClass = "Ship";
+		model = "\ca\water\rhib_gunboat";
+		picture = "\ca\water\data\ico\rhib_CA.paa";
+		Icon = "\Ca\water\Data\map_ico\icomap_gunboat_CA.paa";
+		mapSize = 8;
+		transportSoldier = 7;
+		class Turrets: Turrets
+		{
+			class MainTurret: MainTurret{};
+			class BackTurret: MainTurret
+			{
+				body = "Turret_2";
+				gun = "Gun_2";
+				animationSourceBody = "Turret_2";
+				animationSourceGun = "Gun_2";
+				animationSourceHatch = "";
+				selectionFireAnim = "zasleh_1";
+				stabilizedInAxes = 0;
+				proxyIndex = 2;
+				gunnerName = "$STR_POSITION_REARGUNNER";
+				commanding = -2;
+				gunnerOpticsModel = "\ca\weapons\optika_empty";
+				minElev = -50;
+				maxElev = 25;
+				initElev = -5;
+				minTurn = 120;
+				maxTurn = 240;
+				initTurn = 180;
+				weapons[] = {"MK19"};
+				magazines[] = {"48Rnd_40mm_MK19","48Rnd_40mm_MK19","48Rnd_40mm_MK19","48Rnd_40mm_MK19"};
+				gunBeg = "usti hlavne_1";
+				gunEnd = "konec hlavne_1";
+				primaryGunner = 1;
+				primaryObserver = 0;
+				memoryPointGun = "kulas_1";
+				memoryPointGunnerOptics = "gunnerview_1";
+			};
+		};
+		class Damage
+		{
+			tex[] = {};
+			mat[] = {"ca\water\data\rhib.rvmat","ca\water\data\rhib.rvmat","ca\water\data\rhib_destruct.rvmat","ca\water\data\rhib_dash.rvmat","ca\water\data\rhib_dash.rvmat","ca\water\data\rhib_dash_destruct.rvmat"};
+		};
+	};
 };

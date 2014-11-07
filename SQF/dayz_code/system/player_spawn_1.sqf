@@ -1,8 +1,6 @@
 private["_handle","_body","_cursor","_delMe"];
-//diag_log("PS1: Start");
 
 while {true} do {
-	//diag_log("PS1: Spawn Loop");
 	_handle = [] spawn player_animalCheck;
 	waitUntil{scriptDone _handle};
 

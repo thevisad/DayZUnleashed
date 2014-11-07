@@ -283,7 +283,7 @@ dayZ_explosiveParts = [
 //Survival Variables
 SleepFood = 2160; //minutes (48 hours)
 SleepWater = 1440; //minutes (24 hours)
-SleepTemperatur = 90 / 100;	//Firs Value = Minutes untill Player reaches the coldest Point at night (without other effects! night factor expected to be -1) //TeeChange
+SleepTemperatur = 90 / 100;	//First Value = Minutes until Player reaches the coldest Point at night (without other effects! night factor expected to be -1) //TeeChange
 
 //Server Variables
 allowConnection = false;
@@ -340,7 +340,6 @@ dayz_resetSelfActions = {
 	s_player_deleteBuild = -1;
 	s_player_deleteBuild_DZE = -1;
 	s_player_equip_carry = -1;
-	
 	s_player_forceSave = -1;
 	s_player_checkGear = 	-1;
 	s_player_flipveh = -1;
@@ -376,7 +375,6 @@ dayz_resetSelfActions = {
 	silver_myCursorTarget =  -1;
 	s_pilot_swap = -1;
 	s_pilot_lock = -1;
-	stow_vehicle = -1;
 	s_player_unlockvault = -1;
 	s_player_packvault = -1;
 	s_player_lockvault = -1;
@@ -394,6 +392,11 @@ dayz_resetSelfActions = {
 	s_building_snapping = -1;
 	s_player_callzombies = 1;
     s_player_pickup_backpack = -1;
+	insert_vehicle = -1; 
+	remove_vehicle = -1; 
+	unleashed_hack_garage = -1; 
+	s_pilot_swap = -1;
+	bringBackTheDead = -1; 
 };
 call dayz_resetSelfActions;
 
@@ -420,7 +423,7 @@ unleashed_tameBoars = true;
 unleashed_tameGoats = true;
 unleashed_tameRabbits = true;
 unleashed_tameDogs = true;
-unleashed_maxDogs = 5;
+
 mouseOverCarry = false;
 carryClick = false;
 currentLootAmount = 0;
@@ -558,21 +561,117 @@ dayz_zombieTargetList = [
 if(isNil "DZE_DamageBeforeMaint") then {
 	DZE_DamageBeforeMaint = 0.09;
 };
-
 if(isNil "DZE_BuildingLimit") then {
 	DZE_BuildingLimit = 150;
 };
-
 if(isNil "DZE_BuildOnRoads") then {
 	DZE_BuildOnRoads = false;
 };
-
 if (isNil "DZE_GodModeBase") then {
 	DZE_GodModeBase = false;
 };
-
 if(isNil "dayz_quickSwitch") then {
 	dayz_quickSwitch = false; //Enable quick weapon switch,
+};
+	//DayZ settings
+if(isNil "dayz_dawn") then {
+	dayz_dawn = 4; //6
+};
+if(isNil "dayz_dusk") then {
+	dayz_dusk = 22; //18
+};
+if(isNil "dayz_maxAnimals") then {
+	dayz_maxAnimals = 10;
+};
+if(isNil "DAYZ_agentnumber") then {
+	DAYZ_agentnumber = 0;
+};
+if(isNil "dayz_animalDistance") then {
+	dayz_animalDistance = 200;
+};
+if(isNil "dayz_zSpawnDistance") then {
+	dayz_zSpawnDistance = 400;
+};
+if(isNil "dayz_maxLocalZombies") then {
+	dayz_maxLocalZombies = 60; // max quantity of Z controlled by local gameclient, used by player_spawnCheck. Below this limit we can spawn Z
+};
+if(isNil "dayz_maxMaxModels") then {
+	dayz_maxMaxModels = 300; // max quantity of Man models (player or Z, dead or alive) around players. Below this limit we can spawn Z
+};
+if(isNil "dayz_maxMaxWeaponHolders") then {
+	dayz_maxMaxWeaponHolders = 300; // max quantity of loot piles around players. Below this limit we can spawn some loot
+};
+if(isNil "dayz_tagDelayWeaponHolders") then {
+	dayz_tagDelayWeaponHolders = 2; // prevent any new loot spawn on this building during this delay (minutes)
+};
+if(isNil "dayz_tagDelayZombies") then {
+	dayz_tagDelayZombies = 10; // prevent any new zombie spawn into or near this building during this delay (minutes)
+};
+if(isNil "dayz_spawnArea") then {
+	dayz_spawnArea = 225; // radius around player where we can spawn loot & Z
+};
+if(isNil "dayz_safeDistPlr") then {
+	dayz_safeDistPlr = 35; // Any loot & Z won't be spawned closer than this distance from any player
+};
+if(isNil "dayz_cantseeDist") then {
+	dayz_cantseeDist = 80; // distance from which we can spawn a Z in front of any player without ray-tracing and angle checks
+};
+if(isNil "dayz_cantseefov") then {
+	dayz_cantseefov = 70; // half player field-of-view. Visible Z won't be spawned in front of any near players
+};
+if(isNil "dayz_canDelete") then {
+	dayz_canDelete = 450; // Z, further than this distance from its "owner", will be deleted
+};
+if(isNil "dayz_lootSpawnBias") then {
+	//dayz_lootSpawnBias = 100; // between 50 and 100. The lower it is, the lower chance some of the lootpiles will spawn
+};
+if(isNil "dayz_lootSpawnDebug") then {
+	dayz_lootSpawnDebug = 1;
+};
+if(isNil "dayz_localswarmSpawned") then {
+	dayz_localswarmSpawned = 40;  // how many zeds will spawn around you during a combat scenario.
+};
+if(isNil "dayz_infectionTreshold") then {
+	dayz_infectionTreshold = 1.25; // used to trigger infection, see fn_damageHandler.sqf
+};
+if(isNil "dayz_localagroSpawned") then {
+	dayz_localagroSpawned = 40;  // how many zeds will spawn around you during a combat scenario.
+};
+if(isNil "dayz_zombiehordeMinSpawns") then { 
+	dayz_zombiehordeMinSpawns = 2; //Lower limit of Zombie hordes that are allowed to spawn
+};
+if(isNil "dayz_zombiehordeMaxSpawns") then {
+	dayz_zombiehordeMaxSpawns = 5; //Upper limit of Zombie hordes that are allowed to spawn
+};
+if(isNil "dayz_zombiehordeSpawned") then {
+	dayz_zombiehordeSpawned = 0; // zombie horde spawn variable
+};
+if(isNil "dayz_zombiehordeMinimum") then {
+	dayz_zombiehordeMinimum = 6; //minimum amount of zombie spawns per horde 
+};
+if(isNil "dayz_zombiehordeMaximum") then {
+	dayz_zombiehordeMaximum = 20; // minimum amount of zombie spawns per horde
+};
+if(isNil "unleashed_agroMeterEnabled") then {
+	unleashed_agroMeterEnabled = 0;
+};
+if(isNil "unleashed_BuildOnRoads") then {
+	unleashed_BuildOnRoads = 0;
+};
+if(isNil "unleashed_SpawnCombatZeds") then {
+	unleashed_SpawnCombatZeds = 0;
+};
+if(isNil "unleashed_ZedShortAgroRange") then {
+	unleashed_ZedShortAgroRange = 2.2; //Attack Range
+};
+if(isNil "unleashed_ZedMediumAgroRange") then {
+	unleashed_ZedMediumAgroRange = 10; //Close Chase Range
+};
+if(isNil "unleashed_ZedLongAgroRange") then {
+	unleashed_ZedLongAgroRange = 25; //Far Chase Range
+};
+if(isNil "unleashed_CurrentDogAction") then {
+	unleashed_CurrentDogAction = nil; //Far Chase Range
 };
 
 dayzHit = [];
@@ -582,49 +681,22 @@ dayz_selectedVault = objNull;
 dayz_selectedDoor = objNull;
 
 PVDZE_plr_DeathB = [];
-//DayZ settings
-dayz_dawn = 4; //6
-dayz_dusk = 22; //18
-dayz_maxAnimals = 20;
-DAYZ_agentnumber = 0;
-dayz_animalDistance = 200;
-dayz_zSpawnDistance = 1000;
-
-dayz_maxLocalZombies = 60; // max quantity of Z controlled by local gameclient, used by player_spawnCheck. Below this limit we can spawn Z
-dayz_maxMaxModels = 300; // max quantity of Man models (player or Z, dead or alive) around players. Below this limit we can spawn Z
-dayz_maxMaxWeaponHolders = 400; // max quantity of loot piles around players. Below this limit we can spawn some loot
-dayz_tagDelayWeaponHolders = 2; // prevent any new loot spawn on this building during this delay (minutes)
-dayz_tagDelayZombies = 10; // prevent any new zombie spawn into or near this building during this delay (minutes)
-dayz_spawnArea = 225; // radius around player where we can spawn loot & Z
-dayz_safeDistPlr = 50; // Any loot & Z won't be spawned closer than this distance from any player
-dayz_cantseeDist = 150; // distance from which we can spawn a Z in front of any player without ray-tracing and angle checks
-dayz_cantseefov = 70; // half player field-of-view. Visible Z won't be spawned in front of any near players
-dayz_canDelete = 600; // Z, further than this distance from its "owner", will be deleted
-//dayz_lootSpawnBias = 100; // between 50 and 100. The lower it is, the lower chance some of the lootpiles will spawn
-dayz_lootSpawnDebug = 1;
-dayz_localswarmSpawned = 40;  // how many zeds will spawn around you during a combat scenario.
-dayz_infectionTreshold = 1.25; // used to trigger infection, see fn_damageHandler.sqf
-dayz_localagroSpawned = 40;  // how many zeds will spawn around you during a combat scenario. 
-dayz_zombiehordeMinSpawns = 2; //Lower limit of Zombie hordes that are allowed to spawn
-dayz_zombiehordeMaxSpawns = 5; //Upper limit of Zombie hordes that are allowed to spawn
-dayz_zombiehordeSpawned = 0; // zombie horde spawn variable
-dayz_zombiehordeMinimum = 6; //minimum amount of zombie spawns per horde 
-dayz_zombiehordeMaximum = 20; // minimum amount of zombie spawns per horde
 dayz_zombiehorde = 0; //current hordes
 dayz_zombiehordeData = []; //current hordes
 dayz_zombiehordes = []; 
-unleashed_agroMeterEnabled = 0;
-unleashed_BuildOnRoads = 0;
-unleashed_SpawnCombatZeds = 0;
-unleashed_ZedShortAgroRange = 2.2; //Attack Range
-unleashed_ZedMediumAgroRange = 10; //Close Chase Range
-unleashed_ZedLongAgroRange = 25; //Far Chase Range
 unleashed_leveling_queue = [];
 dayz_onBackActive = false;
 dayz_onBack = "";
+unleashed_GarageVehicleClassArray =[];
+unleashed_GarageVehicleIDArray =[];
+unleashed_GarageVehicleNameArray =[];
+unleashed_GarageOwner = 0;
+unleashed_GarageUID = 0;
+unleashed_CurrentGarage = objNull;
+msgList = [];
 
 // update objects
-dayz_updateObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ"];
+dayz_updateObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "Land_A_tent", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ"];
 dayz_disallowedVault = ["TentStorage", "BuiltItems","ModularItems","DZE_Base_Object"];
 dayz_reveal = ["AllVehicles","WeaponHolder","Land_A_tent","BuiltItems","ModularItems","DZE_Base_Object"];
 dayz_allowedObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "VaultStorage","LockboxStorage","TentStorage","TentStorageDomed","TentStorageDomed2", "VaultStorageLocked", "Hedgehog_DZ", "Sandbag1_DZ","BagFenceRound_DZ","TrapBear","Fort_RazorWire","WoodGate_DZ","Land_HBarrier1_DZ","Land_HBarrier3_DZ","Land_HBarrier5_DZ","Fence_corrugated_DZ","M240Nest_DZ","CanvasHut_DZ","ParkBench_DZ","MetalGate_DZ","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","Plastic_Pole_EP1_DZ","Generator_DZ","StickFence_DZ","LightPole_DZ","FuelPump_DZ","DesertCamoNet_DZ","ForestCamoNet_DZ","DesertLargeCamoNet_DZ","ForestLargeCamoNet_DZ","SandNest_DZ","DeerStand_DZ","MetalPanel_DZ","WorkBench_DZ","WoodFloor_DZ","WoodLargeWall_DZ","WoodLargeWallDoor_DZ","WoodLargeWallWin_DZ","WoodSmallWall_DZ","WoodSmallWallWin_DZ","WoodSmallWallDoor_DZ","LockboxStorageLocked","WoodFloorHalf_DZ","WoodFloorQuarter_DZ","WoodStairs_DZ","WoodStairsSans_DZ","WoodStairsRails_DZ","WoodSmallWallThird_DZ","WoodLadder_DZ","Land_DZE_GarageWoodDoor","Land_DZE_LargeWoodDoor","Land_DZE_WoodDoor","Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked","CinderWallHalf_DZ","CinderWall_DZ","CinderWallDoorway_DZ","CinderWallDoor_DZ","CinderWallDoorLocked_DZ","CinderWallSmallDoorway_DZ","CinderWallDoorSmall_DZ","CinderWallDoorSmallLocked_DZ","MetalFloor_DZ","WoodRamp_DZ","GunRack_DZ","FireBarrel_DZ","WoodCrate_DZ","Scaffolding_DZ"];

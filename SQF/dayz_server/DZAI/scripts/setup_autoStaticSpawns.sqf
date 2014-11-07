@@ -34,9 +34,7 @@ if (DZAI_debugLevel > 0) then {diag_log format ["DZAI Debug: DZAI is generating 
 			_trigger setTriggerActivation ["ANY", "PRESENT", true];
 			_trigger setTriggerTimeout [10, 15, 20, true];
 			_trigger setTriggerText _placeName;
-			_aiCount = [1,1];
-			_equipType = 1;
-			_patrolRad = 125;
+			private ["_aiCount","_equipType","_patrolRad"];
 			switch (_placeType) do {
 				case "NameCityCapital":
 				{

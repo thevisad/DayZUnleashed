@@ -3,7 +3,9 @@
 
 if (player getVariable["PickingInProgress",false]) 
     exitWith {
-        diag_log "DZU_PickLock ERROR: Picking Already In Progress!"; 
+		if (unleashed_debug == 1) then {
+			diag_log "DZU_PickLock ERROR: Picking Already In Progress!"; 
+		};
     };
 
 player removeAction unleashed_hack_garage;
@@ -26,7 +28,7 @@ _failChance             = g_pickFailChance_dzu-1;                              /
 if((count _args)>4)then{_failChance=_args select 4;};						   //Allow failchance override via script call.
 
         _searchTime = ( 
-                    (round(_searchTime/(1+(_playerSkill/_searchSkillCurve))) max _searchMinTick)
+                    (round(_searchTime/(1+(_playerSkill/unleashed_searchSkillCurve))) max _searchMinTick)
                 ); 
     player setVariable["PickingInProgress", true, false];
     _location = getPosATL player;

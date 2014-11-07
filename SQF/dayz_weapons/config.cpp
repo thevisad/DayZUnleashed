@@ -1,9 +1,3 @@
-////////////////////////////////////////////////////////////////////
-//DeRap: Produced from mikero's Dos Tools Dll version 4.23
-//Sat Jan 11 09:53:07 2014 : Source 'file' date Sat Jan 11 09:53:07 2014
-//http://dev-heaven.net/projects/list_files/mikero-pbodll
-////////////////////////////////////////////////////////////////////
-
 #define _ARMA_
 
 //Class dayz_weapons : config.bin{
@@ -11,6 +5,7 @@ class CfgPatches
 {
 	class dayz_weapons
 	{
+		version = "0.98-Devbuild-2014-10-27_0834 AM";
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
@@ -18,13 +13,6 @@ class CfgPatches
 	};
 };
 
-class CfgMods
-{
-	class DayZ
-	{
-		version = "0.97-Devbuild-023082014";
-	};
-};
 class ItemActions
 {
 	class Use
@@ -1234,10 +1222,6 @@ class CfgVehicles
 		scope = 2;
 		displayName = "$STR_MAG_NAME_3";
 		model = "\dayz_weapons\models\bolt";
-		class eventHandlers
-		{
-			init = "[(_this select 0),'cfgMagazines','BoltSteel'] execVM '\z\addons\dayz_code\init\object_pickupAction.sqf';";
-		};
 	};
 	class Soldier_Crew_PMC;
 	class Survivor1_DZ: Soldier_Crew_PMC

@@ -5,6 +5,10 @@ private ["_characterID","_temp","_class","_currentWpn","_magazines","_force","_i
 //error
 //"UPDATE: B 1-1-B:1 (THE BEAST) REMOTE"
 
+if (unleashed_SavingDebug == 1) then {
+	diag_log(format["SPS: MAGAZINES: %1",_this]);
+};
+
 _character = 	_this select 0;
 _magazines =	_this select 1;
 _force =	_this select 2;
@@ -15,31 +19,40 @@ _charPos = 		getPosATL _character;
 _isInVehicle = 	vehicle _character != _character;
 _timeSince = 	0;
 _humanity =		0;
-
-//diag_log ("DW_DEBUG: (isnil _characterID): " + str(isnil "_characterID"));
-/*
-if !(isnil "_characterID") then {
-diag_log ("DW_DEBUG: _characterID: " + str(_characterID));
+if (unleashed_SavingDebug == 1) then {
+	diag_log(format["SPS: CharactrerID: ",_characterID]);
 };
-*/
+
 
 if (_character isKindOf "Animal") exitWith {
-	diag_log ("ERROR: Cannot Sync Character " + (name _character) + " is an Animal class");
+	if (unleashed_SavingDebug == 1) then {
+		diag_log ("SPS: Cannot Sync Character " + (name _character) + " is an Animal class");
+	};
+
+	
 };
 
 if (isnil "_characterID") exitWith {
-	diag_log ("ERROR: Cannot Sync Character " + (name _character) + " has nil characterID");	
+	if (unleashed_SavingDebug == 1) then {
+		diag_log ("SPS: Cannot Sync Character " + (name _character) + " has nil characterID");	
+	};
+	
 };
 
 if (_characterID == "0") exitWith {
-	diag_log ("ERROR: Cannot Sync Character " + (name _character) + " as no characterID");
+	if (unleashed_SavingDebug == 1) then {
+		diag_log ("SPS: Cannot Sync Character " + (name _character) + " as no characterID");
+	};
+		
 };
 
 private["_debug","_distance"];
 _debug = getMarkerpos "respawn_west";
 _distance = _debug distance _charPos;
 if (_distance < 2000) exitWith { 
-	diag_log format["ERROR: server_playerSync: Cannot Sync Player %1 [%2]. Position in debug! %3",name _character,_characterID,_charPos];
+	if (unleashed_SavingDebug == 1) then {
+		diag_log format["SPS: server_playerSync: Cannot Sync Player %1 [%2]. Position in debug! %3",name _character,_characterID,_charPos];
+	};
 };
 
 //Check for server initiated updates
@@ -47,7 +60,6 @@ _isNewMed =		_character getVariable["medForceUpdate",false];		//Med Update is fo
 _isNewPos =		_character getVariable["posForceUpdate",false];		//Med Update is forced when a player receives some kind of med incident
 _isNewGear =	(count _magazines) > 0;
 
-//diag_log ("Starting Save... MED: " + str(_isNewMed) + " / POS: " + str(_isNewPos)); sleep 0.05;
 
 //Check for player initiated updates
 if (_characterID != "0") then {
@@ -56,8 +68,6 @@ if (_characterID != "0") then {
 	_playerBackp =	[];
 	_medical =		[];
 	_distanceFoot =	0;
-	
-	//diag_log ("Found Character...");
 	
 	//Check if update is requested
 	if (_isNewPos or _force) then {
@@ -89,7 +99,7 @@ if (_characterID != "0") then {
 	if (_isNewGear) then {
 		//diag_log ("gear..."); sleep 0.05;
 		_playerGear = [weapons _character,_magazines];
-//diag_log ("playerGear: " +str(_playerGear));
+		//_playerGear = [weapons _character, _magazines select 0, _magazines select 1]; onback
 		_backpack = unitBackpack _character;
 		_playerBackp = [typeOf _backpack,getWeaponCargo _backpack,getMagazineCargo _backpack];
 	};
@@ -126,14 +136,15 @@ if (_characterID != "0") then {
 		_timeGross = 	(time - _lastTime);
 		_timeSince = 	floor(_timeGross / 60);
 		_timeLeft =		(_timeGross - (_timeSince * 60));
-		
-		//diag_log("USPSYNC: Time Last:" + str(_lastTime));
-		//diag_log("USPSYNC: Time Gross:" + str(_timeGross));
-		//diag_log("USPSYNC: Time Since:" + str(_timeSince));
-		//diag_log("USPSYNC: Time Left:" + str(_timeLeft));
-		/*
-			Get character state details
-		*/
+		if (unleashed_SavingDebug == 1) then {
+			diag_log("USPSYNC: Time Last:" + str(_lastTime));
+			diag_log("USPSYNC: Time Gross:" + str(_timeGross));
+			diag_log("USPSYNC: Time Since:" + str(_timeSince));
+			diag_log("USPSYNC: Time Left:" + str(_timeLeft));
+		};
+
+			//Get character state details
+
 		_currentWpn = 	currentMuzzle _character;
 		_currentAnim =	animationState _character;
 		_config = 		configFile >> "CfgMovesMaleSdr" >> "States" >> _currentAnim;
@@ -205,7 +216,6 @@ if (_characterID != "0") then {
 		_pos = _this select 0;
 		{
 			[_x, "gear"] call server_updateObject;
-			//diag_log(format["SUNO: Updating %2 object at %1",_pos,_x]);
 		} forEach nearestObjects [_pos, dayz_updateObjects, 10];
 
 		//Reset timer

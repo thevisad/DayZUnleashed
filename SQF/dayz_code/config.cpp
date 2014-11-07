@@ -51,7 +51,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"dayz_equip","dayz_weapons","CAMisc3","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT"};
+		requiredAddons[] = {"CAMisc3","CACharacters_E","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT","dayz_equip","dayz_weapons"};
 	};
 	class DZ_DebriefingRemoved	{
 		units[] = {};
@@ -71,7 +71,7 @@ class CfgMods
 		hidePicture = 0;
 		hideName = 0;
 		action = "http://www.dayzunleashed.com";
-		version = "0.98-Devbuild-09042014";
+		version = "0.98-Devbuild-2014-10-27_0834 AM";
 		hiveVersion = 0.96;
 	};
 	class DZ_InitWorld
@@ -276,7 +276,7 @@ class CfgVoice {
 		protocol = "RadioProtocolBase";
 		variants[] = {1};
 		directories[] = {"", ""};
-		identityTypes[] = {"Default", "Zombie1", "Zombie2", "Zombie3"};
+		identityTypes[] = {"Default", "Zombie1", "Zombie2", "Zombie3", "Zombie4", "Zombie5", "Zombie6", "Zombie7", "Zombie8", "Zombie9", "Zombie10", "Zombie11", "Zombie12", "Zombie13", "Zombie14", "Zombie15", "ZombieElite","TheUnBeard"};
 	};
 };
 
@@ -300,6 +300,13 @@ class CfgIdentities {
 	class Zombie3 {
 		name = "Zombie";
 		face = "Zombie3";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class ZombieElite {
+		name = "ZombieElite";
+		face = "ZombieElite";
 		glasses = "None";
 		speaker = "NoVoice";
 		pitch = 1;
@@ -392,6 +399,155 @@ class CfgIdentities {
 		speaker = "NoVoice";
 		pitch = 1;
 	};
+	class TheUnBeard {
+		name = "Zombie";
+		face = "TheUnBeard";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	/*
+	class z_woman_1 {
+		name = "z_woman_1";
+		face = "z_woman_1";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_2 {
+		name = "z_woman_2";
+		face = "z_woman_2";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_3 {
+		name = "z_woman_3";
+		face = "z_woman_3";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_4 {
+		name = "z_woman_4";
+		face = "z_woman_4";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_5a {
+		name = "z_woman_5a";
+		face = "z_woman_5a";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_6a {
+		name = "z_woman_6a";
+		face = "z_woman_6a";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_7a {
+		name = "z_woman_7a";
+		face = "z_woman_7a";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_5b {
+		name = "z_woman_5b";
+		face = "z_woman_5b";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_6b {
+		name = "z_woman_6b";
+		face = "z_woman_6b";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_7b {
+		name = "z_woman_7b";
+		face = "z_woman_7b";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_5c {
+		name = "z_woman_5c";
+		face = "z_woman_5c";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_6c {
+		name = "z_woman_6c";
+		face = "z_woman_6c";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_7c {
+		name = "z_woman_7c";
+		face = "z_woman_7c";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_5d {
+		name = "z_woman_5d";
+		face = "z_woman_5d";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_6d {
+		name = "z_woman_6d";
+		face = "z_woman_6d";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_7d {
+		name = "z_woman_7d";
+		face = "z_woman_7d";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_5e {
+		name = "z_woman_5e";
+		face = "z_woman_5e";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_6e {
+		name = "z_woman_6e";
+		face = "z_woman_6e";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_7e {
+		name = "z_woman_7e";
+		face = "z_woman_7e";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	class z_woman_8 {
+		name = "z_woman_8";
+		face = "z_woman_8";
+		glasses = "None";
+		speaker = "NoVoice";
+		pitch = 1;
+	};
+	*/
 	// player zombie
 	class PZombie1
 	{
@@ -450,14 +606,16 @@ class CfgFaces {
 		class Default;	// External class reference
 		class Zombie1 : Default {
 			name = "Zombie 1";
-			texture = "\dayz\textures\faces\zombie_03_co.paa";
+			texture = "\dayz\textures\faces\zombie_01_co.paa";
+			
 			identityTypes[] = {"Zombie1"};
 			disabled = 0;
 		};
 		
 		class Zombie2 : Default {
 			name = "Zombie 2";
-			texture = "\dayz\textures\faces\zombie_03_co.paa";
+			texture = "\dayz\textures\faces\zombie_02_co.paa";
+			
 			identityTypes[] = {"Zombie2"};
 			disabled = 0;
 		};
@@ -465,6 +623,7 @@ class CfgFaces {
 		class Zombie4 : Default {
 			name = "Zombie 4";
 			texture = "\z\addons\unleashed_pack\textures\zombie_skina.paa";
+			
 			identityTypes[] = {"Zombie4"};
 			disabled = 0;
 		};
@@ -472,6 +631,7 @@ class CfgFaces {
 		class Zombie5 : Default {
 			name = "Zombie 5";
 			texture = "\z\addons\unleashed_pack\textures\zombie_skinb.paa";
+			
 			identityTypes[] = {"Zombie5"};
 			disabled = 0;
 		};
@@ -479,6 +639,7 @@ class CfgFaces {
 		class Zombie6 : Default {
 			name = "Zombie 6";
 			texture = "\z\addons\unleashed_pack\textures\zombie_skinc.paa";
+			
 			identityTypes[] = {"Zombie6"};
 			disabled = 0;
 		};
@@ -486,6 +647,7 @@ class CfgFaces {
 		class Zombie7 : Default {
 			name = "Zombie 7";
 			texture = "\z\addons\unleashed_pack\textures\zombie_skind.paa";
+			
 			identityTypes[] = {"Zombie7"};
 			disabled = 0;
 		};
@@ -493,6 +655,7 @@ class CfgFaces {
 		class Zombie8 : Default {
 			name = "Zombie 8";
 			texture = "\z\addons\unleashed_pack\textures\zombie_skine.paa";
+			
 			identityTypes[] = {"Zombie8"};
 			disabled = 0;
 		};
@@ -500,6 +663,7 @@ class CfgFaces {
 		class Zombie9 : Default {
 			name = "Zombie 9";
 			texture = "z\addons\unleashed_pack\textures\zombie_skinf.paa";
+			
 			identityTypes[] = {"Zombie9"};
 			disabled = 0;
 		};
@@ -507,6 +671,7 @@ class CfgFaces {
 		class Zombie10 : Default {
 			name = "Zombie 10";
 			texture = "\z\addons\unleashed_pack\textures\zombie_sking.paa";
+			
 			identityTypes[] = {"Zombie10"};
 			disabled = 0;
 		};
@@ -514,6 +679,7 @@ class CfgFaces {
 		class Zombie11 : Default {
 			name = "Zombie 11";
 			texture = "\z\addons\unleashed_pack\textures\zombie_skinh.paa";
+			
 			identityTypes[] = {"Zombie11"};
 			disabled = 0;
 		};
@@ -521,11 +687,13 @@ class CfgFaces {
 		class Zombie12 : Default {
 			name = "Zombie 12";
 			texture = "\z\addons\unleashed_pack\textures\zombie_skini.paa";
+			
 			identityTypes[] = {"Zombie12"};
 			disabled = 0;
 		};
 		class Zombie13 : Default {
 			name = "Zombie 13";
+			
 			texture = "\z\addons\unleashed_pack\textures\zombie_skinj.paa";
 			identityTypes[] = {"Zombie13"};
 			disabled = 0;
@@ -533,12 +701,14 @@ class CfgFaces {
 		class Zombie14 : Default {
 			name = "Zombie 14";
 			texture = "\z\addons\unleashed_pack\textures\zombie_skink.paa";
+			
 			identityTypes[] = {"Zombie14"};
 			disabled = 0;
 		};
 		class Zombie15 : Default {
 			name = "Zombie 15";
 			texture = "\z\addons\unleashed_pack\textures\zombie_skinl.paa";
+			
 			identityTypes[] = {"Zombie15"};
 			disabled = 0;
 		};
@@ -551,31 +721,169 @@ class CfgFaces {
 			disabled = 0;
 		};
 		
+		class ZombieElite : Default {
+			name = "Zombie Elite";
+			texture = "z\addons\unleashed_pack\faces\zombie_elite_co.paa";
+			material = "z\addons\unleashed_pack\faces\zombie_elite.rvmat";
+			identityTypes[] = {"ZombieElite"};
+			disabled = 0;
+		};
+		
+		class TheUnBeard : Default {
+			name = "TheVisad";
+			texture = "\z\addons\unleashed_pack\textures\zombie_skinl.paa";
+			material = "z\addons\unleashed_pack\faces\zombie_elite.rvmat";
+			identityTypes[] = {"TheUnBeard"};
+			disabled = 0;
+		};
+		
         class SonOfXerXes : Default {
-            	name = "SonOfXerXes";
-           	texture = "\z\addons\unleashed_pack\textures\xerxes_skin.paa";
-           	identityTypes[] = {"SonOfXerXes"};
-            	disabled = 0;
-            	};
+			name = "SonOfXerXes";
+			texture = "\z\addons\unleashed_pack\textures\xerxes_skin.paa";
+			identityTypes[] = {"SonOfXerXes"};
+			disabled = 0;
+		};
 		class TheVisad : Default {
-            	name = "TheVisad";
-           	texture = "\z\addons\unleashed_pack\textures\thevisad_skin.paa";
-           	identityTypes[] = {"TheVisad"};
-            	disabled = 0;
-            	};
+			name = "TheVisad";
+			texture = "\z\addons\unleashed_pack\textures\thevisad_skin.paa";
+			identityTypes[] = {"TheVisad"};
+			disabled = 0;
+		};
             	
 		class XyberViri : Default {
             	name = "XyberViri";
             	texture = "\z\addons\unleashed_pack\textures\xyberviri_skin.paa";
             	identityTypes[] = {"XyberViri"};
             	disabled = 0;
-            	};	
+		};	
 		class PvtAmmo : Default {
             	name = "PvtAmmo";
             	texture = "\z\addons\unleashed_pack\textures\ammo_skin.paa";
             	identityTypes[] = {"PvtAmmo"};
             	disabled = 0;
-            	};	
+		};	
+		/*
+		class z_woman_1 {
+            	name = "z_woman_1";
+            	texture = "CA\characters_e\woman\ensler\data\ensler_co.paa";
+            	identityTypes[] = {"z_woman_1"};
+            	disabled = 0;
+		 };
+		class z_woman_2 {
+            	name = "z_woman_2";
+            	texture ="CA\characters_e\woman\ensler\data\european_woman_02_co.paa";
+            	identityTypes[] = {"z_woman_2"};
+            	disabled = 0;
+		 };
+		class z_woman_3 { 
+            	name = "z_woman_3";
+            	texture = "CA\characters_e\woman\baker\data\baker_co.paa";
+            	identityTypes[] = {"z_woman_3"};
+            	disabled = 0;
+		};
+		class z_woman_4 { 
+            	name = "z_woman_4";
+            	texture = "CA\characters_e\woman\baker\data\european_woman_01_co.paa";
+            	identityTypes[] = {"z_woman_4"};
+            	disabled = 0;
+		};
+		class z_woman_5a { 
+            	name = "z_woman_5a";
+            	texture = "CA\characters_e\woman\tak_woman01\data\tak_woman01_1_co.paa";
+            	identityTypes[] = {"z_woman_5a"};
+            	disabled = 0;
+		};
+		class z_woman_6a { 
+            	name = "z_woman_6a";
+            	texture = "CA\characters_e\woman\tak_woman02\data\tak_woman02_1_co.paa";
+            	identityTypes[] = {"z_woman_6a"};
+            	disabled = 0;
+		};
+		class z_woman_7a { 
+            	name = "z_woman_7a";
+            	texture = "CA\characters_e\woman\tak_woman03\data\tak_woman03_1_co.paa";
+            	identityTypes[] = {"z_woman_7a"};
+            	disabled = 0;
+		};
+		class z_woman_5b { 
+            	name = "z_woman_5b";
+            	texture = "CA\characters_e\woman\tak_woman01\data\tak_woman01_2_co.paa";
+            	identityTypes[] = {"z_woman_5b"};
+            	disabled = 0;
+		};
+		class z_woman_6b { 
+            	name = "z_woman_6b";
+            	texture = "CA\characters_e\woman\tak_woman02\data\tak_woman02_2_co.paa";
+            	identityTypes[] = {"z_woman_6b"};
+            	disabled = 0;
+		};
+		class z_woman_7b { 
+            	name = "z_woman_7b";
+            	texture = "CA\characters_e\woman\tak_woman03\data\tak_woman03_2_co.paa";
+            	identityTypes[] = {"z_woman_7b"};
+            	disabled = 0;
+		};
+		class z_woman_5c { 
+            	name = "z_woman_5c";
+            	texture = "CA\characters_e\woman\tak_woman01\data\tak_woman01_3_co.paa";
+            	identityTypes[] = {"z_woman_5c"};
+            	disabled = 0;
+		};
+		class z_woman_6c { 
+            	name = "z_woman_6c";
+            	texture = "CA\characters_e\woman\tak_woman02\data\tak_woman02_3_co.paa";
+            	identityTypes[] = {"z_woman_6c"};
+            	disabled = 0;
+		};
+		class z_woman_7c { 
+            	name = "z_woman_7c";
+            	texture = "CA\characters_e\woman\tak_woman03\data\tak_woman03_3_co.paa";
+            	identityTypes[] = {"z_woman_7c"};
+            	disabled = 0;
+		};
+		class z_woman_5d { 
+            	name = "z_woman_5d";
+            	texture = "CA\characters_e\woman\tak_woman01\data\tak_woman01_4_co.paa";
+            	identityTypes[] = {"z_woman_5d"};
+            	disabled = 0;
+		};
+		class z_woman_6d { 
+            	name = "z_woman_6d";
+            	texture = "CA\characters_e\woman\tak_woman02\data\tak_woman02_4_co.paa";
+            	identityTypes[] = {"z_woman_6d"};
+            	disabled = 0;
+		};
+		class z_woman_7d { 
+            	name = "z_woman_7d";
+            	texture = "CA\characters_e\woman\tak_woman03\data\tak_woman03_4_co.paa";
+            	identityTypes[] = {"z_woman_7d"};
+            	disabled = 0;
+		};
+		class z_woman_5e { 
+            	name = "z_woman_5e";
+            	texture = "CA\characters_e\woman\tak_woman01\data\tak_woman01_5_co.paa";
+            	identityTypes[] = {"z_woman_5e"};
+            	disabled = 0;
+		};
+		class z_woman_6e { 
+            	name = "z_woman_6e";
+            	texture = "CA\characters_e\woman\tak_woman02\data\tak_woman02_5_co.paa";
+            	identityTypes[] = {"z_woman_6e"};
+            	disabled = 0;
+		};
+		class z_woman_7e { 
+            	name = "z_woman_7e";
+            	texture = "CA\characters_e\woman\tak_woman03\data\tak_woman03_5_co.paa";
+            	identityTypes[] = {"z_woman_7e"};
+            	disabled = 0;
+		};
+		class z_woman_8 { 
+            	name = "z_woman_8";
+            	texture = "\Ca\characters_E\Overall\Data\Overall_4_co.paa";
+            	identityTypes[] = {"z_woman_8"};
+            	disabled = 0;
+		};
+		*/
 	};
 	// player zombie
 	class ZFaces

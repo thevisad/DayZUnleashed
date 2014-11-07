@@ -1,4 +1,13 @@
 class ExtraRc {
+	class Pistol {
+			class ItemActions {
+				class Suicide
+				{
+					text = "Commit Suicide";
+					script = "spawn \z\addons\dayz_code\actions\player_suicide.sqf";
+				};
+		};
+	};
 	class AK_107_GL_Kobra {
 		class ItemActions {
 			class Crafting

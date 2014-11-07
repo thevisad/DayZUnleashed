@@ -51,8 +51,7 @@ _object setVariable ["OEMPos",(_worldspace select 1),true];
 //diag_log ("PUBLISH: Attempt " + str(_object));
 
 //Send request
-PVDZ_bld_Publish = [_charID,_object,_worldspace,_class, 0 , "server_swapObject"];
-publicVariableServer "PVDZ_bld_Publish";
+[_charID,_object,_worldspace,_class, 0 , "server_swapObject",dayz_playerUID,"0"] spawn server_publishBld;
 _object setVariable ["lastUpdate",time];
 
 

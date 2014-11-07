@@ -43,8 +43,10 @@ if (r_player_foodstack >= 10) then {
 if ((r_player_bloodregen > 5) and (r_player_foodstack > 1) and (r_player_foodstack < 10)) then {
 	_regen = _regen / r_player_foodstack;
 };
+if (unleashed_debug == 1) then {
+	diag_log format ["CPE: Regen: %1, Stack: %2", _regen, r_player_foodstack];
+};
 
-//diag_log format ["Regen: %1, Stack: %2", _regen, r_player_foodstack];
 
 //disminishing returns. while regen is active
 r_player_foodstack = r_player_foodstack + 1;
@@ -84,7 +86,6 @@ player setVariable ["messing",[dayz_hunger,dayz_thirst],true];
 player setVariable["USEC_BloodQty",r_player_blood,true];
 player setVariable["medForceUpdate",true];
 
-//["PVDZ_plr_Save",[player,[],true]] call callRpcProcedure;
 PVDZ_plr_Save = [player,[],true];
 publicVariableServer "PVDZ_plr_Save";
 

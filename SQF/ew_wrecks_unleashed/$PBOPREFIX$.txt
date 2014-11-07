@@ -1,0 +1,5 @@
+///////<HEADER>///////
+prefix=ew_wrecks_unleashed
+Pbo Type is: Arma Addon
+Sha: 'D069E33BCF47E984DEFF35FBD1FCC91F70325972'
+//////</HEADER>//////

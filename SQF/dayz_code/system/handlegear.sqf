@@ -483,7 +483,7 @@ _displayItemName = {
 	_nameControl = _display displayctrl 1101;
 	_nameControl ctrlSetText _itemName;
 };
-/*
+
 _updateOnBack = {
 	private ["_onBackCtrl"];
 	_onBackCtrl = _display displayCtrl 1209;
@@ -494,7 +494,7 @@ _updateOnBack = {
 		_onBackCtrl ctrlSetText "";
 	};
 };
-*/
+
 _output = true;
 _lbIDC = 105;
 
@@ -556,7 +556,7 @@ switch _event do {
 	};
 
 	case "onLBSelChanged": {
-		//[] call _updateOnBack;
+		[] call _updateOnBack;
 		[] call _displayItemIcon;
 		[] call _displayItemName;
 		[] call _displayItemDescription;

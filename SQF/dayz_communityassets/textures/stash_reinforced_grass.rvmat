@@ -1,14 +1,21 @@
+////////////////////////////////////////////////////////////////////
+//DeRap: Produced from mikero's Dos Tools Dll version 4.57
+//Sat Nov 01 22:18:02 2014 : Source 'file' date Sat Nov 01 22:18:02 2014
+//http://dev-heaven.net/projects/list_files/mikero-pbodll
+////////////////////////////////////////////////////////////////////
+
+#define _ARMA_
+
+//Class dayz_communityassets : textures\stash_reinforced_grass.rvmat{
 mainLight = "Sun";
 fogMode = "Fog";
-
-ambient[] = {0.4, 0.4, 0.4, 1.0};
-diffuse[] = {0.4, 0.4, 0.4, 1.0};
-forcedDiffuse[] = {0.0, 0.0, 0.0, 1.0};
-emmisive[] = {0.0, 0.0, 0.0, 1.0};
-specular[] = {0.0, 0.0, 0.0, 1.0};
+ambient[] = {0.4,0.4,0.4,1.0};
+diffuse[] = {0.4,0.4,0.4,1.0};
+forcedDiffuse[] = {0.0,0.0,0.0,1.0};
+emmisive[] = {0.0,0.0,0.0,1.0};
+specular[] = {0.0,0.0,0.0,1.0};
 specularPower = 1.0;
-
 PixelShaderID = "Grass";
 VertexShaderID = "Basic";
-
-renderFlags[] = {"AlphaInstancing", "AlphaTest32"};
+renderFlags[] = {"AlphaInstancing","AlphaTest32"};
+//};

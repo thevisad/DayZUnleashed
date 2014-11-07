@@ -434,6 +434,20 @@ class RscTitles
                 colorText[] = {1,1,1,0.0};
             };
             /*-----------------------------------------------*/
+
+			//Weight 
+            class RscText_1409: RscText
+            {
+                idc = 1409;
+                text = "";
+			    x = 0.960 * safezoneW + safezoneX;
+                y = 0.725 * safezoneH + safezoneY;
+                w = 0.037 * safezoneW;
+                h = 0.047 * safezoneH;
+                colorText[] = {1,1,1,1.0};
+                size = 0.03;
+                sizeEx = 0.03;
+            };
             //SURVIVOR KILLS
 			class RscText_1400: RscText
             {

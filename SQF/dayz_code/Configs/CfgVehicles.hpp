@@ -397,6 +397,7 @@ class CfgVehicles {
     #include "CfgVehicles\Zeds\DUZedBase.hpp" //Santized Root Man Class
 	#include "CfgVehicles\Zeds\Zeds.hpp"      //old type zeds
 	#include "CfgVehicles\Zeds\NewZeds.hpp"   //new type zeds
+	#include "CfgVehicles\Zeds\DeadBodys.hpp" 
 
 	//Survivor Skins	
     #include "CfgVehicles\Survivors\Originals.hpp"
@@ -489,6 +490,48 @@ class CfgVehicles {
 		model = "\ibr\ibr_plants\benzina_schnell";
 		transportFuel = 0;
 		nameSound = "fuelstation";
+	};
+	
+	// Rubbish Piles
+	class Rubbish1: Strategic
+	{
+		scope = 2;
+		model = "\CA\misc\garbage_paleta";
+		mapSize = 2;
+		displayName = "Garbage1";
+		vehicleClass = "Survival";
+	};
+	class Rubbish2: Strategic
+	{
+		scope = 2;
+		model = "\CA\misc\garbage_misc";
+		mapSize = 2;
+		displayName = "Garbage2";
+		vehicleClass = "Survival";
+	};
+	class Rubbish3: Strategic
+	{
+		scope = 2;
+		model = "\CA\misc\ground_garbage_square5";
+		mapSize = 2;
+		displayName = "Garbage3";
+		vehicleClass = "Survival";
+	};
+	class Rubbish4: Strategic
+	{
+		scope = 2;
+		model = "\CA\misc\ground_garbage_square3";
+		mapSize = 2;
+		displayName = "Garbage4";
+		vehicleClass = "Survival";
+	};
+	class Rubbish5: Strategic
+	{
+		scope = 2;
+		model = "\CA\misc\junkpile";
+		mapSize = 2;
+		displayName = "Garbage5";
+		vehicleClass = "Survival";
 	};
 
     class SmallShip: Ship

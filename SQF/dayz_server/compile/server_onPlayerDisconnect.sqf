@@ -4,7 +4,7 @@ private ["_playerObj","_myGroup","_id","_playerUID","_playerName","_characterID"
 _playerUID = _this select 0;
 _playerName = _this select 1;
 _playerObj = nil;
-_dayz_updateObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ"];
+
 {
 	if (getPlayerUID _x == _playerUID) exitWith { _playerObj = _x; };
 } forEach 	playableUnits;
@@ -31,12 +31,14 @@ if (!isNull _playerObj) then {
 		_playerObj action ["eject", vehicle _playerObj];
 		diag_log format ["SOPD: Ejecting Player %1 from Vehicle", _playerObj];
 	};
-	{ 
-			[_x,"gear"] call server_updateObject;
-	} foreach (nearestObjects [getPosATL _playerObj, _dayz_updateObjects, 10]);
+	{
+		[_x,"gear"] call server_updateObject;
+		if (unleashed_debug == 1) then {
+			diag_log(format["SGS: Updating nearby objects: %1",_x]);
+		};
+	} forEach nearestObjects [getPosATL _playerObj, dayz_updateObjects, 10];
 		
 	if (alive _playerObj) then {
-		//[_playerObj,(magazines _playerObj),true,(unitBackpack _playerObj)] call server_playerSync;
 		diag_log format ["SOPD: Alive Player %1 being deleted ", _playerObj];
 		[_playerObj,[],true] call server_playerSync;
 		_myGroup = group _playerObj;
