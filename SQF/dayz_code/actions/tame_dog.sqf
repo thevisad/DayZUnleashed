@@ -56,7 +56,7 @@ if(_removed == _countIn) then {
 		};
 		_dog disableAI "FSM";
 		(group _dog) setBehaviour "AWARE";
-		_fsmid = [_dog, typeOf _dog] execFSM "\z\addons\dayz_code\system\dog_agent.fsm";
+		_fsmid = [_dog, typeOf _dog] execFSM "\z\addons\dayz_code\system\luckydoggie.fsm";
 		_fsmid setFSMVariable ["_handle", _fsmid];
 		player setVariable ["dogID", _fsmid];
 		_dog setVariable ["fsm_handle", _fsmid];

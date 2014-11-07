@@ -20,7 +20,7 @@ class CfgBuildingLoot {
 		zombieChance = 0.3;
 		minRoaming = 1;
 		maxRoaming = 4;
-		zombieClass[] = {"z_priest","z_priest","z_priest","z_teacher","z_hunter","z_priest","z_suit1","z_suit2","z_new_villager2","z_new_villager3","z_new_villager4","z_villager1","z_villager2","z_villager3","z_new_worker_base","z_worker1","z_worker2","z_worker3","z_new_worker2","z_new_worker3","z_new_worker4","z_woman_1","z_woman_2","z_woman_3","z_woman_4","z_woman_5a","z_woman_6a","z_woman_7a","z_woman_5b","z_woman_6b","z_woman_7b","z_woman_5c","z_woman_6c","z_woman_7c","z_woman_5d","z_woman_6d","z_woman_7d","z_woman_5e","z_woman_6e","z_woman_7e","z_woman_8"};
+		zombieClass[] = {"z_priest","z_priest","z_priest","z_teacher","z_hunter","z_priest","z_suit1","z_suit2","z_new_villager2","z_new_villager3","z_new_villager4","z_villager1","z_villager2","z_villager3","z_new_worker_base","z_worker1","z_worker2","z_worker3","z_new_worker2","z_new_worker3","z_new_worker4"};
 		lootChance = 0.3;
 		lootPos[] = {};
 		lootType[] = {
@@ -38,7 +38,7 @@ class CfgBuildingLoot {
 		zombieChance = 0.5;
 		minRoaming = 0;
 		maxRoaming = 4;
-		zombieClass[] = {"zZombie_new_Base","z_teacher","z_hunter","z_priest","z_suit1","z_suit2","z_new_villager2","z_new_villager3","z_new_villager4","z_villager1","z_villager2","z_villager3","z_new_worker_base","z_worker1","z_worker2","z_worker3","z_new_worker2","z_new_worker3","z_new_worker4","z_woman_1","z_woman_2","z_woman_3","z_woman_4","z_woman_5a","z_woman_6a","z_woman_7a","z_woman_5b","z_woman_6b","z_woman_7b","z_woman_5c","z_woman_6c","z_woman_7c","z_woman_5d","z_woman_6d","z_woman_7d","z_woman_5e","z_woman_6e","z_woman_7e","z_woman_8"};
+		zombieClass[] = {"zZombie_new_Base","z_teacher","z_hunter","z_priest","z_suit1","z_suit2","z_new_villager2","z_new_villager3","z_new_villager4","z_villager1","z_villager2","z_villager3","z_new_worker_base","z_worker1","z_worker2","z_worker3","z_new_worker2","z_new_worker3","z_new_worker4"};
 		lootChance = 0.4;
 		lootPos[] = {};
 		lootType[] = {			
@@ -62,7 +62,7 @@ class CfgBuildingLoot {
 		zombieChance = 0.4;
 		minRoaming = 0;
 		maxRoaming = 4;
-		zombieClass[] = {"zZombie_new_Base","z_teacher","z_hunter","z_priest","z_suit1","z_suit2","z_new_villager2","z_new_villager3","z_new_villager4","z_villager1","z_villager2","z_villager3","z_new_worker_base","z_worker1","z_worker2","z_worker3","z_new_worker2","z_new_worker3","z_new_worker4","z_woman_1","z_woman_2","z_woman_3","z_woman_4","z_woman_5a","z_woman_6a","z_woman_7a","z_woman_5b","z_woman_6b","z_woman_7b","z_woman_5c","z_woman_6c","z_woman_7c","z_woman_5d","z_woman_6d","z_woman_7d","z_woman_5e","z_woman_6e","z_woman_7e","z_woman_8"};
+		zombieClass[] = {"zZombie_new_Base","z_teacher","z_hunter","z_priest","z_suit1","z_suit2","z_new_villager2","z_new_villager3","z_new_villager4","z_villager1","z_villager2","z_villager3","z_new_worker_base","z_worker1","z_worker2","z_worker3","z_new_worker2","z_new_worker3","z_new_worker4"};
 		lootChance = 0.6;
 		lootPos[] = {};		
 		lootType[] =	{{"activeloot",0.10}};			
@@ -149,7 +149,7 @@ class CfgBuildingLoot {
 		zombieChance = 0.5;
 		minRoaming = 1;
 		maxRoaming = 5;
-		zombieClass[] = {"zZombie_new_Base","z_hunter","z_hunter","z_hunter","z_villager1","z_villager2","z_villager3","z_woman_1","z_woman_2","z_woman_3","z_woman_4","z_woman_5a","z_woman_6a","z_woman_7a","z_woman_5b","z_woman_6b","z_woman_7b","z_woman_5c","z_woman_6c","z_woman_7c","z_woman_5d","z_woman_6d","z_woman_7d","z_woman_5e","z_woman_6e","z_woman_7e","z_woman_8"};
+		zombieClass[] = {"zZombie_new_Base","z_hunter","z_hunter","z_hunter","z_villager1","z_villager2","z_villager3"};
 		lootChance = 0.9;
 		lootPos[] = {};
 		lootType[] =	{
@@ -173,7 +173,7 @@ class CfgBuildingLoot {
 		zombieChance = 0.4;
 		minRoaming = 2;
 		maxRoaming = 6;
-		zombieClass[] = {"z_new_villager2","z_new_villager3","z_new_villager4","z_villager1","z_villager2","z_villager3","z_new_worker_base","z_worker1","z_worker2","z_worker3","z_new_worker2","z_new_worker3","z_new_worker4","z_policeman","z_new_policeman","z_new_policeman1","z_suit1","z_suit2","z_doctor","z_teacher","z_hunter","z_priest","z_soldier","z_woman_1","z_woman_2","z_woman_3","z_woman_4","z_woman_5a","z_woman_6a","z_woman_7a","z_woman_5b","z_woman_6b","z_woman_7b","z_woman_5c","z_woman_6c","z_woman_7c","z_woman_5d","z_woman_6d","z_woman_7d","z_woman_5e","z_woman_6e","z_woman_7e","z_woman_8"};
+		zombieClass[] = {"z_new_villager2","z_new_villager3","z_new_villager4","z_villager1","z_villager2","z_villager3","z_new_worker_base","z_worker1","z_worker2","z_worker3","z_new_worker2","z_new_worker3","z_new_worker4","z_policeman","z_new_policeman","z_new_policeman1","z_suit1","z_suit2","z_doctor","z_teacher","z_hunter","z_priest","z_soldier"};
 		lootType[] = {
 			{"civgeneric",0.25},
 			{"food",0.25},
