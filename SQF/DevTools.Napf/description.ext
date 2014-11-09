@@ -1,0 +1,1341 @@
+#define FontHTML "Bitstream"
+
+#define ST_LEFT       0
+#define ST_RIGHT      1
+#define ST_CENTER     2
+#define ST_TITLE_BAR  32
+#define ST_FRAME      64
+#define CT_STATIC 0
+#define CT_BUTTON 1
+#define CT_EDIT 2
+#define CT_SLIDER 3
+#define CT_COMBOBOX 4
+#define CT_LISTBOX 5
+#define CT_TOOLBOX 6
+#define CT_CHECKBOXES 7
+#define CT_PROGRESS 8
+#define CT_HTML 9
+#define CT_STATIC_SKEW 10
+#define CT_ACTIVETEXT 11
+#define CT_TREE 12
+#define CT_STRUCTURED_TEXT 13
+#define CT_CONTEXT_MENU 14
+#define CT_CONTROLS_GROUP 15
+#define CT_SHORTCUT_BUTTON 16 // Arma 2 - textured button
+#define CT_XKEYDESC 40
+#define CT_XBUTTON 41
+#define CT_XLISTBOX 42
+#define CT_XSLIDER 43
+#define CT_XCOMBO 44
+#define CT_ANIMATED_TEXTURE 45
+#define CT_OBJECT 80
+#define CT_OBJECT_ZOOM 81
+#define CT_OBJECT_CONTAINER 82
+#define CT_OBJECT_CONT_ANIM 83
+#define CT_LINEBREAK 98
+#define CT_USER 99
+#define CT_MAP 100
+#define CT_MAP_MAIN 101
+#define CT_List_N_Box 102 // Arma 2 - N columns list box
+#define Dlg1X .18
+// Static styles
+#define ST_POS 0x0F
+#define ST_HPOS 0x03
+#define ST_VPOS 0x0C
+#define ST_LEFT 0x00
+#define ST_RIGHT 0x01
+#define ST_CENTER 0x02
+#define ST_DOWN 0x04
+#define ST_UP 0x08
+#define ST_VCENTER 0x0c
+#define ST_TYPE 0xF0
+#define ST_SINGLE 0
+#define ST_MULTI 16
+#define ST_TITLE_BAR 32
+#define ST_PICTURE 48
+#define ST_FRAME 64
+#define ST_BACKGROUND 80
+#define ST_GROUP_BOX 96
+#define ST_GROUP_BOX2 112
+#define ST_HUD_BACKGROUND 128
+#define ST_TILE_PICTURE 144
+#define ST_WITH_RECT 160
+#define ST_LINE 176
+#define ST_SHADOW 0x100
+#define ST_NO_RECT 0x200
+#define ST_KEEP_ASPECT_RATIO 0x800
+#define ST_TITLE ST_TITLE_BAR + ST_CENTER
+
+// Slider styles
+#define SL_DIR 0x400
+#define SL_VERT 0
+#define SL_HORZ 0x400
+#define SL_TEXTURES 0x10
+
+// Listbox styles
+#define LB_TEXTURES 0x10
+#define LB_MULTI 0x20
+
+class RscBackground {
+	idc = -1;
+	moving = 0;
+	type = CT_STATIC;
+	style = ST_LEFT;
+	text = ;
+	font = FontHTML;
+	sizeEx = 0.023;
+	colorBackground[] = { 0.5, 0.5, 0.5, 0.75 };
+	colorText[] = { 0, 0, 0, 1 };
+};
+
+class RscText {
+	idc = -1;
+	moving = 0;
+	type = CT_STATIC;
+	style = ST_LEFT;
+	lineSpacing = 1;
+	font = FontHTML;
+	sizeEx = 0.04;
+	colorBackground[] = {0, 0, 0, 0};
+	colorText[] = {1, 1, 1, 1};
+};
+
+class DayZ_loadingScreen {
+	idd = -1;
+	duration = 10e10;
+	fadein = 0;
+	fadeout = 0;
+	name = "loading screen";
+	class controlsBackground {
+		class back : RscText {
+			x = safezoneX;
+			y = safezoneY;
+			w = safezoneW;
+			h = safezoneH;
+			text = "";
+			colorText[] = {0,0,0,0};
+			colorBackground[] = {0,0,0,1};
+		};
+	};
+};
+class RscActiveText {
+	idc = -1;
+	type = CT_ACTIVETEXT;
+	style = ST_CENTER;
+	font = FontHTML;
+	sizeEx = 0.025;
+	color[] = {1, 1, 1, 1};
+	colorActive[] = {0.25, 0.25, 0.25, 1};
+	soundEnter[] = {"", 0, 1};
+	soundPush[] = {"", 0, 1};
+	soundClick[] = {"", 0, 1};
+	soundEscape[] = {"", 0, 1};
+	action = "";
+	default = FALSE;
+};
+
+class RscStructuredText {
+	type = CT_STRUCTURED_TEXT;
+	style = ST_LEFT;
+	idc = -1;
+	h = 0.05;
+	class Attributes
+	{
+		font = FontHTML;
+		color = "#ffffff";
+		align = "center";
+		shadow = true;
+	};
+	colorText[] = {1, 1, 1, 1};
+	size = 0.03;
+	text = "";
+};
+
+
+class RscPictureKeepAspect {
+	type = CT_STATIC;
+	style = ST_PICTURE + ST_KEEP_ASPECT_RATIO;
+	idc = -1;
+	colorBackground[] = {0, 0, 0, 0};
+	colorText[] = {1, 1, 1, 1};
+	font = FontHTML;
+	sizeEx = 0;
+	lineSpacing = 0;
+	text = "";
+};
+
+class InfoText {
+	type = CT_STATIC;
+	style = ST_LEFT;
+	idc = -1;
+	colorBackground[] = {0, 0, 0, 0};
+	colorText[] = {0.2, .2, 0.2, 1};
+	font = FontHTML;
+	sizeEx = .03;
+	text = "";
+};
+class ScrollBar
+  {
+   color[] = {1,1,1,0.6};
+   colorActive[] = {1,1,1,1};
+   colorDisabled[] = {1,1,1,0.3};
+   thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+   arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+   arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+   border = "\ca\ui\data\ui_border_scroll_ca.paa";
+  };
+  
+class ListBox1 {
+	type = CT_LISTBOX;
+	style = ST_LEFT;
+	idc = -1;
+	colorSelect[] = {0, 0.2, 0.4, 1};
+	colorSelectBackground[] = {0, 0.2, 0.4, 0.1};
+	colorText[] = {0.2, .2, 0.2, 1};
+	colorBackground[] = {0.4, 0.4, 0.4, 0};
+	font = FontHTML;
+	sizeEx = 0.04;
+	rowHeight = 0.025;
+	ScrollBar = ;
+	autoScrollRewind = ;
+	autoScrollSpeed = ;
+	autoScrollDelay = ;
+	maxHistoryDelay = ;
+};
+class ComboBox {
+	type = CT_COMBOBOX;
+	style = ST_LEFT;
+	idc = -1;
+	colorSelect[] = {0, 0.2, 0.4, 1};
+	colorSelectBackground[] = {0, 0.2, 0.4, 0.1};
+	colorText[] = {0.2, .2, 0.2, 1};
+	colorBackground[] = {0.4, 0.4, 0.4, 1};
+	font = FontHTML;
+	sizeEx = 0.04;
+	rowHeight = 0.025;
+	text = "";
+    class ScrollBar
+	  {
+	   color[] = {1,1,1,0.6};
+	   colorActive[] = {1,1,1,1};
+	   colorDisabled[] = {1,1,1,0.3};
+	   thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+	   arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+	   arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+	   border = "\ca\ui\data\ui_border_scroll_ca.paa";
+	  };
+	maxHistoryDelay = 999;
+	wholeHeight = .3;
+	soundSelect[] = {"",0.1,1}; 
+	soundExpand[] = {"",0.1,1}; 
+	soundCollapse[] = {"",0.1,1}; 
+	shadow = 0;
+	arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
+	arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
+};
+
+
+class Button {
+	type = CT_BUTTON;
+	style = ST_CENTER;
+	idc = -1;
+	font = FontHTML;
+	sizeEx = .03;
+	default = false;
+	colorText[] = {0, 0, 0, 1};
+	colorDisabled[] = {0.40, 0.40, 0.40, 1};
+	colorBackground[] = {1, 1, 1, 1};
+	colorBackgroundDisabled[] = {0.70, 0.70, 0.70, 0.80};
+	colorBackgroundActive[] = {1, 0.50, 0, 1};
+	colorFocused[] = {1, 0.50, 0, 1};
+	colorShadow[] = {0.72, 0.36, 0, 0.80};
+	colorBorder[] = {0.72, 0.36, 0, 0};
+	soundEnter[] = {"", 0.10, 1};
+	soundPush[] = {"", 0.10, 1};
+	soundClick[] = {"", 0.10, 1};
+	soundEscape[] = {"", 0.10, 1};
+	offsetX = 0.0030;
+	offsetY = 0.0030;
+	offsetPressedX = 0.0020;
+	offsetPressedY = 0.0020;
+	borderSize = 0.0;
+};
+
+class RscTextMulti: InfoText {
+	linespacing = 1;
+	style = ST_LEFT + ST_MULTI + ST_NO_RECT;
+};
+class RscButton {
+	idc = -1;
+	moving = 0;
+	type = CT_BUTTON;
+	style = ST_CENTER;
+	colorText[] = {0, 0, 0, 1};
+	font = FontHTML;
+    sizeEx = 0.025;
+	default = false;
+	colorDisabled[] = {};
+	colorBackground[] = {0.600000,0.800000, 0.600000, 0.600000};
+	colorBackgroundActive[] = {};
+	colorBackgroundDisabled[] = {};
+	colorFocused[] = {};
+	offsetX = ;
+	offsetY = ;
+	offsetPressedX = ;
+	offsetPressedY = ;
+	colorShadow[] = {};
+	colorBorder[] = {};
+	borderSize = ;
+	soundEnter[] = {"", 0, 1};
+	soundPush[] = {"", 0, 1};
+	soundClick[] = {"", 0, 1};
+	soundEscape[] = {"", 0, 1};
+ 	w = 0.07;
+ 	h = 0.02;
+};
+
+class RscCombo {
+	idc = -1;
+	type = 4;
+	style = 1;
+	colorSelect[] = {1, 1, 1, 1};
+	colorText[] = {1, 1, 1, 1};
+	colorBackground[] = {0, 0, 0, 1};
+	colorSelectBackground[] = {0.25,0.25,0.25, 1};
+	colorScrollbar[] = {0.25,0.25,0.25, 1};
+	arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
+	arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
+	wholeHeight = 0.25;
+	color[] = {0, 0, 0, 0.6};
+	colorActive[] = {0, 0, 0, 1};
+	colorDisabled[] = {0, 0, 0, 0.3};
+	font = FontHTML;
+	sizeEx = 0.025;
+	soundSelect[] = {"\ca\ui\data\sound\new1", 0.09, 1};
+	soundExpand[] = {"\ca\ui\data\sound\new1", 0.09, 1};
+	soundCollapse[] = {"\ca\ui\data\sound\new1", 0.09, 1};
+	maxHistoryDelay = 1.0;
+	
+	class ScrollBar {
+		color[] = {1, 1, 1, 0.6};
+		colorActive[] = {1, 1, 1, 1};
+		colorDisabled[] = {1, 1, 1, 0.3};
+		thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+		arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+		arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+		border = "\ca\ui\data\ui_border_scroll_ca.paa";
+	};
+};
+
+class RscEdit {
+	idc = -1;
+	type = CT_EDIT;
+	style = ST_CENTER;
+	sizeEx = 0.02;
+	font = FontHTML;
+       colorText[] = {1, 1, 1, 1};
+	autocomplete = 0;
+       colorSelection[] = {0.5, 0.5, 0.5, 1};
+	text = ;
+};
+
+class RscLine {
+	idc = -1;
+	moving = 0;
+	type = CT_STATIC;
+	style = ST_LINE;
+	text = "";
+	font = FontHTML;
+	sizeEx = 0.023;
+	colorBackground[] = {1, 1, 1, 1};
+	colorText[] = {0.75, 0.75, 0.75, 1};
+};
+
+class RscLB_C
+	{
+		style = ST_LEFT;
+		idc = -1;
+		colorSelect[] = {0, 0.2, 0.4, 1};
+		colorSelectBackground[] = {0, 0.2, 0.4, 0.1};
+		colorText[] = {0.2, .2, 0.2, 1};
+		colorBackground[] = {0.4, 0.4, 0.4, 0};
+		font = FontHTML;
+		sizeEx = 0.015;
+		rowHeight = 0.025;
+};
+
+
+class RscListBox : RscLB_C
+{
+	type = CT_LISTBOX;
+		ScrollBar = ;
+	autoScrollRewind = ;
+	autoScrollSpeed = ;
+	autoScrollDelay = ;
+	maxHistoryDelay = ;
+};
+
+
+class SelectObject {
+  idd = 16700;
+  movingEnable = 1;
+  
+  class controlsBackground {
+	  class BACKGROUND1 : InfoText {
+	    colorBackground[] = {.6, .6, .6, .8};
+	    text = ;
+	  	x = 0.2;
+	  	y = 0.3;
+	  	w = 0.8;
+	  	h = 0.59;
+	  	moving = 1;
+	  };
+  };
+  
+  class controls {
+	  class HEADER1 : InfoText {
+	    x = 0.2;
+	    y = 0.3;
+	    w = 0.4;
+	    h = 0.04;
+			moving = 0;
+	    colorBackground[] = {.2, .2, .2, 1};
+			colorText[] = {1, .5, 0, .9};
+	    sizeEx = 0.04;
+	    text = "Select Object Type";
+	  };
+	  class TYPELIST : ComboBox {
+	  	idc = 16700;
+	  	x = 0.2;
+	  	y = 0.34;
+	  	w = 0.4;
+	  	h = 0.04;
+			colorText[] = {0, 0, 0, 1};
+			soundSelect[] = {"",0.1,1};
+	  	moving = 1;
+	  };
+
+	  class HEADER2 : HEADER1 {
+	    y = 0.4;
+	    text = "Select Object";
+	  };
+	  class OBJLIST : ListBox1 {
+	  	idc = 16701;
+	  	x = 0.2;
+	  	y = 0.44;
+	  	w = 0.39;
+	  	h = 0.448;
+			colorText[] = {0, 0, 0, 1};
+			soundSelect[] = {"",0.1,1};
+	  	moving = 1;
+	  };
+	  
+
+	  class HEADER3 : HEADER1 {
+	  	style = ST_CENTER;
+	  	idc = 16702;
+	    x = 0.6;
+	    y = 0.3;
+	    colorBackground[] = {.6, .6, .6, .8};
+			colorText[] = {0, 0, 0, 1};
+	    text = "";
+	  };
+	  class PICTURE : RscPictureKeepAspect {
+	  	idc = 16703;
+	  	x = 0.65;
+	  	y = 0.35;
+	  	w = 0.3;
+	  	h = 0.3;
+	  };
+	  // should be struct text
+	  class DESCRIPTION : RscStructuredText {
+	  	idc = 16704;
+	    x = 0.6;
+	    y = 0.7;
+	    w = 0.4;
+	    h = 0.15;
+	    text = "";
+	  };
+	  
+    class OBJSEL : Button {
+	  	x = 0.594;
+	  	y = 0.85;
+	  	w = 0.404;
+	  	h = 0.04;
+			sizeEx = 0.04;
+		 	text = "Find possible locations";
+	  	action = "findit = true";
+	  };
+  };
+};
+
+
+class Dlg1
+	{
+	  idd = 50;
+	  movingEnable = 1;
+	  controlsBackground[] = {LIST_BACKGROUND, LABEL_BACKGROUND};
+	  class LIST_BACKGROUND : RscText
+	  {
+		idc = 51;
+		colorBackground[] = {0.8, 0.8, 0.8, 0.5};
+		text = ;
+		x = -.01;
+		y = 0.04;
+		w = 0.22;
+		h = 0.54;
+		moving = 1;
+	  };
+	  class LABEL_BACKGROUND : RscText
+	  {
+		colorBackground[] = {0.8, 0.8, 0.8, 0.5};
+		text = ;
+		x = 0.245;
+		y = 0.035;
+		w = 0.51;
+		h = 0.05;
+	  };
+	  objects[] = {};
+	  
+	  controls[] = {CLOSERBTN, AWAYBTN, UPBTN, DOWNBTN, ROTLEFT, ROTRIGHT, HIDEIT, OBJLIST, OBJLABEL};
+	  class ROTLEFT : RscButton
+	  {
+		idc = 52;
+		x = 0.0;
+		y = 0.52;
+			text = "Rotate Left";
+		action = "mm setDir ([getDir mm,-30] call KRON_addangle); obj setDir getDir mm";
+	  };
+	   class ROTRIGHT : RscButton
+	  {
+		idc = 53;
+		x = 0.13;
+		y = 0.52;
+			text = "Rotate Right";
+		action = "mm setDir ([getDir mm,30] call KRON_addangle); obj setDir getDir mm";
+	  };
+	  	class ScrollBar {
+		color[] = {1, 1, 1, 0.6};
+		colorActive[] = {1, 1, 1, 1};
+		colorDisabled[] = {1, 1, 1, 0.3};
+		thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+		arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+		arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+		border = "\ca\ui\data\ui_border_scroll_ca.paa";
+	};
+	  class CLOSERBTN : RscButton
+	  {
+		idc = 54;
+		x = 0.105;
+		y = 0.55;
+			text = "Move Closer";
+		action = "mm setpos ([getPos mm,5,(getDir player)+180] call KRON_relpos); obj setpos getPos mm";
+	  };
+	  class AWAYBTN : RscButton
+	  {
+		idc = 55;
+		x = 0.105;
+		y = 0.492;
+			text = "Move Away";
+		action = "mm setpos ([getPos mm,5,getDir player] call KRON_relpos); obj setpos getPos mm";
+	  };
+	  class UPBTN : RscButton
+	  {
+		idc = 56;
+		x = 0.025;
+		y = 0.492;
+			text = "Move Up";
+		action = "mm setpos [getPos mm select 0, getPos mm select 1, (getPos mm select 2)+.5]; obj setpos getPos mm";
+	  };
+	  class DOWNBTN : RscButton
+	  {
+		idc = 57;
+		x = 0.025;
+		y = 0.55;
+			text = "Move Down";
+		action = "mm setpos [getPos mm select 0, getPos mm select 1, (getPos mm select 2)-.5]; obj setpos getPos mm";
+	  };
+		class HIDEIT : RscButton
+	  {
+		idc = 59;
+		x = 0.19;
+		y = 0.02;
+		w = 0.02;
+		h = 0.02;
+			colorBackground[] = {0.2, 0.2, 0.2, 0};
+			style = ST_CENTER;
+			text = "X";
+		action = "KRON_dddir=KRON_dddir*-1; {KRON_ddoff=if (_x==59) then {.19} else {.22};KRON_ddtmp=(findDisplay 50) displayCtrl _x; KRON_ddtmp ctrlSetPosition [((ctrlPosition KRON_ddtmp) select 0)+KRON_ddoff*KRON_dddir, (ctrlPosition KRON_ddtmp) select 1]; KRON_ddtmp ctrlCommit .25} forEach [51,52,53,54,55,56,57,59,60]; ";
+	  };
+	  class OBJLIST : RscListBox
+	  {
+		idc = 60;
+		x = -0.01;
+		y = 0.05;
+		w = 0.21;
+		h = 0.43;
+		soundSelect[] = {"",0.100000,1};
+		moving = 1;
+	  };
+	  class OBJLABEL : RscEdit
+	  {
+		idc = 61;
+		x = 0.25;
+		y = 0.04;
+		w = 0.5;
+		h = 0.04;
+	  };
+	};
+	
+	
+	
+class PP {
+	idd = 108200;
+	movingEnable = 0;
+	enableSimulation = 1;
+	controlsBackground[] = {};
+	objects[] = {};
+	controls[] = {
+		BackgroundGeneral,
+		Line1,
+		TextTitleMain,
+		ComboPPEffect,
+		ActiveTextEnable,
+		ActiveTextToggleAll,
+		TextParam1,
+		TextParam2,
+		TextParam3,
+		TextParam4,
+		TextParam5,
+		TextParam6,
+		TextParam7,
+		TextParam8,
+		TextParam9,
+		TextParam10,
+		TextParam11,
+		TextParam12,
+		TextParam13,
+		TextParam14,
+		TextParam15,
+		EditParam1,
+		EditParam2,
+		EditParam3,
+		EditParam4,
+		EditParam5,
+		EditParam6,
+		EditParam7,
+		EditParam8,
+		EditParam9,
+		EditParam10,
+		EditParam11,
+		EditParam12,
+		EditParam13,
+		EditParam14,
+		EditParam15,
+		BackgroundOutput,
+		EditOutput,
+		ActiveTextApply,
+		ActiveTextClipboard,
+		ActiveTextDefaults,
+		ActiveTextClose
+	};
+	
+	class BackgroundGeneral: RscBackground {
+		x = 0.1;
+		y = 0;
+		w = 0.8;
+		h = 1;
+	};
+	
+	class Line1: RscLine {
+		x = 0.15;
+		y = 0.075;
+		w = 0.7;
+		h = 0;
+	};
+	
+	class TextTitleMain: RscText {
+		text = "POSTPROCESS CONTROL";
+		colorBackground[] = {0, 0, 0, 1};
+		x = 0.4;
+		y = 0.05;
+		w = 0.2;
+		h = 0.05;
+		moving = TRUE;
+	};
+	
+	class ComboPPEffect: RscCombo {
+		idc = 108201;
+		x = 0.25;
+		y = 0.1625;
+		w = 0.35;
+		h = 0.025;
+	};
+	
+	class ActiveTextEnable: RscActiveText {
+		style = ST_RIGHT;
+		idc = 108202;
+		x = 0.55;
+		y = 0.1625;
+		w = 0.2;
+		h = 0.025;
+		text = "ENABLE EFFECT";
+		action = "call BIS_PPEnable";
+	};
+	
+	class ActiveTextToggleAll: RscActiveText {
+		style = ST_RIGHT;
+		idc = 108248;
+		x = 0.55;
+		y = 0.2025;
+		w = 0.2;
+		h = 0.025;
+		text = "ENABLE ALL EFFECTS";
+		action = "if ({player getVariable _x} count BIS_PPList > 3) then {call BIS_PPDisableAll} else {call BIS_PPEnableAll}";
+	};
+	
+	class TextParam1: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108218;
+		text = "Param1:";
+		x = 0.15;
+		y = 0.25;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam2: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108219;
+		text = "Param2:";
+		x = 0.15;
+		y = 0.29;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam3: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108220;
+		text = "Param3:";
+		x = 0.15;
+		y = 0.33;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam4: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108221;
+		text = "Param4:";
+		x = 0.15;
+		y = 0.37;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam5: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108222;
+		text = "Param5:";
+		x = 0.15;
+		y = 0.41;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam6: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108223;
+		text = "Param6:";
+		x = 0.15;
+		y = 0.45;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam7: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108224;
+		text = "Param7:";
+		x = 0.15;
+		y = 0.49;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam8: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108225;
+		text = "Param8:";
+		x = 0.15;
+		y = 0.53;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam9: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108226;
+		text = "Param9:";
+		x = 0.15;
+		y = 0.57;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam10: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108227;
+		text = "Param10:";
+		x = 0.15;
+		y = 0.61;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam11: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108228;
+		text = "Param11:";
+		x = 0.15;
+		y = 0.65;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam12: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108229;
+		text = "Param12:";
+		x = 0.15;
+		y = 0.69;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam13: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108230;
+		text = "Param13:";
+		x = 0.15;
+		y = 0.73;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam14: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108231;
+		text = "Param14:";
+		x = 0.15;
+		y = 0.77;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class TextParam15: RscText {
+		style = ST_LEFT + ST_NO_RECT;
+		idc = 108232;
+		text = "Param15:";
+		x = 0.15;
+		y = 0.81;
+		w = 0.25;
+		h = 0.025;
+	};
+	
+	class EditParam1: RscEdit {
+		idc = 108203;
+		x = 0.4;
+		y = 0.25;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam2: RscEdit {
+		idc = 108204;
+		x = 0.4;
+		y = 0.29;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam3: RscEdit {
+		idc = 108205;
+		x = 0.4;
+		y = 0.33;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam4: RscEdit {
+		idc = 108206;
+		x = 0.4;
+		y = 0.37;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam5: RscEdit {
+		idc = 108207;
+		x = 0.4;
+		y = 0.41;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam6: RscEdit {
+		idc = 108208;
+		x = 0.4;
+		y = 0.45;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam7: RscEdit {
+		idc = 108209;
+		x = 0.4;
+		y = 0.49;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam8: RscEdit {
+		idc = 108210;
+		x = 0.4;
+		y = 0.53;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam9: RscEdit {
+		idc = 108211;
+		x = 0.4;
+		y = 0.57;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam10: RscEdit {
+		idc = 108212;
+		x = 0.4;
+		y = 0.61;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam11: RscEdit {
+		idc = 108213;
+		x = 0.4;
+		y = 0.65;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam12: RscEdit {
+		idc = 108214;
+		x = 0.4;
+		y = 0.69;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam13: RscEdit {
+		idc = 108215;
+		x = 0.4;
+		y = 0.73;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam14: RscEdit {
+		idc = 108216;
+		x = 0.4;
+		y = 0.77;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class EditParam15: RscEdit {
+		idc = 108217;
+		x = 0.4;
+		y = 0.81;
+		w = 0.45;
+		h = 0.034;
+	};
+	
+	class BackgroundOutput: RscBackground {
+		idc = 108244;
+		x = 0.15;
+		y = 0.25;
+		w = 0.7;
+		h = 0.594;
+		colorBackground[] = {0, 0, 0, 1};
+		colorText[] = {1, 1, 1, 1};
+	};
+	
+	class EditOutput: RscEdit {
+		idc = 108245;
+		style = ST_MULTI;
+		lineSpacing = 1;
+		htmlControl = TRUE;
+		x = 0.15;
+		y = 0.25;
+		w = 0.7;
+		h = 0.594;
+		default = TRUE;
+	};
+	
+	class ActiveTextApply: RscActiveText {
+		style = ST_CENTER;
+		idc = 108249;
+		x = 0.15;
+		y = 0.9;
+		w = 0.175;
+		h = 0.025;
+		text = "APPLY CHANGES";
+		action = "call BIS_applyNewPP";
+	};
+	
+	class ActiveTextClipboard: RscActiveText {
+		style = ST_CENTER;
+		idc = 108247;
+		x = 0.325;
+		y = 0.9;
+		w = 0.175;
+		h = 0.025;
+		text = "SHOW OUTPUT";
+		action = "call BIS_output";
+	};
+	
+	class ActiveTextDefaults: RscActiveText {
+		style = ST_CENTER;
+		idc = 108246;
+		x = 0.5;
+		y = 0.9;
+		w = 0.175;
+		h = 0.025;
+		text = "LOAD DEFAULTS";
+		action = "call BIS_loadDefaults";
+	};
+	
+	class ActiveTextClose: RscActiveText {
+		style = ST_CENTER;
+		idc = 108250;
+		x = 0.675;
+		y = 0.9;
+		w = 0.175;
+		h = 0.025;
+		text = "CLOSE WINDOW";
+		action = "closeDialog 1082";
+	};
+};
+
+class DlgMoves
+{
+  idd = 99;
+  movingEnable = true;
+  controlsBackground[] = { MY_BACKGROUND, MY_FRAME };
+  class MY_BACKGROUND : RscText
+  {
+    colorBackground[] = {0, 0.2, 0.4, 0.1};
+		moving = 1;
+    text = ;
+    x = 0.22;
+    y = 0.133;
+    w = 0.56;
+    h = 0.647;
+  };
+  class MY_FRAME : RscText
+  {
+     idc = 103;
+     style = ST_FRAME;
+     colorText[] = {1, 0, 0, 1};
+     text = "Moves/Animations";
+     font = FontHTML;
+     sizeEx = 0.025;
+     x = 0.22;
+     y = 0.12;
+     w = 0.56;
+     h = 0.66;
+  };
+  objects[] = { };
+  controls[] = {CLOSEDLG, ADDDLG, CLRDLG, RPTDLG, SLODLG, MOVELIST, MOVECOPY};
+  class CLOSEDLG : RscButton
+  {
+  	idc = 102;
+  	x = 0.78-.028;
+  	y = 0.134;
+  	w = 0.027;
+  	h = 0.025;
+		colorDisabled[] = {};
+		colorBackground[] = {0.600000,0.800000, 0.600000, 0.400000};
+		colorBackgroundActive[] = {};
+		colorBackgroundDisabled[] = {};
+		colorFocused[] = {};
+		offsetX = ;
+		offsetY = ;
+		offsetPressedX = ;
+		offsetPressedY = ;
+		colorShadow[] = {};
+		colorBorder[] = {};
+		borderSize = ;
+		soundEnter[] = {"",0.100000,1};
+	 	text = "X";
+	  action = "closeDialog 0";
+  };
+  class CLRDLG : RscButton
+  {
+  	idc = 107;
+  	x = 0.25;
+  	y = 0.71;
+  	w = 0.1;
+  	h = 0.04;
+		colorDisabled[] = {};
+		colorBackground[] = {0.600000,0.800000, 0.600000, 0.400000};
+		colorBackgroundActive[] = {};
+		colorBackgroundDisabled[] = {};
+		colorFocused[] = {};
+		offsetX = ;
+		offsetY = ;
+		offsetPressedX = ;
+		offsetPressedY = ;
+		colorShadow[] = {};
+		colorBorder[] = {};
+		borderSize = ;
+		soundEnter[] = {"",0.100000,1};
+	 	text = "Clear";
+	  action = "while {(lbSize 104)>0} do {lbDelete [104, 0]}";
+  };
+  class ADDDLG : RscButton
+  {
+  	idc = 106;
+  	x = 0.375;
+  	y = 0.71;
+  	w = 0.1;
+  	h = 0.04;
+		colorDisabled[] = {};
+		colorBackground[] = {0.600000,0.800000, 0.600000, 0.400000};
+		colorBackgroundActive[] = {};
+		colorBackgroundDisabled[] = {};
+		colorFocused[] = {};
+		offsetX = ;
+		offsetY = ;
+		offsetPressedX = ;
+		offsetPressedY = ;
+		colorShadow[] = {};
+		colorBorder[] = {};
+		borderSize = ;
+		soundEnter[] = {"",0.100000,1};
+	 	text = "Add";
+	  action = "lbAdd [104, ctrlText 105]; lbSetCurSel [104, lbSize 104]";
+  };
+  class SLODLG : RscButton
+  {
+  	idc = 108;
+  	x = 0.525;
+  	y = 0.71;
+  	w = 0.1;
+  	h = 0.04;
+		colorDisabled[] = {};
+		colorBackground[] = {0.600000,0.800000, 0.600000, 0.400000};
+		colorBackgroundActive[] = {};
+		colorBackgroundDisabled[] = {};
+		colorFocused[] = {};
+		offsetX = ;
+		offsetY = ;
+		offsetPressedX = ;
+		offsetPressedY = ;
+		colorShadow[] = {};
+		colorBorder[] = {};
+		borderSize = ;
+		soundEnter[] = {"",0.100000,1};
+	 	text = "Normal";
+	  action = "if (accTime==1) then {ctrlSetText [108,""Slow-Mo""]; setAccTime (.1);} else {ctrlSetText [108,""Normal""]; setAccTime (1)}; soldier switchMove MOVENAME";
+  };
+  class RPTDLG : RscButton
+  {
+  	idc = 109;
+  	x = 0.65;
+  	y = 0.71;
+  	w = 0.1;
+  	h = 0.04;
+		colorDisabled[] = {};
+		colorBackground[] = {0.600000,0.800000, 0.600000, 0.400000};
+		colorBackgroundActive[] = {};
+		colorBackgroundDisabled[] = {};
+		colorFocused[] = {};
+		offsetX = ;
+		offsetY = ;
+		offsetPressedX = ;
+		offsetPressedY = ;
+		colorShadow[] = {};
+		colorBorder[] = {};
+		borderSize = ;
+		soundEnter[] = {"",0.100000,1};
+	 	text = "Repeat";
+	  action = "soldier switchMove MOVENAME";
+  };
+  class MOVECOPY : RscEdit
+  {
+  	idc = 105;
+  	x = 0.25;
+  	y = 0.65;
+  	w = 0.5;
+  	h = 0.04;
+  };
+  class MOVELIST : RscListBox
+  {
+  	idc = 104;
+  	x = 0.25;
+  	y = 0.17;
+  	w = 0.5;
+  	h = 0.45;
+		soundSelect[] = {"",0.100000,1};
+  };
+};
+
+
+class DlgFaces
+{
+  idd = -1;
+  movingEnable = true;
+  controlsBackground[] = { MY_BACKGROUNDF, MY_FRAMEF };
+  class MY_BACKGROUNDF : RscText
+  {
+     colorBackground[] = {0, 0.2, 0.4, 0.1};
+     text = ;
+     x = 0.2;
+     y = 0.1;
+     w = 0.6;
+     h = 0.7;
+  };
+  class MY_FRAMEF : RscText
+  {
+     idc = 113;
+     style = ST_FRAME;
+     colorText[] = {1, 0, 0, 1};
+     text = "Faces";
+     font = FontHTML;
+     sizeEx = 0.025;
+     x = 0.22;
+     y = 0.12;
+     w = 0.56;
+     h = 0.66;
+  };
+  objects[] = { };
+  controls[] = {CLOSEDLGF, FACELIST, FACECOPY};
+  class CLOSEDLGF : RscButton
+  {
+  	idc = 112;
+  	x = 0.4;
+  	y = 0.71;
+  	w = 0.2;
+  	h = 0.04;
+	colorDisabled[] = {};
+	colorBackground[] = {0.600000,0.800000, 0.600000, 0.400000};
+	colorBackgroundActive[] = {};
+	colorBackgroundDisabled[] = {};
+	colorFocused[] = {};
+	offsetX = ;
+	offsetY = ;
+	offsetPressedX = ;
+	offsetPressedY = ;
+	colorShadow[] = {};
+	colorBorder[] = {};
+	borderSize = ;
+	soundEnter[] = {"",0.100000,1};
+  	text = "Close";
+  	action = "closeDialog 0";
+  };
+  class FACECOPY : RscEdit
+  {
+  	idc = 115;
+  	x = 0.25;
+  	y = 0.65;
+  	w = 0.5;
+  	h = 0.04;
+  };
+  class FACELIST : RscListBox
+  {
+  	idc = 114;
+  	x = 0.25;
+  	y = 0.17;
+  	w = 0.5;
+  	h = 0.45;
+	soundSelect[] = {"",0.100000,1};
+  };
+};
+
+class DlgTrack
+{
+  idd = -1;
+  movingEnable = true;
+  controlsBackground[] = {MY_BACKGROUNDM, MY_FRAMEM};
+  class MY_BACKGROUNDM : RscText
+  {
+     colorBackground[] = {0, 0.2, 0.4, 0.1};
+     text = ;
+     x = 0.2;
+     y = 0.1;
+     w = 0.6;
+     h = 0.7;
+  };
+  class MY_FRAMEM : RscText
+  {
+     idc = 123;
+     style = ST_FRAME;
+     colorText[] = {1, 0, 0, 1};
+     text = "Tracks";
+     font = FontHTML;
+     sizeEx = 0.025;
+     x = 0.22;
+     y = 0.12;
+     w = 0.56;
+     h = 0.66;
+  };
+  objects[] = { };
+  controls[] = {TrackLGF, TrackLIST, TrackCOPY};
+  class TrackLGF : RscButton
+  {
+  	idc = 122;
+  	x = 0.4;
+  	y = 0.71;
+  	w = 0.2;
+  	h = 0.04;
+	colorDisabled[] = {};
+	colorBackground[] = {0.600000,0.800000, 0.600000, 0.400000};
+	colorBackgroundActive[] = {};
+	colorBackgroundDisabled[] = {};
+	colorFocused[] = {};
+	offsetX = ;
+	offsetY = ;
+	offsetPressedX = ;
+	offsetPressedY = ;
+	colorShadow[] = {};
+	colorBorder[] = {};
+	borderSize = ;
+	soundEnter[] = {"",0.100000,1};
+  	text = "Close";
+  	action = "closeDialog 0";
+  };
+  class TrackCOPY : RscEdit
+  {
+  	idc = 125;
+  	x = 0.25;
+  	y = 0.65;
+  	w = 0.5;
+  	h = 0.04;
+  };
+  class TrackLIST : RscListBox
+  {
+  	idc = 124;
+  	x = 0.25;
+  	y = 0.17;
+  	w = 0.5;
+  	h = 0.45;
+	soundSelect[] = {"",0.100000,1};
+  };
+};
+
+#include "WeaponSelector\dlg_wepsel.hpp"
