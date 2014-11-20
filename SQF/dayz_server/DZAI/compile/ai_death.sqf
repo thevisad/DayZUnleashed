@@ -10,6 +10,8 @@ private["_victim","_killer","_unitGroup","_unitType","_launchWeapon","_launchAmm
 
 _victim = _this select 0;
 _killer = _this select 1;
+_exp_type="Combat_NPC";
+
 _deathType = if ((count _this) > 2) then {_this select 2} else {"bled"};
 
 if (_victim getVariable ["deathhandled",false]) exitWith {};
@@ -43,11 +45,13 @@ call {
 	};
 	if (_unitType in ["air","aircustom"]) exitWith {
 		[_victim,_unitGroup] call DZAI_AI_killed_air;
+		_exp_type="Combat_NPC3";
 	};
 	if (_unitType in ["land","landcustom"]) exitWith {
 		0 = [_victim,_killer,_unitGroup,_unitType] call DZAI_AI_killed_all;
 		if (_groupIsEmpty) then {
 			[_unitGroup] call DZAI_AI_killed_land; //Only run this if entire group has been killed
+			_exp_type="Combat_NPC3";
 		};
 	};
 	if (_unitType == "aircrashed") exitWith {};
@@ -69,6 +73,7 @@ if !(isNull _victim) then {
 			_headshots = _this getVariable ["headShots",0];
 			_headshots = _headshots + 1;
 			_this setVariable ["headShots",_headshots,true];
+			_exp_type="Combat_NPC2";
 		};
 	};
 
@@ -90,6 +95,11 @@ if !(isNull _victim) then {
 	if (DZAI_deathMessages && {isPlayer _killer}) then {
 		_nul = [_killer,_bodyName] spawn DZAI_sendKillMessage;
 	};
+};
+
+if (isPlayer _killer) then {
+	PVDZ_plr_exp =[_killer,_exp_type];
+	(owner _killer) publicVariableClient "PVDZ_plr_exp";
 };
 
 _victim
