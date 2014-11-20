@@ -12,7 +12,7 @@ class CfgEXP{
     
     class Generic: Default{
         Name="Generic";
-        Experience=10;
+        Experience=25;
     };
     
     class Generic_limited: Generic{
@@ -51,19 +51,19 @@ class CfgEXP{
         };
 
      class Build: Generic_Engineering{
-        Experience=25;
+        Experience=50;
         MiniumGain=0;
      };
      
      class Build_med: Build{
-        Experience=50;
+        Experience=75;
      };
      class Build_large: Build{
         Experience=100;
      };
      
     class Repair: Generic_Engineering{};
-     class Craft: Generic_Engineering{};
+    class Craft: Generic_Engineering{};
     
     class Boil: Generic_Hunting{};
     class Cook: Generic_Hunting{};
@@ -73,7 +73,7 @@ class CfgEXP{
         
     class Blood_Self: Generic_Medical{};
     class Blood_Other: Generic_Medical{
-        Experience=20;
+        Experience=35;
     };
     class Blood_Bag: Generic_Medical{ //Blood Bag crafting exp
         Experience=30;
@@ -82,8 +82,31 @@ class CfgEXP{
     //class Bandage_Other: Generic_Medical{};
        
     class Combat_Player: Generic_Combat{};
-    class Combat_NPC: Generic_Combat{};
-    class Combat_Zed: Generic_Combat{};
+    class Combat_NPC: Generic_Combat{
+        Experience=50;
+        };    
+    class Combat_NPC2: Generic_Combat{
+        Experience=75;
+        };
+    class Combat_NPC3: Generic_Combat{
+        Experience=100;
+        };
+    class Combat_NPC4: Generic_Combat{
+        Experience=125;
+        };
+    class Combat_NPC5: Generic_Combat{
+        Experience=150;
+        };
+    class Combat_NPC6: Generic_Combat{
+        Experience=175;
+        };
+    class Combat_NPC7: Generic_Combat{
+        Experience=200;
+        };
+        
+    class Combat_Zed: Generic_Combat{
+        Experience=35;
+        };
     
     class Find_Loot: Generic_Survival{};
 };           
