@@ -100,7 +100,7 @@ class CfgEXP{
     class Combat_NPC6: Generic_Combat{
         Experience=175;
         };
-    class Combat_NPC6: Generic_Combat{
+    class Combat_NPC7: Generic_Combat{
         Experience=200;
         };
         
