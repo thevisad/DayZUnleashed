@@ -7,18 +7,18 @@ _deleteObjects = diag_tickTime;
 _dynLocations = diag_tickTime;
 _reportDynOrVehicles = (DZAI_dynAISpawns || ((DZAI_maxHeliPatrols > 0) or {(DZAI_maxLandPatrols > 0)}));
 
-uiSleep 60;
+uiSleep 6;
 
 while {true} do {
 	//Main cleanup loop
-	if ((diag_tickTime - _cleanDead) > 600) then {
+	if ((diag_tickTime - _cleanDead) > 6) then {
 		_bodiesCleaned = 0;
 		_vehiclesCleaned = 0;
 		_nullObjects = 0;
 		
 		//Body/vehicle cleanup loop
 		{
-			_deathTime = _x getVariable "DZAI_deathTime";
+			_deathTime = _x getVariable ["DZAI_deathTime", time];
 			/*
 			if (!isNil "_deathTime") then {
 				diag_log format ["DZAI Cleanup Debug: Checking unit %1 (%2). diag_tickTime: %3. deathTime: %4.",_x,typeOf _x,diag_tickTime,_deathTime];
@@ -126,6 +126,6 @@ while {true} do {
 		_monitorReport = diag_tickTime;
 	};
 	
-	uiSleep 30;
+	uiSleep 3;
 };
 _nul = [] execVM format ['%1\scripts\DZAI_serverMonitor.sqf',DZAI_directory]; //restart DZAI server monitor if main loop exits for some reason.

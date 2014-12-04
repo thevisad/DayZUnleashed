@@ -135,15 +135,6 @@ if (!_newPlayer) then {
 	_model = "Survivor2_DZ";
 	};
     
-	if (_playerID == "76561198013702927") then {
-	_model = "TheVisad_DZU";
-	};
-	if (_playerID == "59883846") then {
-	_model = "XyberViri_DZU";
-	};
-	if (_playerID == "95700038") then {
-	_model = "PvtAmmo_DZU";
-	};
 	if (unleashed_PlayerLoginDebug == 1) then {
 		diag_log(format["SPL: _survival: %1", _survival ]);
 		diag_log(format["SPL: _inventory: %1", _inventory ]);
@@ -151,19 +142,8 @@ if (!_newPlayer) then {
 		diag_log(format["SPL: _model: %1", _model ]);
 		diag_log(format["SPL: _hiveVer: %1", _hiveVer ]);
 	};
-
-	
 } else {
-	/* //disabling for now due to issues with the system
-	// get medical from past character
-	_key_medical = format["CHILD:150:%1:",_playerID];
-	_medical = _key_medical call server_hiveReadWrite;
-	
-	// check if infected
-	if (count _medical > 0) then {
-		_isInfected = _medical select 2;
-	};
-	*/
+	//NEW CHARACTER
 	_inventory = 	_primary select 3;
 	_backpack = 	_primary select 4;
 	_model =		_primary select 5;
@@ -176,33 +156,16 @@ if (!_newPlayer) then {
 			_model = "Survivor2_DZ";
 		};
 	};
-	if (_playerID == "76561198013702927") then {
-	_model = "TheVisad_DZU";
-	};
-	if (_playerID == "59883846") then {
-	_model = "XyberViri_DZU";
-	};
-	if (_playerID == "95700038") then {
-	_model = "PvtAmmo_DZU";
-	};
-	//Record initial inventory
-	_config = (configFile >> "CfgSurvival" >> "Inventory" >> "Default");
 
-	_mags = getArray (_config >> "magazines");
-	_wpns = getArray (_config >> "weapons");
-	_bcpk = getText (_config >> "backpack");
 	_randomSpot = true;
-
-
-
-	/*
-	if (_inventory == "[]") then {
-		//Wait for HIVE to be free
-		_key = format["CHILD:203:%1:%2:%3:",_charID,[_wpns,_mags],[_bcpk,[],[]]];
-		_key call server_hiveWrite;
-	};
-	*/
 	
+	if ((count _array) < 1) then {
+		if (unleashed_PlayerLoginDebug == 1) then {
+			diag_log (format["SPL: LOGIN: Inventory: %1 , Backpack: %2",unleashed_startingInventory,unleashed_startingBackpack]);
+		};
+		_inventory = unleashed_startingInventory;
+		_backpack = unleashed_startingBackpack;
+	};	
 };
 
 	if (unleashed_PlayerLoginDebug == 1) then {

@@ -17,7 +17,7 @@
 //#define CIVILIAN 3   // Objects/Innocents
 
 #include "Configs\basicDefines.hpp"
-
+#include "Configs\CfgUnleashed\Unleashed_weapons.hpp"
 //Weight System
 #include "R3F_Realism\R3F_Weight\R3F_CfgWeight.h" 
 
@@ -43,7 +43,7 @@
 //HNGSpeedBoost
 #include "Configs\CfgRPG\CfgPlayerVariables.hpp"
 #include "Configs\CfgFunctions.hpp"
-#include "Configs\CfgUnleashed\Unleashed_weapons.hpp"
+
 #include "Configs\snappoints.hpp"
 
 class CfgPatches {
@@ -51,7 +51,7 @@ class CfgPatches {
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;
-		requiredAddons[] = {"CAMisc3","CACharacters_E","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT","dayz_equip","dayz_weapons"};
+		requiredAddons[] = {"CAMisc3","CACharacters_E","CABuildingParts","CABuildingParts_Signs","CAStructuresHouse","CAStructuresLand_Ind_Stack_Big","CAStructures_Misc_Powerlines","CAStructures","CABuildings","CABuildings2","Ind_MalyKomin","CAStructures_A_CraneCon","CAStructures_Mil","CAStructures_Nav","CAStructures_Rail","A_Crane_02","A_TVTower","CAStructures_Railway","CAStructuresHouse_HouseBT","dayz_equip","dayz_weapons","asc_eu_lights"};
 	};
 	class DZ_DebriefingRemoved	{
 		units[] = {};
@@ -66,7 +66,7 @@ class CfgMods
 	class DayZ
 	{
 		dir = "@DayZUnleashed";
-		name = "Arma 2: Unleashed";
+		name = "DayZ Unleashed";
 		picture = "z\addons\dayz_code\gui\mod.paa";
 		hidePicture = 0;
 		hideName = 0;
@@ -110,7 +110,8 @@ class CfgAddons
 	{
 		class dayz
 		{
-		list[] = {"dayz_code","dayz","dayz_equip","dayz_communityassets","dayz_weapons","dayz_sfx","ST_bunnyhop","st_collision","st_evasive","BB_OA_Female","swm_swissarms","swm_misc"};
+		//list[] = {"dayz_code","dayz","dayz_equip","dayz_communityassets","dayz_weapons","dayz_sfx","ST_bunnyhop","st_collision","st_evasive","BB_OA_Female","swm_swissarms","swm_misc"};
+		list[] = {"dayz_code","dayz","dayz_equip","dayz_weapons"};
 
 		};
 	};

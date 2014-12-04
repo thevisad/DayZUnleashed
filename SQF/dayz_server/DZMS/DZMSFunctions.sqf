@@ -134,7 +134,7 @@ DZMSSetupVehicle = {
 	_object setVariable ["ObjectUID", _objectID, true];
 	
 	if (DZMSEpoch) then {
-		PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor, _object];
+		PVDZ_serverObjectMonitor set [count PVDZ_serverObjectMonitor, _object];
 	} else {
 		dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _object];
 	};
@@ -175,7 +175,7 @@ DZMSProtectObj = {
 	};
 
 	if (DZMSEpoch) then {
-		PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor, _object];
+		PVDZ_serverObjectMonitor set [count PVDZ_serverObjectMonitor, _object];
 	} else {
 		dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _object];
 	};

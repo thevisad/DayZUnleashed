@@ -173,8 +173,8 @@ if (_proceed) then {
 		deleteVehicle _obj;
 		
 		if(!_isWreck) then {
-			PVDZE_obj_Delete = [_objectID,_objectUID,_activatingPlayer];
-			publicVariableServer "PVDZE_obj_Delete";
+			PVDZ_obj_Delete = [_objectID,_objectUID,_activatingPlayer];
+			publicVariableServer "PVDZ_obj_Delete";
 		};
 
 		cutText [format[(localize "str_epoch_player_165"),_nameVehicle], "PLAIN DOWN"];

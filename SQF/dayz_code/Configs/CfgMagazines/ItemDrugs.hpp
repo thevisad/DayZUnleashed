@@ -41,7 +41,7 @@ class ItemOpium : CA_Magazine {
 		class Crafting1
 		{
 			text = "Craft Morphine";
-			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines', _id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			output[] = {{"ItemMorphine",2}};
 			input[] = {{"ItemOpium",1}};
@@ -50,7 +50,7 @@ class ItemOpium : CA_Magazine {
 		class Crafting2
 		{
 			text = "Roll spiked joints";
-			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+			script = ";['Crafting2','CfgMagazines', _id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemKnife"};
 			output[] = {{"ItemPainkiller",2},{"ItemMorphine",2}};
@@ -83,7 +83,7 @@ class ItemKiloHemp : CA_Magazine {
 		class Crafting1
 		{
 			text = "Roll joints";
-			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+			script = ";['Crafting1','CfgMagazines', _id] spawn DZE_player_craftItem;";
 			neednearby[] = {"fire"};
 			requiretools[] = {"ItemKnife"};
 			output[] = {{"ItemPainkiller",2}};

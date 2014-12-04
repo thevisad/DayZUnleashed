@@ -15,10 +15,10 @@ while {true} do
 {
 	sleep R3F_WEIGHT_SHORT_DELAY;
 	R3F_Weight = call R3F_WEIGHT_FNCT_GetWeight;
-	_survival_skill = [player,"Survival"] call DZU_fnc_getVariable;
-	if (_survival_skill > 0) then 
+	_combat_skill = [player,"Combat"] call DZU_fnc_getVariable;
+	if (_combat_skill > 0) then 
 	{
-		_weight_reduction = _survival_skill * 4;
+		_weight_reduction = _combat_skill * 4;
 		if (_weight_reduction > R3F_Weight) then
 		{
 			R3F_Weight = R3F_Weight - _weight_reduction;

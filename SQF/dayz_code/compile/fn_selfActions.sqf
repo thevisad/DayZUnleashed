@@ -1033,8 +1033,6 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 8))
 	s_pilot_swap = -1;
 	player removeAction s_player_forceSave;
 	s_player_forceSave = -1;
-	player removeAction bringBackTheDead; 
-	bringBackTheDead = -1; 
 };
 
 

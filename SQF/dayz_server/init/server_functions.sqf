@@ -25,7 +25,6 @@ spawn_carePackages =            compile preprocessFileLineNumbers "\z\addons\day
 spawn_wrecks = 					compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_wrecks.sqf";
 server_deaths = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
 server_maintainArea = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_maintainArea.sqf";
-
 //Get instance name (e.g. dayz_1.chernarus)
 fnc_instanceName = {
 	"dayz_" + str(dayz_instance) + "." + worldName
@@ -40,8 +39,10 @@ server_GarageHandler =  compile preprocessFileLineNumbers "\z\addons\dayz_server
 server_SpawnBuildings = {
 	private ["_buildingArray","_countr","_type","_idKey","_ownerID","_worldspace","_dir","_wsDone","_inventory","_hitpoints","_squadID","_combination","_object","_class","_lockable","_countArray","_combinationTest","_objWpnTypes","_objWpnQty","_isOK","_block"];
 	_buildingArray = _this select 0;
-	{ //3:50:45 "BASEBUILDING: Info ["WoodGate_DZ","13039915736716","146",[5.799,[13039.9,15736.7,0.091]],[],[],0,942]"
-			diag_log ("BASEBUILDING: Info " + str(_x));
+	{ 
+			if (unleashed_PlayerBuildDebug == 1) then { 
+				diag_log ("BASEBUILDING: Info " + str(_x));
+			};
 			_type =		_x select 0;
 			_idKey = 	_x select 1;
 			_ownerID = 	_x select 2;
@@ -63,10 +64,10 @@ server_SpawnBuildings = {
 			_squadID =	if ((typeName (_x select 6)) == "SCALAR") then { _x select 6 } else { 0 };
 			_combination = _x select 7;  
 			
-			//diag_log (format["SM: _type %1",_type]);
-			//diag_log (format["SM: _idKey %1",_idKey]);
-			//diag_log (format["SM: _ownerID %1",_ownerID]);
-			//diag_log (format["SM: _worldspace %1",_worldspace]);
+				if (unleashed_debug == 1) then { diag_log (format["SM: _type %1",_type]); };
+				if (unleashed_debug == 1) then {diag_log (format["SM: _idKey %1",_idKey]); };
+				if (unleashed_debug == 1) then {diag_log (format["SM: _ownerID %1",_ownerID]); };
+				if (unleashed_debug == 1) then {diag_log (format["SM: _worldspace %1",_worldspace]); };
 			_object = createVehicle [_type, _pos, [], 0, 
 				if (_type=="TentStorage") then {"NONE"} else {"CAN_COLLIDE"}
 			];	
@@ -106,12 +107,9 @@ server_SpawnBuildings = {
 			};
 			
 			_object setVariable ["CharacterID", _combination, true];
-			
-			//_combinationTest = _object getVariable ["CharacterID", 0];
-			//diag_log (format["SM: Test: %1", _combinationTest]);
-			//diag_log (format["SM: Combination %1", _combination]);
 
-			//diag_log (format["SM: Building Type: %1, UID: %2, OwnerID: %3, WorldSpace: %4, Inventory: %5, HitPoints: %6, SquadID: %7, Combination: %8",_type,_idKey,_ownerID,_worldspace,_inventory,_hitpoints,_squadID,_combination]);
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["SM: Building Type: %1, UID: %2, OwnerID: %3, WorldSpace: %4, Inventory: %5, HitPoints: %6, SquadID: %7, Combination: %8",_type,_idKey,_ownerID,_worldspace,_inventory,_hitpoints,_squadID,_combination]);
+			};
 						
 			clearWeaponCargoGlobal  _object;
 			clearMagazineCargoGlobal  _object;
@@ -134,7 +132,9 @@ server_SpawnBuildings = {
 					_objWpnQty = (_inventory select 0) select 1;
 					_countr = 0;					
 					{
-						diag_log (format["SM: Building Type: %1, UID: %2, InventoryObject: %3",_object,_idKey,_x]);
+						if (unleashed_PlayerBuildDebug == 1) then { 
+							diag_log (format["SM: Building Type: %1, UID: %2, InventoryObject: %3",_object,_idKey,_x]);
+						};
 						_isOK = 	isClass(configFile >> "CfgWeapons" >> _x);
 						if (_isOK) then {
 							_block = 	getNumber(configFile >> "CfgWeapons" >> _x >> "stopThis") == 1;
@@ -150,9 +150,11 @@ server_SpawnBuildings = {
 					_objWpnQty = (_inventory select 1) select 1;
 					_countr = 0;
 					{
-							if (_x == "BoltSteel") then { _x = "WoodenArrow" }; // Convert BoltSteel to WoodenArrow
-							if (_x == "ItemTent") then { _x = "ItemTentOld" };
-					diag_log (format["SM: Building Type: %1, UID: %2, InventoryObject: %3",_object,_idKey,_x]);
+						if (_x == "BoltSteel") then { _x = "WoodenArrow" }; // Convert BoltSteel to WoodenArrow
+						if (_x == "ItemTent") then { _x = "ItemTentOld" };
+						if (unleashed_PlayerBuildDebug == 1) then { 
+							diag_log (format["SM: Building Type: %1, UID: %2, InventoryObject: %3",_object,_idKey,_x]);
+						};
 						_isOK = 	isClass(configFile >> "CfgMagazines" >> _x);
 						if (_isOK) then {
 							_block = 	getNumber(configFile >> "CfgMagazines" >> _x >> "stopThis") == 1;
@@ -168,7 +170,9 @@ server_SpawnBuildings = {
 					_objWpnQty = (_inventory select 2) select 1;
 					_countr = 0;
 					{
-					diag_log (format["SM: Building Type: %1, UID: %2, InventoryObject: %3",_object,_idKey,_x]);
+						if (unleashed_PlayerBuildDebug == 1) then { 
+							diag_log (format["SM: Building Type: %1, UID: %2, InventoryObject: %3",_object,_idKey,_x]);
+						};
 						_isOK = 	isClass(configFile >> "CfgVehicles" >> _x);
 						if (_isOK) then {
 							_block = 	getNumber(configFile >> "CfgVehicles" >> _x >> "stopThis") == 1;
@@ -233,11 +237,11 @@ server_SpawnGarages = {
 		_object setdir _dir;
 
 		for "_i" from 1 to 5 do {
-			diag_log("GARAGEINFO: Fetching Vehicles in Garages...");
+			if (unleashed_debug == 1) then { diag_log("GARAGEINFO: Fetching Vehicles in Garages..."); };
 			_key = format["CHILD:606:%1:%2:",dayZ_instance, _GarageUID];
 			_hiveResponse = _key call server_hiveReadWrite;  
 			if ((((isnil "_hiveResponse") || {(typeName _hiveResponse != "ARRAY")}) || {((typeName (_hiveResponse select 1)) != "SCALAR")}) || {(_hiveResponse select 1 > 2000)}) then {
-				diag_log ("GARAGEINFO: Vehicles connection problem... HiveExt response:"+str(_hiveResponse));
+				if (unleashed_debug == 1) then { diag_log ("GARAGEINFO: Vehicles connection problem... HiveExt response:"+str(_hiveResponse)); };
 				_hiveResponse = ["",0];
 			} 
 			else {
@@ -251,11 +255,11 @@ server_SpawnGarages = {
 			_vehicleNameArray = [];	
 			_garageVehicleArray = [];	
 			_garageVehicleCount = _hiveResponse select 1;
-			diag_log ("HIVE: Garage Inventory Streaming...");
+			if (unleashed_debug == 1) then { diag_log ("HIVE: Garage Inventory Streaming..."); };
 			for "_i" from 1 to _garageVehicleCount do { 
 				_hiveResponse = _key call server_hiveReadWrite;
 				_garageVehicleArray set [_i - 1, _hiveResponse];
-				//diag_log (format["HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]);
+				if (unleashed_debug == 1) then { diag_log (format["SF: HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]); };
 			};
 		};
 		{
@@ -274,7 +278,7 @@ server_SpawnGarages = {
 		unleashed_GarageVehicleClassArray =_vehicleClassArray;
 		unleashed_GarageVehicleIDArray =_vehicleIDArray;
 		unleashed_GarageVehicleNameArray =_vehicleNameArray;
-		//diag_log(format["SM: Garage _vehicleClassArray: %1, _vehicleIDArray: %2, _vehicleNameArray: %3 ",_vehicleClassArray, _vehicleIDArray , _vehicleNameArray]);
+		if (unleashed_debug == 1) then { diag_log(format["SM: Garage _vehicleClassArray: %1, _vehicleIDArray: %2, _vehicleNameArray: %3 ",_vehicleClassArray, _vehicleIDArray , _vehicleNameArray]); };
 		dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object];
 	} forEach _garageArray;
 };
@@ -287,7 +291,7 @@ server_spawnVehicle = {
 	
 	{
 		if (unleashed_debug == 1) then {
-			diag_log(format["GARAGESPAWNER: Current Vehicle Spawn: %1",_x]);
+			diag_log(format["VEHICLESPAWNER: Current Vehicle Spawn: %1",_x]);
 		};
 		_action = _x select 0; // values : "OBJ"=object got from hive  "CREATED"=vehicle just created ...
 		_ObjectID = _x select 1;
@@ -374,7 +378,7 @@ server_spawnVehicle = {
 				if (_booleans select 3) then { // is in building
 						_action = "FAILED";
 						_damage = 5;
-						diag_log(format["Won't spawn object #%1(%4) in/close to a building, _point:%3, inventory: %5 booleans:%2",_ObjectID, _booleans, _point, _class, _inventory]);
+						diag_log(format["VEHICLESPAWNER: Won't spawn object #%1(%4) in/close to a building, _point:%3, inventory: %5 booleans:%2",_ObjectID, _booleans, _point, _class, _inventory]);
 				};
 			};
 			if (_damage < 1) then { // create object
@@ -389,7 +393,7 @@ server_spawnVehicle = {
 				_entity setVariable ["lastUpdate",time];
 				_entity setDamage _damage;
 
-				//diag_log ("DW_DEBUG " + _class + " #" + str(_ObjectID) + " pos=" +  	(_point call fa_coor2str) + ", damage=" + str(_damage)  );
+				if (unleashed_debug == 1) then {  diag_log ("SF: DW_DEBUG " + _class + " #" + str(_ObjectID) + " pos=" +  	(_point call fa_coor2str) + ", damage=" + str(_damage)  ); };
 			}
 			else { 
 				// delete object -- this has been comented out: object are never really deleted from hive
@@ -405,20 +409,19 @@ server_spawnVehicle = {
 			[_entity, _inventory] call fa_populateCargo;
 			
 			dayz_serverObjectMonitor set [count dayz_serverObjectMonitor, _entity];
-			//diag_log ("_entity that was placed was " + str(_entity) + " was used");
+			if (unleashed_debug == 1) then {  diag_log ("SF: _entity that was placed was " + str(_entity) + " was used"); };
 			_squad = 0;
 			_combination = 0;
 			// UPDATE MODIFIED OBJECTS TO THE HIVE 
 			if (_action == "CREATED") then {
 				_combination = floor(random 899) + 100;
-				//diag_log ("combination of " + str(_combination) + " was used");
+				if (unleashed_debug == 1) then { diag_log ("combination of " + str(_combination) + " was used"); };
 				// insert className damage characterId  worldSpace inventory  hitPoints  fuel uniqueId  
 					_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:", dayZ_instance, 
 						_class, _damage , 1, 
 						[_dir, _point], 
 						[getWeaponCargo _entity, getMagazineCargo _entity ,getBackpackCargo _entity], 
 						_hitpoints, _fuel, _ObjectID ];
-				//diag_log (_key);
 				_rawData = "HiveEXT" callExtension _key;
 			};
 			if (_action == "SPAWNED" || _action == "DAMAGED") then {
@@ -457,7 +460,7 @@ server_spawnGarageVehicle = {
 		diag_log(format["GARAGESPAWNER: Count of Vehicle Location: %1", (count _tempworldspace)]);
 	};
 	{
-		diag_log(format["GARAGESPAWNER: Current Vehicle Spawning: %1",_x]);
+		if (unleashed_debug == 1) then {diag_log(format["GARAGESPAWNER: Current Vehicle Spawning: %1",_x]);};
 			//Current Vehicle Spawning: ["OBJ","323","5685647","UralCivil2","0",[153,[15921.2,10391.5,0.113]],[["motor",0.8],["karoserie",0.9],["palivo",0.4],["wheel_1_1_steering",0.88],["wheel_2_1_steering",0.8],["wheel_1_2_steering",0.26],["wheel_2_2_steering",0.63]],[],0.51,0.59]"
 		_action = _x select 0; // values : "OBJ"=object got from hive  "CREATED"=vehicle just created ...
 		_ObjectID = _x select 1;
@@ -555,7 +558,7 @@ server_updateNearbyObjects = {
 	_pos = _this select 0;
 	{
 		[_x, "gear"] call server_updateObject;
-		//diag_log(format["SF-SUNO: Updating %2 object at %1",_pos,_x]);
+		if (unleashed_debug == 1) then { diag_log(format["SF: SUNO: Updating %2 object at %1",_pos,_x]); };
 	} forEach nearestObjects [_pos, dayz_updateObjects, 10];
 };
 
@@ -585,14 +588,14 @@ check_publishobject = {
 	_playername = _this select 1;
 	_allowed = false;
 
-#ifdef OBJECT_DEBUG
-	diag_log format ["DEBUG: Checking if Object: %1 is allowed published by %2", _object, _playername];
-#endif
+
+	if (unleashed_debug == 1) then { diag_log format ["SF: Checking if Object: %1 is allowed published by %2", _object, _playername]; };
+
 	_allowedObjects = dayz_updateObjects + dayz_allowedObjects;
 	if ((typeOf _object) in _allowedObjects) then {
-#ifdef OBJECT_DEBUG
-		diag_log format ["DEBUG: Object: %1 published by %2 is Safe",_object, _playername];
-#endif
+
+		if (unleashed_debug == 1) then { diag_log format ["DEBUG: Object: %1 published by %2 is Safe",_object, _playername]; };
+
 		_allowed = true;
 	};
 
@@ -644,26 +647,24 @@ eh_localCleanup = {
 			deleteVehicle _unit;
 			deleteGroup _myGroupUnit;
 			_unit = nil;
-			#ifdef SERVER_DEBUG
-			diag_log ("CLEANUP: DELETED A " + str(_type) );
-			#endif
+			if (unleashed_HiveDebug == 1) then { diag_log ("SF: ELC: DELETED A " + str(_type) ); };
 		};
 	}];
 };
 
 server_hiveWrite = {
 	private["_data"];
-	//diag_log ("ATTEMPT WRITE: " + _this);
+	if (unleashed_HiveDebug == 1) then { diag_log (format["SF: SHW: ATTEMPT WRITE: %1", _this]); };
 	_data = "HiveExt" callExtension _this;
-	//diag_log ("WRITE: " +str(_data));
+	if (unleashed_HiveDebug == 1) then { diag_log (format["SF: SHW: WRITE: %1", _data]); };
 };
 
 server_hiveReadWrite = {
 	private["_key","_resultArray","_data"];
 	_key = _this;
-	//diag_log ("ATTEMPT READ/WRITE: " + _key);
+	if (unleashed_HiveDebug == 1) then { diag_log (format["SF: SHRW: Key: %1", _key]); };
 	_data = "HiveExt" callExtension _key;
-	//diag_log ("READ/WRITE: " +str(_data));
+	if (unleashed_HiveDebug == 1) then { diag_log (format["SF: SHRW: Data: %1",_data]); };
 	_resultArray = call compile format ["%1",_data];
 	_resultArray
 };
@@ -760,6 +761,9 @@ dayz_recordLogin = {
 	_key call server_hiveWrite;
 };
 
+currentInvites = [];
+publicVariable "currentInvites";
+[] ExecVM "\z\addons\dayz_server\DZMS\DZMSInit.sqf";
+[] ExecVM "\z\addons\dayz_server\system\broadcaster.sqf";
 call compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fa_hiveMaintenance.sqf";
 #include "Antihack.sqf"
-[] ExecVM "\z\addons\dayz_server\DZMS\DZMSInit.sqf";

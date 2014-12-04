@@ -1,5 +1,58 @@
 class ExtraRc {
-	class Pistol {
+	class PartPlankPack {//http://epochmod.com/forum/index.php?/topic/28585-craft-walls-and-floors-directly-from-packs/
+		class thirdwall {
+			text = "Craft 1/3 Wood Wall";
+			script = "['thirdwall'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+		class wall {
+			text = "Craft Wood Wall";
+			script = "['wall'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+		class quartfloor {
+			text = "Craft 1/4 Wood Floor";
+			script = "['quartfloor'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+		class halffloor {
+			text = "Craft 1/2 Wood Floor";
+			script = "['halffloor'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+		class floor {
+			text = "Craft Wood Floor";
+			script = "['floor'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+	};
+	
+	class PartPlywoodPack {
+		class thirdwall {
+			text = "Craft 1/3 Wood Wall";
+			script = "['thirdwall'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+		class wall {
+			text = "Craft Wood Wall";
+			script = "['wall'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+		class quartfloor {
+			text = "Craft 1/4 Wood Floor";
+			script = "['quartfloor'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+		class halffloor {
+			text = "Craft 1/2 Wood Floor";
+			script = "['halffloor'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+		class floor {
+			text = "Craft Wood Floor";
+			script = "['floor'] execVM '\z\addons\dayz_code\fn_craftable.sqf';";
+		};
+	};
+	  class ItemRadio {
+		class ItemActions {
+			 class GroupManagement {
+				text = "Group Management";
+				script = "execVM '\z\addons\dayz_code\system\dzgm\loadGroupManagement.sqf'";
+			 };
+		 };
+	  };
+	class Pistolcore {
 			class ItemActions {
 				class Suicide
 				{

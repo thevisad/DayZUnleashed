@@ -11,7 +11,7 @@ if ((count playableUnits == 0) and !isDedicated) then {
 
 waitUntil{initialized}; //means all the functions are now defined
 
-diag_log "HIVE: Starting";
+if (unleashed_HiveDebug == 1) then { diag_log "SM: Starting"; };
 
 //Set the Time
 	//Send request
@@ -37,7 +37,7 @@ diag_log "HIVE: Starting";
 			dayzSetDate = _date;
 			publicVariable "dayzSetDate";
 		};
-		diag_log ("HIVE: Local Time set to " + str(_date));
+		if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Local Time set to ",_date]); };
 	};
 
 	
@@ -51,7 +51,7 @@ if (isServer and isNil "sm_done") then {
 		_key = format["CHILD:220:%1:", dayZ_instance];
 		_data = "HiveEXT" callExtension _key;
 
-		diag_log("SERVER: Fetching messages...");
+		if (unleashed_HiveDebug == 1) then { diag_log("SM: Fetching messages..."); };
 
 		//Process result
 		_result = call compile format ["%1", _data];
@@ -59,7 +59,7 @@ if (isServer and isNil "sm_done") then {
 
 		msgList = [];
 		_msgCount = 0;
-		if (_status == "CustomStreamStart") then {
+		if (_status == "MessagingStreamStart") then {
 			_val = _result select 1;
 			for "_i" from 1 to _val do {
 				_data = "HiveEXT" callExtension _key;
@@ -69,13 +69,13 @@ if (isServer and isNil "sm_done") then {
 				msgList set [count msgList, _result];
 				_msgCount = _msgCount + 1;
 			};
-			diag_log ("SERVER: Added " + str(_msgCount) + " messages!");
+			if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Found %1 system messages.",_msgCount]); };
 		};
 		
 		
 		_key = format["CHILD:600:%1:", dayZ_instance];
 		_data = "HiveEXT" callExtension _key;
-		diag_log("BASEBUILDING: Fetching Base Buildings...");
+		if (unleashed_HiveDebug == 1) then { diag_log("SM: Fetching player buildings...");};
 		//Process result
 		_result = call compile format ["%1", _data];
 		_status = _result select 0;
@@ -92,21 +92,21 @@ if (isServer and isNil "sm_done") then {
 				_buildingArray set [count _buildingArray, _result];
 				_bldCount = _bldCount + 1;
 			};
-			diag_log ("BASEBUILDING: Found " + str(_bldCount) + " Base Buildings!");
+			if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Found %1 base buildings.",_bldCount]); };
 			[_buildingArray] call server_SpawnBuildings;
 		};
 		
 			
 		for "_i" from 1 to 5 do {
-			diag_log("GARAGEINFO: Fetching Garages...");
+			if (unleashed_HiveDebug == 1) then { diag_log("SM: Fetching Garages..."); };
 			_key = format["CHILD:605:%1:", dayZ_instance];
 			_hiveResponse = _key call server_hiveReadWrite;  
 			if ((((isnil "_hiveResponse") || {(typeName _hiveResponse != "ARRAY")}) || {((typeName (_hiveResponse select 1)) != "SCALAR")}) || {(_hiveResponse select 1 > 2000)}) then {
-				diag_log ("GARAGEINFO: connection problem... HiveExt response:"+str(_hiveResponse));
+				if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Garage connection problem, HiveExt response: %1",_hiveResponse]); };
 				_hiveResponse = ["",0];
 			} 
 			else {
-				//diag_log ("SM: found "+str(_hiveResponse select 1)+" vehicles" );
+				if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Garage connection, HiveExt response: %1",_hiveResponse]); };
 				_i = 99; // break
 			};
 		};
@@ -115,28 +115,28 @@ if (isServer and isNil "sm_done") then {
 
 		if ((_hiveResponse select 0) == "GarageStreamStart") then {
 			_garageCount = _hiveResponse select 1;
-			diag_log ("HIVE: Commence Object Streaming...");
+			if (unleashed_HiveDebug == 1) then { diag_log ("SM: Commence Garage Streaming..."); };
 			for "_i" from 1 to _garageCount do { 
 				_hiveResponse = _key call server_hiveReadWrite;
 				_garageArray set [_i - 1, _hiveResponse];
-				//diag_log (format["HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]);
+				if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Garage Response: %1", _hiveResponse]); };
 			};
-			diag_log ("GARAGEINFO: Found " + str(count _garageArray) + " Garages");
+			if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Found %1 garages.",(count _garageArray)]); };
 			[_garageArray] call server_SpawnGarages;
 		};
 		
 		
 		
 	for "_i" from 1 to 5 do {
-		diag_log "SM: Streaming Vehicles";
+		if (unleashed_HiveDebug == 1) then { diag_log "SM: Streaming Vehicles"; };
 		_key = format["CHILD:302:%1:", dayZ_instance];
 		_hiveResponse = _key call server_hiveReadWrite;  
 		if ((((isnil "_hiveResponse") || {(typeName _hiveResponse != "ARRAY")}) || {((typeName (_hiveResponse select 1)) != "SCALAR")}) || {(_hiveResponse select 1 > 2000)}) then {
-			diag_log ("HIVE: connection problem... HiveExt response:"+str(_hiveResponse));
+			if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Vehicle connection problem response: %1",_hiveResponse]); };
 			_hiveResponse = ["",0];
 		} 
 		else {
-			//diag_log ("SM: found "+str(_hiveResponse select 1)+" vehicles" );
+			if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Vehicle connection  response: %1",_hiveResponse]); };
 			_i = 99; // break
 		};
 	};
@@ -144,13 +144,14 @@ if (isServer and isNil "sm_done") then {
 	_objectArray = [];
 	if ((_hiveResponse select 0) == "ObjectStreamStart") then {
 		_objectCount = _hiveResponse select 1;
-		diag_log ("HIVE: Commence Object Streaming...");
+		if (unleashed_HiveDebug == 1) then { diag_log ("SM: Commence Vehicle Streaming..."); };
 		for "_i" from 1 to _objectCount do { 
 			_hiveResponse = _key call server_hiveReadWrite;
 			_objectArray set [_i - 1, _hiveResponse];
-			//diag_log (format["HIVE dbg %1 %2", typeName _hiveResponse, _hiveResponse]);
+			if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Vehicle Response: %1", _hiveResponse]); };
 		};
-		diag_log ("HIVE: got " + str(count _objectArray) + " objects");
+		
+		if (unleashed_HiveDebug == 1) then { diag_log (format["SM: Found %1 garages.",(count _objectArray)]); };
 		[_objectArray] call fa_checkVehicles;
 		[_objectArray] call server_spawnVehicle;
 	};

@@ -1,6 +1,5 @@
 class Land_aif_strazni_vez: MilitarySpecial {
-
-	lootPos[] = {{-2.11719,-1.72803,2.20039},{6.01953,6.11328,-3.45159}};
+	lootPos[] = {{-0.539063,-1.31836,-0.738815},{0.117188,-1.2168,-1.22394}};
 };
 
 class Land_MBG_Radiotelescope : MilitarySpecial {
@@ -11,11 +10,9 @@ class Land_Ind_Pec_02 : MilitarySpecial {
 
 class Land_Dam_Conc_20 : MilitarySpecial {
 };
+
 class Land_Ind_Pec_03b : MilitarySpecial {
 };
-
-
-
 
 class Land_aif_hlaska: Military {
 

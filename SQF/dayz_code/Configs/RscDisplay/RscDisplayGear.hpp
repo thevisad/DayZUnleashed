@@ -463,6 +463,7 @@ class RscDisplayGear {
 					y = 0;
 					w = 0.309;
 					h = 0.174;
+					onMouseButtonDown = "_this call player_selectSlot;";
 					colorBackground[] = {0.27,0.34,0.47,0.2};
 					colorBackgroundSelected[] = {0.27,0.34,0.47,0.8};
 					onMouseButtonDblClick = "if (!(ctrlShown ((findDisplay 106) displayCtrl 158)) && ((gearSlotData (_this select 0)) isKindOf 'Bag_Base_EP1')) then { [player,'open_backpack',0,false,5] call dayz_zombieSpeak; };";
@@ -474,6 +475,7 @@ class RscDisplayGear {
 					y = 0.364;
 					w = 0.309;
 					h = 0.174;
+					onMouseButtonDown = "_this call player_selectSlot;";
 					onMouseEnter = "if ((DayZ_onBack != """") && (dayz_onBack in MeleeWeapons)) then {mouseOverCarry = true;} else {mouseOverCarry = false;};";
 					onMouseExit = "mouseOverCarry = false;";
 					colorActive[] = {1,1,1,1};
@@ -487,6 +489,7 @@ class RscDisplayGear {
 					y = 0;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item2: CA_Gear_slot_item1 {
@@ -495,6 +498,7 @@ class RscDisplayGear {
 					y = 0;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item3: CA_Gear_slot_item1 {
@@ -503,6 +507,7 @@ class RscDisplayGear {
 					y = 0.091;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item4: CA_Gear_slot_item1 {
@@ -511,6 +516,7 @@ class RscDisplayGear {
 					y = 0.091;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item5: CA_Gear_slot_item1 {
@@ -519,6 +525,7 @@ class RscDisplayGear {
 					y = 0.181;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item6: CA_Gear_slot_item1 {
@@ -527,6 +534,7 @@ class RscDisplayGear {
 					y = 0.181;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item7: CA_Gear_slot_item1 {
@@ -535,6 +543,7 @@ class RscDisplayGear {
 					y = 0.272;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item8: CA_Gear_slot_item1 {
@@ -543,6 +552,7 @@ class RscDisplayGear {
 					y = 0.272;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item9: CA_Gear_slot_item1 {
@@ -551,6 +561,7 @@ class RscDisplayGear {
 					y = 0.364;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item10: CA_Gear_slot_item1 {
@@ -559,6 +570,7 @@ class RscDisplayGear {
 					y = 0.364;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item11: CA_Gear_slot_item1 {
@@ -567,6 +579,7 @@ class RscDisplayGear {
 					y = 0.457;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_item12: CA_Gear_slot_item1 {
@@ -575,6 +588,7 @@ class RscDisplayGear {
 					y = 0.457;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_handgun: CA_Gear_slot_primary {
@@ -585,6 +599,7 @@ class RscDisplayGear {
 					h = 0.177;
 					colorBackground[] = {0.5,0.58,0.38,0.2};
 					colorBackgroundSelected[] = {0.5,0.58,0.38,0.8};
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_handgun_item1: CA_Gear_slot_item1 {
@@ -595,6 +610,7 @@ class RscDisplayGear {
 					h = 0.085;
 					colorBackground[] = {0.69,0.86,0.38,0.2};
 					colorBackgroundSelected[] = {0.5,0.58,0.38,0.8};
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_handgun_item2: CA_Gear_slot_handgun_item1 {
@@ -603,6 +619,7 @@ class RscDisplayGear {
 					y = 0.559;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_handgun_item3: CA_Gear_slot_handgun_item1 {
@@ -611,6 +628,7 @@ class RscDisplayGear {
 					y = 0.559;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_handgun_item4: CA_Gear_slot_handgun_item1 {
@@ -619,6 +637,7 @@ class RscDisplayGear {
 					y = 0.559;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_handgun_item5: CA_Gear_slot_handgun_item1 {
@@ -627,6 +646,7 @@ class RscDisplayGear {
 					y = 0.65;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_handgun_item6: CA_Gear_slot_handgun_item1 {
@@ -635,6 +655,7 @@ class RscDisplayGear {
 					y = 0.65;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_handgun_item7: CA_Gear_slot_handgun_item1 {
@@ -643,6 +664,7 @@ class RscDisplayGear {
 					y = 0.65;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_handgun_item8: CA_Gear_slot_handgun_item1 {
@@ -651,6 +673,7 @@ class RscDisplayGear {
 					y = 0.65;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory1: CA_Gear_slot_handgun_item1 {
@@ -659,6 +682,7 @@ class RscDisplayGear {
 					y = 0.752;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 					colorBackground[] = {0.88,0.8,0.66,0.2};
 					colorBackgroundSelected[] = {0.49,0.43,0.29,0.8};
 				};
@@ -669,6 +693,7 @@ class RscDisplayGear {
 					y = 0.752;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory3: CA_Gear_slot_inventory1 {
@@ -677,6 +702,7 @@ class RscDisplayGear {
 					y = 0.752;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory4: CA_Gear_slot_inventory1 {
@@ -685,6 +711,7 @@ class RscDisplayGear {
 					y = 0.752;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory5: CA_Gear_slot_inventory1 {
@@ -693,6 +720,7 @@ class RscDisplayGear {
 					y = 0.752;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory6: CA_Gear_slot_inventory1 {
@@ -701,6 +729,7 @@ class RscDisplayGear {
 					y = 0.752;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory7: CA_Gear_slot_inventory1 {
@@ -709,6 +738,7 @@ class RscDisplayGear {
 					y = 0.844;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory8: CA_Gear_slot_inventory1 {
@@ -717,6 +747,7 @@ class RscDisplayGear {
 					y = 0.844;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory9: CA_Gear_slot_inventory1 {
@@ -725,6 +756,7 @@ class RscDisplayGear {
 					y = 0.844;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory10: CA_Gear_slot_inventory1 {
@@ -733,6 +765,7 @@ class RscDisplayGear {
 					y = 0.844;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory11: CA_Gear_slot_inventory1 {
@@ -741,6 +774,7 @@ class RscDisplayGear {
 					y = 0.844;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_inventory12: CA_Gear_slot_inventory1 {
@@ -749,6 +783,7 @@ class RscDisplayGear {
 					y = 0.844;
 					w = 0.064;
 					h = 0.085;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class CA_Gear_slot_special1: CA_Gear_slot_handgun {
@@ -757,6 +792,7 @@ class RscDisplayGear {
 					y = 0.568;
 					w = 0.12;
 					h = 0.16;
+					onMouseButtonDown = "_this call player_selectSlot;";
 					colorBackground[] = {0.46,0.46,0.4,0.2};
 					colorBackgroundSelected[] = {0.46,0.46,0.4,0.8};
 				};
@@ -767,6 +803,7 @@ class RscDisplayGear {
 					y = 0.757;
 					w = 0.12;
 					h = 0.16;
+					onMouseButtonDown = "_this call player_selectSlot;";
 				};
 
 				class ButtonRearm: RscActiveText {

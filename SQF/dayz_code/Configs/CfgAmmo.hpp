@@ -8,7 +8,7 @@ class B_127x99_Ball: BulletBase {
 	caliber = 2.07;
 	cartridge = "FxCartridge_127";
 	cost = 20;
-	hit = 0; //26
+	hit = 26; //26
 	indirecthit = 0;
 	indirecthitrange = 0;
 	model = "\ca\Weapons\Data\bullettracer\tracer_red";
@@ -29,7 +29,7 @@ class B_127x99_Ball_noTracer: B_127x99_Ball {
 	visiblefiretime = 3;
 };
 class B_127x99_Ball_noTracer_BAF: B_127x99_Ball_noTracer {
-	hit = 0; //56
+	hit = 56; //56
 	indirecthit = 0;
 	indirecthitrange = 0;
 };

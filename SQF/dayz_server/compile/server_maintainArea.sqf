@@ -3,8 +3,8 @@ private ["_player","_name","_ObjArray","_uniqueID","_objects","_key"];
 _player = _this select 0;
 _option = _this select 1;
 /*
-1: PVDZE_maintainArea = [player,1,_target];
-2: PVDZE_maintainArea = [player,2,_object];
+1: PVDZ_maintainArea = [player,1,_target];
+2: PVDZ_maintainArea = [player,2,_object];
 */
 _targetObj = _this select 2;
 

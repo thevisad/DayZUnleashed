@@ -402,6 +402,7 @@ class FSM
        "_localplayer = (_agentPosition) nearEntities [[""SoldierWB"",""SoldierEB"",""SoldierGB""],75];" \n
        "_playerPosition = [];" \n
        "_playerdistance = 0;" \n
+	   "_playerOldAggroRank = 0;" \n
        "_targetdistance = _agent distance _target;" \n
        "_playerOldAggroRank = _target getVariable [""aggroRank"",0];" \n
        "_targetRank = _playerOldAggroRank;" \n

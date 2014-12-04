@@ -1,12 +1,8 @@
-  /*
-	FUNCTION COMPILES
-*/
-//Player only
-
 if (!isDedicated) then {
 	"filmic" setToneMappingParams [0.07, 0.31, 0.23, 0.37, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
 	_nul = [] execVM "\z\addons\dayz_code\init\dzai_initclient.sqf";
 	_void = [] execVM "\z\addons\dayz_code\R3F_Realism\R3F_Realism_Init.sqf";
+	
 	DZE_player_build			= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_build.sqf";
 	player_buildControls	= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_buildControls.sqf";
 	snap_object				= compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\snap_object.sqf";
@@ -147,6 +143,17 @@ if (!isDedicated) then {
 	DZE_player_craftItem =	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_craftItem.sqf";
 	
 	fnc_dzuSwapPilot = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fnc_dzuSwapPilot.sqf";                    //Server side script to swap player. 
+	
+	//Group Management
+	acceptGroupInvite = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\acceptGroupInvite.sqf";
+	declineGroupInvite = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\declineGroupInvite.sqf";
+	disbandGroup = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\disbandGroup.sqf";
+	inviteToGroup = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\inviteToGroup.sqf";
+	kickFromGroup = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\kickFromGroup.sqf";
+	leaveGroup = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\leaveGroup.sqf";
+	mapLoop = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\mapLoop.sqf";
+	playerSelectChange = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\playerSelectChange.sqf";
+	updatePlayerList = compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\updatePlayerList.sqf";
 	
 	dayz_HungerThirst = {
 		dayz_hunger = dayz_hunger + (_this select 0);
@@ -318,14 +325,20 @@ if (!isDedicated) then {
 		if (_dikCode in[0x02,0x03,0x04,0x58,0x57,0x44,0x43,0x42,0x41,0x40,0x3F,0x3D,0x3C,0x3B,0x0B,0x0A,0x09,0x08,0x07,0x06,0x05]) then {
 			_handled = true;
 		};
-		
+		if (_dikCode in [0xDB,0xDC]) then {
+			if (tagname) then {tagname = false;} else {tagname = true;};
+		};
+
+		if (_dikCode in actionKeys "TacticalView") then {
+			execVM "\z\addons\dayz_code\system\dzgm\noTactical.sqf";
+		};
+
 		if (_dikCode == 0x01 && r_player_dead) then {
 			_handled = true;
 		};
 
-		if (_dikCode in[0x0F,0x38,0xB8,0x9D,0x1D,0x2A,0x36,0x3E,0x01]  and (time - dayz_lastCheckBit > 2) ) then {
+		if (_dikCode in[0x0F,0x1D,0x2A,0x36,0x3E]  and (time - dayz_lastCheckBit > 2) ) then {
 			dayz_lastCheckBit = time;
-			call player_forceSave;
 		};
 		
 				// numpad 8 0x48 now pgup 0xC9 1
@@ -857,6 +870,14 @@ if (!isDedicated) then {
 	};
 
 	dayz_originalPlayer = player;
+	
+	//Group Management
+	if (count units group player > 1) then {[player] join grpNull;};	
+	if (isNil "dzgmInit") then {call compile preprocessFileLineNumbers "\z\addons\dayz_code\system\dzgm\icons.sqf";};
+	uiSleep 1;
+	[] spawn dzgmInit;
+	[] spawn mapLoop;
+	systemChat "Right click on radio to open group management";
 };
 
 	progressLoadingScreen 0.8;
@@ -1091,6 +1112,7 @@ if (!isDedicated) then {
 		eh_localCleanup = {};
 	};
 
+	
 	//Start Dynamic Weather
 	execVM "\z\addons\dayz_code\system\DynamicWeatherEffects.sqf";
 	initialized = true;

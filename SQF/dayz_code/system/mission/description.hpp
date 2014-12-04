@@ -117,7 +117,9 @@ class DayZ_loadingScreen
 };
 
 // logo watermark
+#include "\z\addons\dayz_code\system\dzgm\defines.hpp"
 class RscTitles {
+	#include "\z\addons\dayz_code\system\dzgm\icons.hpp"
 	#include "\z\addons\dayz_code\R3F_ARTY_AND_LOG\desc_rsct_include.h"
 	class wm_disp {
 		idd = -1;
@@ -154,3 +156,6 @@ class RscTitles {
 	};
 };
 #include "\z\addons\dayz_code\R3F_ARTY_AND_LOG\desc_include.h"
+#include "\z\addons\dayz_code\system\dzgm\groupManagement.hpp"
+
+
