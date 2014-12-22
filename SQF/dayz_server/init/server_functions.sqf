@@ -448,6 +448,29 @@ server_spawnVehicle = {
 	} forEach _objectArray;
 };
 
+
+dayz_perform_purge = {
+	if(!isNull(_this)) then {
+		_group = group _this;
+		_this removeAllMPEventHandlers "mpkilled";
+		_this removeAllMPEventHandlers "mphit";
+		_this removeAllMPEventHandlers "mprespawn";
+		_this removeAllEventHandlers "FiredNear";
+		_this removeAllEventHandlers "HandleDamage";
+		_this removeAllEventHandlers "Killed";
+		_this removeAllEventHandlers "Fired";
+		_this removeAllEventHandlers "GetOut";
+		_this removeAllEventHandlers "GetIn";
+		_this removeAllEventHandlers "Local";
+		clearVehicleInit _this;
+		deleteVehicle _this;
+		if ((count (units _group) == 0) && (_group != grpNull)) then {
+			deleteGroup _group;
+		};
+	};
+};
+
+
 server_spawnGarageVehicle = {
 	private ["_garageLoopArray","_vehicleLocation","_action","_ObjectID","_class","_CharacterID","_worldspace","_inventory","_hitpoints","_fuel","_damage","_entity","_dir","_point","_i","_wantExplosiveParts","_selection","_dam","_booleans","_key","_rawData","_squad"];
 	_garageLoopArray = _this select 0;

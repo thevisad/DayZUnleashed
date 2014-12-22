@@ -13,12 +13,12 @@ if (unleashed_SavingDebug == 1) then {diag_log(format["SPB: Calling script: %1 "
 _squad = 0;
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 
-
+/*
 if !((_building isKindOf "TentStorage") ||  (_building isKindOf "dayz_allowedObjects") || (_building isKindOf "BuiltItems") || (_building isKindOf "ModularItems") || (_building isKindOf "DZE_Housebase") || (_building isKindOf "DZE_Base_Object") || (_building isKindOf "Building") || (_building isKindOf "StaticWeapon") || (_building isKindOf "WeaponHolder") || (_building isKindOf "Strategic")) exitWith {
 	deleteVehicle _building;
 	if (unleashed_SavingDebug == 1) then {diag_log(format["SPB: Deleting Building : %1 ", _building]);};
 };
-
+*/
 //get UID
 _uid = _worldspace call dayz_objectUID2;
 

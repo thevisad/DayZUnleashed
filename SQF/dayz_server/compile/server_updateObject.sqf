@@ -45,7 +45,7 @@ if (!_parachuteWest && !(locked _object)) then {
 //if (_isNotOk && _isDayZObject) exitWith { if (unleashed_debug == 1) then { diag_log(format["SUO: %1 _isDayZObject and is ok.", _object]);};  };
 
 // delete if still not ok
-if (_isNotOk) exitWith { deleteVehicle _object; if (unleashed_debug == 1) then {diag_log(format["SUO: Deleting object %1 with invalid ID at pos [%2,%3,%4]",typeOf _object,_object_position select 0,_object_position select 1, _object_position select 2]); };};
+//if (_isNotOk) exitWith { deleteVehicle _object; if (unleashed_debug == 1) then {diag_log(format["SUO: Deleting object %1 with invalid ID at pos [%2,%3,%4]",typeOf _object,_object_position select 0,_object_position select 1, _object_position select 2]); };};
 
 
 _lastUpdate = _object getVariable ["lastUpdate",time];

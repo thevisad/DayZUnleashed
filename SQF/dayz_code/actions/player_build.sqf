@@ -1,4 +1,4 @@
-private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_object","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_objHupDiff","_needNear","_vehicle","_inVehicle","_previewCounter","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
+private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_object","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_friendlies","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_objHupDiff","_needNear","_vehicle","_inVehicle","_previewCounter","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
@@ -42,38 +42,37 @@ _item =	_this;
 
 // Need Near Requirements
 _abort = false;
-_distance = 3;
 _reason = "";
 
 _needNear = 	getArray (configFile >> "CfgMagazines" >> _item >> "ItemActions" >> "Build" >> "neednearby");
 
 {
-	_need = _x select 0;
-	_distance = _x select 1;
-	switch(_need) do{
+	switch(_x) do{
 		case "fire":
 		{
+			_distance = 3;
 			_isNear = {inflamed _x} count (getPosATL player nearObjects _distance);
-			if(_isNear == 0) then {  
+			if(_isNear == 0) then {
 				_abort = true;
 				_reason = "fire";
 			};
 		};
 		case "workshop":
 		{
+			_distance = 3;
 			_isNear = count (nearestObjects [player, ["Wooden_shed_DZ","WoodShack_DZ","WorkBench_DZ"], _distance]);
-			if(_isNear == 0) then {  
+			if(_isNear == 0) then {
 				_abort = true;
 				_reason = "workshop";
 			};
 		};
 		case "fueltank":
 		{
+			_distance = 30;
 			_isNear = count (nearestObjects [player, dayz_fuelsources, _distance]);
-			if(_isNear == 0) then {  
+			if(_isNear == 0) then {
 				_abort = true;
 				_reason = "fuel tank";
-				_distance = 30;
 			};
 		};
 	};
@@ -96,11 +95,6 @@ if(isNumber (configFile >> "CfgVehicles" >> _classname >> "lockable")) then {
 	_lockable = getNumber(configFile >> "CfgVehicles" >> _classname >> "lockable");
 };
 
-_requireplot = 0;
-if(isNumber (configFile >> "CfgVehicles" >> _classname >> "requireplot")) then {
-	_requireplot = getNumber(configFile >> "CfgVehicles" >> _classname >> "requireplot");
-};
-
 _isAllowedUnderGround = 1;
 if(isNumber (configFile >> "CfgVehicles" >> _classname >> "nounderground")) then {
 	_isAllowedUnderGround = getNumber(configFile >> "CfgVehicles" >> _classname >> "nounderground");
@@ -110,71 +104,8 @@ _offset = 	getArray (configFile >> "CfgVehicles" >> _classname >> "offset");
 if((count _offset) <= 0) then {
 	_offset = [0,5,0];
 };
-
-_isPole = (_classname == "Plastic_Pole_EP1_DZ");
-_isLandFireDZ = (_classname == "Land_Fire_DZ");
-
-_distance = 30;
 _needText = localize "str_epoch_player_246";
-
-if(_isPole) then {
-	_distance = 60;
-};
-
-// check for near plot
-_findNearestPoles = nearestObjects [(vehicle player), ["Plastic_Pole_EP1_DZ"], _distance];
-_findNearestPole = [];
-
-{
-	if (alive _x) then {
-		_findNearestPole set [(count _findNearestPole),_x];
-	};
-} foreach _findNearestPoles;
-
-_IsNearPlot = count (_findNearestPole);
-
-// If item is plot pole and another one exists within 45m
-if(_isPole and _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
-
-if(_IsNearPlot == 0) then {
-
-	// Allow building of plot
-	if(_requireplot == 0 or _isLandFireDZ) then {
-		_canBuildOnPlot = true;
-	};
-
-} else {
-	// Since there are plots nearby we check for ownership and then for friend status
-	
-	// check nearby plots ownership and then for friend status
-	_nearestPole = _findNearestPole select 0;
-
-	// Find owner 
-	_ownerID = _nearestPole getVariable["CharacterID","0"];
-
-	if (unleashed_PlayerBuildDebug == 1) then { diag_log format["PB: Character: %1 OwnerID: %2", dayz_characterID, _ownerID]; };
-
-	// check if friendly to owner
-	if(dayz_characterID == _ownerID) then {  //Keep ownership
-		// owner can build anything within his plot except other plots
-		if(!_isPole) then {
-			_canBuildOnPlot = true;		
-		};
-
-	} else {
-		// disallow building plot
-		if(!_isPole) then {
-			_friendlies		= player getVariable ["friendlyTo",[]];
-			// check if friendly to owner
-			if(_ownerID in _friendlies) then {
-				_canBuildOnPlot = true;
-			};
-		};
-	};
-};
-
-// _message
-if(!_canBuildOnPlot) exitWith {  DZE_ActionInProgress = false; cutText [format[(localize "STR_EPOCH_PLAYER_135"),_needText,_distance] , "PLAIN DOWN"]; };
+_isLandFireDZ = (_classname == "Land_Fire_DZ");
 
 _missing = "";
 _hasrequireditem = true;
@@ -295,14 +226,14 @@ if (_hasrequireditem) then {
 	
 	//No building on roads unless toggled
 	if (unleashed_BuildOnRoads==0) then {
-	if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: unleashed_BuildOnRoads hit"]);};
+		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: unleashed_BuildOnRoads hit"]);};
 		if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
 	};
 	// No building in trader zones
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
 	if(!placevault) then { _cancel = true; _reason = "Cannot build in a city."; };
 
-	if(!_cancel) then {
+	if(!_cancel) then { 
 		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel start"]);};
 		_classname = _classnametmp;
 
@@ -338,39 +269,11 @@ if (_hasrequireditem) then {
 		cutText [format[(localize "str_epoch_player_138"),_text], "PLAIN DOWN"];
 		
 		_limit = 3;
-		/*
-		_tempLimitDecrease = 0;
-		_skillEngineer = 0;
-        _skillEngineer     = [player,"Engineer"] call DZU_fnc_getVariable;
-		if ((_skillEngineer > 25) AND (_skillEngineer <= 50)) then {
-			_tempLimitDecrease = 1;
-		}; 
-		if ((_skillEngineer > 50) AND (_skillEngineer <= 75)) then {
-			_tempLimitDecrease = 2;
-		}; 
-		if ((_skillEngineer > 75) AND (_skillEngineer <= 100)) then {
-			_tempLimitDecrease = 3;
-		}; 
-		*/
-		if(isNumber (configFile >> "CfgVehicles" >> _classname >> "constructioncount")) then {
+		
+		if (isNumber (configFile >> "CfgVehicles" >> _classname >> "constructioncount")) then {
 			_limit = getNumber(configFile >> "CfgVehicles" >> _classname >> "constructioncount");
-			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _limit hit"]);};
 		};
-		/*
-		if (_limit >= 3) then {
-			if (_tempLimitDecrease >= _limit) then {
-				_tempLimitDecrease = _tempLimitDecrease - _limit;
-				if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: TempLimitIncrease: %1",_tempLimitDecrease]);};
-			} else {
-				if (_tempLimitDecrease == _limit) then {
-					_tempLimitDecrease = _tempLimitDecrease - _limit + 1;
-					if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: TempLimitIncrease: %1",_tempLimitDecrease]);};
-				};
-			};
-		};
-		_limit = _limit - _tempLimitDecrease;
-		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: Limit: %1",_limit]);};
-		*/
+		
 		_isOk = true;
 		_proceed = false;
 		_counter = 0;
@@ -444,6 +347,7 @@ if (_hasrequireditem) then {
 				cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
 				_object setVariable ["OwnerID", dayz_playerUID,true];
 				_object setVariable ["lastUpdate",time];
+				_location = ASLtoATL getPosASL _object;
 				_object setVariable ["OEMPos",_location,true];
 
 				if(_lockable > 1) then {

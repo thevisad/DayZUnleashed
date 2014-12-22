@@ -264,7 +264,7 @@ boil_tin_cans = [
 
 // update objects
 SafeObjects = ["Land_Fire_DZ", "TentStorage", "Wire_cat1", "Sandbag1_DZ", "Hedgehog_DZ", "StashSmall", "StashMedium","USOrdnanceBox_EP1","Generator_DZ"];
-dayz_updateObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "Land_A_tent", "VaultStorage","LockboxStorage","LockboxStorageLocked","OutHouse_DZ", "StashSmall", "StashMedium","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ","BuiltItems","ModularItems","DZE_Housebase","CanvasHut_DZ","DeerStand_DZ","FireBarrel_DZ"];
+dayz_updateObjects = ["Plane","Car", "Helicopter", "Motorcycle", "Ship", "Land_A_tent", "tentstorage", "tentstoragedomed", "tentstoragedomed2","VaultStorage","LockboxStorage","LockboxStorageLocked","OutHouse_DZ", "StashSmall", "StashMedium","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ","BuiltItems","ModularItems","DZE_Housebase","CanvasHut_DZ","DeerStand_DZ","FireBarrel_DZ"];
 unleashed_buildables = ["ModularItems","DZE_Housebase", "Land_A_tent", "VaultStorage","LockboxStorage","OutHouse_DZ", "StashSmall", "StashMedium","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ","house","BuiltItems","DZE_Base_Object"];
 unleashed_VehiclesArray = ["Plane","Car", "Helicopter", "Motorcycle", "Ship"];
 dayz_disallowedVault = ["TentStorage", "BuiltItems","ModularItems","DZE_Base_Object"];
