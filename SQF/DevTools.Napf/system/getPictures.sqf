@@ -1,4 +1,4 @@
-player removeAction getPicturesAction;
+
 /*
 _cfgmagazines = configFile >> 'CfgMagazines';
 diag_log("Magazines Starts Here!");
@@ -297,4 +297,3 @@ for "_i" from 0 to (count _cfgvehicles)-1 do{
 	};
 };
 /*
-getPicturesAction = player addaction ["Dump Pictures", "system\getPictures.sqf"];

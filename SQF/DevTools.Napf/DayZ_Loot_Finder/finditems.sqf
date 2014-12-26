@@ -1,5 +1,5 @@
 disableSerialization;
-player removeAction searchaction;
+
 #include "functions.hpp"
 
 clearRadio;
@@ -260,4 +260,3 @@ _idx = 1;
 
 
 DXSP_Searching = false;
-searchaction = player addAction ["Search for specific items","DayZ_Loot_Finder\finditems.sqf",1,1,true,true,"","!DXSP_Searching"];

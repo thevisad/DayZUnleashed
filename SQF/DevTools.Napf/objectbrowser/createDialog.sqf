@@ -15,9 +15,7 @@ _ctrl2=61;
 KRON_dddir=1;
 _defclass="Default";
 //allowMovementControlsInDialog true;
-player removeAction vehaction;
-player removeAction wpnaction;
-player removeAction aniaction;
+
 
 KRON_relpos = {private["_p","_d","_a","_x","_y","_xout","_yout"];_p=_this select 0; _x=_p select 0; _y=_p select 1; _z=_p select 2; _d=_this select 1; _a=_this select 2; _xout=_x + sin(_a)*_d; _yout=_y + cos(_a)*_d;[_xout,_yout,_z]};
 KRON_addangle = {private["_a","_d"]; _a=_this select 0; _d=_this select 1; _a=_a+_d; if (_a<0) then {_a=_a+360}; _a=_a mod 360; _a};
@@ -140,6 +138,4 @@ while {ctrlVisible _ctrl1} do {
 	sleep .1;
 };
 
-vehaction = player addAction ["Browse Vehicles", "objectbrowser\createDialog.sqf", ["cfgVehicles"]];
-wpnaction = player addAction ["Browse Weapons", "objectbrowser\createDialog.sqf", ["cfgWeapons"]];
-aniaction = player addAction ["Browse NonAIVehicles", "objectbrowser\createDialog.sqf", ["cfgNonAiVehicles"]];
+

@@ -3,12 +3,7 @@
 	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
 */
 
-player removeAction selectLootPositionAction;
-player removeAction saveLootPositonAction;
-player removeAction raise1LootPositonAction;
-player removeAction loser1LootPositonAction;
-player removeAction raise01LootPositonAction;
-player removeAction lower01LootPositonAction;
+
 private ["_target","_type","_ppos","_veh","_worldPos"];
 DZE_vehTarget = objNull;
 _new = (_this select 3) select 0;
@@ -76,9 +71,3 @@ sleep 5;
 
 deleteVehicle _veh;
 
-selectLootPositionAction = player addAction ["Select Loot Position", "lootSystem\Make_lootPos.sqf", ["select"], 99];
-saveLootPositonAction = player addAction ["Save Loot Position", "lootSystem\Make_lootPos.sqf", ["start"], 99];
-raise1LootPositonAction = player addAction ["Raise Z .1", "lootSystem\Make_lootPos.sqf", ["up"], 99];
-loser1LootPositonAction = player addAction ["Lower Z .1", "lootSystem\Make_lootPos.sqf", ["down"], 99];
-raise01LootPositonAction = player addAction ["Raise Z .01", "lootSystem\Make_lootPos.sqf", ["up_small"], 99];
-lower01LootPositonAction = player addAction ["Lower Z .01", "lootSystem\Make_lootPos.sqf", ["down_small"], 99];

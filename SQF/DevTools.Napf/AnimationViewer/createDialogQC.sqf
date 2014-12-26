@@ -1,9 +1,5 @@
 _ok = createDialog "DlgMoves";
 if (!_ok) exitWith {hint "Dialog error"}; 
-player removeAction dlgaction;
-if (KRON_QCON) then {player removeAction dlgactionqc};
-player removeAction dlgactionf;
-player removeAction dlgactionm;
 
 _index = lbAdd [104, ""];
 _index = lbAdd [104,"ActsPercMrunSlowWrflDf_TumbleOver"];
@@ -188,7 +184,3 @@ while {ctrlVisible 104} do {
 	soldier switchMove MOVENAME;
 };
 
-dlgaction = player addAction ["Open Animations", "AnimationViewer\createDialog.sqf"];
-if (KRON_QCON) then {dlgactionqc = player addAction ["Open Animations (QG)", "AnimationViewer\createDialogQC.sqf"]};
-dlgactionf = player addAction ["Open Faces", "AnimationViewer\createDialogF.sqf"];
-dlgactionm = player addAction ["Open Music", "AnimationViewer\createDialogm.sqf"];

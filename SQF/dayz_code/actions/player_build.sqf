@@ -347,7 +347,8 @@ if (_hasrequireditem) then {
 				cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
 				_object setVariable ["OwnerID", dayz_playerUID,true];
 				_object setVariable ["lastUpdate",time];
-				_location = ASLtoATL getPosASL _object;
+				_location = _object modelToWorld [0,0,0];
+				//_location = getPosATL _object;
 				_object setVariable ["OEMPos",_location,true];
 
 				if(_lockable > 1) then {

@@ -1,4 +1,4 @@
-player removeAction getAllInfoAction;
+
 
 /*
 _cfgmagazines = configFile >> 'CfgMagazines';
@@ -356,4 +356,3 @@ for "_i" from 0 to (count _cfgvehicles)-1 do{
 	};
 };
 */
-getAllInfoAction = player addaction ["Get All Data", "system\getAllInfo.sqf"];

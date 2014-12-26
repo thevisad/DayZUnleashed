@@ -10,7 +10,7 @@
 	Example output: Land_a_stationhouse :: {3.08496,1.78516,-9.47058};
 */
 
-player removeAction showLootPositonAction;
+
 hint "Show Loot Position";
 
 _building = nearestObject [player, "Building"];
@@ -28,4 +28,3 @@ hint format ["%4 :: {%1,%2,%3};", x, y, z, _getBuildingName];
 
 copyToClipboard format ["%4 :: {%1,%2,%3};", x, y, z, _getBuildingName];
 if (true) exitWith {""};
-showLootPositonAction = player addaction ["Show Loot Position", "lootPos.sqf"];

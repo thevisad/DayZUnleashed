@@ -1,5 +1,5 @@
 #include "def_wepsel.hpp"
-player removeAction dlgactionw;
+
 _weaponsList = [];
 _namelist = [];
 _cfgweapons = configFile >> "cfgWeapons";
@@ -145,5 +145,3 @@ _muzzles = getArray(configfile >> "cfgWeapons" >> _wepsel >> "muzzles");
 player addWeapon _wepsel;
 {if (_x!=_wepsel) then {player removeWeapon _x}} forEach weapons player;
 
-
-dlgactionw = player addAction ["Select Weapon","WeaponSelector\selectweapon.sqf"];

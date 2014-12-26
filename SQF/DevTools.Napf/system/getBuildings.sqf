@@ -1,4 +1,4 @@
-player removeAction getBuildingsAction;
+
 _cfgmagazines = configFile >> 'CfgMagazines';
 diag_log("Magazines Starts Here!");
 for "_i" from 0 to (count _cfgmagazines)-1 do{
@@ -258,4 +258,3 @@ for "_i" from 0 to (count _cfgvehicles)-1 do{
 		};
 	};
 };
-getBuildingsAction = player addaction ["Dump Classes", "system\getBuildings.sqf"];

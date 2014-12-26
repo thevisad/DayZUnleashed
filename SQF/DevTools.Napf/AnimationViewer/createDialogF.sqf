@@ -1,9 +1,6 @@
 _ok = createDialog "DlgFaces";
 if (!_ok) exitWith {hint "Dialog error"};
-player removeAction dlgaction;
-if (KRON_QCON) then {player removeAction dlgactionqc};
-player removeAction dlgactionf;
-player removeAction dlgactionm;
+
 
 _cam = "camera" camcreate [0, 0, 0];
 _cam cameraeffect ["internal", "back"];
@@ -31,9 +28,6 @@ while {ctrlVisible 114} do {
 	soldier setFace _text;
 };
 
-dlgaction = player addAction ["Open Animations", "AnimationViewer\createDialog.sqf"];
-if (KRON_QCON) then {dlgactionqc = player addAction ["Open Animations (QG)", "AnimationViewer\createDialogQC.sqf"]};
-dlgactionf = player addAction ["Open Faces", "AnimationViewer\createDialogF.sqf"];
-dlgactionm = player addAction ["Open Music", "AnimationViewer\createDialogm.sqf"];
+
 _cam cameraeffect ["terminate", "back"];
 camDestroy _cam;

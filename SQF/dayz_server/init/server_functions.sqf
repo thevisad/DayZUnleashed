@@ -68,9 +68,8 @@ server_SpawnBuildings = {
 				if (unleashed_debug == 1) then {diag_log (format["SM: _idKey %1",_idKey]); };
 				if (unleashed_debug == 1) then {diag_log (format["SM: _ownerID %1",_ownerID]); };
 				if (unleashed_debug == 1) then {diag_log (format["SM: _worldspace %1",_worldspace]); };
-			_object = createVehicle [_type, _pos, [], 0, 
-				if (_type=="TentStorage") then {"NONE"} else {"CAN_COLLIDE"}
-			];	
+			_object = createVehicle [_type, _pos, [], 0, if (_type=="TentStorage") then {"NONE"} else {"CAN_COLLIDE"}];	
+			
 			_object setVariable ["lastUpdate",time];
 			_object setVariable ["ObjectID", _idKey, true];
 			//_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
@@ -115,7 +114,7 @@ server_SpawnBuildings = {
 			clearMagazineCargoGlobal  _object;
 			
 			_object setdir _dir;
-
+			_object setPosATL _pos;
 			if (_type == "TentStorage") then { 
 				_object addMPEventHandler ["MPKilled",{_this call vehicle_handleServerKilled;}]; 
 			};

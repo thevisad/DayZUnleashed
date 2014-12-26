@@ -1,4 +1,4 @@
-player removeAction findSpawnsAction;
+
 
 testSpawnPoints = 
 {
@@ -45,4 +45,3 @@ findSpawnPosition =
 [findSpawnPosition, "spawn3", "ColorOrange"] call testSpawnPoints; 
 [findSpawnPosition, "spawn4", "ColorBrown"] call testSpawnPoints; 
 [findSpawnPosition, "spawn5", "ColorYellow"] call testSpawnPoints; 
-findSpawnsAction = player addaction ["Find Spawns", "findSpawns.sqf"];

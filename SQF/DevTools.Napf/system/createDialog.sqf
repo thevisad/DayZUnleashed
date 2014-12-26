@@ -40,4 +40,3 @@ while {dialog} do {
 	_lastEffect = lbCurSel 108201;
 	sleep 0.1
 };
-postaction = player addAction ["Browse PPEffects", "createDialog.sqf", ["cfgNonAiVehicles"]];

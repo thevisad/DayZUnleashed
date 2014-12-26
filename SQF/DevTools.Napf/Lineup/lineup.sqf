@@ -1,8 +1,6 @@
 #include "getclass.sqf";
 _relPos = {private["_p","_d","_a","_x","_y","_xout","_yout"];_p=_this select 0; _x=_p select 0; _y=_p select 1; _d=_this select 1; _a=_this select 2; _xout=_x + sin(_a)*_d; _yout=_y + cos(_a)*_d;[_xout,_yout,0]};
 
-player removeAction KRON_AID;
-if !(isNil('KRON_AIDD')) then {player removeAction KRON_AIDD};
 
 if (typeName (_this select 0)=="OBJECT") then {
 	_this=_this select 3;
