@@ -2,7 +2,7 @@
 /*%FSM<HEAD>*/
 /*
 item0[] = {"init",0,250,-75.000000,-250.000000,25.000000,-200.000000,0.000000,"init"};
-item1[] = {"End",1,4346,175.000000,-250.000000,275.000000,-200.000000,0.000000,"End"};
+item1[] = {"End",1,250,175.000000,-250.000000,275.000000,-200.000000,0.000000,"End"};
 item2[] = {"wait",4,218,-75.000000,0.000000,25.000000,50.000000,0.000000,"wait"};
 item3[] = {"Looking_for_Targ",2,250,-75.000000,75.000000,25.000000,125.000000,0.000000,"Looking for" \n "Target"};
 item4[] = {"Not_Alive",4,218,0.000000,325.000000,100.000000,375.000000,5.000000,"Not" \n "Alive"};
@@ -33,7 +33,7 @@ item28[] = {"Cleanup_",2,250,175.000000,200.000000,275.000000,250.000000,0.00000
 item29[] = {"nobody_around",4,218,175.000000,-25.000000,275.000000,25.000000,0.000000,"nobody" \n "around"};
 item30[] = {"",7,210,-104.000023,596.000000,-95.999985,604.000000,0.000000,""};
 item31[] = {"cant_see",4,218,-150.000000,650.000000,-50.000000,700.000000,2.000000,"cant" \n "see"};
-item32[] = {"Finish_Move",2,250,-150.000000,725.000000,-50.000000,775.000000,0.000000,"Finish" \n "Move"};
+item32[] = {"Finish_Move",2,4346,-150.000000,725.000000,-50.000000,775.000000,0.000000,"Finish" \n "Move"};
 item33[] = {"finished",4,218,-425.000000,725.000000,-325.000000,775.000000,1.000000,"finished"};
 item34[] = {"",7,210,-479.000000,746.000000,-471.000000,754.000000,0.000000,""};
 item35[] = {"",7,210,-29.000002,746.000000,-20.999998,754.000000,0.000000,""};
@@ -144,8 +144,8 @@ link77[] = {59,24};
 link78[] = {60,30};
 link79[] = {60,59};
 link80[] = {61,10};
-globals[] = {25.000000,1,0,0,0,640,480,1,141,6316128,1,-741.653931,548.937073,1003.919922,-366.619232,1128,1200,1};
-window[] = {0,-1,-1,-1,-1,1506,53,1728,161,1,1146};
+globals[] = {25.000000,1,0,0,0,640,480,1,141,6316128,1,-548.225830,550.656982,849.689209,-269.858368,904,951,1};
+window[] = {0,-1,-1,-32000,-32000,1100,1026,2530,4,1,922};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -162,9 +162,11 @@ class FSM
        "" \n
        "_secondHand = false;" \n
        "" \n
-       "if (count _this > 2) then {" \n
+       "if (_agro == ""agro"") then {" \n
        "	_secondHand = true;" \n
-       "	//diag_log (""Second Hand Zombie Initialized: "" + str(_this));" \n
+       "	if (unleashed_ZombieDebug == 1 ) then {" \n
+       "		diag_log(format[""ZFSM:Second Hand Zombie Initialized: %1"", _this]);" \n
+       "	};" \n
        "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -231,8 +233,7 @@ class FSM
        "		_agent forceSpeed 2;" \n
        "	};" \n
        "};" \n
-       "" \n
-       "//diag_log (""Zombie "" + str(_agent) + "" Wait "");"/*%FSM</STATEINIT""">*/;
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -327,7 +328,9 @@ class FSM
        "" \n
        "_timeN = diag_tickTime;" \n
        "" \n
-       "//hintSilent (""loitering..."" + str(_agent distance (_agent getVariable [""myDest"",getposATL _agent])));" \n
+       "if (unleashed_ZombieDebug ==1) then {" \n
+       "	diag_log(format[""ZFSM: loitering distance: %1 , dest: %2"",_agent distance (_agent getVariable [""myDest"",getposATL _agent]),_agent getVariable [""myDest"",getposATL _agent]]);" \n
+       "};" \n
        "" \n
        "if (_secondHand) then {" \n
        "	_agent doMove (getPosATL player);" \n
@@ -464,7 +467,9 @@ class FSM
        "" \n
        "//Debug" \n
        "if (_secondHand) then {" \n
-       "	//diag_log (""Zombie Brain Initialized "" + str(_agent) + "" doLoiter: "" + str(_doLoiter));" \n
+       "	if (unleashed_ZombieDebug == 1) then { " \n
+       "		diag_log (format[""ZFSM: Zombie Brain Initialized %1 "",_agent]);" \n
+       "	};" \n
        "	[_agent,_position] call zombie_loiter;" \n
        "	_myDest = _agent getVariable [""myDest"",getposATL _agent];" \n
        "" \n

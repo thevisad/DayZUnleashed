@@ -1,7 +1,7 @@
 private ["_objects"];
 {
-	PVDZ_veh_Save = [_x,"gear"];
-	publicVariableServer "PVDZ_veh_Save";
+	PVDZ_veh_Update = [_x,"gear"];
+	publicVariableServer "PVDZ_veh_Update";
 	if (unleashed_SavingDebug == 1) then {
 		diag_log(format["SGS: Updating nearby objects: %1",_x]);
 	};

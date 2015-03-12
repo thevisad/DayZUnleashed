@@ -123,15 +123,26 @@ fnc_usec_calculateBloodPerSec = {
 	private["_bloodLossPerSec","_bloodGainPerSec","_bloodPerSec","_wounded"];
 	_bloodLossPerSec = 0;
 	_bloodGainPerSec = 0;
-
+	_bleed_reduction = 0;
+	_skillCombat = 0;
+	_bleed_reduction = 0;
+	_skillCombat = [player,"Combat"] call DZU_fnc_getVariable;
+	if (_skillCombat >= 0) then 
+	{
+		_bleed_reduction = _skillCombat * 0.1;
+	};
 	if (r_player_injured) then {
 		_bloodLossPerSec = 10;
-
 		{
 			_wounded = player getVariable["hit_"+_x,false];
 
 			if (_wounded) then {
-				_bloodLossPerSec = _bloodLossPerSec + 10;
+				if (_bleed_reduction >= 0) then {
+					_bloodLossPerSec = _bloodLossPerSec + 10 - _bleed_reduction;
+				} else 
+				{
+					_bloodLossPerSec = _bloodLossPerSec + 10;
+				};
 			};
 		} forEach USEC_typeOfWounds;
 	};

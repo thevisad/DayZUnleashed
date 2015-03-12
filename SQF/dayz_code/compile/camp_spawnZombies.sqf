@@ -16,7 +16,7 @@ _campZeds = {local (_x getVariable ["agentObjectCamps",objNull])} count agents;
 
 while {_counter < _amount} do {
 
-	if (dayz_CurrentZombies > dayz_maxGlobalZombies) exitwith {};
+	if (dayz_CurrentZombies > dayz_maxLocalZombies) exitwith {};
 	if (dayz_spawnZombies > dayz_maxLocalZombies) exitwith {};
 
 	if (random 1 < 0.1) then {

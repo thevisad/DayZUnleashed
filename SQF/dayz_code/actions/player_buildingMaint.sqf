@@ -84,8 +84,8 @@ if (_proceed) then {
 	if (_tobe_removed_total == _removed_total) then {
 
 		cutText [format[(localize "STR_EPOCH_ACTIONS_4"), 1], "PLAIN DOWN", 5];
-		PVDZE_maintainArea = [player,2,_obj];
-		publicVariableServer "PVDZE_maintainArea";
+		PVDZ_maintainArea = [player,2,_obj];
+		publicVariableServer "PVDZ_maintainArea";
 
 	} else {
 	

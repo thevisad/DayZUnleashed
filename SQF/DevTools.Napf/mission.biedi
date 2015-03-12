@@ -1,0 +1,83 @@
+class _prefix_0
+{
+	objectType="prefix";
+	class Arguments
+	{
+	};
+};
+class _center_0
+{
+	objectType="center";
+	class Arguments
+	{
+		SIDE="west";
+	};
+};
+class _group_0
+{
+	objectType="group";
+	class Arguments
+	{
+		CENTER="_center_0";
+	};
+};
+class _unit_0
+{
+	objectType="unit";
+	class Arguments
+	{
+		POSITION="[10384.849, 18998.607]";
+		GROUP="_group_0";
+		TYPE="CZ_Special_Forces_MG_DES_EP1";
+		INIT="nul=[""Static""] execVM ""Vehicleinfo\vehinfo.sqf"";titleText [""Approach the vehicles or building,\nto see their available turrets and actions."",""plain down""];";
+		SKILL="0.60000002";
+		PLAYER="true";
+		LEADER="true";
+	};
+};
+class _center_1
+{
+	objectType="center";
+	class Arguments
+	{
+		SIDE="logic";
+	};
+};
+class _group_1
+{
+	objectType="group";
+	class Arguments
+	{
+		CENTER="_center_1";
+	};
+};
+class _unit_2
+{
+	objectType="unit";
+	class Arguments
+	{
+		POSITION="[20472.316, 20447.736, 0]";
+		GROUP="_group_1";
+		TYPE="Logic";
+		SKILL="0.60000002";
+		LEADER="true";
+	};
+};
+class _unit_4
+{
+	objectType="unit";
+	class Arguments
+	{
+		POSITION="[20441.252, 20480.842, 0]";
+		GROUP="_group_1";
+		TYPE="FunctionsManager";
+		SKILL="0.60000002";
+	};
+};
+class _postfix_0
+{
+	objectType="postfix";
+	class Arguments
+	{
+	};
+};

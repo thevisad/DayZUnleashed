@@ -1,4 +1,4 @@
-private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_object","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_objHupDiff","_needNear","_vehicle","_inVehicle","_previewCounter","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
+private ["_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_object","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_friendlies","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_objHupDiff","_needNear","_vehicle","_inVehicle","_previewCounter","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
@@ -42,38 +42,37 @@ _item =	_this;
 
 // Need Near Requirements
 _abort = false;
-_distance = 3;
 _reason = "";
 
 _needNear = 	getArray (configFile >> "CfgMagazines" >> _item >> "ItemActions" >> "Build" >> "neednearby");
 
 {
-	_need = _x select 0;
-	_distance = _x select 1;
-	switch(_need) do{
+	switch(_x) do{
 		case "fire":
 		{
+			_distance = 3;
 			_isNear = {inflamed _x} count (getPosATL player nearObjects _distance);
-			if(_isNear == 0) then {  
+			if(_isNear == 0) then {
 				_abort = true;
 				_reason = "fire";
 			};
 		};
 		case "workshop":
 		{
+			_distance = 3;
 			_isNear = count (nearestObjects [player, ["Wooden_shed_DZ","WoodShack_DZ","WorkBench_DZ"], _distance]);
-			if(_isNear == 0) then {  
+			if(_isNear == 0) then {
 				_abort = true;
 				_reason = "workshop";
 			};
 		};
 		case "fueltank":
 		{
+			_distance = 30;
 			_isNear = count (nearestObjects [player, dayz_fuelsources, _distance]);
-			if(_isNear == 0) then {  
+			if(_isNear == 0) then {
 				_abort = true;
 				_reason = "fuel tank";
-				_distance = 30;
 			};
 		};
 	};
@@ -96,11 +95,6 @@ if(isNumber (configFile >> "CfgVehicles" >> _classname >> "lockable")) then {
 	_lockable = getNumber(configFile >> "CfgVehicles" >> _classname >> "lockable");
 };
 
-_requireplot = 0;
-if(isNumber (configFile >> "CfgVehicles" >> _classname >> "requireplot")) then {
-	_requireplot = getNumber(configFile >> "CfgVehicles" >> _classname >> "requireplot");
-};
-
 _isAllowedUnderGround = 1;
 if(isNumber (configFile >> "CfgVehicles" >> _classname >> "nounderground")) then {
 	_isAllowedUnderGround = getNumber(configFile >> "CfgVehicles" >> _classname >> "nounderground");
@@ -110,71 +104,8 @@ _offset = 	getArray (configFile >> "CfgVehicles" >> _classname >> "offset");
 if((count _offset) <= 0) then {
 	_offset = [0,5,0];
 };
-
-_isPole = (_classname == "Plastic_Pole_EP1_DZ");
-_isLandFireDZ = (_classname == "Land_Fire_DZ");
-
-_distance = 30;
 _needText = localize "str_epoch_player_246";
-
-if(_isPole) then {
-	_distance = 60;
-};
-
-// check for near plot
-_findNearestPoles = nearestObjects [(vehicle player), ["Plastic_Pole_EP1_DZ"], _distance];
-_findNearestPole = [];
-
-{
-	if (alive _x) then {
-		_findNearestPole set [(count _findNearestPole),_x];
-	};
-} foreach _findNearestPoles;
-
-_IsNearPlot = count (_findNearestPole);
-
-// If item is plot pole and another one exists within 45m
-if(_isPole and _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
-
-if(_IsNearPlot == 0) then {
-
-	// Allow building of plot
-	if(_requireplot == 0 or _isLandFireDZ) then {
-		_canBuildOnPlot = true;
-	};
-
-} else {
-	// Since there are plots nearby we check for ownership and then for friend status
-	
-	// check nearby plots ownership and then for friend status
-	_nearestPole = _findNearestPole select 0;
-
-	// Find owner 
-	_ownerID = _nearestPole getVariable["CharacterID","0"];
-
-	if (unleashed_PlayerBuildDebug == 1) then { diag_log format["PB: Character: %1 OwnerID: %2", dayz_characterID, _ownerID]; };
-
-	// check if friendly to owner
-	if(dayz_characterID == _ownerID) then {  //Keep ownership
-		// owner can build anything within his plot except other plots
-		if(!_isPole) then {
-			_canBuildOnPlot = true;		
-		};
-
-	} else {
-		// disallow building plot
-		if(!_isPole) then {
-			_friendlies		= player getVariable ["friendlyTo",[]];
-			// check if friendly to owner
-			if(_ownerID in _friendlies) then {
-				_canBuildOnPlot = true;
-			};
-		};
-	};
-};
-
-// _message
-if(!_canBuildOnPlot) exitWith {  DZE_ActionInProgress = false; cutText [format[(localize "STR_EPOCH_PLAYER_135"),_needText,_distance] , "PLAIN DOWN"]; };
+_isLandFireDZ = (_classname == "Land_Fire_DZ");
 
 _missing = "";
 _hasrequireditem = true;
@@ -188,7 +119,7 @@ if (!_hasbuilditem) exitWith {DZE_ActionInProgress = false; cutText [format[(loc
 
 if (!_hasrequireditem) exitWith {DZE_ActionInProgress = false; cutText [format[(localize "str_epoch_player_137"),_missing] , "PLAIN DOWN"]; };
 if (_hasrequireditem) then {
-	//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _hasrequireditem start"]);};
+	if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _hasrequireditem start"]);};
 	_location = [0,0,0];
 	_isOk = true;
 
@@ -223,12 +154,12 @@ if (_hasrequireditem) then {
 	_key_monitor = [_isAllowedUnderGround] spawn player_buildControls ;
 
 	while {_isOk} do {
-		//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isOk start"]);};
+		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isOk start"]);};
 		sleep 1;
 		_location2 = getPosATL player;
 
 		if(DZE_5) exitWith {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: DZE_5 hit"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: DZE_5 hit"]);};
 			_isOk = false;
 			detach _object;
 			_dir = getDir _object;
@@ -237,7 +168,7 @@ if (_hasrequireditem) then {
 		};
 
 		if(_location1 distance _location2 > 5) exitWith {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _location1 hit"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _location1 hit"]);};
 			_isOk = false;
 			_cancel = true;
 			_reason = "You've moved to far away from where you started building (within 5 meters)"; 
@@ -248,7 +179,7 @@ if (_hasrequireditem) then {
 		[format["<t size='0.6'>Time left to build: %1</t>",(ceil(_previewCounter))],0,0.8,0.5,0,0,8] spawn BIS_fnc_dynamicText;
 		
 		if(_previewCounter <= 0) exitWith {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _previewCounter hit"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _previewCounter hit"]);};
 			_isOk = false;
 			_cancel = true;
 			_reason = "Ran out of time to find position"; 
@@ -259,7 +190,7 @@ if (_hasrequireditem) then {
 		_previewCounter = _previewCounter - 1;
 		
 		if(((SnappingOffset select 2) > 5) or ((SnappingOffset select 2) < -5)) exitWith {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: SnappingOffset hit"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: SnappingOffset hit"]);};
 			_isOk = false;
 			_cancel = true;
 			_reason = "Cannot move up or down more than 5 meters"; 
@@ -268,7 +199,7 @@ if (_hasrequireditem) then {
 		};
 
 		if (player getVariable["combattimeout", 0] >= time) exitWith {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: combattimeout hit"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: combattimeout hit"]);};
 			_isOk = false;
 			_cancel = true;
 			_reason = (localize "str_epoch_player_43");
@@ -277,14 +208,14 @@ if (_hasrequireditem) then {
 		};
 
 		if (DZE_cancelBuilding) exitWith {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: DZE_cancelBuilding hit"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: DZE_cancelBuilding hit"]);};
 			_isOk = false;
 			_cancel = true;
 			_reason = "Cancelled building.";
 			detach _object;
 			deleteVehicle _object;
 		};
-		//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isOk start"]);};
+		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isOk start"]);};
 	};
 
 	terminate _snapper;
@@ -295,15 +226,15 @@ if (_hasrequireditem) then {
 	
 	//No building on roads unless toggled
 	if (unleashed_BuildOnRoads==0) then {
-	//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: unleashed_BuildOnRoads hit"]);};
+		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: unleashed_BuildOnRoads hit"]);};
 		if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
 	};
 	// No building in trader zones
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
 	if(!placevault) then { _cancel = true; _reason = "Cannot build in a city."; };
 
-	if(!_cancel) then {
-		//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel start"]);};
+	if(!_cancel) then { 
+		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel start"]);};
 		_classname = _classnametmp;
 
 		// Start Build
@@ -315,7 +246,7 @@ if (_hasrequireditem) then {
 		_location = _position;
 
 		if((_isAllowedUnderGround == 0) and ((_location select 2) < 0)) then {
-		//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isAllowedUnderGround hit"]);};
+		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isAllowedUnderGround hit"]);};
 			_location set [2,0];
 		};
 
@@ -338,18 +269,17 @@ if (_hasrequireditem) then {
 		cutText [format[(localize "str_epoch_player_138"),_text], "PLAIN DOWN"];
 		
 		_limit = 3;
-
-		if(isNumber (configFile >> "CfgVehicles" >> _classname >> "constructioncount")) then {
+		
+		if (isNumber (configFile >> "CfgVehicles" >> _classname >> "constructioncount")) then {
 			_limit = getNumber(configFile >> "CfgVehicles" >> _classname >> "constructioncount");
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _limit hit"]);};
 		};
-
+		
 		_isOk = true;
 		_proceed = false;
 		_counter = 0;
 		
 		while {_isOk} do {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isOk2 start"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isOk2 start"]);};
 			[10,10] call dayz_HungerThirst;
 			player playActionNow "Medic";
 			
@@ -365,7 +295,7 @@ if (_hasrequireditem) then {
 			_finished = false;
 	
 			while {r_doLoop} do {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: r_doLoop start"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: r_doLoop start"]);};
 				_animState = animationState player;
 				_isMedic = ["medic",_animState] call fnc_inString;
 				if (_isMedic) then {
@@ -387,13 +317,13 @@ if (_hasrequireditem) then {
 
 
 			if(!_finished) exitWith {
-				//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _finished1 hit"]);};
+				if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _finished1 hit"]);};
 				_isOk = false;
 				_proceed = false;
 			};
 
 			if(_finished) then {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _finished2 hit"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _finished2 hit"]);};
 				_counter = _counter + 1;
 			};
 
@@ -402,29 +332,31 @@ if (_hasrequireditem) then {
 			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: text: %1, counter: %2, limit: %3, finished: %4",_text, _counter,_limit, _finished]);};
 			
 			if(_counter == _limit) exitWith {
-				//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _counter limit hit"]);};
+				if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _counter limit hit"]);};
 				_isOk = false;
 				_proceed = true;
 			};
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isOk2 end"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _isOk2 end"]);};
 		};
 
 		if (_proceed) then {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _proceed hit"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _proceed hit"]);};
 			_num_removed = ([player,_item] call BIS_fnc_invRemove);
 			if(_num_removed == 1) then {
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _num_removed hit"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _num_removed hit"]);};
 				cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
 				_object setVariable ["OwnerID", dayz_playerUID,true];
 				_object setVariable ["lastUpdate",time];
+				_location = _object modelToWorld [0,0,0];
+				//_location = getPosATL _object;
 				_object setVariable ["OEMPos",_location,true];
 
 				if(_lockable > 1) then {
-					//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _lockable start"]);};
+					if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _lockable start"]);};
 					_combinationDisplay = "";
 
 					switch (_lockable) do {
-						//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: switch hit"]);};
+						if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: switch hit"]);};
 						case 2: { // 2 lockbox
 							_combination_1 = (floor(random 3)) + 100; // 100=red,101=green,102=blue
 							_combination_2 = floor(random 10);
@@ -471,9 +403,9 @@ if (_hasrequireditem) then {
 
 					cutText [format[(localize "str_epoch_player_140"),_combinationDisplay,_text], "PLAIN DOWN", 5];
 					
-					//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _lockable end"]);};
+					if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _lockable end"]);};
 				} else {
-					//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _lockable else"]);};
+					if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _lockable else"]);};
 					_object setVariable ["CharacterID",dayz_characterID,true];
 					
 					// fire?
@@ -484,15 +416,15 @@ if (_hasrequireditem) then {
 						publicVariableServer "PVDZ_bld_Publish";
 					};
 				};
-				//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _num_removed end"]);};
+				if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _num_removed end"]);};
 			} else {
-				//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _num_removed else"]);};
+				if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _num_removed else"]);};
 				deleteVehicle _object;
 				cutText [(localize "str_epoch_player_46") , "PLAIN DOWN"];
 			};
-			//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel end"]);};
+			if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel end"]);};
 		} else {
-		//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel else"]);};
+		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel else"]);};
 			r_interrupt = false;
 			if (vehicle player == player) then {
 				[objNull, player, rSwitchMove,""] call RE;
@@ -502,13 +434,13 @@ if (_hasrequireditem) then {
 			deleteVehicle _object;
 			cutText [(localize "str_epoch_player_46") , "PLAIN DOWN"];
 		};
-		//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel end"]);};
+		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel end"]);};
 	} else {
-		//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel else"]);};
+		if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _cancel else"]);};
 		deleteVehicle _object;
 		cutText [format[(localize "str_epoch_player_47"),_text,_reason], "PLAIN DOWN"];
 	};
-	//if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _hasrequireditem ended"]);};
+	if (unleashed_PlayerBuildDebug == 1) then { diag_log (format["PB: _hasrequireditem ended"]);};
 };
 
 DZE_ActionInProgress = false;

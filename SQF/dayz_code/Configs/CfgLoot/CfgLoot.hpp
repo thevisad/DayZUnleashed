@@ -804,6 +804,11 @@ class CfgLoot {
 		{"PartPlankPack",0.01},
 		{"PartWoodLumber",0.01},
 		{"PartWoodPlywood",0.01},
+		{"ChainSaw",0.01},
+		{"ChainSawB",0.01},
+		{"ChainSawG",0.01},
+		{"ChainSawP",0.01},
+		{"ChainSawR",0.01},
 		{"PartPlywoodPack",0.01}
 	};
 	

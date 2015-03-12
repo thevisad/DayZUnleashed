@@ -16,7 +16,7 @@ if (_unit == player) then {
 	_control = _display displayCtrl 1203;
 	_control ctrlShow false;
 
-	_id = false spawn dayz_disableRespawn;
+	//_id = false spawn dayz_disableRespawn;
 };
 _unit setVariable ["hit_legs",0,false];
 _unit setVariable ["hit_hands",0,false];

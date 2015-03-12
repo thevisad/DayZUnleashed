@@ -156,13 +156,17 @@ if (_scaleLight > 0) then {
   _aggro_mv_mod_decay_rate =_aggro_mv_mod_decay_rate + 1;  
 };
 
+
+_huntingskill     = 1 - (0.0025 * ([player,"Hunting"] call DZU_fnc_getVariable));
+
 //Work out result
 _audial = round(_speed * dayz_surfaceNoise * _scaleMvmt * _scaleSound);
 if ((_audial > DAYZ_disAudial) or ((time - dayz_firedCooldown) > 0.3)) then {
 	DAYZ_disAudial = _audial;
 };
 DAYZ_disVisual = (round((_initial + (_speed * 3)) * _scalePose * _scaleLight)) * 1.5;
-
+DAYZ_disVisual = DAYZ_disVisual * _huntingskill ;
+DAYZ_disAudial = DAYZ_disAudial * _huntingskill ;
 dayz_aggro_move_decay = _aggro_mv_mod_decay_rate max 0;
 dayz_aggro_move_rate = _aggro_mv_mod_rate min _aggro_mv_mod_rate_cap;
 dayz_aggro_move_min = (_aggro_mv_mod + _audial) max 0;

@@ -1,19 +1,24 @@
-private ["_object","_type","_objectID","_uid","_lastUpdate","_needUpdate","_object_position","_object_inventory","_object_damage","_isNotOk","_parachuteWest","_firstTime","_object_killed","_object_repair","_isbuildable"];
+private ["_object","_type","_objectID","_uid","_lastUpdate","_needUpdate","_object_position","_object_inventory","_object_damage","_isNotOk","_parachuteWest","_firstTime","_object_killed","_object_repair","_isDayZObject"];
 
 #include "\z\addons\dayz_server\compile\server_toggle_debug.hpp"
 
 _object = 	_this select 0;
 
 if(isNull(_object)) exitWith {
-	if (unleashed_debug == 1) then { diag_log format["SUO: Skipping Null Object: %1", _object];};
+	if (unleashed_debug == 1) then { 
+		diag_log format["SUO: Skipping Null Object: %1", _object];
+	};
 	
 };
 
 _type = 	_this select 1;
 _parachuteWest = ((typeOf _object == "ParachuteWest") || (typeOf _object == "ParachuteC"));
-_dayz_Objects = dayz_updateObjects + dayz_allowedObjects;
-_isbuildable = (typeOf _object) in _dayz_Objects; //dayz_allowedObjects
-
+//_dayz_Objects = dayz_updateObjects + dayz_allowedObjects + SafeObjects;
+//_isDayZObject = (typeOf _object) in _dayz_Objects; //_dayz_Objects
+_isVehicle = ((_object iskindof "AllVehicles") and !(_object iskindof "Man")); //unleashed_VehiclesArray
+if (unleashed_debug == 1) then { 
+	diag_log(format["SUO: :IsVehicle: %1", _isVehicle]);
+};
 _isNotOk = false;
 _firstTime = false;
 
@@ -22,7 +27,7 @@ _uid = 		_object getVariable ["ObjectUID","0"];
 
 if ((typeName _objectID != "string") || (typeName _uid != "string")) then
 { 
-if (unleashed_debug == 1) then { diag_log(format["SUO: Non-string Object: ID %1 UID %2", _objectID, _uid]);};
+	if (unleashed_debug == 1) then { diag_log(format["SUO: Non-string Object: ID %1 UID %2", _objectID, _uid]);};
     
     //force fail
     _objectID = "0";
@@ -37,10 +42,10 @@ if (!_parachuteWest && !(locked _object)) then {
 };
 
 // do not update if buildable && not ok
-if (_isNotOk && _isbuildable) exitWith { if (unleashed_debug == 1) then { diag_log(format["SUO: %1 _isbuildable and is ok.", _object]);};  };
+//if (_isNotOk && _isDayZObject) exitWith { if (unleashed_debug == 1) then { diag_log(format["SUO: %1 _isDayZObject and is ok.", _object]);};  };
 
 // delete if still not ok
-if (_isNotOk) exitWith { deleteVehicle _object; if (unleashed_debug == 1) then {diag_log(format["SUO: Deleting object %1 with invalid ID at pos [%2,%3,%4]",typeOf _object,_object_position select 0,_object_position select 1, _object_position select 2]); };};
+//if (_isNotOk) exitWith { deleteVehicle _object; if (unleashed_debug == 1) then {diag_log(format["SUO: Deleting object %1 with invalid ID at pos [%2,%3,%4]",typeOf _object,_object_position select 0,_object_position select 1, _object_position select 2]); };};
 
 
 _lastUpdate = _object getVariable ["lastUpdate",time];
@@ -73,20 +78,18 @@ _object_inventory = {
 	_previous = str(_object getVariable["lastInventory",[]]);
 	if (str(_inventory) != _previous) then {
 		_object setVariable["lastInventory",_inventory];
-	if (_isbuildable) then {
-		_key = format["CHILD:641:%1:%2:",_objectID,_inventory];
-		if (unleashed_debug == 1) then { diag_log(format["SUO: 641 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);};
-	} else {
-		if (_objectID == "0") then {
-			_key = format["CHILD:309:%1:%2:",_uid,_inventory];
-			if (unleashed_debug == 1) then { diag_log(format["SUO: 641 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);};
-			diag_log(format["SUO: 309 Updating %1 uid %2 with inventory %3",_object,_uid,_inventory]);
+		if (_isVehicle) then {
+			if (_objectID == "0") then {
+				_key = format["CHILD:309:%1:%2:",_uid,_inventory];
+				if (unleashed_debug == 1) then { diag_log(format["SUO: 309 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);};
+			} else {
+				_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+				if (unleashed_debug == 1) then { diag_log(format["SUO: 303 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);};
+			};
 		} else {
-			_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
-			if (unleashed_debug == 1) then { diag_log(format["SUO: 641 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);};
-			diag_log(format["SUO: 303 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);
+			_key = format["CHILD:641:%1:%2:",_objectID,_inventory];
+			if (unleashed_debug == 1) then { diag_log(format["SUO: 641 Updating %1 uid %2 with inventory %3",_object,_objectID,_inventory]);};	
 		};
-	};
 		_key call server_hiveWrite;
 	};
 };

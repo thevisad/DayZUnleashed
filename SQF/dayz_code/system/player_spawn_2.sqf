@@ -23,7 +23,8 @@ while {true} do {
 	_saveTime = (playersNumber west * 2) + 10;
     _biotic_level = [player,"biotics"] call DZU_fnc_getVariable;
     _skillCombat    = [player,"Combat"] call DZU_fnc_getVariable;
-    
+	_survival_skill = [player,"Survival"] call DZU_fnc_getVariable;
+   
 	//reset position
 	_randomSpot = true;
 	_mylastPos = getPosATL _refObj;
@@ -96,14 +97,13 @@ while {true} do {
 		};
 	};
 
-    _htres = 1 - (0.005 * _skillCombat);
+    _htres = 1 - (0.005 * _survival_skill);
 	//Hunger    
 	_hunger = (+((((r_player_bloodTotal - r_player_blood) / r_player_bloodTotal) * 5) + _speed + dayz_myLoad) * 3) * _htres;
 	if (time - dayz_panicCooldown < 120) then {
 		_hunger = _hunger * 2;
 	};
 	dayz_hunger = dayz_hunger + (_hunger / 60);
-
 	//Thirst
 	_thirst = 2 * _htres;
 	if (_refObj == player) then {

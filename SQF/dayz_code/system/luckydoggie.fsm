@@ -1,0 +1,508 @@
+/*%FSM<COMPILE "P:\tools\fsmEditor\entityFSM.cfg, luckydoggie">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Init",0,250,102.816193,-656.077332,192.816208,-606.077332,0.000000,"Init"};
+item1[] = {"preload_",4,218,104.675262,-573.995728,194.675293,-523.995850,0.000000,"preload" \n ""};
+item2[] = {"action_init_",2,250,105.218857,-491.239868,195.218872,-441.239868,0.000000,"action init" \n ""};
+item3[] = {"true",4,218,105.717300,-414.735840,195.717300,-364.735840,0.000000,"true"};
+item4[] = {"Waiting",2,250,105.090149,-218.817032,195.090118,-168.817108,0.000000,"Waiting"};
+item5[] = {"idling",4,218,244.669815,-310.732941,334.669800,-260.732941,3.000000,"idling"};
+item6[] = {"master_moved",4,218,237.278198,-163.281509,327.277954,-113.281509,2.000000,"master moved"};
+item7[] = {"hunger",4,218,-320.617950,-90.760300,-230.617981,-40.760319,0.000000,"hunger"};
+item8[] = {"thirst",4,218,-323.689941,-153.334137,-233.689972,-103.334152,1.000000,"thirst"};
+item9[] = {"roaming",4,218,-319.241425,-224.617981,-229.241364,-174.617981,5.000000,"roaming"};
+item10[] = {"hunting",4,218,-241.639008,-443.338043,-151.638992,-393.338013,6.000000,"hunting"};
+item11[] = {"dead",4,218,29.183754,-349.591095,119.183746,-299.591095,8.000000,"dead"};
+item12[] = {"close",4,4314,243.571533,-40.289921,333.571533,9.710100,0.000000,"close"};
+item13[] = {"",7,210,123.869476,-7.039288,131.869476,0.960713,0.000000,""};
+item14[] = {"End_It_",1,250,-31.752892,-649.858582,58.247139,-599.858582,0.000000,"End It" \n ""};
+item15[] = {"Moving",2,250,243.017395,-101.299828,333.017426,-51.299816,0.000000,"Moving"};
+item16[] = {"reorientate",4,218,337.271454,-106.669746,437.271484,-56.669727,0.000000,"reorientate"};
+item17[] = {"tracking",2,250,-377.777527,-439.788269,-287.777527,-389.788269,0.000000,"tracking"};
+item18[] = {"has_target",4,218,-492.336823,-445.815491,-392.336884,-395.815491,1.000000,"has target"};
+item19[] = {"at_target",4,218,-600.373657,-583.255249,-500.373688,-533.255432,1.000000,"at target"};
+item20[] = {"reorientate",4,218,-417.336884,-520.815308,-317.336884,-470.815491,0.000000,"reorientate"};
+item21[] = {"",7,210,-195.896408,-277.881531,-187.896408,-269.881531,0.000000,""};
+item22[] = {"track",2,250,-589.064392,-493.299225,-499.064392,-443.299225,0.000000,"track"};
+item23[] = {"no_target",4,218,-624.398926,-393.371338,-524.398926,-343.371338,4.000000,"no target"};
+item24[] = {"",7,210,-601.552429,108.205132,-593.552429,116.205132,0.000000,""};
+item25[] = {"",7,210,134.408417,110.473167,142.408417,118.473167,0.000000,""};
+link0[] = {0,1};
+link1[] = {1,2};
+link2[] = {2,3};
+link3[] = {3,4};
+link4[] = {4,5};
+link5[] = {4,6};
+link6[] = {4,7};
+link7[] = {4,8};
+link8[] = {4,11};
+link9[] = {4,21};
+link10[] = {5,4};
+link11[] = {6,15};
+link12[] = {7,4};
+link13[] = {8,4};
+link14[] = {9,4};
+link15[] = {10,17};
+link16[] = {11,14};
+link17[] = {12,13};
+link18[] = {13,4};
+link19[] = {15,12};
+link20[] = {15,16};
+link21[] = {16,15};
+link22[] = {17,18};
+link23[] = {18,22};
+link24[] = {19,22};
+link25[] = {20,22};
+link26[] = {21,9};
+link27[] = {21,10};
+link28[] = {22,19};
+link29[] = {22,20};
+link30[] = {22,23};
+link31[] = {23,24};
+link32[] = {24,25};
+link33[] = {25,13};
+globals[] = {0.000000,0,0,0,0,640,480,1,38,6316128,1,-674.350830,615.032959,495.356506,-763.848083,1239,1210,1};
+window[] = {0,-1,-1,-1,-1,1519,448,2297,164,1,1257};
+*//*%FSM</HEAD>*/
+class luckydoggie
+{
+  class States
+  {
+    /*%FSM<STATE "Init">*/
+    class Init
+    {
+      name = "Init";
+      class Init
+      {
+        /*%FSM<STATEINIT>*/
+        _pos = _this select 0;
+        _dog = _this select 1;
+        _type = _this select 2;
+
+        _hunger = 0;
+        _thrist = 0;
+        _character = player;
+
+        /*%FSM</STATEINIT>*/
+      };
+      class Links
+      {
+
+        /*%FSM<LINK "preload_">*/
+        class preload_
+        {
+          priority = 0.000000;
+          to="action_init_";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "action_init_">*/
+    class action_init_
+    {
+      name = "action_init_";
+      class Init
+      {
+        /*%FSM<STATEINIT>*/
+        _action = unleashed_CurrentDogAction;
+        /*%FSM</STATEINIT>*/
+      };
+      class Links
+      {
+
+        /*%FSM<LINK "true">*/
+        class true
+        {
+          priority = 0.000000;
+          to="Waiting";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Waiting">*/
+    class Waiting
+    {
+      name = "Waiting";
+      class Init
+      {
+        /*%FSM<STATEINIT>*/
+        _waitTime = time;
+        _lastpos = _pos;
+        _lostTarget = false;
+        /*%FSM</STATEINIT>*/
+      };
+      class Links
+      {
+
+        /*%FSM<LINK "dead">*/
+        class dead
+        {
+          priority = 8.000000;
+          to="End_It_";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            !(alive _dog)
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+
+        /*%FSM<LINK "hunting">*/
+        class hunting
+        {
+          priority = 6.000000;
+          to="tracking";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            _command == "hunt"
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+
+        /*%FSM<LINK "roaming">*/
+        class roaming
+        {
+          priority = 5.000000;
+          to="Waiting";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+
+        /*%FSM<LINK "idling">*/
+        class idling
+        {
+          priority = 3.000000;
+          to="Waiting";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            ((time - _waitTime) > _idleTime) and _standing
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+
+        /*%FSM<LINK "master_moved">*/
+        class master_moved
+        {
+          priority = 2.000000;
+          to="Moving";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            (vehicle player) distance _dog > 2
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+
+        /*%FSM<LINK "thirst">*/
+        class thirst
+        {
+          priority = 1.000000;
+          to="Waiting";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+
+        /*%FSM<LINK "hunger">*/
+        class hunger
+        {
+          priority = 0.000000;
+          to="Waiting";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "End_It_">*/
+    class End_It_
+    {
+      name = "End_It_";
+      class Init
+      {
+        /*%FSM<STATEINIT>*/
+        terminate _heartbeat;
+
+        player setVariable ["dogID", 0];
+        /*%FSM</STATEINIT>*/
+      };
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Moving">*/
+    class Moving
+    {
+      name = "Moving";
+      class Init
+      {
+        /*%FSM<STATEINIT>*/
+        _pos = [(getPos (vehicle player)),1,2,4,0,5,0] call BIS_fnc_findSafePos;
+
+        _dog moveTo _pos;
+        _dog forceSpeed (_speedVal select _maxSpeed);
+
+        // todo insert unleashed movement here
+
+        _waitTime = time;
+        /*%FSM</STATEINIT>*/
+      };
+      class Links
+      {
+
+        /*%FSM<LINK "reorientate">*/
+        class reorientate
+        {
+          priority = 0.000000;
+          to="Moving";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            ((time - _waitTime) > 1)
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+
+        /*%FSM<LINK "close">*/
+        class close
+        {
+          priority = 0.000000;
+          to="Waiting";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "tracking">*/
+    class tracking
+    {
+      name = "tracking";
+      class Init
+      {
+        /*%FSM<STATEINIT>*/
+        _lastPos = position _dog;
+
+        _list = (position _dog) nearEntities ["Animal",(_senseSkill * 3)];
+        _list = _list - [_dog];
+
+        if (count _list > 0) then {
+        	_target = _list select 0;
+        } else {
+        	_target = objNull;
+        };
+
+        _dog playActionNow "GestureSniff";
+        _waitTime = time;
+        /*%FSM</STATEINIT>*/
+      };
+      class Links
+      {
+
+        /*%FSM<LINK "has_target">*/
+        class has_target
+        {
+          priority = 1.000000;
+          to="track";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            !isNull _target and ((time - _waitTime) > 2)
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            _lastPos = position _dog;
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "track">*/
+    class track
+    {
+      name = "track";
+      class Init
+      {
+        /*%FSM<STATEINIT>*/
+        _pos = [(getPos _target),1,2,4,0,5,0] call BIS_fnc_findSafePos;
+        _dog moveTo _pos;
+        _dog forceSpeed (_speedVal select _maxSpeed);
+        _forceChange = false;
+
+        _waitTime = time;
+
+        /*%FSM</STATEINIT>*/
+      };
+      class Links
+      {
+
+        /*%FSM<LINK "no_target">*/
+        class no_target
+        {
+          priority = 4.000000;
+          to="Waiting";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            isNull _target and ((time - _waitTime) > 2)
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            _command = "none";
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+
+        /*%FSM<LINK "at_target">*/
+        class at_target
+        {
+          priority = 1.000000;
+          to="track";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            _dog distance _target < 10
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            if (_watchDog) then {
+            	_dog playActionNow "GestureBark";
+            	[_dog,"dog_growl",0,false] call dayz_zombieSpeak;
+            };
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+
+        /*%FSM<LINK "reorientate">*/
+        class reorientate
+        {
+          priority = 0.000000;
+          to="track";
+          class Condition
+          {
+            /*%FSM<CONDITION>*/
+            ((time - _waitTime) > 0.5)
+            /*%FSM</CONDITION>*/
+          };
+          class Action
+          {
+            /*%FSM<ACTION>*/
+            if ((random 1) < 0.3 and (time - _coolDown > 4) and _dog distance _target > 10 ) then {
+            	_dog playActionNow "GestureSniff";
+            	_coolDown = time;
+            };
+            /*%FSM</ACTION>*/
+          };
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Init";
+  finalStates[] =
+  {
+    "End_It_",
+  };
+};
+/*%FSM</COMPILE>*/

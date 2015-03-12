@@ -49,6 +49,7 @@ class Mission
 		"KPFS_MG1",
 		"KPFS_MG4",
 		"DZUactiveLoot",
+		"ASC_EU_Lights",
 		"napf"
 	};
 	addOnsAuto[]=
@@ -99,6 +100,7 @@ class Mission
 		"KPFS_MG1",
 		"KPFS_MG4",
 		"DZUactiveLoot",
+		"ASC_EU_Lights",
 		"napf"
 	};
 	randomSeed=11171215;

@@ -31,33 +31,15 @@ sleep 0.5;
 
 player setDamage 1;
 0.1 fadeSound 0;
-_playerDiedAtTime = time;
 player setVariable ["NORRN_unconscious", false, true];
 player setVariable ["unconsciousTime", 0, true];
 player setVariable ["USEC_isCardiac",false,true];
 player setVariable ["medForceUpdate",true,true];
 
-_weapons = weapons _body;
-_magazines = magazines _body;
-_backpack = unitBackpack _body;
-_backpackWeapons = getWeaponCargo _backpack;
-_backpackMagazines = getMagazineCargo _backpack;
-_backpackType = typeOf _backpack;
-
-_body setVariable ["playerIsDead",1,true];
-_body setVariable ["playerDiedAtTime",_playerDiedAtTime,true];
-_body setVariable ["_weapons",_weapons,true];
-_body setVariable ["_magazines",_magazines,true];
-_body setVariable ["_backpack",_backpack,true];
-_body setVariable ["_backpackWeapons",_backpackWeapons,true];
-_body setVariable ["_backpackMagazines",_backpackMagazines,true];
-_body setVariable ["_backpackType",_backpackType,true];
 //remove combat timer on death
 player setVariable ["startcombattimer", 0];
 r_player_unconscious = false;
 r_player_cardiac = false;
-
-
 
 _array = _this;
 if (count _array > 0) then {

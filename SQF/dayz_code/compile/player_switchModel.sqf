@@ -68,6 +68,8 @@ _currentAnim = animationState player;
 
 //BackUp Player Object
 	_oldUnit = player;
+	_oldGroup = group player;
+	
 
 /***********************************/
 //DONT USE player AFTER THIS POINT
@@ -165,6 +167,7 @@ _currentAnim = animationState player;
 	addSwitchableUnit _newUnit;
 	setPlayable _newUnit;
 	selectPlayer _newUnit;
+	if ((count units _oldGroup > 1) && (!isNil "PVDZ_plr_LoginRecord")) then {[player] join _oldGroup;deleteGroup _group;};
 
 //Switch the units
 	//_createSafePos = [(getMarkerPos "respawn_west"), 2, 100, 0, 1, 20, 0] call BIS_fnc_findSafePos;

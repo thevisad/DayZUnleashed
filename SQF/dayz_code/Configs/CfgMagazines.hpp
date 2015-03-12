@@ -1690,14 +1690,14 @@ class CfgMagazines {
 				create = "Land_HBarrier3_DZ";
 			};
 			class Crafting
-                        {
-                                text = "Craft 5x H-barrier";
-                                script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
-                                neednearby[] = {};
-                                requiretools[] = {"ItemEtool","ItemToolbox"};
-                                output[] = {{"ItemSandbagExLarge5x",1}};
-                                input[] = {{"ItemSandbagExLarge",1},{"ItemSandbagLarge",2}};
-                        };
+				{
+					text = "Craft 5x H-barrier";
+					script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+					neednearby[] = {};
+					requiretools[] = {"ItemEtool","ItemToolbox"};
+					output[] = {{"ItemSandbagExLarge5x",1}};
+					input[] = {{"ItemSandbagExLarge",1},{"ItemSandbagLarge",2}};
+				};
 		};
 	};
 
