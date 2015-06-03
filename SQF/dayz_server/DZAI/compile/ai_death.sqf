@@ -43,16 +43,17 @@ call {
 		[_victim,_killer,_unitGroup,_groupIsEmpty] call DZAI_AI_killed_dynamic;
 		0 = [_victim,_killer,_unitGroup,_unitType,_unitsAlive] call DZAI_AI_killed_all;
 	};
+	if (_unitType == "randomspawn") exitWith {
+		[_victim,_killer,_unitGroup,_groupIsEmpty] call DZAI_AI_killed_random;
+		0 = [_victim,_killer,_unitGroup,_unitType,_unitsAlive] call DZAI_AI_killed_all;
+	};
 	if (_unitType in ["air","aircustom"]) exitWith {
 		[_victim,_unitGroup] call DZAI_AI_killed_air;
 		_exp_type="Combat_NPC3";
 	};
 	if (_unitType in ["land","landcustom"]) exitWith {
 		0 = [_victim,_killer,_unitGroup,_unitType] call DZAI_AI_killed_all;
-		if (_groupIsEmpty) then {
-			[_unitGroup] call DZAI_AI_killed_land; //Only run this if entire group has been killed
-			_exp_type="Combat_NPC3";
-		};
+		[_victim,_unitGroup,_groupIsEmpty] call DZAI_AI_killed_land;
 	};
 	if (_unitType == "aircrashed") exitWith {};
 	if (_groupIsEmpty) then {
@@ -91,7 +92,7 @@ if !(isNull _victim) then {
 		_victim setPosASL (getPosASL _victim);
 	};
 	if ((combatMode _unitGroup) == "BLUE") then {_unitGroup setCombatMode "RED"};
-	[_victim] joinSilent grpNull;
+	//[_victim] joinSilent grpNull;
 	if (DZAI_deathMessages && {isPlayer _killer}) then {
 		_nul = [_killer,_bodyName] spawn DZAI_sendKillMessage;
 	};
