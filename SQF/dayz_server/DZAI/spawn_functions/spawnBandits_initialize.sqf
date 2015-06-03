@@ -37,9 +37,12 @@ if ((count _positionArray) == 0) then {
 	if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Spawn trigger %1 is generating spawn positions from nearby buildings.",triggerText _trigger];};
 } else {
 	{
-		if (((getMarkerColor _x) != "") && {!(surfaceIsWater _pos)}) then {
-			_locationArray set [(count _locationArray),_pos];
-			deleteMarker _x;
+		if ((getMarkerColor _x) != "") then {
+			_pos = getMarkerPos _x;
+				if !(surfaceIsWater _pos) then {
+				_locationArray set [(count _locationArray),_pos];
+				deleteMarker _x;
+			};
 		};
 	} count _positionArray;
 	if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Spawn trigger %1 is generating spawn positions from provided markers.",triggerText _trigger];};
@@ -57,7 +60,7 @@ _triggerStatements = [
 ]; 
 _newTrigger setVariable ["respawnLimit",(missionNamespace getVariable ["DZAI_respawnLimit"+str(_equipType),5])];
 _newTrigger setTriggerStatements _triggerStatements;
-0 = [_newTrigger,[],_patrolDist,_equipType,_locationArray,[_minAI,_addAI]] call DZAI_setTrigVars;
+0 = [0,_newTrigger,[],_patrolDist,_equipType,_locationArray,[_minAI,_addAI]] call DZAI_setTrigVars;
 //diag_log format ["DEBUG :: Created trigger %1 has statements %2.",triggerText _newTrigger,triggerStatements _newTrigger];
 //diag_log format ["DEBUG :: Created trigger %1 has saved statements %2.",triggerText _newTrigger,(_newTrigger getVariable "triggerStatements")];
 

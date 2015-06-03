@@ -22,7 +22,7 @@ DZAI_gradeIndices2 = [];
 DZAI_gradeIndices3 = [];
 DZAI_gradeIndicesDyn = [];
 DZAI_dynEquipType = 4;
-DZAI_dynLocations = [];										//Queue of temporary dynamic spawn area blacklists for deletion
+DZAI_tempBlacklist = [];										//Queue of temporary dynamic spawn area blacklists for deletion
 DZAI_reinforcePlaces = [];									//AI helicopter patrols will periodically check this array for dynamic trigger objects to use as reinforcement positions.
 DZAI_checkedClassnames = [[],[],[]];						//Classnames verified - Weapons/Magazines/Vehicles
 DZAI_invalidClassnames = [[],[],[]];						//Classnames known as invalid - Weapons/Magazines/Vehicles
@@ -39,6 +39,8 @@ DZAI_locations = [];
 DZAI_locationsLand = [];
 DZAI_heliTypesUsable = [];
 DZAI_vehTypesUsable = [];
+DZAI_randTriggerArray = [];
+DZAI_mapMarkerArray = [];
 
 if (DZAI_verifyTables) then {
 	DZAI_tableChecklist = ["DZAI_Rifles0","DZAI_Rifles1","DZAI_Rifles2","DZAI_Rifles3","DZAI_Pistols0","DZAI_Pistols1","DZAI_Pistols2","DZAI_Pistols3",
@@ -48,10 +50,7 @@ if (DZAI_verifyTables) then {
 
 //Create gamelogic to act as default trigger object if AI is spawned without trigger object specified (ie: for custom vehicle AI groups)
 _nul = [] spawn {
-	private ["_logicCenter"];
-	_logicCenter = createCenter sideLogic;
-	DZAI_logicGroup = createGroup _logicCenter;
-	DZAI_defaultTrigger = DZAI_logicGroup createUnit ["LOGIC", [0,0,0], [], 0, "NONE"];
+	DZAI_defaultTrigger = createTrigger ["EmptyDetector",(getMarkerPos 'center')];
 	DZAI_defaultTrigger setVariable ["isCleaning",true];
 	DZAI_defaultTrigger setVariable ["patrolDist",100];
 	DZAI_defaultTrigger setVariable ["equipType",1];
@@ -59,7 +58,8 @@ _nul = [] spawn {
 	DZAI_defaultTrigger setVariable ["maxUnits",[0,0]];
 	DZAI_defaultTrigger setVariable ["GroupSize",0];
 	DZAI_defaultTrigger setVariable ["initialized",true];
-	if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Default trigger gamelogic spawn check result: %1",(!isNull DZAI_logicGroup) && {(typeName DZAI_defaultTrigger) == "OBJECT"}]};
+	DZAI_defaultTrigger setTriggerText "Default Trigger Object";
+	if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Default trigger check result: %1",[!(isNull DZAI_defaultTrigger),(typeOf DZAI_defaultTrigger),(getPosASL DZAI_defaultTrigger)]]};
 };
 
 //Configure AI health system
@@ -75,7 +75,7 @@ if (DZAI_useHealthSystem) then {
 //Find DayZ server object monitor (to prevent AI vehicles from being destroyed due to hacker check)
 DZAI_serverObjectMonitor = call {
 	if (!isNil "dayz_serverObjectMonitor") exitWith {"dayz_serverObjectMonitor"};
-	if (!isNil "PVDZ_serverObjectMonitor") exitWith {"PVDZ_serverObjectMonitor"};
+	if (!isNil "PVDZE_serverObjectMonitor") exitWith {"PVDZE_serverObjectMonitor"};
 	"DZAI_serverObjectMonitorArray"
 };
 
@@ -110,7 +110,6 @@ if (!isNil "DZAI_MiscItemLNew") then {[DZAI_MiscItemL,DZAI_MiscItemLNew] call DZ
 if (DZAI_verifyTables) then {
 	_verify = [] execVM format ["%1\scripts\verifyTables.sqf",DZAI_directory];
 	waitUntil {uiSleep 0.5; scriptDone _verify}; //wait for verification to complete before proceeding
-	if ((count DZAI_BanditTypes) == 0) then {DZAI_BanditTypes = ["Survivor2_DZ"]}; //Failsafe in case all AI skin classnames are invalid.
 } else {
 	DZAI_classnamesVerified = true;	//skip classname verification if disabled
 };

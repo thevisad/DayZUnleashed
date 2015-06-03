@@ -1,14 +1,5 @@
-/*
-	fnc_dynAIDeath
-	
-	Description: Begins force despawn for dynamic AI when the entire group has been killed.
-	
-	Usage: [_victim,_unitGroup] spawn DZAI_AI_killed_dynamic;
-	
-	Last Updated: 10:33 PM 5/14/2014
-*/
 
-private ["_victim","_killer","_groupIsEmpty","_trigger","_unitGroup","_dummy"];
+private ["_victim","_killer","_groupIsEmpty","_trigger","_unitGroup"];
 
 _victim = _this select 0;
 _killer = _this select 1;

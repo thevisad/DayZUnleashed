@@ -58,13 +58,13 @@ if (_canDespawn) then {
 	} forEach _grpArray;
 	
 	//Remove dynamic trigger from global dyn trigger array and clean up trigger
-	_trigger call DZAI_updDynSpawnCount;
+	[_trigger,"DZAI_dynTriggerArray"] call DZAI_updateSpawnCount;
 	if (_debugMarkers) then {deleteMarker str(_trigger)};
 
 	//Begin deletion timer for temporary blacklist area and add it to global dyn location array to allow deletion
 	_triggerLocation = _trigger getVariable "triggerLocation";
 	_triggerLocation setVariable ["deletetime",(diag_tickTime + 900)];
-	DZAI_dynLocations set [(count DZAI_dynLocations),_triggerLocation];
+	DZAI_tempBlacklist set [(count DZAI_tempBlacklist),_triggerLocation];
 	if (_trigger in DZAI_reinforcePlaces) then {DZAI_reinforcePlaces = DZAI_reinforcePlaces - [_trigger]};
 
 	if (DZAI_debugLevel > 1) then {diag_log format ["DZAI Extended Debug: Removing expired dynamic trigger at %1.",mapGridPosition _trigger];};

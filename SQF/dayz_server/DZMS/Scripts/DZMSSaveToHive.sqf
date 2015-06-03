@@ -59,12 +59,12 @@ if (DZMSEpoch) then {
 	_object allowDamage false;
 	_object setVariable ["lastUpdate", time];
 	_object setVariable ["CharacterID", "0", true];
-	PVDZ_serverObjectMonitor set [count PVDZ_serverObjectMonitor, _object];
+	PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor, _object];
 	
 	sleep 1;
 	_object call fnc_veh_ResetEH;
-	PVDZ_veh_Init = _object;
-	publicVariable "PVDZ_veh_Init";
+	PVDZE_veh_Init = _object;
+	publicVariable "PVDZE_veh_Init";
 	[_object,"all"] spawn server_updateObject;
 	_object allowDamage true;
 	
