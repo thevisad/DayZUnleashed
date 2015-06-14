@@ -89,6 +89,15 @@ class ItemKiloHemp : CA_Magazine {
 			output[] = {{"ItemPainkiller",2}};
 			input[] = {{"ItemKiloHemp",1},{"ItemPapers",1}};
 		};
+		class Crafting2
+		{
+			text = "Craft Hemp Seeds";
+			script = ";['Crafting','CfgMagazines', _id] spawn DZE_player_craftItem;";
+			neednearby[] = {""};
+			requiretools[] = {"ItemKnife"};
+			output[] = {{"ItemHempSeed",5}};
+			input[] = {{"ItemKiloHemp",1}};
+		};
 	};
 };
 

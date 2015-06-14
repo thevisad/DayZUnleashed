@@ -1,6 +1,4 @@
 class Crossbow_DZ : Crossbow {
-		magazines[] =
-		{
-			"WoodenArrow"
-		};
+	displayName = $STR_EQUIP_CROSSBOW;
+		magazines[] ={"Quiver","WoodenArrow"};
 	};

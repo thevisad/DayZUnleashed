@@ -90,36 +90,21 @@ class B_127x99_Ball_noTracer_BAF: B_127x99_Ball_noTracer {
 	};
 	class Melee;
 	class Machete_Swing_Ammo : Melee {
-		hit = 15;
-		simulation = "shotBullet";
-		minRange = 1;
+		hit = 3;
+		simulation = "shotSpread";
+		minRange = 0.5;
 		minRangeProbab = 0.8;
 		midRange = 2;
-		midRangeProbab = 1.8;
-		maxRange = 3;
-		maxRangeProbab = 2.8;
-		explosive = "true";
+		midRangeProbab = 3.5;
+		maxRange = 5;
+		maxRangeProbab = 5;
+		explosive = 0;
 		simulationStep = 0.001;
-		timeToLive = 0.05;
+		timeToLive = 0.03;
 		soundHit[] = {"", db-90, 1};
 		soundEngine[] = {"", db-80, 4};
 	};
 	class Hatchet_Swing_Ammo : Melee {
-		hit = 12;
-		simulation = "shotBullet";
-		minRange = 1;
-		minRangeProbab = 0.9;
-		midRange = 2;
-		midRangeProbab = 1.9;
-		maxRange = 3;
-		maxRangeProbab = 2.9;
-		explosive = "true";
-		simulationStep = 0.001;
-		timeToLive = 0.05;
-		soundHit[] = {"", db-90, 1};
-		soundEngine[] = {"", db-80, 4};
-	};
-	class Crowbar_Swing_Ammo : Melee {
 		hit = 9;
 		simulation = "shotBullet";
 		minRange = 1;
@@ -128,12 +113,13 @@ class B_127x99_Ball_noTracer_BAF: B_127x99_Ball_noTracer {
 		midRangeProbab = 1.5;
 		maxRange = 3;
 		maxRangeProbab = 2.5;
-		explosive = "true";
+		explosive = 0;
 		simulationStep = 0.001;
-		timeToLive = 0.05;
+		timeToLive = 0.03;
 		soundHit[] = {"", db-90, 1};
 		soundEngine[] = {"", db-80, 4};
 	};
+
 	class Bat_Swing_Ammo : Melee {
 		hit = 4;
 		simulation = "shotBullet";
@@ -194,9 +180,24 @@ class B_127x99_Ball_noTracer_BAF: B_127x99_Ball_noTracer {
 		soundHit[] = {"", db-90, 1};
 		soundEngine[] = {"", db-80, 4};
 	};
+	class Crowbar_Swing_Ammo : Melee {
+		hit = 2;
+		simulation = "shotSpread";
+		minRange = 0.5;
+		minRangeProbab = 0.8;
+		midRange = 2;
+		midRangeProbab = 3.5;
+		maxRange = 5;
+		maxRangeProbab = 5;
+		explosive = 0;
+		simulationStep = 0.001;
+		timeToLive = 0.03;
+		soundHit[] = {"", db-90, 1};
+		soundEngine[] = {"", db-80, 4};
+	};
 	class Fishing_Swing_Ammo : Melee {
 		hit = 1;
-		simulation = "shotBullet";
+		simulation = "shotSpread";
 		minRange = 0.5;
 		minRangeProbab = 0.8;
 		midRange = 2;

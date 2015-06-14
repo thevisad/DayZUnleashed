@@ -37,24 +37,15 @@
 				output[] = {{"PipeBomb",1}};
 				input[] = {{"ItemTrashToiletpaper",2},{"HandGrenade_West",2}};
 			};
-
-			class RecipeChange
+			class Crafting1
 			{
 				text="Combine for a Bandage";
-				script="spawn player_reloadMag;";
-				use[]=
-				{
-					"ItemTrashToiletpaper",
-					"ItemTrashToiletpaper",
-					"ItemTrashToiletpaper",
-					"ItemTrashToiletpaper"
-				};
-				output[]=
-				{
-					"ModifiedBandage"
-				};
+				script = ";['Crafting','CfgMagazines',_id] spawn DZE_player_craftItem;";
+				neednearby[] = {"workshop"};
+				requiretools[] = {"ItemKnife"};
+				output[] = {{"ModifiedBandage",1}};
+				input[] = {{"ItemTrashToiletpaper",2}};
 			};
-
 
 		class CombineMag {
 			text = $STR_BNDG_COMBINE;

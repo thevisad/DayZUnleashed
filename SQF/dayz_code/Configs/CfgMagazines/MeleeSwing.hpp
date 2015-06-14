@@ -60,6 +60,20 @@ class crowbar_swing : Melee_Swing {
 	shortNameMagazine = Crowbar;
 	ammo = Crowbar_Swing_Ammo;
 };
+
+
+class Fishing_Swing : Melee_Swing {
+	displayName = Fishing;
+	displayNameMagazine = Fishing;
+	shortNameMagazine = Fishing;
+	ammo = Fishing_Swing_Ammo;
+};
+class sledge_swing : Melee_Swing {
+	displayName = "Sledge";
+	displayNameMagazine = "Sledge";
+	shortNameMagazine = "Sledge";
+	ammo = "Sledge_Swing_Ammo";
+};
 class Hatchet_Swing : Melee_Swing {
 	displayName = Hatchet;
 	displayNameMagazine = Hatchet;
@@ -83,16 +97,4 @@ class BatNails_Swing : Melee_Swing {
 	displayNameMagazine = BaseBallBatNails;
 	shortNameMagazine = BaseBallBatNails;
 	ammo = BatNailed_Swing_Ammo;
-};
-class Fishing_Swing : Melee_Swing {
-	displayName = Fishing;
-	displayNameMagazine = Fishing;
-	shortNameMagazine = Fishing;
-	ammo = Fishing_Swing_Ammo;
-};
-class sledge_swing : Melee_Swing {
-	displayName = "Sledge";
-	displayNameMagazine = "Sledge";
-	shortNameMagazine = "Sledge";
-	ammo = "Sledge_Swing_Ammo";
 };

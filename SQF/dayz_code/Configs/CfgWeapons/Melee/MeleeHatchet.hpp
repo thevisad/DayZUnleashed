@@ -8,7 +8,6 @@ class MeleeHatchet: MeleeWeapon
 		picture="\dayz_equip\textures\equip_hatchet_CA.paa";
 		displayName=$STR_EQUIP_NAME_HATCHET;
 		droppeditem= "ItemHatchet";
-		soundBullet[] = {"bullet1", 1};
 		magazines[]=
 		{
 			"Hatchet_Swing"

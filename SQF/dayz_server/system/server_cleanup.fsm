@@ -11,15 +11,15 @@ item6[] = {"cleanup_objects",2,250,-25.000000,50.000000,75.000000,100.000000,0.0
 item7[] = {"time_sync_5_min",4,218,-225.000000,-25.000000,-125.000000,25.000000,0.000000,"time" \n "sync 5 min"};
 item8[] = {"sync_the_time",2,250,-225.000000,50.000000,-125.000000,100.000000,0.000000,"sync" \n "the time"};
 item9[] = {"true",8,218,-75.000000,150.000000,25.000000,200.000000,0.000000,"true"};
-item10[] = {"general_cleanup",2,250,-75.000000,425.000000,25.000000,475.000000,0.000000,"general" \n "cleanup"};
-item11[] = {"",7,210,-416.500000,445.999969,-408.500000,454.000031,0.000000,""};
+item10[] = {"general_cleanup",2,250,-75.000000,250.000000,25.000000,300.000000,0.000000,"general" \n "cleanup"};
+item11[] = {"",7,210,-416.500000,270.999969,-408.500000,279.000031,0.000000,""};
 item12[] = {"",7,210,-416.500000,-154.000000,-408.500000,-146.000000,0.000000,""};
-item13[] = {"",7,210,296.000000,-154.000000,304.000031,-146.000015,0.000000,""};
-item14[] = {"",7,210,296.000000,121.000008,304.000031,129.000000,0.000000,""};
+item13[] = {"",7,210,296.000000,-79.000000,304.000031,-71.000000,0.000000,""};
+item14[] = {"",7,210,296.000000,171.000015,304.000031,179.000000,0.000000,""};
 item15[] = {"initialized",4,218,-75.000000,-325.000000,25.000000,-275.000000,0.000000,"initialized"};
 item16[] = {"prepare",2,250,-75.000000,-250.000000,25.000000,-200.000000,0.000000,"prepare"};
 item17[] = {"update_objects",2,250,75.000000,50.000000,175.000000,100.000000,0.000000,"update objects"};
-item18[] = {"need__update_50",4,4314,75.000000,-25.000000,175.000000,25.000000,1.000000,"need " \n "update" \n "50 secs"};
+item18[] = {"need__update_50",4,218,75.000000,-25.000000,175.000000,25.000000,1.000000,"need " \n "update" \n "50 secs"};
 item19[] = {"check__groups_3",4,218,-325.000000,-25.000000,-225.000000,25.000000,0.000000,"check " \n "groups" \n "3 sec"};
 item20[] = {"check_groups",2,250,-325.000000,50.000000,-225.000000,100.000000,0.000000,"check groups"};
 item21[] = {"cleanup__animals",4,218,175.000000,-25.000000,275.000000,25.000000,0.000000,"cleanup " \n "animals" \n "15 min"};
@@ -53,8 +53,8 @@ link25[] = {19,20};
 link26[] = {20,9};
 link27[] = {21,22};
 link28[] = {22,9};
-globals[] = {25.000000,1,0,0,0,640,480,1,37,6316128,1,-538.715454,397.311279,359.565369,-416.440308,971,805,1};
-window[] = {0,-1,-1,-1,-1,1410,885,2536,460,1,989};
+globals[] = {25.000000,1,0,0,0,640,480,1,37,6316128,1,-538.715454,397.311279,580.317261,-195.688370,971,805,1};
+window[] = {0,-1,-1,-1,-1,1013,800,2451,63,1,989};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -213,16 +213,19 @@ class FSM
        "_delQtyP = 0;" \n
        "_delDo = _numDead - _numZombie;" \n
        "_delDo = ((_delDo min (count _deadBodies)) -1);" \n
-       "if (_delDo<1) then {_delDo=1};" \n
-       "for ""_i"" from 0 to _delDo do {" \n
-       "	_body = _deadBodies select _i;" \n
-       "	if(!isNil ""_body"") then {" \n
-       "		_pos = getPosATL _body;" \n
-       "		deleteVehicle _body;" \n
-       "		_delQtyP = _delQtyP + 1;" \n
-       "	};" \n
-       "	_deadBodies set [_i,""DEL""];" \n
-       "};	" \n
+       "if (_delDo>0) then {" \n
+       "" \n
+       "	//_delDo=1" \n
+       "	for ""_i"" from 0 to _delDo do {" \n
+       "		_body = _deadBodies select _i;" \n
+       "		if(!isNil ""_body"") then {" \n
+       "			_pos = getPosATL _body;" \n
+       "			deleteVehicle _body;" \n
+       "			_delQtyP = _delQtyP + 1;" \n
+       "		};" \n
+       "		_deadBodies set [_i,""DEL""];" \n
+       "	};	" \n
+       "};" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -472,50 +475,50 @@ class FSM
     class cleanup_animals
     {
       name = "cleanup_animals";
-      init = /*%FSM<STATEINIT""">*/"	private [""_pos"",""_delQtyAnimal"",""_qty"",""_missonAnimals"",""_nearby""];" \n
-       "	_missonAnimals = entities ""CAAnimalBase"";" \n
-       "	_delQtyAnimal = 0;" \n
-       "	{" \n
-       "		if (local _x) then {" \n
-       "			_x call dayz_perform_purge;" \n
-       "			sleep 0.05;" \n
-       "			_delQtyAnimal = _delQtyAnimal + 1;" \n
-       "		} else {" \n
-       "			if (!alive _x) then {" \n
-       "				_pos = getPosATL _x;" \n
-       "				if (count _pos > 0) then {" \n
-       "					_nearby = {(isPlayer _x) && (alive _x)} count (_pos nearEntities [[""CAManBase"",""AllVehicles""], 130]);" \n
-       "					if (_nearby==0) then {" \n
-       "						_x call dayz_perform_purge;" \n
-       "						sleep 0.05;" \n
-       "						_delQtyAnimal = _delQtyAnimal + 1;" \n
-       "					};" \n
+      init = /*%FSM<STATEINIT""">*/"private [""_pos"",""_delQtyAnimal"",""_qty"",""_missonAnimals"",""_nearby""];" \n
+       "_missonAnimals = entities ""CAAnimalBase"";" \n
+       "_delQtyAnimal = 0;" \n
+       "{" \n
+       "	if (local _x) then {" \n
+       "		_x call dayz_perform_purge;" \n
+       "		sleep 0.05;" \n
+       "		_delQtyAnimal = _delQtyAnimal + 1;" \n
+       "	} else {" \n
+       "		if (!alive _x) then {" \n
+       "			_pos = getPosATL _x;" \n
+       "			if (count _pos > 0) then {" \n
+       "				_nearby = {(isPlayer _x) && (alive _x)} count (_pos nearEntities [[""CAManBase"",""AllVehicles""], 130]);" \n
+       "				if (_nearby==0) then {" \n
+       "					_x call dayz_perform_purge;" \n
+       "					sleep 0.05;" \n
+       "					_delQtyAnimal = _delQtyAnimal + 1;" \n
        "				};" \n
        "			};" \n
        "		};" \n
-       "		sleep 0.001;" \n
-       "	} forEach _missonAnimals;" \n
-       "	if (_delQtyAnimal > 0) then {" \n
-       "		_qty = count _missonAnimals;" \n
-       "		diag_log (format[""CLEANUP: Deleted %1 Animals out of %2"",_delQtyAnimal,_qty]);" \n
        "	};" \n
+       "	sleep 0.001;" \n
+       "} forEach _missonAnimals;" \n
+       "if (_delQtyAnimal > 0) then {" \n
+       "	_qty = count _missonAnimals;" \n
+       "	diag_log (format[""CLEANUP: Deleted %1 Animals out of %2"",_delQtyAnimal,_qty]);" \n
+       "};" \n
        "" \n
        "" \n
-       "	private [""_delQtyFP"",""_qty"",""_missionFires""];" \n
-       "	_missionFires = allMissionObjects ""Land_Fire_DZ"";" \n
-       "	_delQtyFP = 0;" \n
-       "	{" \n
-       "		if (local _x) then {" \n
-       "			deleteVehicle _x;" \n
-       "			sleep 0.025;" \n
-       "			_delQtyFP = _delQtyFP + 1;" \n
-       "		};" \n
-       "		sleep 0.001;" \n
-       "	} count _missionFires;" \n
-       "	if (_delQtyFP > 0) then {" \n
-       "		_qty = count _missionFires;" \n
-       "		diag_log (format[""CLEANUP: Deleted %1 fireplaces out of %2"",_delQtyFP,_qty]);" \n
-       "	};"/*%FSM</STATEINIT""">*/;
+       "private [""_delQtyFP"",""_qty"",""_missionFires""];" \n
+       "_missionFires = allMissionObjects ""Land_Fire_DZ"";" \n
+       "_delQtyFP = 0;" \n
+       "{" \n
+       "	if (local _x) then {" \n
+       "		deleteVehicle _x;" \n
+       "		sleep 0.025;" \n
+       "		_delQtyFP = _delQtyFP + 1;" \n
+       "	};" \n
+       "	sleep 0.001;" \n
+       "} count _missionFires;" \n
+       "if (_delQtyFP > 0) then {" \n
+       "	_qty = count _missionFires;" \n
+       "	diag_log (format[""CLEANUP: Deleted %1 fireplaces out of %2"",_delQtyFP,_qty]);" \n
+       "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {

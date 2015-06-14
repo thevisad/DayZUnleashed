@@ -680,7 +680,7 @@ PVDZ_obj_HideBody = objNull;
 dayz_selectedVault = objNull;
 dayz_selectedDoor = objNull;
 
-PVDZE_plr_DeathB = [];
+PVDZ_plr_DeathB = [];
 dayz_zombiehorde = 0; //current hordes
 dayz_zombiehordeData = []; //current hordes
 dayz_zombiehordes = []; 
