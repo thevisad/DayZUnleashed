@@ -8,7 +8,6 @@ class MeleeSledge: MeleeWeapon
 		picture="\z\addons\dayz_epoch\pictures\equip_sledge_CA.paa"; // todo icon
 		displayName=$STR_EQUIP_SLEDGE;
 		droppeditem= "ItemSledge";
-		soundBullet[] = {"bullet1", 1};
 		magazines[]=
 		{
 			"sledge_swing"

@@ -13,7 +13,7 @@ waitUntil{initialized}; //means all the functions are now defined
 
 if (unleashed_HiveDebug == 1) then { diag_log "SM: Starting"; };
 
-//Set the Time
+	//Set the Time
 	//Send request
 	_key = "CHILD:307:";
 	_result = _key call server_hiveReadWrite;

@@ -29,7 +29,15 @@ class TentStorageDomed2: TentStorage {
 	create = "WeaponHolder_ItemTentDomed2";
 	offset[] = {0,2.5,0};
 };
+/*
+	class WeaponHolder_ItemTent: WeaponHolderBase
+	{
+		scope = 2;
+		displayName = "$STR_EQUIP_NAME_20";
+		model = "\dayz_equip\proxy\tentbag.p3d";
 
+	};
+*/	
 class WeaponHolder_ItemTentOld: WeaponHolder {
 	scope = 2;
 	displayName = $STR_EQUIP_NAME_20;
