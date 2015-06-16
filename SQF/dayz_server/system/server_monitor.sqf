@@ -196,6 +196,14 @@ if (isServer and isNil "sm_done") then {
 		_id = [] spawn spawn_wrecks;
 	}; //Spawn wrecks
 	*/
+		
+	_tempMaxSpawns = dayz_zombiehordeMaxSpawns - dayz_zombiehordeMinSpawns;
+	_hordespawns = ((floor(random (_tempMaxSpawns))) + dayz_zombiehordeMinSpawns);
+
+	for "_x" from 0 to _hordespawns do {
+		[] execVM "\z\addons\dayz_server\horde\fn_horde.sqf";
+	}; //Spawn hordes!!!
+	
 	//Spawn camps
 	// quantity, marker, radius, min distance between 2 camps
 	Server_InfectedCamps = [5, "center", 4500, 2000] call fn_bases;

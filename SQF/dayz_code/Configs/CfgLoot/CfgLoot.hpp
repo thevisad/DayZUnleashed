@@ -526,7 +526,6 @@ class CfgLoot {
 		{"ItemFlashlightRed",0.06},
 		{"ItemGPS",0.01},
 		{"Binocular_Vector",0.01},
-		{"ItemEtool",0.03},
 		{"ItemSandbag",0.04},
 		{"ItemTankTrap",0.04},
 		{"bulk_ItemSandbag",0.01},
@@ -557,6 +556,7 @@ class CfgLoot {
 	
 	civgeneric[] = {
 		{"Binocular",0.02},
+		{"ItemEtool",0.03},
 		{"HandChemBlue",0.02},
 		{"HandChemGreen",0.02},
 		{"HandChemRed",0.02},
@@ -609,7 +609,7 @@ class CfgLoot {
 	};
 	
 	fuelitems[] = {
-		{"ItemJerrycan",0.02},
+		{"ItemJerrycan",0.10},
 		{"ItemJerrycanEmpty",0.03},
 		{"ItemOilBarrel",0.03},
 		{"ItemFuelcanEmpty",0.03},
@@ -713,7 +713,6 @@ class CfgLoot {
 		{"15Rnd_W1866_Pellet",0.03},
 		{"BoltSteel",0.03},
 		{"UZI_SD_EP1",0.03},
-		
 		{"revolver_gold_EP1",0.03}
 	};
 	
@@ -833,7 +832,6 @@ class CfgLoot {
 		{"ItemNettle",0.03},
 		{"ItemPear",0.03},
 		{"ItemRosehips",0.03},
-		{"ItemPoppy",0.03},
 		{"ItemPoppy",0.03},
 		{"ItemThistle",0.03}
 	};

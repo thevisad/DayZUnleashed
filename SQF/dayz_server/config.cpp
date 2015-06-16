@@ -1,6 +1,6 @@
 class CfgPatches {
 	class dayz_server {
-		version = "0.98-Devbuild-2014-10-27_0834 AM";
+		version = "0.98-Devbuild-2015-06-16_0307 PM";
 		units[] = {};
 		weapons[] = {};
 		requiredVersion = 0.1;

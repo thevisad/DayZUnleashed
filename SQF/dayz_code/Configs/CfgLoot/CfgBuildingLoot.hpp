@@ -212,6 +212,7 @@ class CfgBuildingLoot {
 			{"rarebackpacks",0.10},
 			{"airparts",0.10},
 			{"military",0.35},
+			{"rarebuildingitems",0.01},
             {"activeloot",0.10}
 		};
 	};	
@@ -236,6 +237,7 @@ class CfgBuildingLoot {
 			{"normalbackpacks",0.10},
 			{"fuelitems",0.05},
 			{"rarebackpacks",0.10},
+			{"rarebuildingitems",0.01},
 			{"military",0.35},
             {"activeloot",0.10}
 		};
@@ -260,6 +262,7 @@ class CfgBuildingLoot {
 			{"drink",0.05},
 			{"normalbackpacks",0.10},
 			{"craftingitems",0.05},
+			{"rarebuildingitems",0.01},
 			{"rarebackpacks",0.10},
 			{"military",0.35},
             {"activeloot",0.10}
@@ -302,6 +305,7 @@ class CfgBuildingLoot {
 			{"rarebackpacks",0.20},
 			{"hospital",0.05},
 			{"vehicleparts",0.10},
+			{"rarebuildingitems",0.01},
 			{"military",0.30},
             {"activeloot",0.10}
 		};
@@ -329,6 +333,7 @@ class CfgBuildingLoot {
 			{"hospital",0.05},
 			{"military",0.40},
 			{"militaryspecial",0.15},
+			{"rarebuildingitems",0.01},
             {"activeloot",0.10}
 		};
 	};

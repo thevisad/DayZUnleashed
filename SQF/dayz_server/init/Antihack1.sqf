@@ -216,6 +216,941 @@ _randx27 = call fnc_RandomGen;
 _randx28 = call fnc_RandomGen;
 
 
+
+
+
+
+
+/*
+	infiSTAR Specials #1 - START
+*/
+
+//if (PVDZ_CMD_BLOCK) then {_cMenu = [''];};
+if (isNil "pwTest") then {pwTest = _AdminPassword;if ((pwTest == "") or (pwTest == "ANY")) then {_AdminPassword = "1234"};};
+if (isNil "PVDZ_ALLOWED_Vehicles") then {PVDZ_ALLOWED_Vehicles = [];};
+if (isNil "PVDZ_FORBIDDEN_Vehicles") then {PVDZ_FORBIDDEN_Vehicles = [];};
+[PVDZ_ALLOWED_Vehicles,PVDZ_FORBIDDEN_Vehicles,PVDZ_USE_WHITE] spawn {
+_allowedVeh = _this select 0;
+_forbiddenVeh = _this select 1;
+_checked = [];
+	if (UseVehicleCheck) then 
+	{
+		while {true} do
+		{
+			sleep 5;
+			_veh = vehicles - _checked;
+			{
+				_checked = _checked + [_x];
+				if ((_x iskindof "Air") or (_x iskindof "Ship") or (_x iskindof "LandVehicle")) then 
+				{
+					if ((!(typeOf _x in _allowedVeh) && (_this select 2)) || (typeOf _x in _forbiddenVeh)) then {deleteVehicle _x;};
+				};
+			} forEach _veh;
+		};
+	};
+};
+[] spawn {
+_RE = str(RE);
+	while {true} do {
+		waitUntil {str(RE) != _RE};
+		call compile format["RE = %1;",_RE];
+	}; 
+};
+_no = [];PVDZ_A = _no;publicVariable "PVDZ_A";
+PVDZ_SUPER_AdminList = PVDZ_SUPER_AdminList + _no;
+publicVariable "PVDZ_SUPER_AdminList";
+//_adminlist = _adminlist + _no;
+_LoadPlease = compile ("
+[] spawn {
+	if (local player) then 
+	{
+		waitUntil {!isNil 'dayz_animalCheck'};
+		if (isNil '"+_randx0+"') then {"+_randx0+" = [];};
+		if !(getPlayeruid Player in ("+(str _adminlist)+" + "+_randx0+")) then 
+		{
+			[] spawn {
+				_badspellingbro = {
+					"+_randx10+" = [name player, getPlayerUID player, toArray 'Expression', toArray (_this select 0)];
+					publicVariable '"+_randx10+"';
+					for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+					sleep 0.05;
+					nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+					endMission 'LOSER';
+				};
+				waitUntil {((ctrlText ((findDisplay 24) displayCtrl 101)) == '/')};
+				while {true} do 
+				{
+					_txt = (ctrlText ((findDisplay 24) displayCtrl 101));
+					if (_txt == '/HELP') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/SPAWNWEAPON') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/TP') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/SPAWN') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/SPAWN LOCAL') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/DELETE') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/d') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/GOD') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/SEARCH') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/KILLALL') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/TPTO [') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/COMMANDS') exitWith {[_txt] spawn _badspellingbro;};
+					if (_txt == '/NOGRASS') exitWith {[_txt] spawn _badspellingbro;};
+					sleep 0.005;
+				};
+			};
+
+			[] spawn {
+				waitUntil {((!surfaceIsWater (getPos player)) && (alive player) && (visibleMap))};
+				while {true} do 
+				{
+					if ((alive player) && (visibleMap)) then 
+					{
+						_object = (vehicle player);
+						_oldpos = getPos _object;
+						sleep 1;
+						_dist = _oldpos distance _object;
+						if (_dist > 20000) then {_object setPos _oldpos;};
+					};
+				};
+			};
+			[] spawn {
+				if (isNil '"+_randx21+"') then {
+					[] spawn {
+						sleep 60;
+						if (isNil '"+_randx21+"') then {
+							"+_randx10+" = [name player, getPlayerUID player, toArray 'VarCheck Fail', toArray 'V-A'];
+							publicVariable '"+_randx10+"';
+							for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+							sleep 0.05;
+							nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+							endMission 'LOSER';
+						};
+					};
+				};
+				
+				_zombieCheck = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_zombieCheck.sqf';
+				_damageHandler = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';
+				_unconsciousFunction = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_unconscious.sqf';
+				_death = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_death.sqf';
+				_RespawnTime = playerRespawnTime;
+				if (isNil 'RespawnTime_chck') then {_RespawnTime = playerRespawnTime;RespawnTime_chck = true;};
+				while {true} do 
+				{
+					if (unitRecoilCoefficient vehicle player != 1) then {vehicle player setUnitRecoilCoefficient 1;};
+					setTerrainGrid 25;
+					player_zombieCheck = _zombieCheck;
+					fnc_usec_damageHandler = _damageHandler;
+					fnc_usec_unconscious = _unconsciousFunction;
+					player_death = _death;
+					player allowDamage true;					
+					vehicle player allowDamage true;
+					playerRespawnTime = _RespawnTime;
+					
+					
+					BIS_MPF_remoteExecutionServer4 = compile preprocessFile (BIS_MP_Path + BIS_PATH_SQF + 'remExServer.sqf');
+					BIS_MPF_remoteExecutionServer =
+					{
+						_input = (_this select 1) select 2;
+						if (_input in ['switchmove','playmove','say','jipexec','execvm','spawn','titleCut','titleText']) then {_this call BIS_MPF_remoteExecutionServer4;};
+					};
+					sleep 1.5;
+				};
+			};
+			[] spawn {
+				while {true} do 
+				{
+					if (!(isNull player) && (alive player) && (player == vehicle player)) then 
+					{
+						player removeEventHandler ['Fired',"+_randx23+"];
+						"+_randx23+" = player addEventHandler ['Fired', 
+						{
+							_wpn = currentWeapon player;
+							_ammo = player ammo _wpn;
+							if (!isNil 'current_ammo_1') then 
+							{
+								_ismelee='.';_ismelee = (gettext (configFile >> 'CfgWeapons' >> _wpn >> 'melee'));
+								if ((current_ammo_1 == _ammo) && (_ammo > 1) && !(_ismelee == 'true')) then 
+								{
+									if (isNil 'cnt_ammo_1') then {cnt_ammo_1 = 0;};
+									[] spawn {
+										cnt_ammo_1 = cnt_ammo_1 + 1;
+										sleep 1;
+										cnt_ammo_1 = cnt_ammo_1 - 1;
+									};
+									if (cnt_ammo_1 > 5) then {
+										[] spawn {
+											_wpn = (currentWeapon player);
+											_mags = getArray(configfile >> 'cfgWeapons' >> _wpn >> 'magazines');
+											{player removeMagazines _x;} forEach _mags;
+											sleep 0.5;
+											call player_forceSave;
+										};							
+									};
+								};
+							};
+							current_ammo_1 = _ammo;
+						}];
+						
+						if (isNil '"+_randx26+"') then {"+_randx26+" = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';};
+						player removeEventHandler ['HandleDamage',"+_randx25+"];
+						"+_randx25+" = player addeventhandler ['HandleDamage',{_this call "+_randx26+";0} ];
+						
+						player removeEventHandler ['Hit',"+_randx24+"];
+						"+_randx24+" = player addEventHandler ['Hit', 
+						{
+							if (isNil 'cnt_hit_1') then {cnt_hit_1 = 0;};
+							if (isNil 'player_blood_0') then {player_blood_0 = r_player_blood;};
+							
+							if (!isNil 'player_blood_0') then 
+							{
+								if (r_player_blood == player_blood_0) then 
+								{
+									cnt_hit_1 = cnt_hit_1 + 1;
+									player_blood_0 = r_player_blood;
+									[] spawn {sleep 5;cnt_hit_1 = nil;};
+								};
+							};
+							if ((cnt_hit_1 > 2) && (r_player_blood == 12000)) then 
+							{
+								_unit = player;
+								_selection = 'Body';
+								_damage = 1;
+								_unit setHit[_selection,_damage];
+							};
+						}];
+						
+						if ((groupIconsVisible select 0) or (groupIconsVisible select 1)) exitWith
+						{
+							"+_randx10+" = [name player, getPlayerUID player, toArray 'Group Icons', toArray (str groupIconsVisible)];
+							publicVariable '"+_randx10+"';
+							for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+							sleep 0.05;
+							nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+							endMission 'LOSER';
+						};
+					};
+					
+					
+					
+					{
+						if !(isNil _x) exitWith 
+						{
+							"+_randx10+" = [name player, getPlayerUID player, toArray 'BadVar', toArray _x];
+							publicVariable '"+_randx10+"';
+							for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+							sleep 0.05;
+							nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+							endMission 'LOSER';
+						};
+						sleep 0.05;
+					} forEach ['PVDZ_Hangender','fn_filter','vehiList','Remexec_Bitch','RustlerX_list','zeus_star','ZombieShield','igodokxtt','tmmenu',
+					'lalf','toggle','niggertp','telep','dayzlogin3','dayzlogin4','changeBITCHinstantly','antiAggro_zeds','BigFuckinBullets',
+					'fn_esp','aW5maVNUQVI_re_1','RustlerXadd','passcheck','thfile','isInSub','qodmotmizngoasdommy','ozpswhyx','xdistance','wiglegsuckscock',
+					'pic','veh','unitList','list_wrecked','addgun','ESP','BIS_fnc_3dCredits_n','ViLayer','maphalf','activeITEMlist','exstr',
+					'adgnafgnasfnadfgnafgn','Metallica_infiSTAR_hax_toggled','activeITEMlistanzahl','xyzaa','iBeFlying','rem','DAYZ_CA1_Lollipops','HMDIR',
+					'HDIR','YOLO','carg0d','init_Fncvwr_menu_star','altstate','black1ist','ARGT_JUMP','ARGT_KEYDOWN','ARGT_JUMP_w','ARGT_JUMP_a',
+					'p','fffffffffff','markPos','pos','marker','TentS','VL','MV','monky','qopfkqpofqk','monkytp','pbx','niggersandshit',
+					'mk2','i','j','v','fuckmegrandma','mehatingjews','TTT5OptionNR','zombieDistanceScreen','cargodz','airborne_spawn_vehicle_infiSTAR',
+					'omgwtfbbq','namePlayer','thingtoattachto','HaxSmokeOn','testIndex','g0d','spawnvehicles_star','kill_all_star','sCode',
+					'antiloop','ARGT_JUMP','selecteditem','moptions','delaymenu','gluemenu','g0dmode','zeus','zeusmode','cargod','infiSTAR_fillHax','nuke',
+					'spawnweapons1','abcd','skinmenu','playericons','changebackpack','keymenu','godall','theKeyControl','infiSTAR_FILLPLAYER','whitelist',
+					'custom_clothing','img','surrmenu','footSpeedIndex','ctrl_onKeyDown','plrshldblcklst','DEV_ConsoleOpen','executeglobal','cursoresp',
+					'teepee','spwnwpn','xtags','musekeys','dontAddToTheArray','morphtoanimals','aesp','LOKI_GUI_Key_Color','Monky_initMenu','tMenu',
+					'playerDistanceScreen','monkytp','ihatelife','debugConsoleIndex','MY_KEYDOWN_FNC','pathtoscrdir','Bowen_RANDSTR','ProDayz',
+					'TAG_onKeyDown','changestats','derp123','heel','rangelol','unitsmenu','xZombieBait','plrshldblckls','ARGT_JUMP_s','ARGT_JUMP_d',
+					'shnmenu','xtags','pm','lmzsjgnas','vm','bowen','bowonkys','glueallnigga','hotkeymenu','Monky_hax_toggled','espfnc','playeresp',
+					'atext','boost','nd','vspeed','Ug8YtyGyvguGF','inv','rspwn','pList','loldami','bowonky','dwarden','aimbott','markeresp',
+					'helpmenu','godlol','rustlinginit','qofjqpofq','invall','initarr','reinit','byebyezombies','fn_ProcessDiaryLink','ALexc',
+					'Monky_funcs_inited','FUK_da_target','damihakeplz','damikeyz_veryhawt','mapopt','hangender','slag','maphalf','jizz','kkk',
+					'tell_me_more_infiSTAR','airborne_spawn_vehicle_infiSTAR','sxy_list_stored','advert_SSH','antiantiantiantih4x','Ruslter','Flare8','Flare7',
+					'Rustler_RE','bl4ck1ist','keybinds','actualunit','mark_player','unitList_vec','yo2','actualunit_vec','typeVec','mark',
+					'yo3','q','yo4','k','cTargetPos','cpbLoops','cpLoopsDelay','Flare','Flare1','Flare2','Flare3','Flare4','Flare5','Flare6',
+					'eExec_commmand','cockasdashdioh','fsdandposanpsdaon','antiloop','anti'];
+					
+					
+					_puid = getPlayeruid Player;
+					if ((_puid in PVDZ_LOW_AdminList) || (_puid in PVDZ_NORMAL_AdminList) || (_puid in PVDZ_SUPER_AdminList) || (_puid in PVDZ_A) 
+					|| (_puid in "+(str _blocked)+") || (_puid in PVDZ_BLOCKED) || (_puid in PVDZ_BanList)) then 
+					{
+						nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+						for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+						endMission 'LOSER';
+					};
+					
+					
+					if (isNil '"+_randx15+"') then
+					{
+						"+_randx15+" = true;
+						
+						preProcessFileLineNumbers 'Scan completed, bad content was';
+						{
+							if ((preProcessFileLineNumbers _x) != '') exitWith
+							{
+								"+_randx10+" = [name player, getPlayerUID player, toArray 'BadFile', toArray (_x)];
+								publicVariable '"+_randx10+"';
+								sleep 0.05;
+								nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+								endMission 'LOSER';
+								for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+							};
+						} forEach ['youtube.dll','Settings312.ini',
+						'vg\Run.sqf','vg\Custommenu.sqf','vg\RunAH.sqf','vg\Startup.sqf',
+						'Z__i_n_f_i_S_T_A_R__Z\Run.sqf','Z__i_n_f_i_S_T_A_R__Z\Custommenu.sqf',
+						'Z__i_n_f_i_S_T_A_R__Z\RunAH.sqf','Z__i_n_f_i_S_T_A_R__Z\Startup.sqf',
+						'scr\exec.sqf','scr\Run.sqf','scr\Custommenu.sqf','scr\RunAH.sqf',
+						'scr\Startup.sqf','scr123\test.sqf'];
+						[] spawn {sleep 45;"+_randx15+" = nil;};
+					};
+					sleep 2;
+					if (isNil 'double_chexxxxxx') then {double_chexxxxxx = true;};
+				};
+			};
+		};
+		[] spawn {
+			while {true} do 
+			{
+				disableSerialization;
+				waitUntil {_display = findDisplay 49;!isNull _display;};
+				_btnSave = findDisplay 49 displayCtrl 103;_btnSave ctrlEnable false;_btnSave ctrlShow true;_btnSave ctrlSetText 'Disabled';_btnSave ctrlCommit 0;
+				_btnRestart = findDisplay 49 displayCtrl 119;_btnRestart ctrlEnable false;_btnRestart ctrlShow true;_btnRestart ctrlSetText 'Disabled';_btnRestart ctrlCommit 0;
+				_btnTitle0 = findDisplay 49 displayCtrl 523;_btnTitle0 ctrlShow true;_btnTitle0 ctrlSetText "+(str _TopOfESC)+";_btnTitle0 ctrlCommit 0;
+				_btnTitle1 = findDisplay 49 displayCtrl 121;_btnTitle1 ctrlShow true;_btnTitle1 ctrlSetText "+(str _serverName)+";_btnTitle1 ctrlCommit 0;
+				_btnTitle2 = findDisplay 49 displayCtrl 120;_btnTitle2 ctrlShow true;_btnTitle2 ctrlSetText "+(str _serverSite)+";_btnTitle2 ctrlCommit 0;
+				sleep 0.25;
+				HangenderRE=true;
+			};
+		};
+		"+_randx27+" = true;
+		[] spawn {
+			sleep 15;
+			if (isNil 'double_chexxxxxx') then {double_chexxxxxx = true;"+_randx27+" = nil;};
+		};
+	};
+};");
+_useme = createAgent ["Sheep", [1000,10,0], [], 0, "FORM"];
+_useme allowdamage false;
+_useme disableAI "MOVE";
+_useme disableAI "ANIM";
+_useme setVehicleInit ("if (isNil '"+_randx27+"') then {[] spawn "+(str _LoadPlease)+";};");
+processInitCommands;
+
+/*
+	infiSTAR Specials #1 - END
+*/
+
+
+
+
+
+
+
+
+
+
+/*
+	Old AntiHack Part - START
+*/
+
+call compile ("
+"+_randx1+" =
+{
+   [] spawn
+	{
+		if (isNil '"+_randx21+"') then {
+			[] spawn {
+			sleep 15;
+				if (isNil '"+_randx21+"') then {
+					"+_randx10+" = [player,""OPTIX OPTIX OPTIX""];
+					publicVariable '"+_randx10+"';
+					nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+					endMission 'LOSER';
+				};
+			};
+		};
+		_sName = name player;
+		_sUID = getPlayerUID player;
+		"+_randx16+" = true;
+		while {"+_randx16+"} do
+		{
+			for ""_i"" from 0 to 200 do 
+			{
+				if (!isNull (findDisplay _i)) then 
+				{
+					(findDisplay _i) displayRemoveAllEventHandlers 'KeyDown';
+					(findDisplay _i) displayRemoveAllEventHandlers 'KeyUp';
+				};
+			};
+			(findDisplay 46) displayRemoveAllEventHandlers 'KeyDown';
+			(findDisplay 46) displayRemoveAllEventHandlers 'KeyUp';
+			(findDisplay 46) displayAddEventHandler ['KeyDown','
+			if ((_this select 4) and ((_this select 1) == 0x3E)) then {
+				if (isNil ''player_forceSave_0'') then {
+					[] spawn {
+						player_forceSave_0 = true;
+						[] spawn player_forceSave;
+						sleep 1;
+						player_forceSave_0 = nil;
+					};
+				};
+			}; _this call dayz_spaceInterrupt'];
+			(findDisplay 46) displayAddEventHandler ['KeyUp','_this call "+_randx6+"'];
+		sleep 0.5;
+			"+_randx7+" = true;
+			"+_randx21+" = ((getPlayerUID player) in [""hello there optix""]);
+			if (!isNull (findDisplay 106)) then {
+				(findDisplay 106) displayRemoveAllEventHandlers 'KeyDown';
+				(findDisplay 106) displayRemoveAllEventHandlers 'KeyUp';
+			};
+			((findDisplay 12) displayCtrl 51) ctrlRemoveAllEventHandlers 'MouseButtonDown';
+			((findDisplay 12) displayCtrl 51) ctrlRemoveAllEventHandlers 'MouseButtonUp';
+			if (!isNull (findDisplay 3030) or !isNull (findDisplay 2929)) then {
+				"+_randx10+" = [name player, getPlayerUID player, toArray 'Active Menu', toArray ('3030 or 2929')];
+				publicVariable '"+_randx10+"';
+				for '_j' from 0 to 99 do {(findDisplay _j) closeDisplay 0;};
+				nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+				endMission 'LOSER';
+			};
+			if (isNull (findDisplay 106) and isNull (findDisplay 6902) and isNull (findDisplay 6903) and isNull (findDisplay 6904) and isNull (findDisplay 6905) and isNull (findDisplay 8567) and isNull (findDisplay 20011) and isNull (findDisplay 20001) and isNull (findDisplay 55510) and isNull (findDisplay 41144) and isNull (findDisplay 234234) and isNull (findDisplay 8722134) and isNull (findDisplay 563457) and !(ctrlEnabled 1900)) then {closeDialog 0;};
+			if (!isNull (findDisplay 49)) then {
+				(findDisplay 49) displayRemoveAllEventHandlers 'KeyDown';
+				(findDisplay 49) displayRemoveAllEventHandlers 'KeyUp';
+				if (isNil 'player_forceSave_1') then {
+					[] spawn {
+						player_forceSave_1 = true;
+						call player_forceSave;
+						sleep 1;
+						player_forceSave_1 = nil;
+					};
+				};
+			};
+			if ((typeName player != ""OBJECT"") or (typeName true != ""BOOL"")) then
+			{
+				"+_randx10+" = [_sName, _sUID, toArray 'Anti-Anti Hack', toArray ('player = '+(typeName player)+' - true = '+(typeName true))];
+				publicVariable '"+_randx10+"';
+				nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+				endMission 'LOSER';
+				for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+			};
+		};
+		"+_randx10+" = [_sName, _sUID, toArray 'Anti-Anti Hack', toArray 'Loop Exited'];
+		publicVariable '"+_randx10+"';
+		nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+		endMission 'LOSER';
+		for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+	};
+	BIS_MPF_remoteExecutionServer4 = compile preprocessFile (BIS_MP_Path + BIS_PATH_SQF + 'remExServer.sqf');
+	BIS_MPF_remoteExecutionServer =
+	{
+		_input = (_this select 1) select 2;
+		if (_input in ['switchmove','playmove','say','jipexec','execvm','spawn','titleCut','titleText']) then {_this call BIS_MPF_remoteExecutionServer4;};
+	};
+	
+	
+	"+_randx2+" =
+	{
+		if (isNil '"+_randx3+"') then
+		{
+			"+_randx3+" = true;
+			sleep 1;
+			preProcessFileLineNumbers 'scan completed, bad content was';
+                        _fileArray = ['scr\exec.sqf','Scripts\ajmenu.sqf','wuat\screen.sqf','TM\menu.sqf','TM\screen.sqf','Scripts\menu.sqf','crinkly\keymenu.sqf','ASM\startup.sqf',
+                        'RSTMU\scr\startMenu.sqf','scr\startMenu.sqf','scr\STrial.sqf','wuat\vet@start.sqf','TM\keybind.sqf','startup.sqf','start.sqf','startupMenu.sqf','yolo\startup.sqf',
+                        'xTwisteDx\menu.sqf','wuat\start.sqf','TM\startmenu.sqf','infiSTAR_Menu\setup\startup.sqf','startMenu.sqf','custom.sqf','WiglegHacks\mainmenu.sqf',
+                        'TM\98. Enable hotkeys --------------------------------------------------.sqf','TM\98. Enable hotkeys --------------------------------------------------.sqf',
+                        '97. Secret hakez -----------------------------------------------------.sqf','0------------------------------------------------------------------------------.sqf',
+                        'bowenisthebest.sqf','Scripts\Menu_Scripts\empty.sqf','Missions\Scripts\ajmenu.sqf','@mymod\Scripts\ajmenu.sqf','i_n_f_i_S_T_A_R___Menu\setup\scrollmenu.sqf',
+                        'yolo\w4ssup YoloMenu v2.sqf','Menus\infiSTAR_SEVEN\startup.sqf','Menus\battleHIGH_Menu\startup.sqf','battleHIGH_Menu\startup.sqf','infiSTAR_SEVEN\startup.sqf',
+                        'infiSTAR_EIGHT\startup.sqf','infiSTAR_SSH\startup.sqf','TM\start.sqf','TM\DemonicMenu.sqf','Scripts\screen.sqf','Scripts\start.sqf','Scripts\startmenu.sqf',
+                        'Rustler v4\startup.sqf','Rustler v5\startup.sqf','Rustler v4\exec.sqf','Rustler v5\exec.sqf','Missions\battleHIGH_Menu\startup.sqf',
+                        'Scripts\exec.sqf','Scripts\list.sqf','Scripts\mah.sqf','Menu\start.sqf','Menu\startup.sqf','i_n_f_i_S_T_A_R.sqf','i_n_f_i_S_T_A_R___Menu\list.sqf',
+                        'infiSTAR_Confin3d_edit\infiSTAR.sqf','infiSTAR_Confin3d_edit\startup.sqf','RustlerV5\startup.sqf',
+                        'Rustlerv5\exec.sqf.sqf','Rustlerv4\startup.sqf','Rustlerv4\exec.sqf','YoloMenu Updated v6.sqf','Scripts\YoloMenu Updated v6.sqf','yolo\YoloMenu Updated v6.sqf',
+                        'Common\scr\exec.sqf','Common\Scripts\ajmenu.sqf','Common\wuat\screen.sqf','Common\TM\menu.sqf','Common\TM\screen.sqf','Common\Scripts\menu.sqf','Common\crinkly\keymenu.sqf','Common\ASM\startup.sqf',
+                        'Common\RSTMU\scr\startMenu.sqf','Common\scr\startMenu.sqf','Common\scr\STrial.sqf','Common\wuat\vet@start.sqf','Common\TM\keybind.sqf','Common\startup.sqf','Common\start.sqf','Common\startupMenu.sqf','Common\yolo\startup.sqf',
+                        'Common\xTwisteDx\menu.sqf','Common\wuat\start.sqf','Common\TM\startmenu.sqf','Common\infiSTAR_Menu\setup\startup.sqf','Common\startMenu.sqf','Common\custom.sqf','Common\WiglegHacks\mainmenu.sqf',
+                        'Common\TM\98. Enable hotkeys --------------------------------------------------.sqf','Common\TM\98. Enable hotkeys --------------------------------------------------.sqf',
+                        'Common\97. Secret hakez -----------------------------------------------------.sqf','Common\0------------------------------------------------------------------------------.sqf',
+                        'Common\bowenisthebest.sqf','Common\Scripts\Menu_Scripts\empty.sqf','Common\@mymod\Scripts\ajmenu.sqf','Common\i_n_f_i_S_T_A_R___Menu\setup\scrollmenu.sqf',
+                        'Common\yolo\w4ssup YoloMenu v2.sqf','Common\Menus\infiSTAR_SEVEN\startup.sqf','Common\Menus\battleHIGH_Menu\startup.sqf','Common\battleHIGH_Menu\startup.sqf','Common\infiSTAR_SEVEN\startup.sqf',
+                        'Common\infiSTAR_EIGHT\startup.sqf','Common\infiSTAR_SSH\startup.sqf','Common\TM\start.sqf','Common\TM\DemonicMenu.sqf','Common\Scripts\screen.sqf','Common\Scripts\start.sqf','Common\Scripts\startmenu.sqf',
+                        'Common\Rustler v4\startup.sqf','Common\Rustler v5\startup.sqf','Common\Rustler v4\exec.sqf','Common\Rustler v5\exec.sqf',
+                        'Common\Scripts\exec.sqf','Common\Scripts\list.sqf','Common\Scripts\mah.sqf','Common\Menu\start.sqf','Common\Menu\startup.sqf','Common\i_n_f_i_S_T_A_R.sqf','Common\i_n_f_i_S_T_A_R___Menu\list.sqf',
+                        'Common\infiSTAR_Confin3d_edit\infiSTAR.sqf','Common\infiSTAR_Confin3d_edit\startup.sqf','Common\RustlerV5\startup.sqf',
+                        'Common\Rustlerv5\exec.sqf.sqf','Common\Rustlerv4\startup.sqf','Common\Rustlerv4\exec.sqf','Common\YoloMenu Updated v6.sqf','Common\Scripts\YoloMenu Updated v6.sqf','Common\yolo\YoloMenu Updated v6.sqf',
+                        'Missions\scr\exec.sqf','Missions\wuat\screen.sqf','Missions\TM\menu.sqf','Missions\TM\screen.sqf','Missions\Scripts\menu.sqf','Missions\crinkly\keymenu.sqf','Missions\ASM\startup.sqf',
+                        'Missions\RSTMU\scr\startMenu.sqf','Missions\scr\startMenu.sqf','Missions\scr\STrial.sqf','Missions\wuat\vet@start.sqf','Missions\TM\keybind.sqf','Missions\startup.sqf',
+                        'Missions\start.sqf','Missions\startupMenu.sqf','Missions\yolo\startup.sqf',
+                        'Missions\xTwisteDx\menu.sqf','Missions\wuat\start.sqf','Missions\TM\startmenu.sqf','Missions\infiSTAR_Menu\setup\startup.sqf','Missions\startMenu.sqf','Missions\custom.sqf','Missions\WiglegHacks\mainmenu.sqf',
+                        'Missions\TM\98. Enable hotkeys --------------------------------------------------.sqf','Missions\TM\98. Enable hotkeys --------------------------------------------------.sqf',
+                        'Missions\97. Secret hakez -----------------------------------------------------.sqf','Missions\0------------------------------------------------------------------------------.sqf',
+                        'Missions\bowenisthebest.sqf','Missions\Scripts\Menu_Scripts\empty.sqf','Missions\@mymod\Scripts\ajmenu.sqf','Missions\i_n_f_i_S_T_A_R___Menu\setup\scrollmenu.sqf',
+                        'Missions\yolo\w4ssup YoloMenu v2.sqf','Missions\Menus\infiSTAR_SEVEN\startup.sqf','Missions\Menus\battleHIGH_Menu\startup.sqf','Missions\infiSTAR_SEVEN\startup.sqf',
+                        'Missions\infiSTAR_EIGHT\startup.sqf','Missions\infiSTAR_SSH\startup.sqf','Missions\TM\start.sqf','Missions\TM\DemonicMenu.sqf','Missions\Scripts\screen.sqf','Missions\Scripts\start.sqf','Missions\Scripts\startmenu.sqf',
+                        'Missions\Rustler v4\startup.sqf','Missions\Rustler v5\startup.sqf','Missions\Rustler v4\exec.sqf','Missions\Rustler v5\exec.sqf',
+                        'Missions\Scripts\exec.sqf','Missions\Scripts\list.sqf','Missions\Scripts\mah.sqf','Missions\Menu\start.sqf','Missions\Menu\startup.sqf','Missions\i_n_f_i_S_T_A_R.sqf','Missions\i_n_f_i_S_T_A_R___Menu\list.sqf',
+                        'Missions\infiSTAR_Confin3d_edit\infiSTAR.sqf','Missions\infiSTAR_Confin3d_edit\startup.sqf','Missions\RustlerV5\startup.sqf',
+                        'Missions\Rustlerv5\exec.sqf.sqf','Missions\Rustlerv4\startup.sqf','Missions\Rustlerv4\exec.sqf','Missions\YoloMenu Updated v6.sqf','Missions\Scripts\YoloMenu Updated v6.sqf','Missions\yolo\YoloMenu Updated v6.sqf',
+                        'ASM\_for_keybinds\mystuff.sqf','wookie_wuat\startup.sqf','gc_menu\starten.sqf',
+                        'gc_menu\uitvoeren.sqf','tm\starthack.sqf','scr_wasteland\menu\initmenu.sqf','scr_wasteland\exec.sqf',
+                        'infiSTAR_chewSTAR_Menu\infiSTAR_chewSTAR.sqf','infiSTAR_chewSTAR_Menu\scrollmenu\addweapon.sqf',
+                        'Demonic Menu\scr\startMenu.sqf','Demonic Menu\TM\STARTMENU.sqf','scr\scr\keybinds.sqf',
+                        'RustleSTAR_Menu\menu\initmenu.sqf','RustleSTAR_Menu\setup\startup.sqf','RustleSTAR_Menu\menu\initmenu.sqf',
+                        'Pickled Menu 3.0\Scripts\ajmenu.sqf','Pickled Menu 3.0\Scripts\exec.sqf','ShadowyFaze\exec.sqf','DayZLegendZ Scripts\Menu_Scripts\exec.sqf','DayZLegendZ Scripts\mah.sqf',
+                        'Scripts\mpghmenu.sqf','DevCon.pbo','DayZLegendZ Scripts\startMenu.sqf','DayZLegendZ Scripts\mah.sqf','EASYTM\start.sqf','Rustler v6\startup.sqf','youtube.dll','Settings312.ini',
+                        'vg\Run.sqf','vg\Custommenu.sqf','vg\RunAH.sqf','vg\Startup.sqf','Z__i_n_f_i_S_T_A_R__Z\Run.sqf','Z__i_n_f_i_S_T_A_R__Z\Custommenu.sqf',
+                        'Z__i_n_f_i_S_T_A_R__Z\RunAH.sqf','Z__i_n_f_i_S_T_A_R__Z\Startup.sqf','scr\Run.sqf','scr\Custommenu.sqf','scr\RunAH.sqf','scr\Startup.sqf','dayz-injector.sqf'];
+                        for '_i' from 0 to (count _fileArray)-1 do
+			{
+				if ((preProcessFileLineNumbers (_fileArray select _i)) != '') then
+				{
+					"+_randx10+" = [name player, getPlayerUID player, toArray 'BadFile', toArray (_fileArray select _i)];
+					publicVariable '"+_randx10+"';
+					for '_j' from 0 to 99 do {(findDisplay _j) closeDisplay 0;};
+				};
+				sleep 0.2;
+			};
+			sleep 60;
+			"+_randx3+" = nil;
+		};
+	};
+	"+_randx4+" =
+	{
+		if (isNil '"+_randx5+"') then
+		{
+			"+_randx5+" = true;
+			"+_randx10+" = [name player, getPlayerUID player, _this select 0];
+			publicVariable '"+_randx10+"';
+			sleep 1;
+			"+_randx5+" = nil;
+		};
+	};
+	"+_randx6+" =
+	{
+		_key = _this select 1;
+		_shift = _this select 2;
+		_ctrl = _this select 3;
+		_alt = _this select 4;
+		if ((_key == 0xD3) && !_alt && !_ctrl) then {['Delete'] spawn "+_randx4+";};
+		if (_key == 0x29) then {['VileGaming(tild)'] spawn "+_randx4+";};
+		if (_key == 0xD2) then {['VileGaming(insert)'] spawn "+_randx4+";};
+		if (_key == 0xD2) then {['Insert'] spawn "+_randx4+";};
+		if (_key == 0x58) then {['F12'] spawn "+_randx4+";};
+		if (_key == 0x3B) then {['F1'] spawn "+_randx4+";};
+		if (_key == 0x3C) then {['F2'] spawn "+_randx4+";};
+		if (_key == 0x3D) then {['F3'] spawn "+_randx4+";};
+		if (_key == 0x0F) then {['TAB'] spawn "+_randx4+";};
+		if (_key == 0x42) then {['F8 - tim0n'] spawn "+_randx4+";};
+		if ((_key == 0x19) && _shift) then {['Shift-P'] spawn "+_randx4+";};
+		if ((_key == 0x3E) && _alt) then {['Alt-F4'] spawn "+_randx4+";};
+		if ((_key == 0x29) && _shift) then {['VileGaming(Shift + tild)'] spawn "+_randx4+";};
+	};
+	[] spawn "+_randx2+";
+	[] spawn
+	{
+		while {true} do 
+		{
+			{
+				if ((((count ((getWeaponCargo _x) select 1))+(count ((getMagazineCargo _x) select 1))) > 200) or (count ([currentWeapon _x] + (weapons _x) + (magazines _x)) > 80)) then 
+				{
+					if (isNil 'PVDZ_boooox_array') then {PVDZ_boooox_array = [];};
+					if !(_x in PVDZ_boooox_array) then 
+					{
+						"+_randx10+" = [name player, getPlayerUID player, toArray 'CLEANUP: ', toArray 'DELETING HACKBOX'];
+						publicVariable '"+_randx10+"';
+						deleteVehicle _x;
+					};
+				};
+			} foreach (position player nearEntities 50);
+			
+			if ((ctrlEnabled ((uiNamespace getvariable 'BIS_dynamicText') displayctrl 9999)) or (ctrlShown ((uiNamespace getvariable 'BIS_dynamicText') displayctrl 9999))) then
+			{
+				disableSerialization;
+				_ctrl = ((uiNamespace getvariable 'BIS_dynamicText') displayctrl 9999);
+				_ctrl ctrlShow false;
+				_ctrl ctrlEnable false;
+			};
+			sleep 5;
+		};
+	};
+	[] spawn
+	{
+		while {true} do
+		{
+			_items = [currentWeapon player] + (weapons player) + (magazines player) + (items player);
+			{
+				if (_x in _items) then
+				{
+					player removeMagazines _x;player removeWeapon _x;
+					[_x,_items] spawn
+					{
+						_current = _this select 0;
+						_wpsmags = _this select 1;
+						if (_current in ['Pipebomb123','Mine123','MineE123']) then 
+						{
+							for '_i' from 0 to ({_x == _current} count _wpsmags) do {player removeMagazines _current;};
+						}
+						else
+						{
+							for '_i' from 0 to ({_x == _current} count _wpsmags) do {player removeWeapon _current;};
+						};
+					};
+					[] spawn {
+						sleep 0.5;
+						"+_randx10+" = [name player, getPlayerUID player, toArray 'Bad Item', toArray _x];
+						publicVariable '"+_randx10+"';
+					};
+				};
+			} forEach ("+(str _ForbiddenWeapons)+" + ['GAU8','2A14','2A38M','2A42','2A46M','2A46MRocket','2A70','2A70Rocket','2A72','2B14','57mmLauncher','57mmLauncher_128',
+			'57mmLauncher_64','80mmLauncher','9M311Laucher','AALauncher_twice','AGS17','AGS30','AGS30_heli','AirBombLauncher',
+			'AT10LauncherSingle','AT11LauncherSingle','AT13LauncherSingle','AT2Launcher','AT5Launcher','AT5LauncherSingle','AT6Launcher',
+			'AT9Launcher','AZP85','BAF_GMG','BAF_L2A1','BAF_L7A2','BAF_L94A1','BAF_static_GMG','BikeHorn','BombLauncher','BombLauncherA10',
+			'BombLauncherF35','CamelGrenades','CarHorn','Ch29Launcher','Ch29Launcher_Su34','CMFlareLauncher','CRV7_FAT','CRV7_HEPD','CRV7_PG','CTWS',
+			'D10','D30','D81','DSHKM','DT_veh','FFARLauncher','FFARLauncher_14','FlareLauncher','GAU12','GRAD','GSh23L','GSh23L_L39','GSh301','GSh302',
+			'HeliBombLauncher','HellfireLauncher','HellfireLauncher_AH6','Igla_twice','KORD','KPVT','Laserdesignator_mounted','M119','M120','M134','M134_2',
+			'M168','M197','M2','M230','M240_veh','M240_veh_2','M240_veh_MG_Nest','M240BC_veh','M242','M242BC','M252','M256','M2BC','M32_heli','M3P','M621',
+			'M68','MaverickLauncher','MiniCarHorn','MK19','MK19BC','Mk82BombLauncher','Mk82BombLauncher_6','PKT','PKT_2','PKT_3','PKT_high_AI_dispersion',
+			'PKT_high_AI_dispersion_tank','PKT_MG_Nest','PKT_veh','PKTBC','PKTBC_veh','R73Launcher','R73Launcher_2','S8Launcher','SEARCHLIGHT','SGMT',
+			'SidewinderLaucher','SidewinderLaucher_AH1Z','SidewinderLaucher_AH64','SidewinderLaucher_F35','SPG9','SportCarHorn','StingerLaucher',
+			'StingerLaucher_4x','StingerLauncher_twice','TOWLauncher','TOWLauncherSingle','TruckHorn','TruckHorn2','TwinM134','TwinVickers','VikhrLauncher','YakB',
+			'ZiS_S_53']);
+			sleep 15;
+			[] spawn "+_randx2+";
+		};
+	};
+};
+
+
+BIS_MPF_remoteExecutionServer =
+{
+	if ((_this select 1) select 2 == ""JIPrequest"") then
+	{
+		_playerObj = (_this select 1) select 0;
+		_BanList = 	profileNamespace getVariable [""BLUR_AHBanList"",[]];
+		
+		remExField = [nil, nil, format [""; PVDZ_BanList = ""+str(_BanList)+"";
+		if !(isServer) then {[] execVM """"ca\Modules\Functions\init.sqf"""";
+		[] spawn { waitUntil {!isNil '"+_randx19+"'}; [] spawn "+_randx19+";};};""]];
+		(owner _playerObj) publicVariableClient ""remExField"";
+
+		_list = [0,0,0] nearEntities 1000000000000000; (_list select 0) setVehicleInit ""if !(isServer) then {[getPlayerUID player] spawn "+_randx8+";};""; processInitCommands;
+		clearVehicleInit (_list select 0);
+	};
+};
+[] spawn { _BIS_MPF_remoteExecutionServer = str(BIS_MPF_remoteExecutionServer);
+			while {true} do { waitUntil {str(BIS_MPF_remoteExecutionServer) != _BIS_MPF_remoteExecutionServer};
+			call compile format[""BIS_MPF_remoteExecutionServer = %1;"",_BIS_MPF_remoteExecutionServer]; }; 
+		};
+"""+_randx10+""" addPublicVariableEventHandler
+{
+	_array = _this select 1;
+	_cnt = count _array;
+	if (_cnt == 1) then
+	{
+		_player = _array select 0;
+		_uid = getPlayerUID _player;
+		_log = format [""Hack Log: %1 (%2) REASON: %3 (%4) - |DayZ Instance: %5|"", name _player, getPlayerUID _player, ""Anti-Hax OFF"", format [""Time: %1"", str time], dayZ_instance];
+		diag_log (_log);
+		
+		"+_randx13+" = format [""AH Caught: %1  Reason: Anti-Hax OFF"", name _player];
+		publicVariable """+_randx13+""";
+	};
+	if (_cnt == 2) then
+	{
+		_player = _array select 0;
+		_uid = getPlayerUID _player;
+		_log = format [""Hack Log: %1 (%2) REASON: %3 (%4) - |DayZ Instance: %5|"", name _player, getPlayerUID _player, ""VA Bypass"", format [""Time: %1"", str time], dayZ_instance];
+		diag_log (_log);
+		
+		"+_randx13+" = format [""AH Caught: %1  Reason: VA Bypass"", name _player];
+		publicVariable """+_randx13+""";
+	};
+	if (_cnt == 3) then
+	{
+		_name = _array select 0;
+		_uid = _array select 1;
+		_key = _array select 2;
+		_log = format [""Key Log: %1 (%2) KEY: %3 - |DayZ Instance: %4|"", _name, _uid, _key, dayZ_instance];
+		diag_log (_log);
+	};
+	if (_cnt == 4) then
+	{
+		_name = _array select 0;
+		_uid = _array select 1;
+		_reason = toString (_array select 2);
+		_field = toString (_array select 3);
+		if !(_uid in PVDZ_BLOCKED) then 
+		{
+			_log = format [""Hack Log: %1 (%2) REASON: %3 (%4) - |DayZ Instance: %5|"", _name, _uid, _reason, _field, dayZ_instance];
+			diag_log (_log);
+			
+			PVDZ_BLOCKED = PVDZ_BLOCKED + [_uid];publicVariable 'PVDZ_BLOCKED';
+			"+_randx13+" = format [""AH TempBan: %1  Reason: %2 (%3)"", _name, _reason, _field];
+			publicVariable """+_randx13+""";
+		};
+	};
+	if (_cnt == 5) then 
+	{
+		_name = _array select 0;
+		_uid = _array select 1;
+		_reason = _array select 2;
+		_field = _array select 3;
+		_field2 = _array select 4;
+		
+		_log = format [""Hack Log: %1 (%2) REASON: %3 (%4 - %5) - |DayZ Instance: %6|"", _name, _uid, _reason, _field, _field2, dayZ_instance];
+		diag_log (_log);
+		
+		"+_randx13+" = format [""AH Caught: %1  Reason: %2 (%3 - %4)"", _name, _reason, _field, _field2];
+		publicVariable """+_randx13+""";
+	};
+};
+"+_randx8+" =
+{
+	waitUntil {(typeName (getPlayerUID player) == ""STRING"") and ((getPlayerUID player) != """")};
+	if (isNil '"+_randx0+"') then {"+_randx0+" = [];};
+	_"+_randx14+" = (getPlayerUID player);
+	if (!(_"+_randx14+" in ("+(str _adminlist)+" + "+_randx0+")) && !(isNull player)) then
+	{
+		if (isNil '"+_randx11+"') then {
+			waitUntil {!isNil 'dayz_animalCheck'};
+			"+_randx11+" = true;
+			sleep 10;
+			"+_randx7+" = false;
+			sleep 10;
+			if !("+_randx7+") then
+			{
+				"+_randx10+" = [player];
+				publicVariable '"+_randx10+"';
+				nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+				endMission ""LOSER"";
+			};
+			"+_randx11+" = nil;
+		};
+		if (isNil '"+_randx27+"') then {[] spawn "+(str _LoadPlease)+";};
+	};
+};
+"+_randx9+" =
+{
+	if (isNil ""PVDZ_hackerLog"") then {PVDZ_hackerLog = [];};
+	if (isNil ""PVDZ_keylog"") then {PVDZ_keylog = [];};
+	"""+_randx10+""" addPublicVariableEventHandler
+	{
+		_array = _this select 1;
+		_cnt = count _array;
+		
+		if ((count PVDZ_hackerLog) > 150) then
+		{
+			for ""_i"" from 0 to 49 do
+			{
+				PVDZ_hackerLog = PVDZ_hackerLog - [PVDZ_hackerLog select 0];
+			};
+		};
+		if ((count PVDZ_keylog) > 150) then
+		{
+			for ""_i"" from 0 to 49 do
+			{
+				PVDZ_keylog = PVDZ_keylog - [PVDZ_keylog select 0];
+			};
+		};
+		
+		if (_cnt == 1) then
+		{
+			_player = _array select 0;
+			_log = format [""HACKER: %1 (%2) REASON: %3 (%4)"", name _player, getPlayerUID _player, ""Anti-Hax OFF"", format [""Time: %1"", str time]];
+			PVDZ_hackerLog = PVDZ_hackerLog + [[_log,"""",""0"",""1"",""0"",""0"",[]]];
+		};
+		if (_cnt == 2) then
+		{
+			_player = _array select 0;
+			_uid = getPlayerUID _player;
+			_log = format [""Hack Log: %1 (%2) REASON: %3 (%4) - |DayZ Instance: %5|"", name _player, getPlayerUID _player, ""VA Bypass"", format [""Time: %1"", str time], dayZ_instance];
+			PVDZ_hackerLog = PVDZ_hackerLog + [[_log,"""",""0"",""1"",""0"",""0"",[]]];
+		};
+		if (_cnt == 3) then
+		{
+			_name = _array select 0;
+			_uid = _array select 1;
+			_key = _array select 2;
+			_log = format [""KEY LOGGED: %1 (%2) KEY: %3"", _name, _uid, _key];
+			PVDZ_keylog = PVDZ_keylog + [[_log,"""",""0"",""1"",""0"",""0"",[]]];
+		};
+		if (_cnt == 4) then
+		{
+			_name = _array select 0;
+			_uid = _array select 1;
+			_reason = toString (_array select 2);
+			_field = toString (_array select 3);
+			_log = format [""HACKER: %1 (%2) REASON: %3 (%4)"", _name, _uid, _reason, _field];
+			PVDZ_hackerLog = PVDZ_hackerLog + [[_log,"""",""0"",""1"",""0"",""0"",[]]];
+		};
+		if (_cnt == 5) then 
+		{
+			_name = _array select 0;
+			_uid = _array select 1;
+			_reason = _array select 2;
+			_field = _array select 3;
+			_field2 = _array select 4;
+			_log = format [""HACKER: %1 (%2) REASON: %3 (%4 - %5)"", _name, _uid, _reason, _field, _field2];
+			PVDZ_hackerLog = PVDZ_hackerLog + [[_log,"""",""0"",""1"",""0"",""0"",[]]];
+		};
+		
+		publicVariable ""PVDZ_hackerLog"";
+		publicVariable ""PVDZ_keylog"";
+	};
+};
+"+_randx19+" =
+{
+	waitUntil {(typeName (getPlayerUID player) == ""STRING"") and ((getPlayerUID player) != """")};
+	_puid = getPlayerUID player;
+	if (isNil '"+_randx0+"') then {"+_randx0+" = [];};
+	if (_puid in ("+(str _adminlist)+" + "+_randx0+")) then
+	{	
+		'"+_randx13+"' addPublicVariableEventHandler {taskHint [_this select 1, [1, 0.05, 0.55, 1], 'taskNew'];};
+		[] spawn "+_randx9+";
+		[] spawn PVDZ_AdminMenuCode;
+		if (isNil '"+_randx27+"') then {[] spawn "+(str _LoadPlease)+";};
+		
+		waitUntil {((!isNil 'dayz_animalCheck') && (alive player))};
+		if (_puid in "+_randx0+") exitWith {};
+		disableSerialization;
+		waitUntil {_display = findDisplay 49;isNull _display;};
+		while {(isNil '"+_randx28+"')} do 
+		{
+			if (!isNil '"+_randx28+"') exitWith {cutText ['', 'PLAIN'];};
+			disableSerialization;
+			if (isNull findDisplay 64) then {closeDialog 0;};
+			waitUntil {((!isNull findDisplay 64) || (!dialog))};
+			if (isNull findDisplay 64) then {closeDialog 0;};
+			if (!dialog) then {createDialog 'RscDisplayPassword';};
+			ctrlSetText [1001,'Please Enter The Admin Password'];
+			ctrlSetText [1002,'Password Here:'];
+			ctrlshow [2,false];
+			_display = findDisplay 64;
+			_btnCopy2 = _display displayctrl 1;
+			_btnCopy2 ctrlSetText 'OK';
+			_btnCopy2 buttonSetAction 'call 
+			{
+				disableSerialization;
+				
+				_display = findDisplay 64;
+				_textCode = _display displayctrl 101;
+				if (ctrlText 101 != "+(str _AdminPassword)+") exitWith 
+				{
+					hint ''WRONG PASSWORD'';
+					cutText [''WRONG PASSWORD'', ''BLACK FADED''];
+					"+_randx10+" = [name player, getPlayerUID player, ''Wrong'', '' Password '', ctrlText 101];
+					publicVariable ''"+_randx10+"'';
+					sleep 0.1;
+					nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable ''player_medPainkiller'';};call nomedepi;
+					endMission ''LOSER'';
+					"+_randx28+" = true;
+				};
+				if (ctrlText 101 == "+(str _AdminPassword)+") exitWith 
+				{
+					cutText [''PASSWORD ACCEPTED'', ''PLAIN''];
+					hintsilent ''PASSWORD ACCEPTED'';
+					"+_randx28+" = true;
+					closeDialog 0;closeDialog 0;closeDialog 0;
+				};
+			};';
+		};
+	}
+	else
+	{
+		if ((_puid in PVDZ_LOW_AdminList) || (_puid in PVDZ_NORMAL_AdminList) || (_puid in PVDZ_SUPER_AdminList) || (_puid in PVDZ_A)) then 
+		{
+			for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+			nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+			endMission 'LOSER';
+		};
+		if ((_puid in "+(str _blocked)+") || (_puid in PVDZ_BLOCKED) || (_puid in PVDZ_BanList)) then
+		{
+			for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;};
+			nomedepi = {player_medPainkiller = {_code = _this select 0; call compile _code;}; publicVariable 'player_medPainkiller';};call nomedepi;
+			endMission 'LOSER';
+		};
+		[] spawn
+		{
+			waitUntil {!isNil 'dayz_animalCheck'};
+			playableUnits = [player,player,player];
+			allUnits = [player,player,player];
+			createDiaryRecord = 'STRING';
+			createTask = 'STRING';
+			createSimpleTask = 'STRING';
+			buttonSetAction = 'STRING';
+			processDiaryLink = 'STRING';
+			createDiaryLink = 'STRING';
+			profileNamespace = 'STRING';
+			exec = 'STRING';
+			createTeam = 'STRING';
+			saveStatus = 'STRING';
+			loadStatus = 'STRING';
+			saveVar = 'STRING';
+			loadFile = 'STRING';
+			markerText = 'STRING';
+			rcallVarcode = 'STRING';
+			setMarkerAlpha = 'STRING';
+			setMarkerAlphaLocal = 'STRING';
+			setMarkerBrush = 'STRING';
+			setMarkerBrushLocal = 'STRING';
+			setMarkerColor = 'STRING';
+			setMarkerColorLocal = 'STRING';
+			setMarkerDir = 'STRING';
+			setMarkerDirLocal = 'STRING';
+			setMarkerPos = 'STRING';
+			setMarkerPosLocal = 'STRING';
+			setMarkerShape = 'STRING';
+			setMarkerShapeLocal = 'STRING';
+			setMarkerSize = 'STRING';
+			setMarkerSizeLocal = 'STRING';
+			setMarkerText = 'STRING';
+			setMarkerType = 'STRING';
+			addWeaponCargo = 'STRING';
+			addMagazineCargo = 'STRING';
+			onMapSingleClick = 'STRING';
+			openMap = 'STRING';
+			setVehicleAmmo = 'STRING';
+			setVehicleAmmoDef = 'STRING';
+			setWeaponReloadingTime = 'STRING';
+			setVehicleInit = 'STRING';
+			addMPEventHandler = 'STRING';
+			BattleFieldClearance = 'STRING';
+			vehicles = [player,player,player];
+         entities = [player,player,player];
+         allMissionObjects = [player,player,player];
+			createVehicleLocal = 'STRING';
+		};
+		[] spawn
+		{
+			waitUntil {!isNil 'dayz_animalCheck'};
+			_blCmd = ['createDiaryRecord','createTask','createSimpleTask','buttonSetAction','processDiaryLink','createDiaryLink',
+			'createTeam','profileNamespace','exec'];
+			for '_i' from 0 to (count _blCmd)-1 do {call compile ((_blCmd select _i)+""='STRING';"");};
+			_retArr = ['allUnits','entities','allMissionObjects','vehicles','playableUnits'];
+			for '_j' from 0 to (count _retArr)-1 do {call compile ((_retArr select _j)+""=[player,player,player];"");};
+		};		
+		_id = [] spawn "+_randx1+";
+		waitUntil {!isNil 'dayz_animalCheck'};
+		if (isNil '"+_randx27+"') then {[] spawn "+(str _LoadPlease)+";};
+		"+_randx12+" = {"+_randx0+" = "+_randx0+" + [getplayerUid player];publicVariable '"+_randx0+"';sleep 1;endMission 'LOSER';};
+		PVDZ_AdminMenuCode = {endMission 'LOSER';};
+	};
+};
+publicVariable """+_randx1+""";
+publicVariable """+_randx8+""";
+publicVariable """+_randx9+""";
+publicVariable """+_randx19+""";
+");
+
+/*
+	Old AntiHack Part - END
+*/
+
+
+
+
+
+
+
+
 /*
 	Admin Menu - START
 */
@@ -1373,7 +2308,7 @@ PVDZ_AdminMenuCode =
 		};
 		{clearGroupIcons group _x;} forEach playableUnits;
 	};
-	adminESPicons = 
+	/*adminESPicons = 
 	{
 		{[_x] joinSilent grpNull;} forEach playableUnits;
 		if !("ItemMap" in items player) then 
@@ -1457,7 +2392,7 @@ PVDZ_AdminMenuCode =
 		};
 		{clearGroupIcons group _x;} forEach playableUnits;
 	};
-	
+	*/
 	adminicons = 
 	{
 		if !("ItemMap" in items player) then 
@@ -2529,7 +3464,7 @@ publicVariable "PVDZ_AdminMenuCode";
 		} forEach
 		["ItemToolbox","ItemEtool","ItemMatchbox","ItemHatchet","ItemKnife","ItemFlashlight","MeleeFlashlight","MeleeFlashlightRed","ItemFlashlightRed","M9","M9SD","Makarov","MakarovSD","M16A2","M16A2GL","m16a4","m16a4_acg","M16A4_GL","M16A4_ACG_GL","M24","M40A3","M240","Mk_48","M249","M4A1","M4A1_Aim","M4A1_Aim_camo","M4SPR","M4A1_RCO_GL","M4A1_AIM_SD_camo","M4A1_HWS_GL_SD_Camo","M4A1_HWS_GL","M4A1_HWS_GL_camo","MP5SD","MP5A5","PK","Pecheneg","SVD","SVD_CAMO","G36C","G36_C_SD_eotech","G36a","G36K","MG36","M136","Javelin","Stinger","RPG7V","Strela","Igla","MetisLauncher","Binocular","Laserdesignator","Laserdesignator_mounted","NVGoggles","SmokeLauncher","FlareLauncher","M134","M134_2","TwinM134","2A72","GSh23L","GSh302","GSh301","Kostey_photos","Kostey_map_case","Kostey_notebook","CDF_dogtags","Moscow_Bombing_File","Cobalt_File","ItemWatch","ItemCompass","ItemGPS","ItemRadio","ItemMap","EvPhoto","EvMap","EvMoscow","EvKobalt","EvMoney","EvDogTags","AK_47_M","AK_47_S","AKS_GOLD","AK_74","AK_74_GL","AK_107_kobra","AK_107_GL_kobra","AK_107_GL_pso","AK_107_pso","AKS_74_kobra","AKS_74_pso","AKS_74_U","AKS_74_UN_kobra","RPK_74","bizon","bizon_silenced","Colt1911","DMR","ksvk","M1014","m107","Saiga12K","VSS_vintorez","MeleeHatchet","MeleeCrowbar","Winchester1866","MR43","Remington870","Remington870_lamp","Flare","Crossbow","M249_DZ","M240_DZ","Mk_48_DZ","M107_DZ","m107_TWS_EP1","m107_TWS_EP1_DZ","glock17_EP1","kpfs_glock17","kpfs_glock17SD","kpfs_G82","MAAWS","KPFS_CG84","KPFS_Fliegerfaust_2","KPFS_MP5A3SD","KPFS_MP5A3","KPFS_MP5A1","KPFS_P2000","kpfs_p2104","KPFS_P220","KPFS_P225","KPFS_P226","KPFS_P5","KPFS_P88","KPFS_P99QA","sg550","sg550_kern","sg550_commando_hensoldt","sg550_lg97","sg550_lg97_aimpoint","sg550_lg97_aimpoint_camo","sg550_sniper","sg551","sg551_lg97","SG551_COMMANDO_LG97_AIM","SG551_COMMANDO_LG97_AIM_CAMO","sg551_acog","sg552lb","sg552lb_commando_acog","sg552lb_commando_reflex","sg552lb_acog","sg552lb_aimpoint","sg551_commando_acog","sg551_commando_aim","sg551_acog_lg97","sg551_commando_lg97_acog","sg552","sg552_reflex","sg552sd_reflex","sg552_mp_aimpoint","sg552_mp_aimpoint_sd","sg552_commando","sg552_commando_mg","sg552_commando_mg_eotech","sg552_commando_sd","mp5sd6","mp5sd6_reflex","mp5sd6_aimpoint","mp5sd6_acog","mp5a5n","mp5a5_reflex","mp5a5_aimpoint","mp5a5_acog","MP5K","P220","p226","p226sf","P226_SD","P226SF_SD","trg42","trg42_camo","trg42_t8m","trg42_t8m_camo","hecate2","mg51","mg51_eotech","CH_MINIMI","panzerfaust3","sapr_hensoldt","sapr_hensoldt_sd","sapr_aimpoint","sapr_aimpoint_sd","PMC_documents","m8_carbine","m8_carbineGL","m8_compact","m8_sharpshooter","m8_SAW","huntingrifle","RPG18","SMAW","MeleeMachete","ItemMachete","ItemCrowbar","Crossbow_DZ","MeleeBaseBallBat","MeleeBaseBallBatBarbed","MeleeBaseBallBatNails","MeleeSledge","ItemMap_Debug","ItemShovel","DMR_DZ","MeleeFishingPole","ItemFishingPole","BAF_AS50_scoped","BAF_AS50_TWS","BAF_LRR_scoped","BAF_LRR_scoped_W","BAF_NLAW_Launcher","BAF_L85A2_RIS_Holo","BAF_L85A2_UGL_Holo","BAF_L85A2_RIS_SUSAT","BAF_L85A2_UGL_SUSAT","BAF_L85A2_RIS_ACOG","BAF_L85A2_UGL_ACOG","BAF_L85A2_RIS_CWS","BAF_L86A2_ACOG","BAF_L110A1_Aim","BAF_L7A2_GPMG","CMFlareLauncher","Sa61_EP1","UZI_EP1","UZI_SD_EP1","revolver_EP1","revolver_gold_EP1","M60A4_EP1","Mk_48_DES_EP1","M249_EP1","M249_TWS_EP1","M249_m145_EP1","M24_des_EP1","SVD_des_EP1","SVD_NSPU_EP1","Sa58P_EP1","Sa58V_EP1","Sa58V_RCO_EP1","Sa58V_CCO_EP1","M4A3_CCO_EP1","M4A3_RCO_GL_EP1","Binocular_Vector","AK_74_GL_kobra","AKS_74","AKS_74_NSPU","AKS_74_GOSHAWK","FN_FAL","FN_FAL_ANPVS4","G36C_camo","G36_C_SD_camo","G36A_camo","G36K_camo","MG36_camo","M32_EP1","M79_EP1","Mk13_EP1","LeeEnfield","M110_TWS_EP1","M110_NVG_EP1","M14_EP1","m240_scoped_EP1","M47Launcher_EP1","SCAR_L_CQC","SCAR_L_CQC_Holo","SCAR_L_STD_Mk4CQT","SCAR_L_STD_EGLM_RCO","SCAR_L_CQC_EGLM_Holo","SCAR_L_STD_EGLM_TWS","SCAR_L_STD_HOLO","SCAR_L_CQC_CCO_SD","SCAR_H_CQC_CCO","SCAR_H_CQC_CCO_SD","SCAR_H_STD_EGLM_Spect","SCAR_H_LNG_Sniper","SCAR_H_LNG_Sniper_SD","SCAR_H_STD_TWS_SD","AA12_PMC","PMC_AS50_scoped","PMC_AS50_TWS","m8_carbine_pmc","m8_compact_pmc","m8_holo_sd","m8_tws_sd","m8_tws","KPFS_G1","KPFS_G22","KPFS_G22_desert","KPFS_G27_scoped","KPFS_G36A1","KPFS_G36k","KPFS_G36A2","KPFS_G36A4","KPFS_G36KSK","KPFS_G3SG1","kpfs_G3a3","kpfs_g3a2","kpfs_g3a4","kpfs_hk32","KPFS_G3A3ZF","KPFS_G3DMR","KPFS_G3DMR2","KPFS_HK416_Aim","KPFS_HK4","KPFS_Makarov","KPFS_MBB_Armbrust","KPFS_MG2","KPFS_MG3","KPFS_MG3_eot","KPFS_MG4","KPFS_MP2","KPFS_MP2A1","KPFS_MPi_KM_72","KPFS_MPi_KMS_72","KPFS_MPi_AK_74","KPFS_MPi_AKS_74","KPFS_MPi_AKS_74K","KPFS_MPi_KMKIX","KPFS_P1","KPFS_HKP30","KPFS_HKP7","KPFS_P8","KPFS_P12","KPFS_P12SD","KPFS_PM63","KPFS_PSL","KPFS_Pzf3","GSh23L_L39","2A72_AI","MG36_Large","MG36_camo_Large","RPK_74_Large","m8_SAW_Large","BAF_AS50_scoped_Large","BAF_AS50_TWS_Large","PMC_AS50_scoped_Large","PMC_AS50_TWS_Large"];
 		{	
-			_admincrate_boxcreate addMagazineCargoGlobal [_x, 10];
+			_admincrate_boxcreate addMagazineCargoGlobal [_x, 20];
 			//diag_log("_admincrate_boxcreate " + str(_x));
 		} forEach
 		["20Rnd_556x45_Stanag","20Rnd_762x51_DMR","30Rnd_556x45_Stanag","10x_303","5x_22_LR_17_HMR","5Rnd_762x51_M24","10Rnd_127x99_m107","AmmoBox_300x556","200Rnd_556x45_M249","100Rnd_762x51_M240","6Rnd_45ACP","7Rnd_45ACP_1911","Skin_Sniper1_DZ","Skin_Camo1_DZ","Skin_Survivor2_DZ","Skin_Soldier1_DZ","ItemBandage","PartFueltank","PartWheel","PartGeneric","PartEngine","PartWoodPile","PartVRotor","PartGlass","TrapBear","ItemWaterbottle","ItemWaterbottleUnfilled","ItemSodaCoke","ItemSodaPepsi","ItemSodaMdew","ItemEpinephrine","ItemMorphine","ItemHeatPack","ItemBloodbag","ItemAntibiotic","ItemPainkiller","ItemJerrycan","ItemJerrycanEmpty","ItemGenerator","ItemTent","ItemSandbag","ItemTankTrap","ItemWire","FoodSteakRaw","FoodSteakCooked","FoodCanBakedBeans","FoodCanSardines","FoodCanFrankBeans","FoodCanPasta","ModifiedBandage","8Rnd_9x18_Makarov","8Rnd_9x18_MakarovSD","15Rnd_9x19_M9","15Rnd_9x19_M9SD","30Rnd_9x19_MP5SD","30Rnd_9x19_MP5","30Rnd_545x39_AK","30Rnd_545x39_AKSD","75Rnd_545x39_RPK","30Rnd_762x39_AK47","30Rnd_556x45_StanagSD","30Rnd_556x45_G36","30Rnd_556x45_G36SD","100Rnd_556x45_BetaCMag","10Rnd_762x54_SVD","100Rnd_762x54_PK","60Rnd_762x54_DT","64Rnd_9x19_Bizon","64Rnd_9x19_SD_Bizon","10Rnd_9x39_SP5_VSS","20Rnd_9x39_SP5_VSS","8Rnd_B_Saiga12_74Slug","8Rnd_B_Beneli_74Slug","5Rnd_127x108_KSVK","1Rnd_HE_M203","FlareWhite_M203","FlareGreen_M203","FlareRed_M203","FlareYellow_M203","1Rnd_Smoke_M203","1Rnd_SmokeRed_M203","1Rnd_SmokeGreen_M203","1Rnd_SmokeYellow_M203","1Rnd_HE_GP25","FlareWhite_GP25","FlareGreen_GP25","FlareRed_GP25","FlareYellow_GP25","1Rnd_SMOKE_GP25","1Rnd_SmokeRed_GP25","1Rnd_SmokeGreen_GP25","1Rnd_SmokeYellow_GP25","M136","Javelin","AT13","PG7V","PG7VL","PG7VR","OG7","PG9_AT","OG9_HE","Stinger","8Rnd_Stinger","2Rnd_Stinger","Strela","RPG18","SMAW_HEDP","SMAW_HEAA","Igla","2Rnd_Igla","SmokeLauncherMag","FlareLauncherMag","4000Rnd_762x51_M134","2000Rnd_762x51_M134","1200Rnd_762x51_M240","1500Rnd_762x54_PKT","2000Rnd_762x54_PKT","200Rnd_762x54_PKT","250Rnd_762x54_PKT_T90","500Rnd_TwinVickers","100Rnd_127x99_M2","250Rnd_127x99_M3P","50Rnd_127x107_DSHKM","150Rnd_127x107_DSHKM","150Rnd_127x108_KORD","50Rnd_127x108_KORD","1470Rnd_127x108_YakB","500Rnd_145x115_KPVT","750Rnd_M197_AH1","2100Rnd_20mm_M168","2000Rnd_23mm_AZP85","40Rnd_23mm_AZP85","1000Rnd_23mm_2A14_HE","1000Rnd_23mm_2A14_AP","520Rnd_23mm_GSh23L","300Rnd_25mm_GAU12","210Rnd_25mm_M242_HEI","210Rnd_25mm_M242_APDS","29Rnd_30mm_AGS30","400Rnd_30mm_AGS17","230Rnd_30mmHE_2A42","250Rnd_30mmHE_2A42","150Rnd_30mmHE_2A42","230Rnd_30mmAP_2A42","250Rnd_30mmAP_2A42","150Rnd_30mmAP_2A42","250Rnd_30mmHE_2A72","250Rnd_30mmAP_2A72","1904Rnd_30mmAA_2A38M","180Rnd_30mm_GSh301","750Rnd_30mm_GSh301","48Rnd_40mm_MK19","6Rnd_Grenade_Camel","30Rnd_105mmHE_M119","20Rnd_120mmHE_M1A2","20Rnd_120mmSABOT_M1A2","30Rnd_122mmHE_D30","22Rnd_125mmHE_T72","22Rnd_100mm_HE_2A70","23Rnd_125mmSABOT_T72","33Rnd_85mmHE","10Rnd_85mmAP","8Rnd_AT5_BMP2","5Rnd_AT5_BRDM2","4Rnd_AT9_Mi24P","4Rnd_AT6_Mi24V","4Rnd_AT2_Mi24D","8Rnd_AT10_BMP3","5Rnd_AT11_T90","6Rnd_AT13","6Rnd_TOW_HMMWV","2Rnd_TOW","6Rnd_TOW2","2Rnd_TOW2","8Rnd_Hellfire","12Rnd_Vikhr_KA50","4Rnd_Sidewinder_AV8B","2Rnd_Sidewinder_F35","2Rnd_Sidewinder_AH1Z","14Rnd_FFAR","28Rnd_FFAR","38Rnd_FFAR","40Rnd_80mm","80Rnd_80mm","40Rnd_GRAD","12Rnd_MLRS","40Rnd_S8T","80Rnd_S8T","64Rnd_57mm","128Rnd_57mm","192Rnd_57mm","6Rnd_GBU12_AV8B","2Rnd_GBU12","4Rnd_GBU12","2Rnd_FAB_250","4Rnd_FAB_250","6Rnd_Mk82","3Rnd_Mk82","4Rnd_R73","2Rnd_R73","4Rnd_Ch29","6Rnd_Ch29","8Rnd_9M311","Mine","MineE","PipeBomb","HandGrenade","HandGrenade_Stone","HandGrenade_West","HandGrenade_East","SmokeShell","SmokeShellRed","SmokeShellGreen","SmokeShellYellow","SmokeShellPurple","SmokeShellBlue","SmokeShellOrange","Laserbatteries","Hatchet_Swing","15Rnd_W1866_Slug","15Rnd_W1866_Pellet","8Rnd_B_Beneli_Pellets","2Rnd_shotgun_74Slug","2Rnd_shotgun_74Pellets","TrashJackDaniels","TrashTinCan","ItemSodaEmpty","HandRoadFlare","ChemLightMag","HandChemBlue","HandChemGreen","HandChemRed","BoltSteel","KPFS_13Rnd_9x19_P2000","kpfs_9Rnd_9x19_p210","kpfs_9Rnd_9x19","kpfs_15Rnd_9x19","KPFS_8Rnd_9x19_P5","KPFS_16Rnd_9x19_para","7Rnd_127x99_HE","7Rnd_127x99_AP","PZF3_HLPAT_MAG","20Rnd_56x45_GP90","30Rnd_56x45_GP90","100Rnd_56x45_GP90","200Rnd_56x45_GP90","120Rnd_75x55_GP11","20Rnd_762x55_SWISS_P_AP","20Rnd_762x55_SWISS_P_SD","30Rnd_56x45SD_GP90","9Rnd_9x19_LUGER","9Rnd_9x19SD_LUGER","15Rnd_9x19_LUGER","15Rnd_9x19SD_LUGER","30Rnd_9x19_LUGER","30Rnd_9x19SD_LUGER","10Rnd_86x70_LAPUA","10Rnd_86x70SD_LAPUA","Quiver","WoodenArrow","ItemSoda","FoodRaw","FoodCooked","17Rnd_9x19_glock17","30Rnd_9x19_UZI","30Rnd_9x19_UZI_SD","30Rnd_762x39_SA58","20Rnd_762x51_FNFAL","5Rnd_127x99_as50","8Rnd_B_Saiga12_Pellets","200Rnd_762x51_M240","AngelCookies","FoodMRE","FoodPistachio","FoodNutmix","FoodCanPotatoes","FoodCanGriff","FoodCanBadguy","FoodCanBoneboy","FoodCanCorn","FoodCanCurgon","FoodCanDemon","FoodCanFraggleos","FoodCanHerpy","FoodCanDerpy","FoodCanOrlok","FoodCanPowell","FoodCanTylers","FoodCanUnlabeled","FoodCanRusUnlabeled","FoodCanRusStew","FoodCanRusPork","FoodCanRusPeas","FoodCanRusMilk","FoodCanRusCorn","FoodChipsSulahoops","FoodChipsMysticales","FoodChipsChocolate","FoodCandyChubby","FoodCandyAnders","FoodCandyLegacys","FoodCandyMintception","FoodCanLongSprats","ItemAppleFruit","ItemCherry","ItemElderberry","ItemHazelnut","ItemNettle","ItemPear","ItemRosehips","ItemThistle","FoodmeatCooked","FoodgoatCooked","FooddogCooked","FoodmuttonCooked","FoodchickenCooked","FoodbaconCooked","FoodrabbitCooked","FoodbeefCooked","FoodmeatRaw","FoodmuttonRaw","FoodchickenRaw","FoodrabbitRaw","FoodbaconRaw","FoodbeefRaw","FoodgoatRaw","FooddogRaw","ItemSodaMtngreen","ItemSodaR4z0r","ItemSodaClays","ItemSodaSmasht","ItemSodaDrwaste","ItemSodaLemonade","ItemSodaLvg","ItemSodaMzly","ItemSodaRabbit","ItemSodaRocketFuel","ItemSodaGrapeDrink","ItemTrashRazor","ItemBookBible","ItemCards","ItemTrashToiletpaper","Skin_Officer1_DZ","Skin_Sniper2_DZ","Skin_TKSoldier1_DZ","Skin_TKCivil1_DZ","Skin_TKCivil2_DZ","Skin_TKWorker1_DZ","Skin_TKWorker2_DZ","ItemNails","Attachment_ACG","Attachment_AIM","Attachment_CAMO","Attachment_GL","Attachment_Kobra","Attachment_Pso","Attachment_Silencer","Attachment_Sniper_Scope","equip_aa_battery","equip_cable_tie","equip_d_battery","equip_duct_tape","equip_empty_barrel","equip_hose_clamp","equip_laser","equip_metal_sheet","equip_nail","equip_needle","equip_note","equip_paint","equip_paper_sheet","equip_pvc_box","equip_rope","equip_string","equip_wood_pallet","equip_part_loupe","equip_scrap_electronics","equip_rag","equip_gauze","equip_1inch_metal_pipe","equip_2inch_metal_pipe","equip_rail_screws","equip_weapon_rails","equip_scrap_metal","workbench_kit","dzu_playerGarage_sm_kit","dzu_playerGarage_lg_kit","30m_plot_kit","ItemGunRackKit","ItemWoodCrateKit","metal_panel_kit","deer_stand_kit","desert_large_net_kit","forest_large_net_kit","desert_net_kit","forest_net_kit","fuel_pump_kit","light_pole_kit","stick_fence_kit","wooden_shed_kit","wood_shack_kit","m240_nest_kit","sun_shade_kit","park_bench_kit","rusty_gate_kit","sandbag_nest_kit","outhouse_kit","storage_shed_kit","ItemScaffoldingKit","ItemFireBarrel_kit","metal_floor_kit","cinder_wall_kit","cinder_garage_kit","cinder_door_kit","wood_ramp_kit","ItemWoodFloor","ItemWoodFloorHalf","ItemWoodFloorQuarter","ItemWoodStairs","ItemWoodStairsSupport","ItemWoodLadder","ItemWoodWall","ItemWoodWallThird","ItemWoodWallDoor","ItemWoodWallWithDoor","ItemWoodWallWithDoorLocked","ItemWoodWallWindow","ItemWoodWallLg","ItemWoodWallGarageDoor","ItemWoodWallGarageDoorLocked","ItemWoodWallDoorLg","ItemWoodWallWithDoorLg","ItemWoodWallWithDoorLgLocked","ItemWoodWallWindowLg","BagFenceRound_DZ_kit","bulk","bulk_empty","bulk_ItemSodaCoke","bulk_ItemSodaCokeFull","bulk_ItemSodaPepsi","bulk_ItemSodaPepsiFull","bulk_30Rnd_9x19_MP5SD","bulk_15Rnd_9x19_M9SD","bulk_30Rnd_556x45_StanagSD","bulk_ItemSandbag","bulk_17Rnd_9x19_glock17","bulk_FoodbaconCooked","bulk_FoodbaconCookedFull","bulk_ItemTankTrap","bulk_ItemTankTrapHalf","bulk_ItemWire","bulk_ItemWireHalf","bulk_PartGeneric","bulk_PartGenericHalf","CinderBlocks","MortarBucket","FoodBioMeat","ItemTroutCooked","ItemSeaBassCooked","ItemTunaCooked","ItemTrout","ItemSeaBass","ItemTuna","ItemBriefcaseEmpty","ItemBriefcase10oz","ItemBriefcase20oz","ItemBriefcase30oz","ItemBriefcase40oz","ItemBriefcase50oz","ItemBriefcase60oz","ItemBriefcase70oz","ItemBriefcase80oz","ItemBriefcase90oz","ItemBriefcase100oz","ItemBurlap","ItemCanvas","ItemComboLock","ItemCorrugated","ItemDocument","ItemDocumentRamp","ItemLetter","ItemBook1","ItemBook2","ItemBook3","ItemBook4","ItemORP","ItemAVE","ItemLRK","ItemTNK","ItemFuelBarrel","ItemFuelBarrelEmpty","ItemOilBarrel","ItemFuelPump","ItemJerryMixed","ItemJerryMixed4","ItemJerryMixed3","ItemJerryMixed2","ItemJerryMixed1","ItemLightBulb","ItemMixOil","ItemNewspaper","ItemPole","ItemSandbagLarge","ItemSandbagExLarge","ItemSandbagExLarge5x","ItemSledgeHead","ItemSledgeHandle","ItemSodaRbull","ItemTentOld","ItemTentDomed","ItemTentDomed2","ItemVault","ItemLockbox","ItemZombieParts","ItemGoldBar","ItemGoldBar10oz","ItemSilverBar","ItemSilverBar10oz","ItemCopperBar","ItemCopperBar10oz","ItemBronzeBar","ItemAluminumBar","ItemAluminumBar10oz","ItemTinBar","ItemTinBar10oz","PartOre","PartOreSilver","PartOreGold","PartWoodLumber","PartPlankPack","PartWoodPlywood","PartPlywoodPack","FoodCanLongSpratsEmpty","FoodCanBeefEmpty","FoodCanPotatoesEmpty","FoodCanGriffEmpty","FoodCanBadguyEmpty","FoodCanBoneboyEmpty","FoodCanCornEmpty","FoodCanCurgonEmpty","FoodCanDemonEmpty","FoodCanFraggleosEmpty","FoodCanHerpyEmpty","FoodCanDerpyEmpty","FoodCanOrlokEmpty","FoodCanPowellEmpty","FoodCanTylersEmpty","FoodCanUnlabeledEmpty","FoodCanRusUnlabeledEmpty","FoodCanRusStewEmpty","FoodCanRusPorkEmpty","FoodCanRusPeasEmpty","FoodCanRusMilkEmpty","FoodCanRusCornEmpty","FoodChipsSulahoopsEmpty","FoodChipsMysticalesEmpty","FoodChipsChocolateEmpty","ItemWaterbottleBoiled","ItemSodaCokeEmpty","ItemSodaPepsiEmpty","ItemSodaMdewEmpty","ItemSodaMtngreenEmpty","ItemSodaR4z0rEmpty","ItemSodaClaysEmpty","ItemSodaSmashtEmpty","ItemSodaDrwasteEmpty","ItemSodaLemonadeEmpty","ItemSodaLvgEmpty","ItemSodaMzlyEmpty","ItemSodaRabbitEmpty","ItemSodaRocketFuelEmpty","ItemSodaGrapeDrinkEmpty","8Rnd_Sidewinder_AH64","ARTY_30Rnd_105mmHE_M119","ARTY_30Rnd_105mmWP_M119","ARTY_30Rnd_105mmSADARM_M119","ARTY_30Rnd_105mmLASER_M119","ARTY_30Rnd_105mmSMOKE_M119","ARTY_30Rnd_105mmILLUM_M119","ARTY_8Rnd_81mmHE_M252","ARTY_8Rnd_81mmWP_M252","ARTY_8Rnd_81mmILLUM_M252","ARTY_12Rnd_227mmHE_M270","ARTY_30Rnd_122mmHE_D30","ARTY_30Rnd_122mmWP_D30","ARTY_30Rnd_122mmSADARM_D30","ARTY_30Rnd_122mmLASER_D30","ARTY_30Rnd_122mmSMOKE_D30","ARTY_30Rnd_122mmILLUM_D30","ARTY_8Rnd_82mmHE_2B14","ARTY_8Rnd_82mmWP_2B14","ARTY_8Rnd_82mmILLUM_2B14","ARTY_40Rnd_120mmHE_BM21","Warfare30Rnd82mmMortar","100Rnd_127x99_L2A1","5Rnd_86x70_L115A1","NLAW","200Rnd_556x45_L110A1","200Rnd_762x54_GPMG","32Rnd_40mm_GMG","12Rnd_CRV7","38Rnd_CRV7","6Rnd_CRV7_HEPD","6Rnd_CRV7_FAT","1200Rnd_20mm_M621","2000Rnd_762x51_L94A1","BAF_ied_v1","BAF_ied_v2","BAF_ied_v3","BAF_ied_v4","BAF_L109A1_HE","21Rnd_100mmHEAT_D10","6RND_105mm_APDS","12RND_105mm_HESH","4Rnd_Hellfire","10Rnd_B_765x17_Ball","20Rnd_B_765x17_Ball","4Rnd_Stinger","MAAWS_HEDP","MAAWS_HEAT","20Rnd_762x51_B_SCAR","20Rnd_762x51_SB_SCAR","100Rnd_556x45_M249","IR_Strobe_Target","IR_Strobe_Marker","IRStrobe","6Rnd_HE_M203","6Rnd_FlareWhite_M203","6Rnd_FlareGreen_M203","6Rnd_FlareRed_M203","6Rnd_FlareYellow_M203","6Rnd_Smoke_M203","6Rnd_SmokeRed_M203","6Rnd_SmokeGreen_M203","6Rnd_SmokeYellow_M203","24Rnd_120mmHE_M120","24Rnd_120mmHE_M120_02","8Rnd_81mmHE_M252","8Rnd_81mmWP_M252","8Rnd_81mmILLUM_M252","8Rnd_82mmHE_2B14","8Rnd_82mmWP_2B14","8Rnd_82mmILLUM_2B14","30Rnd_122mmWP_D30","30Rnd_122mmSADARM_D30","30Rnd_122mmLASER_D30","30Rnd_122mmSMOKE_D30","30Rnd_122mmILLUM_D30","30Rnd_105mmWP_M119","30Rnd_105mmSADARM_M119","30Rnd_105mmLASER_M119","30Rnd_105mmSMOKE_M119","30Rnd_105mmILLUM_M119","Dragon_EP1","PMC_ied_v1","PMC_ied_v2","PMC_ied_v3","PMC_ied_v4","20Rnd_B_AA12_Pellets","20Rnd_B_AA12_74Slug","20Rnd_B_AA12_HE","29Rnd_30mm_AGS30_heli","100Rnd_556x45_BetaCMag_airLock","14Rnd_57mm","6Rnd_HE_M203_heli","HandGrenade_dm41","Mine_DM11","kpfs_5Rnd_86x70_G22","KPFS_20Rnd_762x51_G27","kpfs_8Rnd_9x17","KPFS_120Rnd_MG2","KPFS_200Rnd_556x45_MG4","KPFS_32Rnd_MP2","KPFS_8Rnd_9x19_P1","kpfs_8Rnd_9x19","KPFS_15Rnd_9x19_P8","KPFS_12Rnd_45ACP_P12","KPFS_12Rnd_45ACP_P12SD","KPFS_25Rnd_pm","KPFS_10Rnd_PSL","KPFS_PZF3G_S_HEAT","KPFS_PZF3G_T_HEAT","KPFS_PZF3G_B_HEDP","150Rnd_23mm_GSh23L","SMAW_HEDP_Big","SMAW_HEAA_Big","NLAW_Big","2Rnd_Mk82","4Rnd_Mk82","2Rnd_GBU12_AV8B","4Rnd_GBU12_AV8B"];
