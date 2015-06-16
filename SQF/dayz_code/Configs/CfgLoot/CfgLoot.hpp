@@ -610,14 +610,14 @@ class CfgLoot {
 	
 	fuelitems[] = {
 		{"ItemJerrycan",0.10},
-		{"ItemJerrycanEmpty",0.03},
+		{"ItemJerrycanEmpty",0.02},
 		{"ItemOilBarrel",0.03},
-		{"ItemFuelcanEmpty",0.03},
-		{"ItemJerryMixed",0.03},
-		{"ItemJerryMixed4",0.03},
-		{"ItemJerryMixed3",0.03},
-		{"ItemJerryMixed2",0.03},
-		{"ItemJerryMixed1",0.03},
+		{"ItemFuelcanEmpty",0.02},
+		{"ItemJerryMixed",0.01},
+		{"ItemJerryMixed4",0.01},
+		{"ItemJerryMixed3",0.01},
+		{"ItemJerryMixed2",0.01},
+		{"ItemJerryMixed1",0.01},
 		{"ItemMixOil",0.03}
 	};
 	
