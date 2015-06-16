@@ -68,6 +68,10 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 8))
 	_cursorTarget = cursorTarget;
 	_typeOfCursorTarget = typeOf _cursorTarget;
 	_isVehicle = _cursorTarget isKindOf "AllVehicles";
+	_isAirVehicle = _cursorTarget isKindOf "Air";
+	_isLandVehicle = _cursorTarget isKindOf "LandVehicle";
+	_isWaterVehicle = _cursorTarget isKindOf "Ship";
+	_isAir = _cursorTarget isKindOf "Air";
 	_isMan = _cursorTarget isKindOf "Man";
 	_isAnimal = _cursorTarget isKindOf "Animal";
 	_isGarage = _cursorTarget isKindOf "dzu_playerGarage";
@@ -231,7 +235,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 8))
 		s_player_fillfuel20 = -1;
 	};
 
-	//Allow player to fill vehilce 5L
+	//Allow player to fill vehicle 5L
 	if(_hasFuel5 and _canDo and _isVehicle and (fuel _cursorTarget < 1)) then {
 		if (s_player_fillfuel5 < 0) then {
 			s_player_fillfuel5 = player addAction [format[localize "str_actions_medical_10"+" with 5L",_text], "\z\addons\dayz_code\actions\refuel.sqf",["ItemFuelcan"], 0, true, true, "", "'ItemFuelcan' in magazines player"];
@@ -241,7 +245,7 @@ if (!isNull cursorTarget and !_inVehicle and (player distance cursorTarget < 8))
 		s_player_fillfuel5 = -1;
 	};
 
-	if (_isVehicle and _canDo and (_hasFuelE20 or _hasFuelE5 or _hasBarrelE or _hasFuelBarrelE) and (fuel _cursorTarget > 0)) then {
+	if ((_isAirVehicle or _isLandVehicle or _isWaterVehicle) and _canDo and (_hasFuelE20 or _hasFuelE5 or _hasBarrelE or _hasFuelBarrelE) and (fuel _cursorTarget > 0)) then {
 		if (s_player_siphonfuel < 0) then {
 			s_player_siphonfuel = player addAction [format["Siphon fuel from %1",_text], "\z\addons\dayz_code\actions\siphonFuel.sqf",[], 0, true, true, "", ""];
 		};

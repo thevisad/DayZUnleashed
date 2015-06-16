@@ -1,7 +1,7 @@
 /*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Zombie Agent">*/
 /*%FSM<HEAD>*/
 /*
-item0[] = {"init",0,4346,-75.000000,-250.000000,25.000000,-200.000000,0.000000,"init"};
+item0[] = {"init",0,250,-75.000000,-250.000000,25.000000,-200.000000,0.000000,"init"};
 item1[] = {"End",1,250,400.000000,-250.000000,500.000000,-200.000000,0.000000,"End"};
 item2[] = {"Not_Alive",4,218,125.000000,325.000000,225.000000,375.000000,5.000000,"Not" \n "Alive"};
 item3[] = {"loiter",4,218,-325.000000,0.000000,-225.000000,50.000000,0.000000,"loiter"};
@@ -10,7 +10,7 @@ item5[] = {"moveToCompleted",4,218,-200.000000,75.000000,-100.000000,125.000000,
 item6[] = {"",7,210,-29.000042,346.000000,-20.999958,354.000000,0.000000,""};
 item7[] = {"",7,210,-29.000042,595.999939,-20.999958,604.000061,0.000000,""};
 item8[] = {"true",8,218,-75.000000,-175.000000,25.000000,-125.000000,0.000000,"true"};
-item9[] = {"Begin",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Begin"};
+item9[] = {"Begin",2,4346,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Begin"};
 item10[] = {"",7,210,-29.000006,-29.000004,-20.999996,-20.999996,0.000000,""};
 item11[] = {"",7,210,-279.000061,-29.000004,-270.999969,-20.999996,0.000000,""};
 item12[] = {"",7,210,-254.000046,146.000000,-245.999954,154.000000,0.000000,""};
@@ -108,8 +108,8 @@ link55[] = {45,22};
 link56[] = {45,44};
 link57[] = {46,7};
 link58[] = {47,14};
-globals[] = {25.000000,1,0,0,0,640,480,1,148,6316128,1,-655.625671,1272.294189,960.397583,-350.530884,1353,920,1};
-window[] = {2,-1,-1,-1,-1,1248,156,2088,156,3,1371};
+globals[] = {25.000000,1,0,0,0,640,480,1,148,6316128,1,-608.381958,1225.050171,928.272949,-318.406616,1353,920,1};
+window[] = {2,-1,-1,-32000,-32030,1248,156,2088,156,3,1371};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -122,13 +122,8 @@ class FSM
       name = "init";
       init = /*%FSM<STATEINIT""">*/"_position = 	_this select 0;" \n
        "_agent = 		_this select 1;" \n
-       "_secondHand = false;" \n
        "_hordedata = [];" \n
-       "" \n
-       "if (count _this > 2) then {" \n
-       "	_secondHand = true;" \n
-       "	//diag_log (""Second Hand Zombie Initialized: "" + str(_this));" \n
-       "};"/*%FSM</STATEINIT""">*/;
+       ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -178,13 +173,7 @@ class FSM
        "" \n
        "_timeN = diag_tickTime;" \n
        "" \n
-       "//hintSilent (""loitering..."" + str(_agent distance (_agent getVariable [""myDest"",getposATL _agent])));" \n
-       "" \n
-       "if (_secondHand) then {" \n
-       "	diag_log (""Zombie "" + str(_agent) + "" Loiter "" + "" distance: "" + str(_newDest distance _myDest));" \n
-       "	_agent doMove (getPosATL player);" \n
-       "	_agent moveTo (getPosATL player);" \n
-       "};"/*%FSM</STATEINIT""">*/;
+       "//hintSilent (""loitering..."" + str(_agent distance (_agent getVariable [""myDest"",getposATL _agent])));"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -205,9 +194,9 @@ class FSM
           to="Loiter";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"moveToFailed _agent;"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"" \n
-           "[_agent,_position] call zombie_loiter;" \n
+          action=/*%FSM<ACTION""">*/"[_agent,_position] call zombie_loiter;" \n
            "_myDest = _agent getVariable [""myDest"",getposATL _agent];" \n
+           "" \n
            ""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -294,13 +283,6 @@ class FSM
        "//Spawn roaming script (individual to unit)" \n
        "_entityTime = diag_tickTime;" \n
        "" \n
-       "//Debug" \n
-       "if (_secondHand) then {" \n
-       "	//diag_log (""Zombie Brain Initialized "" + str(_agent) + "" doLoiter: "" + str(_doLoiter));" \n
-       "	[_agent,_position] call zombie_loiter;" \n
-       "	_myDest = _agent getVariable [""myDest"",getposATL _agent];" \n
-       "" \n
-       "};" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -339,7 +321,6 @@ class FSM
        "_localplayer = (_agentPosition) nearEntities [[""SoldierWB"",""SoldierEB"",""SoldierGB""],75];" \n
        "_playerPosition = [];" \n
        "_playerdistance = 0;" \n
-	   "_playerOldAggroRank = 0;" \n
        "_targetdistance = _agent distance _target;" \n
        "_playerOldAggroRank = _target getVariable [""aggroRank"",0];" \n
        "_targetRank = _playerOldAggroRank;" \n
