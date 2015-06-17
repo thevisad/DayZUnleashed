@@ -11,5 +11,6 @@ player removeAction r_player_action_bag;
 r_action_bag = false;
 _weapon = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 _weapon setDir _dir;
+_weapon setposATL _location;
 //_weapon setpos _location;
 player reveal _weapon;

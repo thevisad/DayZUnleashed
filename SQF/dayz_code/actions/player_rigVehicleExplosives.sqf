@@ -37,12 +37,14 @@ if( _argument == 0 ) then {
 		player removeMagazine "PipeBomb"; 
 		_dir = getDir player; 
 		_playerPos = getPos player; 
-		_position = [(_playerPos select 0) + (0.90 * sin(_dir)), (_playerPos select 1) + (0.90 * cos(_dir)), _playerPos select 2]; 
-		_pipe = "PipeBomb" createVehicle _position; 
-		_position = [(_playerPos select 0) + (0.70 * sin(_dir)), (_playerPos select 1) + (0.70 * cos(_dir)), _playerPos select 2]; 
-		_bomb = "BAF_ied_v1" createVehicle _position;
+		_position1 = [(_playerPos select 0) + (0.90 * sin(_dir)), (_playerPos select 1) + (0.90 * cos(_dir)), _playerPos select 2]; 
+		_pipe = "PipeBomb" createVehicle _position1; 
+		_position2 = [(_playerPos select 0) + (0.70 * sin(_dir)), (_playerPos select 1) + (0.70 * cos(_dir)), _playerPos select 2]; 
+		_bomb = "BAF_ied_v1" createVehicle _position2;
 		_pipe setDir (_dir + 250); 
 		_bomb setDir (_dir + 200); 
+		_pipe setposATL _position1;
+		_bomb setposATL _position2;
 		player playActionNow "Medic"; 
 		[player,"repair",25,false] call dayz_zombieSpeak; 
 		sleep 6; 

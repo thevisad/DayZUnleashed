@@ -44,6 +44,7 @@ if (_hasoutput) then{
     _nearByPile= nearestObjects [(position player), ["WeaponHolder","WeaponHolderBase"],2];
     if (count _nearByPile ==0) then {
         _item = createVehicle ["WeaponHolder", position player, [], 0.0, "CAN_COLLIDE"];
+		_item setposATL position player;
     } else {
         _item = _nearByPile select 0;
     };

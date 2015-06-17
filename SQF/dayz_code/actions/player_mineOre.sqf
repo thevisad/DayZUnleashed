@@ -111,6 +111,7 @@ if (count(_findNearestRock) >= 1) then {
 			_itemOut = "PartOre";
 			
 			_item = createVehicle ["WeaponHolder", getPosATL player, [], 1, "CAN_COLLIDE"];
+			_item setposATL position player;
 			_item addMagazineCargoGlobal [_itemOut,_countOut];
 
 			player reveal _item;

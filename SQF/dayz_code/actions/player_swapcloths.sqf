@@ -74,7 +74,7 @@ if( _SomesOnesClothing != "") then
 		_grave = createVehicle ["Body", _position, [], 0, "CAN_COLLIDE"];
 		_wpn = createVehicle ["WeaponHolder", _ammoboxPos, [], 1, "CAN_COLLIDE"];
 		_grave modelToWorld _position;
-		
+		_wpn modelToWorld _position;
 		//ClearWeaponCargo _wpn; 
 		//ClearMagazineCargo _wpn; 
 		_wpn addWeaponCargo _weapons;

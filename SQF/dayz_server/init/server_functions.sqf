@@ -69,7 +69,7 @@ server_SpawnBuildings = {
 				if (unleashed_debug == 1) then {diag_log (format["SM: _ownerID %1",_ownerID]); };
 				if (unleashed_debug == 1) then {diag_log (format["SM: _worldspace %1",_worldspace]); };
 			_object = createVehicle [_type, _pos, [], 0, if (_type=="TentStorage") then {"NONE"} else {"CAN_COLLIDE"}];	
-			
+			_object setPosATL _pos;
 			_object setVariable ["lastUpdate",time];
 			_object setVariable ["ObjectID", _idKey, true];
 			//_object setVariable ["ObjectUID", _worldspace call dayz_objectUID2, true];
@@ -234,7 +234,7 @@ server_SpawnGarages = {
 		_object setVariable ["GarageID", _garageID, true];
 		_object setVariable ["OwnerID", _playerID, true];
 		_object setdir _dir;
-
+		_object setPosATL _pos;
 		for "_i" from 1 to 5 do {
 			if (unleashed_debug == 1) then { diag_log("GARAGEINFO: Fetching Vehicles in Garages..."); };
 			_key = format["CHILD:606:%1:%2:",dayZ_instance, _GarageUID];
@@ -387,6 +387,7 @@ server_spawnVehicle = {
 				_point =  _worldspace select 1;
 #endif
 				_entity = createVehicle [_class, _point, [], 0, "CAN_COLLIDE"];	
+				_entity setDamage _point;
 				_entity setVariable ["ObjectID", _ObjectID, true];
 				_entity setVariable ["CharacterID", _CharacterID, true];	
 				_entity setVariable ["lastUpdate",time];
@@ -538,8 +539,9 @@ server_spawnGarageVehicle = {
 				_entity setVariable ["ObjectUID", _ObjectUID, true]; // this variable must be set very early
 				_entity setVariable ["CharacterID", _CharacterID, true];	
 				_entity setVariable ["lastUpdate",time]; // prevent immediate hive write when vehicle parts are set up
+				_object setPosATL _pos;
 				// setPos will be done again just after setDir, see below....
-				_entity setDamage _damage;
+				_entity setDamage _point;
 				{
 					_wantExplosiveParts = _x;
 					{

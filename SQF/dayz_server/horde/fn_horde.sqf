@@ -9,26 +9,9 @@ _startxchange = 500 - (floor(random 1000));
 
 _finishxchange = 500 - (floor(random 1000));
 
-if (_map == "emita") then {
-	_targetPosNorth = [((_targetPos1 select 0)+_startxchange),((_targetPos1 select 1)+2000),_targetPos1 select 2];
-	_targetPosSouth = [((_targetPos1 select 0)-_finishxchange),((_targetPos1 select 1)-2000),_targetPos1 select 2];
-};
-if (_map == "isoladicapraia") then {
-	_targetPosNorth = [((_targetPos1 select 0)+_startxchange),((_targetPos1 select 1)+4000),_targetPos1 select 2];
-	_targetPosSouth = [((_targetPos1 select 0)-_finishxchange),((_targetPos1 select 1)-4000),_targetPos1 select 2];
-};
-if (_map == "fata") then {
-	_targetPosNorth = [((_targetPos1 select 0)+_startxchange),((_targetPos1 select 1)+4000),_targetPos1 select 2];
-	_targetPosSouth = [((_targetPos1 select 0)-_finishxchange),((_targetPos1 select 1)-4000),_targetPos1 select 2];
-};
-if (_map == "queshkibrul") then {
-	_targetPosNorth = [((_targetPos1 select 0)+_startxchange),((_targetPos1 select 1)+4000),_targetPos1 select 2];
-	_targetPosSouth = [((_targetPos1 select 0)-_finishxchange),((_targetPos1 select 1)-4000),_targetPos1 select 2];
-};
-if (_map == "kulima") then {
-	_targetPosNorth = [((_targetPos1 select 0)+_startxchange),((_targetPos1 select 1)+3000),_targetPos1 select 2];
-	_targetPosSouth = [((_targetPos1 select 0)-_finishxchange),((_targetPos1 select 1)-3000),_targetPos1 select 2];
-};
+_targetPosNorth = [((_targetPos1 select 0)+_startxchange),((_targetPos1 select 1)+5000),_targetPos1 select 2];
+_targetPosSouth = [((_targetPos1 select 0)-_finishxchange),((_targetPos1 select 1)-5000),_targetPos1 select 2];
+
 
 
 _position = [_targetPosNorth,random 200,random 360,false] call SHK_pos;
@@ -40,7 +23,7 @@ _method = "NONE";
 _zombieLoopCounter = 0;
 _amountOfSpawns = 0;
 _targetPos = [];
-_unitTypes = 	[]+ getArray (configFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
+_unitTypes = 	[]+ getArray (configFile >> "CfgBuildingLoot" >> "Horde" >> "zombieClass");
 _tempSpawnAmount = dayz_zombiehordeMaximum - dayz_zombiehordeMinimum;
 _amountOfSpawns=(floor(random _tempSpawnAmount) + dayz_zombiehordeMinimum);
 dayz_zombiehordeData set [count dayz_zombiehordeData, [dayz_zombiehorde, _finalPosition]];

@@ -29,10 +29,10 @@ item24[] = {"Dead_Player",4,218,50.000000,700.000000,150.000000,750.000000,0.000
 item25[] = {"ERROR__Player_Already",2,250,175.000000,700.000000,275.000000,750.000000,0.000000,"ERROR:" \n "Player Already" \n "Dead"};
 item26[] = {"Alive",4,218,-175.000000,750.000000,-75.000000,800.000000,0.000000,"Alive"};
 item27[] = {"Position",2,250,-75.000000,800.000000,25.000000,850.000000,0.000000,"Position"};
-item28[] = {"Version_Ok",4,218,-175.000000,850.000000,-75.000000,900.000000,0.000000,"Version" \n "Ok"};
+item28[] = {"Version_Ok",4,4314,-175.000000,850.000000,-75.000000,900.000000,0.000000,"Version" \n "Ok"};
 item29[] = {"Load_In",2,250,-75.000000,1000.000000,25.000000,1050.000000,0.000000,"Load In"};
 item30[] = {"DayZCode__Bad_Ve",4,218,525.000000,875.000000,625.000000,925.000000,0.000000,"DayZCode " \n "Bad" \n "Version"};
-item31[] = {"ERROR__Bad_Versi",2,4346,725.000000,1250.000000,825.000000,1300.000000,0.000000,"ERROR:" \n "Bad Version"};
+item31[] = {"ERROR__Bad_Versi",2,250,725.000000,1250.000000,825.000000,1300.000000,0.000000,"ERROR:" \n "Bad Version"};
 item32[] = {"Display_Ready",4,218,-175.000000,1050.000000,-75.000000,1100.000000,0.000000,"Display" \n "Ready"};
 item33[] = {"Preload_Display",2,250,-75.000000,1100.000000,25.000000,1150.000000,0.000000,"Preload" \n "Display"};
 item34[] = {"Preload_Done",4,218,-175.000000,1150.000000,-75.000000,1200.000000,0.000000,"Preload" \n "Done"};
@@ -42,52 +42,50 @@ item37[] = {"True",8,218,25.000000,1250.000000,125.000000,1300.000000,0.000000,"
 item38[] = {"Too_Long",4,218,300.000000,150.000000,400.000000,200.000000,0.000000,"Too" \n "Long"};
 item39[] = {"Too_Long",4,218,300.000000,500.000000,400.000000,550.000000,0.000000,"Too" \n "Long"};
 item40[] = {"Too_Long",4,218,300.000000,700.000000,400.000000,750.000000,0.000000,"Too" \n "Long"};
-item41[] = {"Too_Long",4,218,725.000000,1100.000000,825.000000,1150.000000,0.000000,"Too" \n "Long"};
-item42[] = {"Enable_Sim",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Enable Sim"};
-item43[] = {"Initialized",4,218,-175.000000,-150.000000,-75.000000,-100.000000,0.000000,"Initialized"};
-item44[] = {"New_Character",4,218,-625.000000,425.000000,-525.000000,475.000000,5.000000,"New" \n "Character"};
-item45[] = {"Gender_Selection",2,250,-625.000000,550.000000,-525.000000,600.000000,0.000000,"Gender Selection" \n "Dialog"};
-item46[] = {"Selected",4,218,-625.000000,700.000000,-525.000000,750.000000,0.000000,"Selected"};
-item47[] = {"Process",2,250,-625.000000,800.000000,-525.000000,850.000000,0.000000,"Process"};
-item48[] = {"no_PlayerID",4,218,50.000000,-100.000000,150.000000,-50.000000,2.000000,"no PlayerID"};
-item49[] = {"ERROR__No_Player_1",2,250,175.000000,-100.000000,275.000000,-50.000000,0.000000,"ERROR:" \n "No PlayerID"};
-item50[] = {"Too_Long",4,218,300.000000,-100.000000,400.000000,-50.000000,0.000000,"Too" \n "Long"};
-item51[] = {"Stream",2,250,-75.000000,900.000000,25.000000,950.000000,0.000000,"Stream"};
-item52[] = {"Preloaded",4,218,-175.000000,950.000000,-75.000000,1000.000000,0.000000,"Preloaded"};
-item53[] = {"Retry",4,218,25.000000,375.000000,125.000000,425.000000,0.000000,"Retry"};
-item54[] = {"retry_",4,218,25.000000,425.000000,125.000000,475.000000,0.000000,"retry" \n ""};
-item55[] = {"Retry",2,250,125.000000,400.000000,225.000000,450.000000,0.000000,"Retry"};
-item56[] = {"auth_failed",4,218,250.000000,400.000000,350.000000,450.000000,0.000000,"auth failed"};
-item57[] = {"get_ready_to_clo",2,250,400.000000,400.000000,500.000000,450.000000,0.000000,"get ready to close"};
-item58[] = {"sleep_",4,218,550.000000,400.000000,650.000000,450.000000,0.000000,"sleep" \n ""};
-item59[] = {"Disconnect",2,250,675.000000,400.000000,775.000000,450.000000,0.000000,"Disconnect"};
-item60[] = {"No_time_date",4,218,25.000000,1150.000000,125.000000,1200.000000,0.000000,"No time/date"};
-item61[] = {"ERROR__No_Date_or",2,250,175.000000,1150.000000,275.000000,1200.000000,0.000000,"ERROR:" \n "No Date or Time"};
-item62[] = {"Too_Long",4,218,300.000000,1150.000000,400.000000,1200.000000,0.000000,"Too" \n "Long"};
-item63[] = {"get_ready_to_clo_1",2,250,725.000000,975.000000,825.000000,1025.000000,0.000000,"get ready to close"};
-item64[] = {"sleep_",4,218,725.000000,800.000000,825.000000,850.000000,0.000000,"sleep" \n ""};
-item65[] = {"Server_Loading",2,250,-75.000000,250.000000,25.000000,300.000000,0.000000,"Server Loading"};
-item66[] = {"Too_Long",4,218,50.000000,250.000000,150.000000,300.000000,0.000000,"Too" \n "Long"};
-item67[] = {"Server_Ready",4,218,-75.000000,325.000000,25.000000,375.000000,0.000000,"Server Ready"};
-item68[] = {"Region_Selection",2,250,-325.000000,625.000000,-225.000000,675.000000,0.000000,"Region Selection" \n "Dialog"};
-item69[] = {"Selected",4,218,-325.000000,700.000000,-225.000000,750.000000,0.000000,"Selected"};
-item70[] = {"Process_1",2,250,-325.000000,800.000000,-225.000000,850.000000,0.000000,"Process"};
-item71[] = {"True",8,218,-625.000000,900.000000,-525.000000,950.000000,0.000000,"True"};
-item72[] = {"DayZ_CA_Bad_Vers",4,218,525.000000,1025.000000,625.000000,1075.000000,0.000000,"DayZ CA" \n "Bad" \n "Version"};
-item73[] = {"Unleashed_Pack_Bad",4,218,525.000000,1325.000000,625.000000,1375.000000,0.000000,"Unleashed Pack" \n "Bad" \n "Version"};
-item74[] = {"Active_Loot_Bad",4,218,525.000000,1275.000000,625.000000,1325.000000,0.000000,"Active Loot" \n "Bad" \n "Version"};
-item75[] = {"Endworld_Wrecks",4,218,525.000000,1225.000000,625.000000,1275.000000,0.000000,"Endworld Wrecks" \n "Bad" \n "Version"};
-item76[] = {"Dayz_Weapons_Bad",4,218,525.000000,1175.000000,625.000000,1225.000000,0.000000,"Dayz Weapons" \n "Bad" \n "Version"};
-item77[] = {"DayZ__Bad_Versio",4,218,525.000000,925.000000,625.000000,975.000000,0.000000,"DayZ " \n "Bad" \n "Version"};
-item78[] = {"DayZAnim_Bad_Ver",4,218,525.000000,975.000000,625.000000,1025.000000,0.000000,"DayZAnim" \n "Bad" \n "Version"};
-item79[] = {"DayZ_Equip_Bad_V",4,218,525.000000,1075.000000,625.000000,1125.000000,0.000000,"DayZ Equip" \n "Bad" \n "Version"};
-item80[] = {"DayZ_SFX_Bad_Ver",4,218,525.000000,1125.000000,625.000000,1175.000000,0.000000,"DayZ SFX" \n "Bad" \n "Version"};
+item41[] = {"Enable_Sim",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Enable Sim"};
+item42[] = {"Initialized",4,218,-175.000000,-150.000000,-75.000000,-100.000000,0.000000,"Initialized"};
+item43[] = {"New_Character",4,218,-625.000000,425.000000,-525.000000,475.000000,5.000000,"New" \n "Character"};
+item44[] = {"Gender_Selection",2,250,-625.000000,550.000000,-525.000000,600.000000,0.000000,"Gender Selection" \n "Dialog"};
+item45[] = {"Selected",4,218,-625.000000,700.000000,-525.000000,750.000000,0.000000,"Selected"};
+item46[] = {"Process",2,250,-625.000000,800.000000,-525.000000,850.000000,0.000000,"Process"};
+item47[] = {"no_PlayerID",4,218,50.000000,-100.000000,150.000000,-50.000000,2.000000,"no PlayerID"};
+item48[] = {"ERROR__No_Player_1",2,250,175.000000,-100.000000,275.000000,-50.000000,0.000000,"ERROR:" \n "No PlayerID"};
+item49[] = {"Too_Long",4,218,300.000000,-100.000000,400.000000,-50.000000,0.000000,"Too" \n "Long"};
+item50[] = {"Stream",2,250,-75.000000,900.000000,25.000000,950.000000,0.000000,"Stream"};
+item51[] = {"Preloaded",4,218,-175.000000,950.000000,-75.000000,1000.000000,0.000000,"Preloaded"};
+item52[] = {"Retry",4,218,25.000000,375.000000,125.000000,425.000000,0.000000,"Retry"};
+item53[] = {"retry_",4,218,25.000000,425.000000,125.000000,475.000000,0.000000,"retry" \n ""};
+item54[] = {"Retry",2,250,125.000000,400.000000,225.000000,450.000000,0.000000,"Retry"};
+item55[] = {"auth_failed",4,218,250.000000,400.000000,350.000000,450.000000,0.000000,"auth failed"};
+item56[] = {"get_ready_to_clo",2,250,400.000000,400.000000,500.000000,450.000000,0.000000,"get ready to close"};
+item57[] = {"sleep_",4,218,550.000000,400.000000,650.000000,450.000000,0.000000,"sleep" \n ""};
+item58[] = {"Disconnect",2,250,675.000000,400.000000,775.000000,450.000000,0.000000,"Disconnect"};
+item59[] = {"No_time_date",4,218,25.000000,1150.000000,125.000000,1200.000000,0.000000,"No time/date"};
+item60[] = {"ERROR__No_Date_or",2,250,175.000000,1150.000000,275.000000,1200.000000,0.000000,"ERROR:" \n "No Date or Time"};
+item61[] = {"Too_Long",4,218,300.000000,1150.000000,400.000000,1200.000000,0.000000,"Too" \n "Long"};
+item62[] = {"sleep_",4,218,725.000000,800.000000,825.000000,850.000000,0.000000,"sleep" \n ""};
+item63[] = {"Server_Loading",2,250,-75.000000,250.000000,25.000000,300.000000,0.000000,"Server Loading"};
+item64[] = {"Too_Long",4,218,50.000000,250.000000,150.000000,300.000000,0.000000,"Too" \n "Long"};
+item65[] = {"Server_Ready",4,218,-75.000000,325.000000,25.000000,375.000000,0.000000,"Server Ready"};
+item66[] = {"Region_Selection",2,250,-325.000000,625.000000,-225.000000,675.000000,0.000000,"Region Selection" \n "Dialog"};
+item67[] = {"Selected",4,218,-325.000000,700.000000,-225.000000,750.000000,0.000000,"Selected"};
+item68[] = {"Process_1",2,250,-325.000000,800.000000,-225.000000,850.000000,0.000000,"Process"};
+item69[] = {"True",8,218,-625.000000,900.000000,-525.000000,950.000000,0.000000,"True"};
+item70[] = {"DayZ_CA_Bad_Vers",4,218,525.000000,1025.000000,625.000000,1075.000000,0.000000,"DayZ CA" \n "Bad" \n "Version"};
+item71[] = {"Unleashed_Pack_Bad",4,218,525.000000,1325.000000,625.000000,1375.000000,0.000000,"Unleashed Pack" \n "Bad" \n "Version"};
+item72[] = {"Active_Loot_Bad",4,218,525.000000,1275.000000,625.000000,1325.000000,0.000000,"Active Loot" \n "Bad" \n "Version"};
+item73[] = {"Endworld_Wrecks",4,218,525.000000,1225.000000,625.000000,1275.000000,0.000000,"Endworld Wrecks" \n "Bad" \n "Version"};
+item74[] = {"Dayz_Weapons_Bad",4,218,525.000000,1175.000000,625.000000,1225.000000,0.000000,"Dayz Weapons" \n "Bad" \n "Version"};
+item75[] = {"DayZ__Bad_Versio",4,218,525.000000,925.000000,625.000000,975.000000,0.000000,"DayZ " \n "Bad" \n "Version"};
+item76[] = {"DayZAnim_Bad_Ver",4,218,525.000000,975.000000,625.000000,1025.000000,0.000000,"DayZAnim" \n "Bad" \n "Version"};
+item77[] = {"DayZ_Equip_Bad_V",4,218,525.000000,1075.000000,625.000000,1125.000000,0.000000,"DayZ Equip" \n "Bad" \n "Version"};
+item78[] = {"DayZ_SFX_Bad_Ver",4,218,525.000000,1125.000000,625.000000,1175.000000,0.000000,"DayZ SFX" \n "Bad" \n "Version"};
 link0[] = {0,1};
 link1[] = {0,5};
 link2[] = {1,2};
 link3[] = {2,3};
 link4[] = {3,4};
-link5[] = {4,43};
+link5[] = {4,42};
 link6[] = {5,4};
 link7[] = {6,7};
 link8[] = {7,8};
@@ -97,15 +95,15 @@ link11[] = {9,12};
 link12[] = {9,13};
 link13[] = {10,11};
 link14[] = {11,12};
-link15[] = {12,65};
+link15[] = {12,63};
 link16[] = {13,14};
 link17[] = {14,38};
 link18[] = {15,16};
-link19[] = {15,54};
+link19[] = {15,53};
 link20[] = {16,17};
 link21[] = {17,18};
 link22[] = {17,20};
-link23[] = {17,44};
+link23[] = {17,43};
 link24[] = {18,19};
 link25[] = {19,39};
 link26[] = {20,21};
@@ -118,61 +116,61 @@ link32[] = {25,40};
 link33[] = {26,27};
 link34[] = {27,28};
 link35[] = {27,30};
-link36[] = {27,72};
-link37[] = {27,73};
-link38[] = {27,74};
-link39[] = {27,75};
-link40[] = {27,76};
-link41[] = {27,77};
-link42[] = {27,78};
-link43[] = {27,79};
-link44[] = {27,80};
-link45[] = {28,51};
+link36[] = {27,70};
+link37[] = {27,71};
+link38[] = {27,72};
+link39[] = {27,73};
+link40[] = {27,74};
+link41[] = {27,75};
+link42[] = {27,76};
+link43[] = {27,77};
+link44[] = {27,78};
+link45[] = {28,50};
 link46[] = {29,32};
 link47[] = {30,31};
-link48[] = {31,41};
+link48[] = {31,62};
 link49[] = {32,33};
 link50[] = {33,34};
 link51[] = {34,35};
 link52[] = {35,37};
-link53[] = {35,60};
+link53[] = {35,59};
 link54[] = {37,36};
-link55[] = {38,59};
-link56[] = {39,59};
-link57[] = {40,59};
-link58[] = {41,63};
-link59[] = {42,6};
-link60[] = {42,48};
-link61[] = {43,42};
+link55[] = {38,58};
+link56[] = {39,58};
+link57[] = {40,58};
+link58[] = {41,6};
+link59[] = {41,47};
+link60[] = {42,41};
+link61[] = {43,44};
 link62[] = {44,45};
 link63[] = {45,46};
-link64[] = {46,47};
-link65[] = {47,71};
+link64[] = {46,69};
+link65[] = {47,48};
 link66[] = {48,49};
-link67[] = {49,50};
-link68[] = {50,59};
-link69[] = {51,52};
-link70[] = {52,29};
-link71[] = {53,15};
-link72[] = {54,55};
-link73[] = {55,53};
+link67[] = {49,58};
+link68[] = {50,51};
+link69[] = {51,29};
+link70[] = {52,15};
+link71[] = {53,54};
+link72[] = {54,52};
+link73[] = {54,55};
 link74[] = {55,56};
 link75[] = {56,57};
 link76[] = {57,58};
-link77[] = {58,59};
+link77[] = {59,60};
 link78[] = {60,61};
-link79[] = {61,62};
-link80[] = {62,59};
+link79[] = {61,58};
+link80[] = {62,58};
 link81[] = {63,64};
-link82[] = {64,59};
-link83[] = {65,66};
-link84[] = {65,67};
-link85[] = {66,59};
-link86[] = {67,15};
-link87[] = {68,69};
-link88[] = {69,70};
-link89[] = {70,20};
-link90[] = {71,68};
+link82[] = {63,65};
+link83[] = {64,58};
+link84[] = {65,15};
+link85[] = {66,67};
+link86[] = {67,68};
+link87[] = {68,20};
+link88[] = {69,66};
+link89[] = {70,31};
+link90[] = {71,31};
 link91[] = {72,31};
 link92[] = {73,31};
 link93[] = {74,31};
@@ -180,10 +178,8 @@ link94[] = {75,31};
 link95[] = {76,31};
 link96[] = {77,31};
 link97[] = {78,31};
-link98[] = {79,31};
-link99[] = {80,31};
-globals[] = {25.000000,1,0,0,0,640,480,1,154,6316128,1,-723.174255,1849.867920,1610.213135,28.864256,1248,767,1};
-window[] = {0,-1,-1,-32000,-32000,920,119,1992,8,1,1266};
+globals[] = {25.000000,1,0,0,0,640,480,1,154,6316128,1,-655.813843,789.077576,1461.463623,-62.145866,1395,1471,1};
+window[] = {2,-1,-1,-1,-1,1087,-2385,-512,175,3,1413};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -204,6 +200,18 @@ class FSM
        "endworld_wrecks_versionNo = getText(configFile >> ""CfgPatches"" >> ""endworld_wrecks"" >> ""version"");" \n
        "DZUactiveLoot_versionNo = getText(configFile >> ""CfgPatches"" >> ""DZUactiveLoot"" >> ""version"");" \n
        "unleashed_pack_versionNo = getText(configFile >> ""CfgPatches"" >> ""unleashed_pack"" >> ""version"");" \n
+       "" \n
+       "expected_dayzcode_versionNo = ""0.98-Devbuild-2015-06-16_0307 PM"";" \n
+       "expected_dayz_versionNo = ""0.98-Devbuild-2014-10-27_0834 AM"";" \n
+       "expected_dayz_anim_versionNo = ""0.98-Devbuild-2014-10-27_0834 AM"";" \n
+       "expected_dayz_communityassets_versionNo = ""0.98-Devbuild-2014-10-27_0834 AM"";" \n
+       "expected_dayz_equip_versionNo = ""0.98-Devbuild-2014-10-27_0834 AM"";" \n
+       "expected_dayz_sfx_versionNo = ""0.98-Devbuild-09042014"";" \n
+       "expected_dayz_weapons_versionNo = ""0.98-Devbuild-2014-10-27_0834 AM"";" \n
+       "expected_endworld_wrecks_versionNo = ""0.98-Devbuild-2014-10-27_0834 AM"";" \n
+       "expected_DZUactiveLoot_versionNo = ""0.98-Devbuild-2014-10-25_1234 AM"";" \n
+       "expected_unleashed_pack_versionNo = ""0.98-Devbuild-2014-10-27_0834 AM"";" \n
+       "" \n
        "diag_log (""DAYZ: CLIENT IS RUNNING DAYZ_CODE "" + str(dayz_versionNo));" \n
        "_badversion = """";" \n
        "_AuthAttempt = 0;" \n
@@ -915,7 +923,7 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != endworld_wrecks_versionNo" \n
+          condition=/*%FSM<CONDITION""">*/"expected_endworld_wrecks_versionNo != endworld_wrecks_versionNo" \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_badversion = ""endworld_wrecks"";"/*%FSM</ACTION""">*/;
         };
@@ -926,7 +934,7 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != dayzcode_versionNo"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"expected_dayzcode_versionNo != dayzcode_versionNo"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_badversion = ""dayz_code"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -936,9 +944,8 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != dayz_communityassets_versionNo" \n
+          condition=/*%FSM<CONDITION""">*/"expected_dayz_communityassets_versionNo != dayz_communityassets_versionNo" \n
            "" \n
-           " " \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_badversion = ""dayz_communityassets"";"/*%FSM</ACTION""">*/;
         };
@@ -949,7 +956,8 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != unleashed_pack_versionNo"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"expected_unleashed_pack_versionNo != unleashed_pack_versionNo" \n
+           ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_badversion = ""unleashed_pack"";"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -959,7 +967,7 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != DZUactiveLoot_versionNo" \n
+          condition=/*%FSM<CONDITION""">*/"expected_DZUactiveLoot_versionNo != DZUactiveLoot_versionNo" \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_badversion = ""DZUactiveLoot"";"/*%FSM</ACTION""">*/;
         };
@@ -970,7 +978,7 @@ class FSM
           priority = 0.000000;
           to="Stream";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version == dayz_versionNo"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"_version == dayzcode_versionNo"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -980,9 +988,11 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != dayz_weapons_versionNo" \n
+          condition=/*%FSM<CONDITION""">*/"expected_dayz_weapons_versionNo != dayz_weapons_versionNo" \n
            ""/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/"_badversion = ""dayz_weapons"";"/*%FSM</ACTION""">*/;
+          action=/*%FSM<ACTION""">*/"_badversion = ""dayz_weapons"";" \n
+           "" \n
+           ""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
         /*%FSM<LINK "DayZ__Bad_Versio">*/
@@ -991,8 +1001,7 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != dayz_versionNo" \n
-           "" \n
+          condition=/*%FSM<CONDITION""">*/"expected_dayz_versionNo != dayz_versionNo" \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_badversion = ""dayz"";"/*%FSM</ACTION""">*/;
         };
@@ -1003,7 +1012,7 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != dayz_anim_versionNo" \n
+          condition=/*%FSM<CONDITION""">*/"expected_dayz_anim_versionNo != dayz_anim_versionNo" \n
            "" \n
            "" \n
            ""/*%FSM</CONDITION""">*/;
@@ -1016,7 +1025,9 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != dayz_equip_versionNo" \n
+          condition=/*%FSM<CONDITION""">*/"expected_dayz_equip_versionNo != dayz_equip_versionNo" \n
+           " " \n
+           "" \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_badversion = ""dayz_equip"";"/*%FSM</ACTION""">*/;
         };
@@ -1027,7 +1038,7 @@ class FSM
           priority = 0.000000;
           to="ERROR__Bad_Versi";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"_version != dayz_sfx_versionNo" \n
+          condition=/*%FSM<CONDITION""">*/"expected_dayz_sfx_versionNo != dayz_sfx_versionNo" \n
            ""/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_badversion = ""dayz_sfx"";"/*%FSM</ACTION""">*/;
         };
@@ -1085,11 +1096,11 @@ class FSM
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
-        /*%FSM<LINK "Too_Long">*/
-        class Too_Long
+        /*%FSM<LINK "sleep_">*/
+        class sleep_
         {
           priority = 0.000000;
-          to="get_ready_to_clo_1";
+          to="Disconnect";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _myTime) > 5"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1667,32 +1678,6 @@ class FSM
           to="Disconnect";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _myTime) > 10"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-      };
-    };
-    /*%FSM</STATE>*/
-    /*%FSM<STATE "get_ready_to_clo_1">*/
-    class get_ready_to_clo_1
-    {
-      name = "get_ready_to_clo_1";
-      init = /*%FSM<STATEINIT""">*/"//diag_log (""PLOGIN:Wrong DayZ Version ("" + dayz_versionNo + "")"");" \n
-       "diag_log format[localize ""str_player_18"",dayz_versionNo,_version];" \n
-       "" \n
-       "dayz_loadScreenMsg = ""You are running an incorrect version of DAYZ_CODE, please download this file from dayzmod.com/downloads."";" \n
-       "" \n
-       "progressLoadingScreen 1;"/*%FSM</STATEINIT""">*/;
-      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-      class Links
-      {
-        /*%FSM<LINK "sleep_">*/
-        class sleep_
-        {
-          priority = 0.000000;
-          to="Disconnect";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _myTime) > 5"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
