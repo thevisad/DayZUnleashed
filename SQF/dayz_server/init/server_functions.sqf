@@ -387,7 +387,7 @@ server_spawnVehicle = {
 				_point =  _worldspace select 1;
 #endif
 				_entity = createVehicle [_class, _point, [], 0, "CAN_COLLIDE"];	
-				_entity setDamage _point;
+				_entity setPosATL _point;
 				_entity setVariable ["ObjectID", _ObjectID, true];
 				_entity setVariable ["CharacterID", _CharacterID, true];	
 				_entity setVariable ["lastUpdate",time];
@@ -541,7 +541,7 @@ server_spawnGarageVehicle = {
 				_entity setVariable ["lastUpdate",time]; // prevent immediate hive write when vehicle parts are set up
 				_object setPosATL _pos;
 				// setPos will be done again just after setDir, see below....
-				_entity setDamage _point;
+				_entity setDamage _damage;
 				{
 					_wantExplosiveParts = _x;
 					{
