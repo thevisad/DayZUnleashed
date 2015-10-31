@@ -26,6 +26,7 @@ sleep 1;
 
 _object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 _object setDir (getDir player);
+_object setposATL _location;
 player reveal _object;
 
 r_action_count = 0;

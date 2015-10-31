@@ -57,6 +57,7 @@ if (_ammo isKindOf "Hatchet_Swing_Ammo" || _ammo isKindOf "Chainsaw_Swing_Ammo")
 					_nearByPile= nearestObjects [getPosATL player, ["WeaponHolder"],2];
 					if (count _nearByPile == 0) then { 
 						_item = createVehicle ["WeaponHolder", getPosATL player, [], 1, "CAN_COLLIDE"];
+						_item setposATL getPosATL player;
 						_item addMagazineCargoGlobal [_itemOut,_countOut];
 						player reveal _item;
 					} else {

@@ -7,14 +7,18 @@ class CfgBuildingLoot {
 		lootChance = 0;
 		lootPos[] = {};
 		lootType[] = {{"civgeneric",0.25},
-            {"activeloot",0.10}};
+            {"activeloot",0.50}};
 		hangPos[] = {};
 		vehPos[] = {};
 	};
 	class Master {
 		weapons[] = {"SMAW","Javelin","G36C","Stinger"};
 		lootType[] = {{"civgeneric",0.25},
-            {"activeloot",0.10}};
+            {"activeloot",0.50}};
+	};
+	
+	class Horde: Default {
+		zombieClass[] = {"zZombie_new_Base","z_new_villager2","z_new_villager3","z_new_villager4","z_villager1","z_villager2","z_villager3","z_new_worker_base","z_worker1","z_worker2","z_worker3","z_new_worker2","z_new_worker3","z_new_worker4","z_policeman","z_new_policeman","z_new_policeman1","z_suit1","z_suit2","z_doctor","z_teacher","z_hunter","z_priest","z_soldier","z_soldier_heavy"};
 	};
 	class Church: Default {
 		zombieChance = 0.3;
@@ -31,7 +35,7 @@ class CfgBuildingLoot {
 			{"civskins",0.05},
 			{"civilian",0.25},
 			{"drink",0.25},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class Residential: Default {
@@ -54,7 +58,7 @@ class CfgBuildingLoot {
 			{"craftingitems",0.05},
 			{"normalbackpacks",0.05},
 			{"buildingkits",0.05},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 
@@ -85,7 +89,7 @@ class CfgBuildingLoot {
 			{"craftingitems",0.05},
 			{"normalbackpacks",0.05},
 			{"buildingkits",0.05},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 
@@ -114,7 +118,7 @@ class CfgBuildingLoot {
 			{"equipment",0.15},
 			{"rarebackpacks",0.01},
 			{"vehicleparts",0.10},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class InfectedCamps: Default { //5
@@ -142,7 +146,7 @@ class CfgBuildingLoot {
 			{"rarebackpacks",0.02},
 			{"vehicleparts",0.10},
 			{"milskins",0.30},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class Farm: Default {
@@ -166,7 +170,7 @@ class CfgBuildingLoot {
 			{"buildingkits",0.15},
 			{"drink",0.25},
 			{"vehicleparts",0.10},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class Supermarket: Default {
@@ -188,7 +192,7 @@ class CfgBuildingLoot {
 			{"drink",0.25},
 			{"equipment",0.15},
 			{"normalbackpacks",0.15},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class HeliCrash: Default {
@@ -213,7 +217,7 @@ class CfgBuildingLoot {
 			{"airparts",0.10},
 			{"military",0.35},
 			{"rarebuildingitems",0.01},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};	
 	class HeliCrashWEST: Default {
@@ -239,7 +243,7 @@ class CfgBuildingLoot {
 			{"rarebackpacks",0.10},
 			{"rarebuildingitems",0.01},
 			{"military",0.35},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class HeliCrashEAST: Default {
@@ -265,7 +269,7 @@ class CfgBuildingLoot {
 			{"rarebuildingitems",0.01},
 			{"rarebackpacks",0.10},
 			{"military",0.35},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class Hospital: Default {
@@ -280,7 +284,7 @@ class CfgBuildingLoot {
 			{"hospital",0.30},
 			{"trash",0.10},
 			{"drink",0.05},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class Military: Default {
@@ -307,7 +311,7 @@ class CfgBuildingLoot {
 			{"vehicleparts",0.10},
 			{"rarebuildingitems",0.01},
 			{"military",0.30},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class MilitarySpecial: Default {
@@ -334,7 +338,7 @@ class CfgBuildingLoot {
 			{"military",0.40},
 			{"militaryspecial",0.15},
 			{"rarebuildingitems",0.01},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 	class Hunting: Default {
@@ -355,7 +359,7 @@ class CfgBuildingLoot {
 			{"hunt",0.15},
 			{"equipment",0.15},
 			{"drink",0.25},
-            {"activeloot",0.10}
+            {"activeloot",0.50}
 		};
 	};
 #include "CfgBuildingPos.hpp"

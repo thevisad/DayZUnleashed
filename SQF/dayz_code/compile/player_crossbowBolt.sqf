@@ -24,10 +24,10 @@ _countr = 0;
 
 if (_height < 100) then {
 	_bolt = createVehicle ["WoodenArrowF", _endPos, [], 0, "CAN_COLLIDE"];
-	_bolt setPosATL _endPos;
 	_bolt setDir (getDir _unit);
 	_bolt setVectorUp _vUp;
-
+	_bolt setPosATL _endPos;
+	
 	_hitArray = _unit getVariable["firedHit",[]];
 	while {_doLoop} do {
 		_hitArray = _unit getVariable["firedHit",[]];

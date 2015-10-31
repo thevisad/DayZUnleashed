@@ -30,6 +30,7 @@ sleep 3;
 //place tent (local)
 _bag = createVehicle ["WeaponHolder_ItemTent",_pos,[], 0, "CAN_COLLIDE"];
 _bag setdir _dir;
+_bag setposATL _pos;
 player reveal _bag;
 
 	_holder = createVehicle ["WeaponHolder", _pos, [], 0, "CAN_COLLIDE"];
