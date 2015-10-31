@@ -1,0 +1,222 @@
+/*%FSM<COMPILE "P:\tools\fsmEditor\scriptedFSM.cfg, FOG">*/
+/*%FSM<HEAD>*/
+/*
+item0[] = {"Start",0,250,-268.899445,663.538208,-178.899475,713.538208,0.000000,"Start"};
+item1[] = {"not_isDedicated",4,218,-146.571808,729.764160,-56.571831,779.764160,0.000000,"not_isDedicated" \n ""};
+item2[] = {"isDedicated",4,218,-390.377136,733.286865,-300.377136,783.286865,0.000000,"isDedicated" \n ""};
+item3[] = {"End",2,250,-445.177948,1228.181763,-355.177734,1278.181763,0.000000,"End" \n ""};
+item4[] = {"Fog",2,250,-217.086411,960.460632,-127.086327,1010.460571,0.000000,"Fog"};
+item5[] = {"if_object",4,218,-332.453094,864.468506,-242.453033,914.468750,0.000000,"if_object"};
+item6[] = {"if_marker",4,218,-144.872025,865.349121,-54.872017,915.349426,0.000000,"if_marker"};
+item7[] = {"dummy",2,250,-338.617615,963.983215,-248.617645,1013.984314,0.000000,"dummy" \n ""};
+item8[] = {"dummy_1",2,4346,-97.316338,959.579773,-7.316343,1009.579895,0.000000,"dummy_1"};
+item9[] = {"wait",4,218,-366.798950,1059.975464,-276.798828,1109.975464,0.000000,"wait"};
+item10[] = {"if_object_or_unit",4,218,-275.210144,1056.452637,-185.210037,1106.452637,0.000000,"if_object_or_unit"};
+item11[] = {"wait",4,218,-131.662140,1060.856079,-41.662163,1110.856079,0.000000,"wait"};
+item12[] = {"if_marker_not_ex",4,218,-29.505377,1059.975464,60.494652,1109.975464,0.000000,"if_marker_not_ex"};
+link0[] = {0,1};
+link1[] = {0,2};
+link2[] = {1,4};
+link3[] = {2,3};
+link4[] = {4,5};
+link5[] = {4,6};
+link6[] = {5,7};
+link7[] = {6,8};
+link8[] = {7,9};
+link9[] = {7,10};
+link10[] = {8,11};
+link11[] = {8,12};
+link12[] = {9,4};
+link13[] = {10,3};
+link14[] = {11,4};
+link15[] = {12,3};
+globals[] = {0.000000,0,0,0,0,640,480,1,17,6316128,1,-695.199463,315.800293,1384.400391,550.413635,1148,947,1};
+window[] = {0,-1,-1,-1,-1,1285,546,2151,193,1,1166};
+*//*%FSM</HEAD>*/
+class FSM
+{
+  fsmName = "FOG";
+  class States
+  {
+    /*%FSM<STATE "Start">*/
+    class Start
+    {
+      name = "Start";
+      init = /*%FSM<STATEINIT""">*/"private[""_Center"",""_xdistanz"",""_mdistanz"",""_dichte"",""_msize"",""_xsize"",""_height"",""_zeit"",""_transparency"",""_col1"",""_col2"",""_col3"",""_mlifetime"",""_xlifetime"",""_spawn"",""_wind"",""_windstrength"",""_forward2"",""_right2"",""_up"",""_dirPeroid"",""_dirIntensity"",""_mtime"",""_xtime""];" \n
+       "_Center = _this select 0;" \n
+       "_xdistanz = if (count _this > 1) then {_this select 1} else {80};" \n
+       "_mdistanz = if (count _this > 2) then {_this select 2} else {10};" \n
+       "_dichte = if (count _this > 3) then {_this select 3} else {10};" \n
+       "_msize = if (count _this > 4) then {_this select 4} else {3};" \n
+       "_xsize = if (count _this > 5) then {_this select 5} else {7};" \n
+       "_height = if (count _this > 6) then {_this select 6} else {-0.3};" \n
+       "_zeit = if (count _this > 7) then {_this select 7} else {0.1};" \n
+       "_transparency = if (count _this > 8) then {_this select 8} else {0.5};" \n
+       "_col1 = if (count _this > 9) then {_this select 9} else {1};" \n
+       "_col2 = if (count _this > 10) then {_this select 10} else {1};" \n
+       "_col3 = if (count _this > 11) then {_this select 11} else {1};" \n
+       "_spawn = if (count _this > 12) then {_this select 12} else {15 + (random 1)};" \n
+       "_mlifetime = if (count _this > 13) then {_this select 13} else {8 + (random 1)};" \n
+       "_xlifetime = if (count _this > 14) then {_this select 14} else {15 + (random 1)};" \n
+       "_wind = if (count _this > 15) then {_this select 15} else {true};" \n
+       "_windstrength = if ((count _this > 16) && _wind) then {_this select 16} else {1};" \n
+       "_dirPeroid =  if ((count _this > 17) && _wind) then {_this select 17} else {0};" \n
+       "_dirIntensity =  if ((count _this > 18) && _wind) then {_this select 18} else {0};" \n
+       "_forward2 = if ((count _this > 19) && (!(_wind))) then {_this select 19} else {0};" \n
+       "_right2 = if ((count _this > 20) && (!(_wind))) then {_this select 20} else {0};" \n
+       "_up = if ((count _this > 21) && (!(_wind))) then {_this select 21} else {0};" \n
+       "_mtime =  if (count _this > 22) then {_this select 22} else {0};" \n
+       "_xtime =  if (count _this > 23) then {_this select 23} else {24};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "isDedicated">*/
+        class isDedicated
+        {
+          priority = 0.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"isDedicated"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "not_isDedicated">*/
+        class not_isDedicated
+        {
+          priority = 0.000000;
+          to="Fog";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(isDedicated)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "End">*/
+    class End
+    {
+      name = "End";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "Fog">*/
+    class Fog
+    {
+      name = "Fog";
+      init = /*%FSM<STATEINIT""">*/"private [""_time"",""_zeit"",""_x"",""_height"",""_radius"",""_size"",""_msize"",""_xsize"",""_randomdir"",""_CC"",""_Center"",""_xdistanz"",""_mdistanz"",""_dichte"",""_transparency"",""_col1"",""_col2"",""_col3"",""_Pos"",""_lifetime"",""_mlifetime"",""_xlifetime"",""_spawn"",""_wind"",""_windstrength"",""_right"",""_forward"",""_up"",""_forward2"",""_right2"",""_dirPeroid"",""_dirIntensity"",""_mtime"",""_xtime""];" \n
+       "_time = time + _zeit;" \n
+       "if (typename _Center == typename """") then {_Pos = getMarkerpos _Center} else {_Pos = getPos _Center};" \n
+       "if (_wind) then {_right = (wind select 0) * _windstrength;_forward = (wind select 1) * _windstrength} else {_right = _right2;_forward = _forward2};" \n
+       "if ((daytime > _mtime) && (daytime < _xtime)) then {" \n
+       "	for [{_x=1},{_x<=_dichte},{_x=_x+1}] do {" \n
+       "		_radius= _mdistanz + random (_xdistanz - _mdistanz);" \n
+       "		_CC = [_col1,_col2,_col3,.3*_transparency];" \n
+       "		_size = _msize + random (_xsize - _msize);" \n
+       "		_randomdir = random 360;" \n
+       "		_lifetime = _mlifetime + random (_xlifetime - _mlifetime);" \n
+       "		drop [""\ca\data\cl_basic"","""",""Billboard"",_spawn,_lifetime,[(_Pos select 0)+_radius*sin _randomdir,(_Pos select 1)+_radius*cos _randomdir,_height],[_right,_forward,_up],5,0.2,0.1568,0,[_size],[[_col1,_col2,_col3,0],_CC,_CC,_CC,_CC,_CC,_CC,[_col1,_col2,_col3,0]],[0],_dirPeroid,_dirIntensity,"""", """",""""];" \n
+       "	};" \n
+       "} else { " \n
+       "	_time = time + 5;" \n
+       "};"/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "if_marker">*/
+        class if_marker
+        {
+          priority = 0.000000;
+          to="dummy_1";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"typename _Center == typename """""""""/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "if_object">*/
+        class if_object
+        {
+          priority = 0.000000;
+          to="dummy";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(typename _Center == typename """""""")"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "dummy">*/
+    class dummy
+    {
+      name = "dummy";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "if_object_or_unit">*/
+        class if_object_or_unit
+        {
+          priority = 0.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"!(alive _Center)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "wait">*/
+        class wait
+        {
+          priority = 0.000000;
+          to="Fog";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _time"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+    /*%FSM<STATE "dummy_1">*/
+    class dummy_1
+    {
+      name = "dummy_1";
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
+      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
+      class Links
+      {
+        /*%FSM<LINK "if_marker_not_ex">*/
+        class if_marker_not_ex
+        {
+          priority = 0.000000;
+          to="End";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((getMarkerPos _Center select 0) == 0) && ((getMarkerPos _Center select 1) == 0)"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+        /*%FSM<LINK "wait">*/
+        class wait
+        {
+          priority = 0.000000;
+          to="Fog";
+          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"time > _time"/*%FSM</CONDITION""">*/;
+          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
+        };
+        /*%FSM</LINK>*/
+      };
+    };
+    /*%FSM</STATE>*/
+  };
+  initState="Start";
+  finalStates[] =
+  {
+    "End",
+  };
+};
+/*%FSM</COMPILE>*/
